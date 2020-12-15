@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "lvehOQMcpDMQA5VvD17uhb7qG6gQ4qOcnJUEVUdM/kE6dD10R62ya0QsGI9AZOxG1Jsqn1lEAPo9zKRsFcOAEw==",
+  "success": true,
+  "projectFilePath": "D:\\EbtkarSolutions\\IronSoftware\\SourceCode\\IronPdf.Examples\\src\\IronSoftware.Website.Samples\\IronSoftware.IronPdfConsoleDotNetCoreSamples\\IronSoftware.IronPdfConsoleDotNetCoreSamples.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ahmed\\.nuget\\packages\\iron.assets.rendering.universal\\20.0.0\\iron.assets.rendering.universal.20.0.0.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\ironpdf\\2020.10.3.3\\ironpdf.2020.10.3.3.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.10\\microsoft.netcore.app.host.win-x64.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}
