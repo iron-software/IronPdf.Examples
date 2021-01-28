@@ -16,7 +16,8 @@
         "crossTargeting": true,
         "configFilePaths": [
           "C:\\Users\\Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net45",
@@ -103,7 +104,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             }
           },
           "imports": [
@@ -128,7 +129,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             }
           },
           "imports": [
@@ -153,7 +154,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -163,7 +164,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -173,7 +174,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -183,7 +184,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -193,7 +194,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -203,7 +204,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -213,7 +214,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -223,7 +224,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -233,7 +234,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -243,7 +244,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -269,7 +270,7 @@
           "dependencies": {
             "IronPdf": {
               "target": "Package",
-              "version": "[2020.10.3.3, )"
+              "version": "[2021.1.25, )"
             }
           },
           "imports": [

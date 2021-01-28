@@ -2,19 +2,10 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Iron.Assets.Rendering.Universal/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Universal": "20.0.0",
+          "IronPdf.Assets.Rendering.Universal": "21.0.0",
           "System.Drawing.Common": "4.7.0"
         },
         "compile": {
@@ -22,6 +13,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Universal/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/3.1.0": {
@@ -76,19 +76,10 @@
       }
     },
     ".NETCoreApp,Version=v3.1/win7-x86": {
-      "Iron.Assets.Rendering.Universal/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Universal": "20.0.0",
+          "IronPdf.Assets.Rendering.Universal": "21.0.0",
           "System.Drawing.Common": "4.7.0"
         },
         "compile": {
@@ -96,6 +87,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Universal/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/3.1.0": {
@@ -134,21 +134,13 @@
       }
     },
     ".NETFramework,Version=v4.5": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -157,25 +149,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.5/win7-x86": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -184,25 +177,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.5.1": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -211,25 +205,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x86": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -238,25 +233,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.5.2": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -265,25 +261,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.5.2/win7-x86": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -292,25 +289,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.6": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -319,25 +317,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.6/win7-x86": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -346,25 +345,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.6.1": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -373,25 +373,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.6.1/win7-x86": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -400,25 +401,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.6.2": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -427,25 +429,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.6.2/win7-x86": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -454,25 +457,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.7": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -481,25 +485,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.7/win7-x86": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -508,25 +513,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.7.1": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -535,25 +541,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.7.1/win7-x86": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -562,25 +569,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.7.2": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -589,25 +597,26 @@
         },
         "runtime": {
           "lib/net45/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.7.2/win7-x86": {
-      "Iron.Assets.Rendering.Windows/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Windows": "20.0.0"
+          "IronPdf.Assets.Rendering.Windows": "21.0.0"
         },
         "frameworkAssemblies": [
+          "System.Configuration",
           "System.Drawing",
           "System.Web"
         ],
@@ -617,22 +626,22 @@
         "runtime": {
           "lib/net45/IronPdf.dll": {}
         }
+      },
+      "IronPdf.Assets.Rendering.Windows/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net40/IronPdf.Assets.Rendering.Windows.dll": {}
+        }
       }
     },
     ".NETStandard,Version=v2.0": {
-      "Iron.Assets.Rendering.Universal/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Universal": "20.0.0",
+          "IronPdf.Assets.Rendering.Universal": "21.0.0",
           "System.Drawing.Common": "4.7.0"
         },
         "compile": {
@@ -640,6 +649,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Universal/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -677,19 +695,10 @@
       }
     },
     ".NETStandard,Version=v2.0/win7-x86": {
-      "Iron.Assets.Rendering.Universal/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Universal": "20.0.0",
+          "IronPdf.Assets.Rendering.Universal": "21.0.0",
           "System.Drawing.Common": "4.7.0"
         },
         "compile": {
@@ -697,6 +706,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Universal/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -734,19 +752,10 @@
       }
     },
     ".NETStandard,Version=v2.1": {
-      "Iron.Assets.Rendering.Universal/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Universal": "20.0.0",
+          "IronPdf.Assets.Rendering.Universal": "21.0.0",
           "System.Drawing.Common": "4.7.0"
         },
         "compile": {
@@ -754,6 +763,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Universal/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
         }
       },
       "System.Drawing.Common/4.7.0": {
@@ -767,19 +785,10 @@
       }
     },
     ".NETStandard,Version=v2.1/win7-x86": {
-      "Iron.Assets.Rendering.Universal/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Universal": "20.0.0",
+          "IronPdf.Assets.Rendering.Universal": "21.0.0",
           "System.Drawing.Common": "4.7.0"
         },
         "compile": {
@@ -787,6 +796,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Universal/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
         }
       },
       "System.Drawing.Common/4.7.0": {
@@ -800,19 +818,10 @@
       }
     },
     "net5.0": {
-      "Iron.Assets.Rendering.Universal/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Universal": "20.0.0",
+          "IronPdf.Assets.Rendering.Universal": "21.0.0",
           "System.Drawing.Common": "4.7.0"
         },
         "compile": {
@@ -820,6 +829,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Universal/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/3.1.0": {
@@ -874,19 +892,10 @@
       }
     },
     "net5.0/win7-x86": {
-      "Iron.Assets.Rendering.Universal/20.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
-        }
-      },
-      "IronPdf/2020.10.3.3": {
+      "IronPdf/2021.1.25": {
         "type": "package",
         "dependencies": {
-          "Iron.Assets.Rendering.Universal": "20.0.0",
+          "IronPdf.Assets.Rendering.Universal": "21.0.0",
           "System.Drawing.Common": "4.7.0"
         },
         "compile": {
@@ -894,6 +903,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/IronPdf.dll": {}
+        }
+      },
+      "IronPdf.Assets.Rendering.Universal/21.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/3.1.0": {
@@ -933,38 +951,15 @@
     }
   },
   "libraries": {
-    "Iron.Assets.Rendering.Universal/20.0.0": {
-      "sha512": "Qjblh+MJmJKo3QL2sIl4wW0TgFmLH56/Yd/BOlTr63iX3dvQVoLi6QoiOgLUAJRr7/F04FZLksyMQZGZAdEWbg==",
+    "IronPdf/2021.1.25": {
+      "sha512": "GXylopTBqxl+q6D14IIjdy3o84LvW/wk31qUY2UwH4fwiFsVkuUoHrUR+wLmaNQmvnvN4UuR1yBFefb15u50kg==",
       "type": "package",
-      "path": "iron.assets.rendering.universal/20.0.0",
+      "path": "ironpdf/2021.1.25",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "iron.assets.rendering.universal.20.0.0.nupkg.sha512",
-        "iron.assets.rendering.universal.nuspec",
-        "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll"
-      ]
-    },
-    "Iron.Assets.Rendering.Windows/20.0.0": {
-      "sha512": "vuHZippNeFkWvOny/yor9Wb5bDhpuLPvnVs8YQkg6jXChg3ebH3wztmm/av917Ufl0+AoXvheTy6+3PDUWIQ5A==",
-      "type": "package",
-      "path": "iron.assets.rendering.windows/20.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "iron.assets.rendering.windows.20.0.0.nupkg.sha512",
-        "iron.assets.rendering.windows.nuspec",
-        "lib/net40/IronPdf.Assets.Rendering.Windows.dll"
-      ]
-    },
-    "IronPdf/2020.10.3.3": {
-      "sha512": "HPvsdZV3kftGsVtuxTxFys7dRE9PUcxIw+60cXtjHr0nPJGTPna1+y6HK2DR+4xgKj68nsSNqxfiVr74nMJYyg==",
-      "type": "package",
-      "path": "ironpdf/2020.10.3.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ironpdf.2020.10.3.3.nupkg.sha512",
+        "EULA.txt",
+        "ironpdf.2021.1.25.nupkg.sha512",
         "ironpdf.nuspec",
         "lib/net40/IronPdf.dll",
         "lib/net40/IronPdf.xml",
@@ -972,7 +967,32 @@
         "lib/net45/IronPdf.xml",
         "lib/netstandard2.0/IronPdf.dll",
         "lib/netstandard2.0/IronPdf.xml",
+        "readme-setup.txt",
         "readme.txt"
+      ]
+    },
+    "IronPdf.Assets.Rendering.Universal/21.0.0": {
+      "sha512": "7ocrsH/kxX0Lqg5SwJmKHtj95DGO01qlRAYrR1vpS7FVqPwg1SWboj4SvD5sxnaxxt08yANUgB87KTviU4oq1g==",
+      "type": "package",
+      "path": "ironpdf.assets.rendering.universal/21.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ironpdf.assets.rendering.universal.21.0.0.nupkg.sha512",
+        "ironpdf.assets.rendering.universal.nuspec",
+        "lib/netstandard2.0/IronPdf.Assets.Rendering.Universal.dll"
+      ]
+    },
+    "IronPdf.Assets.Rendering.Windows/21.0.0": {
+      "sha512": "P9zFtLRoFp3hTGml/y+gOPi/oY5CH6OD5M6wnY20mGdgHcTreu1TUh1IxtCFmDzgou92Xi5XM0M8Kk9kwKNbtg==",
+      "type": "package",
+      "path": "ironpdf.assets.rendering.windows/21.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ironpdf.assets.rendering.windows.21.0.0.nupkg.sha512",
+        "ironpdf.assets.rendering.windows.nuspec",
+        "lib/net40/IronPdf.Assets.Rendering.Windows.dll"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
@@ -1207,44 +1227,44 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "IronPdf >= 2020.10.3.3"
+      "IronPdf >= 2021.1.25"
     ],
     ".NETFramework,Version=v4.5": [
-      "IronPdf >= 2020.10.3.3"
+      "IronPdf >= 2021.1.25"
     ],
     ".NETFramework,Version=v4.5.1": [
-      "IronPdf >= 2020.10.3.3"
+      "IronPdf >= 2021.1.25"
     ],
     ".NETFramework,Version=v4.5.2": [
-      "IronPdf >= 2020.10.3.3"
+      "IronPdf >= 2021.1.25"
     ],
     ".NETFramework,Version=v4.6": [
-      "IronPdf >= 2020.10.3.3"
+      "IronPdf >= 2021.1.25"
     ],
     ".NETFramework,Version=v4.6.1": [
-      "IronPdf >= 2020.10.3.3"
+      "IronPdf >= 2021.1.25"
     ],
     ".NETFramework,Version=v4.6.2": [
-      "IronPdf >= 2020.10.3.3"
+      "IronPdf >= 2021.1.25"
     ],
     ".NETFramework,Version=v4.7": [
-      "IronPdf >= 2020.10.3.3"
+      "IronPdf >= 2021.1.25"
     ],
     ".NETFramework,Version=v4.7.1": [
-      "IronPdf >= 2020.10.3.3"
+      "IronPdf >= 2021.1.25"
     ],
     ".NETFramework,Version=v4.7.2": [
-      "IronPdf >= 2020.10.3.3"
+      "IronPdf >= 2021.1.25"
     ],
     ".NETStandard,Version=v2.0": [
-      "IronPdf >= 2020.10.3.3",
+      "IronPdf >= 2021.1.25",
       "NETStandard.Library >= 2.0.3"
     ],
     ".NETStandard,Version=v2.1": [
-      "IronPdf >= 2020.10.3.3"
+      "IronPdf >= 2021.1.25"
     ],
     "net5.0": [
-      "IronPdf >= 2020.10.3.3"
+      "IronPdf >= 2021.1.25"
     ]
   },
   "packageFolders": {
@@ -1262,7 +1282,8 @@
       "crossTargeting": true,
       "configFilePaths": [
         "C:\\Users\\Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net45",
@@ -1349,7 +1370,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           }
         },
         "imports": [
@@ -1374,7 +1395,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           }
         },
         "imports": [
@@ -1399,7 +1420,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -1409,7 +1430,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -1419,7 +1440,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -1429,7 +1450,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -1439,7 +1460,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -1449,7 +1470,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -1459,7 +1480,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -1469,7 +1490,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -1479,7 +1500,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
@@ -1489,7 +1510,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
@@ -1515,7 +1536,7 @@
         "dependencies": {
           "IronPdf": {
             "target": "Package",
-            "version": "[2020.10.3.3, )"
+            "version": "[2021.1.25, )"
           }
         },
         "imports": [

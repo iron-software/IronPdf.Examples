@@ -10,7 +10,6 @@ namespace IronSoftware.IronPdfConsoleFrameworkSamples
 
         public void Run()
         {
-
             //Open an Encrypted File, alternatively create a new PDF from Html
             PdfDocument Pdf = PdfDocument.FromFile(@"Inputs\FileWithPassword.pdf", "12345678");
             //Edit file metadata
@@ -28,7 +27,6 @@ namespace IronSoftware.IronPdfConsoleFrameworkSamples
             //Change or set the document ecrpytion password
             Pdf.Password = "12345678";
             Pdf.SaveAs($@"{OutputPath}\PasswordsSecurityandMetaData.pdf");
-
         }
     }
 }

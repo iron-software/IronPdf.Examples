@@ -9,8 +9,6 @@ namespace IronSoftware.IronPdfConsoleFrameworkSamples
 
         public void Run()
         {
-            // Install IronPdf with Nuget:  PM> Install-Package IronPdf
-
             //PDFs can be edited or amended by stamping new HTML content into the foreground or background.
             IronPdf.HtmlToPdf Renderer = new IronPdf.HtmlToPdf();
             var pdf = Renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");

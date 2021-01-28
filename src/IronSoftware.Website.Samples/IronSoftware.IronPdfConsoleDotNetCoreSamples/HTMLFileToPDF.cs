@@ -1,6 +1,5 @@
 ﻿namespace IronSoftware.IronPdfConsoleFrameworkSamples
 {
-    //<--Start Code-->
     using IronSoftware.IronPdfConsoleDotNetCoreSamples.Infrastructure;
     using System;
     using System.IO;
@@ -18,5 +17,4 @@
             PDF.SaveAs($@"{OutputPath}\Invoice.pdf");
         }
     }
-    //<--End Code-->
 }
