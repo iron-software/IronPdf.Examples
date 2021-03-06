@@ -13,7 +13,7 @@ namespace IronSoftware.IronPdfConsoleFrameworkSamples
 
             // With IronPDF, we can easily merge 2 PDF files using one as a backgorund or foreground
             IronPdf.HtmlToPdf Renderer = new IronPdf.HtmlToPdf();
-            var pdf = Renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");
+            var pdf = Renderer.RenderUrlAsPdf("https://ironpdf.com/");
             pdf.AddBackgroundPdf($@"{Directory.GetCurrentDirectory()}\Inputs\MyBackground.pdf");
             pdf.AddForegroundOverlayPdfToPage(0, $@"{Directory.GetCurrentDirectory()}\Inputs\MyForeground.pdf", 0);
             pdf.SaveAs($@"{OutputPath}\BackgroundsForegrounds.pdf");

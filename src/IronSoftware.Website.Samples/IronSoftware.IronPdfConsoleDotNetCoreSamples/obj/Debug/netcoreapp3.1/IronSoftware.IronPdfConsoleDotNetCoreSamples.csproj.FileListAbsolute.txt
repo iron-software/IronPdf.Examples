@@ -91,3 +91,6 @@ D:\EbtkarSolutions\IronSoftware\SourceCode\IronPdf.Examples\src\IronSoftware.Web
 D:\EbtkarSolutions\IronSoftware\SourceCode\IronPdf.Examples\src\IronSoftware.Website.Samples\IronSoftware.IronPdfConsoleDotNetCoreSamples\obj\Debug\netcoreapp3.1\IronSoftware.IronPdfConsoleDotNetCoreSamples.dll
 D:\EbtkarSolutions\IronSoftware\SourceCode\IronPdf.Examples\src\IronSoftware.Website.Samples\IronSoftware.IronPdfConsoleDotNetCoreSamples\obj\Debug\netcoreapp3.1\IronSoftware.IronPdfConsoleDotNetCoreSamples.pdb
 D:\EbtkarSolutions\IronSoftware\SourceCode\IronPdf.Examples\src\IronSoftware.Website.Samples\IronSoftware.IronPdfConsoleDotNetCoreSamples\obj\Debug\netcoreapp3.1\IronSoftware.IronPdfConsoleDotNetCoreSamples.genruntimeconfig.cache
+D:\EbtkarSolutions\IronSoftware\SourceCode\IronPdf.Examples\src\IronSoftware.Website.Samples\IronSoftware.IronPdfConsoleDotNetCoreSamples\bin\Debug\netcoreapp3.1\IronPdf.Threading.deps.json
+D:\EbtkarSolutions\IronSoftware\SourceCode\IronPdf.Examples\src\IronSoftware.Website.Samples\IronSoftware.IronPdfConsoleDotNetCoreSamples\bin\Debug\netcoreapp3.1\IronPdf.Threading.runtimeconfig.json
+D:\EbtkarSolutions\IronSoftware\SourceCode\IronPdf.Examples\src\IronSoftware.Website.Samples\IronSoftware.IronPdfConsoleDotNetCoreSamples\bin\Debug\netcoreapp3.1\IronPdf.Threading.dll
