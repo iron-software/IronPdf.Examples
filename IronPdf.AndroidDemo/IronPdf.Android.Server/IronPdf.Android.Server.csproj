@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.16.0" />
-    <PackageReference Include="IronPdf.Server.Azure" Version="2023.9.0-ci.1018929" />
+    <PackageReference Include="IronPdf.Server.Azure" Version="2023.9.0-ci.3019068" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
   </ItemGroup>
 </Project>
