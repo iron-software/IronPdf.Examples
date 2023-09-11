@@ -49,6 +49,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+        <PackageReference Include="IronPdf">
+            <Version>2023.9.0-ci.2419054</Version>
+        </PackageReference>
 	  <PackageReference Include="IronPdf.Viewer.Maui">
 	    <Version>2023.10.74</Version>
 	  </PackageReference>

@@ -7,16 +7,13 @@
 
     Shell.FlyoutBehavior="Disabled">
     <TabBar x:Name="AppTabBar">
-        <Tab Title="Home">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"/>
-        </Tab>
         <Tab Title="PDF Viewer">
             <ShellContent ContentTemplate="{DataTemplate local:ViewerPage}" Route="PDFViewer"/>
         </Tab>
     </TabBar>
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate local:ViewerPage}"
         Route="MainPage" />
 
 </Shell>

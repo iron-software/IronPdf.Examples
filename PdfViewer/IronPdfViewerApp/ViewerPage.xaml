@@ -4,5 +4,19 @@
              xmlns:ipv="clr-namespace:IronPdf.Viewer.Maui;assembly=IronPdf.Viewer.Maui"
              x:Class="IronPdfViewerApp.ViewerPage"
              Title="ViewerPage">
-    <ipv:IronPdfView x:Name="pdfView"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center">HTML:</Label>
+        <Entry x:Name="htmlContent" Grid.Row="0" Grid.Column="1"></Entry>
+        <Button Grid.Row="0" Grid.Column="2" Text="Render" Clicked="Button_OnClicked"></Button>
+        <ipv:IronPdfView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" x:Name="pdfView"/>
+    </Grid>
 </ContentPage>
