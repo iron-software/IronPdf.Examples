@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ipv="clr-namespace:IronPdf.Viewer.Maui;assembly=IronPdf.Viewer.Maui"
+             x:Class="IronPdfViewerApp.ViewerPage"
+             Title="ViewerPage">
+    <ipv:IronPdfView x:Name="pdfView"/>
+</ContentPage>
