@@ -41,7 +41,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="IronPdf.Slim" Version="2023.9.0-ci.3019068" />
+	  <PackageReference Include="IronPdf.Slim" Version="2023.9.8" />
 	</ItemGroup>
 
 </Project>
