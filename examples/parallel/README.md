@@ -1,0 +1,7 @@
+IronPDF excels in multi-threading and parallelism utilizing the Chrome Rendering Engine API from 2021. This enables developers to leverage the full multi-threading capabilities of their computers for quick task completion.
+
+The following demonstrates how you can employ multiple threads for converting batches of HTML into PDF documents.
+
+This technique could soon become a preferred method of utilizing multiple threads for batch conversion from HTML to PDF with IronPDF. Notably, IronPDF is designed to be thread-safe and fully supports multi-threading when utilizing the [`IronPdf.ChromePdfRenderer`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html) rendering engine. However, users should be aware of a specific limitation with multi-threading on macOS systems.
+
+C#'s `Parallel.ForEach` function parallels what would traditionally be done in a sequential `foreach` loop. In the standard `foreach`, each iteration processes a single item at a time from the collection. Conversely, `Parallel.ForEach` performs multiple iterations simultaneously across different processors or cores. This approach introduces a risk of synchronization issues. As such, scenarios where each iteration is self-contained are ideal for this implementation.

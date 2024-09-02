@@ -1,0 +1,1 @@
+Using the `ChromePdfRenderOptions.Javascript` property from IronPDF, you have the ability to define JavaScript code in the form of a string that will be executed once the page is fully loaded, as demonstrated in the example.

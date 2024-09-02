@@ -1,0 +1,1 @@
+IronPdf adeptly transforms multi-paged TIFF files into PDF formats through its method `IronPdf.ImageToPdfConverter.ImageToPdf`.

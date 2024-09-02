@@ -1,0 +1,1 @@
+Using IronPDF's `ChromePdfRenderOptions.JavascriptMessageListener` property allows you to set up a Method callback that will be triggered whenever messages are available from the browser console.

@@ -1,0 +1,1 @@
+Detailed metadata and security configurations can now be implemented, including options to set PDF documents as unprintable, read-only, and encrypted. Support for 128-bit encryption, decryption, and password protection of PDF documents is also available.

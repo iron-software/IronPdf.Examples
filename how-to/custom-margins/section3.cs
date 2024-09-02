@@ -1,0 +1,1 @@
+renderer.RenderingOptions.UseMarginsOnHeaderAndFooter = UseMargins.All;

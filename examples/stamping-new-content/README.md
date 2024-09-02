@@ -1,0 +1,1 @@
+Developers can modify PDF documents by inserting new content into any selected page(s) using the `StampHTML` method.

@@ -1,0 +1,1 @@
+IronPdf possesses the capability to process RTF (Rich Text Format) documents, whether they come from a local file or a string of data.

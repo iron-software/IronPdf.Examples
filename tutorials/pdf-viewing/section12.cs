@@ -1,0 +1,1 @@
+<ipv:IronPdfView x:Name="pdfView" Options="Thumbs, Open"/>

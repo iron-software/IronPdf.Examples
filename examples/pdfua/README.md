@@ -1,0 +1,1 @@
+IronPDF's `SaveAsPdfUA` function enables the creation of PDFUA-compliant documents, guaranteeing adherence to the PDF/UA standards for universal accessibility. This feature ensures that the PDFs created are more inclusive and accessible to people with disabilities.

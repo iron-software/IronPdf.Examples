@@ -1,0 +1,1 @@
+With IronPDF, you can transform RTF (Rich Text Format) documents, including those with embedded images, into PDF files. Once converted, you have the option to embellish your PDFs with watermarks, headers, footers, signatures, and other elements to enhance their professionalism and security for distribution or personal use.

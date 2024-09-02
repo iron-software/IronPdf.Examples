@@ -1,0 +1,5 @@
+IronPDF offers PDF compression capabilities. A primary method for reducing PDF file sizes involves minimizing the dimensions of embedded images in the PDF document through the `CompressImages` method.
+
+When adjusting JPEG images, maintaining them at 100% quality preserves nearly all of the original integrity, while reducing them to 1% results in a substantially degraded output image. Typically, quality settings above 90% are regarded as high-quality, settings between 80% and 90% are deemed medium-quality, and settings between 70% and 80% are viewed as low-quality. Lowering the quality below 70% can substantially decrease the overall size of the PDF, though it may significantly impair the image quality.
+
+It's beneficial to test various compression levels to discern the most suitable balance between image quality and file size for your needs. The visibility of quality degradation largely depends on the original image type, with certain images potentially experiencing more noticeable reductions in clarity.

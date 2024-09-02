@@ -1,0 +1,1 @@
+ASP.NET applications typically incorporate network authentication, offering a more dependable option than HTML form submissions. For additional details on how IronPDF can handle Authentication Forms, refer to the [Render PDFs Behind System Logins](https://ironpdf.com/how-to/logins/) article.

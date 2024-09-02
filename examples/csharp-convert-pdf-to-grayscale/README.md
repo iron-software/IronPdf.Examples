@@ -1,0 +1,5 @@
+Utilizing IronPDF, customization of PDF documents through the `ChromePdfRenderer` class is achievable, allowing adjustments to be made according to your specifications. Configurable options encompass paper size, DPI, and the addition of headers and footers, alongside other proprietary settings particular to Chromium browsers. A notable feature includes the ability to set the PDF output to grayscale.
+
+Below is an illustration of how you can convert your PDF document to grayscale using IronPDF.
+
+When you modify your document to grayscale, the colors are simplified to shades of black and white. This adjustment is particularly beneficial for documents intended for printing with monochrome printers. The `ChromePdfRenderer` class offers a grayscale option for producing a black and white PDF document. By default, this feature is set to false, meaning if you wish to enable grayscale rendering, you must manually configure this within the settings.

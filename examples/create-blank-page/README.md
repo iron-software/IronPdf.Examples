@@ -1,0 +1,3 @@
+Generating an empty PDF page involves creating a new page in a PDF file without any content like text, images, or graphics. This is often done intentionally for reasons such as providing extra space for annotations, segmenting parts of a document, or organizing content according to a particular design.
+
+Using IronPDF, it's easy to create a PDF that contains a blank page. You just need to provide the width and height parameters as integers to the `PdfDocument` constructor, which effectively sets up a new PDF with an empty page.

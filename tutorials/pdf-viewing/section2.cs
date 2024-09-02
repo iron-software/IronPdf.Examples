@@ -1,0 +1,1 @@
+.ConfigureIronPdfView("YOUR-LICENSE-KEY");

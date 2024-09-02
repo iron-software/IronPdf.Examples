@@ -1,0 +1,1 @@
+pdfView.Options = IronPdfViewOptions.Thumbs | IronPdfViewOptions.Open;
