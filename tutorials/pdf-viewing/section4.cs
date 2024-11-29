@@ -1,15 +1,24 @@
 using IronPdf.Viewer.Maui;
-
-public class MainPage : ContentPage
+using IronPdf;
+namespace ironpdf.PdfViewing
 {
-    private readonly IronPdfView pdfView;
-
-    public MainPage()
+    public class Section4
     {
-        InitializeComponent();
-
-        this.pdfView = new IronPdfView { Options = IronPdfViewOptions.All };
-
-        Content = this.pdfView;
+        public void Run()
+        {
+            public class MainPage : ContentPage
+            {
+                private readonly IronPdfView pdfView;
+            
+                public MainPage()
+                {
+                    InitializeComponent();
+            
+                    this.pdfView = new IronPdfView { Options = IronPdfViewOptions.All };
+            
+                    Content = this.pdfView;
+                }
+            }
+        }
     }
 }

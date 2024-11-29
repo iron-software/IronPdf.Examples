@@ -1,23 +1,25 @@
-# Print PDF Documents in C#
+# C# Print PDF Documents
 
-In this tutorial, you will learn how to employ C# to print PDF documents in .NET applications using either Visual Basic or C#. It provides a step-by-step guide on leveraging the C# capabilities to initiate printing programmatically.
+***Based on <https://ironpdf.com/how-to/old_changed 2021_csharp-print-pdf copy/>***
+
+
+Utilizing C# or Visual Basic within .NET applications makes printing PDFs straightforward. This guide will lead you through the process of printing PDF documents programmatically using C#.
 
 <div class="learnn-how-section">
   <div class="row">
     <div class="col-sm-6">
-      <h2>C# PDF Printer Procedures</h2>
+      <h2>Steps for Printing PDFs in C#</h2>
       <ul class="list-unstyled">
-        <li><a href="#anchor-1-install-ironpdf-for-c-print-to-pdf">Setting Up IronPDF for C# Printing</a></li>
-        <li><a href="#anchor-2-create-a-pdf-and-print">Generating and Printing a PDF</a></li>
-        <li><a href="#anchor-4-specify-printer-name">Designating a Printer Name</a></li>
-        <li><a href="#anchor-5-set-printer-resolution">Determining Printer Resolution</a></li>
-        <li><a href="#anchor-7-tracing-printing-processes-using-c-num">Monitoring Printing Procedures with C# and More</a></li>
-      </ul>
+        <li><a href="#anchor-1-install-ironpdf-for-c-print-to-pdf">Begin by Installing IronPDF for C# Printing</a></li>
+        <li><a href="#anchor-2-create-a-pdf-and-print">Generate and Directly Print PDFs</a></li>
+        <li><a href="#anchor-4-specify-printer-name">Choose Your Printer Name</a></li>
+        <li><a href="#anchor-5-set-printer-resolution">Adjust the Printer Resolution</a></li>
+        <li><a href="#anchor-7-tracing-printing-processes-using-c-num">Monitor Your Print Processes and More with C#</a></li>
     </div>
     <div class="col-sm-6">
       <div class="download-card">
-        <a href="https://www.ironpdf.com/csharp-pdf.pdf" target="_blank">
-          <img style="box-shadow: none; width: 308px; height: 320px;" src="https://www.ironpdf.com/img/faq/pdf-in-csharp-no-button.svg" class="img-responsive learn-how-to-img">
+        <a href="https://ironpdf.com/csharp-pdf.pdf" target="_blank">
+          <img style="box-shadow: none; width: 308px; height: 320px;" src="https://ironpdf.com/img/faq/pdf-in-csharp-no-button.svg" class="img-responsive learn-how-to-img">
         </a>
       </div>
     </div>
@@ -28,142 +30,152 @@ In this tutorial, you will learn how to employ C# to print PDF documents in .NET
 
 <h4 class="tutorial-segment-title">Step 1</h4>
 
-## Set Up IronPDF in Your C# Project
+## 1. Initialize IronPDF in Your C# Project
 
-To commence, download and integrate the IronPDF C# PDF Library to enable all the programmatic printing functions showcased in this tutorial. You may [download the package for development](https://www.ironpdf.com/packages/IronPdf.Package.For.Print.CSharp.Programmatically.zip) or proceed to [install it via NuGet](https://www.nuget.org/packages/IronPdf) and include it in your Visual Studio project.
+The first step is to integrate the IronPDF C# PDF Library to enable all the printing capabilities showcased in this tutorial. You may either [download the library for free for development purposes directly from IronPDF's official website](https://ironpdf.com/packages/IronPdf.Package.For.Print.CSharp.Programmatically.zip), or [install it using NuGet](https://www.nuget.org/packages/IronPdf) and incorporate it into your Visual Studio project.
 
 <br>
 
 ```shell
-/Install-Package IronPdf
+Install-Package IronPdf
 ```
 
 <hr class="separator">
-<h4 class="tutorial-segment-title">Step-by-Step Guide</h4>
+<h4 class="tutorial-segment-title">How to Tutorial</h4>
 
-## Create and Print a PDF Quietly or Via UI
+## 2. Generate and Directly Print PDFs
 
-Whether you aim for silent printing or utilizing GUI print dialogs, you can handle PDF documents as shown below:
+Directly printing a PDF to a printer or leveraging the `[System.Drawing.Printing.PrintDocument](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.printing.printdocument)` for GUI alterations and detailed control is straightforward.
+
+The code snippet below will help you with both approaches:
 
 ```cs
 /**
-Create and Print PDF
+Generate and Print a PDF
+anchor-create-a-pdf-and-print
 **/
 using IronPdf;
 
 // Instantiate a new PDF renderer
-IronPdf.ChromePdfRenderer Renderer = new IronPdf.ChromePdfRenderer();
+IronPdf.ChromePdfRenderer renderer = new IronPdf.ChromePdfRenderer();
 
-// Render a URL as PDF
-using PdfDocument Pdf = Renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");
+// Render a PDF from a URL
+using (PdfDocument pdf = renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf"))
+{
+    // Directly send PDF document to the default printer
+    pdf.Print();
 
-// Send the PDF to the printer
-Pdf.Print();
-
-// For finer control over printing options:
-System.Drawing.Printing.PrintDocument PrintDocumentRef = Pdf.GetPrintDocument();
+    // To manipulate print settings and silent printing, utilize the GetPrintDocument method
+    System.Drawing.Printing.PrintDocument printDoc = pdf.GetPrintDocument(); // Ensure you reference System.Drawing.dll
+}
 ```
 
-Explore further through [C# PDF printer use cases](https://www.ironpdf.com/use-case/csharp-pdf-printer/).
+This is by far the simplest approach to utilize the [C# PDF printing capabilities provided by IronSoftware](https://ironpdf.com/use-case/csharp-pdf-printer).
 
 <hr class="separator">
 
-## Advanced Printing Functions
+## 3. Advanced Printing Features
 
-Delve deeper into advanced features of IronPDF for customizing your printing jobs, including printer name selection and resolution settings.
+IronPDF supports a variety of advanced features for printing, like choosing a printer or adjusting its settings.
 
-## Define Printer Name
+## 4. Define the Printer Name
 
-Configure the printer by extracting the printer name from the [GetPrintDocument](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html) method, and set it using the `PrinterSettings.PrinterName` property:
+Setting your desired printer is easy by accessing the current print document object using IronPDF’s `GetPrintDocument` method, and modifying the `PrinterSettings.PrinterName` property accordingly:
 
 ```cs
 /**
 Define Printer Name
+anchor-specify-printer-name
 **/
-using (var ChromePdfRenderer = new ChromePdfRenderer())
+using (var renderer = new ChromePdfRenderer())
 {
-    using (var pdfDocument = ChromePdfRenderer.RenderHtmlAsPdf("Sample HTML string"))
+    using (var pdfDocument = renderer.RenderHtmlAsPdf("<html>...</html>"))
     {
         using (var printDocument = pdfDocument.GetPrintDocument())
         {
-            printDocument.PrinterSettings.PrinterName = "Your Preferred Printer";
-            printDocument.Print();
+            printDocument.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+            printDocument.Print(); // Executing the print command
         }
     }
 }
 ```
+
 <hr class="separator">
 
-## Adjust Printer Resolution
+## 5. Configure Printer Resolution
 
-Modify the resolution settings using the `PrinterResolution` property to specify the desired dpi settings:
+Resolution impacts the crispness of your print output. Adjust it in IronPDF by manipulating the `DefaultPageSettings.PrinterResolution` property:
 
 ```cs
 /**
 Adjust Printer Resolution
+anchor-set-printer-resolution
 **/
-using (var ChromePdfRenderer = new ChromePdfRenderer())
+using (var renderer = new ChromePdfRenderer())
 {
-    using (var pdfDocument = ChromePdfRenderer.RenderHtmlAsPdf("Sample HTML string"))
+    using (var pdfDocument = renderer.RenderHtmlAsPdf("<html>...</html>"))
     {
         using (var printDocument = pdfDocument.GetPrintDocument())
         {
-            printDocument.PrinterSettings.PrinterName = "Adobe PDF";
+            printDocument.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+            printDocument.DefaultPageSettings.PrinterResolution = new PrinterResolution
+            {
+                Kind = PrinterResolutionKind.Custom,
+                X = 1200, // Horizontal resolution
+                Y = 1200 // Vertical resolution
+            };
+            printDocument.Print(); // Execute print
+        }
+    }
+}
+```
+
+Here, the resolution is configured to a custom setting of 1200 pixels both vertically and horizontally.
+
+<hr class="separator">
+
+## 6. Printing PDFs to Files
+
+The `PDFDocument.PrintToFile` method allows you to output the PDF to a file. You can choose whether to include a print preview:
+
+```cs
+/**
+Method to Print PDF to File
+anchor-printtofile-method
+**/
+printDocument.PrintToFile("PathToFile", false); // Specify path and if preview is desired
+```
+
+This method directly outputs your PDF to the specified filepath without including a preview.
+
+<hr class="separator">
+
+## 7. Monitoring Printing Operations with C#
+
+C# combined with IronPDF makes it easy to track and manage your print jobs. The next example demonstrates how to modify printer settings and monitor page counts during printing:
+
+```cs
+/**
+Monitor Print Operations
+anchor-tracing-printing-processes-using-c-num
+**/
+using (var renderer = new ChromePdfRenderer())
+{
+    using (var pdfDocument = renderer.RenderHtmlAsPdf("<html>...</html>"))
+    {
+        using (var printDocument = pdfDocument.GetPrintDocument())
+        {
+            printDocument.PrinterSettings.PrinterName = "Microsoft Print to PDF";
             printDocument.DefaultPageSettings.PrinterResolution = new PrinterResolution
             {
                 Kind = PrinterResolutionKind.Custom,
                 X = 1200,
                 Y = 1200
             };
-            printDocument.Print();
-        }
-    }
-}
-```
-Observe that the resolution has been personalized to 1200x1200 dpi both for the vertical and horizontal dimensions.
 
-<hr class="separator">
-
-## Printing to a File
-
-Utilize the `PrintToFile` method from `PdfDocument` to direct your output to a file without requiring a print preview:
-
-```cs
-/**
-Print to File
-**/
-printDocument.PrintToFile("DesiredFilePath", false);
-```
-
-This method enables you to specify the file path and opt out of previewing before printing.
-
-<hr class="separator">
-
-## Monitor Printing Activities in C#
-
-Leveraging C# and IronPDF simplifies the process of tracking print operations and adjusting printer settings:
-
-```cs
-/**
-Monitor Printing Activities
-**/
-using (var ChromePdfRenderer = new ChromePdfRenderer())
-{
-    using (var pdfDocument = ChromePdfRenderer.RenderHtmlAsPdf("Sample HTML string"))
-    {
-        using (var printDocument = pdfDocument.GetPrintDocument())
-        {
-            printDocument.PrinterSettings.PrinterName = "Adobe PDF";
-            printDocument.DefaultPageSettings.PrinterResolution = new PrinterResolution
-            {
-                Kind = PrinterResolutionKind.Custom, 
-                X = 1200, 
-                Y = 1200
-            };
-            
-            int printedPages = 0;
-            printDocument.PrintPage += (sender, args) => printedPages++;
-            printDocument.Print();
+            int pageCount = 0; // Variable to track the number of printed pages
+            printDocument.PrintPage += (sender, args) => pageCount++; // Increment pageCount for each printed page
+            printDocument.Print(); // Execute the print command
         }
     }
 }

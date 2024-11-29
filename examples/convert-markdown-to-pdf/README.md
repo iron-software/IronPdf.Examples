@@ -1,1 +1,3 @@
-With IronPDF, it's easy to transform your Markdown (.md) files into PDFs styled like HTML documents. Once you've converted your files, IronPDF allows you to enhance your PDFs with watermarks, headers, footers, signatures, and much more, enabling you to prepare a polished and secure PDF for distribution or personal use.
+***Based on <https://ironpdf.com/examples/convert-markdown-to-pdf/>***
+
+With IronPDF, transforming your Markdown (.md) files into sophisticated HTML-style PDFs is effortlessly achievable. Once converted, you have the liberty to enhance your PDFs by adding watermarks, headers, footers, signatures, and other elements, ensuring they meet professional standards and are secure for distribution or individual usage.

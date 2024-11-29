@@ -1,9 +1,11 @@
-When using IronPDF to create and render PDF documents, you may sometimes need to apply a consistent design element or template across multiple pages or documents. This can be efficiently done by utilizing an existing PDF as the background or foreground for another PDF file.
+***Based on <https://ironpdf.com/examples/backgrounds-and-foregrounds/>***
 
-The following example demonstrates how to apply a PDF document as the background or foreground for a new PDF document:
+When crafting and designing PDF documents with IronPDF, you might consider implementing a specific design style consistently across your documents. To achieve this, IronPDF lets you superimpose one PDF document onto another, either as a backdrop or a foreground layer. This functionality proves invaluable for maintaining uniformity in document appearance and for template creation.
 
-In C#, this can be achieved by initiating or loading a multi-page PDF into an `IronPdf.PdfDocument` object.
+Here’s a guide on integrating a PDF into another as either a background or foreground.
 
-For background inclusion, use the method `PdfDocument.AddBackgroundPdf`. The `IronPdf.PdfDocument` class provides various methods and overrides for inserting backgrounds. This function will append a pre-existing PDF page as a background to each page in your target PDF.
+This is accomplished in C# by creating or importing a multi-page PDF and treating it as an `IronPdf.PdfDocument` instance.
 
-For adding foregrounds, often referred to as "Overlays," utilize the method `PdfDocument.AddForegroundOverlayPdfToPage`. Similar to backgrounds, the `IronPdf.PdfDocument` documentation details various methods and overrides for foreground insertion.
+To introduce a background, utilize the `PdfDocument.AddBackgroundPdf` method. Comprehensive guidance on how to embed backgrounds can be found in the [IronPDF PdfDocument background documentation](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html#IronPdf_PdfDocument_AddBackgroundPdf_IronPdf_PdfDocument_System_Int32_). This documentation outlines various methods and their specific applications, facilitating the addition of a background from another PDF to each page of your current document.
+
+In addition to backgrounds, you can apply what are termed "Overlays" or foregrounds using the `PdfDocument.AddForegroundOverlayPdfToPage` method. For an in-depth exploration of how overlays are implemented, refer to the [IronPDF PdfDocument overlay documentation](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html). This will give you a clear understanding of the different methods available for foreground insertion.

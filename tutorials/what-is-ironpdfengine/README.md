@@ -1,45 +1,44 @@
-# Introduction to IronPdfEngine
+# What is IronPdfEngine?
 
-IronPdfEngine is an independent gRPC server designed specifically for handling various IronPDF operations including the creation, modification, and processing of PDF documents. This unique solution is developed as a self-contained C# .NET application, eliminating the need for the .NET runtime. 
+***Based on <https://ironpdf.com/tutorials/what-is-ironpdfengine/>***
 
-## Purpose Behind IronPdfEngine
 
-### 1. Extending IronPdf Accessibility
+IronPdfEngine serves as a gRPC server capable of performing various PDF operations through IronPDF, such as creation, modification, and reading. This application is built on C# .NET as a standalone product, eliminating the requirement for a .NET runtime environment to function.
 
-Thanks to its independence from the .NET runtime, IronPdfEngine enhances the flexibility of IronPdf, allowing it to integrate with other programming environments such as Java and Node.js, thereby broadening its usability across different programming communities.
+## Purpose of Developing IronPdfEngine
+
+### 1. Enhancing Language Compatibility
+
+IronPdfEngine's independence from the .NET runtime allows for the expansion of IronPdf's compatibility to include additional programming languages such as Java and Node.js.
 
 ### 2. Alternative Deployment Options for IronPdf
 
-IronPdfEngine offers the advantage of standalone operation, meaning it can run separately from your main applications. This modular approach reduces your application's footprint by not requiring the inclusion of Chrome and Pdfium binaries within each deployment.
+IronPdfEngine offers an innovative deployment model where it operates independently of user applications. This isolation means that the user application no longer needs to embed heavy Chrome and Pdfium binaries, enhancing its overall efficiency.
 
-## Deploying IronPdfEngine via Docker
+## Deployment Using IronPdfEngine Docker
 
 ### Overview of IronPdfEngine Docker
 
-IronPdfEngine Docker simplifies the deployment process by providing a pre-configured Docker image that hosts the IronPdfEngine. It is readily available for use and listens on port 33350 by default, facilitating easy connectivity for IronPdf clients.
+IronPdfEngine Docker features a Docker image that is pre-configured and ready to execute, housing the IronPdfEngine. By default, it opens port 33350 to facilitate connections from IronPdf clients.
 
-### Rationale for IronPdfEngine Docker
+### Reasons Behind IronPdfEngine Docker’s Creation
 
-- **Simplified Deployment:** IronPdfEngine Docker eliminates the complexities of deployment and dependency management, ensuring a smoother integration process.
-- **Reduced Application Size:** By running IronPdfEngine in Docker, the overall size of your application is decreased significantly.
-- **Shared Resource Efficiency:** Multiple application instances can utilize a single IronPdfEngine instance hosted as a centralized PDF server.
+- It resolves various deployment and dependency issues by utilizing the IronPdfEngine Docker container, facilitating streamlined deployments.
+- It supports a reduction in application size when using IronPdfEngine Docker.
+- It allows multiple application instances to utilize a single IronPdfEngine, serving as a communal PDF server.
 
-### Acquiring IronPdfEngine Docker
+### How to Access IronPdfEngine Docker
 
 - [Dockerhub](https://hub.docker.com/r/ironsoftwareofficial/ironpdfengine)
 - [Amazon ECR Public Gallery](https://gallery.ecr.aws/v1m9w8y1/ironpdfengine)
 
-### Utilization within Various Platforms
-
-While using IronPdfEngine is optional with IronPdf for .NET and IronPdf for Python, it becomes mandatory for IronPdf for Java and IronPdf for Node.js. These implementations typically run IronPdfEngine as a local subprocess (localhost:33305) or alternatively via a separate IronPhpEngine Docker.
+While using IronPdf for .NET and IronPdf for Python, the use of IronPdfEngine is optional. In contrast, IronPdf for Java and IronPdf for Node.js require IronPdfEngine to function. By default, these will initiate a local subprocess that runs IronPdfEngine (localhost:33305), or alternatively, you can operate IronPdfEngine Docker separately.
 
 ## Limitations of IronPdfEngine
 
-- **Scaling Constraints:** Currently, IronPdfEngine does not support horizontal scaling or load balancing across multiple instances. It operates with an in-memory storage model for PDF files and utilizes PdfDocumentId for efficient server-client communication, which also boosts speed and reduces bandwidth consumption.
-- **Remote Deployment Requirements:** For remote operations, ensure the accessibility of the IronPdfEngine Docker port.
-- **Operating System Specific Output:** When running IronPdfEngine Docker on Linux x64 platforms (Debian) using Ubuntu 22.04 based images, the resulting PDFs might display slight variations compared to local executions due to different OS behaviors.
-- **Container Compatibility:** IronPdfEngine Docker requires a Linux Containers daemon on Windows ('Switch to Linux Containers' option).
-- **Platform-Specific Builds:** IronPdfEngine binaries are tailored specifically for each platform, maintaining performance and compatibility.
-- **Version Compatibility:** Cross-version operations are not supported with IronPdfEngine.
-
-This summary provides insights into the versatility and practical deployment options of IronPdfEngine, facilitating its integration into diverse environments while optimizing performance and resource usage.
+- IronPdfEngine currently does not support horizontal scaling, such as load balancing across multiple instances. This is due to the in-memory storage of processing PDF file binaries and the use of PdfDocumentId for server-client communication, which also reduces bandwidth usage and enhances processing speed.
+- For remote operation of IronPdfEngine Docker, ensure the accessibility of the IronPdfEngine port.
+- When running on Linux x64 (Debian), particularly using the official ubuntu:22.04 based images, the PDF output may differ slightly from local executions due to operating system variations. 
+- As IronPdfEngine Docker is Linux-based, it requires a Linux Containers daemon. Windows users should select `Switch to Linux Containers` for compatibility.
+- IronPdfEngine's binaries are platform-specific and not cross-platform compatible.
+- Cross-version operability is not supported.

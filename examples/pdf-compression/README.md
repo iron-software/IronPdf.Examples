@@ -1,5 +1,7 @@
-IronPDF offers PDF compression capabilities. A primary method for reducing PDF file sizes involves minimizing the dimensions of embedded images in the PDF document through the `CompressImages` method.
+***Based on <https://ironpdf.com/examples/pdf-compression/>***
 
-When adjusting JPEG images, maintaining them at 100% quality preserves nearly all of the original integrity, while reducing them to 1% results in a substantially degraded output image. Typically, quality settings above 90% are regarded as high-quality, settings between 80% and 90% are deemed medium-quality, and settings between 70% and 80% are viewed as low-quality. Lowering the quality below 70% can substantially decrease the overall size of the PDF, though it may significantly impair the image quality.
+IronPDF offers functionality to minimize the size of PDF files, mainly by compressing the images embedded within the document. This can be achieved using the `CompressImages` method.
 
-It's beneficial to test various compression levels to discern the most suitable balance between image quality and file size for your needs. The visibility of quality degradation largely depends on the original image type, with certain images potentially experiencing more noticeable reductions in clarity.
+In terms of resizing JPEG images, maintaining 100% quality ensures there is negligible loss, whereas setting the quality to 1% results in a significantly degraded image. In general, settings above 90% are considered to provide high quality, between 80% and 90% offer medium quality, and between 70% and 80% are seen as low quality. Dropping the quality below 70% can greatly diminish the clarity of the images but may considerably reduce the overall size of the PDF document.
+
+It is recommended to test various compression settings to discover the ideal compromise between image quality and file size that meets your specific needs. The extent to which the quality reduction is noticeable will depend on the original image used, with some images degrading more noticeably than others.

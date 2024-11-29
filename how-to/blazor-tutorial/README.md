@@ -1,10 +1,13 @@
-# IronPDF on Blazor Server App (HTML to PDF Tutorial)
+# IronPDF Integration in Blazor Server Apps (HTML to PDF Guide)
 
-With comprehensive support for .NET 6, including **Blazor** projects, IronPDF is a versatile library that can be integrated into Blazor applications to convert HTML to PDF. This tutorial will guide you through setting up IronPDF with a Blazor Server App using Visual Studio.
+***Based on <https://ironpdf.com/how-to/blazor-tutorial/>***
 
-## Start a New Blazor Server Project
 
-Begin by creating a new Blazor Server App project in Visual Studio:
+IronPDF is compatible with .NET 6 and supports frameworks like **Blazor**. In this tutorial, we will integrate IronPDF into a Blazor Server App using Visual Studio as demonstrated below.
+
+## Set Up a Blazor Server Project
+
+Begin by creating a new Blazor Server App project.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -12,22 +15,23 @@ Begin by creating a new Blazor Server App project in Visual Studio:
     </div>
 </div>
 
-## Incorporating IronPDF in Your Blazor Project
+## Add IronPDF to Your Blazor Server Project
 
-Once your project is set up, install the [IronPDF library](https://www.nuget.org/packages/IronPdf) directly within your Blazor project in Visual Studio by adhering to these steps:
+Once your project is set up, proceed with these steps to integrate the [IronPDF library from NuGet](https://www.nuget.org/packages/IronPdf):
 
-1.  Right-click `References` in the Solution Explorer, then select `Manage NuGet Packages`.
-2.  In the NuGet package manager, search for `IronPdf`.
-3.  Choose the most current version of IronPdf, ensure your project is checked, and proceed with the installation.
+1.  In Visual Studio, open the Solution Explorer, right-click on `References`, and select `Manage NuGet Packages`.
+2.  Use the Browse tab, search for `IronPdf`.
+3.  Choose the most recent version of IronPdf, select your project’s checkbox, and click install.
 
-Alternatively, you can install it using the following command in the Package Manager Console:
+Alternatively, you can use the Package Manager Console command:
+
 ```shell
 Install-Package IronPdf
 ```
 
-## Add a New Razor Component
+## Create a New Razor Component
 
-After integrating IronPDF, create a new Razor Component titled "IronPdfComponent":
+After installing IronPDF, create a new Razor Component named "IronPdfComponent":
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -35,7 +39,7 @@ After integrating IronPDF, create a new Razor Component titled "IronPdfComponent
     </div>
 </div>
 
-Next, modify your component's code as shown below:
+Next, modify the component code as shown:
 
 ```html
 @page "/IronPdf" @inject IJSRuntime JS
@@ -52,26 +56,29 @@ Next, modify your component's code as shown below:
 
 ```cs
 @code {
+
 	InputHTMLModel _InputMsgModel = new InputHTMLModel();
 
 	private async Task SubmitHTML()
 	{
 		IronPdf.License.LicenseKey = "IRONPDF-MYLICENSE-KEY-1EF01";
 		var renderer = new IronPdf.ChromePdfRenderer();
-		var pdfDoc = renderer.RenderHtmlAsPdf(_InputMsgModel.HTML);
-		var filename = "iron.pdf";
-		using var streamRef = new DotNetStreamReference(stream: pdfDoc.Stream);
-		await JS.InvokeVoidAsync("SubmitHTML", filename, streamRef);
+		var pdfDocument = renderer.RenderHtmlAsPdf(_InputMsgModel.HTML);
+		var documentName = "iron.pdf";
+		using var streamRef = new DotNetStreamReference(stream: pdfDocument.Stream);
+		await JS.InvokeVoidAsync("SubmitHTML", documentName, streamRef);
 	}
 
 	public class InputHTMLModel
 	{
-		public string HTML { get; set; } = "Enter your HTML here";
+		public string HTML { get; set; } = "My new message";
 	}
 }
 ```
 
-For enabling PDF download from within your Blazor application, incorporate this JavaScript in your `_layout.cshtml`:
+## Enable PDF Download in Blazor App
+
+Add this JavaScript in `_layout.cshtml` for allowing PDF downloads in the Blazor App:
 
 ```html
 <script>
@@ -79,17 +86,19 @@ For enabling PDF download from within your Blazor application, incorporate this 
 		const arrayBuffer = await contentStreamReference.arrayBuffer();
 		const blob = new Blob([arrayBuffer]);
 		const url = URL.createObjectURL(blob);
-		const link = document.createElement("a");
-		link.href = url;
-		link.download = fileName ?? "";
-		link.click();
-		link.remove();
+		const anchor = document.createElement("a");
+		anchor.href = url;
+		anchor.download = fileName ?? "";
+		anchor.click();
+		anchor.remove();
 		URL.revokeObjectURL(url);
 	};
 </script>
 ```
 
-To include a navigational link to the new component, edit the `NavMenu.razor` file in the Shared folder and add:
+## Update Navigation Menu
+
+Update the `NavMenu.razor` file in the Shared folder to include a navigation link to your new Razor component:
 
 ```html
 <div class="nav-item px-3">
@@ -99,7 +108,7 @@ To include a navigational link to the new component, edit the `NavMenu.razor` fi
 </div>
 ```
 
-After configuring all components, run your application to view the results:
+After implementing these steps, you can run your Blazor server application, and it should display as follows:
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">

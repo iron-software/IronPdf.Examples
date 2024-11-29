@@ -1,7 +1,9 @@
-IronPDF provides a straightforward way for developers to generate PDF documents in C#, F#, and VB.NET, accommodating both .NET Core and .NET Framework environments.
+***Based on <https://ironpdf.com/examples/csharp-print-pdf-specific-printer/>***
 
-This demonstration illustrates how to render a PDF document from HTML.
+IronPDF empowers developers to effortlessly generate PDF documents using C#, F#, and VB.NET across both .NET Core and .NET Framework.
 
-Developers are free to use basic HTML or enrich it with CSS, images, and JavaScript.
+This sample demonstrates how to render a PDF document from HTML.
 
-The rendering capability of IronPDF ensures that the outputs are [pixel perfect](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/), closely matching the desktop output of Google Chrome.
+Developers have the flexibility to use basic HTML as shown or enrich the document with CSS, images, and JavaScript.
+
+The conversion quality of IronPDF is described as [pixel perfect HTML-to-PDF rendering](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/), comparable to desktop variants of Google Chrome.

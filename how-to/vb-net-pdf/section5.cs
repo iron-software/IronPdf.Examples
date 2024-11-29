@@ -1,1 +1,0 @@
-Dim document = renderer.RenderHtmlFileAsPdf("..\..\slideshow\index.html")

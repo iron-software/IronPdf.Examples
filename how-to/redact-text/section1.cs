@@ -1,8 +1,16 @@
 using IronPdf;
-
-PdfDocument pdf = PdfDocument.FromFile("novel.pdf");
-
-// Redact 'are' phrase from all pages
-pdf.RedactTextOnAllPages("are");
-
-pdf.SaveAs("redacted.pdf");
+namespace ironpdf.RedactText
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            PdfDocument pdf = PdfDocument.FromFile("novel.pdf");
+            
+            // Redact 'Alaric' phrase from all pages
+            pdf.RedactTextOnAllPages("Alaric");
+            
+            pdf.SaveAs("redacted.pdf");
+        }
+    }
+}

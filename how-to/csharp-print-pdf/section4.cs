@@ -1,6 +1,14 @@
-using IronPdf;
 using System.Threading.Tasks;
-
-PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
-
-await pdf.PrintToFile("PathToFile", false);
+using IronPdf;
+namespace ironpdf.CsharpPrintPdf
+{
+    public class Section4
+    {
+        public void Run()
+        {
+            PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
+            
+            await pdf.PrintToFile("PathToFile", false);
+        }
+    }
+}

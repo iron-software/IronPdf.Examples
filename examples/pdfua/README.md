@@ -1,1 +1,5 @@
-IronPDF's `SaveAsPdfUA` function enables the creation of PDFUA-compliant documents, guaranteeing adherence to the PDF/UA standards for universal accessibility. This feature ensures that the PDFs created are more inclusive and accessible to people with disabilities.
+***Based on <https://ironpdf.com/examples/pdfua/>***
+
+Using IronPDF's `SaveAsPdfUA` method, you can easily create PDF documents that comply with the PDF/UA standards for universal accessibility. This functionality makes your PDFs more accessible and inclusive, particularly for users with disabilities. For additional details on crafting accessible PDF documents, refer to the [IronPDF PDF/UA Compliance Guide](https://ironpdf.com/how-to/pdfua/).
+
+If you're keen to explore more robust libraries offered by Iron Software, consider delving into barcode creation and recognition via [IronBarcode](https://ironsoftware.com/csharp/barcode/), or utilizing cutting-edge OCR capabilities provided by [IronOCR](https://ironsoftware.com/csharp/ocr/). Each product page offers extensive information about these technologies.

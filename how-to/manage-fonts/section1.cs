@@ -1,9 +1,16 @@
-using IronPdf;
-using IronPdf.Fonts;
 using System.Collections.Generic;
-
-// Import PDF
-PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
-
-// Retreive font
-PdfFontCollection fonts = pdf.Fonts;
+using IronPdf;
+namespace ironpdf.ManageFonts
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            // Import PDF
+            PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
+            
+            // Retreive font
+            PdfFontCollection fonts = pdf.Fonts;
+        }
+    }
+}

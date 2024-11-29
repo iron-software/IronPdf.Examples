@@ -1,27 +1,29 @@
-# IronPDF on macOS with .NET Core
+# Enhanced Support for macOS in IronPDF with .NET Core
 
-IronPDF now offers comprehensive support for macOS on .NET Standard Libraries, .NET Core applications, and .NET 8, 7, 6 & 5 projects.
+***Based on <https://ironpdf.com/how-to/macos/>***
 
-It's important to note that IronPDF does not support .NET Framework projects on macOS, as these rely on Xamarin and do not use the native .NET runtime.
 
-As of January 2020, IronPDF supports all versions of macOS right out of the box, requiring no additional dependencies.
+IronPDF now offers comprehensive compatibility across macOS (*previously referred to as "OS X"*) for .NET Standard Libraries and Core applications, including .NET 8, 7, 6, and 5.
 
-Apple users and developers can enjoy seamless support without needing any code modifications. Once an application is developed on macOS, it can be deployed effortlessly across Windows, Linux, and Mac environments, though additional binaries might be required depending on the deployment target.
+Development for .NET Framework projects on macOS is not supported since they rely on Xamarin and do not constitute an official .NET runtime release.
 
-However, on macOS, multithreaded PDF rendering (which is critical for web servers) is currently unsupported due to the absence of a necessary message pump in the Chromium Embedded Framework for Mac.
+As of January 2020, IronPDF delivers full support for all macOS versions right out of the box without the need for additional dependencies.
 
-Our commitment to macOS support is strong, particularly because many .NET developers, including several team members, prefer using platforms like *Visual Studio for Mac* and *JetBrains Rider* for their .NET development on macOS.
+No modifications to the codebase are necessary to accommodate Apple users or developers. Once an application is developed on macOS, it can be seamlessly deployed on Windows, Linux, or Mac environments, though additional binaries might be required based on the deployment target.
+
+However, macOS does have a limitation regarding multithreaded PDF rendering support, notably in web server scenarios, due to the absence of a message pump in the Chromium Embedded Framework for Mac.
+
+Our commitment to supporting macOS stems from its popularity among .NET developers, including some of our own team members, who prefer using tools like *Visual Studio for Mac* and *JetBrains Rider* for development on this platform.
 
 ## Specific Configuration & Installation for macOS
 
-Over the years, Apple has used different generations of Intel processors and, beginning in 2020, started integrating Apple Silicon processors into their Mac computers.
-- To install on Intel Macs, use the [IronPdf.MacOs](https://ironpdf.com/www.nuget.org/packages/IronPdf.MacOs) NuGet package.
-- For Apple Silicon Macs, use the [IronPdf.MacOs.ARM](https://ironpdf.com/www.nuget.org/packages/IronPdf.MacOs.ARM) NuGet package.
-- To cater to both Intel and Apple Silicon Macs, install both the [IronPdf.MacOs](https://ironpdf.com/www.nuget.org/packages/IronPdf.MacOs) and [IronPdf.MacOs.ARM](https://ironpdf.com/www.nuget.org/packages/IronPdf.MacOs.ARM) packages.
+Over the years, Apple has integrated different generations of Intel processors, and since 2020, began equipping Mac computers with their own Apple Silicon processors.
+- For Macs with Intel processors, install the [IronPDF for macOS on Intel](https://ironpdf.com/packages/IronPdf.MacOs) NuGet package.
+- For Macs with Apple Silicon processors, install the [IronPDF for macOS on Apple Silicon](https://ironpdf.com/packages/IronPdf.MacOs.ARM) NuGet package.
+- To ensure compatibility with both Intel and Apple Silicon Macs, it's advisable to install both the [IronPDF for macOS on Intel](https://ironpdf.com/packages/IronPdf.MacOs) and [IronPDF for macOS on Apple Silicon](https://ironpdf.com/packages/IronPdf.MacOs.ARM) NuGet packages.
 
 ## Hardware Requirements
 
-IronPDF leverages the Chromium engine to convert HTML to PDF, matching the precision of Chrome’s print function. The primary hardware demands come from running the Chromium engine.
-
-- Minimum requirements: 1 Core & 1.75 GB of RAM
-- Recommended setup: 2 Cores & 8 GB of RAM or higher
+The Chromium engine, used by IronPDF to convert HTML to PDF, demands significant computing resources for rendering PDFs with accuracy comparable to Chrome’s print function.
+- Minimum system requirements include 1 Core and 1.75 GB of RAM.
+- For optimal performance, a configuration with at least 2 Cores and 8 GB of RAM is recommended.

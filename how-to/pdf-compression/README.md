@@ -1,38 +1,46 @@
 # How to Compress PDFs
 
-Compressing PDFs involves reducing the size of Portable Document Format (PDF) files to make them easier to store, share, and transfer, particularly when the files are bulky or contain numerous images.
+***Based on <https://ironpdf.com/how-to/pdf-compression/>***
 
-Since images generally take up more space due to their larger file sizes compared to text and other contents in a PDF, IronPdf provides a feature that compresses embedded images and minimizes the tree structure, which is often abundant in table data contained within PDF documents.
 
-## Example: Image Compression
+PDF compression involves reducing the size of a PDF (Portable Document Format) document. This is especially helpful to better manage the storage, sharing, and transmission of PDFs, which is critical for large or image-heavy documents.
 
-The compression ratio for JPEG images ranges as follows:
+Embedded images usually take up a large part of a PDF's file size due to their relative size compared to text and other elements. IronPdf provides tools for compressing these images and for slimming down the tree structures often found with tables in PDF documents.
 
-- Above 90%: high-quality
-- 80% to 90%: medium-quality
-- 70% to 80%: low-quality
+## Compress Images Example
 
-Experimenting with different compression levels will help you find a balance between maintaining image quality and reducing file size. The effect of compression on image quality varies depending on the image itself; some may degrade more noticeably than others.
+JPEG resizing works in such a way that, at 100% quality, there's hardly any loss of detail, while a setting of 1% results in a very compressed and lower quality image.
+
+- Above 90%: regarded as high-quality
+- Between 80%-90%: regarded as medium-quality
+- Between 70%-80%: regarded as low-quality
+
+Experiment with different compression levels to see the balance between image quality and file size. Keep in mind that the extent of quality degradation depends on the image type, with some images losing more clarity than others.
 
 ```cs
 using IronPdf;
+namespace ironpdf.PdfCompression
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
+            
+            // Apply image compression at 40% quality
+            pdf.CompressImages(40);
+            
+            // Save the compressed PDF
+            pdf.SaveAs("compressed.pdf");
+        }
+    }
+}
 
-// Instantiate the renderer
-ChromePdfRenderer renderer = new ChromePdfRenderer();
+### Compress Images - Size Comparison
 
-// Create a PDF from a URL
-PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
-
-// Apply image compression
-pdf.CompressImages(40);
-
-// Save the compressed PDF
-pdf.SaveAs("compressed.pdf");
-```
-
-### Image Compression - Example of Size Reduction
-
-Compression resulted in a **39.24%** reduction in file size!
+Reduced by **39.24%**!
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -40,42 +48,42 @@ Compression resulted in a **39.24%** reduction in file size!
     </div>
 </div>
 
-### Exploring Image Compression Techniques
+### Understanding Image Compression Options
 
-IronPdf provides two settings for image compression:
+**ShrinkImage**: Scales down image resolutions based on their visible sizes in the PDF. This method dramatically shrinks the image file size while also lowering quality, making it more optimal for storage and transfer.
 
-**ShrinkImage**: This method rescales the image to its visible size within the PDF, considerably reducing both size and quality, thus optimizing the file for storage and sharing.
+**HighQualitySubsampling**: Defines the chroma subsampling technique for image compression. Setting this to "True" uses a 4:4:4 subsampling ratio ensuring no color detail is lost whereas setting it to "False" will use a 4:1:1 ratio greatly reducing file size at a cost of some color detail.
 
-**HighQualitySubsampling**: This setting toggles the method of chroma subsampling used for compressing images. Selecting `True` preserves full color details using 4:4:4 subsampling. Setting it to `False` results in 4:1:1 subsampling, which diminishes some color details but further reduces the file size.
+Chroma subsampling efficiently reduces data needed for images by trimming down color quality (chrominance) while keeping brightness quality (luminance) intact. The 4:4:4 ratio preserves every pixel's color information, while the 4:1:1 ratio lowers color resolution for better compression.
 
-Chroma subsampling helps decrease the data needed to represent an image while preserving visual quality by reducing color resolution and maintaining luminance resolution.
+## Compress Tree Structure Example
 
-<hr>
+This functionality reduces the size of PDFs by simplifying the tree structure created by Chrome Engine, particularly useful for HTML-generated PDFs with extensive tables. However, it might lessen the effectiveness of text-highlights or extractions for some PDFs without this structure.
 
-## Example: Compressing Tree Structure
-
-This functionality targets the reduction of PDF size by compressing the tree structure generated by the Chrome PDF rendering engine, especially useful when dealing with PDFs that contain a lot of tabular data. However, note that some PDFs, especially those not created by the Chrome engine, may not have this tree structure present.
-
-There's a trade-off, as the removal of the tree structure might affect text highlighting or data extraction capabilities in some PDFs.
-
-Test the `CompressStructTree` method using the `table.pdf` document:
+Try out the `CompressStructTree` method on a [PDF with table data](https://ironpdf.com/static-assets/pdf/how-to/pdf-compression/table.pdf).
 
 ```cs
 using IronPdf;
+namespace ironpdf.PdfCompression
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            PdfDocument pdf = PdfDocument.FromFile("table.pdf");
+            
+            // Apply tree structure compression
+            pdf.CompressStructTree();
+            
+            // Save the new PDF
+            pdf.SaveAs("compressedTable.pdf");
+        }
+    }
+}
 
-// Load a PDF from file
-PdfDocument pdf = PdfDocument.FromFile("table.pdf");
+### Compress Tree Structure - Size Comparison
 
-// Apply tree structure compression
-pdf.CompressStructTree();
-
-// Save the compressed PDF
-pdf.SaveAs("compressedTable.pdf");
-```
-
-### Tree Structure Compression - Size Reduction Example
-
-Achieved a remarkable **67.90%** reduction in size, with larger tables potentially showing even greater decreases.
+Reduced by **67.90%**! This reduction can be even greater for PDFs with more extensive tables.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -83,35 +91,44 @@ Achieved a remarkable **67.90%** reduction in size, with larger tables potential
     </div>
 </div>
 
-## Advanced Compression Capabilities
+## Advanced Compression Methods
 
-IronPdf also introduces a unified `Compress` method which allows the simultaneous configuration of both image and tree structure compression for straightforward document compression.
+IronPdf's `Compress` method simplifies configuring both image and tree structure compressions for your documents.
 
 ```cs
 using IronPdf;
+namespace ironpdf.PdfCompression
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
+            
+            CompressionOptions compressionOptions = new CompressionOptions();
+            
+            // Set image and structure compression parameters
+            compressionOptions.CompressImages = true;
+            compressionOptions.JpegQuality = 80; // Medium quality
+            compressionOptions.HighQualityImageSubsampling = true;
+            compressionOptions.ShrinkImages = true;
+            
+            // Enable tree structure removal
+            compressionOptions.RemoveStructureTree = true;
+            
+            // Apply all compression settings
+            pdf.Compress(compressionOptions);
+            
+            // Save the resultant compressed PDF
+            pdf.SaveAs("compressed.pdf");
+        }
+    }
+}
 
-// Load a PDF from file
-PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
+### Explore Available Options
 
-// Configure compression options
-CompressionOptions compressionOptions = new CompressionOptions();
-compressionOptions.CompressImages = true;
-compressionOptions.JpegQuality = 80;
-compressionOptions.HighQualityImageSubsampling = true;
-compressionOptions.ShrinkImages = true;
-compressionOptions.RemoveStructureTree = true;
-
-// Apply compression
-pdf.Compress(compressionOptions);
-
-// Save the compressed document
-pdf.SaveAs("compressed.pdf");
-```
-
-### Exploring Configurable Compression Options
-
-- **CompressImages**: Toggle compression of existing images using JPG encoding; default is `false`.
-- **RemoveStructureTree**: Opt to remove the tree structure to use less disk space but possibly hinder text manipulation in complex documents.
-- **JpegQuality**: Adjust the quality level for JPG compression (1 to 100); default is 42.
-- **HighQualityImageSubsampling**: Choose between 444 (true) for higher quality or 411 (false) for smaller size in image subsampling.
-- **ShrinkImages**: Decrease image resolution to reduce file size and quality.
+- **CompressImages**: Enables or disables compression of existing images using JPG encoding.
+- **RemoveStructureTree**: This reduces document disk usage but could impact text selection in complex PDFs.
+- **JpegQuality**: Adjusts the level of JPEG quality for image compression.
+- **HighQualityImageSubsampling**: Toggle between high quality (4:4:4 chroma) or reduced size (4:1:1 chroma) image subsampling.
+- **ShrinkImages**: Reduces image resolution, minimizing both size and quality of pictures within the PDF.

@@ -1,73 +1,90 @@
-# Generating PDFs Using Async and Multithreading Techniques
+# Generating PDFs using Async and Multithreading Techniques
 
-Incorporating async and threading techniques enhances the efficiency of [batch PDF generation and high-performance tasks in C# and VB.NET](https://ironpdf.com/docs/).
+***Based on <https://ironpdf.com/how-to/async/>***
 
-## Asynchronous Rendering Example
 
-IronPDF provides robust support for asynchronous operations using methods such as `RenderHtmlAsPdfAsync`.
+Asynchronous programming and multithreading can dramatically improve the efficiency of generating [high-performance PDFs using C# and VB.NET with IronPDF](https://ironpdf.com/docs/) whether processing in batches or optimizing performance.
 
-```cs
-using IronPdf;
-using System.Threading.Tasks;
+## Example of Asynchronous Rendering
 
-// Create an instance of ChromePdfRenderer
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-string[] htmlSources = {"<h1>Html 1</h1>", "<h1>Html 2</h1>", "<h1>Html 3</h1>"};
-
-// An array to hold the tasks
-var renderTasks = new Task<PdfDocument>[htmlSources.Length];
-
-for (int i = 0; i < htmlSources.Length; i++)
-{
-    int index = i; // Ensure the loop variable is correctly captured
-    renderTasks[i] = Task.Run(async () =>
-    {
-        // Asynchronously render HTML to PDF
-        return await renderer.RenderHtmlAsPdfAsync(htmlSources[index]);
-    });
-}
-
-// Wait for all tasks in the array to complete
-// await Task.WhenAll(renderTasks);
-```
-
-## Multi-Threading Rendering Example
-
-IronPDF ensures thread safety and supports multithreading with the `ChromePdfRenderer`. However, note that multithreading capabilities are diminished on macOS systems.
-
-The `Parallel.ForEach` routine is effective for processing multiple PDFs simultaneously.
+IronPDF offers robust support for asynchronous operations with methods like `RenderHtmlAsPdfAsync`.
 
 ```cs
-using IronPdf;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-
-var htmlQueue = new List<string>() { "<h1>Html 1</h1>", "<h1>Html 2</h1>", "<h1>Html 3</h1>" };
-
-// Create an instance of ChromePdfRenderer
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// List to accumulate the rendered PDFs
-List<PdfDocument> renderedPdfs = new List<PdfDocument>();
-
-Parallel.ForEach(htmlQueue, html =>
+using IronPdf;
+namespace ironpdf.Async
 {
-    // Convert HTML to PDF
-    PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
-
-    // Optionally, save the PDF or add to a list as shown
-    lock (renderedPdfs)
+    public class AsyncPDFGenerator
     {
-        renderedPdfs.Add(pdf);
+        public async Task GeneratePDFs()
+        {
+            // Initialize ChromePdfRenderer
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            string[] htmlSamples = {"<h1>Html 1</h1>", "<h1>Html 2</h1>", "<h1>Html 3</h1>"};
+            
+            // Array to hold tasks for each HTML string
+            Task<PdfDocument>[] tasks = new Task<PdfDocument>[htmlSamples.Length];
+            
+            for (int i = 0; i < htmlSamples.Length; i++)
+            {
+                int currentIndex = i; // To avoid closure issue in loop
+                tasks[currentIndex] = Task.Run(async () =>
+                {
+                    // Asynchronously render HTML to PDF
+                    return await renderer.RenderHtmlAsPdfAsync(htmlSamples[currentIndex]);
+                });
+            }
+            
+            // Optionally, wait for all tasks to complete
+            // await Task.WhenAll(tasks);
+        }
     }
-});
+}
 ```
 
-## Comparative Analysis of Rendering Performance
+## Example of Multithreading
 
-To highlight the effectiveness of utilizing different rendering techniques, consider the inclusion of a 5-second simulation of rendering complex HTML using the [`WaitFor`](https://ironpdf.com/how-to/waitfor/) class. Below is a table illustrating the performance results for various rendering approaches.
+IronPDF's `ChromePdfRenderer` engine supports multithreading, making it ideal for thread-safe environments. This feature, however, has limited support on macOS.
+
+The `Parallel.ForEach` methodology proves effective for batch rendering:
+
+```cs
+using System.Threading.Tasks;
+using IronPdf;
+namespace ironpdf.Async
+{
+    public class MultiThreadPDFGenerator
+    {
+        public void GeneratePDFs()
+        {
+            var htmlList = new List<string>() { "<h1>Html 1</h1>", "<h1>Html 2</h1>", "<h1>Html 3</h1>" };
+            
+            // Initialize ChromePdfRenderer
+            ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
+            
+            // List to hold the generated PDFs
+            List<PdfDocument> pdfDocuments = new List<PdfDocument>();
+            
+            Parallel.ForEach(htmlList, htmlString =>
+            {
+                // Render HTML to PDF in a thread-safe manner
+                PdfDocument document = pdfRenderer.RenderHtmlAsPdf(htmlString);
+                
+                // Synchronize access to the list of PDF documents
+                lock (pdfDocuments)
+                {
+                    pdfDocuments.Add(document);
+                }
+            });
+        }
+    }
+}
+```
+
+## Performance Comparison
+
+A delay of 5 seconds simulating complex HTML rendering using the [WaitFor class](https://ironpdf.com/how-to/waitfor/) reveals the performance advantages of these techniques:
 
 <table class="table" style="text-align: center;">
     <tr style="background-color: rgb(241 249 251);">
@@ -77,7 +94,7 @@ To highlight the effectiveness of utilizing different rendering techniques, cons
     </tr>
     <tr>
         <td>15.75 seconds</td>
-        <td>5.59 seconds</td>
-        <td>5.68 seconds</td>
+        <td>05.59 seconds</td>
+        <td>05.68 seconds</td>
     </tr>
 </table>

@@ -1,30 +1,36 @@
-Effortlessly combine PDFs of varying complexities and sizes utilizing the `Merge` feature of IronPDF.
+***Based on <https://ironpdf.com/examples/merge-pdfs/>***
 
-The `PdfDocument.Merge` function facilitates the unification of multiple PDF files into a singular document.
+Combine PDFs effortlessly regardless of their complexity or size using IronPDF's `Merge` method.
 
-Incorporate the `PdfDocument.Merge` method within your C# projects to achieve tasks such as:
+The `PdfDocument.Merge` function consolidates multiple PDF files into a unified document.
 
-1. Programmatic insertion of cover pages or letters into existing PDFs,
-2. Consolidation of PDFs that are converted from HTML.
+Employ the `PdfDocument.Merge` function within your C# projects to:
 
-The `PdfDocument.Merge` function is capable of merging an unlimited quantity of PDFs.
+1. Insert cover pages or cover letters into existing PDF files programmatically,
+2. Combine PDFs that have been converted from HTML.
+
+The `PdfDocument.Merge` is capable of merging an unlimited number of PDF files.
 
 * * *
 
-#### Additional Information
+* * *
 
-To combine two PDF files, identify each document as an individual argument, as exemplified on line 17 in the code example provided.
+### Additional Information
 
-For merging more than two PDF documents, replace the dual-argument method with its `List` counterpart:
+To combine two PDF documents, provide each PDF as distinct arguments, as shown in line 17 of the sample code provided.
+
+To amalgamate more than two PDFs, replace the two-argument approach with the `List` variant:
 
 ```cs
-List<PdfDocument> pdfs = new List<PdfDocument>()
+List<PdfDocument> pdfDocuments = new List<PdfDocument>()
 {
     pdfdoc_a,
     pdfdoc_b,
     pdfdoc_c,
-    // further documents can be added here
+    // additional PDF documents can be added here
 };
-var merged = PdfDocument.Merge(pdfs);
-merged = SaveAs("Merged.pdf"); // Save the resulting merged document
+var combinedPDF = PdfDocument.Merge(pdfDocuments);
+combinedPDF.SaveAs("Merged.pdf");  // Save the resulting merged PDF with the filename 'Merged.pdf'
 ```
+
+This enhanced process allows for the merging of multiple PDF files seamlessly.

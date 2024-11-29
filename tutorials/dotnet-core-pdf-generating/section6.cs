@@ -1,10 +1,20 @@
-[HttpPost]
-public ActionResult Index(ClientModel model)
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    if (ModelState.IsValid)
+    public class Section6
     {
-        ClientServices.AddClient(model);
-        return RedirectToAction("TicketView");
+        public void Run()
+        {
+            [HttpPost]
+            public ActionResult Index(ClientModel model)
+            {
+                if (ModelState.IsValid)
+                {
+                    ClientServices.AddClient(model);
+                    return RedirectToAction("TicketView");
+                }
+              return View(model);
+            }
+        }
     }
-  return View(model);
 }

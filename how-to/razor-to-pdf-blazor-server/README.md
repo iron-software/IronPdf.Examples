@@ -1,14 +1,17 @@
-# How to Convert Razor to PDF in Blazor Server
+# Convert Razor Components to PDF in Blazor Server Applications
 
-Razor components are integral UI elements like pages, dialogs, or forms that are crafted using both C# and Razor syntax, enabling them to be reusable across different UIs.
+***Based on <https://ironpdf.com/how-to/razor-to-pdf-blazor-server/>***
 
-Blazor Server is a web framework that lets developers create interactive web interfaces using C# rather than JavaScript, with component logic processed server-side.
 
-IronPDF is a powerful tool within the Blazor Server environment, allowing for the easy generation of PDF documents from Razor components, making the process of creating PDFs simple and streamlined.
+A Razor component forms the building blocks of user interfaces in a Blazor Server application, using Razor syntax and C#. These components can include pages, dialogues, or forms, and are notably reusable.
 
-## IronPDF Extension Package
+Blazor Server, a web framework from Microsoft, enables developers to craft interactive web UIs primarily using C#. Unlike traditional approaches that rely on JavaScript, Blazor handles the component logic server-side.
 
-The **IronPdf.Extensions.Blazor package** augments the capabilities of the primary **IronPdf** library. Both the IronPdf.Extensions.Blazor and IronPdf packages must be included to enable the transformation of Razor components into PDF files within a Blazor Server application.
+IronPDF steps into this architecture by allowing developers to produce PDF documents from Razor components within a Blazor Server environment. This functionality simplifies the process of converting web UIs, like forms or reports, into PDF format.
+
+## IronPDF Extensions for Blazor
+
+To enable PDF rendering from Razor components, the **IronPdf.Extensions.Blazor** extension package is essential along with the main **IronPdf** library. By installing both packages, developers can fully integrate PDF generation capabilities into their Blazor Server applications.
 
 ```shell
 PM > Install-Package IronPdf.Extensions.Blazor
@@ -36,13 +39,13 @@ PM > Install-Package IronPdf.Extensions.Blazor
     </div>
 </div>
 
-## Render Razor Components to PDFs
+## Generating PDFs from Razor Components
 
-For your Blazor Server App project to convert Razor components into PDF documents, follow these steps:
+To convert Razor components into PDFs within a Blazor Server App, follow these steps:
 
-### Add a Model Class
+### Model Creation
 
-Create a standard C# class called **PersonInfo** to store personal information. Use the following code sample:
+Create a model class named **PersonInfo** to store individual records. This class might look like:
 
 ```cs
 namespace BlazorSample.Data
@@ -57,13 +60,12 @@ namespace BlazorSample.Data
 }
 ```
 
-### Add a Razor Component
+### Develop a Razor Component
 
-Convert Razor components to PDFs using the `RenderRazorComponentToPdf` method available in the **ChromePdfRenderer** class. This method returns a **PdfDocument** instance, permitting further adjustments or exporting it directly.
+To process the conversion of a Razor component into a PDF file, use the `RenderRazorComponentToPdf` method available through the **ChromePdfRenderer** class. This approach returns a **PdfDocument** object that you can either directly export or manipulate further. For instance, the PDF can be enhanced by adding bookmarks, annotations, or even watermarks, and more?
 
-These returned documents can be further tailored, including conversion to [PDF/A](https://ironpdf.com/how-to/pdfa/) or [PDF/UA](https://ironpdf.com/how-to/pdfua/) standards, merging, splitting, rotating pages, adding [annotations](https://ironpdf.com/how-to/annotations/) or [bookmarks](https://ironpdf.com/how-to/bookmarks/), and stamping [custom watermarks](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#add-a-watermark-to-a-pdf).
+Construct a Razor component called **Person** and implement the PDF rendering functionality as follows:
 
-Define a Razor component named **Person**, implementing the following code:
 ```cs
 @page "/Person"
 @using BlazorSample.Data;
@@ -82,14 +84,14 @@ Define a Razor component named **Person**, implementing the following code:
         {
             new PersonInfo { Name = "Alice", Title = "Mrs.", Description = "Software Engineer" },
             new PersonInfo { Name = "Bob", Title = "Mr.", Description = "Software Engineer" },
-            new PersonInfo { Name = "Charlie", Title = "Mr.", Description="Software Engineer" }
+            new PersonInfo { Name = "Charlie", Title = "Mr.", Description = "Software Engineer" }
         };
     }
     private async void PrintToPdf()
     {
         ChromePdfRenderer renderer = new ChromePdfRenderer();
 
-        // Set text footer options
+        // Apply text footer
         renderer.RenderingOptions.TextFooter = new TextHeaderFooter()
             {
                 LeftText = "{date} - {time}",
@@ -101,8 +103,8 @@ Define a Razor component named **Person**, implementing the following code:
 
         Parameters.Add("persons", persons);
 
-        // Convert the Razor component to a PDF
-        PdfDocument pdf = renderer.RenderRazorComponentToPDF<Person>(Parameters);
+        // Render razor component to PDF
+        PdfDocument pdf = renderer.RenderRazorComponentToPdf<Person>(Parameters);
 
         File.WriteAllBytes("razorComponentToPdf.pdf", pdf.BinaryData);
     }
@@ -127,10 +129,9 @@ Define a Razor component named **Person**, implementing the following code:
 <button class="btn btn-primary" @onclick="PrintToPdf">Print to Pdf</button>
 ```
 
-### Add a Section to the Left Menu
+### Modify the Navigation Menu
 
-- Access the "Shared folder" and edit NavMenu.razor.
-- Introduce a section to launch our Razor component, Person, as a new menu option.
+Expand your navigation menu to include the new **Person** component by editing the `NavMenu.razor`:
 
 ```html
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
@@ -139,34 +140,3 @@ Define a Razor component named **Person**, implementing the following code:
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Person">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Person
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-    </nav>
-</div>
-```
-
-#### Run the Project
-
-This section will guide you through executing the project to generate a PDF document.
-
-<img src="https://ironpdf.com/static-assets/pdf/how-to/razor-to-pdf-blazor-server/blazorServerProjectRun.gif" alt="Execute Blazor Server Project" class="img-responsive add-shadow" style="margin-bottom: 30px;"/>
-
-## Download Blazor Server App Project
-
-The complete code for this guide is available as a downloadable zipped file, ready to be used in Visual Studio as a Blazor Server App project.
-
-[Click here to download the project.](https://ironpdf.com/static-assets/pdf/how-to/razor-to-pdf-blazor-server/BlazorSample.zip)

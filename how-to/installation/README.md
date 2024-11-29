@@ -1,19 +1,22 @@
-# How to Set Up IronPDF Library in a .NET Project
+# Setting Up the IronPDF Library in a .NET Project
 
-You can integrate the [IronPDF C# Library](https://ironpdf.com/use-case/csharp-pdf-libraries/) into your project in under 5 minutes.
+***Based on <https://ironpdf.com/how-to/installation/>***
 
-The software is freely available for development through both NuGet and direct downloads. This guide will help you quickly begin using IronPDF in Visual Studio to convert HTML to PDFs within your .NET applications.
+
+Setting up the [C# PDF library](https://ironpdf.com/use-case/csharp-pdf-libraries/) is a quick process, typically taking under 5 minutes.
+
+Available free for development, you can integrate this library into your .NET project via NuGet or a direct download. This guide will help you install IronPDF in Visual Studio, enabling you to start converting HTML to PDF in no time.
 
 <div class="learnn-how-section">
   <div class="row">
     <div class="col-sm-6">
-      <h2>Guided Installation of C# PDF Library</h2>
+      <h2>Detailed Steps for C# PDF Library Installation</h2>
       <ul class="list-unstyled">
-        <li><a href="#anchor-1-1-install-ironpdf-via-nuget">Install via NuGet</a></li>
+        <li><a href="#anchor-1-1-install-ironpdf-via-nuget">Install through NuGet</a></li>
         <li><a href="#anchor-1-2-install-ironpdf-by-dll-download">Direct download installation</a></li>
-        <li><a href="#anchor-2-grant-necessary-access-to-file-or-folder">Authorization for specific files or folders</a></li>
-        <li><a href="#anchor-3-set-installation-path">Define the installation directory</a></li>
-        <li><a href="#anchor-5-microsoft-visual-c-and-windows-compatibility">Support for various OS environments</a></li>
+        <li><a href="#anchor-2-grant-necessary-access-to-file-or-folder">Provide necessary permissions</a></li> 
+        <li><a href="#anchor-3-set-installation-path">Configure the installation path</a></li>
+        <li><a href="#anchor-5-microsoft-visual-c-and-windows-compatibility">Support for Docker, Linux, and additional platforms</a></li>
     </div>
     <div class="col-sm-6">
       <div class="download-card">
@@ -28,95 +31,96 @@ The software is freely available for development through both NuGet and direct d
 <hr class="separator">
 <h4 class="tutorial-segment-title">Installation Tutorial</h4>
 
-## Install IronPDF with NuGet
+## 1.1. Install IronPDF via NuGet
 
-Follow these steps to add IronPDF to your Visual Studio project using NuGet:
+Follow these instructions to install the [IronPDF NuGet library](https://www.nuget.org/packages/IronPdf) from within Visual Studio:
 
-1. Right-click on _References_ under Solution Explorer, then click on Manage NuGet Packages
-2. Click Browse and type `"IronPdf"`
-3. Choose the IronPDF package and then click install.
+1. Open Solution Explorer, right-click on _References_ -> Manage NuGet Packages
+2. Click on Browse and type `"IronPdf"`
+3. Choose the package and click install.
 
 ```shell
 /Install-Package IronPdf
 ```
 
-IronPDF dependencies needed for deployments on platforms like [Mac](https://ironpdf.com/how-to/macos/), [Linux](https://ironpdf.com/how-to/linux/), [Azure](https://ironpdf.com/how-to/azure/), [Docker](https://ironpdf.com/how-to/docker-linux/), and AWS are detailed in our [advanced installation guidelines](https://ironpdf.com/how-to/advanced-installation-nuget/).
+IronPDF also offers NuGet packages tailored for specific environments like [Mac](https://ironpdf.com/how-to/macos/), [Linux](https://ironpdf.com/how-to/linux/), [Azure](https://ironpdf.com/how-to/azure/), [Docker](https://ironpdf.com/how-to/docker-linux/) and AWS, as detailed in our [comprehensive NuGet installation guide](https://ironpdf.com/how-to/advanced-installation-nuget/).
 
 <hr class="separator">
 
-## Install IronPDF with Direct DLL Download
+## 1.2. Install IronPDF by DLL Direct Download
 
-Alternatively, IronPDF can be installed by downloading its DLL files. Here's how:
+Alternatively, you can install IronPDF through a direct download of its DLL files. Here’s how:
 
-1. Download and extract the Windows [IronPDF package](https://ironpdf.com/packages/IronPdf.zip) to a chosen directory, e.g., ~/Libs, within your Solution directory
-2. Within Visual Studio Solution Explorer, right-click on 'Dependencies', then 'Add Project Reference'. Choose Browse and select the DLL files from the extracted folder.
+1. Download and extract the Windows [IronPDF DLL package](https://ironpdf.com/packages/IronPdf.zip) to a directory like ~/Libs inside your Solution folder.
+2. In Visual Studio's Solution Explorer, right-click on 'Dependencies' -> 'Add Project Reference'. Use Browse to locate and select the DLL files extracted from the zip.
 
-Here are other IronPDF DLL packages for various platforms:
+For additional platform-specific DLL packages:
 
 - [Windows](https://ironpdf.com/packages/IronPdf.zip)
 - [Linux](https://ironpdf.com/packages/IronPdf.Linux.zip)
 - [MacOS](https://ironpdf.com/packages/IronPdf.MacOs.zip)
 
-### Implement License Key
+### Apply License Key
 
-To activate your license, insert this code at your application's startup, before leveraging IronPDF functionalities.
+To activate your IronPDF features, insert this code at application startup, before any IronPDF operation:
 
 ```cs
 IronPdf.License.LicenseKey = "YOUR-IRONPDF-LICENSE-KEY";
 ```
 
-For other licensing methods, refer to the '[IronPDF License Keys](https://ironpdf.com/how-to/license-keys/)' documentation.
+For different methods of applying the license key, refer to the '[IronPDF License Keys Guide](https://ironpdf.com/how-to/license-keys/)'.
 
 <hr class="separator">
 
-## Set File or Folder Access Rights
+## 2. Grant Necessary Access to File or Folder
 
-It's essential to manage permissions correctly for seamless application operations.
+Sometimes, permissions need to be adjusted for certain users or services on your system.
 
-AppDomains encapsulate application details within a process, dictating that each application within the same AppPool needs a dedicated Temporary folder for total isolation.
+For example, each [AppDomain](https://docs.microsoft.com/en-us/dotnet/framework/app-domains/application-domains) requires an independent [TempFolderPath](https://en.wikipedia.org/wiki/Temporary_folder), and Apps in the same [AppPool](https://docs.microsoft.com/en-us/iis/manage/configuring-security/application-pool-identities) must not share TempFolders to remain isolated.
 
-Adjust permissions via:
+To modify permissions, follow these steps:
 
-1.  Right-click on a file or folder
+1.  Right-click on the file or folder
 2.  Choose Properties
-3.  Navigate to Security
-4.  Click Edit…
-5.  Modify permissions as necessary.
+3.  Go to Security tab
+4.  Click Edit
+5.  Adjust permissions as needed.
 
 <hr class="separator">
 
-## Define Installation Directory
+## 3. Set Installation Path
 
-For PDF rendering, IronPDF employs Chromium; however, setting the `TempFolderPath` is vital especially if a "failed rendering" error occurs. Avoid unpacking in the Program Files directory.
+IronPDF needs to load Chromium to transform [HTML into PDF](https://ironpdf.com/tutorials/html-to-pdf/). The setup for this is automatic, but if there's a "failed rendering" error, it might be necessary to specify an alternative path for unpacking the native browser binaries. The Temp folder usually serves well for this purpose.
 
-**Set `IronPdf.Installation.TempFolderPath`**:
+Remember, never use Program Files for this purpose.
+
+#### Configuring IronPdf.Installation.TempFolderPath
+
+Specify the TempFolderPath property of the [IronPdf.Installation](https://ironpdf.com/object-reference/api/IronPdf.Installation.html) like this:
 
 `IronPdf.Installation.TempFolderPath = @"C:\My\Safe\Path";`
 
-Clearing temporary and cache files after setting paths is key to ensure clean redeployments.
+It’s important to clear all temporary and cache directories after changing paths to avoid clutter or conflicts.
 
-**Enforce Environmental Temp Folder Settings**:
+#### Managing Temp Folder Environment Variables
+
+IronPDF might create temporary files during PDF processing. To control this, set the environmental variables for temporary files across your .NET application as shown:
 
 ```cs
 using IronPdf;
 
-// Define the path for temp files for the whole application.
+// Assign a custom path for temporary files at the application level.
 var MyTempPath = @"C:\Safe\Path\";
 Environment.SetEnvironmentVariable("TEMP", MyTempPath, EnvironmentVariableTarget.Process);
 Environment.SetEnvironmentVariable("TMP", MyTempPath, EnvironmentVariableTarget.Process);
 
-// Specify IronPDF's Temp Path
+// Assign the TempPath for IronPDF.
 IronPdf.Installation.TempFolderPath = System.IO.Path.Combine(MyTempPath, "IronPdf");
 
-// Example of creating and saving a PDF.
+// Example PDF generation code
 var Renderer = new IronPdf.ChromePdfRenderer();
-using var Doc = Renderer.RenderHtmlAsPdf("<h1>Html with CSS and Images</h1>");
+using var Doc = Renderer.RenderHtmlAsPdf("<h1>Welcome to IronPDF!</h1>");
 Doc.SaveAs("example.pdf");
 ```
 
-<hr class="separator">
-
-## Server and Development Environment Compatibility
-
-### Microsoft Visual C++ and Windows
-IronPDF requires Microsoft Visual C++, which can be included with your software installer like MSI. Ensure that both 32 and 64-bit versions are installed on Windows devices. You can [download Microsoft Visual C++](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) here.
+Continue with the guide for further configurations and compatibility information involving servers, cloud environments, and different operating systems.

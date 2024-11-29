@@ -1,20 +1,24 @@
-Generate a PDF document from one or several image files utilizing the `IronPdf.ImageToPdfConverter` class.
+***Based on <https://ironpdf.com/examples/image-to-pdf/>***
 
-## How to Convert an Image to a PDF in C#
+Create a PDF using images with the `IronPdf.ImageToPdfConverter` class.
 
-For example, to convert a single image found at `C:\images\example.png` to a PDF document, you can utilize the `IronPdf.ImageToPdfConverter.ImageToPdf` method by providing the path to the image:
+## Transform an Image into a PDF in C#
+
+To convert a specific image on your computer, such as the one at `C:\images\example.png`, into a PDF document, use the `IronPdf.ImageToPdfConverter.ImageToPdf` method with the image's file path:
 
 ```cs
-IronPdf.ImageToPdfConverter.ImageToPdf(@"C:\images\example.png").SaveAs("example.pdf");
+IronPdf.ImageToPdfConverter.ImageToPdf(@"C:\images\example.png").SaveAs("converted-example.pdf");
 ```
 
-## Combine Multiple Images into One PDF Document
+## Merge Several Images into One PDF Document
 
-It's also possible to combine several images into one PDF using `System.IO.Directory.EnumerateFiles`, in conjunction with `ImageToPdfConverter.ImageToPdf`:
+To consolidate multiple images into a single PDF file, utilize `System.IO.Directory.EnumerateFiles` in conjunction with `ImageToPdfConverter.ImageToPdf`:
 
 ```cs
 string sourceDirectory = @"D:\web\assets";
-string destinationFile = "JpgToPDF.pdf";
+string destinationFile = "CombinedImages.pdf";
 var imageFiles = Directory.EnumerateFiles(sourceDirectory, "*.jpg");
 ImageToPdfConverter.ImageToPdf(imageFiles).SaveAs(destinationFile);
 ```
+
+Learn more about [transforming images into PDFs with IronPDF](https://ironpdf.com/how-to/image-to-pdf/) to improve your applications, or visit the [Iron Software website](https://ironsoftware.com) to explore the full range of development tools available, including IronBarcode, IronOCR, and more.

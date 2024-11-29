@@ -1,71 +1,90 @@
-# How to Add Text and Images to PDFs
+# Drawing Text and Bitmaps on PDFs
 
-Enhancing a PDF by embedding text and images can considerably elevate its functionality and aesthetic. Using IronPDF, you can effortlessly implement customizations such as watermarks, logos, and annotated text to not only improve the document's visual appeal but also enhance its informational value. Adding these elements can make the document more interactive and provide a professional look.
+***Based on <https://ironpdf.com/how-to/draw-text-and-bitmap/>***
 
-## Example of Adding Text to PDF
 
-Using the `DrawText` method of the **PdfDocument** class, you can insert text onto any page of an existing PDF while preserving the original contents.
+Adding text and images onto an existing PDF document is made easy with IronPDF. By integrating this functionality, anyone can enhance PDFs with custom watermarks, logos, and notes, significantly enhancing the document's visual appeal and brand recognition. Moreover, incorporating text and images aids in disseminating information, visualizing data, and creating dynamic forms.
+
+## Example: Adding Text to a PDF
+
+To append text to a PDF while keeping the original content unchanged, use the `DrawText` method from the **PdfDocument** object.
 
 ```cs
-using IronPdf;
 using IronSoftware.Drawing;
-
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>sample header</h1>");
-
-// Adding text to the PDF
-pdf.DrawText("Insert this text", FontTypes.TimesNewRoman.Name, FontSize: 14, PageIndex: 0, X: 150, Y: 150, Color.Black, Rotation: 0);
-
-pdf.SaveAs("exampleText.pdf");
+using IronPdf;
+namespace ironpdf.DrawTextAndBitmap
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Sample Title</h1>");
+            
+            // Adding text to the PDF
+            pdf.DrawText("Inserting this text", FontTypes.TimesNewRoman.Name, FontSize: 12, PageIndex:0, X: 200, Y: 200, Color.Black, Rotation: 0);
+            
+            pdf.SaveAs("updatedText.pdf");
+        }
+    }
+}
 ```
 
-### Supported Fonts
+### Supported Fonts in IronPDF
 
-The `DrawText` method allows for a range of fonts including Arial, Courier, Helvetica, TimesNewRoman, and ZapfDingbats. To explore more about these font styles, including their italic, bold, or Oblique formats, refer to the [API documentation](https://ironpdf.com/object-reference/api/IronSoftware.Forms.IFormField.html).
+You can utilize a variety of fonts available in IronPDF's `FontTypes` class, which includes standards such as Courier, Arial (or Helvetica), Times New Roman, Symbol, and ZapfDingbats. Each font also offers italic, bold, and oblique styles. View the [comprehensive font list in IronPDF](https://ironpdf.com/how-to/manage-fonts/#standard-fonts).
 
-For displaying various symbols, the ZapfDingbats font is particularly useful. You can review a complete list of available symbols on [Wikipedia](https://en.wikipedia.org/wiki/Zapf_Dingbats).
+ZapfDingbats, noted for its ability to display unique symbols like ✖❄▲❪ ❫, offers extensive symbology, detailed in the [Wikipedia Zapf Dingbats section](https://en.wikipedia.org/wiki/Zapf_Dingbats).
 
-#### Display of Fonts in PDF
+#### Display of Fonts on PDF
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironpdf.com/static-assets/pdf/how-to/draw-text-and-bitmap/draw-text-and-bitmap-fonts.webp" alt="Fonts Sample on PDF" class="img-responsive add-shadow">
+         <img src="https://ironpdf.com/static-assets/pdf/how-to/draw-text-and-bitmap/draw-text-and-bitmap-fonts.webp" alt="Sample PDF Fonts" class="img-responsive add-shadow">
     </div>
 </div>
 
-## Example of Adding Images to PDF
+## Adding Images - Example
 
-The `DrawBitmap` method in IronPDF makes it straightforward to embed images into a PDF, similar to using a stamping tool on the document.
-
-This method is especially effective with high-resolution images. When using images of lower resolution, the following error might appear: **IronPdf.Exceptions.IronPdfNativeException: 'Error while drawing image: data length (567000) is less than expected (756000)'.** For such situations, the Image Stamper tool is recommended as it handles any size of image proficiently.
+IronPDF's `DrawBitmap` method makes it straightforward to embed images in PDFs, similar to the Image Stamper tool. This feature is effective particularly for large images. If you encounter an issue with high-resolution image data conflicting with expected sizes, you can always resort to the Image Stamper capable of handling various image dimensions.
 
 #### Example Image
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironpdf.com/static-assets/pdf/how-to/draw-text-and-bitmap/ironSoftware.png" alt="1200 x 627 image" class="img-responsive add-shadow">
+         <img src="https://ironpdf.com/static-assets/pdf/how-to/draw-text-and-bitmap/ironSoftware.png" alt="IronSoftware logo image" class="img-responsive add-shadow">
     </div>
 </div>
 
-### Code for Adding Image
+### Implementation Code
 
 ```cs
-using IronPdf;
 using IronSoftware.Drawing;
-
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>sample header</h1>");
-
-// Load the image from the file system
-AnyBitmap bitmap = AnyBitmap.FromFile("ironSoftware.png");
-
-// Embed the image into the PDF
-pdf.DrawBitmap(bitmap, 0, 50, 250, 500, 300);
-
-pdf.SaveAs("exampleImage.pdf");
+using IronPdf;
+namespace ironpdf.DrawTextAndBitmap
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example Heading</h1>");
+            
+            // Open image from file
+            AnyBitmap bitmap = AnyBitmap.FromFile("logo.png");
+            
+            // Apply the bitmap onto the PDF
+            pdf.DrawBitmap(bitmap, 0, 50, 200, 450, 250);
+            
+            pdf.SaveAs("updatedImage.pdf");
+        }
+    }
+}
 ```
 
-### Viewing the Resulting PDF
+### Viewing the Resultant PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/draw-text-and-bitmap/drawImage.pdf#view=fit" width="100%" height="500px">
 </iframe>
+
+This tutorial provides the essential guidelines and code snippets for incorporating text and bitmap images to your PDFs using IronPDF, enhancing both functionality and aesthetic appeal of your documents.

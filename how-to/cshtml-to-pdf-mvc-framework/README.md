@@ -1,22 +1,25 @@
-# Converting ASP.NET MVC Views to PDF Documents
+# Transforming ASP.NET MVC Views into PDF Documents
 
-In the ASP.NET framework, a View is integral to generating HTML markup dynamically in web applications. It's part of the Model-View-Controller (MVC) architecture widely adopted in both ASP.NET MVC and ASP.NET Core MVC projects. Essentially, Views function to display data to users by dynamically rendering HTML content.
+***Based on <https://ironpdf.com/how-to/cshtml-to-pdf-mvc-framework/>***
 
-***
 
-***
+A View in the ASP.NET framework is tasked with generating HTML markup within web applications. Operating within the Model-View-Controller (MVC) architecture, it is extensively utilized in ASP.NET MVC and ASP.NET Core MVC environments for dynamically displaying content to users.
 
-The ASP.NET Web Application (.NET Framework) MVC offers a well-structured web application framework by Microsoft. It employs the Model-View-Controller (MVC) pattern, which helps organize and simplify web application development processes:
+---
 
-- **Model**: Manages data, business logic, and maintains data integrity.
-- **View**: Handles the presentation of the user interface and rendering of data.
-- **Controller**: Manages user input, processes requests, and facilitates interaction between the Model and View.
+---
 
-IronPDF provides a straightforward approach to PDF creation from Views in an ASP.NET MVC project, simplifying the PDF generation process.
+Microsoft's ASP.NET Web Application (.NET Framework) MVC offers a robust framework following the Model-View-Controller (MVC) architecture, facilitating organized and streamlined web application development:
 
-## IronPDF Extension Package
+- **Model**: Manages the application's data, logic, and rules.
+- **View**: Handles the presentation layer and renders user interfaces.
+- **Controller**: Manages user inputs, request processing, and coordination between the Model and View.
 
-To enable PDF rendering from Views, install the **IronPdf.Extensions.Mvc.Framework package** along with the base **IronPdf** package in your ASP.NET MVC project:
+Using IronPDF, converting Views into PDFs within an ASP.NET MVC project is straightforward, enhancing the functionality of ASP.NET MVC applications.
+
+## Integration with IronPDF
+
+Begin by integrating the **IronPdf.Extensions.Mvc.Framework package**—a supplemental package to the main **IronPdf** library specifically designed for this purpose:
 
 ```shell
 PM > Install-Package IronPdf.Extensions.Mvc.Framework
@@ -41,18 +44,16 @@ PM > Install-Package IronPdf.Extensions.Mvc.Framework
         </div>
     </div>
     <div class="nuget-link">nuget.org/packages/IronPdf.Extensions.Mvc.Framework/</div>
+    </div>
 </div>
 
-## Rendering PDFs from Views
+## Converting Views to PDFs
 
-Start by setting up an ASP.NET Web Application (.NET Framework) MVC project.
+### Define a Model Class
 
-## Add a Model Class
+Move to the "Models" directory and create a new `Person` class in C# to represent data:
 
-- Access the "Models" folder.
-- Create a new C# file named "Person.cs" to represent individual data:
-
-```cs
+```csharp
 namespace ViewToPdfMVCSample.Models
 {
     public class Person
@@ -65,15 +66,11 @@ namespace ViewToPdfMVCSample.Models
 }
 ```
 
-## Update the Controller
+### Update the Controller
 
-Go to the "Controllers" folder and open the "HomeController.cs". Add a "Persons" action using the following guide:
+In the "Controllers" folder, update the "HomeController" by adding a "Persons" action as depicted below:
 
-The **ChromePdfRenderer** class is instantiated, and the `RenderView` method requires an HttpContext, a path to the "Persons.cshtml" View, and a list with the required data. When rendering, you can tweak the **RenderingOptions** for margins, page numbers("https://IRONPDF.com/how-to/page-numbers/"), and headers/footers("https://IRONPDF.com/how-to/headers-and-footers/").
-
-The rendered PDF can be sent for download using: <code>File(pdf.BinaryData, "application/pdf", "viewToPdfMVC.pdf")</code>.
-
-```cs
+```csharp
 using IronPdf;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -93,21 +90,18 @@ namespace ViewToPdfMVCSample.Controllers
         {
             var persons = new List<Person>
             {
-            new Person { Name = "Alice", Title = "Mrs.", Description = "Software Engineer" },
-            new Person { Name = "Bob", Title = "Mr.", Description = "Software Engineer" },
-            new Person { Name = "Charlie", Title "Mr.", Description: "Software Engineer" }
+                new Person { Name = "Alice", Title = "Mrs.", Description = "Software Engineer" },
+                new Person { Name = "Bob", Title = "Mr.", Description = "Software Engineer" },
+                new Person { Name = "Charlie", Title = "Mr.", Description="Software Engineer" }
             };
 
             if (HttpContext.Request.HttpMethod == "POST")
             {
                 var viewPath = "~/Views/Home/Persons.cshtml";
-
                 ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-                PdfDocument pdf = renderer.RenderView(this.HttpContext, viewPath, persons);
+                PdfDocument pdf = renderer.RenderView(this.HttpContext, viewPath, persons, new RenderingOptions());
 
                 Response.Headers.Add("Content-Disposition", "inline");
-
                 return File(pdf.BinaryData, "application/pdf");
             }
             return View(persons);
@@ -116,23 +110,11 @@ namespace ViewToPdfMVCSample.Controllers
 }
 ```
 
-Enhance created PDFs by converting them to different standards like [PDFA]("https://IRONPDF.com/how-to/pdfa/") or adding [digital signatures]("https://IRONPDF.com/how-to/signing/"), annotations, and [bookmarks]("https://IRONPDF.com/how-to/bookmarks/").
+After obtaining the **PdfDocument** instance, you can manipulate the PDF by applying annotations, signatures, rotating pages, and splitting or merging PDF files as needed.
 
-## Include a View
+### Generate and Modify Views
 
-- Right-click on "Persons" action and select "Add View":
-
-![Right-click on Persons action](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-mvc-framework/right-click-on-Persons.webp)
-
-- Select "MVC 5 View" when scaffolding:
-
-![Select scaffold](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-mvc-framework/select-scaffold.webp)
-
-- Opt for a "List" template and assign it to "Person":
-
-![Add view](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-mvc-framework/add-view.webp)
-
-The resulting file, "Persons.cshtml", can connect to a "Persons" action through the following button code:
+Add a .cshtml file named "Persons" using the steps below, including a button to activate the "Persons" action:
 
 ```html
 @using (Html.BeginForm("Persons", "Home", FormMethod.Post))
@@ -141,37 +123,24 @@ The resulting file, "Persons.cshtml", can connect to a "Persons" action through 
 }
 ```
 
-## Enhance the Top Navigation Bar
-
-- In "Views -> Shared -> _Layout.cshtml", add a "Person" item after "Home":
+### Enhance the Navigation Bar
 
 ```html
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-    <div class="container">
-        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between"><ul class="navbar-nav flex-grow-1">
-                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                <li>@Html.ActionLink("Persons", "Persons", "Home", new { area = "" }, new { @class "nav-link" })</li>
-                <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class: "nav-link" })</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home", new { area "" }, new { @class "nav-link" })</li>
-            </ul>
-        </div>
-    </div>
+// Embed the "Person" link in the navigation bar
+<nav>
+    // Existing nav elements
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Persons", "Persons", "Home")</li>
+        // Additional links
+    </ul>
 </nav>
 ```
 
-#### Launching the Project
+#### Execute the Project
 
-This setup demonstrates how to execute the project to generate a PDF.
+![Execute ASP.NET MVC Project](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-mvc-framework/viewToPdfMVCProjectRun.gif)
 
-<img src="https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-mvc-framework/viewToPdfMVCProjectRun.gif" alt="Execute ASP.NET MVC Project" class="img-responsive add-shadow" style="margin-bottom: 30px;"/>
+## Acquire the Full ASP.NET MVC Project Code
 
-## Download Complete ASP.NET MVC Project
-
-For comprehensive code and project structure, download the zipped file available for Visual Studio:
-
-[Download the project here.](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-mvc-framework/ViewToPdfMVCSample.zip)
+[Download the MVC sample project for PDF conversion](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-mvc-framework/ViewToPdfMVCSample.zip) to obtain a complete setup for PDF generation within an ASP.NET MVC application.

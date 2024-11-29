@@ -1,167 +1,149 @@
-# Utilizing the WaitFor Class for Enhanced PDF Rendering in C#
+# Utilizing the WaitFor Class to Optimize PDF Rendering in C#
 
-In the process of generating PDF documents, developers often encounter a scenario where the rendering initiates too early, resulting in PDFs that do not fully capture all dynamic content like animations or JavaScript-driven elements. Previously, one might have used a fixed delay to partially solve this, but this approach was neither consistent nor optimal.
+***Based on <https://ironpdf.com/how-to/waitfor/>***
 
-To address this more effectively, we've introduced the **WaitFor** class within the **RenderOptions** namespace to provide a range of conditions developers can wait for before rendering a PDF document. This class supports various synchronization strategies including:
-- [PageLoad: Immediate rendering without any wait](#anchor-default-immediate-render-example).
-- [RenderDelay: Introduces a custom delay before rendering](#anchor-custom-render-delay-example).
-- [Fonts: Ensures all fonts are loaded before rendering](#anchor-all-fonts-loaded-example).
-- [JavaScript: Utilizes a custom JavaScript function to decide the rendering start](#anchor-custom-javascript-execution-example).
-- [HTML elements: Waits for specific HTML elements to be present](#anchor-html-elements-example).
-- [NetworkIdle: Waits for periods of no network activity](#anchor-network-idle-example).
 
-These versatile options are applicable across diverse scenarios including converting [HTML strings](https://ironpdf.com/how-to/html-string-to-pdf/), [files](https://ironpdf.com/how-to/html-file-to-pdf/), and [web URLs](https://ironpdf.com/how-to/url-to-pdf/) into PDFs. Let's delve into how each feature can be employed.
+Rendering PDFs in C# can face issues like premature rendering before JavaScript assets and animations fully load, leading to incomplete or erroneous outputs. The introduction of the **WaitFor** class offers a more dependable solution compared to the earlier arbitrary delay tactic, enhancing PDF rendering accuracy and efficiency.
 
-## Immediate Rendering on Page Load
-
-By setting the rendering to occur immediately after page load, the `PageLoad` method ensures prompt action without explicit invocation.
-
-```cs
-using IronPdf;
-
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Initialize rendering immediately after page load
-renderer.RenderingOptions.WaitFor.PageLoad();
-
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>testing</h1>");
-```
-
-## Implementing a Custom Rendering Delay
-
-For precise control over rendering timing, setting a custom delay method offers the flexibility to manage when the rendering happens, which is useful in cases requiring synchronization.
-
-```cs
-using IronPdf;
-
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Set a specific rendering delay
-renderer.RenderingOptions.WaitFor.RenderDelay(3000);
-
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>testing</h1>");
-```
-
-## Ensuring All Fonts Are Loaded
-
-The `AllFontsLoaded` method pauses the PDF creation process until all external and internal fonts are fully loaded, thus maintaining the integrity and style of the original content.
-
-```cs
-using IronPdf;
-
-string htmlContent = @"
-<!DOCTYPE html>
-<html lang=""en"">
-<head>
-  <meta charset=""UTF-8"">
-  <title>Test Registration of Extension</title>
+The **WaitFor** entity within **RenderOptions** presents various robust methods to fine-tune rendering timings:
+- [Immediate Page Load](#anchor-default-immediate-render-example): Renders immediately post-page load.
+- [Custom Render Delay](#anchor-custom-render-delay-example): Allows setting a specific millisecond delay.
+- [Font Loading Completion](#anchor-all-fonts-loaded-example): Delays rendering until all fonts are available.
+- [JavaScript Function Execution](#anchor-custom-javascript-execution-example): Waits for a custom JavaScript function to dictate rendering start.
+- [Specific HTML Element Detection](#anchor-html-elements-example): Delays until certain HTML elements become present.
+- [Network Idle Conditions](#anchor-network-idle-example): Awaits minimal network activity.
   
-  <link rel=""preconnect"" href=""https://fonts.googleapis.com"">
-  <link rel=""preconnect"" href=""https://fonts.gstatic.com"" crossorigin>
-  <link rel=""stylesheet"" href=""https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"" >
-  
-  <style>
-  /* for remote fonts */
-  @font-face {
-    font-family: 'CustomFont';
-    src: url('https://stage.gradfinale.co.uk/tcpdf/fonts/avgr65wttf.ttf');
-  }
-  /* Local and remote font demonstration */
-  p#p1, p#p3 { font-family: CustomFont, Roboto, sans-serif; }
-  </style>
-</head>
-<body>
-  <h1>This is Delayed Render Test!</h1>
-  <p id=""p1"">Functional delay demonstrating font loading.</p>
-  <p id=""p3"">Ensuring consistency in document appearance.</p>
-</body>
-</html>";
+These capabilities support various file transformations including [converting HTML strings to PDF](https://ironpdf.com/how-to/html-string-to-pdf/), [HTML files to PDF](https://ironpdf.com/how-to/html-file-to-pdf/), and [URLs to PDF](https://ironpdf.com/how-to/url-to-pdf/).
 
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-renderer.RenderingOptions.WaitFor.AllFontsLoaded(10000);
+## Default Immediate Render 
 
-PdfDocument pdf = renderer.RenderHtmlAsPdf(htmlContent);
-```
-
-## Advanced Rendering with JavaScript Execution
-
-For environments where the rendering depends on the execution of specific JavaScript code, this functionality allows for a dynamic initiation of the PDF rendering.
+Without configuring any delays, the rendering kicks off as soon as the webpage loads. The `PageLoad` option functions directly in this default setting and needs no explicit initiation for standard rendering.
 
 ```cs
 using IronPdf;
-
-string html = @"<!DOCTYPE html>
-<html>
-<body>
-<h1>Interactive Rendering Test</h1>
-<script type='text/javascript'>
-// Prepare and trigger rendering after custom actions
-setTimeout(function() {
-    window.ironpdf.notifyRender();
-}, 1000);
-</script>
-</body>
-</html>";
-
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-renderer.RenderingOptions.WaitFor.JavaScript(5000);
-
-PdfDocument pdf = ChromePdfRenderer.StaticRenderHtmlAsPdf(html, renderer.RenderingOptions);
+namespace ironpdf.Waitfor
+{
+    public class ImmediateRenderExample
+    {
+        public void Execute()
+        {
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Execute rendering immediately after page load
+            renderer.RenderingOptions.WaitFor.PageLoad();
+            
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example Test</h1>");
+        }
+    }
+}
 ```
 
-## HTML Element Specific Delay
+## Implementing Custom Render Delay 
 
-To synchronize the rendering process with the availability of specific HTML elements:
-
-### Waiting for an Element by ID
+For use cases requiring controlled timing, you can incorporate a deliberate delay specified in milliseconds. This is a shift from the deprecated approach of `RenderingOptions.RenderDelay` to using the revised method `RenderingOptions.WaitFor.RenderDelay`.
 
 ```cs
 using IronPdf;
-
-string htmlContent = @"
-<!DOCTYPE html>
-<html lang=""en"">
-<head>
-  <meta charset=""UTF-8"">
-  <title>Element Specific Render Test</title>
-  <script type=""text/javascript"">
-    setTimeout(function() {
-        var h1Tag = document.createElement(""h1"");
-        h1Tag.innerHTML = ""Dynamic Content Ready"";
-        h1Tag.setAttribute(""id"", ""uniqueContent"");
-        
-        document.body.appendChild(h1Tag);
-    }, 1000);
-  </script>
-</head>
-<body>
-  <h1>Initial Content</h1>
-</body>
-</html>";
-
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-renderer.RenderingOptions.WaitFor.HtmlElementById("uniqueContent", 5000);
-
-PdfDocument pdf = renderer.RenderHtmlAsPdf(htmlContent);
+namespace ironpdf.Waitfor
+{
+    public class DelayedRenderExample
+    {
+        public void Execute()
+        {
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Delay rendering by 3000ms
+            renderer.RenderingOptions.WaitFor.RenderDelay(3000);
+            
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example Test</h1>");
+        }
+    }
+}
 ```
 
-### Waiting for an Element by Name, Tag, or Custom Selector
+## Font Readiness Implementation
 
-Similarly, rendering can be configured to wait for elements identified by name, tag, or custom selectors, with the configuration tailored to specific requirements such as tag names or complex CSS queries.
-
-## Managing Network Idle States for Rendering
-
-Whether adapting to single-page applications or handling multiple network activities, the `NetworkIdle` family of methods provides structured options to manage network-related delays efficiently.
+Ensuring all external fonts are loaded prior to rendering prevents typographic inconsistencies. The `AllFontsLoaded` method provides this capability, particularly useful for documents relying on font-specific designs.
 
 ```cs
 using IronPdf;
+namespace ironpdf.Waitfor
+{
+    public class FontLoadHandling
+    {
+        public void Execute()
+        {
+            string htmlContent = @"
+            <!DOCTYPE html>
+            <html lang=""en"">
+            <head>
+              <meta charset=""UTF-8"">
+              <title>Test Case for Font Loading</title>
+              
+              <link rel=""preconnect"" href=""https://fonts.google.com"" crossorigin>
+              <link rel=""stylesheet"" href=""https://fonts.google.com/css?family=Open+Sans"">
+            
+              <style>
+              /* Custom and local font setup */
+              p.custom { font-family: 'Open Sans', serif; }
+              </style>
+            </head>
+            <body>
+	            <h1>Font Loading Test</h1>
+	            <p class=""custom"">Sample text with a custom font.</p>
+            </body>
+            </html>";
 
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Configure rendering based on network activity
-renderer.RenderingOptions.WaitFor.NetworkIdle(1000, 5);
-
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Network Sync Test</h1>");
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            renderer.RenderingOptions.WaitFor.AllFontsLoaded(10000);
+            
+            PdfDocument pdf = renderer.RenderHtmlAsPdf(htmlContent);
+        }
+    }
+}
 ```
 
-Lastly, these synchronization options also include mechanisms to set a maximum waiting time across methods, ensuring that wait conditions are realistically bound and do not cause indefinite delays.
+## Custom JavaScript Trigger for Rendering
+
+This option allows integrating a specific JavaScript function to determine the rendering initiation, thus offering higher control over the process timing.
+
+```cs
+using IronPdf;
+namespace ironpdf.Waitfor
+{
+    public class CustomScriptExecution
+    {
+        public void Execute()
+        {
+            string html = @"
+            <!DOCTYPE html>
+            <html>
+            <body>
+            <h1>Script Execution Example</h1>
+            <script type='text/javascript'>
+            // Waiting period before triggering render
+            setTimeout(function() {
+                window.ironpdf.notifyRender();
+            }, 1000);
+            </script>
+            </body>
+            </html>";
+            
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Setup to wait for custom script trigger
+            renderer.RenderingOptions.WaitFor.JavaScript(5000);
+            
+            PdfDocument pdf = ChromePdfRenderer.StaticRenderHtmlAsPdf(html);
+        }
+    }
+}
+```
+
+## HTML Element Specific Waits
+
+Rendering can also be contingent on the presence of specific HTML elements, enhancing rendering accuracy especially in dynamic content scenarios.
+
+### Element ID Strategy
+
+This approach

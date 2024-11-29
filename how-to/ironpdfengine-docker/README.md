@@ -1,70 +1,79 @@
-# Deploying the IronPDF Docker Container
+# Deploying Your Own IronPDF Docker Container
 
-<blockquote class="double-style">Applicable only for IronPDF version 2023.2.x and later</blockquote>
+***Based on <https://ironpdf.com/how-to/ironpdfengine-docker/>***
 
-IronPdfEngine is a gRPC service capable of creating, editing, and processing PDFs.
 
-The IronPDF Docker solution provides readily deployable Docker services compatible with IronPDF versions 2023.2.x and newer. It is designed to address common deployment challenges associated with IronPDF.
+> **Compatibility Note**: Only compatible with IronPDF version 2023.2.x and newer.
+
+The `IronPdfEngine` is a gRPC-based service crafted to manage the creation, modification, and reading of PDF documents.
+
+The IronPDF Docker image provides a ready-to-use solution for deploying IronPDF versions 2023.2.x and above, solving common deployment issues encountered with IronPDF.
+
 
 ## Purpose
 
-IronPDF utilizes Chrome and Pdfium binaries, which are large (several hundred megabytes) and require numerous dependencies on the host system.
+IronPDF functions require the Google Chrome and Pdfium binaries, which are substantially large (hundreds of megabytes) and depend on multiple external dependencies.
 
-Leveraging this Docker-based approach significantly reduces the footprint of these dependencies on client machines.
+Using a Docker container, the footprint of these dependencies on the client side is drastically minimized.
 
-### Resolving Deployment Challenges
+### Eliminate Deployment Complexities
 
-Setting up a proper environment or container to include all necessary dependencies can be cumbersome. With the IronPDF Docker container, IronPDF is pre-installed and configured to function correctly, freeing you from the typical deployment and dependency hassles.
+Setting up environments or containers to include all needed dependencies can be challenging. The IronPDF Docker container comes with IronPDF pre-configured, ensuring functionality without the hassle of managing dependencies.
 
-## Version Compatibility
+## Versioning
 
-The version tag of the IronPDF Docker image correlates directly with the IronPdfEngine version, not the IronPDF core product version. 
+The Docker tag for IronPDF corresponds to the respective `IronPdfEngine` version, which is different from the IronPDF library version itself.
 
-Each version of IronPDF has a corresponding version of IronPdfEngine, and these versions must align when deploying the IronPDF Docker container.
+Each release of IronPDF has a matching `IronPdfEngine` version. It's essential that these versions align. For instance, `IronPDF for Java` version `2023.2.1` must use `IronPdfEngine version` `2023.2.1`. Version discrepancies between IronPdfEngine and IronPDF are not permissible.
 
-For example, the `IronPDF for Java` version `2023.2.1` must use IronPdfEngine version `2023.2.1`. Mismatches between these versions are not permitted.
-
-## Utilizing IronPDF Docker
+## Utilizing IronPDF Docker Container
 
 ### Step 1 - Installation
 
-Integrate the IronPdf.Slim package from Nuget into your application.
+Incorporate the `IronPdf.Slim` NuGet package into your project. 
 
-[https://www.nuget.org/packages/IronPdf.Slim/](https://www.nuget.org/packages/IronPdf.Slim/)
+[Install IronPdf.Slim from NuGet](https://www.nuget.org/packages/IronPdf.Slim/)
 
-More info: [https://ironpdf.com/docs/](https://ironpdf.com/docs/)
+For further details, visit the [IronPDF Documentation](https://ironpdf.com/docs/)
 
-**Note: The `IronPdf`, `IronPdf.Linux`, and `IronPdf.MacOs` packages also include IronPdf.Slim.** 
+> **Note:** Packages like `IronPdf`, `IronPdf.Linux`, and `IronPdf.MacOs` all include `IronPdf.Slim`. It's recommended to use only `IronPdf.Slim` to reduce application size. You can safely remove `IronPdf.Native.Chrome.xxx` from your project since it is no longer required.
 
-It’s recommended to install only IronPdf.Slim to minimize your app's size. The `IronPdf.Native.Chrome.xxx` package is now obsolete and can be removed.
+### Step 2 - Confirm Docker Container Version
 
-### Step 2 - Select the Proper Container Version
+The default version for IronPDF in Docker will be aligned with the IronPDF version currently available on NuGet.
 
-IronPDF Docker versions should align with the latest IronPDF versions available on NuGet. Verify the version explicitly if needed:
-
+You can manually verify the version as following:
 ```cs
-string ironPdfEngineVersion = IronPdf.Installation.IronPdfEngineVersion;
+using IronPdf;
+namespace ironpdf.IronpdfengineDocker
+{
+    public class VerifyVersion
+    {
+        public void Execute()
+        {
+            string ironPdfEngineVersion = IronPdf.Installation.IronPdfEngineVersion;
+        }
+    }
+}
 ```
 
-### Step 3 - Deploying IronPDF on Docker
+### Step 3 - Configuring Docker Deployment
 
-#### Step 3.i - Without Docker Compose
+#### Sub-step 3.i - Deployment without Docker Compose
 
-Execute the following commands to run the specific version of IronPDF Docker:
+Deploy the container using the version identified previously:
 
-```
+```sh
 docker network create -d bridge --attachable --subnet=172.19.0.0/16 --gateway=172.19.0.1 ironpdf-network
 
 docker run -d -e IRONPDF_ENGINE_LICENSE_KEY=MY_LICENSE_KEY --network=ironpdf-network --ip=172.19.0.2 --name=ironpdfengine --hostname=ironpdfengine -p 33350:33350 ironsoftwareofficial/ironpdfengine:2023.2.1
 ```
 
-Port 33350 is utilized as the default internal port for IronPdfEngine.
+IronPDF is now operational within the Docker container at port 33350!
 
-IronPDF Docker is now operational!
+#### Sub-step 3.ii - Using Docker Compose
 
-#### Step 3.ii - Using Docker Compose
-
-Configure your Docker Compose environment using the following example:
+Prepare your Docker Compose file as below:
 
 ```yaml
 version: "3.3"
@@ -97,39 +106,56 @@ networks:
           gateway: 172.19.0.1
 ```
 
-Execute the setup with:
+Subsequently, launch your Docker composition:
 
 ```bash
 docker compose up --detach --force-recreate --remove-orphans --timestamps
 ```
 
-### Step 4 - Configure the IronPDF Client
+### Step 4 - Set Up your IronPDF Client
 
-Incorporate this configuration line:
+Include this configuration in your project:
 
 ```cs
 using IronPdf.GrpcLayer;
-
-var config = new IronPdfConnectionConfiguration();
-config.ConnectionType = IronPdfConnectionType.Docker;
-IronPdf.Installation.ConnectToIronPdfHost(config);
+using IronPdf;
+namespace ironpdf.IronpdfengineDocker
+{
+    public class ConfigureClient
+    {
+        public void Execute()
+        {
+            var config = new IronPdfConnectionConfiguration();
+            config.ConnectionType = IronPdfConnectionType.Docker;
+            IronPdf.Installation.ConnectToIronPdfHost(config);
+        }
+    }
+}
 ```
 
 ### Step 5 - Execution
 
-Execute your IronPDF based code and it will now interface with the IronPdfEngine hosted in a Docker container!
+Execute your PDF manipulation tasks. Your application is now connected to the IronPdfEngine Docker instance!
 
-#### Sample Client Code
+#### Example Client Code
 
 ```cs
-using IronPdf;
 using IronPdf.GrpcLayer;
-
-var config = new IronPdfConnectionConfiguration();
-config.ConnectionType = IronPdfConnectionType.Docker;
-IronPdf.Installation.ConnectToIronPdfHost(config);
-
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello IronPDF Docker!<h1>");
-pdf.SaveAs("ironpdf.pdf");
+using IronPdf;
+namespace ironpdf.IronpdfengineDocker
+{
+    public class PerformTasks
+    {
+        public void Execute()
+        {
+            var config = new IronPdfConnectionConfiguration();
+            config.ConnectionType = IronPdfConnectionType.Docker;
+            IronPdf.Installation.ConnectToIronPdfHost(config);
+            
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello IronPDF Docker!<h1>");
+            pdf.SaveAs("ironpdf.pdf");
+        }
+    }
+}
 ```

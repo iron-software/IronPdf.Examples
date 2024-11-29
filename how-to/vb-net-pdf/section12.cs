@@ -1,1 +1,0 @@
-pdf.RemovePage((pdf.PageCount - 1))

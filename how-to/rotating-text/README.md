@@ -1,62 +1,83 @@
-# Rotate PDF Text and Pages in .NET
+# Adjusting PDF Text and Pages Orientation in .NET
 
-Adjusting the orientation of text or entire pages within a PDF document involves modifying how they are displayed, either by rotating them by common degree increments such as 90, 180, or 270 degrees. This manipulation of content alignment can be executed either clockwise or counterclockwise.
+***Based on <https://ironpdf.com/how-to/rotating-text/>***
 
-## Rotate PDF Pages
 
-The methods `SetPageRotation`, `SetPageRotations`, and `SetAllPageRotations` are utilized to adjust the orientation of a single page, multiple pages, or every page in a document, respectively. When using these methods, the current orientation of the page is replaced with the designated rotation value, applied in a clockwise direction. If the rotation set is the same as the current page orientation, these methods will not modify the document.
+Adjusting the orientation of PDF text or entire pages involves modifying how text elements or pages are displayed within a PDF file. These adjustments typically involve rotations—commonly 90, 180, or 270 degrees—and can be either clockwise or counterclockwise to suit your document manipulation needs.
+
+## Modifying the Orientation of PDF Pages
+
+To change the orientation of PDF pages, you can utilize methods like `SetPageRotation`, `SetPageRotations`, and `SetAllPageRotations` to modify the rotation of a single page, multiple pages, or every page within a document, respectively. These methods will replace any existing page rotations with the new angle you specify, which must be defined in a clockwise direction. If a page is already rotated to the angle you apply, the page’s appearance won't change.
 
 ```cs
-using IronPdf;
-using IronPdf.Rendering;
 using System.Linq;
-
-// Load PDF document
-PdfDocument pdfDocument = PdfDocument.FromFile("multi-page.pdf");
-
-// Apply clockwise 90 degrees rotation to the first page
-pdfDocument.SetPageRotation(0, PdfPageRotation.Clockwise90);
-
-// Apply clockwise 270 degrees rotation to specified range of pages
-pdfDocument.SetPageRotations(Enumerable.Range(1,3), PdfPageRotation.Clockwise270);
-
-// Rotate all pages in the document to 180 degrees clockwise
-pdfDocument.SetAllPageRotations(PdfPageRotation.Clockwise180);
-
-pdfDocument.SaveAs("rotated.pdf");
+using IronPdf;
+namespace ironpdf.RotatingText
+{
+    public class RotatePagesSection
+    {
+        public void Execute()
+        {
+            // Load existing PDF document
+            PdfDocument pdf = PdfDocument.FromFile("multi-page.pdf");
+            
+            // Adjust the rotation of the first page
+            pdf.SetPageRotation(0, PdfPageRotation.Clockwise90);
+            
+            // Alter orientations for a range of pages
+            pdf.SetPageRotations(Enumerable.Range(1, 3), PdfPageRotation.Clockwise270);
+            
+            // Apply new orientation to all pages in the document
+            pdf.SetAllPageRotations(PdfPageRotation.Clockwise180);
+            
+            // Save the modified document
+            pdf.SaveAs("rotated-pages.pdf");
+        }
+    }
+}
 ```
 
 <hr class="separator">
 
-## Use CSS3 to Rotate Text
+## Applying CSS3 for Text Rotation
 
-During the transformation from HTML to PDF using .NET, sometimes it's necessary to programmatically adjust the orientation of text or entire pages. One common need is to have text aligned vertically in a PDF, which can be achieved using HTML5 and CSS3.
+When converting from HTML to PDF in .NET, there are situations where text or even entire pages need to be rotated. This often includes setting up text to appear vertically in the PDFs, which can be achieved using HTML5 and CSS3 techniques.
 
-**CSS3** facilitates the rotation of text to any arbitrary degree following the conversion from HTML to PDF. This adjustment is made possible with the `-webkit-transform: rotate` style in CSS3, which allows HTML elements to be rotated to any specified angle.
+**CSS3** transformations are possible after converting a PDF from HTML using your [IronPDF .NET Library](https://ironpdf.com/?utm_source=use-case-page). Specifically, the `-webkit-transform: rotate` CSS property allows the rotation of HTML elements by any degree.
 
-The property `[-webkit-transform](https://www.quackit.com/css/properties/webkit/css_-webkit_transform.cfm)` supports various 2D and 3D rotational transformations and effects on HTML elements. Here is an example illustrating how to use C# and the [PDF .NET Library](https://ironpdf.com/use-case/pdf-dot-net-library/) for rotating text by 180 degrees in a PDF:
+You can see a brief example of implementing a 180-degree text rotation in C# converting HTML to PDF below:
 
 ```cs
 using IronPdf;
-
-var pdfRenderer = new IronPdf.ChromePdfRenderer();
-
-var pdfDocument = pdfRenderer.RenderHtmlAsPdf(@"
-<html>
-<head>
- <style>
-  .rotated {
-  -webkit-transform: rotate(-180deg);
-  width: 400;
-  height: 400;
-  }
-</style>
-</head>
-<body>
-<p class='rotated'>Rotated Text</p>
-</body>
-</html>
-");
-
-pdfDocument.SaveAs("rotated.pdf");
+namespace ironpdf.RotatingText
+{
+    public class RotateTextSection
+    {
+        public void Execute()
+        {
+            var renderer = new IronPdf.ChromePdfRenderer();
+            
+            var htmlContent = @"
+            <html>
+            <head>
+             <style>
+              .rotated {
+               -webkit-transform: rotate(-180deg);
+               width: 400;
+               height: 400;
+              }
+             </style>
+            </head>
+            <body>
+             <p class='rotated'>Rotated Text</p>
+            </body>
+            </html>
+            ";
+            
+            var pdf = renderer.RenderHtmlAsPdf(htmlContent);
+            
+            pdf.SaveAs("rotated-text.pdf");
+        }
+    }
+}
 ```

@@ -1,76 +1,110 @@
-# Setting Passwords and Permissions on PDF Files
+# Implementing PDF Security: Passwords and Permissions Explained
+
+***Based on <https://ironpdf.com/how-to/pdf-permissions-passwords/>***
+
 
 <div class="alert alert-info iron-variant-1" role="alert">
-	Is your organization looking to cut expenses on annual subscriptions for PDF security? Explore <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>, offering a one-time purchase solution for services like digital signing, redaction, and encryption. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Explore the features here</a>.
+    Is your company overspending on PDF security and compliance yearly subscriptions? Discover <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a> which offers a suite of features including digital signing, redaction, and encryption in a cost-effective, one-time payment model. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Learn More About IronSecureDoc</a>
 </div>
 
-Password protection ensures that access to the document is limited to authorized users. This usually involves two kinds of passwords: the user password (or open password) needed to read the document, and the owner password (or permissions password) that manages permissions like editing and printing.
+Securing a PDF involves encrypting the file to avoid access by unauthorized users. Typically, there are two types of passwords involved: a user password, which needs to be entered to open the PDF, and an owner password, which allows setting varying permissions such as the ability to edit or print the document.
 
-IronPDF delivers comprehensive support for both password protection and permission settings on PDF documents. Whether it's applying non-printable, read-only, or encrypted statuses to your PDFs, leveraging 128-bit encryption for security, or enabling password protection, IronPDF has you covered.
+IronPDF provides comprehensive support for securing your PDFs. Whether you are working with new or existing documents, IronPDF enables you to apply detailed security settings including encryption, making documents unprintable or read-only, and using advanced encryption techniques like 128-bit encryption for securing your documents.
 
-## Apply a Password to a PDF
+## Adding a Password to a PDF
 
-Below is an instance where we aim to secure an [example PDF](https://ironpdf.com/static-assets/pdf/how-to/pdf-permissions-passwords/unprotected.pdf) using IronPDF. We will implement a code that assigns the password **password123**.
+Here is a scenario where we need to secure an [example PDF](https://ironpdf.com/static-assets/pdf/how-to/pdf-permissions-passwords/unprotected.pdf) using IronPDF. Below, we'll apply a password using the IronPDF library. In this case, our choice of password is **password123**.
 
 ```cs
 using IronPdf;
-
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Confidential Info:</h1> Greetings");
-
-// Setting the password for editing the PDF
-pdf.SecuritySettings.OwnerPassword = "123password";
-
-// Establishing the password for opening the PDF
-pdf.SecuritySettings.UserPassword = "password123";
-
-pdf.SaveAs("protected.pdf");
+namespace ironpdf.PdfPermissionsPasswords
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Create a PDF from HTML content.
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Confidential Report:</h1> Hello World");
+            
+            // Set Owner Password which allows editing.
+            pdf.SecuritySettings.OwnerPassword = "123password";
+            
+            // Set User Password required to open the PDF.
+            pdf.SecuritySettings.UserPassword = "password123";
+            
+            // Save the encrypted PDf
+            pdf.SaveAs("protected.pdf");
+        }
+    }
+}
 ```
 
-View the secured PDF by entering the password **password123** in the viewer below.
+After protecting the PDF, you will need the password **password123** to open it.
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/pdf-permissions-passwords/protected.pdf" width="100%" height="500px">
 </iframe>
 
 ## Accessing a Password-Protected PDF
 
-To open a password-protected PDF, use the `PdfDocument.FromFile` method, which has an optional password parameter. Input the correct password to open the document.
+The following segment shows how to access and interact with a PDF that is protected by a password using IronPDF. The `PdfDocument.FromFile` method facilitates this by accepting a password for the encrypted PDF.
 
 ```cs
 using IronPdf;
-
-var pdf = PdfDocument.FromFile("protected.pdf", "password123");
-
-//... various PDF operation actions
-
-pdf.SaveAs("protected_2.pdf"); // Saving it as a different file
+namespace ironpdf.PdfPermissionsPasswords
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            var pdf = PdfDocument.FromFile("protected.pdf", "password123");
+            
+            // Example operations on the PDF
+            
+            // Save the manipulated PDF to a new file
+            pdf.SaveAs("protected_2.pdf");
+        }
+    }
+}
 ```
 
-## Advanced Security and Permission Adjustments
+<hr>
 
-The **PdfDocument** object also allows setting metadata like **Author** and **ModifiedDate**. Further, it enables controlling permissions such as disallowing user annotations or printing as demonstrated below:
+## Setting Advanced Security and Permissions
+
+The **PdfDocument** object allows further customization of security settings and metadata, such as **Author** and **ModifiedDate**. Below we demonstrate how various permissions and settings can be modified to enhance document security.
 
 ```cs
 using IronPdf;
-
-// Either open an encrypted PDF or create a new one from HTML
-var pdf = PdfDocument.FromFile("protected.pdf", "password123");
-
-// Adjust file security settings
-// The next lines make the PDF read-only and restrict copy & paste and printing capabilities
-pdf.SecuritySettings.RemovePasswordsAndEncryption();
-pdf.SecuritySettings.MakePdfDocumentReadOnly("secret-key");
-pdf.SecuritySettings.AllowUserAnnotations = false;
-pdf.SecuritySettings.AllowUserCopyPasteContent = false;
-pdf.SecuritySettings.AllowUserFormData = false;
-pdf.SecuritySettings.AllowUserPrinting = IronPdf.Security.PdfPrintSecurity.FullPrintRights;
-
-// The finalized PDF is then saved securely
-pdf.SaveAs("secured.pdf");
+namespace ironpdf.PdfPermissionsPasswords
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            var pdf = PdfDocument.FromFile("protected.pdf", "password123");
+            
+            // Modify security settings to enforce restrictions
+            pdf.SecuritySettings.RemovePasswordsAndEncryption();
+            pdf.SecuritySettings.MakePdfDocumentReadOnly("secret-key");
+            pdf.SecuritySettings.AllowUserAnnotations = false;
+            pdf.SecuritySettings.AllowUserCopyPasteContent = false;
+            pdf.SecuritySettings.AllowUserFormData = false;
+            pdf.SecuritySettings.AllowUserPrinting = IronPdf.Security.PdfPrintSecurity.FullPrintRights;
+            
+            // Finalizing and saving the secured PDF
+            pdf.SaveAs("secured.pdf");
+        }
+    }
+}
 ```
 
-The behavior of these permission settings is conditioned by the presence of passwords. For instance, disabling the **AllowUserCopyPasteContent** without any password keeps the copy/paste blocked, setting a user password enables it upon authentication, and an owner password fully controls the access to copy/paste functionality.
+Document permissions interact with password settings in the following ways:
+
+- **No password**: Copy/pasting content remains blocked.
+- **User password**: Granting the user password will unlock copy/paste features.
+- **Owner password**: Access with only the user password restricts copy/paste operations; an owner password is required for these permissions.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -78,4 +112,4 @@ The behavior of these permission settings is conditioned by the presence of pass
     </div>
 </div>
 
-For additional insights, check out the related topic on how to [Adjust and Customize PDF Metadata](https://ironpdf.com/how-to/metadata/).
+Explore a related topic on handling PDF metadata with this detailed guide: "[Setting and Editing PDF Metadata](https://ironpdf.com/how-to/metadata/)."

@@ -1,97 +1,91 @@
-# IronPDF Advanced Installation Guide
+# Advanced Installation of IronPDF
 
-Starting with release v2022.1, IronPdf introduces advanced installation options that cater specifically to various platforms.
+***Based on <https://ironpdf.com/how-to/advanced-installation-nuget/>***
 
-Rather than using the standard `IronPDF` package from NuGet, developers can now choose from a variety of targeted IronPDF packages depending on their specific needs. These packages offer the same API but differ in deployment strategies.
 
-What's great is that even if you choose a platform-specific package like IronPdf.Linux for optimized performance on Linux systems, you can still develop using your usual OS such as Windows, within Visual Studio.
+From IronPDF Release v2022.1 onward, there are more specialized methods to install IronPDF for particular environments.
 
-## IronPdf Standard NuGet Package
+Rather than opting for the general `IronPDF` NuGet package, NuGet now hosts specialized IronPDF packages tailored to specific development scenarios. While the API interface remains consistent, the deployment strategies are distinct.
 
-![NuGet Logo](https://ironpdf.com/img.icons8.com/windows/72/000000/nuget.png)
-![Linux Logo](https://ironpdf.com/img.icons8.com/color/72/000000/linux--v1.png)
-![Docker Logo](https://ironpdf.com/img.icons8.com/color/72/000000/docker.png)
-![Azure Logo](https://ironpdf.com/img.icons8.com/fluency/72/000000/azure-1.png)
-![AWS Logo](https://ironpdf.com/img.icons8.com/color/72/000000/amazon-web-services.png)
-![Ubuntu Logo](https://ironpdf.com/img.icons8.com/color/72/000000/ubuntu--v1.png)
-![Mac Logo](https://ironpdf.com/img.icons8.com/color/72/000000/mac-client.png)
-![Windows Logo](https://ironpdf.com/img.icons8.com/color/72/000000/windows-logo.png)
+Notably, you can utilize a platform-specific package such as IronPdf.Linux for an optimized deployment on Linux, yet still carry on development on your usual operating system like Windows using Visual Studio!
 
-This package is the most commonly used. It is configured for quick setup in Visual Studio, making it ideal for a wide range of projects.
+## IronPdf General NuGet Package
 
-[**PM > Install-Package IronPdf**](https://www.nuget.org/packages/IronPdf/)
--   Includes `IronPdf.Slim`
--   Contains Windows-based dependencies for the default Chrome renderer
--   Automatically downloads Windows-specific dependencies at runtime
--   Primarily uses the Chrome renderer
--   Compatible with all platforms, optimizing for Windows without additional downloads
--   Recommended for Windows users or general use
--   Suitable for deployment on any platform
+<img src="https://ironpdf.com/img/icons8-windows-72-000000-nuget.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-linux--v1.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-docker.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-fluency-72-000000-azure-1.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-amazon-web-services.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-ubuntu--v1.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-mac-client.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-windows-logo.png" style="display:inline"/>
+
+This is the most commonly utilized package, designed to fast-track your setup in Visual Studio. It's apt for the majority of projects.
+
+[**Download IronPdf NuGet Package**](https://www.nuget.org/packages/IronPdf/)
+- Includes `IronPdf.Slim`
+- Carries Windows-specific dependencies for the Chrome (default) renderer
+- This default package automatically downloads Windows-specific dependencies during runtime
+- Primarily uses Chrome as the renderer
+- Compatible with all platforms, although it is optimized for Windows without needing extra downloads
 
 ## IronPdf.Slim NuGet Package
 
-![Cloud Logo](https://ironpdf.com/img.icons8.com/color/72/000000/cloud-backup-restore.png)
-![Azure Logo](https://ironpdf.com/img.icons8.com/fluency/72/000000/azure-1.png)
-![NuGet Logo](https://ironpdf.com/img.icons8.com/windows/72/000000/nuget.png)
+<img src="https://ironpdf.com/img/icons8-color-72-000000-cloud-backup-restore.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-fluency-72-000000-azure-1.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-windows-72-000000-nuget.png" style="display:inline" />
 
-Optimal for applications requiring minimal disk space or those distributed across various operating systems. The specific Chromium / WebKit rendering engine will be dynamically downloaded as needed.
+Perfect for applications requiring minimal disk space or those being distributed across various operating systems. The exact Chromium/WebKit rendering engine will be downloaded dynamically on the target machine upon execution.
 
-[**PM > Install-Package IronPdf.Slim**](https://www.nuget.org/packages/IronPdf.Slim/) 
--   Referenced by all other packages
--   Includes only the core `IronPdf.dll`
--   Excludes OS-specific dependencies, which are fetched at runtime
--   Default setup uses the Chrome renderer on all platforms
--   Ideal for cross-platform applications requiring on-demand dependency downloads
--   Requires internet and disk access during initial runtime
--   Perfect for highly portable applications with variable target environments
+[**Download IronPdf.Slim NuGet Package**](https://www.nuget.org/packages/IronPdf.Slim/)
+- References all other packages
+- Includes the primary `IronPdf.dll`
+- Does not contain platform-specific dependencies initially
+- Dependencies for Windows, Linux, or macOS are automatically downloaded at runtime
+- Preset to use Chrome renderer across all platforms
+- Ideal for cross-platform applications that fetch platform-specific dependencies on-the-fly
 
 ## IronPdf.Linux NuGet Package
 
-![Linux Logo](https://ironpdf.com/img.icons8.com/color/72/000000/linux--v1.png)
-![Debian Logo](https://ironpdf.com/img.icons8.com/color/72/000000/debian.png)
-![Ubuntu Logo](https://ironpdf.com/img.icons8.com/color/72/000000/ubuntu.png)
-![CentOS Logo](https://ironpdf.com/img.icons8.com/color/72/000000/centos.png)
-![NuGet Logo](https://ironpdf.com/img.icons8.com/windows/72/000000/nuget.png)
-![Azure Logo](https://ironpdf.com/img.icons8.com/fluency/72/000000/azure-1.png)
-![AWS Logo](https://ironpdf.com/img.icons8.com/color/72/000000/amazon-web-services.png)
-![Docker Logo](https://ironpdf.com/img.icons8.com/color/72/000000/docker.png)
+<img src="https://ironpdf.com/img/icons8-color-72-000000-linux--v1.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-debian.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-ubuntu.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-centos.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-windows-72-000000-nuget.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-fluency-72-000000-azure-1.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-amazon-web-services.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-docker.png" style="display:inline" />
 
-Perfect for [Linux deployments](https://ironpdf.com/how-to/linux/), especially in cloud environments like AWS & Azure.
+Ideal for [Deploying IronPdf on Linux](https://ironpdf.com/how-to/linux/). Cloud-optimized and performs excellently on AWS & Lambda, Azure Functions and Linux WebApps.
 
-[**PM > Install-Package IronPdf.Linux**](https://www.nuget.org/packages/IronPdf.Linux/)
--   Incorporates `IronPdf.Slim`
--   Includes Linux-specific components for the default Chrome renderer
--   Primarily supports the Chrome renderer
--   Seamless operation on Linux without additional downloads needed
--   Ideal for Linux enthusiasts, particularly those using Docker and cloud technologies
+[**Download IronPdf.Linux NuGet Package**](https://www.nuget.org/packages/IronPdf.Linux/)
+- Includes `IronPdf.Slim`
+- Contains Linux-specific dependencies for the Chrome renderer
 
-## IronPdf.MacOs & IronPdf.MacOs.ARM NuGet Packages
+## IronPdf macOS NuGet Packages
 
-![Mac Logo](https://ironpdf.com/img.icons8.com/color/72/000000/mac-client.png)
-![NuGet Logo](https://ironpdf.com/img.icons8.com/windows/72/000000/nuget.png)
+<img src="https://ironpdf.com/img/icons8-color-72-000000-mac-client.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-windows-72-000000-nuget.png" style="display:inline" />
 
-NuGet packages tailored for [Mac compatibility](https://ironpdf.com/how-to/macos/).
+Available specific packages for deploying [IronPdf on macOS](https://ironpdf.com/how-to/macos/).
 
-[**PM > Install-Package IronPdf.MacOs**](https://www.nuget.org/packages/IronPdf.MacOs/)
+[**Download IronPdf.MacOs NuGet Package**](https://www.nuget.org/packages/IronPdf.MacOs/)
 
-[**PM > Install-Package IronPdf.MacOs.ARM**](https://www.nuget.org/packages/IronPdf.MacOs.ARM/)
- 
--   Includes `IronPdf.Slim`
--   Contains Mac-specific dependencies for the default Chrome renderer
--   Typically uses the Chrome renderer
--   Well-suited for macOS developers
+[**Download IronPdf.MacOs.ARM NuGet Package**](https://www.nuget.org/packages/IronPdf.MacOs.ARM/)
+
+- Includes `IronPdf.Slim`
+- Packs Mac-specific dependencies for the Chrome renderer
 
 ## IronPdf.Classic NuGet Package
 
-![Time Machine Logo](https://ironpdf.com/img.icons8.com/office/72/000000/time-machine--v1.png)
-![Linux Logo](https://ironpdf.com/img.icons8.com/color/72/000000/linux--v1.png)
-![Mac Logo](https://ironpdf.com/img.icons8.com/color/72/000000/mac-client.png)
-![Windows Logo](https://ironpdf.com/img.icons8.com/color/72/000000/windows-logo.png)
-![NuGet Logo](https://ironpdf.com/img.icons8.com/windows/72/000000/nuget.png)
+<img src="https://ironpdf.com/img/icons8-office-72-000000-time-machine--v1.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-linux--v1.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-mac-client.png" style="display:inline" />
+<img src="https://ironpdf.com/img/icons8-color-72-000000-windows-logo.png" style="display:inline"/>
+<img src="https://ironpdf.com/img/icons8-windows-72-000000-nuget.png" style="display:inline" />
 
-Essential for legacy users who require consistency with IronPDF's HtmlToPdf rendering from before August 2021 using the 2020-2021 WebKit renderer.
+This package supports legacy customers who started using IronPDF before August 2021 and prefer their HTML to PDF conversion process remains unchanged. This leverages our classic 2020-2021 WebKit renderer.
 
-[**PM > Install-Package IronPdf.Classic**](https://www.nuget.org/packages/IronPdf.Classic/)
--   Contains both `IronPdf.Slim` and `IronPdf.Native.WebKit`
--   Packs dependencies for the legacy WebKit HTML to PDF renderer
--   Utilizes the traditional WebKit renderer by default
+[**Download IronPdf.Classic NuGet Package**](https://www.nuget.org/packages/IronPdf.Classic/)
+- Contains both `IronPdf.Slim` and `IronPdf.Native.WebKit`
+- Includes all platform dependencies for the WebKit renderer

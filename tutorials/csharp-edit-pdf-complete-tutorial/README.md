@@ -1,964 +1,1327 @@
-# How to Edit a PDF in C#
+# Editing PDFs using C&num;
 
-## Introduction
+***Based on <https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/>***
 
-Iron Software has greatly streamlined multiple PDF editing capabilities through the IronPDF library. This includes everything from adding signatures to inserting HTML content, applying watermarks, and annotating documents. IronPDF ensures that your code remains clean and readable, simplifies PDF creation programmatically, and guarantees straightforward debugging and deployment across various platforms and environments.
 
-With IronPDF, you have access to an extensive array of features for PDF modification. In this instructional tutorial, we'll explore some of these essential features, provide code samples, and explain their uses.
+## Overview
 
-This guide will equip you with the knowledge necessary to manipulate PDF files using IronPDF in C#.
+Iron Software equips developers with the IronPDF library, which streamlines numerous PDF modifications through user-friendly methods. Whether it’s adding signatures, incorporating HTML footers, embedding watermarks, or inserting annotations, IronPDF ensures your code remains clean, the PDF creation process is straightforward, deployment is hassle-free, and debugging is a breeze across all supported platforms and environments.
 
-## Table of Contents
+IronPDF offers an extensive array of functionalities for PDF editing. This guide delves into some significant features, providing code snippets and discussions to enhance your understanding of PDF editing in C&num; using IronPDF.
 
-- **Edit Document Structure**
-  - [Add, Copy, and Delete Pages](#anchor-manipulate-pages)
-  - [Merge and Split PDF Documents](#anchor-merge-and-split-pdfs)
-- **Edit Document Properties**
-  - [Add and Manage PDF Metadata](#anchor-add-and-use-pdf-metadata)
-  - [Digital Signatures](#anchor-digital-signatures)
-  - [Handling PDF Attachments](#anchor-pdf-attachments)
-  - [PDF Compression Techniques](#anchor-compress-pdfs)
-- **Edit PDF Content**
-  - [Incorporating Headers and Footers](#anchor-add-headers-and-footers)
-  - [Search and Replace Text in PDF](#anchor-find-and-replace-text-in-a-pdf)
-  - [Using Outlines and Bookmarks](#anchor-outlines-and-bookmarks)
-  - [Creating and Modifying Annotations](#anchor-add-and-edit-annotations)
-  - [Setting Backgrounds and Foregrounds](#anchor-add-backgrounds-and-foregrounds)
-- **Stamping and Watermarking Features**
-  - [Overview of Stampers](#anchor-stamper-abstract-class)
-    - [Properties of Stamper Classes](#anchor-stamper-class-properties)
-  - [Examples of Stamping](#anchor-stamping-examples)
-    - [Text Stamping](#anchor-stamp-text-onto-a-pdf)
-    - [Image Stamping](#anchor-stamp-an-image-onto-a-pdf)
-    - [HTML Stamping](#anchor-stamp-html-onto-a-pdf)
-    - [Barcode and QR Code Stamping](#anchor-stamp-a-barcode-onto-a-pdf)
-    - [Adding Watermarks](#anchor-add-a-watermark-to-a-pdf)
-  - [Applying Stamps to PDFs](#anchor-apply-stamp-onto-a-pdf)
-  - [Understanding the Length Class](#anchor-length-class)
-    - [Properties of the Length Class](#anchor-length-class-properties)
-    - [Using Length in Coding](#anchor-length-examples)
-- **Utilization of Forms in PDFs**
-  - [Creating and Altering Forms](#anchor-create-and-edit-forms)
-  - [Populating Existing Forms](#anchor-fill-existing-forms)
-
-By reading this article, you'll learn the critical capabilities that IronPDF offers for enhancing your PDF editing tasks. Join us as we outline how to maximize the potential of these features in your development projects.
-
-## Introduction
-
-Iron Software has streamlined a variety of PDF editing operations into intuitive and easy-to-follow methods with its IronPDF library. Whether it's inserting signatures, embedding HTML footers, applying watermarks, or adding annotations, IronPDF equips you with the tools for clear coding, on-the-fly PDF creation, straightforward debugging, and effortless deployment across any supported platform or environment.
-
-IronPDF is rich with features for manipulating PDF documents. Throughout this guide, we will explore key functionalities, accompanied by code snippets and brief discussions to enhance your comprehension.
-
-By the end of this article, you'll possess a solid grasp of how to leverage IronPDF for editing PDFs using C#.
+By the end of this guide, you'll be well-equipped to use IronPDF for editing PDFs in C&num;.
 
 ## Table of Contents
 
 - **Document Structure Modifications**
-  - [Page Additions, Copies, and Deletions](#anchor-manipulate-pages)
-  - [Combining and Dividing PDF Documents](#anchor-merge-and-split-pdfs)
+  - [Add, Copy, and Remove Pages](#anchor-manipulate-pages)
+  - [Combine and Divide PDFs](#anchor-merge-and-split-pdfs)
+- **Property Modifications of Documents**
+  - [Modify and Utilize PDF Metadata](#anchor-add-and-use-pdf-metadata)
+  - [Digital Signatures](#anchor-digital-signatures)
+  - [PDF File Attachments](#anchor-pdf-attachments)
+  - [PDF Compression](#anchor-compress-pdfs)
+- **Content Editing in PDFs**
+  - [Insert Headers and Footers](#anchor-add-headers-and-footers)
+  - [Search and Modify Text within a PDF](#anchor-find-and-replace-text-in-a-pdf)
+  - [Add Bookmarks and Outlines](#anchor-outlines-and-bookmarks)
+  - [Insert and Modify Annotations](#anchor-add-and-edit-annotations)
+  - [Include Backgrounds and Foregrounds](#anchor-add-backgrounds-and-foregrounds)
+- **Applying Stamps and Watermarks**
+  - [Overview of Stampers](#anchor-stamper-abstract-class)
+    - [Stamper Class Attributes](#anchor-stamper-class-properties)
+  - [Stamper Demonstrations](#anchor-stamping-examples)
+    - [Text Stamping on a PDF](#anchor-stamp-text-onto-a-pdf)
+    - [Image Stamping on a PDF](#anchor-stamp-an-image-onto-a-pdf)
+    - [HTML Stamping on a PDF](#anchor-stamp-html-onto-a-pdf)
+    - [Barcode Stamping on a PDF](#anchor-stamp-a-barcode-onto-a-pdf)
+    - [QR Code Stamping on a PDF](#anchor-stamp-a-qr-code-onto-a-pdf)
+    - [Watermark Addition on a PDF](#anchor-add-a-watermark-to-a-pdf)
+  - [Stamp Application on PDFs](#anchor-apply-stamp-onto-a-pdf)
+  - [Overview of Length Class](#anchor-length-class)
+    - [Properties of the Length Class](#anchor-length-class-properties)
+    - [Examples of Using Length](#anchor-length-examples)
+- **Form Usage in PDFs**
+  - [Creating and Editing Forms](#anchor-create-and-edit-forms)
+  - [Populating Existing Forms](#anchor-fill-existing-forms)
 
-- **Property Management in Documents**
-  - [Incorporating and Managing PDF Metadata](#anchor-add-and-use-pdf-metadata)
-  - [Implementing Digital Signatures](#anchor-digital-signatures)
-  - [Managing PDF File Attachments](#anchor-pdf-attachments)
-  - [PDF Compression Techniques](#anchor-compress-pdfs)
+For additional details on how to merge multiple PDFs into one, please visit [here](https://ironpdf.com/examples/merge-pdfs/).
 
-- **Adjusting PDF Content**
-  - [Adding and Customizing Headers and Footers](#anchor-add-headers-and-footers)
-  - [Text Search and Replacement in PDFs](#anchor-find-and-replace-text-in-a-pdf)
-  - [Managing Outlines and Adding Bookmarks](#anchor-outlines-and-bookmarks)
-  - [Inserting and Modifying Annotations](#anchor-add-and-edit-annotations)
-  - [Inserting Background and Foreground Graphics](#anchor-add-backgrounds-and-foregrounds)
+For insights on how to split and extract pages from a PDF, check [here](https://ironpdf.com/examples/split-pdf-pages-csharp/).
 
-- **PDF Stamping and Watermark Applications**
-  - [Introduction to Stamping](#anchor-stamper-abstract-class)
-    - [Properties of Stamper Classes](#anchor-stamper-class-properties)
-  - [Examples of Stamping](#anchor-stamping-examples)
-    - [Text Stamping Techniques](#anchor-stamp-text-onto-a-pdf)
-    - [Image Stamping Methods](#anchor-stamp-an-image-onto-a-pdf)
-    - [Using HTML for Stamp Creation](#anchor-stamp-html-onto-a-pdf)
-    - [Barcode Implementation in Stamping](#anchor-stamp-a-barcode-onto-a-pdf)
-    - [Stamping with QR Codes](#anchor-stamp-a-qr-code-onto-a-pdf)
-    - [Watermark Placement Strategy](#anchor-add-a-watermark-to-a-pdf)
-  - [Applying Stamps on PDF Documents](#anchor-apply-stamp-onto-a-pdf)
-  - [Understanding the Length Class](#anchor-length-class)
-    - [Properties Explained in the Length Class](#anchor-length-class-properties)
-    - [Utilizing the Length Class in Examples](#anchor-length-examples)
+## Introduction
 
-- **Form Handling in PDFs**
-  - [Developing and Modifying Form Fields](#anchor-create-and-edit-forms)
-  - [Populating Existing PDF Forms](#anchor-fill-existing-forms)
+Iron Software has streamlined a variety of PDF editing capabilities into user-friendly methods available in the IronPDF library. Whether you're integrating signatures, appending HTML footers, embedding watermarks, or inserting annotations, IronPDF equips you with the tools to ensure your code is understandable, the PDF generation is programmatically controlled, and the library can be effortlessly debugged and deployed across any supported platform or environment.
 
-## Editing the Structure of a Document
+IronPDF boasts an extensive array of functionalities for PDF modification. This instructional guide will delve into several primary features, supplemented by code samples and detailed discussions.
+
+By the end of this tutorial, you will possess a comprehensive understanding of how to leverage IronPDF for editing PDFs using C#.
+
+## Table of Contents
+
+- **Modification of Document Structure**
+  - [Insert, Duplicate, and Remove Pages](#anchor-manipulate-pages)
+  - [Combine and Divide PDF Documents](#anchor-merge-and-split-pdfs)
+
+- **Adjusting Document Settings**
+  - [Incorporate and Manipulate PDF Metadata](#anchor-add-and-use-pdf-metadata)
+  - [Secure with Digital Signatures](#anchor-digital-signatures)
+  - [Manage PDF Attachments](#anchor-pdf-attachments)
+  - [Reduce PDF File Size](#anchor-compress-pdfs)
+
+- **Enhancing PDF Content**
+  - [Insert Headers and Footers](#anchor-add-headers-and-footers)
+  - [Search and Replace Text within a PDF](#anchor-find-and-replace-text-in-a-pdf)
+  - [Insert and Manage Bookmarks](#anchor-outlines-and-bookmarks)
+  - [Insert and Modify Annotations](#anchor-add-and-edit-annotations)
+  - [Incorporate Backgrounds and Overlays](#anchor-add-backgrounds-and-foregrounds)
+
+- **Application of Stamps and Watermarks**
+  - [Overview of Stamper Tool](#anchor-stamper-abstract-class)
+    - [Attributes of Stamper Tool](#anchor-stamper-class-properties)
+  - [Implementing Stamps: Examples](#anchor-stamping-examples)
+    - [Text Stamping](#anchor-stamp-text-onto-a-pdf)
+    - [Image Stamping](#anchor-stamp-an-image-onto-a-pdf)
+    - [HTML Stamping](#anchor-stamp-html-onto-a-pdf)
+    - [Barcode Stamping](#anchor-stamp-a-barcode-onto-a-pdf)
+    - [QR Code Stamping](#anchor-stamp-a-qr-code-onto-a-pdf)
+    - [Watermark Application](#anchor-add-a-watermark-to-a-pdf)
+  - [Executing Stamps on a PDF](#anchor-apply-stamp-onto-a-pdf)
+  - [Introduction to the Length Class](#anchor-length-class)
+    - [Details on Length Class](#anchor-length-class-properties)
+    - [Example of Length Utilization](#anchor-length-examples)
+
+- **Working with Forms in PDFs**
+  - [Develop and Modify Forms](#anchor-create-and-edit-forms)
+  - [Populate Existing Forms](#anchor-fill-existing-forms)
+```
+
+## Document Structure Management
+
+Iron Software streamlines various functions for managing the structure of PDF documents using the IronPDF library. Whether it involves inserting new pages, duplicating existing ones, or removing them from the document, IronPDF manages these processes behind the scenes efficiently.
 
 ### Page Manipulation
-
-IronPDF provides straightforward methods to seamlessly manage pages within your PDF documents. Whether you're inserting new pages, copying existing ones, or removing them, the process is intuitive and managed effortlessly in the background by IronPDF.
-
-#### Insert Pages
-
-```csharp
-// Create a PDF document from an existing file
-var pdf = new PdfDocument("report.pdf");
-
-// Render a cover page from HTML and add it to the beginning of the PDF
-var renderer = new ChromePdfRenderer();
-var titlePage = renderer.RenderHtmlAsPdf("<h1>Cover Page</h1><hr>");
-pdf.PrependPdf(titlePage);
-
-// Save the new PDF with the cover page
-pdf.SaveAs("report_with_cover.pdf");
-```
-
-#### Duplicate Pages
-
-```csharp
-var pdf = new PdfDocument("report.pdf");
-// Duplicate pages 5 to 7 into a new document.
-pdf.CopyPages(4, 6).SaveAs("report_highlight.pdf");
-```
-
-#### Remove Pages
-
-```csharp
-var pdf = new PdfDocument("report.pdf");
-
-// Delete the final page from the document and save it
-pdf.RemovePage(pdf.PageCount - 1);
-pdf.SaveAs("report_minus_one_page.pdf");
-```
-
-### Combine and Divide PDFs
-
-Combining multiple PDFs into a single document or dividing a long PDF into smaller sections is straightforward with the intuitive API provided by IronPDF.
-
-#### Merge Several PDFs into a Single File
-
-```csharp
-var pdfs = new List<PdfDocument>
-{
-    PdfDocument.FromFile("A.pdf"),
-    PdfDocument.FromFile("B.pdf"),
-    PdfDocument.FromFile("C.pdf")
-};
-
-// Merge all PDFs into a single document
-PdfDocument mergedPdf = PdfDocument.Merge(pdfs);
-mergedPdf.SaveAs("merged.pdf");
-
-// Clean up resources
-foreach (var pdf in pdfs)
-{
-    pdf.Dispose();
-}
-```
-
-For additional coding examples on merging PDFs, visit [IronPDF Merging Example](https://ironsoftware.com/examples/merge-pdfs/).
-
-#### Section PDF and Extract Pages
-
-```csharp
-var pdf = new PdfDocument("sample.pdf");
-
-// Extract the first page
-var firstPage = pdf.CopyPage(0);
-firstPage.SaveAs("Split1.pdf");
-
-// Extract pages 2 and 3
-var pagesTwoThree = pdf.CopyPages(1, 2);
-pagesTwoThree.SaveAs("Split2.pdf");
-```
-
-For further details on splitting and extracting pages, please explore our [Splitting PDFs Example](https://ironsoftware.com/examples/split-pdf-pages-csharp/).
-
-### Page Manipulation
-
-Performing tasks such as inserting PDFs at specific indices, extracting pages individually or by range, and removing pages is straightforward with IronPDF. This tool handles all the complexities in the background, simplifying the entire process.
 
 #### Adding Pages
 
-Using IronPDF's robust capabilities, you can effortlessly prepend pages to your PDF documents at specific positions. This could be essential for inserting a title page or adding any supplementary content before the main material.
-
 ```csharp
-var pdfDocument = new PdfDocument("report.pdf");
-var pdfRenderer = new ChromePdfRenderer();
-var titlePagePdf = pdfRenderer.RenderHtmlAsPdf("<h1>Title Page</h1><hr>");
-
-// Insert the new page at the beginning of the PDF document
-pdfDocument.PrependPdf(titlePagePdf);
-pdfDocument.SaveAs("report_with_title.pdf");
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            var pdf = new PdfDocument("report.pdf");
+            var renderer = new ChromePdfRenderer();
+            var coverPagePdf = renderer.RenderHtmlAsPdf("<h1>Welcome Page</h1><hr>");
+            pdf.PrependPdf(coverPagePdf);
+            pdf.SaveAs("updated_report.pdf");
+        }
+    }
+}
 ```
 
-```csharp
-// Initialize a new PDF document
-var document = new PdfDocument("report.pdf");
-
-// Create a renderer for converting HTML to PDF
-var pdfRenderer = new ChromePdfRenderer();
-
-// Render a simple HTML string to a PDF
-var titlePage = pdfRenderer.RenderHtmlAsPdf("<h1>Cover Page</h1><hr>");
-
-// Attach the newly created PDF as the first page of the original document
-document.InsertPdf(0, titlePage);
-
-// Save the updated PDF to a new file
-document.SaveAs("report_including_cover_page.pdf");
-```
-
-#### Copying Pages
-
-Manipulating specific pages within a PDF is straightforward with IronPDF. You can easily extract a range of pages or individual pages and save them as a new document. Here’s how you can accomplish this task:
+#### Duplicating Pages
 
 ```csharp
-var pdf = new PdfDocument("report.pdf");
-// Extract and copy pages 5 to 7 into a new PDF document.
-pdf.CopyPages(4, 6).SaveAs("report_highlight.pdf");
-```
-
-```csharp
-var pdfDocument = new PdfDocument("report.pdf");
-// Duplicate pages from 5 to 7 and store them in a new PDF file.
-pdfDocument.CopyPages(startPageIndex: 4, endPageIndex: 6).SaveAs("highlighted_report.pdf");
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            var pdf = new PdfDocument("report.pdf");
+            // Duplicate pages 5 to 7 to a new document.
+            pdf.CopyPages(4, 6).SaveAs("extracted_pages.pdf");
+        }
+    }
+}
 ```
 
 #### Removing Pages
 
-Easily remove pages from any PDF document using IronPDF's straightforward API. This functionality makes managing your document's length and content quite effortless.
-
 ```csharp
-var pdf = new PdfDocument("report.pdf");
-
-// Delete the last page of the PDF and save the file
-pdf.RemovePage(pdf.PageCount - 1);
-pdf.SaveAs("report_minus_one_page.pdf");
-```
-
-```csharp
-var document = new PdfDocument("report.pdf");
-
-// Delete the final page from the document and save a new version
-document.RemovePage(document.PageCount - 1);
-document.SaveAs("report_with_final_page_removed.pdf");
-```
-
-### Combining and Dividing PDF Documents
-
-Combining multiple PDF documents into a single file or dividing a single PDF into several separate documents is straightforward and efficient, thanks to the user-friendly API provided by IronPDF.
-
-#### Combine Several PDFs into One Document
-
-Merging multiple PDF files into a single document is straightforward using the effective IronPDF API.
-
-```csharp
-var pdfList = new List<PdfDocument>
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    PdfDocument.FromFile("A.pdf"),
-    PdfDocument.FromFile("B.pdf"),
-    PdfDocument.FromFile("C.pdf")
-};
-
-PdfDocument combinedPdf = PdfDocument.Merge(pdfList);
-combinedPdf.SaveAs("combined.pdf");
-
-foreach (var pdf in pdfList)
-{
-    pdf.Dispose();
+    public class Section3
+    {
+        public void Run()
+        {
+            var pdf = new PdfDocument("report.pdf");
+            
+            // Delete the last page of the PDF and save the modified document
+            pdf.RemovePage(pdf.PageCount - 1);
+            pdf.SaveAs("trimmed_report.pdf");
+        }
+    }
 }
 ```
 
-For detailed examples on merging PDFs, please see our Code Examples page [here](https://ironpdf.com/examples/merge-pdfs/).
+### Combining and Dividing PDFs
 
-Here's the paraphrased section resolved against ironpdf.com for relative URL paths:
+Combining multiple PDF documents into a single PDF or separating pages from a PDF into new documents is effortlessly done using IronPDF's intuitive API.
+
+#### Combine Multiple PDFs into One
 
 ```csharp
-var documents = new List<PdfDocument>
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    PdfDocument.FromFile("A.pdf"),
-    PdfDocument.FromFile("B.pdf"),
-    PdfDocument.FromFile("C.pdf")
-};
-
-// Merge the PDF documents into a single PDF file
-PdfDocument combinedPdf = PdfDocument.Merge(documents);
-combinedPdf.SaveAs("combined_output.pdf");
-
-// Clean up resources by disposing of the PDF document objects
-foreach (var doc in documents)
-{
-    doc.Dispose();
+    public class Section4
+    {
+        public void Run()
+        {
+            var pdfs = new List<PdfDocument>
+            {
+                PdfDocument.FromFile("A.pdf"),
+                PdfDocument.FromFile("B.pdf"),
+                PdfDocument.FromFile("C.pdf")
+            };
+            
+            PdfDocument combinedPdf = PdfDocument.Merge(pdfs);
+            combinedPdf.SaveAs("combined_document.pdf");
+            
+            foreach (var pdf in pdfs)
+            {
+                pdf.Dispose();
+            }
+        }
+    }
 }
 ```
 
-For more details on how to merge multiple PDFs using our examples, please refer to our [Code Examples page](https://ironpdf.com/examples/merge-pdfs/).
+For further information on how to combine PDFs using our API, please visit [this link](https://ironpdf.com/examples/merge-pdfs/).
 
-#### Dividing a PDF and Isolating Specific Pages
-
-Splitting a PDF document into individual pages or extracting specific sections can be effortlessly accomplished using IronPDF's user-friendly APIs.
+#### Extract Pages from a PDF
 
 ```csharp
-var pdf = new PdfDocument("sample.pdf");
-
-// Extract the first page
-var pdf_first_page = pdf.CopyPage(0);
-pdf_first_page.SaveAs("Split_First_Page.pdf");
-
-// Isolate pages 2 and 3
-var pdf_pages_2_and_3 = pdf.CopyPages(1, 2);
-pdf_pages_2_and_3.SaveAs("Split_Pages_2_and_3.pdf");
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section5
+    {
+        public void Run()
+        {
+            var pdf = new PdfDocument("sample.pdf");
+            
+            // Extract the first page
+            var first_page = pdf.CopyPage(0);
+            first_page.SaveAs("Page1.pdf");
+            
+            // Extract pages 2 & 3
+            var pages_2_and_3 = pdf.CopyPages(1, 2);
+            pages_2_and_3.SaveAs("Pages2-3.pdf");
+        }
+    }
+}
 ```
 
-For detailed examples on how to split and extract specific pages from your PDFs using IronPDF, kindly visit [IronPDF's Split PDF pages tutorial](https://ironpdf.com/examples/split-pdf-pages-csharp/).
+For more detailed examples of how to split and extract pages, please refer to [this page](https://ironpdf.com/examples/split-pdf-pages-csharp/).
+
+### Manipulate Pages
+
+Working with IronPDF makes inserting, copying, and removing pages from PDFs remarkably straightforward. Whether you're adding pages at particular indexes, extracting specific ranges, or deleting individual pages, IronPDF efficiently handles all these tasks for you seamlessly.
+
+### Adding Pages to a PDF
+
+IronPDF simplifies the process of inserting pages into your PDF documents. This robust tool handles the underlying complexity, providing a straightforward method for page manipulation.
+
+#### Adding New Pages
 
 ```csharp
-var document = new PdfDocument("sample.pdf");
-
-// Isolate the first page
-var firstPage = document.CopyPage(0);
-firstPage.SaveAs("FirstPage.pdf");
-
-// Extract pages 2 and 3
-var secondAndThirdPages = document.CopyPages(1, 2);
-secondAndThirdPages.SaveAs("Pages2And3.pdf");
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class AddPages
+    {
+        public void Execute()
+        {
+            // Create a new PDF document instance from an existing file
+            var pdfDoc = new PdfDocument("report.pdf");
+            // Create a renderer for HTML content
+            var pdfRenderer = new ChromePdfRenderer();
+            // Render a PDF from HTML content for the cover page
+            var coverPage = pdfRenderer.RenderHtmlAsPdf("<h1>Cover Page</h1><hr>");
+            // Insert the cover page at the beginning of the PDF document
+            pdfDoc.PrependPdf(coverPage);
+            // Save the new PDF with the inserted page
+            pdfDoc.SaveAs("updated_report_with_cover.pdf");
+        }
+    }
+}
 ```
 
-For more detailed information on how to split and extract pages from a PDF, you can explore our comprehensive examples on our [Code Examples page](https://ironpdf.com/examples/split-pdf-pages-csharp/).
+This snippet demonstrates how to prepend a cover page to an existing PDF. It begins by rendering HTML content for the new page and then seamlessly integrates this into the existing PDF document structure.
 
-## Modifying PDF Document Attributes
-
-IronPDF provides straightforward methods for navigating and manipulating PDF properties. This section of the tutorial demonstrates these capabilities with practical code snippets.
-
-### Adding and Managing PDF Metadata
-
-With IronPDF, adjusting the metadata of your PDF files is effortless:
+Here's the paraphrased section of the article, with code comments added for clarity and improved understanding:
 
 ```csharp
-// Loading a protected file or generating a new PDF from HTML content
-var pdf = PdfDocument.FromFile("encrypted.pdf", "password");
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            // Create a new PDF document from an existing file
+            var pdf = new PdfDocument("report.pdf");
 
-// Modifying metadata properties
-pdf.MetaData.Author = "Satoshi Nakamoto";
-pdf.MetaData.Keywords = "SEO, Digital Marketing";
-pdf.MetaData.ModifiedDate = DateTime.Now;
+            // Initialize the PDF renderer
+            var renderer = new ChromePdfRenderer();
 
-// Configuring document security settings
-pdf.SecuritySettings.RemovePasswordsAndEncryption();
-pdf.SecuritySettings.MakePdfDocumentReadOnly("secret-key");
-pdf.SecuritySettings.AllowUserAnnotations = false;
-pdf.SecuritySettings.AllowUserCopyPasteContent = false;
-pdf.SecuritySettings.AllowUserFormData = false;
-pdf.SecuritySettings.AllowUserPrinting = IronPdf.Security.PdfPrintSecurity.FullPrintRights;
+            // Generate a PDF from HTML content which serves as the cover page
+            var coverPagePdf = renderer.RenderHtmlAsPdf("<h1>Cover Page</h1><hr>");
 
-// Updating document encryption passwords
-pdf.SecuritySettings.OwnerPassword = "top-secret"; // Edit permission password
-pdf.SecuritySettings.UserPassword = "shareable";  // Open permission password
-pdf.SaveAs("secured.pdf");
+            // Insert the cover page at the beginning of the PDF document
+            pdf.PrependPdf(coverPagePdf);
+
+            // Save the modified PDF to a new file
+            pdf.SaveAs("report_with_cover.pdf");
+        }
+    }
+}
+```
+
+#### Duplicating Pages
+
+Utilizing IronPDF, you can seamlessly copy selected pages from a PDF and generate a new document from those pages. Below you'll find a straightforward example demonstrating this capability:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            var pdf = new PdfDocument("report.pdf");
+
+            // Duplicating specific pages (5 to 7) into a new PDF file.
+            pdf.CopyPages(4, 6).SaveAs("report_highlight.pdf");
+        }
+    }
+}
+```
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            // Initialize a new PdfDocument object from a file
+            var pdfDocument = new PdfDocument("report.pdf");
+            // Extract pages 5 to 7 and create a new highlighted report PDF document
+            pdfDocument.CopyPages(4, 6).SaveAs("report_highlight.pdf");
+        }
+    }
+}
+```
+
+#### Removing Pages from a PDF
+
+Easily delete pages from any PDF document using IronPDF's straightforward approach that manages everything in the background.
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            var pdf = new PdfDocument("report.pdf");
+            
+            // Delete the last page of the PDF and then save the changes.
+            pdf.RemovePage(pdf.PageCount - 1);
+            pdf.SaveAs("report_with_last_page_removed.pdf");
+        }
+    }
+}
+```
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            var pdfDocument = new PdfDocument("report.pdf");
+
+            // Delete the final page from the document then save it
+            pdfDocument.RemovePage(pdfDocument.PageCount - 1);
+            pdfDocument.SaveAs("report_with_last_page_removed.pdf");
+        }
+    }
+}
+```
+
+### Combining and Separating PDFs
+
+Using IronPDF’s straightforward API, you can effortlessly combine multiple PDF files into a single document or divide a single PDF into several distinct files.
+
+#### Combining Multiple PDFs into One
+
+Merging several PDF files into a single document is straightforward using the IronPDF library, thanks to its user-friendly API.
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section4
+    {
+        public void Run()
+        {
+            var pdfCollection = new List<PdfDocument>
+            {
+                PdfDocument.FromFile("A.pdf"),
+                PdfDocument.FromFile("B.pdf"),
+                PdfDocument.FromFile("C.pdf")
+            };
+            
+            PdfDocument combinedPdf = PdfDocument.Merge(pdfCollection);
+            combinedPdf.SaveAs("combined_document.pdf");
+            
+            foreach (var pdf in pdfCollection)
+            {
+                pdf.Dispose();
+            }
+        }
+    }
+}
+```
+
+For more examples on merging documents, please visit [IronPDF Merging PDFs Example](https://ironpdf.com/examples/merge-pdfs/).
+
+Here's a paraphrased version of the specified section of your article:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section4
+    {
+        public void Run()
+        {
+            // Initialize a list of PdfDocument objects from files
+            var pdfDocuments = new List<PdfDocument>
+            {
+                PdfDocument.FromFile("A.pdf"),
+                PdfDocument.FromFile("B.pdf"),
+                PdfDocument.FromFile("C.pdf")
+            };
+
+            // Merge all PDF documents into a single PdfDocument
+            PdfDocument combinedPdf = PdfDocument.Merge(pdfDocuments);
+            combinedPdf.SaveAs("merged.pdf");
+
+            // Dispose all individual PdfDocuments to free resources
+            foreach (var pdf in pdfDocuments)
+            {
+                pdf.Dispose();
+            }
+        }
+    }
+}
+``` 
+
+This version rephrases your code comments to enhance clarity and changes variable names to make the code slightly distinct but logically equivalent to your original sample.
+
+For a comprehensive guide on merging multiple PDFs using our code examples, please visit [this link](https://ironpdf.com/examples/merge-pdfs/).
+
+#### Dividing a PDF into Separate Pages
+
+IronPDF makes it simple to split a PDF into individual pages using its intuitive methods. Here's how you can accomplish that:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section5
+    {
+        public void Run()
+        {
+            var pdf = new PdfDocument("sample.pdf");
+            
+            // Extract the first page
+            var firstPage = pdf.CopyPage(0);
+            firstPage.SaveAs("Split1.pdf");
+            
+            // Extract pages 2 and 3
+            var pagesTwoThree = pdf.CopyPages(1, 2);
+            pagesTwoThree.SaveAs("Split2.pdf");
+        }
+    }
+}
+```
+
+To explore more about how to split and extract pages from a PDF document using C#, you can check out detailed examples and tutorials [here](https://ironpdf.com/examples/split-pdf-pages-csharp/).
+
+```csharp
+using IronPdf;
+
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section5
+    {
+        public void Run()
+        {
+            // Load a sample PDF document
+            var pdf = new PdfDocument("sample.pdf");
+
+            // Extract and save the first page as a new PDF file
+            var firstPage = pdf.CopyPage(0);
+            firstPage.SaveAs("Split1.pdf");
+
+            // Extract and save the second and third pages as another new PDF file
+            var pagesTwoThree = pdf.CopyPages(1, 2);
+            pagesTwoThree.SaveAs("Spli2t.pdf");
+        }
+    }
+}
+```
+
+For further information on how to split and extract pages from a PDF using our code examples, please check out our detailed tutorial [here](https://ironpdf.com/examples/split-pdf-pages-csharp/).
+
+## Modifying Document Properties
+
+IronPDF provides an intuitive set of tools for adjusting the properties of your PDF documents. This section outlines various operations you can perform, from editing metadata to compressing files, along with some practical code snippets.
+
+### Adjusting PDF Metadata
+
+Utilizing IronPDF, modifying the metadata of a PDF is straightforward and efficient:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class MetadataSection
+    {
+        public void Run()
+        {
+            var pdf = PdfDocument.FromFile("encrypted.pdf", "password");
+            
+            // Update metadata attributes
+            pdf.MetaData.Author = "Jane Doe";
+            pdf.MetaData.Keywords = "Blockchain, Cryptocurrency";
+            pdf.MetaData.ModifiedDate = System.DateTime.Now;
+            
+            // Configure security settings of the PDF
+            pdf.SecuritySettings.RemovePasswordsAndEncryption();
+            pdf.SecuritySettings.MakePdfDocumentReadOnly("new-secret");
+            pdf.SecuritySettings.AllowUserAnnotations = false;
+            pdf.SecuritySettings.AllowUserCopyPasteContent = false;
+            pdf.SecuritySettings.AllowUserFormData = false;
+            pdf.SecuritySettings.AllowUserPrinting = IronPdf.Security.PdfPrintSecurity.FullPrintRights;
+            
+            // Set new encryption passwords
+            pdf.SecuritySettings.OwnerPassword = "masterkey";
+            pdf.SecuritySettings.UserPassword = "userkey";
+            pdf.SaveAs("updated_encrypted.pdf");
+        }
+    }
+}
 ```
 
 ### Implementing Digital Signatures
 
-Leverage IronPDF to apply digital signatures to your PDFs using .pfx or .p12 X509Certificate2 certificates, ensuring unaltered document authenticity.
-
-Secure a PDF with a signature in a single line of code:
+Enhance the security of your PDF files by applying digital signatures. IronPDF supports both .pfx and .p12 digital certificates for authenticating the integrity of your documents.
 
 ```csharp
 using IronPdf;
 using IronPdf.Signing;
-
-new IronPdf.Signing.PdfSignature("Iron.p12", "123456").SignPdfFile("any.pdf");
-```
-
-Here’s a more elaborate example for enhanced control:
-
-```csharp
-using IronPdf;
-
-// Creating a new PDF
-var renderer = new ChromePdfRenderer();
-var document = renderer.RenderHtmlAsPdf("<h1>Exploring digital security</h1>");
-
-// Setting up a digital signature
-var signature = new IronPdf.Signing.PdfSignature("Iron.pfx", "123456")
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    SigningContact = "support@ironsoftware.com",
-    SigningLocation = "Chicago, USA",
-    SigningReason = "Demonstrating PDF signing"
-};
-
-// Signing the PDF
-document.Sign(signature);
-
-// Finalizing by saving the signed PDF to a file
-document.SaveAs("digitally_signed.pdf");
+    public class SignatureSection
+    {
+        public void Run()
+        {
+            var pdf = new PdfDocument("document.pdf");
+            var digitalSignature = new PdfSignature("Iron.p12", "password")
+            {
+                SigningContact = "contact@example.com",
+                SigningLocation = "San Francisco, USA",
+                SigningReason = "Contract Agreement"
+            };
+            pdf.Sign(digitalSignature);
+            pdf.SaveAs("signed_contract.pdf");
+        }
+    }
+}
 ```
 
-Generate a digital signing certificate with Adobe Reader as detailed [here](https://helpx.adobe.com/acrobat/using/digital-ids.html).
+### Handling PDF Attachments
 
-### Managing PDF Attachments
-
-IronPDF supports the addition and removal of attachments within your PDF documents seamlessly:
-
-```csharp
-var Renderer = new ChromePdfRenderer();
-var myPdf = Renderer.RenderHtmlFileAsPdf("my-content.html");
-
-// Adding an attachment
-var attachment1 = myPdf.Attachments.AddAttachment("attachment_1", example_attachment);
-
-// Removing an attachment
-myPdf.Attachments.RemoveAttachment(attachment1);
-
-myPdf.SaveAs("updated_content.pdf");
-```
-
-### Compressing PDFs
-
-To minimize the file size of PDFs, IronPDF offers image compression tools. This feature is especially useful for documents with numerous high-resolution images:
-
-```csharp
-var pdf = new PdfDocument("large-file.pdf");
-
-// Set the image quality level (1-100)
-pdf.CompressImages(75); // Reduces image quality to optimize size
-pdf.SaveAs("optimized_file_size.pdf");
-```
-
-Consider varying the quality levels to balance clarity and file size based on your specific needs:
-
-```csharp
-var pdf = new PdfDocument("high-res-file.pdf");
-
-pdf.CompressImages(85, true); // Optionally adjusts image scaling
-pdf.SaveAs("scaled_optimized_file.pdf");
-```
-
-### Adding and Utilizing PDF Metadata
-
-Effortlessly explore and modify PDF metadata with IronPDF:
-
-```csharp
-// Load an encrypted PDF file or create a new one from HTML
-var pdfDocument = PdfDocument.FromFile("encrypted.pdf", "password");
-
-// Modify the PDF metadata
-pdfDocument.MetaData.Author = "Satoshi Nakamoto";
-pdfDocument.MetaData.Keywords = "SEO, Friendly";
-pdfDocument.MetaData.ModifiedDate = System.DateTime.Now;
-
-// Configure security settings for the PDF
-// This code will set the PDF to read-only, preventing copy & paste and printing activities
-pdfDocument.SecuritySettings.RemovePasswordsAndEncryption();
-pdfDocument.SecuritySettings.MakePdfDocumentReadOnly("secret-key");
-pdfDocument.SecuritySettings.AllowUserAnnotations = false;
-pdfDocument.SecuritySettings.AllowUserCopyPasteContent = false;
-pdfDocument.SecuritySettings.AllowUserFormData = false;
-pdfDocument.SecuritySettings.AllowUserPrinting = IronPdf.Security.PdfPrintSecurity.FullPrintRights;
-
-// Update or establish the PDF's encryption passwords
-pdfDocument.SecuritySettings.OwnerPassword = "top-secret"; // Set password required to edit the PDF
-pdfDocument.SecuritySettings.UserPassword = "shareable";  // Set password required to open the PDF
-pdfDocument.SaveAs("secured.pdf");
-```
-
-### Digital Signatures
-
-IronPDF provides robust solutions for digitally signing PDF documents, whether they are newly created or already existing, through the use of .pfx and .p12 X509Certificate2 digital certificates.
-
-Once a document is digitally signed, any alterations to it require verification via the signing certificate, which secures the document's integrity.
-
-For instructions on creating a signing certificate at no cost with Adobe Reader, visit [Adobe's Digital IDs guide](https://helpx.adobe.com/acrobat/using/digital-ids.html).
-
-IronPDF also supports the use of visually representational signatures, such as handwritten signatures or company seals, for document signing purposes.
-
-Easily sign a PDF document cryptographically with a single line of code using IronPDF.
+IronPDF facilitates the addition and removal of attachments from your PDFs with ease:
 
 ```csharp
 using IronPdf;
-using IronPdf.Signing;
-
-// Sign an existing PDF with a digital certificate
-var pdfSignature = new PdfSignature("Iron.p12", "123456");
-pdfSignature.SignPdfFile("any.pdf");
-```
-
-```csharp
-using IronPdf;
-
-// Begin by generating a PDF from HTML content
-var renderer = new ChromePdfRenderer();
-var document = renderer.RenderHtmlAsPdf("<h1>Demonstrating Robust Digital Security with IronPDF</h1>");
-
-// Initialize the PDF signature
-// Ensure you have a .pfx or .p12 signing certificate, which can be created using tools like Adobe Acrobat Reader.
-// Reference: https://helpx.adobe.com/acrobat/using/digital-ids.html
-var signature = new IronPdf.Signing.PdfSignature("Iron.pfx", "123456")
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    // Optional: Configure additional signing details
-    SigningContact = "support@ironsoftware.com",
-    SigningLocation = "Chicago, USA",
-    SigningReason = "Illustration of PDF signing capabilities"
-};
-
-// Apply the digital signature to the PDF
-document.Sign(signature);
-
-// Remember to save the document to finalize the signature.
-document.SaveAs("digitally-signed.pdf");
-```
-
-```csharp
-using IronPdf;
-
-// Step 1: Generate a new PDF
-var renderer = new ChromePdfRenderer();
-var document = renderer.RenderHtmlAsPdf("<h1>Assessing 2048-bit Digital Security</h1>");
-
-// Step 2: Initialize the digital signature
-// For creating a .pfx or .p12 certification, refer to Adobe Acrobat Reader instructions:
-// Read more at: https://helpx.adobe.com/acrobat/using/digital-ids.html
-var signature = new IronPdf.Signing.PdfSignature("Iron.pfx", "123456")
-{
-    // Step 3: Configure optional parameters for the digital signature, including a graphical handwritten signature
-    SigningContact = "support@ironsoftware.com",
-    SigningLocation = "Chicago, USA",
-    SigningReason = "Demonstrating PDF signing capabilities"
-};
-
-// Step 4: Apply the digital signature to the PDF. You can use multiple certificates here.
-document.Sign(signature);
-
-// Step 5: Persist changes to the PDF. It remains unsigned until it is saved.
-document.SaveAs("signed.pdf");
-```
-
-### PDF Attachments
-
-IronPDF offers comprehensive functionality for managing attachments within your PDF documents. You can effortlessly add or delete attachments as needed.
-
-```csharp
-// Initialize the PDF Renderer
-var pdfRenderer = new ChromePdfRenderer();
-// Render an HTML file into a PDF document
-var documentPdf = pdfRenderer.RenderHtmlFileAsPdf("my-content.html");
-
-// Adding an attachment by specifying its name and using the byte array 'example_attachment'
-var attachedFile = documentPdf.Attachments.AddAttachment("attachment_1", example_attachment);
-
-// Removing the previously added attachment
-documentPdf.Attachments.RemoveAttachment(attachedFile);
-
-// Save the modified PDF to a new file
-documentPdf.SaveAs("my-content.pdf");
+    public class AttachmentSection
+    {
+        public void Run()
+        {
+            var renderer = new ChromePdfRenderer();
+            var document = renderer.RenderHtmlAsPdf("<html>Attachment Example</html>");
+            var attachment = document.Attachments.AddAttachment("extra_info.txt", new byte[]{});
+            
+            // Removing an existing attachment
+            document.Attachments.RemoveAttachment(attachment);
+            document.SaveAs("document_with_attachment.pdf");
+        }
+    }
+}
 ```
 
 ### Compressing PDF Documents
 
-IronPDF provides functionality for compressing PDF files. A common method to decrease PDF file size is by compressing the embedded images within the document using IronPDF's `CompressImages` method.
-
-Compression of JPEG images varies significantly with quality settings. A setting of 100% quality maintains the original quality with negligible loss, whereas 1% quality produces significantly degraded images. As a rule of thumb, quality settings between 90% and 100% yield high-quality outputs; 80%-90% offers medium quality; and 70%-80% results in lower quality images. Reducing the quality below 70% can lead to dramatic reductions in file size, albeit at the cost of noticeable quality loss.
-
-It is advisable to experiment with various quality settings to find an ideal balance between image quality and file size that suits your specific requirements. The degree of quality loss is dependent on the type of images used, and some images may experience more noticeable reductions in clarity than others.
-
-Here is a paraphrased version of the given section, with the URL paths resolved accordingly from `ironpdf.com`:
+Reduce the file size of your PDF documents using IronPDF's `CompressImages` method, which allows you to adjust the quality of embedded images for optimal size reduction:
 
 ```csharp
-// Load the PDF file to be compressed
-var pdfDocument = new PdfDocument("document.pdf");
-
-// Compress images within the document using the provided quality parameter (range 1-100)
-pdfDocument.CompressImages(60); // 60% quality retains a balance between quality and file size
-pdfDocument.SaveAs("document_compressed.pdf"); // Save the new compressed PDF
-```
-
-The `CompressImages` method also accepts an optional parameter allowing you to adjust the image resolution to match its displayed size in the PDF. However, be aware that this could lead to image distortion depending on the specific layout configurations:
-
-Here's the paraphrased section with the updated link:
-
-```csharp
-var document = new PdfDocument("document.pdf");
-
-// Compress images in the PDF with 90% quality and scale down resolution
-document.CompressImages(90, true);
-document.SaveAs("document_scaled_compressed.pdf");
-```
-
-## Modifying Content in PDFs
-
-### Adding Headers and Footers
-
-Utilizing IronPDF, you can seamlessly integrate headers and footers into your PDFs. IronPDF offers two varieties for headers and footers, `TextHeaderFooter` and `HtmlHeaderFooter`. For simple text-based headers and footers, `TextHeaderFooter` is optimal, allowing the incorporation of merge fields like `"{page} of {total-pages}"`. On the other hand, `HtmlHeaderFooter` is designed for more complex requirements, supporting full HTML content for visually exact layouts.
-
-#### HTML Headers and Footers
-
-The HTML version will render your HTML content as headers or footers on your PDFs, ensuring precise alignment and appearance.
-
-```csharp
-var renderer = new ChromePdfRenderer();
-
-// Stylish HTML footer
-renderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter()
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    HtmlFragment = "<center><i>{page} of {total-pages}<i></center>",
-    MaxHeight = 15, // in millimeters
-    DrawDividerLine = true
-};
-
-// Header with an image
-renderer.RenderingOptions.HtmlHeader = new HtmlHeaderFooter()
-{
-    HtmlFragment = "<img src='logo.png'>",
-    MaxHeight = 20,  // in millimeters
-    BaseUrl = new System.Uri(@"C:\assets\images").AbsoluteUri
-};
-```
-
-For a comprehensive guide with varied scenarios, visit [here](https://ironpdf.com/examples/adding-headers-and-footers-advanced/).
-
-#### Text Headers and Footers
-
-For straightforward text-based headers and footers, see the example below:
-
-```csharp
-var renderer = new ChromePdfRenderer()
-{
-    RenderingOptions = { FirstPageNumber = 1 },  // use 2 if appending a cover page
-
-    // Simple text header
-    TextHeader = {
-        DrawDividerLine = true,
-        CenterText = "{url}",
-        Font = IronSoftware.Drawing.FontTypes.Helvetica,
-        FontSize = 12
-    },
-
-    // Matching footer
-    TextFooter = {
-        DrawDividerLine = true,
-        Font = IronSoftware.Drawing.FontTypes.Arial,
-        FontSize = 10,
-        LeftText = "{date} {time}",
-        RightText = "{page} of {total-pages}"
+    public class CompressionSection
+    {
+        public void Run()
+        {
+            var document = new PdfDocument("large_file.pdf");
+            
+            // Compress images at 80% quality
+            document.CompressImages(80);
+            document.SaveAs("compressed_file.pdf");
+        }
     }
-};
+}
 ```
 
-The system replaces merge fields such as `{page}`, `{total-pages}`, `{url}`, `{date}`, `{time}`, `{html-title}`, `{pdf-title}` with actual values during rendering.
+For further in-depth examples and additional features, visit our Code Examples page [here](https://ironpdf.com/examples/merge-pdfs/).
 
-### Text Replacement in PDFs
+### Managing PDF Metadata with IronPDF
 
-IronPDF enables you to replace placeholders or text in your PDFs effectively through programmatic means using the `ReplaceTextOnPage` method.
-
-```csharp
-// Load the existing PDF
-var pdf = PdfDocument.FromFile("sample.pdf");
-
-// Configuration
-int pageIndex = 1;
-string oldText = ".NET 6";  // Text to be replaced
-string newText = ".NET 7";  // New text
-
-// Replace Text on a specific page
-pdf.ReplaceTextOnPage(pageIndex, oldText, newText);
-
-// Example of replacing a placeholder
-pdf.ReplaceTextOnPage(pageIndex, "[DATE]", "01/01/2000");
-
-// Persist the modified PDF
-pdf.SaveAs("new_sample.pdf");
-```
-
-For detailed examples and usage, check [here](https://ironpdf.com/examples/csharp-replace-text-in-pdf/).
-
-### Managing Bookmarks and Outlines
-
-IronPDF also facilitates the management of PDF bookmarks which provide a way to jump to specific sections of a PDF and are displayed in the sidebar of applications like Adobe Acrobat Reader.
+Utilizing IronPDF simplifies the process of accessing and modifying PDF metadata effectively:
 
 ```csharp
-// Editing an existing PDF
-PdfDocument pdf = PdfDocument.FromFile("existing.pdf");
-
-// Add bookmark
-pdf.Bookmarks.AddBookMarkAtEnd("Author's Note", 2);
-pdf.Bookmarks.AddBookMarkAtEnd("Table of Contents", 3);
-
-// Create a bookmark for 'Summary'
-var summaryBookmark = pdf.Bookmarks.AddBookMarkAtEnd("Summary", 17);
-
-// Nested bookmark under 'Summary'
-var conclusionBookmark = summaryBookmark.Children.AddBookMarkAtStart("Conclusion", 18);
-
-// Add another bookmark
-pdf.Bookmarks.AddBookMarkAtEnd("References", 20);
-
-pdf.SaveAs("existing.pdf");
-```
-
-Explore more about Outlines and Bookmarks at [here](https://ironpdf.com/examples/bookmarks/).
-
-### Annotations within PDFs
-
-IronPDF supports a wide array of annotation options, providing high customization for annotations within your PDFs.
-
-```csharp
-// Create or edit a PDF
-var pdf = PdfDocument.FromFile("existing.pdf");
-
-// Setting up a text annotation
-var textAnnotation = new IronPdf.Annotations.TextAnnotation(PageIndex: 0)
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    Title = "Major Title",
-    Contents = "Detailed comment content...",
-    Subject = "Subtitle",
-    Icon = IronPdf.Annotations.TextAnnotation.AnnotationIcon.Note,
-    Opacity = 0.8,
-    Printable = true,
-    OpenByDefault = true
-};
-
-// Add the text annotation
-pdf.Annotations.Add(textAnnotation);
-
-pdf.SaveAs("annotated.pdf");
+    public class Section6
+    {
+        public void Run()
+        {
+            // Load a protected PDF file or create a new PDF from an HTML source
+            var pdf = PdfDocument.FromFile("encrypted.pdf", "password");
+            
+            // Modify the document's metadata properties
+            pdf.MetaData.Author = "Satoshi Nakamoto";
+            pdf.MetaData.Keywords = "SEO, Friendly";
+            pdf.MetaData.ModifiedDate = System.DateTime.Now;
+            
+            // Adjust PDF security settings, disabling certain features
+            pdf.SecuritySettings.RemovePasswordsAndEncryption();
+            pdf.SecuritySettings.MakePdfDocumentReadOnly("secret-key");
+            pdf.SecuritySettings.AllowUserAnnotations = false;
+            pdf.SecuritySettings.AllowUserCopyPasteContent = false;
+            pdf.SecuritySettings.AllowUserFormData = false;
+            pdf.SecuritySettings.AllowUserPrinting = IronPdf.Security.PdfPrintSecurity.FullPrintRights;
+            
+            // Update the document password settings
+            pdf.SecuritySettings.OwnerPassword = "top-secret"; // Editing password
+            pdf.SecuritySettings.UserPassword = "shareable";  // Opening password
+            pdf.SaveAs("secured.pdf");
+        }
+    }
+}
 ```
-
-Annotations allow for detailed comments or notes to be incorporated easily into your PDF documents. For more on configuring annotations, visit [https://ironpdf.com/examples/csharp-pdf-annotations/](https://ironpdf.com/examples/csharp-pdf-annotations/).
-
-### Adding Backgrounds and Foregrounds
-
-IronPDF allows for seamless integration of backgrounds and foregrounds by merging PDFs, using one as the background or foreground of another:
 
 ```csharp
-var renderer = new ChromePdfRenderer();
-var pdf = renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");
-pdf.AddBackgroundPdf(@"MyBackground.pdf");
-pdf.AddForegroundOverlayPdfToPage(0, @"MyForeground.pdf", 0);
-pdf.SaveAs(@"C:\Path\To\Complete.pdf");
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class MetadataSecurityExample
+    {
+        public void Execute()
+        {
+            // Load an encrypted file or alternatively, create a new PDF from HTML content
+            var pdfDocument = PdfDocument.FromFile("encrypted.pdf", "password");
+
+            // Update PDF metadata
+            pdfDocument.MetaData.Author = "Satoshi Nakamoto";
+            pdfDocument.MetaData.Keywords = "SEO, Friendly";
+            pdfDocument.MetaData.ModifiedDate = System.DateTime.Now;
+
+            // Update PDF security settings to restrict certain actions
+            pdfDocument.SecuritySettings.RemovePasswordsAndEncryption();
+            pdfDocument.SecuritySettings.MakePdfDocumentReadOnly("secret-key");
+            pdfDocument.SecuritySettings.AllowUserAnnotations = false;
+            pdfDocument.SecuritySettings.AllowUserCopyPasteContent = false;
+            pdfDocument.SecuritySettings.AllowUserFormData = false;
+            pdfDocument.SecuritySettings.AllowUserPrinting = IronPdf.Security.PdfPrintSecurity.FullPrintRights;
+
+            // Set new passwords for editing and opening the PDF document
+            pdfDocument.SecuritySettings.OwnerPassword = "top-secret"; // Password required to edit the PDF
+            pdfDocument.SecuritySettings.UserPassword = "shareable"; // Password required to view the PDF
+
+            // Save the changes to a new secured PDF file
+            pdfDocument.SaveAs("secured.pdf");
+        }
+    }
+}
 ```
 
-Incorporating headers and footers into your PDF documents is straightforward with IronPDF, which offers two specific types of "HeaderFooters": `TextHeaderFooter` and `HtmlHeaderFooter`. For simpler applications including only textual content, `TextHeaderFooter` is ideal and supports dynamic content such as page numbers through merge fields like `"{page} of {total-pages}"`. For more complex requirements, `HtmlHeaderFooter` allows the inclusion of any HTML content, ensuring rich formatting and design flexibility in your document's headers and footers.
+### Digital Signatures
 
-#### HTML Headers and Footers
+IronPDF provides tools to digitally sign both new and existing PDF documents using .pfx and .p12 X509Certificate2 certificates. This digital signature ensures that once a PDF is signed, any modifications would require validation through the certificate, preserving the document's integrity.
 
-Utilizing the rendered HTML directly, IronPDF enables you to perfectly format and integrate HTML headers and footers into your PDF documents. This feature ensures precise and exact visual layouts as headers or footers on each page.
+For instructions on generating a signing certificate at no cost using Adobe Reader, please refer to [Adobe Reader's guide](https://helpx.adobe.com/acrobat/using/digital-ids.html).
 
-The C# code snippet below demonstrates how to customize headers and footers within a PDF document using the IronPDF library's `ChromePdfRenderer`.
+Besides cryptographic signing, IronPDF also supports the inclusion of handwritten signatures or company stamp images for signing documents.
+
+Achieve cryptographic signing of PDF documents with a single line of code using IronPDF.
 
 ```csharp
-var renderer = new ChromePdfRenderer();
-
-// Configuring the footer with HTML. Merge fields include:
-// {page}, {total-pages}, {url}, {date}, {time}, {html-title}, and {pdf-title}
-renderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter()
+using IronPdf;
+using IronPdf.Signing;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    MaxHeight = 15, // Set in millimeters
-    HtmlFragment = "<center><i>{page} of {total-pages}</i></center>",
-    DrawDividerLine = true // Adds a line above the footer for separation
-};
-
-// Setting up the header by utilizing an image
-// Using BaseUrl to specify the relative path for image assets
-renderer.RenderingOptions.HtmlHeader = new HtmlHeaderFooter()
-{
-    MaxHeight = 20, // Millimeters
-    HtmlFragment = "<img src='logo.png'>", // Path to the logo image
-    BaseUrl = new System.Uri(@"https://ironpdf.com/assets/images").AbsoluteUri // Set absolute URL for base path
-};
+    public class Section7
+    {
+        public void Run()
+        {
+            // Sign an arbitrary PDF file using a specified .p12 file and password.
+            var signature = new PdfSignature("Iron.p12", "123456");
+            signature.SignPdfFile("any.pdf");
+        }
+    }
+}
 ```
 
-This example highlights the use of dynamic text and image content in headers and footers, enhanced by HTML formatting capabilities. It also showcases the use of `HtmlHeaderFooter` for adding structured design elements to your PDFs, facilitating content personalization while maintaining proper relative path referencing through `BaseUrl`.
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section8
+    {
+        public void Run()
+        {
+            // Create a new PDF from HTML content
+            var renderer = new ChromePdfRenderer();
+            var doc = renderer.RenderHtmlAsPdf("<h1>Exploring Advanced Digital Security Features</h1>");
+            
+            // Initialize the digital signature with a .pfx or .p12 certificate
+            var signature = new IronPdf.Signing.PdfSignature("Iron.pfx", "123456")
+            {
+                // Add details relevant to the digital signing process
+                SigningContact = "help@ironsoftware.com",
+                SigningLocation = "NYC, USA",
+                SigningReason = "Demonstrating Advanced PDF Signature Features"
+            };
+            
+            // Digitally sign the PDF document using the specified certificate
+            doc.Sign(signature);
+            
+            // The document remains unsaved until explicitly saved to a storage medium
+            doc.SaveAs("advanced_signed.pdf");
+        }
+    }
+}
+```
+This refined example offers increased control over the digital signing process using a certificate, allowing you to specify the contact, location, and reason for the signature. Also, remember to store or share the `advanced_signed.pdf` as it's not committed until `SaveAs()` is invoked.
 
-For comprehensive examples demonstrating a variety of scenarios, please refer to our detailed tutorial available [here](https://ironpdf.com/examples/adding-headers-and-footers-advanced/).
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class EnhancedSignatureProcess
+    {
+        public void Execute()
+        {
+            // Step 1. Generate a PDF document
+            var pdfRenderer = new ChromePdfRenderer();
+            var createdPdf = pdfRenderer.RenderHtmlAsPdf("<h1>Testing 2048 bit digital security</h1>");
+
+            // Step 2. Crafting a Digital Signature
+            // For certificate creation, utilize Adobe Acrobat Reader.
+            // Detailed Instructions: https://helpx.adobe.com/acrobat/using/digital-ids.html
+            var digitalSignature = new IronPdf.Signing.PdfSignature("Iron.pfx", "123456")
+            {
+                // Step 3. Define additional signature properties
+                SigningContact = "support@ironsoftware.com",
+                SigningLocation = "Chicago, USA",
+                SigningReason = "Demonstrating PDF signing"
+            };
+
+            // Step 4. Apply the signature to the PDF
+            createdPdf.Sign(digitalSignature);
+
+            // Step 5. Persist the signed PDF to storage
+            createdPdf.SaveAs("signed.pdf");
+        }
+    }
+}
+```
+
+### Managing PDF Attachments
+
+IronPDF offers comprehensive capabilities for both attaching and detaching files within your PDF documents.
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section9
+    {
+        public void Run()
+        {
+            var pdfRenderer = new ChromePdfRenderer();
+            var documentPdf = pdfRenderer.RenderHtmlFileAsPdf("my-content.html");
+
+            // Adding an attachment to the PDF with a specific name and data
+            var addedAttachment = documentPdf.Attachments.AddAttachment("attachment_1", example_attachment);
+
+            // Example of how to remove the previously added attachment
+            documentPdf.Attachments.RemoveAttachment(addedAttachment);
+
+            documentPdf.SaveAs("my-content.pdf");
+        }
+    }
+}
+```
+
+### PDF Compression
+
+IronPDF enables efficient PDF compression, primarily through the reduction of embedded image sizes within a PDF. By using the `CompressImages` method, users can significantly decrease the file size of their documents.
+
+JPEG image resizing in IronPDF allows for a spectrum of quality settings, where 100% maintains the original quality and 1% yields very poor image quality. Typically, settings above 90% maintain high-quality images, while settings between 80-90% and 70-80% offer medium and low-quality outputs, respectively. Compressing images below 70% quality can noticeably degrade the image clarity but can also dramatically reduce the PDF's file size.
+
+It's advisable to experiment with various compression settings to find a suitable balance between image quality and file size reduction. The degree of quality loss can vary depending on the original image type, and some images may experience more pronounced quality reductions than others.
+
+```csharp
+using IronPdf;
+
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class DocumentCompressionExample
+    {
+        public void Execute()
+        {
+            var document = new PdfDocument("document.pdf");
+            
+            // Set the quality level for image compression (scale: 1 to 100)
+            document.CompressImages(60);  // Setting quality to 60%
+            document.SaveAs("compressed_document.pdf");
+        }
+    }
+}
+```
+
+An additional parameter is available to adjust the resolution of images relative to their visibility in the PDF. Be advised, altering this setting might distort certain image types depending on their layout:
+
+Here's the paraphrased section where `IronPdf` library functionalities are utilized to compress PDF images at a specific quality and scale:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section11
+    {
+        public void Run()
+        {
+            var pdfDocument = new PdfDocument("document.pdf");
+
+            // Compress and scale images within the PDF to reduce file size
+            pdfDocument.CompressImages(90, scale: true);
+            pdfDocument.SaveAs("document_scaled_compressed.pdf");
+        }
+    }
+}
+```
+
+## Modifying PDF Content
+
+### Add Headers and Footers
+
+Effortlessly insert headers and footers into your PDF documents using IronPDF’s versatile header and footer capabilities, which include `TextHeaderFooter` for text-based headers and `HtmlHeaderFooter` for more complex HTML.
+
+#### HTML Header and Footer
+
+Employ HTML for creating exact headers or footers that reflect the HTML layout perfectly on your PDF document.
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section12
+    {
+        public void Run()
+        {
+            var renderer = new ChromePdfRenderer();
+            
+            // HTML footer with styling and central alignment
+            renderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter()
+            {
+                MaxHeight = 15, // max height in millimeters
+                HtmlFragment = "<center><i>{page} of {total-pages}<i></center>",
+                DrawDividerLine = true
+            };
+            
+            // HTML header using an image
+            renderer.RenderingOptions.HtmlHeader = new HtmlHeaderFooter()
+            {
+                MaxHeight = 20, // max height in millimeters
+                HtmlFragment = "<img src='logo.png'>",
+                BaseUrl = new System.Uri(@"C:\assets\images").AbsoluteUri
+            };
+        }
+    }
+}
+```
+
+For a comprehensive guide with multiple examples, visit our tutorial [here](https://ironpdf.com/examples/adding-headers-and-footers-advanced/).
 
 #### Text Header and Footer
 
-TextHeaderFooter provides a simple way to include basic headers and footers in your PDF documents. Below is an example showcasing how to implement this feature.
+The simpler `TextHeaderFooter` can efficiently add text-based headers or footers, with options such as merge fields available.
 
 ```csharp
-var renderer = new ChromePdfRenderer();
-
-// Configuration options for rendering
-renderer.RenderingOptions.FirstPageNumber = 1; // Adjust to 2 if starting with a cover page
-
-// Setting up the header template:
-renderer.RenderingOptions.TextHeader.CenterText = "{url}"; // Central text
-renderer.RenderingOptions.TextHeader.DrawDividerLine = true; // A line beneath the header
-renderer.RenderingOptions.TextHeader.Font = IronSoftware.Drawing.FontTypes.Helvetica;
-renderer.RenderingOptions.TextHeader.FontSize = 12;
-
-// Setting up the footer template:
-renderer.RenderingOptions.TextFooter.LeftText = "{date} {time}"; // Left-aligned text
-renderer.RenderingOptions.TextFooter.RightText = "{page} of {total-pages}"; // Right-aligned text
-renderer.RenderingOptions.TextFooter.DrawDividerLine = true; // A line above the footer
-renderer.RenderingOptions.TextFooter.Font = IronSoftware.Drawing.FontTypes.Arial;
-renderer.RenderingOptions.TextFooter.FontSize = 10;
-```
-This section facilitates the integration of headers and footers with dynamic fields such as `{page}`, `{total-pages}`, `{url}`, `{date}`, `{time}`, `{html-title}`, and `{pdf-title}` which get automatically replaced with actual content during PDF generation, providing a professional-looking navigation system for your documents.
-
-```csharp
-var renderer = new ChromePdfRenderer
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    RenderingOptions =
+    public class Section13
     {
-        FirstPageNumber = 1, // Adjust this to 2 if including a cover page
-        
-        // Configuring a header on each page is straightforward:
-        TextHeader =
+        public void Run()
         {
-            DrawDividerLine = true, // Enables a dividing line
-            CenterText = "{url}",  // Inserts the URL at the center
-            Font = IronSoftware.Drawing.FontTypes.Helvetica,  // Sets the font type
-            FontSize = 12  // Specifies the font size
-        },
-        
-        // Similarly, adding a footer is just as easy:
-        TextFooter =
-        {
-            DrawDividerLine = true, // Places a line for separation
-            Font = IronSoftware.Drawing.FontTypes.Arial, // Chooses the font
-            FontSize = 10, // Defines the font size
-            LeftText = "{date} {time}", // Displays date and time on the left
-            RightText = "{page} of {total-pages}" // Shows page count on the right
+            var renderer = new ChromePdfRenderer
+            {
+                RenderingOptions =
+                {
+                    FirstPageNumber = 1, // starting page number
+                    
+                    // Easy text header setup:
+                    TextHeader =
+                    {
+                        DrawDividerLine = true,
+                        CenterText = "{url}",
+                        Font = IronSoftware.Drawing.FontTypes.Helvetica,
+                        FontSize = 12
+                    },
+            
+                    // Simple text footer setup:
+                    TextFooter =
+                    {
+                        DrawDividerLine = true,
+                        Font = IronSoftware.Drawing.FontTypes.Arial,
+                        FontSize = 10,
+                        LeftText = "{date} {time}",
+                        RightText = "{page} of {total-pages}"
+                    }
+                }
+            };
         }
     }
-};
+}
 ```
 
-IronPDF supports a variety of merge fields that dynamically update with specific values during the rendering process. These include `{page}` for the current page number, `{total-pages}` displaying the total number of pages, `{url}` stating the source URL (if any), `{date}` and `{time}` for the current date and time, `{html-title}` for the title of the source HTML, and `{pdf-title}` which is used for the title of the PDF document.
+### Find and Replace Text in a PDF
 
-### Finding and Replacing Text in a PDF Document
-
-Effortlessly modify your PDFs by either inserting placeholders or replacing specific text segments programmatically. Utilize the `ReplaceTextOnPage` method to efficiently handle these text modifications in your PDFs.
-
-The following C# code illustrates how to modify text within an existing PDF document using IronPDF:
+IronPDF provides straightforward methods to replace text across your documents, or to swap placeholders with specific data programmatically using the `ReplaceTextOnPage` method.
 
 ```csharp
-// Load a PDF document
-var pdf = PdfDocument.FromFile("sample.pdf");
-
-// Define the parameters for text replacement
-int pageIndex = 1;  // Page index for operations
-string oldText = ".NET 6"; // Text to be replaced
-string newText = ".NET 7"; // New text to insert
-
-// Execute the text replacement on the specified page
-pdf.ReplaceTextOnPage(pageIndex, oldText, newText);
-
-// Example of replacing a placeholder within the PDF
-pdf.ReplaceTextOnPage(pageIndex, "[DATE]", "01/01/2000");
-
-// Save the modified PDF to a new file
-pdf.SaveAs("new_sample.pdf");
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section14
+    {
+        public void Run()
+        {
+            var pdf = PdfDocument.FromFile("sample.pdf");
+            
+            int pageIndex = 1; // specify the page index
+            string oldText = ".NET 6"; // text to be replaced
+            string newText = ".NET 7"; // new text to include
+            
+            // Replace specific text on specified page
+            pdf.ReplaceTextOnPage(pageIndex, oldText, newText);
+            
+            // Example of replacing a placeholder with a date
+            pdf.ReplaceTextOnPage(pageIndex, "[DATE]", "01/01/2000");
+            
+            // Save the modified PDF
+            pdf.SaveAs("new_sample.pdf");
+        }
+    }
+}
 ```
-This refactored code snippet effectively demonstrates altering text within a PDF, providing clear, organized parameters and actions for each operation step.
 
-For a detailed example of finding and replacing text in a PDF using our Code Examples, please click [here](https://ironpdf.com/examples/csharp-replace-text-in-pdf/).
+For detailed instructions on text replacement, please visit our page [here](https://ironpdf.com/examples/csharp-replace-text-in-pdf/).
 
 ### Outlines and Bookmarks
 
-Outlines, often referred to as "bookmarks," provide a convenient means to quickly access important sections within a PDF document. These bookmarks are prominently displayed in the left sidebar of Adobe Acrobat Reader and can include nested levels. IronPDF seamlessly imports any existing bookmarks from PDF files and offers the flexibility to enhance these with new additions, modifications, or further organization.
-
-Here's the paraphrased section of your article with resolved relative URL paths:
+Easily navigate through PDFs by adding, editing, or organizing outlines and bookmarks with IronPDF. These bookmarks, accessible through Adobe Acrobat Reader's sidebar, enhance the document's navigability.
 
 ```csharp
-// Initialize a PDF Document by loading an existing file or creating a new one.
-PdfDocument pdf = PdfDocument.FromFile("existing.pdf");
-
-// Inserting bookmarks at the end of the PDF document for quick access.
-pdf.Bookmarks.AddBookMarkAtEnd("Author's Note", 2);
-pdf.Bookmarks.AddBookMarkAtEnd("Table of Contents", 3);
-
-// Create a new bookmark for the Summary section and store it for further use.
-var summaryBookmark = pdf.Bookmarks.AddBookMarkAtEnd("Summary", 17);
-
-// Append a child bookmark for the Conclusion under the Summary section.
-var conclusionBookmark = summaryBookmark.Children.AddBookMarkAtStart("Conclusion", 18);
-
-// Add a final bookmark for References at the document's end.
-pdf.Bookmarks.AddBookMarkAtEnd("References", 20);
-
-// Save all changes to the same PDF file.
-pdf.SaveAs("existing.pdf");
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section15
+    {
+        public void Run()
+        {
+            var pdf = PdfDocument.FromFile("existing.pdf");
+            
+            pdf.Bookmarks.AddBookMarkAtEnd("Author's Note", 2);
+            pdf.Bookmarks.AddBookMarkAtEnd("Table of Contents", 3);
+            
+            var summaryBookmark = pdf.Bookmarks.AddBookMarkAtEnd("Summary", 17);
+            summaryBookmark.Children.AddBookMarkAtStart("Conclusion", 18);
+            
+            pdf.Bookmarks.AddBookMarkAtEnd("References", 20);
+            
+            pdf.SaveAs("existing.pdf");
+        }
+    }
+}
 ```
 
-For an in-depth example of Outlines and Bookmarks, refer to our detailed tutorial on the Code Examples page [here](https://ironpdf.com/examples/bookmarks/).
+For more information regarding bookmarks and outlines, click [here](https://ironpdf.com/examples/bookmarks/).
 
 ### Add and Edit Annotations
 
-IronPDF offers extensive customization options for PDF annotations. Below is an example that illustrates the comprehensive features available for annotating PDF documents:
+IronPDF offers comprehensive tools to customize annotations in PDF documents. Annotate with text, customize appearance and specify behaviors as shown below:
 
 ```csharp
-// Load an existing PDF or create a new one.
-var pdf = PdfDocument.FromFile("existing.pdf");
-
-// Define a PDF annotation object
-var textAnnotation = new IronPdf.Annotations.TextAnnotation(PageIndex: 0)
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    Title = "Main Title",
-    Contents = "This is a detailed note added to the page...",
-    Subject = "Sub Title",
-    Icon = IronPdf.Annotations.TextAnnotation.AnnotationIcon.Comment,
-    Opacity = 0.8,
-    Printable = true,
-    Hidden = false,
-    OpenByDefault = false,
-    ReadOnly = true,
-    Rotatable = false,
-};
-
-// Add the defined annotation to a specific page in the PDF.
-pdf.Annotations.Add(textAnnotation);
-
-// Save changes to the PDF
-pdf.SaveAs("annotated.pdf");
+    public class Section16
+    {
+        public void Run()
+        {
+            var pdf = PdfDocument.FromFile("existing.pdf");
+            
+            var textAnnotation = new IronPdf.Annotations.TextAnnotation(0)
+            {
+                Title = "This is the major title",
+                Contents = "This is the long 'sticky note' comment content...",
+                Subject = "This is a subtitle",
+                Icon = IronPdf.Annotations.TextAnnotation.AnnotationIcon.Help,
+                Opacity = 0.9,
+                Printable = false,
+                Hidden = false,
+                OpenByDefault = true,
+                ReadOnly = false,
+                Rotatable = true,
+            };
+            
+            pdf.Annotations.Add(textAnnotation);
+            
+            pdf.SaveAs("existing.pdf");
+        }
+    }
+}
 ```
 
-This sample code demonstrates how to implement annotations in PDFs using IronPDF, facilitating the addition of interactive and informative elements within your document.
+Text annotations are just one of many customizable options available for adding "sticky note" style comments to PDF pages.
+
+### Add Backgrounds and Foregrounds
+
+Use IronPDF to effortlessly layer PDF documents by merging them as backgrounds or foregrounds to create visually enriched PDF files.
 
 ```csharp
-// Load an existing PDF or start with a new one.
-var pdf = PdfDocument.FromFile("existing.pdf");
-
-// Instantiate a new text annotation for PDFs
-var textAnnotation = new IronPdf.Annotations.TextAnnotation(PageIndex: 0)
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    Title = "Major Section Title",
-    Contents = "Detailed content for a lengthy 'sticky note'...",
-    Subject = "Subsection Title",
-    Icon = IronPdf.Annotations.TextAnnotation.AnnotationIcon.Help,
-    Opacity = 0.9,  // Set the opacity for see-through effect
-    Printable = false, 
-    Hidden = false,
-    OpenByDefault = true, // Open by default when the PDF is opened
-    ReadOnly = false,
-    Rotatable = true, // Allow rotation of the annotation
-};
-
-// Place the created text annotation on a determined page and location within the PDF.
-pdf.Annotations.Add(textAnnotation);
-
-// Save the changes to the same PDF file.
-pdf.SaveAs("existing.pdf");
+    public class Section17
+    {
+        public void Run()
+        {
+            var renderer = new ChromePdfRenderer();
+            var pdf = renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");
+            pdf.AddBackgroundPdf(@"MyBackground.pdf");
+            pdf.AddForegroundOverlayPdfToPage(0, @"MyForeground.pdf", 0);
+            pdf.SaveAs(@"C:\Path\To\Complete.pdf");
+        }
+    }
+}
 ```
 
-PDF annotations enable the addition of "sticky note"-style comments on PDF pages. The `TextAnnotation` class facilitates the programmatically insertion of these annotations. It supports a range of sophisticated features, such as size adjustments, opacity settings, icon selection, and content editing.
+### Incorporating Headers and Footers
 
-### Adding Backgrounds and Foregrounds
+Adding headers and footers to your PDF documents is straightforward with IronPDF. The library offers two types of header/footer implementations: `TextHeaderFooter` and `HtmlHeaderFooter`. For simple text-based headers and footers, `TextHeaderFooter` is ideal and supports dynamic content such as `"{page} of {total-pages}"`. For more complex requirements, `HtmlHeaderFooter` allows the inclusion of full HTML content in headers and footers, accommodating more elaborate designs and formatting.
 
-IronPDF facilitates the seamless integration of two PDF files by using one as a background or foreground layer. This feature simplifies enhancing PDFs with additional graphical elements.
+#### HTML Headers and Footers
 
-Here's the paraphrased section of the article, with the URL paths resolved.
+Employ HTML for your PDF's headers and footers for an impeccable layout that precisely mirrors your HTML rendering. This approach ensures that your PDF documents achieve a pixel-perfect presentation in their headings and footings.
 
 ```csharp
-var pdfRenderer = new ChromePdfRenderer();
-var pdfDocument = pdfRenderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");
-pdfDocument.AddBackgroundPdf(@"https://ironpdf.com/MyBackground.pdf");
-pdfDocument.AddForegroundOverlayPdfToPage(0, @"https://ironpdf.com/MyForeground.pdf", 0);
-pdfDocument.SaveAs(@"C:\Path\To\Complete.pdf");
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section12
+    {
+        public void Run()
+        {
+            var renderer = new ChromePdfRenderer();
+
+            // Set the HTML footer with dynamic fields for pagination and dates
+            // Available template fields include {page}, {total-pages}, {url}, {date}, {time}, {html-title}, and {pdf-title}
+            renderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter
+            {
+                MaxHeight = 15, // Set the height in millimeters
+                HtmlFragment = "<center><i>{page} of {total-pages}<i></center>",
+                DrawDividerLine = true // Draws a line above the footer for separation
+            };
+
+            // Configure the HTML header using an image, changing the BaseUrl to local machine absolute path
+            renderer.RenderingOptions.HtmlHeader = new HtmlHeaderFooter
+            {
+                MaxHeight = 20, // Height in millimeters
+                HtmlFragment = "<img src='logo.png'>", // Source image for the header
+                // Set the base URL to resolve relative paths
+                BaseUrl = new System.Uri("C:\\assets\\images").AbsoluteUri
+            };
+        }
+    }
+}
 ```
+
+To explore an extensive example that covers various scenarios, please visit our detailed tutorial [here](https://ironpdf.com/examples/adding-headers-and-footers-advanced/).
+
+#### Text Header and Footer
+
+For straightforward header and footer implementations, IronPDF provides the `TextHeaderFooter` class. Explore the example provided for a clearer understanding.
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section13
+    {
+        public void Run()
+        {
+            // Initialize a PDF renderer to facilitate adding headers and footers
+            var renderer = new ChromePdfRenderer
+            {
+                RenderingOptions =
+                {
+                    FirstPageNumber = 1, // Option to start numbering from 2 if including a cover page
+
+                    // Configuring the header for each page
+                    TextHeader = new TextHeaderFooter
+                    {
+                        DrawDividerLine = true,
+                        CenterText = "{url}", // Placeholder for the current URL
+                        Font = IronSoftware.Drawing.FontTypes.Helvetica,
+                        FontSize = 12 // Size of the font used in the header
+                    },
+
+                    // Similarly, setting up the footer
+                    TextFooter = new TextHeaderFooter
+                    {
+                        DrawDividerLine = true,
+                        Font = IronSoftware.Drawing.FontTypes.Arial,
+                        FontSize = 10, // Font size for the footer
+                        LeftText = "{date} {time}", // Display date and time on the left
+                        RightText = "{page} of {total-pages}" // Page count on the right
+                    }
+                }
+            };
+        }
+    }
+}
+```
+
+In addition, IronPDF supports the use of merge fields that are dynamically replaced with specific values during rendering. These fields include `{page}`, `{total-pages}`, `{url}`, `{date}`, `{time}`, `{html-title}`, and `{pdf-title}`.
+
+### Text Replacement in PDFs
+
+Effortlessly replace text or establish placeholders in your PDF documents using the versatile `ReplaceTextOnPage` method from IronPDF. This feature allows seamless updates to text content programmatically, perfect for dynamic data integration in your documents.
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class TextReplacementSection
+    {
+        public void Execute()
+        {
+            // Load an existing PDF document
+            var pdfDocument = PdfDocument.FromFile("sample.pdf");
+            
+            // Define parameters for the text replacement
+            int pageToEdit = 1; // Page index for operation
+            string textToReplace = ".NET 6"; // Existing text
+            string replacementText = ".NET 7"; // New text to insert
+
+            // Perform text replacement on specified page
+            pdfDocument.ReplaceTextOnPage(pageToEdit, textToReplace, replacementText);
+
+            // Example: Replace placeholders with concrete texts
+            pdfDocument.ReplaceTextOnPage(pageToEdit, "[DATE]", "01/01/2000");
+
+            // Save the updated PDF document
+            pdfDocument.SaveAs("new_sample.pdf");
+        }
+    }
+}
+```
+
+For an in-depth example of finding and replacing text in a PDF, please explore our Code Examples page [here](https://ironpdf.com/examples/csharp-replace-text-in-pdf/).
+
+### Outlines and Bookmarks
+
+Outlines, often referred to as "bookmarks," provide a handy navigation tool for accessing important pages within a PDF document. Displayed on the left sidebar of Adobe Acrobat Reader, these bookmarks can be nested for organized access. IronPDF efficiently imports any existing bookmarks from PDF files and allows for the creation, modification, and organization of new bookmarks.
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section15
+    {
+        public void Execute()
+        {
+            // Initialize a new or existing PDF document.
+            PdfDocument pdf = PdfDocument.FromFile("existing.pdf");
+
+            // Append bookmarks to the PDF.
+            pdf.Bookmarks.AddBookMarkAtEnd("Author's Note", 2);
+            pdf.Bookmarks.AddBookMarkAtEnd("Table of Contents", 3);
+
+            // Create a new bookmark for the summary section.
+            var summaryBookmark = pdf.Bookmarks.AddBookMarkAtEnd("Summary", 17);
+
+            // Insert a nested bookmark for the conclusion within the summary.
+            var conclusionBookmark = summaryBookmark.Children.AddBookMarkAtStart("Conclusion", 18);
+
+            // Place an additional bookmark for references at the end of the document.
+            pdf.Bookmarks.AddBookMarkAtEnd("References", 20);
+
+            // Save the changes to the same PDF file.
+            pdf.SaveAs("existing.pdf");
+        }
+    }
+}
+```
+
+To explore the Outlines and Bookmarks example on our Code Examples page, you can find it [here](https://ironpdf.com/examples/bookmarks/).
+
+### Adding and Modifying Annotations in PDFs
+
+IronPDF provides extensive options for customizing annotations within PDF documents. Here is a detailed example to illustrate these capabilities:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section16
+    {
+        public void Run()
+        {
+            // Load an existing PDF document or create a new one.
+            var pdf = PdfDocument.FromFile("existing.pdf");
+            
+            // Define a new text annotation with specific properties
+            var textAnnotation = new IronPdf.Annotations.TextAnnotation(PageIndex: 0)
+            {
+                Title = "This is the major title",
+                Contents = "Here is a detailed sticky note comment...",
+                Subject = "Subtitle Information",
+                Icon = IronPdf.Annotations.TextAnnotation.AnnotationIcon.Note,
+                Opacity = 0.8,
+                Printable = true,
+                Hidden = false,
+                OpenByDefault = false,
+                ReadOnly = true,
+                Rotatable = false,
+            };
+            
+            // Add the newly created annotation to a specific page
+            pdf.Annotations.Add(textAnnotation);
+            
+            // Save the changes to a new file
+            pdf.SaveAs("updated.pdf");
+        }
+    }
+}
+```
+
+In this section, annotations can be completely tailored to suit specific requirements including options like the annotation's icon, visibility, whether it's printable, and more. Each property can be individually set to achieve the desired functionality and appearance within the PDF.
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section16
+    {
+        public void Run()
+        {
+            // Load an existing PDF or initialize a new one.
+            var pdf = PdfDocument.FromFile("existing.pdf");
+
+            // Define a text annotation for insertion into the PDF.
+            var textAnnotation = new IronPdf.Annotations.TextAnnotation(PageIndex: 0)
+            {
+                Title = "This is the major title",
+                Contents = "This is the long 'sticky note' comment content...",
+                Subject = "This is a subtitle",
+                Icon = IronPdf.Annotations.TextAnnotation.AnnotationIcon.Help,
+                Opacity = 0.9,
+                Printable = false,
+                Hidden = false,
+                OpenByDefault = true,
+                ReadOnly = false,
+                Rotatable = true,
+            };
+
+            // Insert the defined text annotation into a specific page in the PDF.
+            pdf.Annotations.Add(textAnnotation);
+
+            // Save the changes to the same existing PDF file.
+            pdf.SaveAs("existing.pdf");
+        }
+    }
+}
+```
+
+PDF annotations make it possible to insert comments resembling "sticky notes" into PDF documents. Utilizing the `TextAnnotation` class, these annotations can be programmatically positioned within the pages. Its robust feature set includes options for resizing, setting opacity, choosing icons, and performing edits.
+
+### Incorporating Backgrounds and Foregrounds into PDFs
+
+IronPDF enables effortless integration of two PDF files, allowing you to designate one as either a background or a foreground to the other:
+
+Here is the paraphrased version of the provided C# code section, with absolute URLs resolved to `ironpdf.com`:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class BackgroundForegroundSection
+    {
+        public void Execute()
+        {
+            var pdfRenderer = new ChromePdfRenderer();
+            var generatedPdf = pdfRenderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");
+            generatedPdf.AddBackgroundPdf(@"MyBackground.pdf");
+            generatedPdf.AddForegroundOverlayPdfToPage(0, @"MyForeground.pdf", 0);
+            generatedPdf.SaveAs(@"C:\Path\To\Complete.pdf");
+        }
+    }
+}
+```
+
+This version maintains the same functionality with different variable naming and slight structural changes for clarity and distinction.
 
 ### Stamping and Watermarking
 
-IronPDF provides essential functionalities for both stamping and watermarking, which are critical aspects of any PDF editing software. With IronPDF, you can utilize a versatile API to craft various types of stamps, like those for images and HTML. This framework offers extensive customization options, including adjustable alignments and offsets, to suit diverse stamping needs. These features are detailed illustrated [here](https://ironpdf.com/static-assets/pdf/tutorials/csharp-edit-pdf-complete-tutorial/csharp-edit-pdf-complete-tutorial-1.webp).
+Stamping and watermarking capabilities are essential tools in any PDF editing software. IronPDF offers a robust API that allows for the creation of various types of stamps, including image and HTML stamps. This flexibility is enhanced by customizable options for alignment and offsets, ensuring precise placement of stamps within your documents. Detailed examples of these features can be explored here:
 
 <div class="content-img-align-center">
   <img src="/static-assets/pdf/tutorials/csharp-edit-pdf-complete-tutorial/csharp-edit-pdf-complete-tutorial-1.webp" alt="Stamping and Watermarking" class="img-responsive add-shadow">
@@ -966,69 +1329,56 @@ IronPDF provides essential functionalities for both stamping and watermarking, w
 
 #### Abstract Stamper Class
 
-The `Stamper` abstract class serves as a parameter for all stamping functions provided by IronPDF.
+The abstract `Stamper` class serves as a foundation for all stamping operations in IronPDF. It plays a crucial role in customizing how content is stamped onto PDFs.
 
-Various specialized classes cater to different stamping requirements:
+IronPDF provides several specialized stamper classes tailored to different needs:
 
-- Use `TextStamper` for text stamps - [Text Example](#anchor-stamp-text-onto-a-pdf)
-- Use `ImageStamper` for image stamps - [Image Example](#anchor-stamp-an-image-onto-a-pdf)
-- Use `HtmlStamper` for HTML content stamps - [HTML Example](#anchor-stamp-html-onto-a-pdf)
-- Use `BarcodeStamper` for barcode stamps - [Barcode Example](#anchor-stamp-a-barcode-onto-a-pdf)
-- Use `BarcodeStamper` again for QR code stamps - [QR Code Example](#anchor-stamp-a-qr-code-onto-a-pdf)
+- `TextStamper` for adding text [Text Example](#anchor-stamp-text-onto-a-pdf)
+- `ImageStamper` for embedding images [Image Example](#anchor-stamp-an-image-onto-a-pdf)
+- `HtmlStamper` for incorporating HTML content [HTML Example](#anchor-stamp-html-onto-a-pdf)
+- `BarcodeStamper` for barcode integration [Barcode Example](#anchor-stamp-a-barcode-onto-a-pdf)
+- Another `BarcodeStamper` for QR code implementations [QR Code Example](#anchor-stamp-a-qr-code-onto-a-pdf)
 - For adding watermarks, refer to [this section](#anchor-add-a-watermark-to-a-pdf).
 
-To utilize these stamping tools, employ one of the `ApplyStamp()` methods outlined in [the Apply Stamp part of this tutorial](#anchor-apply-stamp-onto-a-pdf).
+To utilize these stampers, employ the methods found in the `ApplyStamp()` section of this tutorial. See the relevant instructions [here](#anchor-apply-stamp-onto-a-pdf).
 
-# Stamper Class Properties
+## Stamper Class Properties Overview
 
-The `Stamper` abstract class serves as the foundational parameter for all stamping operations within IronPDF. Each subclass is specialized for different stamping tasks:
+The `Stamper` class in IronPDF serves as the foundation for all stamping operations within PDF documents, offering a suite of properties to customize the appearance and behavior of stamps. Below is a detailed description of these properties:
 
-- `TextStamper` for stamping text.
-- `ImageStamper` for stamping images.
-- `HtmlStamper` for stamping HTML content.
-- `BarcodeStamper` for stamping barcodes.
-- `BarcodeStamper` (another instance) for QR code operations.
-- Details for watermark applications are available [here](https://ironpdf.com/examples/pdf-watermarking/).
 
-For executing the stamping functionalities, IronPDF provides a series of methods under `ApplyStamp()`. For detailed guidance, refer to [this tutorial](#anchor-apply-stamp-onto-a-pdf).
-
-Below are the properties of the Stamper class:
-
-```txt
 abstract class Stamper
 |
-└─── int : Opacity
-└─── int : Rotation
+└─── int : Opacity (Defines the transparency level of the stamp)
+└─── int : Rotation (Sets the rotation angle of the stamp in degrees)
 |
-└─── double : Scale
+└─── double : Scale (Adjusts the scale of the stamp, where 1 represents original size)
 |
-└─── Length : HorizontalOffset
-└─── Length : VerticalOffset
+└─── Length : HorizontalOffset (Determines the horizontal position of the stamp relative to the page)
+└─── Length : VerticalOffset (Determines the vertical position of the stamp relative to the page)
 |
-└─── Length : MinWidth
-└─── Length : MaxWidth
+└─── Length : MinWidth (Specifies the minimum width of the stamp)
+└─── Length : MaxWidth (Specifies the maximum width of the stamp)
 |
-└─── Length : MinHeight
-└─── Length : MaxHeight
+└─── Length : MinHeight (Specifies the minimum height of the stamp)
+└─── Length : MaxHeight (Specifies the maximum height of the stamp)
 |
-└─── string : Hyperlink
+└─── string : Hyperlink (Embeds a clickable hyperlink within the stamp)
 |
-└─── bool : IsStampBehindContent (defaults to false)
+└─── bool : IsStampBehindContent (Determines whether the stamp appears behind page content, default is false)
 |
 └─── HorizontalAlignment : HorizontalAlignment
-│   │   Left
-│   │   Center (default)
-│   │   Right
+│   │   Left (Aligns stamp to the left)
+│   │   Center (Aligns stamp to the center, default setting)
+│   │   Right (Aligns stamp to the right)
 │
 └─── VerticalAlignment : VerticalAlignment
-    │   Top
-    │   Middle (default)
-    │   Bottom
-``` 
+    │   Top (Aligns stamp at the top)
+    │   Middle (Aligns stamp at the center, default setting)
+    │   Bottom (Aligns stamp at the bottom)
+```
 
-This structured set of properties ensures maximum flexibility and customization in how stamps appear on your documents, catering to a wide range of applications and design requirements.
-
-Below is the paraphrased section of article utilizing the properties and structure of the `Stamper` abstract class.
+This configuration schema empowers developers to precisely control how stamps are applied across different PDF pages, ensuring the modifications fit the required context and design specifications.
 
 ```txt
 abstract class Stamper
@@ -1055,601 +1405,989 @@ abstract class Stamper
 │   │   Left
 │   │   Center (default)
 │   │   Right
-
+│
 └─── VerticalAlignment : VerticalAlignment
     │   Top
     │   Middle (default)
     │   Bottom
 ```
 
-## Examples of Stamping Capabilities
+## Examples of Stamping
 
-In this section, we display the diverse functionality of each subclass of the `Stamper` class through detailed code examples.
+In the following section, we present a variety of examples that illustrate the use of the different `Stamper` subclasses within IronPDF, accompanied by relevant code snippets.
 
-Each type of stamper serves a different purpose and can be customized extensively to suit specific needs when applying stamps to a PDF. Here's how you can utilize each one effectively:
+### Stamp Text onto a PDF
 
-### Stamping Text on PDF Documents
-
-Initiating and applying two distinct `TextStamper` instances with varied configurations:
+Creating two distinct Text Stampers and applying them:
 
 ```csharp
-var renderer = new ChromePdfRenderer();
-var pdf = renderer.RenderHtmlAsPdf("<h1>Sample HTML for PDF!</h1>");
-
-// Configure the first text stamper
-TextStamper textStamper1 = new TextStamper
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    Text = "First Stamp: Hello World!",
-    FontFamily = "Bungee Spice",
-    UseGoogleFont = true,
-    FontSize = 100,
-    IsBold = true,
-    IsItalic = true,
-    VerticalAlignment = VerticalAlignment.Top
-};
+    public class Section18
+    {
+        public void Run()
+        {
+            var renderer = new ChromePdfRenderer();
+            var pdf = renderer.RenderHtmlAsPdf("<h1>Example HTML Document!</h1>");
+            
+            TextStamper stamper1 = new TextStamper
+            {
+                Text = "Hello World! Stamp One Here!",
+                FontFamily = "Bungee Spice",
+                UseGoogleFont = true,
+                FontSize = 100,
+                IsBold = true,
+                IsItalic = true,
+                VerticalAlignment = VerticalAlignment.Top
+            };
+            
+            TextStamper stamper2 = new TextStamper()
+            {
+                Text = "Hello World! Stamp Two Here!",
+                FontFamily = "Bungee Spice",
+                UseGoogleFont = true,
+                FontSize = 30,
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
+            
+            Stamper[] stampersToApply = { stamper1, stamper2 };
+            pdf.ApplyMultipleStamps(stampersToApply);
+            pdf.ApplyStamp(stamper2);
+        }
+    }
+}
+```
 
-// Configure the second text stamper
-TextStamper textStamper2 = new TextStamper()
+### Stamp an Image onto a PDF
+
+Applying an Image Stamp across various pages of an existing PDF document:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    Text = "Second Stamp: Hello Again!",
-    FontFamily = "Bungee Spice",
-    UseGoogleFont = true,
-    FontSize = 30,
-    VerticalAlignment = VerticalAlignment.Bottom
-};
-
-// Creating an array of stampers to be applied
-Stamper[] stampers = { textStamper1, textStamper2 };
-
-// Apply both stampers to the PDF
-pdf.ApplyMultipleStamps(stampers);
-pdf.ApplyStamp(textStamper2);
+    public class Section19
+    {
+        public void Run()
+        {
+            var pdf = new PdfDocument("/attachments/2022_Q1_sales.pdf");
+            
+            ImageStamper logoImageStamper = new ImageStamper("/assets/logo.png");
+            
+            // Apply to every page, one page, or some pages
+            pdf.ApplyStamp(logoImageStamper);
+            pdf.ApplyStamp(logoImageStamper, 0);
+            pdf.ApplyStamp(logoImageStamper, new[] { 0, 3, 11 });
+        }
+    }
+}
 ```
 
-In this example, the flexibility of IronPDF's `TextStamper` is showcased by creating two stamps with different properties and applying them to a PDF document, demonstrating the ease of text stamping customization.
+### Stamp HTML onto a PDF
+
+Incorporating your custom HTML content as a stamp:
 
 ```csharp
-// Set up the PDF rendering tool
-var pdfRenderer = new ChromePdfRenderer();
-// Render a simple HTML page into a PDF
-var examplePdf = pdfRenderer.RenderHtmlAsPdf("<h1>Example HTML Document!</h1>");
-
-// Initialize the first text stamper
-TextStamper firstStamper = new TextStamper
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    Text = "Hello World! First Stamp Here!",
-    FontFamily = "Bungee Spice",
-    UseGoogleFont = true,
-    FontSize = 100,
-    IsBold = true,
-    IsItalic = true,
-    VerticalAlignment = VerticalAlignment.Top
-};
+    public class Section20
+    {
+        public void Run()
+        {
+            var renderer = new ChromePdfRenderer();
+            var pdf = renderer.RenderHtmlAsPdf("<p>Hello World, example HTML body.</p>");
+            
+            HtmlStamper stamper = new HtmlStamper($"<p>Example HTML Stamped</p><div style='width:250pt;height:250pt;background-color:red;'></div>")
+            {
+                HorizontalOffset = new Length(-3, MeasurementUnit.Inch),
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
+            
+            pdf.ApplyStamp(stamper);
+        }
+    }
+}
+```
 
-// Initialize the second text stamper
-TextStamper secondStamper = new TextStamper
+### Stamp a Barcode onto a PDF
+
+Creating and applying a Barcode stamp:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    Text = "Hello World! Second Stamp Here!",
-    FontFamily = "Bungee Spice",
-    UseGoogleFont = true,
-    FontSize = 30,
-    VerticalAlignment = VerticalAlignment.Bottom
-};
-
-// Create an array of stampers
-Stamper[] stampArray = { firstStamper, secondStamper };
-// Apply multiple stamps to the PDF
-examplePdf.ApplyMultipleStamps(stampArray);
-// Apply a single stamp again
-examplePdf.ApplyStamp(secondStamper);
+    public class Section21
+    {
+        public void Run()
+        {
+            BarcodeStamper bcStamp = new BarcodeStamper("IronPDF", BarcodeEncoding.Code39);
+            
+            bcStamp.HorizontalAlignment = HorizontalAlignment.Left;
+            bcStamp.VerticalAlignment = VerticalAlignment.Bottom;
+            
+            var pdf = new PdfDocument("example.pdf");
+            pdf.ApplyStamp(bcStamp);
+        }
+    }
+}
 ```
 
-### Stamping an Image onto a PDF
+### Stamp a QR Code onto a PDF
 
-Incorporating an image stamp into an existing PDF document can be accomplished for different page arrangements:
-
-```csharp
-var pdf = new PdfDocument("/attachments/2022_Q1_sales.pdf");
-
-ImageStamper logoImageStamper = new ImageStamper("/assets/logo.png");
-
-// Option to apply the stamp across all pages, a single page, or selected pages
-pdf.ApplyStamp(logoImageStamper);
-pdf.ApplyStamp(logoImageStamper, 0);
-pdf.ApplyStamp(logoImageStamper, new[] { 0, 3, 11 });
-```
+Example of generating and stamping a QR Code:
 
 ```csharp
-var pdfDocument = new PdfDocument("https://ironpdf.com/attachments/2022_Q1_sales.pdf");
-
-ImageStamper imageStamp = new ImageStamper("https://ironpdf.com/assets/logo.png");
-
-// You can stamp on all pages, a single specific page, or selected pages of the PDF.
-pdfDocument.ApplyStamp(imageStamp); // Apply stamp to all pages.
-pdfDocument.ApplyStamp(imageStamp, 0); // Apply stamp only to the first page.
-pdfDocument.ApplyStamp(imageStamp, new[] { 0, 3, 11 }); // Apply stamp to pages 1, 4, and 12.
-```
-
-### HTML Stamping on PDFs
-
-Easily incorporate your custom HTML into a PDF as a stamp:
-
-```csharp
-var renderer = new ChromePdfRenderer();
-var pdf = renderer.RenderHtmlAsPdf("<p>Welcome to our example!</p>");
-
-HtmlStamper stamper = new HtmlStamper($"<p>Stamps made simple</p><div style='width:250pt;height:250pt;background-color:blue;'></div>")
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    HorizontalOffset = new Length(-3, MeasurementUnit.Inch),
-    VerticalAlignment = VerticalAlignment.Bottom
-};
-
-pdf.ApplyStamp(stamper);
+    public class Section22
+    {
+        public void Run()
+        {
+            BarcodeStamper qrStamp = new BarcodeStamper("IronPDF", BarcodeEncoding.QRCode);
+            
+            qrStamp.Height = 50; // pixels
+            qrStamp.Width = 50; // pixels
+            
+            qrStamp.HorizontalAlignment = HorizontalAlignment.Left;
+            qrStamp.VerticalAlignment = VerticalAlignment.Bottom;
+            
+            var pdf = new PdfDocument("example.pdf");
+            pdf.ApplyStamp(qrStamp);
+        }
+    }
+}
 ```
 
-Here is a paraphrased version of the given section:
+This section has displayed various practical examples on how to utilize the different subclasses of `Stamper` to add stamps to PDF documents using IronPDF. Each example is aimed at showcasing the flexibility and range of customization possible with IronPDF's stamping features.
+
+### Text Stamping on PDFs
+
+Explore how to create and apply two distinct `TextStamper` instances on a PDF:
 
 ```csharp
-var pdfRenderer = new ChromePdfRenderer();
-var document = pdfRenderer.RenderHtmlAsPdf("<p>Hello World, example HTML body.</p>");
-
-HtmlStamper htmlStamper = new HtmlStamper($"<p>Example HTML Stamped</p><div style='width:250pt;height:250pt;background-color:red;'></div>")
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    HorizontalOffset = new Length(-3, MeasurementUnit.Inch),  // Horizontal offset of -3 inches
-    VerticalAlignment = VerticalAlignment.Bottom  // The vertical alignment at the bottom
-};
-
-// Apply the created HTML stamper to the PDF
-document.ApplyStamp(htmlStamper);
+    public class Section18
+    {
+        public void Run()
+        {
+            var renderer = new ChromePdfRenderer();
+            var pdf = renderer.RenderHtmlAsPdf("<h1>Sample HTML Content</h1>");
+            
+            // Configure the first text stamper
+            TextStamper textStamper1 = new TextStamper
+            {
+                Text = "First Text Stamp Here!",
+                FontFamily = "Bungee Spice",
+                UseGoogleFont = true,
+                FontSize = 100,
+                IsBold = true,
+                IsItalic = true,
+                VerticalAlignment = VerticalAlignment.Top
+            };
+            
+            // Configure the second text stamper
+            TextStamper textStamper2 = new TextStamper()
+            {
+                Text = "Second Text Stamp Here!",
+                FontFamily = "Bungee Spice",
+                UseGoogleFont = true,
+                FontSize = 30,
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
+            
+            // Prepare an array of stampers to apply
+            Stamper[] stampersArray = { textStamper1, textStamper2 };
+            
+            // Apply both stampers to the PDF
+            pdf.ApplyMultipleStamps(stampersArray);
+            pdf.ApplyStamp(textStamper2);
+        }
+    }
+}
 ```
-
-### Embedding a Barcode into a PDF Document
-
-Here's a practical example to demonstrate how a barcode can be incorporated into a PDF:
 
 ```csharp
-// Initialize a new Barcode Stamper
-BarcodeStamper barcodeStamper = new BarcodeStamper("IronPDF", BarcodeEncoding.Code39);
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section18
+    {
+        public void Run()
+        {
+            // Instantiate the ChromePdfRenderer
+            var renderer = new ChromePdfRenderer();
 
-// Alignment settings for the barcode
-barcodeStamper.HorizontalAlignment = HorizontalAlignment.Left;
-barcodeStamper.VerticalAlignment = VerticalAlignment.Bottom;
+            // Render an HTML snippet as a PDF
+            var pdf = renderer.RenderHtmlAsPdf("<h1>Sample HTML Document</h1>");
 
-// Load an existing PDF document
-var document = new PdfDocument("example.pdf");
+            // Create the first text stamper configuration
+            TextStamper textStamperOne = new TextStamper
+            {
+                Text = "Greeting! First Stamp Right Here!",
+                FontFamily = "Bungee Spice",
+                UseGoogleFont = true,
+                FontSize = 100,
+                IsBold = true,
+                IsItalic = true,
+                VerticalAlignment = VerticalAlignment.Top
+            };
 
-// Apply the barcode stamp to the document
-document.ApplyStamp(barcodeStamper);
+            // Create the second text stamper configuration
+            TextStamper textStamperTwo = new TextStamper
+            {
+                Text = "Hello Again! Second Stamp Over Here!",
+                FontFamily = "Bungee Spice",
+                UseGoogleFont = true,
+                FontSize = 30,
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
+
+            // Array of stampers to apply
+            Stamper[] stampers = { textStamperOne, textStamperTwo };
+
+            // Apply multiple stampers to the PDF
+            pdf.ApplyMultipleStamps(stampers);
+
+            // Apply the second stamper individually
+            pdf.ApplyStamp(textStamperTwo);
+        }
+    }
+}
+```
+
+### Stamping Images onto a PDF Document
+
+Embedding image stamps into an existing PDF can be performed on selected pages or across the entire document. Here's how to execute various scenarios:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section19
+    {
+        public void Run()
+        {
+            var pdf = new PdfDocument("/attachments/2022_Q1_sales.pdf");
+            
+            // Initialize the ImageStamper with the desired logo
+            ImageStamper logoImageStamper = new ImageStamper("/assets/logo.png");
+            
+            // Apply the stamp across all pages
+            pdf.ApplyStamp(logoImageStamper);
+            
+            // Apply the stamp to the first page
+            pdf.ApplyStamp(logoImageStamper, 0);
+            
+            // Apply the stamp to specific pages: first, fourth, and twelfth
+            pdf.ApplyStamp(logoImageStamper, new[] { 0, 3, 11 });
+        }
+    }
+}
 ```
 
 ```csharp
-// Initialize a Barcode Stamper with "IronPDF" label and Code39 encoding
-BarcodeStamper barcodeStamp = new BarcodeStamper("IronPDF", BarcodeEncoding.Code39);
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section19
+    {
+        public void Run()
+        {
+            // Load the PDF document from the specified path
+            var pdf = new PdfDocument("https://ironpdf.com/attachments/2022_Q1_sales.pdf");
 
-// Set the position of the barcode on the PDF to the bottom left
-barcodeStamp.HorizontalAlignment = HorizontalAlignment.Left;
-barcodeStamp.VerticalAlignment = VerticalAlignment.Bottom;
+            // Create an ImageStamper object and define the stamp image source
+            ImageStamper logoImageStamper = new ImageStamper("https://ironpdf.com/assets/logo.png");
 
-// Load a PDF document to stamp the barcode onto
-PdfDocument document = new PdfDocument("example.pdf");
-
-// Apply the barcode stamp to the loaded PDF document
-document.ApplyStamp(barcodeStamp);
+            // Apply the image stamper to several configurations: across all pages, on the first page, and on specific pages
+            pdf.ApplyStamp(logoImageStamper); // Apply to all pages
+            pdf.ApplyStamp(logoImageStamper, 0); // Apply to the first page
+            pdf.ApplyStamp(logoImageStamper, new[] { 0, 3, 11 }); // Apply to the first, fourth, and twelfth pages
+        }
+    }
+}
 ```
 
-### Stamping a QR Code on a PDF Document
+### HTML Stamping on a PDF
 
-Here’s a tutorial on embedding a QR Code into a PDF:
+Craft custom HTML to act as your personalized PDF stamp:
 
 ```csharp
-// Create a barcode stamper instance for QR codes
-BarcodeStamper qrCodeStamper = new BarcodeStamper("IronPDF", BarcodeEncoding.QRCode);
-
-// Set dimensions of the QR code
-qrCodeStamper.Height = 50; // in pixels
-qrCodeStamper.Width = 50;  // in pixels
-
-// Align the QR code on the page
-qrCodeStamper.HorizontalAlignment = HorizontalAlignment.Left;
-qrCodeStamper.VerticalAlignment = VerticalAlignment.Bottom;
-
-// Load a PDF document where the QR code will be stamped
-var document = new PdfDocument("example.pdf");
-
-// Apply the QR code stamper to the PDF
-document.ApplyStamp(qrCodeStamper);
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section20
+    {
+        public void Run()
+        {
+            var renderer = new ChromePdfRenderer();
+            var pdf = renderer.RenderHtmlAsPdf("<p>Welcome to custom HTML stamping.</p>");
+            
+            HtmlStamper htmlStamper = new HtmlStamper("<div style='color: green;'><p>Custom HTML Stamp</p></div>")
+            {
+                HorizontalOffset = new Length(-2, MeasurementUnit.Inch),
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
+            
+            pdf.ApplyStamp(htmlStamper);
+        }
+    }
+}
 ```
-
-Here's the paraphrased section of the article, with resolved relative URL paths:
-
------
-```csharp
-// Initialize a QR Code barcode stamper with specific settings
-BarcodeStamper qrCodeStamp = new BarcodeStamper("IronPDF", BarcodeEncoding.QRCode);
-
-// Set the dimensions of the QR Code stamp
-qrCodeStamp.Height = 50; // Height in pixels
-qrCodeStamp.Width = 50; // Width in pixels
-
-// Configure the alignment of the QR Code stamp within the PDF
-qrCodeStamp.HorizontalAlignment = HorizontalAlignment.Left;
-qrCodeStamp.VerticalAlignment = VerticalAlignment.Bottom;
-
-// Load an existing PDF document to stamp
-var document = new PdfDocument("example.pdf");
-
-// Apply the QR Code stamp to the loaded PDF document
-document.ApplyStamp(qrCodeStamp);
-```
-
-### Applying Watermarks to PDFs
-
-Adding watermarks across all pages of a PDF is straightforward with the `ApplyWatermark` method provided by IronPDF. Watermarks are commonly used to overlay custom text or images on each page of a document, helping in branding or securing sensitive information.
-
-Here is the paraphrased section with resolved URLs:
 
 ```csharp
-// Initialize a new PdfDocument object with a file from a specified path
-var pdfDocument = new PdfDocument("https://ironpdf.com/attachments/design.pdf");
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section20
+    {
+        public void Run()
+        {
+            var renderer = new ChromePdfRenderer();
+            var pdf = renderer.RenderHtmlAsPdf("<p>Hello World! This is an example HTML body.</p>");
 
-// Define the HTML content to be used as a watermark
-string watermarkHtml = "<h1>Example Title</h1>";
+            HtmlStamper htmlStamper = new HtmlStamper("<p>Demonstration of HTML Stamping</p><div style='width:250pt;height:250pt;background-color:red;'></div>")
+            {
+                HorizontalOffset = new Length(-3, MeasurementUnit.Inch),
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
 
-// Set the rotation of the watermark to zero degrees
-int watermarkRotation = 0;
-
-// Set the opacity of the watermark to 30%
-int opacityOfWatermark = 30;
-
-// Apply the watermark with specified HTML, rotation, and opacity
-pdfDocument.ApplyWatermark(watermarkHtml, watermarkRotation, opacityOfWatermark);
+            pdf.ApplyStamp(htmlStamper);
+        }
+    }
+}
 ```
 
-For a detailed demonstration of watermarking using IronPDF, check out our [Code Examples page](https://ironpdf.com/examples/pdf-watermarking/).
+### Placing a Barcode on a PDF Document
 
-### Utilizing the ApplyStamp Method in PDFs
-
-The `ApplyStamp` method in IronPDF offers multiple overloads, allowing for versatile applications of your customized `Stamper` to a PDF document.
+Below is an example on how to create and insert a barcode into a PDF file:
 
 ```csharp
-// Load an existing PDF document from specified path
-var pdfDocument = new PdfDocument("https://ironpdf.com/assets/example.pdf");
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section21
+    {
+        public void Run()
+        {
+            // Create a barcode stamper with specified barcode content and type
+            BarcodeStamper barcodeStamper = new BarcodeStamper("IronPDF", BarcodeEncoding.Code39);
 
-// Stamp the entire document with one stamper
-pdfDocument.ApplyStamp(singleStamper);
+            // Set the alignment of the barcode in the PDF
+            barcodeStamper.HorizontalAlignment = HorizontalAlignment.Left;
+            barcodeStamper.VerticalAlignment = VerticalAlignment.Bottom;
 
-// Stamp only the first page of the document
-pdfDocument.ApplyStamp(singleStamper, 0);
+            // Load an existing PDF document
+            var pdf = new PdfDocument("example.pdf");
 
-// Stamp multiple specific pages, in this case pages 1, 4, and 6
-pdfDocument.ApplyStamp(singleStamper, new[] { 0, 3, 5 });
-
-// Apply multiple stampers to the entire document
-pdfDocument.ApplyMultipleStamps(multipleStampers);
-
-// Apply multiple stampers to just the first page
-pdfDocument.ApplyMultipleStamps(multipleStampers, 0);
-
-// Apply multiple stampers to specific pages
-pdfDocument.ApplyMultipleStamps(multipleStampers, new[] { 0, 3, 5 });
-
-// Asynchronous versions for applying stamps
-await pdfDocument.ApplyStampAsync(singleStamper, 4);
-await pdfDocument.ApplyMultipleStampsAsync(multipleStampers);
-
-// Method for applying a watermark with specific properties
-string watermarkHtml = "<h1> Example Title <h1/>";
-int watermarkRotation = 0;
-int watermarkOpacityLevel = 30;
-pdfDocument.ApplyWatermark(watermarkHtml, watermarkRotation, watermarkOpacityLevel);
+            // Apply the barcode stamp to the PDF
+            pdf.ApplyStamp(barcodeStamper);
+        }
+    }
+}
 ```
 
-#### The `Length` Class
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section21
+    {
+        public void Run()
+        {
+            // Initialize a new Barcode Stamper with the "IronPDF" text and Code39 encoding.
+            BarcodeStamper barcodeStamper = new BarcodeStamper("IronPDF", BarcodeEncoding.Code39);
 
-The `Length` class is characterized by two main properties: `Unit` and `Value`. First, choose a `Unit` from the `MeasurementUnit` enumeration, where `Percentage` of the page is the standard setting. Next, specify the `Value`, which determines the extent of the length relative to the chosen unit.
+            // Set the alignments for the barcode stamper to the left and bottom of the page.
+            barcodeStamper.HorizontalAlignment = HorizontalAlignment.Left;
+            barcodeStamper.VerticalAlignment = VerticalAlignment.Bottom;
 
-## Overview of Length Class Attributes
+            // Load an example PDF document to apply the barcode stamper.
+            PdfDocument document = new PdfDocument("example.pdf");
 
-The `Length` class in IronPDF provides precise control over measurements, especially useful in design contexts such as setting stamps or configuring layouts. Below is a detailed breakdown of the properties within this class:
+            // Apply the barcode stamper to the loaded document.
+            document.ApplyStamp(barcodeStamper);
+        }
+    }
+}
+```
+
+### Incorporating a QR Code into a PDF
+
+This segment demonstrates how to insert a QR Code into a PDF document:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section22
+    {
+        public void Run()
+        {
+            // Create a new barcode stamper instance for a QR Code
+            BarcodeStamper qrStamp = new BarcodeStamper("IronPDF", BarcodeEncoding.QRCode);
+            
+            // Set dimensions and alignment for the QR Code
+            qrStamp.Height = 50; // pixels
+            qrStamp.Width = 50; // pixels
+            
+            qrStamp.HorizontalAlignment = HorizontalAlignment.Left;
+            qrStamp.VerticalAlignment = VerticalAlignment.Bottom;
+            
+            // Load a PDF document to stamp the QR Code onto
+            var pdf = new PdfDocument("example.pdf");
+            // Apply the QR Code stamp to the loaded document
+            pdf.ApplyStamp(qrStamp);
+        }
+    }
+}
+```
+
+Here's your paraphrased section with markdown format and resolved links:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class ExampleSectionQRCode
+    {
+        public void Run()
+        {
+            // Initialize a new QR Code BarcodeStamper with specific attributes
+            BarcodeStamper qrCodeStamper = new BarcodeStamper("IronPDF", BarcodeEncoding.QRCode);
+            
+            // Set the size of the QR code to 50x50 pixels
+            qrCodeStamper.Height = 50; // in pixels
+            qrCodeStamper.Width = 50; // in pixels
+            
+            // Align the QR code to the left bottom corner of the page
+            qrCodeStamper.HorizontalAlignment = HorizontalAlignment.Left;
+            qrCodeStamper.VerticalAlignment = VerticalAlignment.Bottom;
+            
+            // Load an existing PDF document
+            var document = new PdfDocument("example.pdf");
+            
+            // Apply the QR code stamp to the PDF
+            document.ApplyStamp(qrCodeStamper);
+        }
+    }
+}
+```
+
+### Adding a Watermark to a PDF Document
+
+A watermark acts as a consistent stamp across all pages of a PDF, which you can effortlessly apply with the `ApplyWatermark` method from the IronPDF library. This feature is helpful for branding or securing document content with minimal effort.
+
+Here is the paraphrased section of your article, with the relative URL paths resolved:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section23
+    {
+        public void Run()
+        {
+            // Create a PdfDocument instance by loading the design PDF
+            var pdf = new PdfDocument("https://ironpdf.com/attachments/design.pdf");
+            // Define the HTML content for the watermark
+            string htmlContent = "<h1>Sample Watermark Title<h1/>";
+            // Set watermark rotation angle and opacity level
+            int rotatingAngle = 0;
+            int transparency = 30;
+
+            // Apply the watermark with specified HTML content, rotation, and opacity
+            pdf.ApplyWatermark(htmlContent, rotatingAngle, transparency);
+        }
+    }
+}
+```
+
+For an in-depth look at implementing watermarking using IronPDF, check out our full example on the [Code Examples page](https://ironpdf.com/examples/pdf-watermarking/).
+
+### Applying a Stamp to a PDF Document
+
+Numerous variations of the `ApplyStamp` method are available, enabling you to affix your custom `Stamper` to any part of your PDF document.
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section24
+    {
+        public void Run()
+        {
+            var pdf = new PdfDocument("https://ironpdf.com/assets/example.pdf");
+
+            // Apply a single stamper across all pages
+            pdf.ApplyStamp(myStamper);
+
+            // Apply the stamper to just the first page
+            pdf.ApplyStamp(myStamper, 0);
+
+            // Apply the stamper to selected pages
+            pdf.ApplyStamp(myStamper, new[] { 0, 3, 5 });
+
+            // Apply a collection of stamps to every page
+            pdf.ApplyMultipleStamps(stampArray);
+
+            // Apply a collection of stamps to the first page
+            pdf.ApplyMultipleStamps(stampArray, 0);
+
+            // Apply the collection of stamps to a range of specific pages
+            pdf.ApplyMultipleStamps(stampArray, new[] { 0, 3, 5 });
+
+            // Asynchronously applying a stamper to page four
+            await pdf.ApplyStampAsync(myStamper, 4);
+            await pdf.ApplyMultipleStampsAsync(stampArray);
+
+            // Add a watermark applying a rotation and specifying opacity
+            string htmlWatermark = "<h1> Example Title <h1/>";
+            int rotateDegrees = 0;
+            int opacityLevel = 30;
+            pdf.ApplyWatermark(htmlWatermark, rotateDegrees, opacityLevel);
+        }
+    }
+}
+```
+
+#### Length Class Overview
+
+The `Length` class comprises two primary attributes: `Unit` and `Value`. To utilize this class, first select a measurement unit from the `MeasurementUnit` enumeration, where the default setting is `Percentage`, relating to the page dimensions. Subsequently, define the `Value`, which specifies the length as a proportion of the selected unit. This setup allows precise control over sizing and positioning in document modifications.
+
+## Length Class Attributes
+
+The `Length` class in IronPDF defines measurements used to position elements such as stamps in a PDF document. Below, find a detailed outline of its properties:
 
 ```txt
 class Length
 |
-└─── double: Value (default : 0)
+└─── double : Value (default : 0)  // Indicates the numerical magnitude of the length
 |
-└─── MeasurementUnit: Unit
-         |   Inch
-         |   Millimeter
-         |   Centimeter
-         |   Percentage (default)
-         |   Pixel
-         |   Points
+└─── MeasurementUnit : Unit        // Specifies the unit of measurement, defaulting to Percentage of the page
+     |   Inch                      // Represents inches
+     |   Millimeter                // Denotes millimeters
+     |   Centimeter                // Stands for centimeters
+     |   Percentage (default)      // Represents a percentage in relation to the page dimensions
+     |   Pixel                     // Indicates pixels
+     |   Points                    // Refers to typographic points
 ```
 
-This class allows users to specify the measurement in various units such as inches, pixels, or percentages, which enhances flexibility in different types of PDF designs and layouts.
-```
+This class allows developers to precisely control the layout and positioning of various elements in their PDF handling and manipulation tasks by specifying dimensions in multiple units of measurement.
 
 ```txt
 class Length
-|
-└─── double : Value (initial : 0)
-|
+
+└─── double : Value (initially : 0)
+
 └─── MeasurementUnit : Unit
-     |   Inch
-     |   Millimeter
-     |   Centimeter
-     |   Percentage (initial)
-     |   Pixel
-     |   Points
+   |  Inch
+   |  Millimeter
+   |  Centimeter
+   |  Percentage (standard)
+   |  Pixel
+   |  Points
 ```
 
-### Examples of Using `Length`
+### Examples of Using Length
 
-#### Defining Specific Lengths
+Below, we demonstrate various ways to utilize the `Length` class:
 
-Here are various ways to instantiate the `Length` class in different units:
-
-```csharp
-// Specify a length in inches
-new Length(value: 5, unit: MeasurementUnit.Inch); // Results in a length of 5 inches
-
-// Define a length in pixels
-new Length(value: 25, unit: MeasurementUnit.Pixel); // Creates a length of 25 pixels
-
-// Create a default Length
-new Length(); // Defaults to 0% of the page dimension, as value is zero and unit is percentage
-
-// Set a percentage-based length
-new Length(value: 20); // Establishes a length of 20% relative to the page dimension
-```
-
-#### Incorporating Length in Parameters
-
-You can also utilize the `Length` class as a parameter in various other classes:
+#### Creating Specified Lengths
 
 ```csharp
-HtmlStamper companyLogoStamper = new HtmlStamper
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    VerticalOffset = new Length(15, MeasurementUnit.Percentage), // Sets vertical offset as a percentage
-    HorizontalOffset = new Length(1, MeasurementUnit.Inch) // Sets horizontal offset in inches
-    // Additional properties can be set here...
-};
+    public class Section25
+    {
+        public void Run()
+        {
+            // Define a length of 5 inches
+            new Length(value: 5, unit: MeasurementUnit.Inch);
+
+            // Define a length of 25 pixels
+            new Length(value: 25, unit: MeasurementUnit.Pixel);
+
+            // Default Length: zero percentage of the page dimension
+            new Length();
+
+            // Define a length as 20% of the page dimension
+            new Length(value: 20);
+        }
+    }
+}
 ```
 
-#### Defining a Length
+#### Using Length as a Parameter in Stamping
 
 ```csharp
-// Create a new Length instance representing 5 inches
-new Length(value: 5, unit: MeasurementUnit.Inch);
-
-// Define a Length of 25 pixels
-new Length(value: 25, unit: MeasurementUnit.Pixel);
-
-// Establish a default Length as 0% of the page dimension by leaving the value and unit at their defaults
-new Length();
-
-// Specify a Length as 20% of the page dimension
-new Length(value: 20);
-```
-
-#### Utilizing Length in Parameters
-
-```csharp
-// Configuring an HtmlStamper with vertical and horizontal offsets using Length
-HtmlStamper logoStamper = new HtmlStamper
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    VerticalOffset = new Length(15, MeasurementUnit.Percentage),
-    HorizontalOffset = new Length(1, MeasurementUnit.Inch)
-    // Configure additional properties as needed...
-};
+    public class Section26
+    {
+        public void Run()
+        {
+            HtmlStamper logoStamper = new HtmlStamper
+            {
+                // Set vertical offset as 15% of the page
+                VerticalOffset = new Length(15, MeasurementUnit.Percentage),
+
+                // Set horizontal offset as 1 inch
+                HorizontalOffset = new Length(1, MeasurementUnit.Inch)
+                
+                // Additional stamper properties can be set here...
+            };
+        }
+    }
+}
 ```
 
-In the above examples, we initiate `Length` classes for various measurement units like inches and pixels, demonstrating their adaptability across different dimensional specifications within PDF documents. These `Length` instances facilitate precise positioning and dimensioning when used as properties in other PDF manipulation tools such as stampers.
+#### Defining a `Length` Instance
+
+Using the `Length` class in IronPDF allows you to specify dimensions for various elements of your PDF documents. The class uses different units for measurement, providing flexibility depending on your requirements. Here's how you can utilize the `Length` class effectively:
 
 ```csharp
-new Length(value: 5, unit: MeasurementUnit.Inch); // Specifies a length of 5 inches.
+using IronPdf;
 
-new Length(value: 25, unit: MeasurementUnit.Pixel); // Defines a length of 25 pixels.
-
-new Length(); // Sets the length to 0% of the page size as the default value is zero and the default unit is percentage.
-
-new Length(value: 20); // Indicates a length equivalent to 20% of the page dimension.
-```
-
-#### Utilizing Length as a Parameter
-
-The `Length` class in IronPDF allows you to define specific measurements that are crucial when setting the dimensions and positions of elements like stamps in a PDF. Each length instance can be defined with a value and a measurement unit, which can range from inches to percentages.
-
-Here's how you can apply the `Length` class effectively:
-
-```csharp
-HtmlStamper logoStamper = new HtmlStamper
+namespace ironpdf.CsharpEditPdfCompleteTutorial
 {
-    VerticalOffset = new Length(15, MeasurementUnit.Percentage),
-    HorizontalOffset = new Length(1, MeasurementUnit.Inch)
-    // Additional properties can be set here...
-};
+    public class Section25
+    {
+        public void Run()
+        {
+            // Create a length of 5 inches
+            new Length(5, MeasurementUnit.Inch);
+
+            // Create a length of 25 pixels
+            new Length(25, MeasurementUnit.Pixel);
+
+            // Default Length creation equals 0% of the page's dimension
+            new Length();
+
+            // Define a Percentage-based length, e.g., 20% of the page dimension
+            new Length(20);
+        }
+    }
+}
 ```
 
-In this example, the vertical offset is set to 15% of the total page height, while the horizontal offset is set at 1 inch from the side. This gives precise control over where elements like logos are placed on the PDF page.
-
-```csharp
-// Initialize an HtmlStamper for positioning logos in a PDF
-HtmlStamper logoStamper = new HtmlStamper
-{
-    VerticalOffset = new Length(15, MeasurementUnit.Percentage), // Set vertical offset to 15% of the page height
-    HorizontalOffset = new Length(1, MeasurementUnit.Inch) // Set the horizontal offset to 1 inch
-    // Additional properties can be configured here as needed...
-};
-```
-
-## PDF Form Management
-
-IronPDF provides comprehensive tools for interacting with forms within PDF documents. This section will guide you through the processes of creating, editing, and filling out forms using IronPDF's robust capabilities.
-
-## Table of Contents
-
-- [Create and Configure Forms](#anchor-create-and-edit-forms)
-- [Populate Existing Forms with Data](#anchor-fill-existing-forms)
-
-## Create and Configure Forms
-
-IronPDF enables you to embed form fields into a PDF from HTML code:
-
-```csharp
-// Step 1: Generate a PDF with editable forms from HTML.
-string formHtml = @"
-    <html>
-        <body>
-            <h2>Edit Form</h2>
-            <form>
-              First name: <br> <input type='text' name='firstname' value=''> <br>
-              Last name: <br> <input type='text' name='lastname' value=''>
-            </form>
-        </body>
-    </html>";
-
-// Create a renderer instance
-var renderer = new ChromePdfRenderer();
-renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
-renderer.RenderHtmlAsPdf(formHtml).SaveAs("CustomForm.pdf");
-
-// Step 2: Access and modify PDF form fields.
-var editForm = PdfDocument.FromFile("CustomForm.pdf");
-
-// Access the field for the first name
-var fieldFirstName = editForm.Form.FindFormField("firstname");
-
-// Access the field for the last name
-var fieldLastName = editForm.Form.FindFormField("lastname");
-```
-
-For an extended example on creating and configuring PDF forms, check out [this detailed guide](https://ironpdf.com/examples/form-data/).
-
-## Populate Existing Forms with Data
-
-With IronPDF, you can also manipulate existing forms within a PDF to update or fill them:
-
-```csharp
-var exampleForm = PdfDocument.FromFile("CustomForm.pdf");
-
-// Set and retrieve the value of the "firstname" field
-var fieldFirstName = exampleForm.Form.FindFormField("firstname");
-fieldFirstName.Value = "Mickey";
-Console.WriteLine("FirstNameField value: {0}", fieldFirstName.Value);
-
-// Set and retrieve the value of the "lastname" field
-var fieldLastName = exampleForm.Form.FindFormField("lastname");
-fieldLastName.Value = "Mouse";
-Console.WriteLine("LastNameField value: {0}", fieldLastName.Value);
-
-exampleForm.SaveAs("UpdatedForm.pdf");
-```
-
-To see more about filling existing PDF forms, visit [this tutorial](https://ironpdf.com/examples/form-data/).
-
-## Summary
-
-IronPDF streamlines the process of creating and managing forms within PDF documents, making it simple to generate, edit, and fill forms directly within your software applications. Whether starting from scratch or modifying an existing document, IronPDF provides the tools needed for effective PDF form management.
-
-For further information or to make a feature request, reach out to our [support team](https://ironpdf.com/troubleshooting/engineering-request-pdf/). We are eager to assist you with your PDF editing needs.
-
-### Create and Edit Forms
-
-IronPDF enables you to design PDFs that integrate customizable form fields directly:
-
-```csharp
-// Step 1. Construct a PDF that includes editable form elements using HTML form and input tags
-const string formHtml = @"
-    <html>
-        <body>
-            <h2>Interactive PDF Form</h2>
-            <form>
-              First name: <br> <input type='text' name='firstname' value=''> <br>
-              Last name: <br> <input type='text' name='lastname' value=''>
-            </form>
-        </body>
-    </html>";
-
-// Initialize a Renderer
-var renderer = new ChromePdfRenderer();
-renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
-renderer.RenderHtmlAsPdf(formHtml).SaveAs("InteractiveForm.pdf");
-
-// Step 2. Manipulate PDF form data.
-var formDocument = PdfDocument.FromFile("InteractiveForm.pdf");
-
-// Access the "firstname" field
-var firstNameField = formDocument.Form.FindFormField("firstname");
-
-// Access the "lastname" field
-var lastNameField = formDocument.Form.FindFormField("lastname");
-```
-
-Explore more about creating and managing PDF forms on our [Code Examples page](https://ironpdf.com/examples/form-data/).
-
-Below is the paraphrased section of the article:
-
-```csharp
-// Step 1: Generate a PDF with interactive forms using HTML form and input elements
-const string formHtml = @"
-    <html>
-        <body>
-            <h2>Interactive PDF Form</h2>
-            <form>
-              First name: <br> <input type='text' name='firstname' value=''> <br>
-              Last name: <br> <input type='text' name='lastname' value=''>
-            </form>
-        </body>
-    </html>";
-
-// Initialize the PDF renderer
-var renderer = new ChromePdfRenderer();
-renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
-renderer.RenderHtmlAsPdf(formHtml).SaveAs("BasicForm.pdf");
-
-// Step 2: Access and manipulate values within PDF forms
-var formDocument = PdfDocument.FromFile("BasicForm.pdf");
-
-// Retrieve the value from the "firstname" input field
-var firstNameField = formDocument.Form.FindFormField("firstname");
-
-// Access the value from the "lastname" input field
-var lastNameField = formDocument.Form.FindFormField("lastname");
-```
-
-For a detailed illustration of PDF Form handling with IronPDF, be sure to explore our code examples on [this page](https://ironpdf.com/examples/form-data/).
-
-### Filling Out Pre-existing Forms
-
-IronPDF enables seamless access and modification of all present form fields within a PDF document, allowing for straightforward updates and resaving:
+This example illustrates various ways to define lengths using the `Length` class, catering to diverse layout needs such as margins, paddings, or even positioning elements like stamps in your PDF documents.
 
 Here's the paraphrased section:
 
 ```csharp
-var loadedPdfForm = PdfDocument.FromFile("BasicForm.pdf");
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section25
+    {
+        public void Run()
+        {
+            // Defining a Length of 5 inches
+            new Length(value: 5, unit: MeasurementUnit.Inch); 
 
-// Assign and retrieve the 'firstname' field value
-var fieldFirstName = loadedPdfForm.Form.FindFormField("firstname");
-fieldFirstName.Value = "Minnie";
-Console.WriteLine("Value of First Name Field: {0}", fieldFirstName.Value);
+            // Setting a Length of 25 pixels
+            new Length(value: 25, unit: MeasurementUnit.Pixel);
 
-// Assign and retrieve the 'lastname' field value
-var fieldLastName = loadedPdfForm.Form.FindFormField("lastname");
-fieldLastName.Value = "Mouse";
-Console.WriteLine("Value of Last Name Field: {0}", fieldLastName.Value);
+            // Default Length, implicitly set to 0% due to defaults in measurement unit being percentage
+            new Length(); 
 
-// Save the changes to a new PDF file
-loadedPdfForm.SaveAs("FilledForm.pdf");
-``` 
+            // Specifying a Length as 20% of a page's dimension 
+            new Length(value: 20); 
+        }
+    }
+}
+```
 
-In this revision, variable names and comments are altered for clarity and variety while ensuring the functional steps remain accurate and effective.
+#### Utilizing `Length` for Parameter Settings
 
-For a detailed demonstration of the PDF Form example, please explore our [Code Examples page](https://ironpdf.com/examples/form-data/).
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section26
+    {
+        public void Run()
+        {
+            // Configure a visual aspect using Length specifying vertical and horizontal offsets
+            HtmlStamper logoStamper = new HtmlStamper
+            {
+                VerticalOffset = new Length(15, MeasurementUnit.Percentage), // Set vertical offset to 15% of page height
+                HorizontalOffset = new Length(1, MeasurementUnit.Inch)      // Set horizontal offset to 1 inch
+                // Additional properties can be configured here...
+            };
+        }
+    }
+}
+```
+In this snippet, `Length` is implemented to precisely position elements on the page, using units like percentage and inches for vertical and horizontal alignment respectively.
+
+Here's the paraphrased section of your article:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section26
+    {
+        public void Initialize()
+        {
+            // Creating a new instance of HtmlStamper to apply HTML content as a stamp
+            HtmlStamper customStamper = new HtmlStamper
+            {
+                // Adjusting the vertical alignment relative to the total page height
+                VerticalOffset = new Length(15, MeasurementUnit.Percentage),
+                // Setting the horizontal position using an inch measurement
+                HorizontalOffset = new Length(1, MeasurementUnit.Inch)
+                // Additional properties can be configured here
+            };
+        }
+    }
+}
+```
+
+## PDF Form Management
+
+IronPDF provides robust features to create and manipulate forms within PDF documents. This section illustrates how to effectively utilize IronPDF for working with forms in PDFs.
+
+### Create and Manipulate Forms
+
+Use IronPDF to generate PDFs with editable form fields:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section27
+    {
+        public void Run()
+        {
+            // Define HTML content for the form
+            const string formHtml = @"
+                <html>
+                    <body>
+                        <h2>Interactive PDF Form</h2>
+                        <form>
+                          First name: <br> <input type='text' name='firstname' value=''> <br>
+                          Last name: <br> <input type='text' name='lastname' value=''>
+                        </form>
+                    </body>
+                </html>";
+            
+            // Create a Renderer instance
+            var renderer = new ChromePdfRenderer();
+            renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
+            // Render HTML as PDF
+            renderer.RenderHtmlAsPdf(formHtml).SaveAs("InteractiveForm.pdf");
+            
+            // Optionally, manipulate form fields
+            var documentWithForm = PdfDocument.FromFile("InteractiveForm.pdf");
+            
+            // Access form fields by name
+            var firstNameField = documentWithForm.Form.FindFormField("firstname");
+            var lastNameField = documentWithForm.Form.FindFormField("lastname");
+        }
+    }
+}
+```
+
+For more details on creating PDF forms, explore our documentation [here](https://ironpdf.com/examples/form-data/).
+
+### Populate Existing Forms
+
+Quickly fill in the form fields within a PDF document and save the updated document:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section28
+    {
+        public void Run()
+        {
+            var loadedForm = PdfDocument.FromFile("InteractiveForm.pdf");
+            
+            // Access and update the 'firstname' field
+            var firstNameField = loadedForm.Form.FindFormField("firstname");
+            firstNameField.Value = "Minnie";
+            Console.WriteLine($"FirstNameField value: {firstNameField.Value}");
+            
+            // Access and update the 'lastname' field
+            var lastNameField = loadedForm.Form.FindFormField("lastname");
+            lastNameField.Value = "Mouse";
+            Console.WriteLine($"LastNameField value: {lastNameField.Value}");
+            
+            // Save the filled form
+            loadedForm.SaveAs("CompletedForm.pdf");
+        }
+    }
+}
+```
+
+Refer to our complete guide to filling forms [here](https://ironpdf.com/examples/form-data/).
+
+## Final Thoughts
+
+Through the above examples, IronPDF demonstrates its capability to quickly create and manage forms within PDF documents, allowing users to automate this typically manual process effectively.
+
+### Creating and Modifying Forms
+
+Leverage the capabilities of IronPDF to generate PDFs that contain interactive form fields:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section27
+    {
+        public void Run()
+        {
+            // Define the HTML for a form with input elements
+            const string formHtml = @"
+                <html>
+                    <body>
+                        <h2>Interactive PDF Form</h2>
+                        <form>
+                          First name: <br> <input type='text' name='firstname' value=''> <br>
+                          Last name: <br> <input type='text' name='lastname' value=''>
+                        </form>
+                    </body>
+                </html>";
+            
+            // Configure the PDF renderer to create forms from HTML
+            var renderer = new ChromePdfRenderer();
+            renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
+
+            // Render the HTML as a PDF and save it
+            renderer.RenderHtmlAsPdf(formHtml).SaveAs("InteractiveForm.pdf");
+
+            // Optionally, interact with form values
+            var formPdf = PdfDocument.FromFile("InteractiveForm.pdf");
+            
+            // Access form fields by name
+            var firstNameField = formPdf.Form.FindFormField("firstname");
+            var lastNameField = formPdf.Form.FindFormField("lastname");
+        }
+    }
+}
+```
+
+This workflow not only creates a fillable PDF form but also guides you on how to manipulate the values within the form programmatically.
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class FormCreationSection
+    {
+        public void Execute()
+        {
+            // Step 1: Generate a PDF with interactive forms using HTML form elements
+            const string htmlFormContent = @"
+                <html>
+                    <body>
+                        <h2>Interactive PDF Form</h2>
+                        <form>
+                            First name: <br> <input type='text' name='firstname' value=''> <br>
+                            Last name: <br> <input type='text' name='lastname' value=''>
+                        </form>
+                    </body>
+                </html>";
+
+            // Initialize the PDF Renderer
+            var pdfRenderer = new ChromePdfRenderer();
+            pdfRenderer.RenderingOptions.CreatePdfFormsFromHtml = true;
+            pdfRenderer.RenderHtmlAsPdf(htmlFormContent).SaveAs("BasicForm.pdf");
+
+            // Step 2: Access and manipulate PDF form fields
+            var pdfForm = PdfDocument.FromFile("BasicForm.pdf");
+
+            // Fetch and display the value from the "firstname" field
+            var firstNameFormField = pdfForm.Form.FindFormField("firstname");
+
+            // Fetch and display the value from the "lastname" field
+            var lastNameFormField = pdfForm.Form.FindFormField("lastname");
+        }
+    }
+}
+```
+
+For a detailed demonstration of the PDF form example, please explore our Code Examples page [here](https://ironpdf.com/examples/form-data/).
+
+### Populating Existing PDF Forms
+
+IronPDF enables straightforward access to all existing form fields within a PDF, allowing you to populate and save them effortlessly:
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section28
+    {
+        public void Run()
+        {
+            var formDocument = PdfDocument.FromFile("BasicForm.pdf");
+            
+            // Retrieve and set the value of the "firstname" field
+            var firstNameField = formDocument.Form.FindFormField("firstname");
+            firstNameField.Value = "Minnie";
+            Console.WriteLine("FirstNameField value: {0}", firstNameField.Value);
+            
+            // Retrieve and set the value of the "lastname" field
+            var lastNameField = formDocument.Form.FindFormField("lastname");
+            lastNameField.Value = "Mouse";
+            Console.WriteLine("LastNameField value: {0}", lastNameField.Value);
+            
+            // Save the populated form
+            formDocument.SaveAs("FilledForm.pdf");
+        }
+    }
+}
+```
+
+For further details on working with PDF forms, see this detailed guide: [PDF Form Handling](https://ironpdf.com/examples/form-data/).
+
+```csharp
+using IronPdf;
+namespace ironpdf.CsharpEditPdfCompleteTutorial
+{
+    public class Section28
+    {
+        public void Run()
+        {
+            // Load a PDF document that contains form fields
+            var formDocument = PdfDocument.FromFile("BasicForm.pdf");
+            
+            // Access and update the 'firstname' form field
+            var firstNameField = formDocument.Form.FindFormField("firstname");
+            firstNameField.Value = "Minnie";
+            Console.WriteLine($"Updated FirstNameField value: {firstNameField.Value}");
+
+            // Access and update the 'lastname' form field
+            var lastNameField = formDocument.Form.FindFormField("lastname");
+            lastNameField.Value = "Mouse";
+            Console.WriteLine($"Updated LastNameField value: {lastNameField.Value}");
+
+            // Save the updated form fields in a new PDF file
+            formDocument.SaveAs("FilledForm.pdf");
+        }
+    }
+}
+```
+
+Explore the PDF Form example in our Code Examples section by following this [link](https://ironpdf.com/examples/form-data/).
 
 ## Conclusion
 
-The above examples clearly illustrate that IronPDF is equipped with essential functionalities that are ready to use for PDF editing tasks.
+The numerous examples provided above showcase IronPDF's robust and ready-to-use features for PDF editing.
 
-Should you wish to suggest a new feature or have any inquiries regarding IronPDF or its licensing terms, feel free to [reach out to our support team](https://ironpdf.com/troubleshooting/engineering-request-pdf/). We are always here to help.
+Should you need to submit a feature request or have any inquiries regarding IronPDF or its licensing, feel free to [reach out to our support team](https://ironpdf.com/troubleshooting/engineering-request-pdf/). We are always here to help.
 

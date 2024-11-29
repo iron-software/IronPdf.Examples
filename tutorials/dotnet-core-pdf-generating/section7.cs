@@ -1,5 +1,15 @@
-public class TicketModel : ClientModel
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    public int TicketNumber { get; set; }
-    public DateTime TicketDate { get; set; }
+    public class Section7
+    {
+        public void Run()
+        {
+            public class TicketModel : ClientModel
+            {
+                public int TicketNumber { get; set; }
+                public DateTime TicketDate { get; set; }
+            }
+        }
+    }
 }

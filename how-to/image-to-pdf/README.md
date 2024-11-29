@@ -1,14 +1,17 @@
 # Transforming Images into PDF Documents
 
-Turning your image collections—such as JPG, PNG, or TIFF formats—into PDF documents is an effective way to compile digital portfolios, presentations, and reports. This consolidation simplifies both sharing and archiving volumes of images in a more universally accessible format.
+***Based on <https://ironpdf.com/how-to/image-to-pdf/>***
 
-Using IronPdf, you can convert both single and multiple images into a PDF while controlling [image placements and behaviors](#anchor-export-image-behaviors). These configurations include adjustments like fitting to the page, centering, and cropping. You also have the flexibility to [add text and HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/), [introduce watermarks](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#add-a-watermark-to-a-pdf), customize page sizes, or incorporate background and foreground overlays.
 
-## Sample Conversion: Single Image to PDF
+Combining multiple images into a single PDF document is an extremely useful technique, whether for assembling digital portfolios, crafting presentations, or compiling reports. This approach provides a streamlined, universally accessible format that simplifies the sharing and archival of image collections.
 
-To convert an image to a PDF, leverage the `ImageToPdf` static method from the **ImageToPdfConverter** class. This method simply requires the image's file path, seamlessly converting it to a PDF with preset configurations for image handling. Supported image formats include .bmp, .jpeg, .jpg, .gif, and several others.
+With IronPDF, you can effortlessly transform one or more images into a PDF, incorporating unique [image placements and behaviors](https://ironpdf.com/anchor-export-image-behaviors) such as adjusting to page size, centering, and cropping. Additionally, IronPDF enables you to [integrate text and HTML in headers and footers](https://ironpdf.com/how-to/headers-and-footers/), [insert watermarks](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#add-a-watermark-to-a-pdf), customize page dimensions, and apply various overlays to enhance the document's appearance and utility.
 
-### Example Image
+## Example: Converting a Single Image to PDF
+
+The `ImageToPdfConverter` class offers a simple `ImageToPdf` static method that turns an image into a PDF. This method requires just the image's file path and handles default settings for image placement and behavior smoothly. It supports various image formats like .bmp, .jpeg, .jpg, .gif, .png, .svg, and many others.
+
+### Sample Image
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper" style="width=50%">
@@ -16,21 +19,29 @@ To convert an image to a PDF, leverage the `ImageToPdf` static method from the *
     </div>
 </div>
 
-### Conversion Code
+### Code
 
 ```cs
 using IronPdf;
-
-string imagePath = "meetOurTeam.jpg";
-
-// Initiate the conversion of image to PDF
-PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePath);
-
-// Save the PDF
-pdf.SaveAs("imageToPdf.pdf");
+namespace ironpdf.ImageToPdf
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            string imagePath = "meetOurTeam.jpg";
+            
+            // Convert an image to a PDF
+            PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePath);
+            
+            // Export the PDF
+            pdf.SaveAs("imageToPdf.pdf");
+        }
+    }
+}
 ```
 
-### Resulting PDF Document
+### Output PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/image-to-pdf/imageToPdf.pdf#zoom=55%" width="100%" height="450px">
 </iframe>
@@ -39,101 +50,110 @@ pdf.SaveAs("imageToPdf.pdf");
 
 ## Example: Converting Multiple Images to PDF
 
-When converting multiple images, use an **IEnumerable** to list image file paths. This allows for bulk conversion with default settings for image placement.
+For converting multiple images, provide an `IEnumerable` of file paths instead of a single path. This makes it easy to combine several images into one PDF document.
 
 ```cs
-using IronPdf;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-
-// Collect all JPG and JPEG images within the 'images' directory.
-IEnumerable<String> imagePaths = Directory.EnumerateFiles("images").Where(f => f.EndsWith(".jpg") || f.EndsWith(".jpeg"));
-
-// Execute the conversion
-PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePaths);
-
-// Save the newly created PDF
-pdf.SaveAs("imagesToPdf.pdf");
+using IronPdf;
+namespace ironpdf.ImageToPdf
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            // Retrieve all JPG and JPEG image paths in the 'images' folder.
+            IEnumerable<String> imagePaths = Directory.EnumerateFiles("images").Where(f => f.EndsWith(".jpg") || f.EndsWith(".jpeg"));
+            
+            // Convert images to a PDF
+            PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePaths);
+            
+            // Export the PDF
+            pdf.SaveAs("imagesToPdf.pdf");
+        }
+    }
+}
 ```
 
-### Resulting PDF of Multiple Images
+### Output PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/image-to-pdf/imagesToPdf.pdf#zoom=55%" width="100%" height="450px">
 </iframe>
 
 <hr>
 
-## Overview of Image Placement and Behavior Options
+## Image Placements and Behaviors
 
-IronPdf provides several options for image placement and handling within PDFs:
+IronPDF includes a comprehensive set of image placement and behavior options to tailor your PDF to exact specifications:
 
-- **TopLeftCornerOfPage:** Positions the image at the top-left corner.
-- **TopRightCornerOfPage:** Places the image at the top-right corner.
+- **TopLeftCornerOfPage:** Places the image at the top-left corner.
+- **TopRightCornerOfPage:** Aligns the image at the top-right corner.
 - **CenteredOnPage:** Centers the image on the page.
-- **FitToPageAndMaintainAspectRatio:** Fits the image to the page, preserving its aspect ratio.
-- **BottomLeftCornerOfPage:** Aligns the image at the bottom-left.
-- **BottomRightCornerOfPage:** Sets the image at the bottom-right.
-- **FitToPage:** Stretches the image to fill the page.
-- **CropPage:** Adjusts the page dimensions to the image.
+- **FitToPageAndMaintainAspectRatio:** Scales the image to fit the page while preserving the aspect ratio.
+- Additional placements include **BottomLeftCornerOfPage**, **BottomRightCornerOfPage**, **FitToPage**, and **CropPage**.
 
 ```cs
-using IronPdf;
 using IronPdf.Imaging;
-
-string imagePath = "meetOurTeam.jpg";
-
-// Convert the image with a specific behavior setting
-PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePath, ImageBehavior.CenteredOnPage);
-
-// Output the final PDF
-pdf.SaveAs("imageToPdf.pdf");
+using IronPdf;
+namespace ironpdf.ImageToPdf
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            string imagePath = "meetOurTeam.jpg";
+            
+            // Convert an image to a PDF with image behavior of centered on page
+            PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePath, ImageBehavior.CenteredOnPage);
+            
+            // Export the PDF
+            pdf.SaveAs("imageToPdf.pdf");
+        }
+    }
+}
 ```
 
-### Image Behavior Visualization
+### Image Behaviors Comparison
 
-| Placement Options |
-| :---: |
-| ![TopLeftCornerOfPage](https://ironpdf.com/static-assets/pdf/how-to/image-to-pdf/TopLeftCornerOfPage.webp) Top Left |
-| ![TopRightCornerOfPage](https://ironpdf.com/static-assets/pdf/how-to/image-to-pdf/TopRightCornerOfPage.webp) Top Right |
-| ![CenteredOnPage](https://ironpdf.com/static-assets/pdf/how-to/image-to-pdf/CenteredOnPage.webp) Centered |
-| ![FitToPageAndMaintainAspectRatio](https://ironpdf.com/static-assets/pdf/how-to/image-to-pdf/FitToPageAndMaintainAspectRatio.webp) Fit to Page (Aspect Ratio) |
-| ![BottomLeftCornerOfPage](https://ironpdf.com/static-assets/pdf/how-to/image-to-pdf/BottomLeftCornerOfPage.webp) Bottom Left |
-| ![BottomRightCornerOfPage](https://ironpdf.com/static-assets/pdf/how-to/image-to-pdf/BottomRightCornerOfPage.webp) Bottom Right |
-| ![FitToPage](https://ironpdf.com/static-assets/pdf/how-to/image-to-pdf/FitToPage.webp) Fit to Entire Page |
-| ![CropPage](https://ironpdf.com/static-assets/pdf/how-to/image-to-pdf/CropPage.webp) Crop to Image |
+A detailed display of images shows the different placement behaviors. This can be seen through various example placements, each demonstrating how IronPDF can customize the positioning of images within your PDF document.
 
 <hr>
 
-## Advanced Rendering Options
+## Rendering Options
 
-Underneath, `ImageToPdf` method models an image using an HTML `img` tag, which allows subsequent conversion of HTML content to PDF. Here, inserting a `ChromePdfRenderOptions` object can tailor the rendering entirely.
+By employing the `ImageToPdf` static method and incorporating images with HTML `<img>` tags, converting a variety of images into a PDF is made seamless. Advanced customization is possible with the inclusion of the `ChromePdfRenderOptions` object, specifying features like HTML headers or footers directly.
 
 ```cs
 using IronPdf;
-
-string imagePath = "meetOurTeam.jpg";
-
-ChromePdfRenderOptions options = new ChromePdfRenderOptions() 
+namespace ironpdf.ImageToPdf
 {
-    HtmlHeader = new HtmlHeaderFooter() 
+    public class Section4
     {
-        HtmlFragment = "<h1 style='color: #2a95d5;'>Content Header</h1>",
-        DrawDividerLine = true,
-    },
-};
-
-// Customize and convert image to PDF
-PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePath, options: options);
-
-// Save the PDF with custom settings
-pdf.SaveAs("imageToPdfWithHeader.pdf");
+        public void Run()
+        {
+            string imagePath = "meetOurTeam.jpg";
+            
+            ChromePdfRenderOptions options = new ChromePdfRenderOptions()
+            {
+                HtmlHeader = new HtmlHeaderFooter()
+                {
+                    HtmlFragment = "<h1 style='color: #2a95d5;'>Content Header</h1>",
+                    DrawDividerLine = true,
+                },
+            };
+            
+            // Convert an image to a PDF with custom header
+            PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePath, options: options);
+            
+            // Export the PDF
+            pdf.SaveAs("imageToPdfWithHeader.pdf");
+        }
+    }
+}
 ```
 
-### Enhanced PDF Output
+### Output PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/image-to-pdf/imageToPdfWithHeader.pdf#zoom=55%" width="100%" height="450px">
 </iframe>
 
-For further guidance on converting or rendering PDF documents into images, refer to our [How to Rasterize a PDF to Image](https://ironpdf.com/how-to/rasterize-pdf-to-images/) guide.
+For details on converting or rasterizing PDF documents back into images, please refer to our [comprehensive guide](https://ironpdf.com/how-to/rasterize-pdf-to-images/).

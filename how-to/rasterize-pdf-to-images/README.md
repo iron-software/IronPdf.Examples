@@ -1,132 +1,175 @@
-# Converting PDF to Images Using IronPDF
+# How to Convert PDF to Image Formats
 
-Converting a PDF to image formats such as JPEG or PNG is known as rasterization. This procedure turns each PDF page into a raster image where its contents are displayed as pixels. Rasterizing is especially useful for tasks like rendering PDFs visibly, crafting image thumbnails, processing images, and securely sharing documents.
+***Based on <https://ironpdf.com/how-to/rasterize-pdf-to-images/>***
 
-IronPDF streamlines the process of converting PDFs into images, enabling developers to embed PDF visualization in applications, create image previews, manage image-based operations, and improve document security effectively.
 
-## Example: Rasterizing PDF to Images
+Converting a PDF file to an image format like JPEG or PNG involves transforming each page into a pixel-based representation, where the content is presented as an array of pixels. This technique, known as rasterization, has multiple benefits including displaying PDF contents in image format, creating thumbnails, processing images, and securing document sharing.
 
-IronPDF's `RasterizeToImageFiles` function allows for the conversion of PDF documents into image files. This function can be accessed through the **PdfDocument** class when handling PDF files, whether they are loaded from a local file, converted from an [HTML file](https://ironpdf.com/how-to/html-file-to-pdf/), an [HTML string](https://ironpdf.com/how-to/html-string-to-pdf/), or a [web URL](https://ironpdf.com/how-to/url-to-pdf/).
+IronPDF offers a straightforward way to programmatically convert PDFs into images. This capability is ideal for embedding PDF rendering into your applications, creating image previews, conducting image manipulations, or enhancing document security.
 
-You must specify the desired image file format (e.g., .png, .jpg, .tif) using the `FileNamePattern` parameter, where the asterisk (*) in the file name pattern will be replaced by the page number.
+## Example: Converting a PDF to Images
+
+To convert a PDF document into images, use the `RasterizeToImageFiles` method from the **PdfDocument** object. This object allows for the importing and rendering of PDFs from various sources, whether it's a local file or dynamically generated from an [HTML to PDF tutorial](https://ironpdf.com/how-to/html-file-to-pdf/), [HTML string to PDF tutorial](https://ironpdf.com/how-to/html-string-to-pdf/), or [URL to PDF tutorial](https://ironpdf.com/how-to/url-to-pdf/).
+
+You must specify the desired image file format (e.g., .png, .jpg, .tif) in the `FileNamePattern` parameter.
+
+The `*` character in `FileNamePattern` will be replaced with the page number for each image created.
 
 ```cs
 using IronPdf;
-
-// Initialize the renderer
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Convert a web URL to a PDF document
-PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
-
-// Convert the PDF to images, naming the files as 'wikipage_page#.png'
-pdf.RasterizeToImageFiles("wikipage_*.png");
+namespace ironpdf.ExampleRasterizeToImage
+{
+    public class BasicExample
+    {
+        public void Execute()
+        {
+            // Create a new renderer
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Convert URL to PDF
+            PdfDocument document = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
+            
+            // Convert PDF to Images
+            document.RasterizeToImageFiles("wikipage_*.png");
+        }
+    }
+}
 ```
 
-### Displaying Output Image Files
+### Output Image(s)
 
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="https://ironpdf.com/static-assets/pdf/how-to/rasterize-pdf-to-images/rasterize-pdf-to-images-rasterize.png" alt="Output folder displaying images" class="img-responsive add-shadow">
-    </div>
+<div class="center-image-wrapper">
+     <img src="https://ironpdf.com/static-assets/pdf/how-to/rasterize-pdf-to-images/rasterize-pdf-to-images-rasterize.png" alt="Output folder" class="img-responsive add-shadow">
 </div>
 
-Before converting a PDF with form fields into an image, flatten the PDF using the `Flatten` method to ensure all form fields are visible in the images. This process makes forms non-editable.
+To ensure that form fields are visible in the images, the PDF should be flattened before conversion, or the **Flatten** parameter should be set to true. After flattening, form fields cannot be detected or edited.
 
-Explore more about managing PDF forms in our guide: "[How to Fill and Edit PDF Forms](https://ironpdf.com/how-to/edit-forms/)."
+Discover more on editing PDF forms programmatically in "[Editing PDF Forms](https://ironpdf.com/how-to/edit-forms/)."
 
 <hr>
 
-## Advanced Rasterization Techniques
+## Advanced Example for Rasterizing Images
 
-### Choosing the Image Format
+Explore additional parameters available for the `RasterizeToImageFiles` method.
 
-IronPDF provides support for several image formats. You can specify your preferred format using the parameters in `RasterizeToImageFiles` method. Supported image types include BMP, JPEG, PNG, GIF, TIFF, and SVG. Each format can be specifically rendered and saved using dedicated methods:
+### Choosing an Image Format
 
-- `ToBitmap`: Creates a bitmap for each PDF page.
-- `ToJpegImages`: Saves each PDF page as a JPEG image.
-- `ToPngImages`: Saves each PDF page as a PNG image.
-- `ToTiffImages`: Each PDF page is saved as a TIFF image.
-- `ToMultiPageTiffImage`: Combines all PDF pages into a multipage TIFF image.
-- `SaveAsSvg`: Converts the entire PDF into SVG format.
-- `ToSvgString`: Converts a specific PDF page to SVG string format.
+The method supports multiple image formats, such as BMP, JPEG, PNG, GIF, TIFF, and SVG. You can specify your desired format directly using one of the methods:
+
+- `ToBitmap`: Converts the PDF to IronSoftware.Drawing.Bitmap objects, one per page.
+- `ToJpegImages`: Saves the PDF pages as JPEG images.
+- `ToPngImages`: Saves the PDF pages as PNG files.
+- `ToTiffImages`: Produces single-page TIFF images from the PDF.
+- `ToMultiPageTiffImage`: Creates a multi-page TIFF file from the PDF.
+- `SaveAsSvg`: Saves the PDF as SVG format.
+- `ToSvgString`: Converts a specific PDF page to SVG format as a string.
 
 ```cs
 using IronPdf;
-
-// Initialize the renderer
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Convert a web URL to a PDF document
-PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
-
-// Save the PDF as a PNG image, specifying the image type
-pdf.RasterizeToImageFiles("wikipage_*.png", IronPdf.Imaging.ImageType.Png);
+namespace ironpdf.ExampleRasterizeToImage
+{
+    public class AdvancedExample
+    {
+        public void Execute()
+        {
+            // Create a PDF renderer
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Convert from URL to PDF
+            PdfDocument pdfDoc = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
+            
+            // Convert and export PDF pages as PNG images
+            pdfDoc.RasterizeToImageFiles("wikipage_*.png", IronPdf.Imaging.ImageType.Png);
+        }
+    }
+}
 ```
 
-### Adjusting Image Quality
+### Selecting DPI for Image Clarity
 
-To enhance the quality of the output images, adjust the DPI setting. A higher DPI leads to sharper images.
+The default DPI of 96 might cause images to appear blurry. It's important to specify a higher DPI value to improve image clarity.
 
 ```cs
 using IronPdf;
-
-// Initialize the renderer
-ChromePdfRenderer renderer = a new ChromePdfRenderer();
-
-// Convert the URL to a PDF
-PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
-
-// Export the PDF to images with improved resolution
-pdf.RasterizeToImageFiles("wikipage_*.png", DPI: 150);
+namespace ironpdf.ExampleRasterizeToImage
+{
+    public class DPIExample
+    {
+        public void Execute()
+        {
+            // Initialize renderer
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Convert URL to PDF
+            PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
+            
+            // Enhance image quality by increasing DPI
+            pdf.RasterizeToImageFiles("wikipage_*.png", DPI: 150);
+        }
+    }
+}
 ```
 
-### Specifying Pages for Rasterization
+### Specifying Page Indices
 
-You can select specific PDF pages for conversion into images.
+You can specify which pages of the PDF should be converted into images. For example, only rasterizing the first three pages.
 
 ```cs
-using IronPdf;
 using System.Linq;
-
-// Instantiate the renderer
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Convert a URL to a PDF document
-PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
-
-// Generate images for specific pages (#1 to #3)
-pdf.RasterizeToImageFiles("wikipage_*.png", Enumerable.Range(1, 3));
+using IronPdf;
+namespace ironpdf.ExampleRasterizeToImage
+{
+    public class PageSpecificationExample
+    {
+        public void Execute()
+        {
+            // Initialize PDF renderer
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Convert URL to PDF
+            PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
+            
+            // Convert specific pages to images
+            pdf.RasterizeToImageFiles("wikipage_*.png", Enumerable.Range(1, 3));
+        }
+    }
+}
 ```
 
-### Customizing Image Dimensions
+### Custom Image Dimensions
 
-IronPDF allows you to customize the dimensions of the output images while preserving the aspect ratio of the original PDF.
+When converting a PDF to images, you can choose the maximum dimensions for the output, which preserves the aspect ratio of the original document. For instance, if specifying a portrait PDF, the exact height will be used while the width adjusts accordingly.
 
 ```cs
 using IronPdf;
-
-// Initialize the renderer
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Convert the URL to PDF
-PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
-
-// Set the custom dimensions for the image output
-pdf.RasterizeToImageFiles("wikipage_*.png", 500, 500);
+namespace ironpdf.ExampleRasterizeToImage
+{
+    public class DimensionSpecificationExample
+    {
+        public void Execute()
+        {
+            // Initialize the renderer
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Convert URL to PDF
+            PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
+            
+            // Set dimensions and convert to images
+            pdf.RasterizeToImageFiles("wikipage_*.png", 500, 500);
+        }
+    }
+}
 ```
 
-#### Output Image Specifications
+#### Image Dimension Examples
 
-The dimensions for output images are set using the width x height format.
-
-<div class="competitors-section__wrapper-even-1">
-    <div class="competitors__card" style="width: 48.5%;">
-        <img src="https://ironpdf.com/static-assets/pdf/how-to/rasterize-pdf-to-images/rasterize-pdf-to-images-image-dimensions-portrait.png" alt="Rasterized image from a portrait-oriented PDF" class="img-responsive add-shadow">
-        <p class="competitors__download-link" style="color: #181818; font-style: italic;">Portrait</p>
+<div class="image-comparison-wrapper">
+    <div class="image-item" style="width: 48.5%;">
+        <img src="https://ironpdf.com/static-assets/pdf/how-to/rasterize-pdf-to-images/rasterize-pdf-to-images-image-dimensions-portrait.png" alt="Rasterized image from a portrait PDF" class="responsive-image add-shadow">
+        <p style="color: #181818; font-style: italic;">Portrait</p>
     </div>
-    <div class="competitors__card" style="width: 50%;">
-        <img src="https://ironpdf.com/static-assets/pdf/how-to/rasterize-pdf-to-images/rasterize-pdf-to-images-image-dimensions-landscape.png" alt="Rasterized image from a landscape-oriented PDF" class="img-responsive add-shadow">
-        <p class="competitors__download-link" style="color: #181818; font-style: italic;">Landscape</p>
+    <div class="image-item" style="width: 50%;">
+        <img src="https://ironpdf.com/static-assets/pdf/how-to/rasterize-pdf-to-images/rasterize-pdf-to-images-image-dimensions-landscape.png" alt="Rasterized image from a landscape PDF" class="responsive-image add-shadow">
+        <p style="color: #181818; font-style: italic;">Landscape</p>
     </div>
-</div
+</div>

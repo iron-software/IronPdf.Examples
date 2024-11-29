@@ -1,56 +1,68 @@
-# Managing PDFs with Images from Azure Blob Storage
+# Working with Images in PDFs from Azure Blob Storage
 
-Azure Blob Storage by Microsoft Azure is a cloud service tailored for storing large quantities of unstructured data, such as text or binary data. This data can be accessed via HTTP or HTTPS protocols.
+***Based on <https://ironpdf.com/how-to/images-azure-blob-storage/>***
 
-Developers often face challenges when dealing with images stored in Azure Blob Storage because these images are saved in a binary format rather than as direct file references that could be effortlessly used within HTML. A practical solution involves converting these images into base64 strings and embedding them within HTML `img` tags.
 
-# Converting Azure Blob to HTML
+Azure Blob Storage, developed by Microsoft Azure, serves as a cloud solution that specializes in the storage of massive amounts of unstructured data such as texts or binaries, accessible via HTTP or HTTPS protocols.
 
-Before you begin, make sure you have an Azure Storage account established, along with a container that holds your blobs. Additionally, handling the authentication and connection within your C# project is crucial. You can then make use of the `DownloadToStreamAsync` method to download the image as a stream. This stream is then converted into a Base64 string which will be embedded into the HTML `img` tag. Subsequently, this `img` tag can be integrated into an HTML document.
+Developers looking to incorporate images stored in Azure Blob Storage within their projects face the challenge of dealing with binary data instead of standard file formats. A practical solution involves converting images into base64 strings, which can then be integrated into HTML using an `img` tag.
+
+## Converting Azure Blobs to Embedded HTML Images
+
+Once you have established your Azure Storage account and set up a container with the required blobs, you'll need to establish a connection and manage authentication within your C# application. Utilizing the `DownloadToStreamAsync` method, you can retrieve the image as a stream. Subsequently, this stream can be transformed into Base64 format and embedded within an HTML `img` tag. This newly formed imageTag is then ready to be amalgamated into an HTML document.
 
 ```cs
-// Declare your connection string and container name
+// Configuration for storage access
 string connectionString = "your_connection_string";
 string containerName = "your_container_name";
 
-// Initialize a BlobServiceClient with your connection string
+// Creating Blob service client from the connection string
 BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
 
-// Retrieve the BlobContainerClient for the determined container
+// Acquiring client for the specified container
 BlobContainerClient blobContainer = blobServiceClient.GetBlobContainerClient(containerName);
 
-// Access a specific Blob
+// Retrieve your Blob
 var blob = blobContainer.GetBlobReference("867.jpg");
 
 var stream = new MemoryStream();
 
-// Download the blob to the stream
+// Download blob to stream asynchronously
 await blob.DownloadToStreamAsync(stream);
 
-var buffer = new byte[blob.Properties.Length];
+var array = new byte[blob.Properties.Length];
+await blob.DownloadToByteArrayAsync(target: array, index: 0);
 
-// Place the downloaded blob data into a byte array
-await blob.DownloadToByteArrayAsync(target: buffer, 0);
+// Converting bytes into base64 string
+var base64 = Convert.ToBase64String(array);
 
-// Transform bytes into a base64 string
-var base64 = Convert.ToBase64String(buffer);
-
+// Preparing the HTML image tag
 var imageTag = $"<img src=\"data:image/jpeg;base64,{base64}\"/><br/>";
 ```
 
-### Converting HTML to PDF
+### Transforming HTML with Images into a PDF Document
 
-Using the previously formed `imageTag`, you can convert this HTML into a PDF using the `RenderHtmlAsPdf` method available in **ChromePdfRenderer** from Iron Pdf.
+Following the creation of the `imageTag` with the base64 encoded image, this can be further processed into a PDF file utilizing the `RenderHtmlAsPdf` method from the **ChromePdfRenderer** class.
 
 ```cs
 using IronPdf;
-
-// Create an instance of the Renderer
-var renderer = new ChromePdfRenderer();
-
-// Convert the HTML string to PDF
-var pdf = renderer.RenderHtmlAsPdf(imageTag);
-
-// Save the resulting PDF to a file
-pdf.SaveAs("https://ironpdf.com/imageToPdf.pdf");
+namespace ironpdf.ImagesAzureBlobStorage
+{
+    public class Section1
+    {
+        public void Execute()
+        {
+            // Initializing the PDF renderer
+            var renderer = new ChromePdfRenderer();
+            
+            // Generating PDF from HTML string
+            var pdfDocument = renderer.RenderHtmlAsPdf(imageTag);
+            
+            // Saving the PDF document to a file
+            pdfDocument.SaveAs("imageToPdf.pdf");
+        }
+    }
+}
 ```
+
+This adapted approach ensures that images stored in Azure Blob Storage can be efficiently integrated into PDF documents using C# and IronPDF's capabilities, handling the conversion from binary data to embedded images, followed by the conversion of HTML to PDF.

@@ -1,16 +1,24 @@
-using IronPdf;
 using System.IO;
-
-// Instantiate Renderer
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Configure render options
-renderer.RenderingOptions = new ChromePdfRenderOptions
+using IronPdf;
+namespace ironpdf.TableOfContents
 {
-    // Enable table of content feature
-    TableOfContents = TableOfContentsTypes.WithPageNumbers,
-};
-
-PdfDocument pdf = renderer.RenderHtmlFileAsPdf("tableOfContent.html");
-
-pdf.SaveAs("tableOfContents.pdf");
+    public class Section1
+    {
+        public void Run()
+        {
+            // Instantiate Renderer
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Configure render options
+            renderer.RenderingOptions = new ChromePdfRenderOptions
+            {
+                // Enable table of content feature
+                TableOfContents = TableOfContentsTypes.WithPageNumbers,
+            };
+            
+            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("tableOfContent.html");
+            
+            pdf.SaveAs("tableOfContents.pdf");
+        }
+    }
+}

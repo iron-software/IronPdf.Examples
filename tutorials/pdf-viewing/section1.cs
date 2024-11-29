@@ -1,15 +1,24 @@
 using IronPdf.Viewer.Maui;
-
-public static class MauiProgram
+using IronPdf;
+namespace ironpdf.PdfViewing
 {
-    public static MauiApp CreateMauiApp()
+    public class Section1
     {
-        var builder = MauiApp.CreateBuilder();
-        builder
-            .UseMauiApp<App>()
-            // other configuration options ...
-            .ConfigureIronPdfView(); // configure the viewer on app start-up
-
-        return builder.Build();
+        public void Run()
+        {
+            public static class MauiProgram
+            {
+                public static MauiApp CreateMauiApp()
+                {
+                    var builder = MauiApp.CreateBuilder();
+                    builder
+                        .UseMauiApp<App>()
+                        // other configuration options ...
+                        .ConfigureIronPdfView(); // configure the viewer on app start-up
+            
+                    return builder.Build();
+                }
+            }
+        }
     }
 }

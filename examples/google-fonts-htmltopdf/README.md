@@ -1,15 +1,17 @@
-Utilizing custom fonts can significantly enhance the appearance of your PDFs, allowing your documents to carry a unique style that reflects your organization's branding. This comprises the integration of specific fonts and tailored icons or graphics prominent to your brand identity. Luckily, IronPDF extends robust support for web fonts, including the extensive collection available through Google Fonts.
+***Based on <https://ironpdf.com/examples/google-fonts-htmltopdf/>***
 
-Here’s how you can implement your own custom fonts in PDFs, taking advantage of the IronPDF's custom font support functionalities.
+Utilizing custom fonts is essential for creating PDFs with a distinct style. Many enterprises and organizations choose to embed custom fonts alongside unique icons or graphics to enhance their branding. IronPDF accommodates this need by supporting web fonts, such as the extensive Google Fonts library.
 
-This feature grants developers complete control over font selection, liberating them from the constraints of only using default System fonts.
+The following example illustrates how to incorporate your own custom fonts into PDF documents using the custom fonts capability provided by IronPDF.
 
-However, incorporating custom fonts into your PDFs requires attention to a minor complication: the necessity of a `RenderDelay`. Additionally, due to Microsoft’s security measures, web fonts are incompatible with Azure's shared Windows Web App hosting.
+This feature grants developers complete control over font choices, eliminating reliance on default system typefaces.
+
+However, there's a slight complication when using custom fonts in your PDFs. You'll need to consider a `RenderDelay`. Additionally, web fonts are not supported on Azure's shared Windows Web App hosting due to Microsoft's security policies.
 
 Supported Web Fonts Include:
 
 - [Font Awesome](https://fontawesome.com/)
 - [Bootstrap Glyphs](https://getbootstrap.com/docs/3.3/components/)
 - [Google Fonts](https://fonts.google.com/)
-- [Barcode Fonts](https://ironpdf.com/examples/barcode-htmltopdf/)
-- Any custom CSS font packages you create, whether they're WOFF or SVG-based.
+- [Barcode Fonts with IronPDF HTML to PDF Conversion Example](https://ironpdf.com/examples/barcode-htmltopdf/)
+- Your personalized WOFF or SVG-based CSS font packages.

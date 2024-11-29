@@ -1,165 +1,164 @@
 # How to Incorporate Page Numbers into a PDF Document
 
-Page numbers serve as helpful navigational tools by marking each page sequentially in a PDF document. This functionality is crucial for helping readers identify their current page and for locating specific content quickly. These numbers also facilitate more effective cross-referencing and citing within the document. Incorporating page numbers into a PDF can be achieved effortlessly using IronPDF.
+***Based on <https://ironpdf.com/how-to/page-numbers/>***
 
-## Example of Adding Page Numbers
 
-To insert page numbers that reflect the current page and total pages, you can use either the **TextHeaderFooter** or **HtmlHeaderFooter** class, utilizing placeholder strings `{page}` and `{total-pages}`.
+Page numbers are essential markers for each page in a PDF, facilitating easy navigation, reference, and citation by indicating precise page locations and total page counts. Incorporating these into your documents enhances usability significantly. IronPDF offers a straightforward method to insert page numbers into your PDFs.
+
+## Example on Adding Page Numbers
+
+With IronPDF, you can employ placeholder strings `{page}` and `{total-pages}` within the `TextHeaderFooter` or `HtmlHeaderFooter` classes to display the current and total page numbers.
 
 ```cs
 using IronPdf;
-
-// Define a text header
-TextHeaderFooter textHeader = new TextHeaderFooter()
+namespace ironpdf.PageNumbers
 {
-    CenterText = "{page} of {total-pages}"
-};
+    public class Section1
+    {
+        public void Run()
+        {
+            // Initializes a new text header
+            TextHeaderFooter textHeader = new TextHeaderFooter()
+            {
+                CenterText = "{page} of {total-pages}"
+            };
 
-// Define an HTML footer
-HtmlHeaderFooter htmlFooter = new HtmlHeaderFooter()
-{
-    HtmlFragment = "<center><i>{page} of {total-pages}</i></center>"
-};
+            // Initializes a new HTML footer
+            HtmlHeaderFooter htmlFooter = new HtmlHeaderFooter()
+            {
+                HtmlFragment = "<center><i>{page} of {total-pages}<i></center>"
+            };
 
-// Create a PDF renderer
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
+            // Create and render a PDF
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
 
-// Embed the header and footer into the PDF
-pdf.AddTextHeaders(textHeader);
-pdf.AddHtmlFooters(htmlFooter);
+            // Append header and footer to the PDF
+            pdf.AddTextHeaders(textHeader);
+            pdf.AddHtmlFooters(htmlFooter);
 
-pdf.SaveAs("pdfWithPageNumber.pdf");
+            pdf.SaveAs("pdfWithPageNumber.pdf");
+        }
+    }
+}
 ```
 
-An example of the resulting PDF can be viewed below:
+Here is the rendered PDF from the above code implemented:
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/page-numbers/pdf-with-page-numbers.pdf" width="100%" height="500px">
 </iframe>
 
-Furthermore, these placeholders can be directly incorporated into the **ChromePdfRenderer** rendering options.
+It's also feasible to insert these headers and footers directly into the rendering settings of the `ChromePdfRenderer`.
 
 ```cs
 using IronPdf;
-
-// Configure rendering options with headers and footers
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-renderer.RenderingOptions.TextHeader = new TextHeaderFooter()
+namespace ironpdf.PageNumbers
 {
-    CenterText = "{page} of {total-pages}"
-};
-renderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter()
-{
-    HtmlFragment = "<center><i>{page} of {total-pages}</i></center>"
-};
+    public class Section2
+    {
+        public void Run()
+        {
+            // Configure rendering options with headers and footers
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            renderer.RenderingOptions.TextHeader = new TextHeaderFooter()
+            {
+                CenterText = "{page} of {total-pages}"
+            };
+            renderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter()
+            {
+                HtmlFragment = "<center><i>{page} of {total-pages}<i></center>"
+            };
 
-string html = @"
-    <h1>Hello World!</h1>
-<div style='page-break-after: always;'></div>
-    <h1>2nd Page!</h1>";
+            string html = @"
+                <h1>Hello World!</h1>
+            <div style='page-break-after: always;'/>
+                <h1>2nd Page!</h1>";
+            
+            // Generate the PDF
+            PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
 
-// Generate the PDF with these options
-PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
-
-pdf.SaveAs("applyPageNumberWithRenderingOptions.pdf");
+            pdf.SaveAs("applyPageNumberWithRenderingOptions.pdf");
+        }
+    }
+}
 ```
 
-## Tailoring Page Numbers to Specific Pages
+## Tailoring Page Numbers for Specific Pages
 
-IronPDF also allows customizing where to begin placing page numbers, such as starting from a specific page or grouping like even-indexed pages.
+IronPDF allows for precise control over the placement of page numbers, whether starting them from a specific page or applying them to designated groups, such as even or odd-indexed pages.
 
-Here's the setup example for such customizations:
+### Configuration of the Document
 
 ```cs
-using IronPdf;
-using System.Linq;
 using System.Collections.Generic;
-
-string multi_page_html = @"
-    <p>This is the 1st Page</p>
-<div style='page-break-after: always;'></div>
-    <p>This is the 2nd Page</p>
-<div style='page-break-after: always;'></div>
-    <p>This is the 3rd Page</p>
-<div style='page-break-after: always;'></div>
-    <p>This is the 4th Page</p>
-<div style='page-break-after: always;'></div>
-    <p>This is the 5th Page</p>
-<div style='page-break-after: always;'></div>
-    <p>This is the 6th Page</p>
-<div style='page-break-after: always;'></div>
-    <p>This is the 7th Page</p>";
-
-// Create header
-HtmlHeaderFooter header = new HtmlHeaderFooter()
+using IronPdf;
+namespace ironpdf.PageNumbers
 {
-    HtmlFragment = "<center><i>{page} of {total-pages}</i></center>"
-};
+    public class Section3
+    {
+        public void Run()
+        {
+            string multi_page_html = @"
+                <p>This is the 1st Page</p>
+            <div style='page-break-after: always;'></div>
+                <p>This is the 2nd Page</p>
+            <div style='page-break-after: always;'></div>
+                <p>This is the 3rd Page</p>
+            <div style='page-break-after: always;'></div>
+                <p>This is the 4th Page</p>
+            <div style='page-break-after: always;'></div>
+                <p>This is the 5th Page</p>
+            <div style='page-break-after: always;'></div>
+                <p>This is the 6th Page</p>
+            <div style='page-break-after: always;'></div>
+                <p>This is the 7th Page</p>";
 
-// Render the PDF
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderHtmlAsPdf(multi_page_html);
+            HtmlHeaderFooter header = new HtmlHeaderFooter()
+            {
+                HtmlFragment = "<center><i>{page} of {total-pages}<i></center>"
+            };
 
-// Define a range to cover all the pages
-var allPageIndices = Enumerable.Range(0, pdf.PageCount);
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf(multi_page_html);
+
+            var allPageIndices = Enumerable.Range(0, pdf.PageCount);
+        }
+    }
+}
 ```
 
-### Configuring for Different Page Groupings
-
-Here's how you can apply page numbers only to certain pages:
-
-**Even Page Indexes** (displaying page numbers on pages viewed as odd due to zero-based index):
+### Application on Even and Odd Pages
 
 ```cs
-var evenPageIndices = allPageIndices.Where(i => i % 2 == 0);
+using IronPdf;
+namespace ironpdf.PageNumbers
+{
+    // Code for adding page numbers exclusively to even-indexed pages resulting in odd page numbering
+    public class Section4
+    {
+        public void Run()
+        {
+            var evenPageIndices = allPageIndices.Where(i => i % 2 == 0);
 
-pdf.AddHtmlHeaders(header, 1, evenPageIndices);
-pdf.SaveAs("EvenPages.pdf");
+            pdf.AddHtmlHeaders(header, 1, evenPageIndices);
+            pdf.SaveAs("EvenPages.pdf");
+        }
+    }
+
+    // Code for adding page numbers exclusively to odd-indexed pages resulting in even page numbering
+    public class Section5
+    {
+        public void Run()
+        {
+            var oddPageIndexes = allPageIndices.Where(i => i % 2 != 0);
+
+            pdf.AddHtmlHeaders(header, 1, oddPageIndexes);
+            pdf.SaveAs("OddPages.pdf");
+        }
+    }
+}
 ```
 
-**Odd Page Indexes**: (setting numbers on pages appearing as even):
+#### Specifying First and Last Pages	EIF_IDENTIFIER	end_column	end_line
 
-```cs
-var oddPageIndexes = allPageIndices.Where(i => i % 2 != 0);
-
-pdf.AddHtmlHeaders(header, 1, oddPageIndexes);
-pdf.SaveAs("OddPages.pdf");
-```
-
-**Last Page Only**:
-
-```cs
-var lastPageIndex = new List<int>() { pdf.PageCount - 1 };
-
-pdf.AddHtmlHeaders(header, 1, lastPageIndex);
-pdf.SaveAs("LastPageOnly.pdf");
-```
-
-**First Page Only**:
-
-```cs
-var firstPageIndex = new List<int>() { 0 };
-
-pdf.AddHtmlHeaders(header, 1, firstPageIndex);
-pdf.SaveAs("FirstPageOnly.pdf");
-```
-
-**Skip First Page**:
-
-```cs
-var skipFirstPage = allPageIndices.Skip(1);
-
-pdf.AddHtmlHeaders(header, 1, skipFirstPage);
-pdf.SaveAs("SkipFirstPage.pdf");
-```
-
-**Skip First Page and Don’t Count It** (begin numbering from the second page):
-
-```cs
-var skipFirstPageAndDontCountIt = allPageIndices.Skip(1);
-
-pdf.AddHtmlHeaders(header, 0, skipFirstPageAndDontCountIt);
-pdf.SaveAs("SkipFirstPageAndDontCountIt.pdf");
-```
-
-For a comprehensive overview of all possible metadata configurations, please refer to the [Add Headers and Footers](https://ironpdf.com/how-to/headers-and-footers/#anchor-metadata-to-text-header-footer) guide.
+- **First Page**: ` {First page only code snippet}`.StylePriority

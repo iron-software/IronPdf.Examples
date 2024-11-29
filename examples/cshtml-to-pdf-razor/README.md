@@ -1,5 +1,13 @@
-The following code snippet illustrates how to transform Razor pages into PDF documents.
+***Based on <https://ironpdf.com/examples/cshtml-to-pdf-razor/>***
 
-If you plan to incorporate this functionality within an ASP.NET Core Web Application, you should install two important packages: `IronPdf.Extensions.Razor` and `IronPdf`. These libraries collectively facilitate the conversion of Razor pages to PDF format.
+Here's a rephrased version of the article that you've provided, with the relative URL paths resolved to ironpdf.com:
 
-Utilizing Razor pages for conversion lets you leverage the comprehensive features offered by the `**RenderingOptions**` class, enhancing the customization and further modification or export of the generated PDF files.
+---
+
+This code sample illustrates how to transform a Razor page into a PDF document.
+
+In order to perform this task within an ASP.NET Core Web Application, install two specific packages: `IronPdf.Extensions.Razor` and `IronPdf`. These libraries collaborate to allow the conversion of Razor pages to PDF format.
+
+Utilizing the HTML-to-PDF conversion on Razor pages allows you to leverage the comprehensive functionalities offered by the `**RenderingOptions**` class. You can then further customize or distribute the generated PDF document as required.
+
+---

@@ -1,96 +1,130 @@
-<ipv:IronPdfView Source="C:/path/to/my/example.pdf" />
-</ContentPage>
+# Viewing PDFs in MAUI for C# .NET
+
+***Based on <https://ironpdf.com/tutorials/pdf-viewing/>***
+
+
+![IronPDF Viewer Banner](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/ironpdf_viewer_banner.png)
+
+In today's world of cross-platform development, the ability to view PDF documents seamlessly within your application is essential. Utilizing the **IronPDF Viewer** allows for the integration of robust PDF viewing capabilities into your MAUI application.
+
+In this tutorial, we'll demonstrate how to seamlessly incorporate the **IronPDF Viewer** into a MAUI application, enhancing it with functionalities like viewing, saving, and printing PDFs.
+
+<hr class="separator">
+
+<p class="main-content__segment-title">Overview</p>
+
+<br>
+
+## Download and Install the IronPDF Viewer Library
+
+### Visual Studio - NuGet Package Manager
+
+To begin, right-click on your project in the solution explorer within Visual Studio and choose `Manage NuGet Packages...`. Search for **IronPdf.Viewer.Maui** and install the latest version. Alternatively, access the NuGet Package Manager console by navigating to `Tools > NuGet Package Manager > Package Manager Console` and execute the following command:
+
+```shell
+:InstallCmd Install-Package IronPdf.Viewer.Maui
 ```
 
-In C#:
+## Deploy IronPDF Viewer in a MAUI Application
+
+Below, we outline the steps to integrate the IronPDF Viewer into a typical MAUI application.
+
+### Setup
+
+Ensure your MAUI project does not target iOS and Android platforms by right-clicking on the project file, selecting **Properties**, and unchecking **Target the iOS Platform** and **Target the Android platform** as illustrated below. Remember to save and restart Visual Studio after making changes.
+
+![Properties Screen](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/properties_screen_underlined.png)
+
+Proceed by opening your _MauiProgram.cs_ file and include the following initialization code:
 
 ```cs
-// Assuming an IronPdfView instance named pdfView is already created
-pdfView.Source = IronPdfViewSource.FromFile("C:/path/to/my/example.pdf");
+using IronPdf.Viewer.Maui;
+using IronPdf;
+namespace ironpdf.PdfViewing
+{
+    public class Initialization
+    {
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .ConfigureFrameworks()
+                .ConfigureIronPdfView(); // Initialize the PDF viewer
+
+            return builder.Build();
+        }
+    }
+}
 ```
 
-#### Load Through Byte Array
-
-For scenarios requiring a byte array load, this is achievable only in C#. Here’s how you can do it:
+To exclude the default banner from IronPDF Viewer, add your license key as follows:
 
 ```cs
-pdfView.Source = IronPdfViewSource.FromBytes(File.ReadAllBytes("~/Downloads/example.pdf"));
+.ConfigureIronPdfView("YOUR-LICENSE-KEY");
 ```
 
-#### Load Through Stream
+### Create a PDF Viewer Page
 
-If you wish to load a PDF through a stream, utilize this method in C#:
+Let's look at how to set up a dedicated PDF Viewer page within your MAUI application, whether using XAML or C# `ContentPage`.
 
-```cs
-pdfView.Source = IronPdfViewSource.FromStream(File.OpenRead("~/Downloads/example.pdf"));
-```
+#### Steps
 
-## Configure the Toolbar
+1. Right-click on your project and choose `Add > New Item...`
+   ![Add New Item](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/additem.png)
 
-IronPDF Viewer allows you to customize the toolbar to fit your needs. Options you can include are:
+2. Select the `.NET MAUI ContentPage (XAML)` to create a XAML-based page or `.NET MAUI ContentPage (C#)` for a C# page, and name your file _PdfViewerPage_. Then click `Add`.
+   ![.NET MAUI `ContentPage`](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/mauipages.png)
 
-- Thumbnail view
-- Filename display
-- Text search
-- Page number navigation
-- Zoom
-- Fit to width
-- Fit to height
-- Rotate clockwise
-- Rotate counterclockwise
-- Open file
-- Download file
-- Print file
-- Display annotations
-- Two-page view
+3. Add the following XAML code to your newly created XAML file and save:
+    ```xml
+    <?xml version="1.0" encoding="utf-8" ?>
+    <ContentPage xmlns:ipv="clr-namespace:IronPdf.Viewer.Maui;assembly=IronPdf.Viewer.Maui">
+        <ipv:IronPdfView x:Name="pdfView"/>
+    </ContentPage>
+    ```
 
-The default setup of IronPDF Viewer displays the following toolbar:
+For a C# ContentPage, use the following:
+    ```cs
+    using IronPdf.Viewer.Maui;
+    using IronPdf;
+    public class MainPage : ContentPage
+    {
+        private readonly IronPdfView pdfView;
 
-![Default Toolbar](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/toolbar_all.png)
+        public MainPage()
+        {
+            InitializeComponent();
 
-In this configuration, the filename display, text search, and rotate counterclockwise are not enabled. To enable all options, adjust the `Option` parameter in the `IronPdfView` tag in your XAML to `All`:
+            this.pdfView = new IronPdfView
+            {
+                Options = IronPdfViewOptions.All
+            };
 
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage ...
-    xmlns:ipv="clr-namespace:IronPdf.Viewer.Maui;assembly=IronPdf.Viewer.Maui"
-    ...>
-    <ipv:IronPdfView x:Name="pdfView" Options="All"/>
-</ContentPage>
-```
+            Content = this.pdfView;
+        }
+    }
+    ```
 
-Or similarly in C#:
+4. Update your _AppShell.xaml_ to include:
+    ```xml
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+        <TabBar x:Name="AppTabBar">
+            <Tab Title="Home">
+              <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"/>
+            </Tab>
+            <Tab Title="PDF Viewer">
+              <ShellContent ContentTemplate="{DataTemplate local:PdfViewerPage}" Route="PDFViewer"/>
+          </Tab>
+        </TabBar>
+    </Shell>
+    ```
 
-```cs
-pdfView.Options = IronPdfViewOptions.All;
-```
+5. Build and run your project. You should see tabs in the top-left corner, and selecting the "PDF Viewer" tab will present the IronPDF Viewer.
 
-This configuration displays:
+![IronPDF Viewer Default](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/pdfviewer_default.png)
 
-![All Toolbar](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/toolbar_all.png)
+### Opening PDFs on Application Start-Up
 
-To hide all toolbar options, set `Options` to `None`, eliminating the toolbar:
-
-![No Toolbar](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/toolbar_none.png)
-
-If you prefer specific options, like thumbnail and open file, adjust accordingly in XAML:
-
-```xml
-<ipv:IronPdfView x:Name="pdfView" Options="Thumbs, Open"/>
-```
-
-Or in C#:
-
-```cs
-pdfView.Options = IronPdfViewOptions.Thumbs | IronPdfViewOptions.Open;
-```
-
-This configuration will show:
-
-![Toolbar with thumbnail and open file options](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/toolbar_thumbsopen.png)
-
-## Conclusion
-
-This tutorial covered integrating IronPDF Viewer into a MAUI application and customizing its toolbar to suit various requirements.
-
-This viewer is part of the IronPDF product suite. For feature requests or inquiries about IronPDF Viewer (or IronPDF), please [contact our support team](https://ironpdf.com/troubleshooting/engineering-request-pdf/). We are eager to assist you.
+IronPDF Viewer can be configured to load a PDF at the start of the application. This can be managed by specifying the file path, loading through a byte array, or reading through a stream.

@@ -1,10 +1,13 @@
-# Converting XML to PDF in C# and VB.NET
+# Convert XML to PDF in C# and VB.NET
 
-Transforming XML directly into PDF using C# can often be intricate. A good strategy involves leveraging XSLT as an intermediate step. By using XSLT transformations, XML data can be successfully converted to HTML, which can then be rendered as a PDF. An XSLT document is crucial as it details the process of turning XML from a specified schema into a precise HTML format using the established XSLT standards. Essentially, XSLT serves as a specialized converter from XML to HTML.
+***Based on <https://ironpdf.com/how-to/xml-to-pdf/>***
 
-For an in-depth understanding of XSLT, consider exploring the '[Using the XslCompiledTransform Class](https://docs.microsoft.com/en-us/dotnet/standard/data/xml/using-the-xslcompiledtransform-class)' on Microsoft's resource site.
 
-After transforming to HTML, this HTML can then be transformed into a PDF document using the [.NET PDF Generator](https://ironpdf.com/docs/).
+Transforming XML directly into PDF within the .NET framework, particularly using C# or VB.NET, can offer considerable challenges. The most effective approach begins with utilizing XSLT as a transformation mechanism. By employing XSLT, XML data is first converted to HTML format. XSLT documents function by mapping XML from a specific schema into a precise HTML structure, making them a robustly established standard. Essentially, XSLT serves as a tailor-made mechanism to convert XML into HTML.
+
+For more insights into XSLT transformation, consider reading the article on [Using the XslCompiledTransform Class](https://docs.microsoft.com/en-us/dotnet/standard/data/xml/using-the-xslcompiledtransform-class) provided by Microsoft.
+
+Once XML is transformed into HTML using XSLT, the HTML can then be converted into a PDF document using the [.NET PDF Generator](https://ironpdf.com/docs/). Check out an example of how to perform this XML to PDF conversion with IronPDF's demo project available for download at [XML to PDF Conversion Example](https://ironpdf.com/downloads/csharp-xml-to-pdf.zip).
 
 ```cs
 string xslt = @"<?xml version='1.0' encoding='UTF-8'?>
@@ -12,36 +15,38 @@ string xslt = @"<?xml version='1.0' encoding='UTF-8'?>
 <xsl:template match='/'>
 <html>
 <style>
-td {
+td{
   text-align: center;
   padding: 20px;
   border: 1px solid #CDE7F0;
 }
-th {
+th{
+  background-color: #506378;
   color: white;
   padding: 20px;
+  text-align: center;
 }
 </style>
 <body style='font-family: Arial, Helvetica Neue, Helvetica, sans-serif;'>
-  <table style='border-collapse: collapse;'>
+  <table style='width: 100%; border-collapse: collapse;'>
   <thead>
     <tr>
       <th colspan='3'>
-        <img style='margin: auto;' src='https://ironsoftware.com/csharp/ocr/object-reference/html/R_Project_IronOcr_Logo.htm'/>
+        <img src='https://ironsoftware.com/img/svgs/ironsoftware-logo-black.svg' alt='Iron Software Logo' style='margin: auto; display: block;'/>
       </th>
     </tr>
   </thead>
   <tbody>
-    <tr bgcolor='#9acd32'>
-      <th bgcolor='#32ab90'>Title</th>
-      <th bgcolor='#f49400'>Feature</th>
-      <th bgcolor='#2a95d5'>Compatible</th>
+    <tr bgcolor='#687864'>
+      <th>Title</th>
+      <th>Feature</th>
+      <th>Compatibility</th>
     </tr>
     <xsl:for-each select='catalog/cd'>
     <tr>
       <td style='font-weight: bold;'><xsl:value-of select='title'/></td>
-      <td style='background-color: #eff8fb; color: #2a95d5; font-weight: bold;'><xsl:value-of select='feature'/></td>
-      <td><xsl:value-of select='compatible'/></td>
+      <td style='background-color: #f0f8ff; color: #333; font-weight: bold;'><xsl:value-of select='feature'/></td>
+      <td style='color: #666;'><xsl:value-of select='compatible'/></td>
     </tr>
     </xsl:for-each>
     </tbody>
@@ -56,40 +61,43 @@ string xml = @"<?xml version='1.0' encoding='UTF-8'?>
 <catalog>
   <cd>
     <title>IronPDF</title>
-    <feature>Generate, format and manipulate PDFs</feature>
-    <compatible>Microsoft Windows, Linux (Debian, CentOS, Ubuntu), MacOS, Docker (Windows, Linux, Azure), Azure (VPS, Webapps, Websites, Functions), AWS</compatible>
+    <feature>Enables PDF generation and manipulation</feature>
+    <compatible>Supports various platforms such as Microsoft Windows, Linux distros, MacOS, alongside Docker and cloud services like Azure and AWS</compatible>
   </cd>
   <cd>
     <title>IronOCR</title>
-    <feature>OCR technology for precise text extraction</feature>
-    <compatible>Microsoft Windows, Linux, MacOS, Docker, Azure, AWS</compatible>
+    <feature>Provides OCR capabilities and handling</feature>
+    <compatible>Works on Windows, Linux, MacOS, and both Docker and cloud services</compatible>
   </cd>
   <cd>
     <title>IronBarcode</title>
-    <feature>Detailed barcode processing</feature>
-    <compatible>Microsoft Windows, Linux, MacOS, Docker, Azure, AWS</compatible>
+    <feature>Supports encoding and decoding of barcodes</feature>
+    <compatible>Suitable for Windows, Linux, and MacOS; Integrated easily with Docker setups and cloud infrastructures</compatible>
   </cd>
 </catalog>
 ";
 
-XslCompiledTransform transform = new XslCompiledTransform();
-using (XmlReader reader = XmlReader.Create(new StringReader(xslt)))
+XslCompiledTransform transformer = new XslCompiledTransform();
+using (XmlReader xsltReader = XmlReader.Create(new StringReader(xslt)))
 {
-    transform.Load(reader);
+    transformer.Load(xsltReader);
 }
-StringWriter results = new StringWriter();
-using (XmlReader reader = XmlReader.Create(new StringReader(xml)))
+StringWriter transformed = new StringWriter();
+using (XmlReader xmlReader = XmlReader.Create(new StringReader(xml)))
 {
-    transform.Transform(reader, null, results);
+    transformer.Transform(xmlReader, null, transformed);
 }
 
-IronPdf.ChromePdfRenderer renderer = new IronPdf.ChromePdfRenderer();
-renderer.RenderHtmlAsPdf(results.ToString()).SaveAs("TranslatedPDF.pdf");
+IronPdf.ChromePdfRenderer pdfRenderer = new IronPdf.ChromePdfRenderer();
+// Additional rendering options and configurations can be applied below
+// Convert the HTML from XSLT to PDF format
+pdfRenderer.RenderHtmlAsPdf(transformed.ToString()).SaveAs("TransformedPDF.pdf");
 ```
-<hr class="separator">
 
-### Infographic
+---
 
-<div style="margin-top: 50px; margin-bottom: 50px; text-align: center;">
-    <img src="https://ironpdf.com/static-assets/pdf/how-to/xml-to-pdf/XmlToHtml.webp" alt="XML to PDF Conversion" class="img-responsive add-shadow" style="margin: auto;">
+#### Infographic
+
+<div style="text-align:center; margin: 50px 0;">
+    <img src="https://ironpdf.com/static-assets/pdf/how-to/xml-to-pdf/XmlToHtml.webp" alt="XML to PDF Conversion Infographic" style="box-shadow: 0px 8px 15px rgba(0,0,0,0.1);">
 </div>

@@ -1,79 +1,119 @@
-# How to Add, Copy, and Delete Pages in PDFs
+***Based on <https://ironpdf.com/how-to/add-copy-delete-pages-pdf/>***
 
-Working with PDF documents often includes tasks like adding new content, duplicating existing pages, or eliminating unnecessary pages. Whether you're inserting text, images, or merging PDF pages, the operations can substantially alter your document's structure. Similarly, duplicating pages within or across PDF documents allows for easy reproduction of content, and removing undesired pages can streamline your files. IronPDF offers robust functionalities to efficiently handle these tasks.
+## How to Add, Copy, and Delete Pages in PDFs
+
+Modifying pages in a PDF involves several processes including adding new content like images, text, or existing pages, copying existing pages within the same or different PDFs, and deleting unnecessary pages.
+
+IronPDF simplifies these tasks, offering an efficient way to manage PDF pages conveniently.
 
 ## Add Pages to a PDF
 
-Inserting a page into a PDF is straightforward. For instance, you might want to prepend a cover page to a report's PDF. To merge the cover and content PDFs into a single file, you utilize the `Merge` method. Consider these two files for demonstration: [coverPage.pdf](https://ironpdf.com/static-assets/pdf/how-to/add-copy-delete-pages-pdf/coverPage.pdf) and [contentPage.pdf](https://ironpdf.com/static-assets/pdf/how-to/add-copy-delete-pages-pdf/contentPage.pdf).
+Incorporating a page into a PDF file is straightforward and can be achieved with minimal code. For illustration, consider merging a cover page with a report PDF. Here, the `Merge` method combines both. Below are the two example PDFs used in this tutorial: [download coverPage.pdf](https://ironpdf.com/static-assets/pdf/how-to/add-copy-delete-pages-pdf/coverPage.pdf) and [download contentPage.pdf](https://ironpdf.com/static-assets/pdf/how-to/add-copy-delete-pages-pdf/contentPage.pdf).
 
 ```cs
 using IronPdf;
-
-// Load the cover page
-PdfDocument coverPage = PdfDocument.FromFile("coverPage.pdf");
-
-// Load the content document
-PdfDocument contentPage = PdfDocument.FromFile("contentPage.pdf");
-
-// Combine the documents
-PdfDocument finalPdf = PdfDocument.Merge(coverPage, contentPage);
-
-// Save the combined PDF
-finalPdf.SaveAs("pdfWithCover.pdf");
+namespace ironpdf.AddCopyDeletePagesPdf
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            // Load the cover page document
+            PdfDocument coverPage = PdfDocument.FromFile("coverPage.pdf");
+            
+            // Load the main content document
+            PdfDocument contentPage = PdfDocument.FromFile("contentPage.pdf");
+            
+            // Combines both documents into one
+            PdfDocument finalPdf = PdfDocument.Merge(coverPage, contentPage);
+            
+            // Save the newly created document
+            finalPdf.SaveAs("pdfWithCover.pdf");
+        }
+    }
+}
 ```
 
-When executed, the snippet above creates a unified PDF file starting with the cover page:
+When executed, this code creates a merged PDF document, placing the cover at the beginning:
 
 <iframe src="https://ironpdf.com/static-assets/pdf/how-to/add-copy-delete-pages-pdf/pdfWithCover.pdf#view=fit" width="100%" height="500px">
 </iframe>
 
-Additionally, you can insert a PDF at a desired position using the `InsertPdf` method. In the following code, 'coverPage.pdf' is inserted at the start of the 'contentPage.pdf':
+Alternatively, to insert the cover page at a specific position in the PDF document, use the `InsertPdf` method. This code places 'coverPage.pdf' at the start of 'contentPage.pdf':
 
 ```cs
 using IronPdf;
-
-// Load the cover page
-PdfDocument coverPage = PdfDocument.FromFile("coverPage.pdf");
-
-// Load the content document
-PdfDocument contentPage = PdfDocument.FromFile("contentPage.pdf");
-
-// Insert the cover page at the beginning of the content page
-contentPage.InsertPdf(coverPage, 0);
+namespace ironpdf.AddCopyDeletePagesPdf
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            // Load the cover page document
+            PdfDocument coverPage = PdfDocument.FromFile("coverPage.pdf");
+            
+            // Load the main content page
+            PdfDocument contentPage = PdfDocument.FromFile("contentPage.pdf");
+            
+            // Insert the cover page at the beginning of the content page
+            contentPage.InsertPdf(coverPage, 0);
+        }
+    }
+}
 ```
+
+<hr>
 
 ## Copy Pages from a PDF
 
-Copying pages within a PDF is achieved by utilizing the `CopyPage` or `CopyPages` methods for single or multiple pages respectively. These methods produce a new **PdfDocument** with the requested pages.
+To replicate pages from a PDF, employ the `CopyPage` or `CopyPages` methods to copy one or multiple pages respectively. These methods return a new **PdfDocument** that includes the copied pages.
 
 ```cs
-using IronPdf;
 using System.Collections.Generic;
-
-// Load a document
-PdfDocument myReport = PdfDocument.FromFile("report_final.pdf");
-
-// Copy the first page to a new PDF document
-PdfDocument copyOfPageOne = myReport.CopyPage(0);
-
-// Copy the first three pages to a new PDF document
-PdfDocument copyOfFirstThreePages = myReport.CopyPages(new List<int> { 0, 1, 2 });
+using IronPdf;
+namespace ironpdf.AddCopyDeletePagesPdf
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            // Open a PDF from which to copy pages
+            PdfDocument myReport = PdfDocument.FromFile("report_final.pdf");
+            
+            // Create a new PDF containing the first page
+            PdfDocument copyOfPageOne = myReport.CopyPage(0);
+            
+            // Create a new PDF containing the first three pages
+            PdfDocument copyOfFirstThreePages = myReport.CopyPages(new List<int> { 0, 1, 2 });
+        }
+    }
+}
 ```
+
+<hr>
 
 ## Delete Pages in a PDF
 
-Removing pages from a PDF is as simple as invoking `RemovePage` or `RemovePages`, which allow for the deletion of single or multiple pages.
+To remove pages from a PDF, utilize the `RemovePage` or `RemovePages` methods for singular or multiple pages, respectively.
 
 ```cs
-using IronPdf;
 using System.Collections.Generic;
-
-// Load the full report
-PdfDocument pdf = PdfDocument.FromFile("full_report.pdf");
-
-// Remove the first page
-pdf.RemovePage(0);
-
-// Remove the third and fourth pages
-pdf.RemovePages(new List<int> { 2, 3 });
+using IronPdf;
+namespace ironpdf.AddCopyDeletePagesPdf
+{
+    public class Section4
+    {
+        public void Run()
+        {
+            // Open the PDF to remove pages from
+            PdfDocument pdf = PdfDocument.FromFile("full_report.pdf");
+            
+            // Remove the first page
+            pdf.RemovePage(0);
+            
+            // Remove multiple specified pages
+            pdf.RemovePages(new List<int> { 2, 3 });
+        }
+    }
+}
 ```

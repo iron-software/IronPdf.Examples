@@ -1,11 +1,15 @@
-Leverage IronPDF to transform a PDF into images based on your preferred file format, dimensions, and DPI settings.
+***Based on <https://ironpdf.com/examples/rasterize-a-pdf-to-images/>***
 
-For transforming a PDF into images, utilize the `RasterizeToImageFiles` method on a `PdfDocument` instance. A PDF can be initialized using the `PdfDocument.FromFile` method or through one of the various [PDF creation techniques](https://ironpdf.com/tutorials/dotnet-core-pdf-generating/).
+Utilize IronPDF to transform a PDF into images, tailored to your specific requirements for file type, dimensions, and DPI settings.
+
+To perform this conversion, utilize the `RasterizeToImageFiles` method on a `PdfDocument` instance. A `PdfDocument` can be loaded via the `PdfDocument.FromFile` method or through any of the [PDF creation methods available for .NET Core](https://ironpdf.com/tutorials/dotnet-core-pdf-generating/).
+
+---
 
 ---
 
-`RasterizeToImageFiles` processes each page of the PDF document, turning it into a raster image. The primary argument controls the naming format for each resulting image. You can further tailor the output by specifying additional parameters that adjust the image's quality and dimensions. Additionally, an argument allows for the conversion of selected pages of the PDF into images.
+The method `RasterizeToImageFiles` processes each page of the PDF, turning them into rasterized images. The first parameter designates the naming pattern for each resultant image. There are also optional parameters available that let you adjust the quality and size of each image. Additionally, the method provides an option to select specific pages of the PDF to be converted into images.
 
-For quick PDF to bitmap conversion, refer to the `ToBitMap` method showcased on line 24 of the sample code. This method can be applied to any `PdfDocument` object, facilitating the swift transformation of PDFs into `AnyBitmap` objects. These bitmaps can then be either stored as files or further modified as required.
+In the provided code example, line 24 showcases the use of the `ToBitmap` method. You can invoke this method on any `PdfDocument` instance to swiftly convert the PDF into `AnyBitmap` objects, which can then be either saved as files or further manipulated as desired.
 
----
+* * *

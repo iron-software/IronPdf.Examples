@@ -1,14 +1,26 @@
-IronPDF offers a robust `Replace` feature which allows you to easily search for and replace text within a PDF document. This can be a vital tool for editing documents without the need for external PDF editing software.
+***Based on <https://ironpdf.com/examples/csharp-replace-text-in-pdf/>***
+
+Using IronPDF, you can seamlessly locate and modify text within your PDF documents. This feature is particularly useful for streamlining document workflows without needing external applications.
+
+Here’s how you can implement text replacement in a PDF document using IronPDF:
 
 ```csharp
-// First, create an instance of the PdfDocument class
-PdfDocument pdfDoc = PdfDocument.FromFile("path/to/input.pdf");
+// First, ensure IronPDF is installed in your project
+// PM> Install-Package IronPdf
 
-// Use the ReplaceText method to replace old text with new text
-pdfDoc.ReplaceText("old text", "new text");
+using IronPdf;
 
-// Save the modified document
-pdfDoc.SaveAs("path/to/output.pdf");
+// Create a new instance of the PdfDocument class from an existing file
+var pdfDocument = new PdfDocument("input.pdf");
+
+// Replace text within the PDF
+// Parameters: oldText, newText, caseSensitive (optional), matchWholeWord (optional)
+pdfDocument.ReplaceText("oldText", "newText");
+
+// Save the updated PDF to a new file
+pdfDocument.SaveAs("updated.pdf");
 ```
 
-This process ensures modifications are applied directly within your .NET applications, enhancing automation and efficiency in document management tasks.
+This code sample initializes `IronPdf.PdfDocument` by loading a PDF file, replaces specified text, and saves the modified version of the document. Make sure to replace `"input.pdf"`, `"oldText"`, and `"newText"` with your actual file path and content.
+
+For more information and additional functionalities, you can visit the official IronPDF documentation at [IronPDF Documentation](https://ironpdf.com/documentation/).

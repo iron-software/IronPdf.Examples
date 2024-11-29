@@ -1,14 +1,13 @@
-IronPDF, like many software solutions, naturally produces temporary files during the creation, editing, and rendering of PDF documents. This is an essential process, typically implemented to store data temporarily. Understandably, managing these files can be cumbersome, so IronPDF offers enhanced control over the settings related to the temporary file path, simplifying the process significantly.
+***Based on <https://ironpdf.com/examples/set-temp-path/>***
 
-Here is how you can specify the temporary PDF file path for your PDF projects:
+IronPDF, like many software solutions, generates temporary files during the creation, editing, and rendering of PDF projects. These files are essential for processing and are typically used to store data temporarily. To simplify management of these files, IronPDF allows you to customize the location of the temporary folder and other settings related to your temp PDF files, enhancing ease of use.
 
-Within IronPDF's settings — applicable to all IronPDF instances — the `IronPdf.Installation.TempFolderPath` property allows for the customization of the temporary files' storage location. This adjustment can help, although occasionally third-party libraries might default to using the system's Environmental TempPath Directory.
+Here's a guide on how to specify the temporary PDF file path for your projects.
 
-To globally modify the location where temporary files are stored through IronPDF in your application, you can set the TempPath Environmental Variable on application start-up in C#:
+In the global installation and setup settings for all instances of IronPDF, you can modify the `IronPdf.Installation.TempFolderPath`. This allows customization of the storage path for temporary files, although it's worth noting that some third-party packages may default to using the system's Environmental Temp Path Directory.
 
-```csharp
-// Set the TempPath environment variable at the application start-up
-Environment.SetEnvironmentVariable("TEMP", newPath);
-```
+To set the Temp Path Environmental Variable across the application in C#, you should do this at the application's startup.
 
-It's important to consider cleaning up these temporary files post-project. If left undeleted, these files will accumulate and potentially overwhelm the designated temporary folder. Therefore, regular deletion of these files post-usage is advisable to maintain optimal system performance.
+It's advisable to remove temporary files once your project is completed. Failure to delete these files will lead to their accumulation in the temp folder, which can eventually lead to clutter and storage issues.
+
+For additional details on how to manage temporary files and other advanced configurations, please visit the [IronPDF Temporary File Management page](https://ironpdf.com/examples/set-temp-path/).

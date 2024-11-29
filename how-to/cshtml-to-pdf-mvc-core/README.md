@@ -1,24 +1,25 @@
-# Converting Views to PDFs in ASP.NET Core MVC
+# Transforming Views to PDFs in ASP.NET Core MVC
 
-A View in the ASP.NET framework serves as a building block for creating HTML markup in web apps. It forms a crucial part of the Model-View-Controller (MVC) architecture widely used in both ASP.NET MVC and ASP.NET Core MVC applications. The primary role of Views is to deliver data to the end-user by dynamically rendering HTML content.
+***Based on <https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/>***
 
-ASP.NET Core Web App MVC is a framework offered by Microsoft to develop web applications using ASP.NET Core. It consists of three main components:
 
-- **Model**: Handles data and business logic, manages interactions with data sources, and facilitates data exchanges.
-- **View**: Manages the presentation layer, focusing on user interface by rendering data visually to the user.
-- **Controller**: Manages user inputs, handles requests, communicates with the Model, and manages interactions between the Model and the View.
+A "View" is an essential component of the ASP.NET framework, tasked with producing HTML markup in web applications. As part of the Model-View-Controller (MVC) architecture, it plays a critical role in ASP.NET MVC and ASP.NET Core MVC applications by dynamically rendering HTML to display data.
 
-IronPdf greatly simplifies the task of generating PDF files directly from Views within an ASP.NET Core MVC project, enhancing the efficiency of PDF creation.
+ASP.NET Core Web App MVC (Model-View-Controller), a solution provided by Microsoft, enables developers to build web applications with ASP.NET Core. The framework consists of three core components:
 
-## Using IronPDF in ASP.NET Core
+ - **Model:** Manages data and business logic, interacts with data sources, and communicates data.
+ - **View:** Handles the presentation of the user interface, concentrates on data display, and provides information rendering.
+ - **Controller:** Processes user input, manages responses to requests, and facilitates interactions between the View and the Model.
 
-To begin using IronPdf to convert Views to PDFs, you first need to include the **IronPdf.Extensions.Mvc.Core** package alongside the main **IronPdf** library in your ASP.NET Core MVC project.
+IronPDF streamlines the generation of PDFs from Views within an ASP.NET Core MVC project, offering a straightforward approach to creating PDF files.
+
+## IronPDF Extensions for MVC
+
+The **IronPdf.Extensions.Mvc.Core** package enhances the capabilities of the primary **IronPdf** library. Both the IronPdf and IronPdf.Extensions.Mvc.Core packages are necessary for converting Views into PDF documents in ASP.NET Core MVC environments.
 
 ```shell
-:InstallCmd Install-Package IronPdf.Extensions.Mvc.Core
+Install-Package IronPdf.Extensions.Mvc.Core
 ```
-
-### NuGet Installation Information
 
 <div class="products-download-section">
     <div class="js-modal-open product-item nuget" style="width: fit-content; margin-left: auto; margin-right: auto;" data-modal-id="trial-license-after-download">
@@ -42,14 +43,14 @@ To begin using IronPdf to convert Views to PDFs, you first need to include the *
     </div>
 </div>
 
-## Converting Views into PDFs
+## Convert Views to PDFs
 
-First, ensure you have an ASP.NET Core Web App (Model-View-Controller) structure. Here’s how to proceed:
+Begin by setting up an ASP.NET Core Web App (Model-View-Controller) project to transform Views into PDF files.
 
-### Define a Model Class
+### Add a Model Class
 
-- Navigate to the "Models" folder.
-- Create a C# class file named "Person," which will represent individual data entities. Use the following code sample:
+- Go to the "Models" directory
+- Create a new C# class file named "Person" to serve as a data model. Use the code below as a template:
 
 ```cs
 namespace ViewToPdfMVCCoreSample.Models
@@ -63,11 +64,14 @@ namespace ViewToPdfMVCCoreSample.Models
     }
 }
 ```
+
 ### Update the Controller
 
-Go to the "Controllers" folder and modify the "HomeController" by adding a "Persons" action as displayed below:
+Navigate to the "Controllers" folder and open the "HomeController" file. Adjustments will be made specifically to the HomeController, adding the "Persons" action. Refer to the following code for details:
 
-This operation uses the `RenderRazorViewToPdf` method from **ChromePdfRenderer**, which takes in a view path and a data model, to create a PDF document dynamically. The resultant PDF can have customized settings such as headers, footers, margins, and page numbers.
+This code initializes the **ChromePdfRenderer** class, passes an IRazorViewRenderer, specifies the path to "Persons.cshtml," and provides the List containing necessary data to the `RenderRazorViewToPdf` method. Utilize **RenderingOptions** to explore various features such as adding custom [text, including HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/) in the produced PDF, customizing margins, and incorporating [page numbers](https://ironpdf.com/how-to/page-numbers/).
+
+View the PDF document directly in the browser using <code>File(pdf.BinaryData, "application/pdf")</code>, though downloading it after viewing may result in a corrupted file.
 
 ```cs
 using IronPdf.Extensions.Mvc.Core;
@@ -82,7 +86,6 @@ namespace ViewToPdfMVCCoreSample.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IRazorViewRenderer _viewRenderService;
         private readonly IHttpContextAccessor _httpContextAccessor;
-
         public HomeController(ILogger<HomeController> logger, IRazorViewRenderer viewRenderService, IHttpContextAccessor httpContextAccessor)
         {
             _logger = logger;
@@ -107,9 +110,13 @@ namespace ViewToPdfMVCCoreSample.Controllers
             if (_httpContextAccessor.HttpContext.Request.Method == HttpMethod.Post.Method)
             {
                 ChromePdfRenderer renderer = new ChromePdfRenderer();
-                PdfDocument.pdf = renderer.RenderRazorViewToPdf(_viewRenderService, "Views/Home/Persons.cshtml", persons);
+
+                // Render View to PDF
+                PdfDocument pdf = renderer.RenderRazorViewToPdf(_viewRenderService, "Views/Home/Persons.cshtml", persons);
 
                 Response.Headers.Add("Content-Disposition", "inline");
+
+                // Output the PDF
                 return File(pdf.BinaryData, "application/pdf", "viewToPdfMVCCore.pdf");
             }
             return View(persons);

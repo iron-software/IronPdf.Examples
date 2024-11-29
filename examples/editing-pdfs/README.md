@@ -1,7 +1,9 @@
-IronPDF is equipped with over 50 capabilities for manipulating PDF files, including popular features such as [merging](https://ironpdf.com/how-to/merge-or-split-pdfs/), [cloning](https://ironpdf.com/examples/copy-pdf-page-to-another-pdf-file/), and [extracting](https://ironpdf.com/how-to/rotating-text/) pages.
+***Based on <https://ironpdf.com/examples/editing-pdfs/>***
 
-Beyond these features, IronPDF enables users to insert watermarks, rotate pages, annotate, digitally sign, and even create entirely new PDF files. Additional functionalities include adding cover pages, customizing PDF dimensions, and more. IronPDF also supports converting PDFs into all common image formats like JPG, BMP, JPEG, GIF, PNG, TIFF, and others.
+IronPDF is equipped with over 50 capabilities designed for manipulating PDFs. Most sought-after functionalities include [merging PDFs](https://ironpdf.com/how-to/merge-or-split-pdfs/), [duplicating pages](https://ironpdf.com/examples/copy-pdf-page-to-another-pdf-file/), and [retrieving text from rotated elements](https://ironpdf.com/how-to/rotating-text/).
 
-To understand how to leverage IronPDF's full potential for adapting PDF documents to meet specific project requirements, consider exploring [this comprehensive guide](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/).
+Additionally, IronPDF enables users to apply a range of enhancements to PDFs such as adding watermarks, rotating pages, inserting annotations, digitally signing documents, and creating new PDF files. Users can also attach cover pages, adjust PDF dimensions, and convert PDFs into various standard image formats, including JPG, BMP, JPEG, GIF, PNG, TIFF, and more.
+
+For a comprehensive guide on leveraging IronPDF for PDF modifications tailored to specific project needs, refer to [the C# PDF editing tutorial](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/).
 
 * * *

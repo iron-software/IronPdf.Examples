@@ -1,32 +1,43 @@
 # How to Fill and Edit PDF Forms
 
+***Based on <https://ironpdf.com/how-to/edit-forms/>***
+
+
 <div class="alert alert-info iron-variant-1" role="alert">
-	Your organization may be overpaying for annual subscriptions related to PDF security and compliance. Check out <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a> for a one-time fee solution that covers digital signing, redaction, encryption, and protection. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Explore the service here</a>.
+	Your company can enjoy significant savings on annual subscriptions for PDF management tools. Check out <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>, providing enterprise solutions for digital signing, redacting, encrypting, and protecting documents with a one-time payment option. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">View IronSecureDoc Documentation</a>
 </div>
 
-IronPDF provides a seamless set of tools for modifying existing forms in PDF documents, whether they are text fields, checkboxes, dropdown lists, or radio buttons.
+With IronPDF, you have a straightforward toolkit to modify existing PDF document forms, including text areas, text inputs, checkboxes, combo boxes, and radio buttons.
 
 ## Edit Forms
 
-IronPDF enables seamless edits to different form fields within a PDF.
+IronPDF allows for seamless modification of various form field types within a PDF.
 
 ## Text Area and Input Forms
 
-To modify text areas and input forms, simply update the **Value** property with the needed data. Below is a demonstration where the `FindFormField` method locates the form object using its name, allowing updates to the **Value** property of the form.
+For editing text areas and input forms, assign the **Value** property to the field you wish to update. Below, the code first locates the form field using the `FindFormField` method and its specified name, then modifies the **Value** property.
 
 ```cs
 using IronPdf;
-
-PdfDocument pdf = PdfDocument.FromFile("textAreaAndInputForm.pdf");
-
-// Assign values to text input fields
-pdf.Form.FindFormField("firstname").Value = "John";
-pdf.Form.FindFormField("lastname").Value = "Smith";
-
-// Assign values to the text area
-pdf.Form.FindFormField("address").Value = "Iron Software LLC\r\n205 N. Michigan Ave.";
-
-pdf.SaveAs("textAreaAndInputFormEdited.pdf");
+namespace ironpdf.EditForms
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            PdfDocument pdf = PdfDocument.FromFile("textAreaAndInputForm.pdf");
+            
+            // Updating values for text input forms
+            pdf.Form.FindFormField("firstname").Value = "John";
+            pdf.Form.FindFormField("lastname").Value = "Smith";
+            
+            // Updating values for text area forms
+            pdf.Form.FindFormField("address").Value = "Iron Software HQ\r\n205 N. Michigan Ave.";
+            
+            pdf.SaveAs("textAreaAndInputFormEdited.pdf");
+        }
+    }
+}
 ```
 
 ### Output PDF document
@@ -38,28 +49,36 @@ pdf.SaveAs("textAreaAndInputFormEdited.pdf");
 
 ## Checkbox and Combobox Forms
 
-To modify checkbox and combobox fields, identify the field by name and set the **Value** property. For checkboxes, setting the value to 'Yes' marks it as selected. For comboboxes, assign one of the available options as the value. You can also list all available options by accessing the **Choices** property.
+To modify checkbox and combobox forms, first identify the field by its name, and then update the **Value** property as needed. To check a checkbox, set the **Value** to 'Yes'. For comboboxes, choose from the available options in the **Choices** property.
 
 ```cs
-using IronPdf;
 using System;
-
-PdfDocument pdf = PdfDocument.FromFile("checkboxAndComboboxForm.pdf");
-
-var checkboxForm = pdf.Form.FindFormField("taskCompleted");
-// Select the checkbox
-checkboxForm.Value = "Yes";
-
-var comboboxForm = pdf.Form.FindFormField("priority");
-// Choose the low priority
-comboboxForm.Value = "Low";
-
-// Print all options
-foreach (var choice in comboboxForm.Choices)
+using IronPdf;
+namespace ironpdf.EditForms
 {
-    Console.WriteLine(choice);
+    public class Section2
+    {
+        public void Run()
+        {
+            PdfDocument pdf = PdfDocument.FromFile("checkboxAndComboboxForm.pdf");
+            
+            var checkboxForm = pdf.Form.FindFormField("taskCompleted");
+            // Activating the checkbox
+            checkboxForm.Value = "Yes";
+            
+            var comboboxForm = pdf.Form.FindFormField("priority");
+            // Choosing a value for the combobox
+            comboboxForm.Value = "Low";
+            
+            // Display all available choices
+            foreach (var choice in comboboxForm.Choices)
+            {
+                Console.WriteLine(choice);
+            }
+            pdf.SaveAs("checkboxAndComboboxFormEdited.pdf");
+        }
+    }
 }
-pdf.SaveAs("checkboxAndComboboxFormEdited.pdf");
 ```
 
 ### Output PDF document
@@ -69,34 +88,42 @@ pdf.SaveAs("checkboxAndComboboxFormEdited.pdf");
 
 <hr class="separator">
 
-## Radio Buttons Forms
+## Radio buttons Forms
 
-For radio buttons managed by IronPDF, they appear under one form object if they belong to the same group. To alter a selection, just set the **Value** property of the form to your chosen option. Use the **Annotations** property to view all options. The following snippet shows how to change selections in radio button groups.
+For radio buttons within IronPDF, every group of buttons is encapsulated within one form object. To adjust a selection, set the **Value** property to your preferred option. You can also list all options using the **Annotations** property.
 
 ```cs
-using IronPdf;
 using System;
-
-PdfDocument pdf = PdfDocument.FromFile("radioButtomForm.pdf");
-var radioForm = pdf.Form.FindFormField("traveltype");
-
-// Change the radio button selection
-radioForm.Value = "Airplane";
-
-// Display all the options
-foreach(var annotation in radioForm.Annotations)
+using IronPdf;
+namespace ironpdf.EditForms
 {
-    Console.WriteLine(annotation.OnAppearance);
+    public class Section3
+    {
+        public void Run()
+        {
+            PdfDocument pdf = PdfDocument.FromFile("radioButtomForm.pdf");
+            var radioForm = pdf.Form.FindFormField("traveltype");
+            
+            // Selecting a radio button option
+            radioForm.Value = "Airplane";
+            
+            // Display all radio options
+            foreach(var annotation in radioForm.Annotations)
+            {
+                Console.WriteLine(annotation.OnAppearance);
+            }
+            
+            pdf.SaveAs("radioButtomFormEdited.pdf");
+        }
+    }
 }
-
-pdf.SaveAs("radioButtomFormEdited.pdf");
 ```
 
-You can de-select a radio button using the `Clear` method, applicable only to **RadioFormField** types. After retrieving the radio button form from the PDF, cast it to **RadioFormField** to use this method.
+To deselect a radio button, make use of the `Clear` function available specifically for **RadioFormField** objects. After retrieving the radio form from the PDF, cast it to the **RadioFormField** type.
 
 ### Output PDF document
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/edit-forms/radioButtomFormEdited.pdf#zoom=110" width="100%" height="400px">
 </iframe>
 
-Discover more on programmatically creating PDF forms in the article "[How to Create PDF Forms](https://ironpdf.com/how-to/create-forms/)."
+Discover how to create PDF forms programmatically in the subsequent article: "[How to Create PDF Forms](https://ironpdf.com/how-to/create-forms/)."

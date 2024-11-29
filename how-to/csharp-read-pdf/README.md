@@ -1,6 +1,9 @@
-# C# PDF Reading Guide
+# C# Read PDF Tutorial
 
-In today's guide, we will explore an effective technique for reading PDF documents and extracting text while preserving its original layout. This functionality can be applied to entire PDF files or selected pages, neatly integrated into any C# project.
+***Based on <https://ironpdf.com/how-to/csharp-read-pdf/>***
+
+
+In this guide, we're going to explore a straightforward technique to read and extract text from PDFs while preserving the original formatting. This approach works for both complete documents and selected pages within a C# application.
 
 <div style="display: flex; align-items: center; justify-content: center;">
 	<div class="center-image-wrapper" style="max-width: 100px; margin-right: 20px;">
@@ -14,35 +17,42 @@ In today's guide, we will explore an effective technique for reading PDF documen
 	</div>
 </div>
 
-## Working with PDFs in C#
+## Extracting Content from PDF in C#
 
-Leverage our C# library to open and read PDF files, extracting text and images with high fidelity. Below, we demonstrate various ways to utilize our library's capabilities to meet the needs of .NET applications.
+Leverage the power of this C# library to open, read, and extract both text and high-resolution images from PDF files. The following examples showcase several methods available to tailor PDF content extraction within a .NET framework:
 
 ```cs
-using IronPdf;
-using IronSoftware.Drawing;
 using System.Collections.Generic;
-
-// Load the PDF you want to process
-PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
-
-// Extract text from the whole document
-string allText = pdf.ExtractAllText();
-
-// Retrieve all images from the document
-IEnumerable<AnyBitmap> allImages = pdf.ExtractAllImages();
-
-// Additionally, extract text and images by each separate page using PageCount
-for (var index = 0; index < pdf.PageCount; index++)
+using IronPdf;
+namespace ironpdf.CsharpReadPdf
 {
-    string pageText = pdf.ExtractTextFromPage(index);
-    IEnumerable<AnyBitmap> pageImages = pdf.ExtractImagesFromPage(index);
+    public class Section1
+    {
+        public void Run()
+        {
+            // Load the PDF file
+            PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
+            
+            // Retrieve all text from the PDF
+            string allText = pdf.ExtractAllText();
+            
+            // Extract all images from the PDF
+            IEnumerable<AnyBitmap> allImages = pdf.ExtractAllImages();
+            
+            // Iterate over each page and extract both text and images
+            for (var index = 0; index < pdf.PageCount; index++)
+            {
+                string text = pdf.ExtractTextFromPage(index);
+                IEnumerable<AnyBitmap> images = pdf.ExtractImagesFromPage(index);
+            }
+        }
+    }
 }
 ```
 
-### Sample Output
+### Output Demonstration
 
-Utilizing a C# Windows Forms interface, we can beautifully render the extracted PDF content, demonstrating a simple yet efficient code approach to fulfill the requirements of your project.
+We demonstrate the results using a C# Form, emphasizing the ease and minimal code required to fulfill your project requirements regarding PDF content extraction.
 
 <div class="row">
 	<div class="col-md-6">
@@ -74,13 +84,13 @@ Utilizing a C# Windows Forms interface, we can beautifully render the extracted 
   <div class="row">
     <div class="col-sm-4">
       <div class="tutorial-image">
-        <img style="max-width: 110px; width: 100px; height: 140px;" src="https://ironpdf.com/img/svgs/documentation.svg" alt="" class="img-responsive add-shadow" width="100" height="140">
+        <img style="max-width: 110px; width: 100px; height: 140px;" alt="" class="img-responsive add-shadow" src="https://ironpdf.com/img/svgs/documentation.svg" width="100" height="140">
       </div>
     </div>
     <div class="col-sm-8">
-      <h3>Explore IronPDF Documentation</h3>
-      <p>Access our detailed IronPDF library documentation available in the API Reference. It's your resource to explore and utilize for your projects.</p>
-      <a class="doc-link" href="https://ironpdf.com/object-reference/api/IronPdf.html" target="_blank"> Visit Documentation <i class="fa fa-chevron-right"></i></a>
+      <h3>Library Documentation</h3>
+      <p>Explore and utilize the comprehensive API Reference for IronPDF, designed to enhance your understanding and implementation of the library.</p>
+      <a class="doc-link" href="https://ironpdf.com/object-reference/api/IronPdf.html" target="_blank">IronPDF API Reference Documentation <i class="fa fa-chevron-right"></i></a>
       </div>
   </div>
 </div>

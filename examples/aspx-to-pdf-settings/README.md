@@ -1,8 +1,10 @@
-This sample showcases how to modify PDF print settings to transform a form into HTML format.
+***Based on <https://ironpdf.com/examples/aspx-to-pdf-settings/>***
 
-IronPDF's [ASPX to PDF](https://ironpdf.com/how-to/aspx-to-pdf/) feature offers a multitude of settings for converting HTML to PDF, whether from a direct string input or from a file.
+The following example illustrates how to modify PDF print settings to convert a form into HTML.
 
-There are two particularly significant settings:
+Using IronPDF, the [ASPX to PDF Conversion Guide](https://ironpdf.com/how-to/aspx-to-pdf/) provides various settings for converting HTML to PDF from either a string or a file.
 
-- Permitting developers to decide whether HTML forms are converted into interactive PDF forms.
-- Allowing developers to choose whether the PDF is presented "in browser" or available as a file download.
+Two settings are especially crucial:
+
+- Enabling developers to decide whether HTML forms should be converted into interactive PDF forms.
+- Enabling developers to choose if the PDF should be viewed "in browser" or as a downloadable file.

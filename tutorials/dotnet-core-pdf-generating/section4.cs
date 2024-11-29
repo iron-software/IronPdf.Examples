@@ -1,12 +1,22 @@
-public class ClientServices
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    private static ClientModel _clientModel;
-    public static void AddClient(ClientModel clientModel)
+    public class Section4
     {
-        _clientModel = clientModel;
-    }
-    public static ClientModel GetClient()
-    {
-        return _clientModel;
+        public void Run()
+        {
+            public class ClientServices
+            {
+                private static ClientModel _clientModel;
+                public static void AddClient(ClientModel clientModel)
+                {
+                    _clientModel = clientModel;
+                }
+                public static ClientModel GetClient()
+                {
+                    return _clientModel;
+                }
+            }
+        }
     }
 }

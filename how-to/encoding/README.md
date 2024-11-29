@@ -1,30 +1,35 @@
-# UTF-8 and HTML Encoding Practices with IronPDF's C# Library
+# UTF-8 and HTML Encoding with the C# PDF Library
 
-When utilizing IronPDF, it's common to engage with a variety of character sets, including UTF-8 encoding.
+***Based on <https://ironpdf.com/how-to/encoding/>***
 
-For flawless reproduction of HTML content into PDF format, it’s crucial to specify your preferred character set in two specific areas:
 
-1. Within the `ChromePdfRenderer.RenderingOptions` through the use of `System.Text.Encoding`.
-2. Directly within your HTML document's header.
+IronPDF supports a wide range of extended character sets, including UTF-8 which is particularly useful.
 
-Ensuring consistency between these settings will yield optimal outcomes:
+For ideal results in encoding HTML to PDF, there are typically two areas to define your charset preference:
+
+1. Within the `ChromePdfRenderer.RenderingOptions` using `System.Text.Encoding`
+2. Directly within your HTML through the document header
+
+Ensure these settings align for optimal outcomes:
 
 ```cs
-var renderer = new IronPdf.ChromePdfRenderer();
-renderer.RenderingOptions.InputEncoding = System.Text.Encoding.UTF8; // Set as default
+var pdfRenderer = new IronPdf.ChromePdfRenderer();
+pdfRenderer.RenderingOptions.InputEncoding = System.Text.Encoding.UTF8; // Sets UTF-8 as the default input encoding
 
-using var pdf = renderer.RenderHtmlAsPdf(@"
+using var pdfDocument = pdfRenderer.RenderHtmlAsPdf(@"
 <html>
 	<head>
-		<meta charset='utf-8'>
+	    <meta charset='utf-8'> <!-- Ensure the charset is set in HTML -->
 	</head>
 	<body>Hello World in Japanese: こんにちは世界</body>
 </html>
 ");
 ```
 
-Note, the above technique is equally applicable to specifying encodings for HTML headers and footers.
+This approach is also applicable when including HTML headers and footers in your documents.
 
 ## Supported Encodings
 
-IronPDF harnesses the same range of character encodings as Google Chrome, including but not limited to UTF-16, iso8859-1, and Windows 1252.
+IronPDF is compatible with all character encodings that Google Chrome can process. These include UTF-16, ISO-8859-1, and Windows 1252 among others.
+
+For detailed insights into harnessing various text encodings within PDFs via IronPDF, check out [IronPDF's Character Encoding Support](https://ironpdf.com/docs/advanced/character-encoding/).

@@ -1,90 +1,114 @@
-# Utilizing JavaScript in HTML to PDF Conversion
+# Utilizing JavaScript in HTML to PDF Conversions
 
-JavaScript, recognized for its pivotal role in enhancing web interactivity, is a high-level, multi-purpose programming language. It is primarily utilized in web development to add dynamic and interactive elements to web pages. jQuery, while often mistaken for a separate language, is actually a library built on JavaScript. Designed to streamline tasks such as DOM manipulation, event handling, and AJAX, jQuery simplifies many of JavaScript's common yet complex tasks.
-
-IronPDF leverages the robust [Chromium](https://www.chromium.org/chromium-projects/) rendering engine to effectively support JavaScript. In this guide, we explore how to integrate JavaScript and jQuery into your .NET C# projects for HTML to PDF conversions, and you can start doing this with IronPDF’s [free trial](https://ironpdf.com/?class='js-modal-open'&data-modal-id='trial-license').
+***Based on <https://ironpdf.com/how-to/javascript-to-pdf/>***
 
 
-## Rendering HTML with JavaScript
+JavaScript, a versatile and high-level programming language, is indispensable in web development for enhancing website interactivity and dynamics. Similarly, jQuery, a library built on JavaScript, aids developers by simplifying frequent web tasks such as DOM manipulation, event handling, and AJAX calls.
 
-When converting HTML with JavaScript into PDFs, it's important to enable proper rendering of the JavaScript. IronPDF accommodates this seamlessly. However, to ensure that JavaScript executes correctly without timing out, it's advisable to employ the [Waitfor](https://ironpdf.com/how-to/waitfor/) class within the `RenderingOptions`. Here's an example setting a maximal wait time of 500 ms using the `WaitFor.Javascript` method:
+IronPDF leverages the [Chromium](https://www.chromium.org/chromium-projects/) engine to support JavaScript effectively. This article provides an overview of implementing JavaScript and jQuery in the process of converting HTML to PDF within .NET C# projects. You can begin experimenting with IronPDF by accessing the [free trial of IronPDF](https://ironpdf.com/tutorials/html-to-pdf/).
+
+## JavaScript Rendering Example
+
+When transforming HTML with JavaScript into PDF, it is essential to accommodate JavaScript execution within the rendering process. To ensure smooth JavaScript execution, utilize the [WaitFor class in rendering options](https://ironpdf.com/how-to/waitfor/) and set an appropriate waiting period. Below is an illustrative code snippet that employs `WaitFor.JavaScript` with a maximum delay of 500 milliseconds.
 
 ```cs
 using IronPdf;
-
-string htmlContent = @"<h1>HTML Content</h1>
-<script>
-    document.write('<h2>Dynamic JavaScript Content</h2>');
-    window.ironpdf.notifyRender();
-</script>";
-
-// Initialize the Chrome PDF renderer
-var pdfRenderer = new ChromePdfRenderer();
-
-// Enabling JavaScript
-pdfRenderer.RenderingOptions.EnableJavaScript = true;
-
-// Configuring the wait time for JavaScript execution
-pdfRenderer.RenderingOptions.WaitFor.JavaScript(500);
-
-// Converting HTML with JavaScript to PDF
-var pdfDocument = pdfRenderer.RenderHtmlAsPdf(htmlContent);
-
-// Saving the PDF
-pdfDocument.SaveAs("outputWithJavaScript.pdf");
+namespace ironpdf.JavascriptToPdf
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            string htmlWithJavaScript = @"<h1>This is HTML</h1>
+            <script>
+                document.write('<h1>This is JavaScript</h1>');
+                window.ironpdf.notifyRender();
+            </script>";
+            
+            // Create a new PDF renderer
+            var renderer = new ChromePdfRenderer();
+            
+            // Enable JavaScript in the renderer options
+            renderer.RenderingOptions.EnableJavaScript = true;
+            // Configure JavaScript execution wait time
+            renderer.RenderingOptions.WaitFor.JavaScript(500);
+            
+            // Convert HTML with JavaScript to PDF
+            var pdfDocument = renderer.RenderHtmlAsPdf(htmlWithJavaScript);
+            
+            // Save the PDF to a file
+            pdfDocument.SaveAs("javascriptHtml.pdf");
+        }
+    }
+}
 ```
 
-It is worth noting that particularly complex JavaScript frameworks might not always fully cooperate with IronPDF due to the restricted memory allocation for JavaScript execution.
+Integrating complex JavaScript frameworks may present challenges, mostly due to memory allocation constraints during JavaScript execution.
 
----
+## Implementing Custom JavaScript Execution
 
-## Executing Custom JavaScript
-
-Custom JavaScript execution is crucial, especially when converting HTML from URLs. IronPDF facilitates this through the `JavaScript` property in rendering options, allowing you to pre-execute custom scripts. Here is an example:
+To execute custom JavaScript prior to rendering the HTML to PDF, use the `JavaScript` property available in rendering options. This feature is particularly useful for URL-based HTML where direct JavaScript injections are impractical. Below is an example demonstrating how to manipulate HTML elements using custom JavaScript before conversion.
 
 ```cs
 using IronPdf;
-
-var customScriptRenderer = new ChromePdfRenderer();
-
-// Assign custom JavaScript
-customScriptRenderer.RenderingOptions.Javascript = @"
-document.querySelectorAll('h1').forEach(element => element.style.color = 'blue');
-";
-
-// Convert HTML to PDF
-PdfDocument customScriptPdf = customScriptRenderer.RenderHtmlAsPdf("<h1>Greetings!</h1>");
-
-// Saving the PDF
-customScriptPdf.SaveAs("customJavaScriptExecution.pdf");
+namespace ironpdf.JavascriptToPdf
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Setting custom JavaScript
+            renderer.RenderingOptions.Javascript = @"
+            document.querySelectorAll('h1').forEach(function(el){
+                el.style.color='red';
+            })";
+            
+            // Convert HTML to PDF
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Happy New Year!</h1>");
+            
+            pdf.SaveAs("executed_js.pdf");
+        }
+    }
+}
 ```
 
-<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/javascript-to-pdf/executeJavascript.pdf" width="100%" height="400px"></iframe>
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/javascript-to-pdf/executeJavascript.pdf" width="100%" height="400px">
+</iframe>
 
----
+## JavaScript Message Listener in Action
 
-## Tracking JavaScript Console Messages
-
-IronPDF's capabilities extend to capturing JavaScript console logs, including error messages and custom logs. This functionality is managed using the `JavascriptMessageListener` property:
+IronPDF facilitates listening to JavaScript messages, whether they are errors or custom log messages. This functionality is demonstrated in the code snippet below, which captures and logs JavaScript console messages.
 
 ```cs
-using IronPdf;
 using System;
-
-var logRenderer = new ChromePdfRenderer();
-
-// Listen for console messages
-logRenderer.RenderingOptions.JavascriptMessageListener = message => Console.WriteLine($"JS Log: {message}");
-logRenderer.RenderingOptions.Javascript = "console.log('Sample log message');";
-
-// Convert and log HTML to PDF
-PdfDocument logPdf = logRenderer.RenderHtmlAsPdf("<h1>Demo Logging</h1>");
-
-// Attempt to log a typical error
-logRenderer.RenderingOptions.Javascript = "document.querySelector('missing-element').style.color = 'red';";
-
-// PDF rendering
-PdfDocument errorLogPdf = logRenderer.RenderHtmlAsPdf("<h1>Error Logging Demo</h1>");
+using IronPdf;
+namespace ironpdf.JavascriptToPdf
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Setup listener for JavaScript messages
+            renderer.RenderingOptions.JavascriptMessageListener = message => Console.WriteLine($"JS: {message}");
+            // Output custom text to console
+            renderer.RenderingOptions.Javascript = "console.log('foo');";
+            
+            // Generate PDF from HTML
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1> Hello World </h1>");
+            
+            //--------------------------------------------------//
+            // Attempt to modify non-existent element
+            renderer.RenderingOptions.Javascript = "document.querySelector('non-existent').style.color='foo';";
+            
+            // Attempt to generate another PDF
+            PdfDocument anotherPdf = renderer.RenderHtmlAsPdf("<h1> Hello World </h1>");
+        }
+    }
+}
 ```
 
 <div class="content-img-align-center">
@@ -93,76 +117,83 @@ PdfDocument errorLogPdf = logRenderer.RenderHtmlAsPdf("<h1>Error Logging Demo</h
     </div>
 </div>
 
----
+## Chart Creation with JavaScript and IronPDF
 
-## JavaScript Charting with D3.js and IronPDF
-
-[D3.js](https://d3js.org/), renowned for its powerful data visualization capabilities, pairs excellently with IronPDF for creating dynamic charts or visual images. Here’s how you can employ D3.js for chart rendering, then convert it to PDF:
+[D3.js](https://d3js.org/), a JavaScript library known for its powerful data visualization capabilities, integrates seamlessly with IronPDF for generating dynamic charts. The following code snippet illustrates how to create a bar chart using D3.js and convert it into a PDF document.
 
 ```cs
 using IronPdf;
-
-string htmlChart = @"
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset='utf-8' />
-<title>D3 Chart Example</title>
-</head>
-<body>
-<div id='chart' style='width: 950px;'></div>
-<script src='https://d3js.org/d3.v4.js'></script>
-<link href='https://cdnjs.cloudflare.com/ajax/libs/c3/0.5.4/c3.css' rel='stylesheet'>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/c3/0.5.4/c3.js'></script>
-
-<script>
-// Additional D3 setup for binding
-Function.prototype.bind = Function.prototype.bind || function (context) {
-    var func = this;
-    return function () {
-        return func.apply(context, arguments);
-    };
-};
-var chart = c3.generate({
-    bindto: '#chart',
-    data: {
-        columns: [
-            ['data1', 30, 200, 100, 400, 150, 250],
-            ['data2', 50, 20, 10, 40, 15, 25]
-        ]
+namespace ironpdf.JavascriptToPdf
+{
+    public class Section4
+    {
+        public void Run()
+        {
+            string html = @"
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <meta charset=""utf-8"" />
+            <title>C3 Bar Chart</title>
+            </head>
+            <body>
+            <div id=""chart"" style=""width: 950px;""></div>
+            <script src=""https://d3js.org/d3.v4.js""></script>
+            
+            <link href=""https://cdnjs.cloudflare.com/ajax/libs/c3/0.5.4/c3.css"" rel=""stylesheet"">
+            
+            <script src=""https://cdnjs.cloudflare.com/ajax/libs/c3/0.5.4/c3.js""></script>
+            
+            <script>
+            Function.prototype.bind = Function.prototype.bind || function (thisp) {
+                var fn = this;
+                return function () {
+                    return fn.apply(thisp, arguments);
+                };
+            };
+            var chart = c3.generate({
+                bindto: '#chart',
+                data: {
+                    columns: [['data1', 30, 200, 100, 400, 150, 250],
+                              ['data2', 50, 20, 10, 40, 15, 25]]
+                }
+            });
+            </script>
+            </body>
+            </html>
+            ";
+            
+            // Configure the renderer
+            var renderer = new ChromePdfRenderer();
+            
+            renderer.RenderingOptions.EnableJavaScript = true;
+            renderer.RenderingOptions.WaitFor.JavaScript(500);
+            
+            var pdf = renderer.RenderHtmlAsPdf(html);
+            
+            pdf.SaveAs("renderChart.pdf");
+        }
     }
-});
-</script>
-</body>
-</html>
-";
-
-// Initialize Renderer for JavaScript
-var chartRenderer = new ChromePdfRenderer();
-
-// Enable and configure JavaScript
-chartRenderer.RenderingOptions.EnableJavaScript = true;
-chartRenderer.RenderingOptions.WaitFor.JavaScript(500);
-
-// Convert the HTML with a D3 chart to a PDF
-PdfDocument chartPdf = chartRenderer.RenderHtmlAsPdf(htmlChart);
-
-// Save the PDF file
-chartPdf.SaveAs("d3Chart.pdf");
+}
 ```
 
-### Displaying Output PDF
+### Chart Output in PDF
 
-<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/javascript-to-pdf/renderChart.pdf#zoom=85%" width="100%" height="400px"></iframe>
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/javascript-to-pdf/renderChart.pdf#zoom=85%" width="100%" height="400px">
+</iframe>
 
-Discover additional `WaitFor` configuration options, including those for fonts, JavaScript elements, and network conditions in the detailed guide at ['How to Use the WaitFor Class to Delay C# PDF Rendering'](https://ironpdf.com/how-to/waitfor/).
+For further options and details on managing rendering delays in C# PDF generation, explore '[How to Use the WaitFor Class to Delay C# PDF Rendering](https://ironpdf.com/how-to/waitfor/)'.
 
----
+*****
 
-## Server-Side Rendering with Angular Universal
+## AngularJS: Client-Side to Server-Side Rendering
 
-### Differentiating Angular and Angular Universal
+AngularJS, as defined by Wikipedia, is a JavaScript-based open-source framework designed to simplify the creation and testing of single-page applications, supported primarily by Google and a community of developers. Despite its capabilities, Angular should be employed meticulously, preferably with server-side rendering (SSR) using Angular Universal for the best compatibility.
 
-Angular, as enunciated by [Wikipedia](https://en.wikipedia.org/wiki/AngularJS), is a JavaScript-based framework supported mainly by Google. It simplifies both development and testing of web applications by providing robust solutions for the MVC and MVVM architecture challenges.
+*****
 
-Conversely, Angular Universal renders applications server-side, which shortens the time to a fully interactive state by initially showing a static version of the application. This approach is highly recommended for enhanced compatibility and performance.
+## Implementing SSR with Angular Universal
+
+**Difference between Angular and Angular Universal:**
+
+Regul...

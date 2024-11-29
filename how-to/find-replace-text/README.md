@@ -1,99 +1,113 @@
-# Revising PDF Text Content
+# Text Replacement in PDF Documents
 
-Changing text in a PDF is invaluable for quickly updating content, fixing typos, altering information, or tailoring templates for distinct needs. This can drastically reduce the time and effort needed, especially when handling documents that necessitate regular updates or customization.
+***Based on <https://ironpdf.com/how-to/find-replace-text/>***
 
-IronPDF offers a robust feature for editing text in PDF files, making it an essential tool for developers and professionals who require efficient PDF content management.
+
+Text replacement in PDFs is a highly beneficial feature that allows users to edit content swiftly and accurately—ideal for fixing errors, updating details, or customizing documents for various uses. This capability not only enhances efficiency but also significantly reduces the effort needed in managing documents that demand frequent updates or custom tailoring.
+
+IronPDF provides a robust solution for text replacement in PDF documents, making it an essential tool for developers and professionals aiming to automate or modify PDF content effectively.
 
 ## Example of Text Replacement
 
-Text replacement can be executed on any `PdfDocument` instance, regardless of whether it is newly created or imported. To replace text, use the `ReplaceTextOnAllPages` method with the old text and the new text specified. If the method does not find the old text, it will throw an exception with the message 'Error while replacing text: failed to find text '.NET6'.'
+You can replace text in any `PdfDocument` instance, irrespective of whether the PDF was newly created or imported. The `ReplaceTextOnAllPages` function requires the original text and the replacement text. If it fails to find the original text, an exception is thrown, indicating "Error while replacing text: failed to find text '.NET6'."
 
-Below is a practical example of how to substitute text in a newly created PDF document that includes the text '.NET6'.
+Below is an example showing how to replace the text in a new PDF document that includes the text '.NET6'.
 
-### Code Implementation
+### Sample Code
 
 ```cs
 using IronPdf;
-
-// Instantiate a PDF renderer
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Create a PDF from HTML
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>.NET6</h1>");
-
-// Specify the text to be replaced and the new text
-string oldText = ".NET6";
-string newText = ".NET7";
-
-// Perform the text replacement on all pages
-pdf.ReplaceTextOnAllPages(oldText, newText);
-
-// Save the updated PDF
-pdf.SaveAs("replaceText.pdf");
+namespace ironpdf.FindReplaceText
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>.NET6</h1>");
+            
+            string oldText = ".NET6";
+            string newText = ".NET7"; // Update text version
+            
+            // Perform text replacement across all pages
+            pdf.ReplaceTextOnAllPages(oldText, newText);
+            
+            pdf.SaveAs("replaceText.pdf"); // Save the updated document
+        }
+    }
+}
 ```
 
-## Specific Page Text Replacement
+## Text Replacement on Specific Pages
 
-IronPDF also allows text to be altered on specific pages. This is useful for targeted updates. You can employ the `ReplaceTextOnPage` method for a single page or the `ReplaceTextOnPages` method for multiple selected pages.
-
-Page indexes are zero-based.
+IronPDF also allows for text replacement on designated pages, which helps tailor the updates to specific parts of your document. Methods like `ReplaceTextOnPage` and `ReplaceTextOnPages` can be utilized for singular or multiple page updates, respectively. Keep in mind that page indexes are zero-based.
 
 ### Single Page Text Replacement
 
 ```cs
 using IronPdf;
-
-// Initialize the PDF renderer
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Render a PDF document from HTML
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>.NET6</h1>");
-
-// Define the original and new text
-string oldText = ".NET6";
-string newText = ".NET7";
-
-// Replace text on the first page
-pdf.ReplaceTextOnPage(0, oldText, newText);
-
-// Save the PDF with text replaced on specified page
-pdf.SaveAs("replaceTextOnSinglePage.pdf");
+namespace ironpdf.FindReplaceText
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>.NET6</h1>"); // Render HTML to PDF
+            
+            string oldText = ".NET6";
+            string newText = ".NET7";
+            
+            // Apply text replacement on the first page
+            pdf.ReplaceTextOnPage(0, oldText, newText);
+            
+            pdf.SaveAs("replaceTextOnSinglePage.pdf"); // Save the updated PDF
+        }
+    }
+}
 ```
 
-### Multiple Pages Text Replacement
+### Text Replacement Across Multiple Pages
 
 ```cs
 using IronPdf;
-
-// Define HTML content with multiple pages
-string html = @"<p>.NET6</p><p>This is 1st Page</p>
-<div style='page-break-after: always;'></div>
-<p>This is 2nd Page</p>
-<div style='page-break-after: always;'></div>
-<p>.NET6</p>
-<p>This is 3rd Page</p>";
-
-// Create the renderer
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Render the HTML to a PDF
-PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
-
-// Specify the text to change and its replacement
-string oldText = ".NET6";
-string newText = ".NET7";
-
-// Define the pages for text replacement
-int[] pages = { 0, 2 };
-
-// Replace text on specified pages
-pdf.ReplaceTextOnPages(pages, oldText, newText);
-
-// Save the PDF with changes on multiple pages
-pdf.SaveAs("replaceTextOnMultiplePages.pdf");
+namespace ironpdf.FindReplaceText
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            string html = @"<p> .NET6 </p>
+            <p> This is 1st Page </p>
+            <div style = 'page-break-after: always;'></div>
+            <p> This is 2nd Page</p>
+            <div style = 'page-break-after: always;'></div>
+            <p> .NET6 </p>
+            <p> This is 3rd Page</p>";
+            
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            PdfDocument pdf = renderer.RenderHtmlAsPdf(html); // Render complex HTML
+            
+            string oldText = ".NET6";
+            string newText = ".NET7";
+            
+            int[] pages = { 0, 2 }; // Specifying pages to replace text
+            
+            // Replace specified text on the first and third pages
+            pdf.ReplaceTextOnPages(pages, oldText, newText);
+            
+            pdf.SaveAs("replaceTextOnMultiplePages.pdf"); // Output results to file
+        }
+    }
+}
 ```
 
-### PDF Output Display
+### PDF Preview
 
-<iframe loading="lazy" src="https://www.ironpdf.com/static-assets/pdf/how-to/find-replace-text/replaceTextOnMultiplePages.pdf" width="100%" height="400px">
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/find-replace-text/replaceTextOnMultiplePages.pdf" width="100%" height="400px">
 </iframe>
+
+This adapted approach facilitates a more targeted and flexible manipulation of PDF content using IronPDF's capabilities, useful in various programming contexts.

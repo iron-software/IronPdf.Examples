@@ -1,47 +1,58 @@
-# Utilizing CSS for HTML Content
+# How to Integrate CSS with HTML
 
-The `screen` media type in CSS is designed for devices like computer screens, focusing on enhancing the presentation of web content through visual designs and interactivity.
+***Based on <https://ironpdf.com/how-to/html-to-pdf-responsive-css/>***
 
-On the other hand, the `print` media type targets printed output. It enhances how pages are rendered on paper, for instance, by tweaking font sizes and margins, and sometimes concealing non-essential elements for print.
 
-## Screen vs. Print CSS in CSS3
+The media type `screen` in CSS is specifically designed for use on computer screens and similar devices. The styles defined under this category are crafted to enhance the visual appeal and interactivity of web content on these devices.
 
-IronPDF, a tool that converts HTML to PDF in C#, seamlessly supports rendering using the screen type CSS by default. This is quite handy given that stylesheets for print are generally less elaborated and commonly used than those for screens.
+On the other hand, the `print` media type in CSS is tailored for printed outputs. It focuses on how web pages are rendered on paper, emphasizing the optimization of content for printing. This typically involves modifications to font sizes, margins, and the exclusion of non-essential elements for print.
 
-CSS3 introduces styles tailored exclusively for print media, while maintaining others specifically for viewing in web browsers. IronPDF is capable of handling both scenarios effectively.
+## Utilizing Screen & Print CSS Types in CSS3
 
-To explore creating a print-specific stylesheet for your HTML, visit: [CSS perfect print stylesheet](https://www.jotform.com/blog/css-perfect-print-stylesheet-98272/).
+IronPDF, a tool for generating PDFs from HTML in C#, seamlessly applies a screen stylesheet to generate PDFs by default. This is particularly useful since print stylesheets are generally less developed and utilized than screen stylesheets.
 
-Deciding which CSS media type is more effective depends largely on the context and needs. Experimenting with both media types through trial and error can uncover which is more applicable for your specific needs.
+With CSS3, various styles can be exclusively set for print documents while others are meant for viewing on web browsers. IronPDF offers the flexibility to work with both types of styles.
 
-![Comparison of Print Stylesheet](https://ironpdf.com/static-assets/pdf/how-to/pixel-perfect-html-to-pdf/Comparison%20of%20Screen%20and%20Print%201.webp)
-![Comparison of Screen Stylesheet](https://ironpdf.com/static-assets/pdf/how-to/pixel-perfect-html-to-pdf/Comparison%20of%20Screen%20and%20Print%202.webp)
+Explore the intricacies of creating and applying a print stylesheet for your HTML here: [Learn how to craft and apply a perfect print stylesheet](https://www.jotform.com/blog/css-perfect-print-stylesheet-98272/).
+
+The advantages of using either CSS media type depend largely on the specific requirements of the project. Experimenting through trial and error is recommended to determine which type best meets your needs.
+
+![Example of Print Media](https://ironpdf.com/static-assets/pdf/how-to/pixel-perfect-html-to-pdf/Comparison%20of%20Screen%20and%20Print%201.webp)
+![Example of Screen Media](https://ironpdf.com/static-assets/pdf/how-to/pixel-perfect-html-to-pdf/Comparison%20of%20Screen%20and%20Print%202.webp)
 
 <hr>
 
-## Ensuring Repeat Headers in Tables Across Pages
+## Repeating Table Headers Across Pages
 
-In scenarios where HTML tables span across several pages, utilizing the **PdfCssMediaType.Print** setting for the **CssMediaType** ensures that table headers repeat at the top of each new page. Conversely, the **PdfCssMediaType.Screen** setting will have the headers appear only once.
+While working with HTML tables that extend over several pages, setting the **CssMediaType** property to **PdfCssMediaType.Print** ensures that the table header is repeated on each subsequent page. Alternatively, setting it to **PdfCssMediaType.Screen** configures Chrome to print the headers just once.
 
-Ensure that the table headers are wrapped in a `<thead>` tag for accurate detection. Below, we demonstrate how to convert the '[tableHeader.html](https://ironpdf.com/static-assets/pdf/how-to/html-to-pdf-responsive-css/tableHeader.html)' file into a PDF to observe how headers are handled:
+It is crucial to wrap the table headers within a `<thead>` tag for Chrome to correctly recognize and print them. Below is a demonstration of rendering the [tableHeader.html for repeating table headers](https://ironpdf.com/static-assets/pdf/how-to/html-to-pdf-responsive-css/tableHeader.html) as a PDF to illustrate this functionality:
 
 ```cs
-using IronPdf;
 using IronPdf.Rendering;
+using IronPdf;
 
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Set smaller paper size
-renderer.RenderingOptions.SetCustomPaperSizeinPixelsOrPoints(600, 400);
-
-// Select CSS media type for formatting
-renderer.RenderingOptions.CssMediaType = PdfCssMediaType.Print;
-
-// Convert HTML to PDF
-PdfDocument pdf = renderer.RenderHtmlFileAsPdf("tableHeader.html");
-
-// Save the PDF file
-pdf.SaveAs("tableHeader.pdf");
+namespace ironpdf.HtmlToPdfResponsiveCss
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Set a custom paper size
+            renderer.RenderingOptions.SetCustomPaperSizeinPixelsOrPoints(600, 400);
+            
+            // Specify the CSS media type for rendering
+            renderer.RenderingOptions.CssMediaType = PdfCssMediaType.Print;
+            
+            // Convert HTML to PDF
+            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("tableHeader.html");
+            
+            pdf.SaveAs("tableHeader.pdf");
+        }
+    }
+}
 ```
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/html-to-pdf-responsive-css/tableHeader.pdf" width="100%" height="400px">

@@ -1,62 +1,114 @@
-# HTML to PDF Conversion in .NET Core with IronPDF
+# HTML to PDF Conversion in .NET Core (Updated 2024 Tutorial)
+
+***Based on <https://ironpdf.com/tutorials/dotnet-core-pdf-generating/>***
+
 
 ## .NET Core PDF Creation
 
-Generating PDF files within .NET Core applications can sometimes prove challenging. Whether it involves producing PDFs from ASP.NET MVC, converting HTML content or entire web pages into PDF documents, these tasks require robust solutions. Luckily, this guide uses IronPDF to simplify these processes, offering step-by-step instructions suited for your PDF-related needs in .NET.
+Generating PDF files in .NET Core often presents a complex challenge. This includes efforts to convert MVC views, HTML files, and online web pages to PDF within ASP.NET MVC projects. This updated 2024 guide utilizes IronPDF to simplify these tasks, offering detailed instructions for a variety of PDF generation requirements in .NET.
 
-**IronPDF provides tools for debugging your HTML using Chrome to ensure your PDFs are precise and pixel-perfect. A guide for setting this up is available [here](https://ironsoftware.com/how-to/pixel-perfect-html-to-pdf/).**
-
-<hr class="separator">
-
-<h4 class="tutorial-segment-title">Overview</h4>
-
-By the end of this tutorial, you will have learned to:
-
-- Transform various sources such as URLs, HTML content, and MVC views into PDF documents
-- Utilize advanced functionalities for different PDF output settings
-- Deploy projects across both Linux and Windows environments
-- Manipulate PDF documents by adding headers, footers, merging documents, and incorporating stamps
-- Utilize Docker
-
-This extensive guide will equip you with the abilities to handle a variety of .NET Core HTML to PDF conversions for diverse project requirements.
+**IronPDF further provides [enhanced HTML debugging with Chrome for flawless PDF results](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/).**
 
 <hr class="separator">
 
-The content you're after has been revised for clarity and educational effectiveness, ensuring you grasp the full capabilities of IronPDF in handling HTML to PDF conversions within the .NET Core framework.
+<h4 class="tutorial-segment-title">Tutorial Overview</h4>
+
+Completing this guide will empower you to:
+
+- Convert various sources such as URLs, HTML content, and MVC views into PDF format.
+- Utilize advanced configuration settings for tailored PDF outputs.
+- Deploy your applications across both Linux and Windows platforms.
+- Manipulate PDF documents by adding headers, footers, merging documents, and more.
+- Leverage Docker containers in your workflows.
+
+This comprehensive set of capabilities will address a broad spectrum of PDF conversion needs in .NET Core projects.
+
+<hr class="separator">
+
+<h4 class="tutorial-segment-title">Beginning Steps</h4>
+
+## 1. Installing the IronPDF Library for Free
+
+IronPDF is compatible with all .NET project types, including Windows applications, ASP.NET MVC, and .NET Core applications.
+
+There are two methods to incorporate IronPDF into your project, either via the NuGet package manager within the Visual Studio environment or through command-line operations.
+
+<h3>Installation via NuGet</h3>
+
+Incorporating IronPDF into your project through NuGet can be accomplished using either the GUI or the console:
+
+<p class="list-decimal">1.1.1 Via NuGet Package Manager GUI</p>
+<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/1.png" target="_blank">
+<span class="no-link-style">1- Right-click on the project name -> Select 'Manage NuGet Packages'</span>
+<img src="https://ironpdf.com/img/tutorials/dot-net-core/1.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/2.png" target="_blank">
+<span class="no-link-style">2- Navigate to the 'Browse' tab, search for 'IronPdf' and select 'Install'</span>
+<img src="https://ironpdf.com/img/tutorials/dot-net-core/2.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/3.png" target="_blank">
+<span class="no-link-style">3- Confirm the installation by clicking 'Ok'</span>
+img src="https://ironpdf.com/img/tutorials/dot-net-core/3.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/4.png" target="_blank">
+<span class="no-link-style">4- Installation complete!</span>
+<img src="https://ironpdf.com/img/tutorials/dot-net-core/4.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+
+<p class="list-decimal">1.1.2 Via NuGet Package Console Manager</p>
+<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/5.png" target="_blank">
+<span class="no-link-style">1- Access through 'Tools' -> 'NuGet Package Manager' -> 'Package Manager Console'</span>
+<img src="https://ironpdf.com/img/tutorials/dot-net-core/5.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/6.png" target="_blank">
+<span class="no-link-style">2- Execute the command: `Install-Package IronPdf`</span>
+<img src="https://ironpdf.com/img/tutorials/dot-net-core/6.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+
+<hr class="separator">
+
+<h4 class="tutorial-segment-title">How To Tutorials</h4>
 
 ## Generating PDFs with .NET Core
 
-Generating PDF files in .NET Core can often be complex. Managing PDF operations within ASP.NET MVC projects, or transforming MVC views, HTML documents, and web pages into PDF format presents various challenges. This guide leverages the IronPDF library to address these issues, offering a step-by-step approach tailored for your PDF development needs in .NET.
+Producing PDF documents in .NET Core environments often involves complex procedures. Managing PDF generation in ASP.NET MVC, along with converting MVC views, HTML content, and websites into PDF files, presents several hurdles. This guide introduces the IronPDF library as a solution to streamline these processes, offering comprehensive instructions to address a variety of PDF generation requirements in .NET.
 
-**Additionally, IronPDF facilitates HTML debugging using Chrome to ensure pixel-perfect PDFs. Discover how to configure this by visiting <a href="https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/">this tutorial</a>.**
+**IronPDF enhances your workflow by enabling [Chrome-based HTML debugging for flawless PDF results](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/).**
 
 <hr class="separator">
 
 <h4 class="tutorial-segment-title">Overview</h4>
 
-After completing this tutorial, you will have gained the ability to:
+Upon completing this tutorial, you will gain the ability to:
 
-- Transform content from different inputs, including URLs, HTML content, and MVC views into PDF format.
-- Utilize advanced configuration settings to customize the output of your PDFs.
-- Deploy your application on both Linux and Windows operating systems.
-- Manipulate PDF documents by adding headers and footers, merging documents, and applying stamps.
-- Leverage Docker to enhance your project deployment and management.
+- Execute PDF conversions from various sources such as URLs, HTML content, and MVC views.
+- Utilize advanced configuration options for diverse PDF output settings.
+- Implement your projects on both Linux and Windows platforms.
+- Manage PDF documents with capabilities like manipulation, adding headers and footers, merging multiple files, and applying stamps.
+- Utilize Docker for containerized application management.
 
-These versatile .NET Core capabilities for converting HTML to PDF are designed to support a variety of project requirements.
+These extensive capabilities will enhance your projects by integrating comprehensive .NET Core HTML to PDF functionalities.
 
 <hr class="separator">
 
 <h4 class="tutorial-segment-title">Step 1</h4>
 
-## 1. Free Installation of the IronPDF Library
+## Installation of the IronPDF Library
 
-IronPDF is versatile and can be integrated into various types of .NET projects, including Windows applications, ASP.NET MVC, and .NET Core applications.
+IronPDF can be seamlessly integrated across various .NET project frameworks including traditional Windows applications, ASP.NET MVC, and .NET Core applications.
 
-There are two methods to incorporate the IronPDF library into your project: through the Visual Studio IDE using the NuGet Package Manager, or via the command line with a package management console.
+There are two primary methods to include the IronPDF library into your project: either directly through the Visual Studio environment using NuGet, or using a command line interface via the package manager console.
 
 <h3>Install using NuGet</h3>
 
-To integrate the IronPDF library into our project via NuGet, we have the option to proceed either through the visual NuGet Package Manager within Visual Studio or by utilizing the Package Manager Console with commands.
+Integrating the IronPDF library into your project can be done through two major pathways in NuGet: either by utilizing the graphical interface of the NuGet Package Manager or by issuing commands through the Package Manager Console. Here's how to accomplish both tasks:
+
+### Adding IronPDF via NuGet Package Manager Interface
+
+1. **Access NuGet Package Manager:** Right-click on your project's name in the solution explorer and select 'Manage NuGet Packages'.
+2. **Search for IronPDF:** Navigate to the 'Browse' tab, enter "IronPdf" in the search bar, and hit Install to add the library to your project.
+3. **Confirmation:** Once the installation is complete, you'll need to confirm the action by clicking 'OK', then the setup for IronPDF is done!
+
+### Using the Package Manager Console for Installation
+
+1. **Open the Console:** Go to 'Tools' > 'NuGet Package Manager' > 'Package Manager Console'.
+2. **Install Command:** Type in `Install-Package IronPdf` and press Enter to execute the command, initiating the installation of the IronPDF library into your project.
+
+By following either of these pathways, you can easily add IronPDF to your .NET project and start harnessing its extensive PDF functionality.
 
 <p class="list-decimal">1.1.1 Using NuGet Package Manager</p>
 <a style="text-decoration: none" href="/img/tutorials/dot-net-core/1.png" target="_blank">
@@ -87,97 +139,73 @@ To integrate the IronPDF library into our project via NuGet, we have the option 
 
 **Example: ConvertUrlToPdf Console Application**
 
-Follow these steps to initiate a new Asp.NET MVC Project:
+To proceed with this example, we will develop a new Asp.NET MVC Project by following these steps:
 
-<p class="list-decimal">
-</p>
-<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/7.png" target="_blank">
-<span class="no-link-style">1- Start by opening Visual Studio</span>
-<img src="https://ironpdf.com/img/tutorials/dot-net-core/7.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
-<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/8.png" target="_blank">
-<span class="no-link-style">2- Click on 'Create new project'</span>
-<img src="https://ironpdf.com/img/tutorials/dot-net-core/8.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
-<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/9.png" target="_blank">
-<span class="no-link-style">3- Select 'Console App (.NET Core)'</span>
-<img src="https://ironpdf.com/img/tutorials/dot-net-core/9.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
-<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/10.png" target="_blank">
-<span class="no-link-style">4- Name your application “ConvertUrlToPdf” and click 'Create'</span>
-<img src="https://ironpdf.com/img/tutorials/dot-net-core/10.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
-<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/11.png" target="_blank">
-<span class="no-link-style">5- Your console application is now set up</span>
-<img src="https://ironpdf.com/img/tutorials/dot-net-core/11.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
-<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/12.png" target="_blank">
-<span class="no-link-style">6- Add IronPdf to the project by clicking 'Install'</span>
-<img src="https://ironpdf.com/img/tutorials/dot-net-core/12.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
-<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/13.png" target="_blank">
-<img src="https://ironpdf.com/img/tutorials/dot-net-core/13.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+- **Step 1:** Open Visual Studio.
+    - ![Step 1 Visual](https://ironsoftware.com/img/tutorials/dot-net-core/7.png)
+- **Step 2:** Choose 'Create new project'.
+    - ![Step 2 Visual](https://ironsoftware.com/img/tutorials/dot-net-core/8.png)
+- **Step 3:** Select 'Console App (.NET Core)' from the available project types.
+    - ![Step 3 Visual](https://ironsoftware.com/img/tutorials/dot-net-core/9.png)
+- **Step 4:** Name your project "ConvertUrlToPdf" and click 'Create'.
+    - ![Step 4 Visual](https://ironsoftware.com/img/tutorials/dot-net-core/10.png)
+- **Step 5:** A new console application is now ready.
+    - ![Step 5 Visual](https://ironsoftware.com/img/tutorials/dot-net-core/11.png)
+- **Step 6:** Include IronPdf by selecting 'Add IronPdf' and then clicking 'Install'.
+    - ![Step 6 Visual](https://ironsoftware.com/img/tutorials/dot-net-core/12.png)
 
-<p class="list-decimal">
-  <span class="list-description">7- Begin coding your PDF transformation by targeting a main page to convert, such as the Wikipedia homepage</span>
-</p>
+
+Now start adding the initial code to convert the main page of Wikipedia into a PDF:
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderUrlAsPdf("https://www.wikipedia.org/");
-pdf.SaveAs("wiki.pdf");
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderUrlAsPdf("https://www.wikipedia.org/");
+            pdf.SaveAs("wiki.pdf");
+        }
+    }
+}
 ```
 
-<p class="list-decimal">
-</p>
-<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/14.png" target="_blank">
-<span class="no-link-style">8- Execute the project and locate the newly created file 'wiki.pdf'</span>
-<img src="https://ironpdf.com/img/tutorials/dot-net-core/14.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+After writing the code:
+
+- **Step 8:** Execute the application and review the generated PDF file, 'wiki.pdf'.
+    - ![Step 8 Visual](https://ironsoftware.com/img/tutorials/dot-net-core/14.png)
+
+This process not only provides a straightforward path to create a PDF from a website but also demonstrates the powerful capabilities of IronPDF within .NET Core applications.
 
 <b>Sample: ConvertUrlToPdf console application</b>
 <br>
 <br>
 
-Here is the revised section with the marked relative URL paths resolved to `ironpdf.com`:
+Here's a rephrased version of the specific section:
 
 -----
-### Steps to Create a New ASP.NET MVC Project
+Begin your new ASP.NET MVC project by following these instructions:
 
-Follow the below steps to initiate a new ASP.NET MVC project:
-
-1. **Open Visual Studio**: Start by launching the Visual Studio IDE.
-   
-   ![Open Visual Studio](https://ironpdf.com/img/tutorials/dot-net-core/7.png)
-
-2. **Create New Project**: From the dashboard, select the option to create a new project.
-   
-   ![Create New Project](https://ironpdf.com/img/tutorials/dot-net-core/8.png)
-
-3. **Select Project Type**: Choose "Console App (.NET Core)" from the list of project types.
-   
-   ![Select Project Type](https://ironpdf.com/img/tutorials/dot-net-core/9.png)
-
-4. **Name Your Project**: Label your project "ConvertUrlToPdf" and click on the 'create' button.
-   
-   ![Name Your Project](https://ironpdf.com/img/tutorials/dot-net-core/10.png)
-
-5. **Project Setup Complete**: Your new console application is now set up.
-   
-   ![Project Setup Complete](https://ironpdf.com/img/tutorials/dot-net-core/11.png)
-
-6. **Install IronPdf**: Next, add the IronPdf library by clicking 'install' in the NuGet package manager.
-   
-   ![Install IronPdf](https://ironpdf.com/img/tutorials/dot-net-core/12.png)
-
-7. **Implement Code**: Start adding your code. Begin with initializing the IronPdf renderer to convert web pages to PDF.
-
-   ```cs
-   IronPdf.License.LicenseKey = "YourLicenseKey";
-   ChromePdfRenderer renderer = new ChromePdfRenderer();
-   PdfDocument pdf = renderer.RenderUrlAsPdf("https://www.wikipedia.org/");
-   pdf.SaveAs("wiki.pdf");
-   ```
-
-8. **Run & Verify**: Execute your project and verify whether the `wiki.pdf` has been created correctly.
-
-   ![Run & Verify](https://ironpdf.com/img/tutorials/dot-net-core/14.png)
-
-By following these steps, you can efficiently set up a new ASP.NET MVC project and implement the IronPdf library to create a PDF from a web URL.
+1. Launch Visual Studio.
+   ![Start Visual Studio](https://ironpdf.com/img/tutorials/dot-net-core/7.png)
+2. Select `Create new project`.
+   ![Create new project](https://ironpdf.com/img/tutorials/dot-net-core/8.png)
+3. Choose `Console App (.NET Core)`.
+   ![Select Console App (.NET Core)](https://ironpdf.com/img/tutorials/dot-net-core/9.png)
+4. Name your application "ConvertUrlToPdf" and then click `create`.
+   ![Name and create project](https://ironpdf.com/img/tutorials/dot-net-core/10.png)
+5. You will now see that your console application has been set up.
+   ![Console application setup complete](https://ironpdf.com/img/tutorials/dot-net-core/11.png)
+6. Add IronPdf to your project by clicking install.
+   ![Add IronPdf](https://ironpdf.com/img/tutorials/dot-net-core/12.png)
+   ![Continue installation](https://ironpdf.com/img/tutorials/dot-net-core/13.png)
+7. Begin coding by including a few lines to render the main page of the Wikipedia website into a PDF.
+8. Execute the program and inspect the newly created `wiki.pdf`.
+   ![Check the PDF](https://ironpdf.com/img/tutorials/dot-net-core/14.png)
 
 <p class="list-decimal">
   <br>
@@ -208,21 +236,26 @@ By following these steps, you can efficiently set up a new ASP.NET MVC project a
   <span class="list-description">7- Add our first few lines that render a Wikipedia website main page to PDF</span>
 </p>
 
-Here's the paraphrased section of the code with improved comments and slight adjustments to the code structure for better understanding:
+Here's a paraphrased version of the provided .NET code snippet, with the relative URL paths resolved:
 
 ```cs
-// Set the license key for IronPdf to unlock all features
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Create an instance of the ChromePdfRenderer class
-ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
-
-// Convert the HTML content of the Wikipedia main page to a PDF
-PdfDocument document = pdfRenderer.RenderUrlAsPdf("https://www.wikipedia.org/");
-
-// Save the newly created PDF document to a file named "wiki.pdf"
-document.SaveAs("wiki.pdf");
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class ExampleSection
+    {
+        public void Execute()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
+            PdfDocument document = pdfRenderer.RenderUrlAsPdf("https://www.wikipedia.org/");
+            document.SaveAs("wiki.pdf");
+        }
+    }
+}
 ```
+
+This revised version maintains the same functionality and logic as the original snippet, but with some variable names and comments altered for a fresher perspective.
 
 <p class="list-decimal"></p>
 <a style="text-decoration: none" href="/img/tutorials/dot-net-core/14.png" target="_blank">
@@ -231,35 +264,37 @@ document.SaveAs("wiki.pdf");
 
 <hr class="separator">
 
-## 3. Transforming .NET Core HTML into PDF
+## 3. Convert .NET Core HTML to PDF
 
-<p class="list-decimal">
-<b>Example: ConvertHTMLToPdf Console Application</b>
-<br>
-<br>
-  <span class="list-description">
-    Here are two methods for converting HTML content into a PDF:<br>
-    <span class="list-description">
-      1- Directly encode HTML strings and then render them.<br>
-      2- Save the HTML content to a file and then pass its path to IronPDF for rendering.<br>
-    </span>
-    <br>
-    Below is the code snippet that illustrates rendering of HTML string into PDF.
-  </span>
-</p>
+For transforming HTML into a PDF within .NET Core applications, IronPDF offers two primary approaches:
+
+1. Directly render a string containing HTML.
+2. Utilize a path to an HTML file stored on your system and render it.
+
+### Directly Rendering HTML Strings
+
+Here's an example showing how to convert an HTML string to a PDF document:
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Welcome to IronPdf</h1>");
-pdf.SaveAs("RenderedHtml.pdf");
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Welcome to IronPdf</h1>");
+            pdf.SaveAs("ExamplePdfFromString.pdf");
+        }
+    }
+}
 ```
 
-<p class="list-decimal">
-  <span class="list-description">Here's how the resultant PDF will appear.</span>
-</p>
-<a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/15.png" target="_blank">
-<img src="https://ironpdf.com/img/tutorials/dot-net-core/15.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+When rendered, this code will produce a PDF displaying the HTML content, the location of which is indicated below.
+
+![Rendered PDF Sample](https://ironpdf.com/img/tutorials/dot-net-core/15.png)
 
 <p class="list-decimal">
 <b>Sample: ConvertHTMLToPdf Console application</b>
@@ -267,67 +302,87 @@ pdf.SaveAs("RenderedHtml.pdf");
 <br>
   <span class="list-description">
 
-Below are two methods for converting HTML to PDF:
+1- Write HTML directly into a string, then convert it into a PDF.  
+2- Save HTML into a file, and then use IronPDF to convert that file into a PDF.  
 
-1. Convert from a string containing HTML:
-   
-   ```cs
-   IronPdf.License.LicenseKey = "YourLicenseKey";
-   var pdfRenderer = new IronPdf.ChromePdfRenderer();
-   var pdfDocument = pdfRenderer.RenderHtmlAsPdf("<h1>Welcome to IronPdf</h1>");
-   pdfDocument.SaveAs("HtmlFromString.pdf");
-   ```
+Here's an illustration of the code required to render HTML content as a PDF:
 
-2. Convert from an HTML file by specifying the path:
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello IronPdf</h1>");
+            pdf.SaveAs("HtmlString.pdf");
+        }
+    }
+}
+```
 
-   ```cs
-   PdfDocument pdfFromHtml = pdfRenderer.RenderHtmlFileAsPdf("path/to/yourHtmlFile.html");
-   pdfFromHtml.SaveAs("HtmlFromFile.pdf");
-   ```
+The generated PDF from the above operation is displayed in the following image:
 
-The results of these conversions will be PDF files generated from the specified HTML content.
+![](https://ironpdf.com/img/tutorials/dot-net-core/15.png)
 
 <span class="list-description">
 
-Here's the paraphrased section with resolved URLs:
+Here's the paraphrased section with resolved relative URL paths:
 
 -----
-1. Compose HTML content directly in a string and utilize it for rendering.
-   
-2. Save HTML content to a file and then provide the file's path to IronPDF for processing.
+1. Craft the HTML content directly in a string and use that for rendering.<br>
+
+2. Alternatively, save the HTML content to a file, then provide the file path to IronPDF for rendering.<br>
 
 </span>
     <br>
 
-Below is how the sample code for rendering an HTML string appears:
+To illustrate the rendering of an HTML string into a PDF, the following example provides a code snippet:
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello IronPdf</h1>");
-pdf.SaveAs("HtmlString.pdf");
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Welcome to IronPdf</h1>");
+            pdf.SaveAs("RenderedHtmlString.pdf");
+        }
+    }
+}
 ```
+
+In this code, a short HTML string is transformed into a PDF file titled `RenderedHtmlString.pdf`. This process utilizes IronPDF's `ChromePdfRenderer` class to manage the rendering seamlessly.
 
 </span>
 </p>
 
-Here's a rewritten version of the provided C# code snippet, with enhanced comments for better understanding:
+Here's the paraphrased section:
 
 ```cs
-// Initialize the IronPDF License with your unique license key
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Create a PDF Renderer using the Chrome rendering engine
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Generate a PDF document by rendering an HTML string
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Welcome to IronPDF</h1>");
-
-// Save the generated PDF to a file named 'HtmlString.pdf'
-pdf.SaveAs("HtmlString.pdf");
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section2
+    {
+        public void Execute()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";  // Set your license key
+            ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();  // Create a PDF renderer
+            // Generate a PDF from HTML string
+            PdfDocument document = pdfRenderer.RenderHtmlAsPdf("<h1>Welcome to IronPdf</h1>");
+            document.SaveAs("OutputHtmlString.pdf");  // Save the PDF to a file
+        }
+    }
+}
 ```
-
-This revised version includes clearer and more descriptive comments that explain what each line of code accomplishes within the context of the IronPDF library usage.
 
 <p class="list-decimal">
   <span class="list-description">And the resulting PDF will look like this.</span>
@@ -341,255 +396,318 @@ This revised version includes clearer and more descriptive comments that explain
 
 **Example Project: TicketsApps .NET Core MVC Application**
 
-To illustrate the practical application of IronPDF, let’s execute a detailed exercise by creating a mock-up online ticket booking system, with a feature to export the generated ticket as a PDF document.
+This section presents a practical example by creating an online ticketing system where users can book tickets and download them as PDFs.
 
-We'll breeze through the following steps to build our MVC application:
+The project development will follow these key phases:
 
-- [Set Up the Project](#anchor-create-project)
-- [Establish a Client Object Model](#anchor-add-client-model)
-- [Develop Client Services](#anchor-add-client-services)
-- [Design the Ticket Booking Interface](#anchor-design-ticket-booking-page)
-- [Validate and Record Booking Data](#anchor-validate-and-save-the-booking-information)
-- [Export the Booking as a PDF Ticket](#anchor-download-pdf-ticket)
+- [Initiate New Project](#anchor-create-project)
+- [Establish Client Data Model](#anchor-add-client-model)
+- [Define Client Services (Add, Display)](#anchor-add-client-services)
+- [Formulate Ticket Booking Interface](#anchor-design-ticket-booking-page)
+- [Confirm and Store Booking Details](#anchor-validate-and-save-the-booking-information)
+- [Facilitate Ticket Download in PDF Format](#anchor-download-pdf-ticket)
 
-### Initiating a New Project
+### Setting up a New Project
 
-1. Select the "ASP.NET Core Web App (Model-View-Controller)" as your project type.
+1. Select the "ASP.NET Core Web App (Model-View-Controller)" project type.
 
 <img src="/img/tutorials/dot-net-core/16.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
-## 4. Convert MVC View to PDF
+Below is the revised version of the selected section with updated URL paths and a paraphrased content:
 
-**Sample: TicketsApps .NET Core MVC Application**
+### Naming the Project
 
-For our practical application, we will develop a web-based ticketing system. Start by opening the site, navigating to the 'book ticket' section, entering the necessary details, and then seamlessly downloading your ticket as a PDF.
+Set the project's name as "TicketsApps."
 
-To accomplish this, follow these steps:
-
-- [Create Project](#anchor-create-project)
-- [Create client object model](#anchor-add-client-model)
-- [Create client services (add, view)](#anchor-add-client-services)
-- [Design Ticket Booking Page](#anchor-design-ticket-booking-page)
-- [Validate and Save The Booking Information](#anchor-validate-and-save-the-booking-information)
-- [Download PDF ticket](#anchor-download-pdf-ticket)
-
-### Create Project
-
-1. Select "ASP.NET Core Web App (Model-View-Controller)" as the project type.
-
-![Project Type](https://ironpdf.com/img/tutorials/dot-net-core/16.webp)
-
-2. Assign the name "TicketsApps" to your project.
-
-![Name Your Project](https://ironpdf.com/img/tutorials/dot-net-core/17.webp)
-
-3. Choose to use .NET 8 and enable Linux Docker. Modify the Dockerfile by replacing "USER app" with "USER root" to ensure the library has the appropriate permissions.
-
-![Enable Docker and Set Permissions](https://ironpdf.com/img/tutorials/dot-net-core/18.webp)
-
-4. Your project setup is now complete.
-
-![Setup Complete](https://ironpdf.com/img/tutorials/dot-net-core/19.webp)
+![Project Name Setting](https://ironpdf.com/img/tutorials/dot-net-core/17.webp "Naming the project in the setup wizard")
 
 <img src="/img/tutorials/dot-net-core/17.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
-3. Procede by deploying .NET 8 and enabling Linux Docker. Modify the Dockerfile by replacing `"USER app"` with `"USER root"`. This adjustment assures that the library is allocated the necessary permissions.
+Rephrased Section:
+-----
+ 3. Utilize .NET 8, incorporating Linux Docker support. Modify the Dockerfile by switching from "USER app" to "USER root" to confirm that the library has adequate permissions.
 
 <img src="/img/tutorials/dot-net-core/18.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
-4. The project setup is now complete.
+4. Your project setup is now complete.
 
 <img src="/img/tutorials/dot-net-core/19.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
-### Adding a Client Model
+### Setting Up the Client Model
 
-1. Open your project in the IDE and right-click on the "Models" folder. From the context menu, select "Add" followed by "Class".
+1. Right-click on the "Models" folder in your project structure and select the option to add a new class.
 
 <img src="/img/tutorials/dot-net-core/20.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
-2. Assign the name "ClientModel" to your model and then proceed by clicking on 'add'.
+2. Give the model the name "ClientModel" and proceed by clicking on add.
+```
 
 <img src="/img/tutorials/dot-net-core/21.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
 ```cs
-3. Enhance the `ClientModel` class by defining the attributes 'name', 'phone', and 'email'. Ensure each of these fields is mandatory by appending the 'Required' attribute to them, as illustrated below:
-```
-
-Here's the paraphrased section with relative URL paths resolved:
-
-```cs
-public class CustomerModel
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    [Required]
-    public string Name { get; set; } // Name is mandatory
-
-    [Required]
-    public string Phone { get; set; } // Phone number is mandatory
-
-    [Required]
-    public string Email { get; set; } // Email address is mandatory
+    public class Section3
+    {
+        public void Run()
+        {
+            public class ClientModel
+            {
+                [Required]
+                public string Name { get; set; }
+                [Required]
+                public string Phone { get; set; }
+                [Required]
+                public string Email { get; set; }
+            }
+        }
+    }
 }
 ```
 
-### Setting Up Client Services
-
-1. Begin by creating a new folder and label it as "services."
-
-2. Inside this folder, define a new class called `ClientServices`.
-
-3. Within this class, introduce a static instance of `ClientModel` which will act as a repository.
-
-4. Implement two methods in this class: the first method should store client data in the repository, and the second should fetch this data when needed.
-
-Below is a paraphrased version of the specified code section, ensuring your understanding of implementing basic client services within a .NET Core application remains clear:
+Here, we enhance the `ClientModel` by adding essential fields such as 'name', 'phone', and 'email', ensuring each field is mandatory with the application of the `[Required]` attribute. This guarantees that all instances of `ClientModel` must include valid entries for these attributes before they can be processed further in the application.
 
 ```cs
-public class ClientRepository
+using IronPdf;
+namespace ironpdf.DotnetCorePdfCreation
 {
-    private static ClientModel _storedClientModel;
-    
-    // Method to store client information
-    public static void StoreClient(ClientModel client)
+    public class MemberSection
     {
-        _storedClientModel = client;
+        public void Execute()
+        {
+            public class UserModel
+            {
+                [Required]
+                public string UserName { get; set; }
+                [Required]
+                public string PhoneNumber { get; set; }
+                [Required]
+                public string EmailAddress { get; set; }
+            }
+        }
     }
+}
+```
 
-    // Method to retrieve stored client information
-    public static ClientModel RetrieveClient()
+### Implementing Client Services
+
+1. Start by creating a directory named `services`.
+
+2. Within this folder, create a class file called `ClientServices`.
+
+3. Inside the `ClientServices` class, declare a static instance of the `ClientModel` to function as a data repository.
+
+4. Define two methods within this class:
+   - One method named `AddClient` to store client details into the repository.
+   - Another method named `GetClient` to fetch client details from the repository.
+
+Here's the paraphrased section with updated code comments and slight changes in code structure for clarity and distinction:
+
+```cs
+using IronPdf;
+
+// Establish a namespace tailored for managing various client services
+namespace IronPdfCorePdfGeneration
+{
+    public class ClientServicesManager
     {
-        return _storedClientModel;
+        // Initialization of static field to hold client data
+        private static ClientModel storedClientData;
+
+        // Execute relevant functionalities
+        public void ExecuteServices()
+        {
+            // Internal class to handle client services operations
+            public class ClientServices
+            {
+                // Method to store a client model
+                public static void StoreClient(ClientModel client)
+                {
+                    storedClientData = client;
+                }
+
+                // Method to retrieve stored client model
+                public static ClientModel RetrieveClient()
+                {
+                    return storedClientData;
+                }
+            }
+        }
     }
 }
 ``` 
 
-This code snippet serves the same purpose as the original, providing a simplistic way to store and retrieve client data using a static member within a class.
+This updated code maintains the functionality of the original while introducing different naming and structural layouts to improve understanding and management of the client data within a hypothetical .NET Core application using the IronPDF library.
 
-### Designing the Ticket Booking Page
+### Constructing the Ticket Booking Interface
 
-1. In the Solution Explorer, right-click on the "Controllers" folder and select the option to add a new controller.
+1. In the Solution Explorer, right-click on the "Controllers" folder and choose to add a new controller.
 
 <img src="/img/tutorials/dot-net-core/22.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
 2. Assign the name "BookTicketController" to it.
-```
+
+![controller naming](https://ironpdf.com/img/tutorials/dot-net-core/23.webp)
 
 <img src="/img/tutorials/dot-net-core/23.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
-3. Right-click on the `index` function (also known as an action) and select "Add View."
+3. Right-click on the index method (which we refer to as the action) and select "Add View."
 
 <img src="/img/tutorials/dot-net-core/24.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
-4. Creating the "Index" View
+### Add the "index" View
 
-Next, you will need to establish a View known as "index." To do this:
+1. In the Solution Explorer, right-click on the "Controllers" folder and choose to add a new controller.
 
-1. From the Solution Explorer, right-click on the "Controllers" directory and choose to add a controller.
-   
-   ![Add Controller](https://ironpdf.com/img/tutorials/dot-net-core/23.webp "Add Controller")
+![Add Controller](https://ironpdf.com/img/tutorials/dot-net-core/22.webp)
+*Initiate adding a controller in Visual Studio*
 
-2. Assign the name "BookTicketController" to the new controller.
-   
-   ![Name Controller](https://ironpdf.com/img/tutorials/dot-net-core/24.webp "Name Controller")
+2. Name the controller "BookTicketController".
 
-3. Right-click on the `Index` action method, or the method you designate for this purpose, and select "Add View."
-   
-   ![Add View](https://ironpdf.com/img/tutorials/dot-net-core/25.webp "Add View")
+![Name Controller](https://ironpdf.com/img/tutorials/dot-net-core/23.webp)
+*Setting the name for the controller*
 
-4. Specify "index" as the name for your new View.
-   
-   ![Name View](https://ironpdf.com/img/tutorials/dot-net-core/26.webp "Name View")
+3. Navigate to the action method in the controller, usually the `index` method, right-click and select "Add View".
 
-By following these steps, your application's architecture will now include a new "index" View, ready for further configuration and use in your project.
-```
+![Add View](https://ironpdf.com/img/tutorials/dot-net-core/24.webp)
+*Adding a view from the controller method*
+
+4. Create a view named "index" to correspond with the controller action.
+
+![Create index View](https://ironpdf.com/img/tutorials/dot-net-core/25.webp)
+*Creating the index view in the MVC structure*
+
+The newly created View "index" serves as the primary interface for interacting with the application feature that the "BookTicketController" controls. In essence, this facilitates the user's interaction for booking tickets through a structured and user-friendly GUI, integrated into your .NET Core application.
 
 <img src="/img/tutorials/dot-net-core/25.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
-```cs
-@model IronPdfMVCHelloWorld.Models.ClientModel
-@{
-  ViewBag.Title = "Ticket Reservation";
-}
-<h2>Booking Page</h2>
-@using (Html.BeginForm())
-{
-  <div class="form-horizontal">
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-      @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-      <div class="col-md-10">
-        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-      </div>
-    </div>
-    <div class="form-group">
-      @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
-      <div class="col-md-10">
-        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
-      </div>
-    </div>
-    <div class="form-group">
-      @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-      <div class="col-md-10">
-        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-md-offset-2 col-md-10">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
-  </div>
-}
-```
-This HTML code snippet updates an ASP.NET MVC form for booking, aligning form controls and incorporating data validation to improve user interaction and system reliability.
+Here's the paraphrased section:
+
+### Update the HTML Template
+
+Follow these steps to revise the HTML for your booking form:
 
 ```cs
-@model IronPdfMVCHelloWorld.Models.ClientModel
-@{
-  ViewBag.Title = "Ticket Reservation";
-}
-<h2>Main Page</h2>
-@using (Html.BeginForm())
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-  <div class="form-horizontal">
-    @Html.ValidationSummary(true, "", new { @class = "text-errors" })
-    <div class="form-group">
-      @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-      <div class="col-md-10">
-        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-input" } })
-        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-errors" })
-      </div>
-    </div>
-    <div class="form-group">
-      @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
-      <div class="col-md-10">
-        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-input" } })
-        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-errors" })
-      </div>
-    </div>
-    <div class="form-group">
-      @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-      <div class="col-md-10">
-        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-input" } })
-        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-errors" })
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-md-10 align-right">
-        <button type="submit" class="button small">
-          <i class="icon plus-circle"></i>
-          <span>Confirm</span>
-        </button>
-      </div>
-    </div>
-  </div>
+    public class Section5
+    {
+        public void Run()
+        {
+            @model IronPdfMVCHelloWorld.Models.ClientModel
+            @{
+              ViewBag.Title = "Book Your Tickets";
+            }
+            <h2>Booking Form</h2>
+            @using (Html.BeginForm())
+            {
+              <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                  @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                  </div>
+                </div>
+                <div class="form-group">
+                  @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                  </div>
+                </div>
+                <div class="form-group">
+                  @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-primary"/>
+                  </div>
+                </div>
+              </div>
+            }
+        }
+    }
+}
+```
+
+This revised section provides clear instructions on how to set up the HTML for a booking form using MVC pattern in your application.
+
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section5
+    {
+        public void Run()
+        {
+            @model IronPdfMVCHelloWorld.Models.ClientModel
+            @{ 
+                ViewBag.Title = "Book Ticket"; // Set the title via ViewBag 
+            }
+            <h2>Index</h2> // The main header for this view 
+            @using (Html.BeginForm()) // Create a form using Html helper
+            {
+                <div class="form-horizontal"> // Form uses horizontal layout
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" }) // Display validation summary
+                    <div class="form-group"> // Name input field
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" }) // Label for the name
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } }) // Editor for name entry
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" }) // Validation message for name
+                        </div>
+                    </div>
+                    <div class="form-group"> // Phone input field
+                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" }) // Label for the phone
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } }) // Editor for phone entry
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" }) // Validation message for phone
+                        </div>
+                    </div>
+                    <div class="form-group"> // Email input field
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" }) // Label for the email
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } }) // Editor for email entry
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" }) // Validation message for email
+                        </div>
+                    </div>
+                    <div class="form-group"> // Save button
+                        <div class="col-md-10 pull-right">
+                            <button type="submit" value="Save" class="btn btn-sm"> // Submit button for the form
+                                <i class="fa fa-plus"></i> // Icon for the button
+                                <span>
+                                    Save
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    }
 }
 ```
 
 ```html
-6. Include a navigation link to direct visitors to the newly created booking page. This adjustment involves modifying the layout found at (Views -> Shared -> \_Layout.cshtml). Insert this code snippet:
+6. To facilitate navigation for users to the newly created booking page, integrate a navigation link by adjusting the layout file found at (Views -> Shared -> _Layout.cshtml). Insert the code below:
+
+```html
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="BookTicket" asp-action="Index">Book Ticket</a>
+</li>
+```
+
+This update will ensure that your website visitors can easily access the booking interface from anywhere within the site.
+
+Below is the paraphrased section of the article with resolved relative URL paths:
+
 ```html
 <li class="nav-item">
     <a
@@ -597,174 +715,273 @@ This HTML code snippet updates an ASP.NET MVC form for booking, aligning form co
         asp-area=""
         asp-controller="BookTicket"
         asp-action="Index"
-    >Book Ticket</a>
+        >Reserve Ticket</a
+    >
 </li>
 ```
 
-```html
-<li class="nav-item">
-  <a
-    class="nav-link text-dark"
-    asp-area=""
-    asp-controller="BookTicket"
-    asp-action="Index"
-  >Reserve Your Ticket</a>
-</li>
-```
-
-Here is the paraphrased section with updated links and images resolved to the Iron Software domain:
+Here's the paraphrased section with resolved URL paths:
 
 -----
-7. The final display should appear as follows.
+### Resulting Display
 
-<img src="https://ironpdf.com/img/tutorials/dot-net-core/27.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
+Following the implementation steps, your final result should appear as follows:
+
+![Final Interface Appearance](https://ironpdf.com/img/tutorials/dot-net-core/27.webp "Booking Interface") 
+
+This shows the completed booking interface on your application after the steps have been successfully followed.
 
 <img src="/img/tutorials/dot-net-core/26.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
-8. Proceed to the "Book Ticket" page. Here's how it should appear:
-```
+8. Transition to the "Book Ticket" page; it should appear as follows:
 
 ![Book Ticket Page](https://ironpdf.com/img/tutorials/dot-net-core/27.webp)
 
 <img src="/img/tutorials/dot-net-core/27.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
-### Confirm and Store Booking Details
+### Validating and Storing Booking Details
 
-1. Incorporate an additional index action marked with the attribute `[HttpPost]`. This notifies the MVC framework that this action is intended for data submission. The system will verify the provided model; if it passes validation, users will be rerouted to the TicketView page. Conversely, if validation fails, error messages will be displayed on the user interface to inform the visitor.
+1. To enable data submission, introduce an additional index action decorated with the `[HttpPost]` attribute. This informs the MVC framework to handle form data submission. Validate the incoming data, and if it meets the criteria, guide the user to the TicketView Page. Should the validation fail, display relevant error messages to the user.
 
-Here is a paraphrased version of the specified section of the article, with relative URL paths resolved to `ironpdf.com`:
+Here's a paraphrased version of the provided C# code snippet:
 
 ```cs
-[HttpPost]
-public ActionResult Index(ClientModel model)
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    // Check if the model state is valid
-    if (ModelState.IsValid)
+    public class Section6
     {
-        // Add the client using the ClientServices method
-        ClientServices.AddClient(model);
-        // Redirect to the TicketView action if the model is valid
-        return RedirectToAction("TicketView");
+        public void Execute()
+        {
+            [HttpPost]
+            public ActionResult Submit(ClientModel data)
+            {
+                if (ModelState.IsValid)
+                {
+                    ClientServices.RegisterClient(data);
+                    return RedirectToAction("TicketView");
+                }
+                return View(data);
+            }
+        }
     }
-    // Return the original view with the model to display any validation errors
-    return View(model);
 }
 ```
 
-In this example, you'll see how error messages are displayed when the model validation fails during a form submission. If the data inputs do not meet the validation criteria set in your model, the MVC framework will generate error messages which are shown to the user. These messages provide instant feedback, helping to ensure that the correct data is collected. You can observe an example of these error messages in the image provided below:
+This version of the code uses different method and variable names to perform the same functions, clarifying the actions being taken (like client registration) while keeping the original logic intact.
 
-[Link to image with example error messages](https://ironpdf.com/img/tutorials/dot-net-core/28.webp)
+The following image shows examples of error messages displayed:
+![Example of error messages](https://ironpdf.com/img/tutorials/dot-net-core/28.webp)
 
 <img src="/img/tutorials/dot-net-core/28.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
-## Ticket Model Creation
-
-In the "Models" directory, add a new class as shown below:
-
 ```cs
-public class TicketModel : ClientModel
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    [Required]
-    public int TicketNumber { get; set; }
-    [Required]
-    public DateTime TicketDate { get; set; }
-}
-```
-
-This code snippet defines a new `TicketModel` class, which extends from the `ClientModel`. Here, additional attributes essential for managing ticket details, namely `TicketNumber` and `TicketDate`, are incorporated, ensuring they are mandatory with the `[Required]` attribute. This structure helps in maintaining clear and valid ticket data in the system.
-
-```cs
-public class TicketModel : ClientModel
-{
-    // Contains the number assigned to a ticket
-    public int TicketNumber { get; set; }
-    
-    // Stores the date associated with the ticket
-    public DateTime TicketDate { get; set; }
-}
-```
-
-### 3. Set up the TicketView
-
-This step involves setting up the `TicketView` to showcase the ticket details. It includes a partially embedded view specifically crafted to show the ticket information that will subsequently be utilized for printing the ticket.
-
-Here is the paraphrased version of the provided section from the article:
-
-```cs
-public ActionResult TicketView()
-{
-    // Instantiate random number generator
-    Random numberGenerator = new Random();
-    
-    // Retrieve the client details
-    ClientModel clientDetails = ClientServices.GetClient();
-
-    // Create a new ticket instance
-    TicketModel newTicket = new TicketModel()
+    public class Section7
     {
-        // Generate a random ticket number
-        TicketNumber = numberGenerator.Next(100000, 999999),
-        // Set the ticket date to current date and time
-        TicketDate = DateTime.Now,
-        // Assign client details
-        Email = clientDetails.Email,
-        Name = clientDetails.Name,
-        Phone = clientDetails.Phone
-    };
-
-    // Pass the new ticket information to the view
-    return View(newTicket);
+        public void Run()
+        {
+            public class TicketModel : ClientModel
+            {
+                public int TicketNumber { get; set; }
+                public DateTime TicketDate { get; set; }
+            }
+        }
+    }
 }
 ```
 
-This version integrates descriptive variable names and comments to enhance code readability, maintaining the functionality and structure of the original code snippet.
+Here's a paraphrased version of the section concerning the creation of a Ticket model within the "Models" file:
 
-```html
-4. Right-click on the TicketView method, select "Add View", and designate the view as "TicketView". Incorporate the code below:
-```
-
-```html
-@model TicketsApps.Models.TicketModel
-@{
-    ViewData["Title"] = "View Ticket";
-}
-@Html.Partial("_TicketPdf", Model)
-@using (Html.BeginForm())
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    @Html.HiddenFor(model => model.Email)
-    @Html.HiddenFor(model => model.Name)
+    public class Section7
+    {
+        public void Run()
+        {
+            // Define the TicketModel class, inheriting from ClientModel
+            public class TicketModel : ClientModel
+            {
+                // Properties to hold ticket number and the date of the ticket
+                public int TicketNumber { get; set; }
+                public DateTime TicketDate { get; set; }
+            }
+        }
+    }
+}
+```
+
+In this section, a new class named `TicketModel` is generated, extending from the `ClientModel`. It contains properties for storing the ticket number (`TicketNumber`) and the event date (`TicketDate`). These properties enable tracking of individual tickets issued through this model.
+
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section7
+    {
+        public void Execute()
+        {
+            public class TicketDetails : ClientModel
+            {
+                public int Number { get; set; }
+                public DateTime Date { get; set; }
+            }
+        }
+    }
+}
+```
+
+## 3. Implement the TicketView for Displaying Tickets
+
+The `TicketView` will serve as the visual presentation layer for tickets. This view integrates a Ticket partial view which specifically handles the display of the ticket details. This setup is crucial as it also facilitates future printing functionalities.
+
+Here's how you can add this view to your project:
+
+1. **Create the View:** From the "Controllers" folder in your solution explorer, right-click and add a new controller named `TicketView`.
+
+   ![Create Controller](https://ironpdf.com/img/tutorials/dot-net-core/22.webp)
+
+2. **Configure the Controller:** Name the controller `TicketViewController`.
+
+   ![Name Controller](https://ironpdf.com/img/tutorials/dot-net-core/23.webp)
+
+3. **Add View Setup:** Right-click on the controller method that you wish to associate with your view (typically an index or main method) and select "Add View".
+
+   ![Add View](https://ironpdf.com/img/tutorials/dot-net-core/24.webp)
+
+4. **Define the View:** Create a View called `index` where the Ticket details can be managed and displayed.
+
+   ![Define View](https://ironpdf.com/img/tutorials/dot-net-core/25.webp)
+
+5. **Implement Navigation:** To facilitate user access to the TicketBooking page, update the navigation layout in `Views -> Shared -> _Layout.cshtml`. Insert the following snippet to add a navigation link:
+
+   ```html
+   <li class="nav-item">
+       <a class="nav-link text-dark" asp-area="" asp-controller="TicketViewController" asp-action="Index">Book Ticket</a>
+   </li>
+   ```
+
+6. **View the Resulting Page:** Accessing the "Book Ticket" page through the updated navigation should display a page similar to the following:
+
+   ![Ticket Page View](https://ironpdf.com/img/tutorials/dot-net-core/27.webp)
+
+This setup ensures that your ticketing application not only displays tickets effectively but is also primed for subsequent functionalities such as printing.
+
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section8
+    {
+        public void Execute()
+        {
+            public ActionResult RenderTicketView()
+            {
+                Random randomNumberGenerator = new Random();
+                var clientDetails = ClientServices.GetClient();
+                var ticketInformation = new TicketModel()
+                {
+                    TicketNumber = randomNumberGenerator.Next(100000, 999999),
+                    TicketDate = DateTime.Now,
+                    Email = clientDetails.Email,
+                    Name = clientDetails.Name,
+                    Phone = clientDetails.Phone
+                };
+
+                return View(ticketInformation);
+            }
+        }
+    }
+}
+```
+
+4. Right-click on the `TicketView` function, select "Add View," and designate it as "TicketView." Incorporate the following code:
+```
+
+```html
+@model TicketsApps.Models.TicketModel 
+@{
+    ViewData["Title"] = "View Your Ticket";
+}
+@Html.Partial("_TicketPdf", Model) 
+@using (Html.BeginForm()) 
+{ 
+    @Html.HiddenFor(model => model.Email) 
+    @Html.HiddenFor(model => model.Name) 
     @Html.HiddenFor(model => model.Phone)
-    @Html.HiddenFor(model => model.TicketDate)
+    @Html.HiddenFor(model => model.TicketDate) 
     @Html.HiddenFor(model => model.TicketNumber)
 
+
     <div class="form-group">
-        <div class="col-md-10 offset-md-2">
-            <button type="submit" class="btn btn-small">
-                <i class="fa fa-download"></i>
-                <span> Save PDF </span>
-            </button>
-        </div>
+	    <div class="col-md-10 pull-right">
+		    <button type="submit" class="btn btn-sm">
+			    <i class="fa fa-plus"></i>
+			    <span> Download PDF </span>
+		    </button>
+	    </div>
     </div>
 }
 ```
 
 ```html
-5. Right-click on the BookTicket file, proceed to add a new View and label it as "\_TicketPdf". Insert the code below:
+@model TicketsApps.Models.TicketModel @{ Layout = null; }
+<link href="../css/ticket.css" rel="stylesheet" />
+<div class="ticket">
+	<div class="stub">
+		<div class="top">
+			<span class="admit">VIP</span>
+			<span class="line"></span>
+			<span class="num">
+				@Model.TicketNumber
+				<span> Ticket</span>
+			</span>
+		</div>
+		<div class="number">1</div>
+		<div class="invite">Room Number</div>
+	</div>
+	<div class="check">
+		<div class="big">
+			Your <br />
+			Ticket
+		</div>
+		<div class="number">VIP</div>
+		<div class="info">
+			<section>
+				<div class="title">Date</div>
+				<div>@Model.TicketDate.ToShortDateString()</div>
+			</section>
+			<section>
+				<div class="title">Issued By</div>
+				<div>Admin</div>
+			</section>
+			<section>
+				<div the title="Invite number">Invite Number</div>
+				<div>@Model.TicketNumber</div>
+			</section>
+		</div>
+	</div>
+</div>
 ```
 
-Here's a paraphrased version of the provided HTML section with relative URL paths resolved to `ironpdf.com`:
+### Rewritten Section 5 Paragraph:
 
+5. Right-click on the `BookTicket` file in the solution explorer, select "Add View," and give it the name "_TicketPdf." Incorporate the following HTML structure:
 ```html
-@model TicketsApps.Models.TicketModel
-@{ Layout = null; }
-<link href="https://ironpdf.com/css/ticket.css" rel="stylesheet">
+@model TicketsApps.Models.TicketModel @{ Layout = null; }
+<link href="../css/ticket.css" rel="stylesheet" />
 <div class="ticket">
     <div class="stub">
         <div class="top">
             <span class="admit">VIP</span>
             <span class="line"></span>
             <span class="num">
-                @Model.TicketNumber<span> Ticket</span>
+                @Model.TicketNumber
+                <span> Ticket</span>
             </span>
         </div>
         <div class="number">1</div>
@@ -772,11 +989,11 @@ Here's a paraphrased version of the provided HTML section with relative URL path
     </div>
     <div class="check">
         <div class="big">
-            Your<br/>
+            Your <br />
             Ticket
         </div>
         <div class="number">VIP</div>
-        <div class="details">
+        <div class="info">
             <section>
                 <div class="title">Date</div>
                 <div>@Model.TicketDate.ToShortDateString()</div>
@@ -794,324 +1011,227 @@ Here's a paraphrased version of the provided HTML section with relative URL path
 </div>
 ```
 
-Changes made:
-- Updated the layout directive to be on its own line for clarity.
-- Changed "info" class to "details" for more descriptive naming.
-- Modified the relative path for the CSS file to point to the absolute URL hosted on `ironpdf.com`.
+```html
+@model TicketsApps.Models.TicketModel @{ Layout = null; }
+<link href="https://ironsoftware.com/img/tutorials/dot-net-core/css/ticket.css" rel="stylesheet" />
+<div class="ticket">
+	<div class="stub">
+		<div class="top">
+			<span class="admit">VIP</span>
+			<span class="line"></span>
+			<span class="num">
+				@Model.TicketNumber
+				<span> Ticket</span>
+			</span>
+		</div>
+		<div class="number">1</div>
+		<div class="invite">Room Number</div>
+	</div>
+	<div class="check">
+		<div class="big">
+			Your <br />
+			Ticket
+		</div>
+		<div class="number">VIP</div>
+		<div class="info">
+			<section>
+				<div class="title">Date</div>
+				<div>@Model.TicketDate.ToShortDateString()</div>
+			</section>
+			<section>
+				<div class="title">Issued By</div>
+				<div>Admin</div>
+			</section>
+			<section>
+				<div class="title">Invite Number</div>
+				<div>@Model.TicketNumber</div>
+			</section>
+		</div>
+	</div>
+</div>
+```
 
-6. Incorporate the "[ticket.css](https://ironpdf.com/img/tutorials/dot-net-core/ticket.css)" stylesheet into the "wwwroot/css" directory of your project.
+6. Next, incorporate the "ticket.css" file from [this link](https://ironpdf.com/img/tutorials/dot-net-core/ticket.css) into the "wwwroot/css" directory in your project.
 
-7. Integrate IronPDF into your project and accept the licensing terms.
+7. Ensure to include IronPDF in your project and accept the terms of the license agreement.
+```
 
 <img src="/img/tutorials/dot-net-core/31.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
 ```cs
-// Add the post method for TicketView to manage the download functionality
-[HttpPost]
-public ActionResult TicketView(TicketModel model)
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    // License configuration for IronPDF
-    IronPdf.License.LicenseKey = "YourLicenseKey";
-    
-    // Set up temporary folder path for processing
-    IronPdf.Installation.TempFolderPath = $@"{Directory.GetParent}/irontemp/";
-    
-    // Automatic configuration for dependencies in Linux and Docker environments
-    IronPdf.Installation.LinuxAndDockerDependenciesAutoConfig = true;
-
-    // Render the ticket view to HTML string
-    var htmlContent = this.RenderViewAsync("_TicketPdf", model);
-
-    // Initialize Chrome PDF renderer
-    var pdfRenderer = new IronPdf.ChromePdfRenderer();
-
-    // Generate PDF from the HTML content with the specified CSS
-    using var pdfDocument = pdfRenderer.RenderHtmlAsPdf(htmlContent.Result, @"wwwroot/css");
-    
-    // Return the PDF document as a file response to download
-    return File(pdfDocument.Stream.ToArray(), "application/pdf");
-}
-```
-
-Here's the paraphrased section of the article with resolved relative URL paths:
-
-```cs
-[HttpPost]
-public ActionResult DisplayTicketAsPdf(TicketModel ticketDetails)
-{
-    IronPdf.License.LicenseKey = "YourLicenseKey"; // Set your license key
-    IronPdf.Installation.TempFolderPath = $@"{Directory.GetParent(Environment.CurrentDirectory)}/irontemp/"; // Set temporary path for operations
-    IronPdf.Installation.LinuxAndDockerDependenciesAutoConfig = true; // Automatically configure dependencies for Linux and Docker environments
-    var htmlContent = this.RenderViewAsync("_TicketPdf", ticketDetails); // Convert the _TicketPdf view into HTML
-    ChromePdfRenderer pdfRenderer = new ChromePdfRenderer(); // Instantiate PDF renderer
-    using PdfDocument pdfDocument = pdfRenderer.RenderHtmlAsPdf(htmlContent.Result, @"wwwroot/css"); // Convert HTML to PDF with styling
-    return File(pdfDocument.Stream.ToArray(), "application/pdf"); // Return the generated PDF as a file download
-}
-```
-
-This revised version aligns with the original functionality but uses slightly different variable names and comments to explain each step clearer.
-
-Here is the paraphrased section:
-
----
-
-9. Develop a controller within the "Controller" directory and designate it as "ControllerExtensions". This controller is responsible for converting the partial view into a string format. Implement the extension using the code provided below:
-
-```cs
-using System.IO;
-using System.Threading.Tasks;
-
-// Static class for extending Controller functionalities
-public static class ControllerExtensions
-{
-    // Asynchronous method to render a view into a string
-    public static async Task<string> RenderViewAsync<TModel>(this Controller controller, string viewName, TModel model, bool partial = false)
+    public class Section9
     {
-        // Default to the action name if no view name is provided
-        if (string.IsNullOrEmpty(viewName))
+        public void Run()
         {
-            viewName = controller.ControllerContext.ActionDescriptor.ActionName;
-        }
-
-        // Assign the model to ViewData for use in the view
-        controller.ViewData.Model = model;
-
-        // StringWriter to capture the rendering output
-        using (var writer = new StringWriter())
-        {
-            // Get the view engine from the services and cast it
-            IViewEngine viewEngine = controller.HttpContext.RequestServices.GetService(typeof(ICompositeViewEngine)) as ICompositeViewEngine;
-
-            // Find the view in the application and check for success
-            ViewEngineResult viewResult = viewEngine.FindView(controller.ControllerContext, viewName, !partial);
-            if (!viewResult.Success)
-            {
-                return $"Unable to find a view with the name {viewName}";
-            }
-
-            // Set up the ViewContext and render the view into the writer
-            ViewContext viewContext = new ViewContext(controller.ControllerContext, viewResult.View, controller.ViewData, controller.TempData, writer, new HtmlHelperOptions());
-            await viewResult.View.RenderAsync(viewContext);
-
-            // Return the rendered view as a string
-            return writer.GetStringBuilder().ToString();
+            IronPdf.Installation.TempFolderPath = $@"{Directory.GetParent}/irontemp/";
+            IronPdf.Installation.LinuxAndDockerDependenciesAutoConfig = true;
+            var htmlContent = this.RenderViewAsync("_TicketPdf", model);
+            var pdfRenderer = new IronPdf.ChromePdfRenderer();
+            using var pdfDocument = pdfRenderer.RenderHtmlAsPdf(htmlContent.Result, @"wwwroot/css");
+            return File(pdfDocument.Stream.ToArray(), "application/pdf");
         }
     }
 }
 ```
 
----
-10. Execute the application and input your ticket details before clicking on the 'Save' button.
----
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section9
+    {
+        public void Run()
+        {
+            [HttpPost]
+            public ActionResult DownloadPDF(TicketModel model)
+            {
+                // Temporary path for processing the files
+                IronPdf.Installation.TempFolderPath = $@"{Directory.GetParent}/temp-pdf-files/";
+
+                // Ensure compatibility with Linux and Docker environments
+                IronPdf.Installation.LinuxAndDockerDependenciesAutoConfig = true;
+
+                // Convert the partial view to HTML string
+                var htmlContent = this.RenderViewAsync("_TicketPdf", model);
+
+                // Create an instance of ChromePdfRenderer
+                var pdfRenderer = new IronPdf.ChromePdfRenderer();
+
+                // Render the HTML string as a PDF with specified style sheet
+                using var pdfDocument = pdfRenderer.RenderHtmlAsPdf(htmlContent.Result, @"wwwroot/css");
+
+                // Return the rendered PDF as a downloadable file
+                return File(pdfDocument.Stream.ToArray(), "application/pdf");
+            }
+        }
+    }
+}
+```
+
+9. Develop a new controller in the "Controller" directory titled "ControllerExtensions". This controller will convert the partial view into a string format. Implement this extension using the code below:
+
+```cs
+using System.Threading.Tasks;
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section10
+    {
+        public void Run()
+        {
+            public static class ControllerExtensions
+            {
+                public static async Task<string> RenderViewAsync<TModel>(this Controller controller, string viewName, TModel model, bool partial = false)
+                {
+                    if (string.IsNullOrEmpty(viewName))
+                    {
+                        viewName = controller.ControllerContext.ActionDescriptor.ActionName;
+                    }
+                    controller.ViewData.Model = model;
+                    using (var writer = new StringWriter())
+                    {
+                        IViewEngine viewEngine = controller.HttpContext.RequestServices.GetService(typeof(ICompositeViewEngine)) as ICompositeViewEngine;
+                        ViewEngineResult viewResult = viewEngine.FindView(controller.ControllerContext, viewName, !partial);
+                        if (!viewResult.Success)
+                        {
+                            return $"A view with the name {viewName} could not be found";
+                        }
+                        ViewContext viewContext = new ViewContext(controller.ControllerContext, viewResult.View, controller.ViewData, controller.TempData, writer, new HtmlHelperOptions());
+                        await viewResult.View.RenderAsync(viewContext);
+                        return writer.GetStringBuilder().ToString();
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+Here's the paraphrased section with resolved relative URL paths:
+
+```cs
+using System.Threading.Tasks;  // System namespace for parallel and asynchronous tasks
+using IronPdf;  // Iron Software IronPdf library
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section10
+    {
+        public void Run()
+        {
+            // A static helper class to extend controller functionalities
+            public static class ControllerExtensions
+            {
+                // Method to asynchronously render a view to a string representation
+                public static async Task<string> RenderViewAsync<TModel>(this Controller controller, string viewName, TModel model, bool partial = false)
+                {
+                    // If no view name provided, use the current action name
+                    if (string.IsNullOrEmpty(viewName))
+                    {
+                        viewName = controller.ControllerContext.ActionDescriptor.ActionName;
+                    }
+                    // Assign the model to the view data model
+                    controller.ViewData.Model = model;
+                    using (var writer = new StringWriter())  // Create a text writer
+                    {
+                        // Get the view engine from the service provider
+                        IViewEngine viewEngine = controller.HttpContext.RequestServices.GetService(typeof(ICompositeViewEngine)) as ICompositeViewEngine;
+                        // Try to find the view
+                        ViewEngineResult viewResult = viewEngine.FindView(controller.ControllerContext, viewName, !partial);
+                        if (!viewResult.Success)  // If view not found
+                        {
+                            return $"The view named {viewName} could not be found";
+                        }
+                        // Create the view context
+                        ViewContext viewContext = new ViewContext(controller.ControllerContext, viewResult.View, controller.ViewData, controller.TempData, writer, new HtmlHelperOptions());
+                        // Render the view to the StringWriter
+                        await viewResult.View.RenderAsync(viewContext);
+                        // Return the rendered view as a string
+                        return writer.GetStringBuilder().ToString();
+                    }
+                }
+            }
+        }
+    }
+}
+``` 
+
+This rewritten section preserves the original logic and structure while rephrasing explanations and the process flow. Also, it ensures that the namespace and method usage are clearly outlined.
+
+Execute the application, input the necessary ticket details, and then select 'Save'.
 
 <img src="/img/tutorials/dot-net-core/32.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
-### Viewing the Created Ticket
+Below is the revised version of the section titled "11. View the generated ticket" with updated image URLs and a few editorial adjustments.
 
-After successfully filling out and saving the ticket information, you can view the generated ticket as follows:
+-----
+### 11. View the Generated Ticket
 
-```html
-<img src="https://www.ironpdf.com/img/tutorials/dot-net-core/33.webp" alt="Generated Ticket" class="img-responsive add-shadow img-margin" style="max-width:100%;">
-```
+Once you have populated the ticket information and performed the 'Save' operation, you'll be able to view the completed ticket. This step comes after the ticket data has been successfully input and the form submission has returned a successful save operation. The form will redirect you to a page where the ticket, structured with all the given details, is displayed for your review. 
+
+The appearance of the generated ticket is designed to be clear and user-friendly, ensuring all the relevant details are displayed neatly. You can view an example of what the generated ticket looks like below:
+
+![View the Generated Ticket](https://ironpdf.com/img/tutorials/dot-net-core/33.webp)
+
+This visual confirmation is crucial as it allows you to verify the information before proceeding to the next step, which typically involves downloading or printing the ticket.
 
 <img src="/img/tutorials/dot-net-core/33.webp" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 
-### PDF Ticket Download
+### Download Your PDF Ticket
 
-To obtain your ticket in PDF format, simply click the 'Download PDF' button. This will generate a PDF document containing your ticket details.
+To obtain a PDF version of your ticket, click on the 'Download Pdf' button. A PDF file containing the ticket details will then be generated for you to download.
 
-For those interested in the code used in this guide, you can acquire the full source code packaged in a ZIP file. Once downloaded, it's ready to be explored using Visual Studio. [Download the complete project here](https://ironpdf.com/img/tutorials/dot-net-core/TicketsApps.zip).
+For a comprehensive review of the code used in this tutorial, you can download the entire project in a ZIP file. This can be imported and accessed through Visual Studio for your own use and modifications. [Download the complete project here.](https://ironpdf.com/img/tutorials/dot-net-core/TicketsApps.zip)
 
 <hr class="separator">
 
-## 5. .NET PDF Render Options Chart
+## 5. Adjusting .NET PDF Rendering Settings
 
-Explore a range of advanced settings available for configuring PDF rendering preferences including margin adjustments, paper orientation, and paper sizes among other aspects.
+Explore advanced configurations available for customizing PDF rendering, such as margin adjustments, page orientation, and paper sizing.
 
-Here's a detailed table showcasing various configuration options available:
-
-<div class="content-table dotnet-core-pdf-table">
-  <table>
-    <tbody>
-      <tr class="tr-head">
-          <th class="tcol1">Class</th>
-          <th colspan="2" style="font-family:'Gotham-Light'">ChromePdfRenderer</th>
-      </tr>
-      <tr class="tr-head">
-          <th class="tcol1">Description</th>
-          <th colspan="2" style="font-family:'Gotham-Light'">Configure PDF print outputs, including paper size, DPI, plus headers and footers settings</th>
-      </tr>
-      <tr class="tr-head">
-          <th class="tcol1">Properties / functions</th>
-          <th class="tcol2">Type</th>
-          <th class="tcol3">Description</th>
-      </tr>
-      <tr>
-          <td>CustomCookies</td>
-          <td>Dictionary&lt;string, string&gt;</td>
-          <td>Set temporary custom cookies for HTML rendering; cookies do not persist beyond individual render sessions and require reassignment for each session.</td>
-      </tr>
-      <tr>
-          <td>PaperFit</td>
-          <td>VirtualPaperLayoutManager</td>
-          <td>Customize how content fits on the digital paper within your PDF, with options for scaling and layout style including Default Chrome Behavior, Zoomed, and Responsive CSS Layouts.</td>
-      </tr>
-      <tr>
-          <td>UseMarginsOnHeaderAndFooter</td>
-          <td>UseMargins</td>
-          <td>Option to apply document margin settings to headers and footers during rendering.</td>
-      </tr>
-      <tr>
-          <td>CreatePdfFormsFromHtml</td>
-          <td>bool</td>
-          <td>Converts HTML form elements to interactive PDF forms. Set to true by default.</td>
-      </tr>
-      <tr>
-          <td>CssMediaType</td>
-          <td>PdfCssMediaType</td>
-          <td>Allow Media="screen" CSS styles and style sheets to be applied, defaulting to PdfCssMediaType.Screen.</td>
-      </tr>
-      <tr>
-          <td>CustomCssUrl</td>
-          <td>string</td>
-          <td>Link a custom CSS style-sheet, either from a local file path or URL, applicable only when rendering from HTML.</td>
-      </tr>
-      <tr>
-          <td>EnableJavaScript</td>
-          <td>bool</td>
-          <td>Activate JavaScript execution before page rendering, beneficial for pages with Ajax or JavaScript-driven content. Default is false.</td>
-      </tr>
-      <tr>
-          <td>EnableMathematicalLaTex</td>
-          <td>bool</td>
-          <td>Permits the PDF to render Mathematical LaTeX commands and expressions.</td>
-      </tr>
-      <tr>
-          <td>Javascript</td>
-          <td>string</td>
-          <td>Execute custom JavaScript code after the HTML loads but before converting to PDF.</td>
-      </tr>
-      <tr>
-          <td>JavascriptMessageListener</td>
-          <td>StringDelegate</td>
-          <td>Defines a callback function triggered by browser JavaScript console messages during the rendering process.</td>
-      </tr>
-      <tr>
-          <td>FirstPageNumber</td>
-          <td>int</td>
-          <td>Start numbering pages from a specified number; defaults to 1.</td>
-      </tr>
-      <tr>
-          <td>TableOfContents</td>
-          <td>TableOfContentsTypes</td>
-          <td>Automatically generates a clickable table of contents based on HTML elements defined with an id "ironpdf-toc".</td>
-      </tr>
-      <tr>
-          <td>GrayScale</td>
-          <td>bool</td>
-          <td>Generates the document in grayscale to reduce file size and simplify printing. Defaults to false.</td>
-      </tr>
-        <tr>
-        <td>TextHeader</td>
-        <td rowspan="2">ITextHeaderFooter</td>
-        <td rowspan="2">Customize text-based headers and footers for each page, with mail-merge fields for dynamic data such as URLs, date, and title.</td>
-      </tr>
-      <tr>
-        <td>TextFooter</td>
-      </tr>
-      <tr>
-          <td>HtmlHeader</td>
-          <td rowspan="2">HtmlHeaderFooter</td>
-          <td rowspan="2">Set complex HTML content as headers for every PDF page, allowing richer formatting and visualization.</td>
-      </tr>
-      <tr>
-          <td>HtmlFooter</td>
-      </tr>
-      <tr>
-          <td>InputEncoding</td>
-          <td>Encoding</td>
-          <td>Specify the text encoding used, such as UTF-8 or other character encodings. Default is Encoding.UTF8.</td>
-      </tr>
-      <tr>
-          <td>MarginTop</td>
-          <td>double</td>
-          <td>Configure the top margin of the PDF in millimeters. Set to zero for edge-to-edge printing. Default is 25 mm.</td>
-      </tr>
-      <tr>
-          <td>MarginRight</td>
-          <td>double</td>
-          <td>Set the right margin of the PDF document in millimeters. Defaults to 25 mm, can be zeroed for specific formatting needs.</td>
-      </tr>
-      <tr>
-          <td>MarginBottom</td>
-          <td>double</td>
-          <td>Define the bottom margin in millimeters. This can also be set to zero for border-less printing applications. Default is 25 mm.</td>
-      </tr>
-      <tr>
-          <td>MarginLeft</td>
-          <td>double</td>
-          <td>Adjust the left margin in millimeters. Default setting is 25 mm, but can be reduced to zero for border-less layouts.</td>
-      </tr>
-      <tr>
-        <td>PaperOrientation</td>
-        <td>PdfPaperOrientation</td>
-        <td>Select the orientation of the PDF paper between Portrait and Landscape. Default is Portrait.</td>
-      </tr>
-      <tr>
-        <td>PaperSize</td>
-        <td>PdfPaperSize</td>
-        <td>Choose from standard preset paper sizes to suit various document types.</td>
-      </tr>
-      <tr>
-        <td>SetCustomPaperSizeinCentimeters</td>
-        <td rowspan="4">double</td>
-        <td>Determine the paper size in centimeters to cater to specific page dimensions.</td>
-      </tr>
-      <tr>
-        <td>SetCustomPaperSizeInInches</td>
-        <td>Define paper size using inch measurements.</td>
-      </tr>
-      <tr>
-        <td>SetCustomPaperSizeinMilimeters</td>
-        <td>Adjust the paper size in millimeters for precise formatting requirements.</td>
-      </tr>
-      <tr>
-        <td>SetCustomPaperSizeinPixelsOrPoints</td>
-        <td>Customize the paper size in pixels or points, useful for digital-specific formats.</td>
-      </tr>
-      <tr>
-        <td>PrintHtmlBackgrounds</td>
-        <td>Boolean</td>
-        <td>Whether to print background colors and images from the HTML content. Default is set to true.</td>
-      </tr>
-      <tr>
-        <td>RequestContext</td>
-        <td>RequestContexts</td>
-        <td>Define the request context for the render, managing the isolation of specific resources like cookies.</td>
-      </tr>
-      <tr>
-        <td>Timeout</td>
-        <td>Integer</td>
-        <td>Set a timeout for the render process, in seconds. Default is 60 seconds.</td>
-      </tr>
-      <tr>
-        <td>Title</td>
-        <td>String</td>
-        <td>Assign a name and title metadata to the PDF, useful for organizing documents and setting user-friendly names.</td>
-      </tr>
-      <tr>
-        <td>ForcePaperSize</td>
-        <td>Boolean</td>
-        <td>Ensures specified paper sizes are adhered to strictly by adjusting the page size post-render if necessary, correcting small discrepancies.</td>
-      </tr>
-      <tr>
-        <td>WaitFor</td>
-        <td>WaitFor</td>
-        <td>Configurable conditions that the renderer should wait for before completing the rendering process. Default setting waits for no specific events.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+Refer to the table below for a comprehensive guide to the numerous settings you can modify.
 
 <div class="content-table dotnet-core-pdf-table">
   <table>
@@ -1298,30 +1418,30 @@ Here's a detailed table showcasing various configuration options available:
 
 <hr class="separator">
 
-## .NET PDF Header and Footer Configuration Options
+## 6. Chart of Options for .NET PDF Headers and Footers
 
-The following chart details the configuration options available for adding headers and footers in .NET PDFs using IronPDF:
+The following table provides a detailed look at the options available for customizing headers and footers in .NET PDF documents using the `TextHeaderFooter` class.
 
 <div class="content-table dotnet-core-pdf-table">
   <table>
     <tbody>
       <tr class="tr-head">
-          <th class="tcol1">Component</th>
-          <th colspan="2" style="font-family:'Gotham-Light'">TextHeaderFooter</th>
+          <th class="tcol1">Class</th>
+          <th colspan="2">TextHeaderFooter</th>
       </tr>
       <tr class="tr-head">
-          <th class="tcol1">Overview</th>
-          <th colspan="2" style="font-family:'Gotham-Light'">Defines the text display options for headers and footers in PDF documents</th>
+          <th class="tcol1">Explanation</th>
+          <th colspan="2">Utilized for specifying the appearances of text-based headers and footers in the PDF documents</th>
       </tr>
       <tr class="tr-head">
-          <th class="tcol1">Attributes / Methods</th>
+          <th class="tcol1">Attributes and Methods</th>
           <th class="tcol2">Type</th>
-          <th class="tcol3">Usage</th>
+          <th class="tcol3">Detail</th>
       </tr>
       <tr>
           <td>CenterText</td>
           <td rowspan="3">string</td>
-          <td rowspan="3">Positions the text centrally, or to the left or right of the PDF header or footer. Supports metadata placeholders such as {page}, {total-pages}, {url}, {date}, {time}, {html-title}, and {pdf-title}.</td>
+          <td rowspan="3">Defines texts positioned at the center, left, or right in PDF's header or footer. These elements can dynamically merge document metadata such as: {page}, {total-pages}, {url}, {date}, {time}, {html-title}, {pdf-title}</td>
       </tr>
       <tr>
           <td>LeftText</td>
@@ -1332,28 +1452,28 @@ The following chart details the configuration options available for adding heade
       <tr>
           <td>DrawDividerLine</td>
           <td>Boolean</td>
-          <td>Includes a horizontal line separator between the header/footer and the main content across every page.</td>
+          <td>Incorporates a horizontal line separating the content from header or footer throughout the PDF.</td>
       </tr>
       <tr>
-          <td>DrawDividerLineColor</td>
-          <td>Color</td>
-          <td>Specifies the color of the divider line used by IronPdf.TextHeaderFooter.DrawDividerLine.</td>
+        <td>DrawDividerLineColor</td>
+        <td>Color</td>
+        <td>Specifies the color for the divider line set by `DrawDividerLine`.</td>
       </tr>
       <tr>
           <td>Font</td>
           <td>PdfFont</td>
-          <td>Determines the font family for the PDF document content. Helvetica is set by default.</td>
+          <td>Indicates the font family to be utilized within the PDF. The default option is IronSoftware.Drawing.FontTypes.Helvetica.</td>
       </tr>
       <tr>
           <td>FontSize</td>
           <td>Double</td>
-          <td>Controls the size of the font used in points.</td>
+          <td>Specifies the size of the font in the header or footer text, measured in pixels.</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-This table encapsulates key settings that can be adjusted to customize the headers and footers in your PDF documents when using IronPDF. Each option allows for a detailed customization of the text layout and style, ensuring your PDFs maintain a professional and coherent appearance across all pages.
+The provided chart below serves to guide developers in configuring PDF header and footer options through attributes and methods inherent to the `TextHeaderFooter` class, enhancing layout customization within .NET PDF creation and manipulation tasks.
 
 <div class="content-table dotnet-core-pdf-table">
   <table>
@@ -1408,97 +1528,112 @@ This table encapsulates key settings that can be adjusted to customize the heade
 
 <hr class="separator">
 
-## 7. Configure PDF Rendering Settings
+## 7. Set Up PDF Rendering Preferences
 
-Here, we'll explore how to set up the PDF rendering options to fine-tune the output of your PDF documents.
+Explore how to adjust the settings for generating PDF documents.
 
-Here's the paraphrased section of the article, with URL paths accurately resolved against ironsoftware.com:
+The following code example demonstrates the configuration and utilization of rendering options in IronPDF to create a PDF file from an HTML document, specifically setting the paper size to A4 and the orientation to portrait before saving the output.
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey"; // Set your license key
-ChromePdfRenderer pdfRenderer = new ChromePdfRenderer(); // Create a PDF renderer
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section11
+    {
+        public void Run()
+        {
+            // Assign your license key to access full features
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            
+            // Initialize the PDF Renderer
+            ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
 
-// Configure the rendering options 
-pdfRenderer.RenderingOptions.PaperSize = IronPdf.Rendering.PdfPaperSize.A4; // Set paper size to A4
-pdfRenderer.RenderingOptions.PaperOrientation = IronPdf.Rendering.PdfPaperOrientation.Portrait; // Set paper orientation to portrait
+            // Configure rendering parameters
+            pdfRenderer.RenderingOptions.PaperSize = IronPdf.Rendering.PdfPaperSize.A4;
+            pdfRenderer.RenderingOptions.PaperOrientation = IronPdf.Rendering.PdfPaperOrientation.Portrait;
 
-// Generate PDF from HTML and save it
-pdfRenderer.RenderHtmlFileAsPdf(@"testFile.html").SaveAs("GeneratedFile.pdf"); // Render and save the PDF
+            // Generate the PDF from HTML file and save it
+            pdfRenderer.RenderHtmlFileAsPdf(@"testFile.html").SaveAs("GeneratedFile.pdf");
+        }
+    }
+}
 ```
 
 <hr class="separator">
 
-## 8. Docker Integration with .NET Core Applications
+## 8. Docker and .NET Core Integration
 
-Docker provides a comprehensive platform-as-a-service solution that leverages OS-level virtualization to deliver software in packages referred to as containers. These containers are isolated from each other, each bundling its own software, libraries, and configuration files, and can communicate via well-defined channels.
+Docker is an essential platform-as-a-service (PaaS) that uses OS-level virtualization to package software into standardized units called containers. These containers are isolated but can communicate through predefined channels. They bundle their own software, libraries, and configuration files, significantly simplifying the dependency management across different computing environments.
 
-To deepen your understanding, check out this essential guide to [Docker and ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images). Moreover, further exploration on [.NET with Docker](https://docs.microsoft.com/en-us/dotnet/core/docker/introduction) and insights on [crafting containers for .NET Core applications](https://docs.microsoft.com/en-us/dotnet/core/docker/build-container) are available to enhance your learning.
+For a deeper understanding of Docker's integration with ASP.NET Core applications, consider visiting these detailed guides:
 
-### Starting with Docker
+- [Building .NET Docker Images](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images)
+- Introduction to [.NET and Docker](https://docs.microsoft.com/en-us/dotnet/core/docker/introduction)
+- [How to Build Containers for .NET Core Applications](https://docs.microsoft.com/en-us/dotnet/core/docker/build-container)
 
-To initiate your journey with Docker, visit the Docker website to [download and install Docker](https://www.docker.com/).
+### 8.1 Installing Docker
 
-![Download Docker](https://ironpdf.com/img/tutorials/dot-net-core/40.png)
+To install Docker, begin by visiting the Docker homepage:
 
-Begin by clicking 'Get Started'.
+[Install Docker from Official Site](https://www.docker.com/)
 
-![Install Docker](https://ironpdf.com/img/tutorials/dot-net-core/41.png)
+Follow the steps below to download and install Docker on your system:
 
-Proceed by selecting the download for Mac or Windows according to your operating system.
+1. Click on 'Get Started' to navigate through the setup.
+2. Select the appropriate download link for Mac or Windows.
 
-![Select Operating System](https://ironpdf.com/img/tutorials/dot-net-core/42.png)
+   ![Download Docker Installation](https://ironsoftware.com/img/tutorials/dot-net-core/41.png)
 
-Register for a free account and then log in.
+3. Complete the signup process, if necessary, and then log in.
+4. Download the Docker installation file for Windows.
 
-![Login to Docker](https://ironpdf.com/img/tutorials/dot-net-core/43.png)
+   ![Download Docker for Windows](https://ironsoftware.com/img/tutorials/dot-net-core/43.png)
 
-Download the appropriate version for Windows.
+5. Proceed with the installation of Docker. This step might require restarting your computer.
 
-![Docker for Windows](https://ironpdf.com/img/tutorials/dot-net-core/44.png)
+   ![Installing Docker](https://ironsoftware.com/img/tutorials/dot-net-core/45.png)
 
-Follow through with the installation process.
+6. Post restart, log into Docker to finalize the setup.
 
-![Installation Process](https://ironpdf.com/img/tutorials/dot-net-core/45.png)
+   ![Login to Docker](https://ironsoftware.com/img/tutorials/dot-net-core/46.png)
 
-A system restart may be necessary. Once your machine restarts, log back into Docker.
+7. Test your Docker installation by running a simple "hello world" container via your command line or PowerShell:
 
-![Restart and Login](https://ironpdf.com/img/tutorials/dot-net-core/46.png)
+   ```bash
+   Docker run hello-world
+   ```
 
-You can test Docker installation by running the "hello-world" command in your command prompt or PowerShell:
+   ![Docker Hello World](https://ironsoftware.com/img/tutorials/dot-net-core/47.png)
 
-```
-Docker run hello-world
-```
+Here are some essential Docker commands to get you started:
 
-![Run Hello World](https://ironpdf.com/img/tutorials/dot-net-core/47.png)
+- `Docker images`: List all images available on your machine.
+- `Docker ps`: Show all running containers.
+- `Docker ps -a`: Display all containers on your system.
 
-Understanding Docker commands is crucial; here are a few to get you started:
-- `Docker images` — List all available images on this machine
-- `Docker ps` — List all running containers
-- `Docker ps -a` — List all containers
+### 8.2 Running in a Linux Container
 
-### Embracing Linux Containers
+Below are some visuals showing the process of running applications within a Linux container environment:
 
-Interact and manage your containers more effectively using proven strategies and best practices.
+![Linux Container](https://ironsoftware.com/img/tutorials/dot-net-core/38.png)
 
-![Linux Integration](https://ironpdf.com/img/tutorials/dot-net-core/38.png)
-![Effective Container Management](https://ironpdf.com/img/tutorials/dot-net-core/39.png)
+![Using Linux Container](https://ironsoftware.com/img/tutorials/dot-net-core/39.png)
 
-This introduction to Docker within .NET Core applications should serve as a solid foundation as you venture into the world of containerization, laying the groundwork for enhanced development practices and application deployment.
+Docker enhances the deployment of applications by ensuring consistency across environments, simplifying the developer's task in shipping and running applications nearly anywhere.
 
 ### 8.1. Understanding Docker
 
-Docker is a collection of platform-as-a-service products that utilize OS-level virtualization to distribute software in self-contained units known as containers. These containers are self-sufficient, each containing their own software, libraries, and configuration files. They are isolated from each other but can interact seamlessly through well-defined channels.
+Docker represents a suite of platform as a service (PaaS) products that utilize OS-level virtualization to deploy software in units known as containers. These containers are separated from one another and come packaged with their own software, libraries, and configuration files; they interact amongst themselves via well-defined channels.
 
-For more insights on integrating Docker with ASP.NET Core applications, you can visit this guide on [building .NET Docker images](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images).
+Discover more about integrating [Docker with ASP.NET Core applications](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images).
 
-We will proceed to practical applications with Docker, however, for a thorough introduction to Docker in the context of .NET, explore this [introductory guide to .NET and Docker](https://docs.microsoft.com/en-us/dotnet/core/docker/introduction). Moreover, to delve deeper into creating containers for .NET Core apps, refer to [this detailed documentation](https://docs.microsoft.com/en-us/dotnet/core/docker/build-container).
+We're moving forward with practical Docker use, but for a more in-depth exploration, see these resources on [.NET with Docker](https://docs.microsoft.com/en-us/dotnet/core/docker/introduction) and how to [construct containers for .NET Core applications](https://docs.microsoft.com/en-us/dotnet/core/docker/build-container).
 
-Now, let’s dive into Docker and start crafting our containers.
+Let's dive into using Docker.
 
-### 8.2. Docker Installation Process
+### 8.2. Install Docker
 
-For Docker installation, you can visit the Docker website at [this link](https://www.docker.com/) to get started with the installation process.
+Begin by navigating to the Docker website to [download and install Docker](https://www.docker.com/).
 
 <a style="text-decoration: none" href="/img/tutorials/dot-net-core/40.png" target="_blank">
 <img src="/img/tutorials/dot-net-core/40.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
@@ -1508,62 +1643,94 @@ Click to begin.
 <a style="text-decoration: none" href="/img/tutorials/dot-net-core/41.png" target="_blank">
 <img src="/img/tutorials/dot-net-core/41.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
-Click to download for both Mac and Windows systems.
+Download for both Mac and Windows systems.
 
 <a style="text-decoration: none" href="/img/tutorials/dot-net-core/42.png" target="_blank">
 <img src="/img/tutorials/dot-net-core/42.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
-Register for a complimentary account, followed by logging in.
+Sign up at no cost, then proceed to log in.
 
 <a style="text-decoration: none" href="/img/tutorials/dot-net-core/43.png" target="_blank">
 <img src="/img/tutorials/dot-net-core/43.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
-\[Download Docker for Windows\]\(https://ironsoftware.com/img/tutorials/dot-net-core/44.png\)
-
-Initiate the installation of Docker.
+Download Docker for your Windows system.
 
 <a style="text-decoration: none" href="/img/tutorials/dot-net-core/44.png" target="_blank">
 <img src="/img/tutorials/dot-net-core/44.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
-### Begin Docker Installation Process
+# Docker Installation Guide
 
-Get started by setting up Docker on your system. This involves downloading the software from the Docker website, which is straightforward and user-friendly.
+***Based on <https://ironpdf.com/tutorials/dotnet-core-pdf-generating/>***
 
-1. Access Docker's official site by navigating to [Install Docker](https://www.docker.com/).
 
-   ![Navigate to Docker Website](https://ironpdf.com/img/tutorials/dot-net-core/40.png)
+Begin the installation process for Docker by visiting the Docker homepage. 
 
-2. Opt to download the version compatible with your system, either for Mac or Windows.
+Follow these steps:
 
-   ![Choose system version](https://ironpdf.com/img/tutorials/dot-net-core/41.png)
+1. Navigate to the Docker website to download the Docker application for either Mac or Windows.
 
-3. After downloading, proceed by installing Docker. During the installation, you may need to sign up for a free account or log in if you already have one.
+   ![](https://ironpdf.com/img/tutorials/dot-net-core/40.png)
 
-   ![Download and Install](https://ironpdf.com/img/tutorials/dot-net-core/42.png)
+   Click the "Get Started" button.
 
-4. Upon completing the installation, a system restart might be required. Once your machine is up and running again, log into Docker to finalize the setup.
+2. Proceed to download the appropriate version for your operating system.
 
-   ![Installation completion and restart](https://ironpdf.com/img/tutorials/dot-net-core/43.png)
+   ![](https://ironpdf.com/img/tutorials/dot-net-core/41.png)
 
-5. With Docker installed, verify the installation by running the Docker "hello world" script either through the Windows command line or PowerShell:
+   Select "Download for Mac and Windows."
 
-   ```bash
-   Docker run hello-world
-   ```
+3. Sign up for a free account and then log in to continue.
 
-   ![Run hello world](https://ironpdf.com/img/tutorials/dot-net-core/44.png)
+   ![](https://ironpdf.com/img/tutorials/dot-net-core/42.png)
 
-After these steps, Docker will be successfully installed on your system, and you can start using it to containerize and manage your applications effectively.
+   Sign up by entering your details, or log in if you already have an account.
+
+4. After logging in, click the link to download Docker for Windows.
+
+   ![](https://ironpdf.com/img/tutorials/dot-net-core/43.png)
+
+   Follow the prompts to begin the download.
+
+5. Execute the installer and follow the installation procedure.
+
+   ![](https://ironpdf.com/img/tutorials/dot-net-core/44.png)
+
+   Run the installer and proceed as directed.
+
+6. A system reboot may be required to complete the installation.
+
+   ![](https://ironpdf.com/img/tutorials/dot-net-core/45.png)
+
+   Restart your computer to finalize the Docker installation.
+
+7. Once your machine restarts, log in to Docker to start using it.
+
+   ![](https://ironpdf.com/img/tutorials/dot-net-core/46.png)
+
+   Log back into Docker after rebooting to activate the application.
+
+Now, Docker should be successfully installed on your device, and you’re ready to run the Docker "hello world" command to verify the installation.
+
+```bash
+Docker run hello-world
+```
+
+   ![](https://ironpdf.com/img/tutorials/dot-net-core/47.png)
+
+The successful execution of this command indicates that Docker is correctly set up and operational on your system.
 
 <a style="text-decoration: none" href="/img/tutorials/dot-net-core/45.png" target="_blank">
 <img src="/img/tutorials/dot-net-core/45.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
-Following the installation, your system will need to be restarted. Once rebooted, proceed to log in to Docker.
+You'll need to restart your computer. Once it has rebooted, log in to Docker.
 
 <a style="text-decoration: none" href="/img/tutorials/dot-net-core/46.png" target="_blank">
 <img src="/img/tutorials/dot-net-core/46.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
-You can initiate the Docker "hello world" example by launching either the Windows Command Prompt or PowerShell and entering the following command:
+Here's a paraphrased version of the provided section, with the relative URL paths resolved to `ironsoftware.com`:
+
+---
+You can test Docker on your system by launching the Windows command line or PowerShell, and executing the following command:
 
 ```bash
 Docker run hello-world
@@ -1572,13 +1739,15 @@ Docker run hello-world
 <a style="text-decoration: none" href="/img/tutorials/dot-net-core/47.png" target="_blank">
 <img src="/img/tutorials/dot-net-core/47.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
-Here's a summary of the essential Docker commands you need to know:
+Below are essential Docker command lines for navigating and managing containers:
 
-- `Docker images` => Lists all Docker images currently installed on this system.
-- `Docker ps` => Displays all containers that are currently running.
-- `Docker ps -a` => Shows all containers, including those that are stopped.
+- `Docker images` — Lists all Docker images currently available on this system.
+- `Docker ps` — Displays all containers that are currently running.
+- `Docker ps -a` — Shows all existing containers on the machine, regardless of their status.
 
-### 8.3. Deploying on a Linux Container
+### 8.3. Deploying to a Linux Container
+
+Deploying your .NET Core applications within Linux containers offers enhanced portability and consistency across different environments. Follow the steps below to start using Linux containers for your .NET applications.
 
 <a style="text-decoration: none" href="https://ironpdf.com/img/tutorials/dot-net-core/38.png" target="_blank">
 <img src="https://ironpdf.com/img/tutorials/dot-net-core/38.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
@@ -1592,670 +1761,892 @@ Here's a summary of the essential Docker commands you need to know:
 
 <hr class="separator">
 
-## Handling Existing PDF Files in .NET Core
+## 9. Manipulating Existing PDFs in .NET Core
 
-Working with existing PDF documents can be intricate, but leveraging IronPDF simplifies these processes, including operations on encrypted files. Below are steps on how to work with existing PDF documents using the IronPDF library.
+### 9.1 Open PDF Files
 
-### 9.1 Loading PDFs
-
-Load either unencrypted or encrypted PDF files with ease using IronPDF:
+You can open and work with existing PDF files in your .NET applications. The following examples demonstrate how to open both standard and password-protected PDFs:
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Loading a standard PDF
-PdfDocument standardPdf = PdfDocument.FromFile("sample.pdf");
-
-// Loading a secure PDF requires a password
-PdfDocument securePdf = PdfDocument.FromFile("secure_sample.pdf", "SecurePassword");
-```
-
-### 9.2 Combining Multiple PDFs
-
-IronPDF allows the merging of several PDF files into a single document:
-
-```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-var pdfList = new List<PdfDocument>
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    PdfDocument.FromFile("file1.pdf"),
-    PdfDocument.FromFile("file2.pdf"),
-    PdfDocument.FromFile("file3.pdf")
-};
-
-using PdfDocument resultPdf = PdfDocument.Merge(pdfList);
-resultPdf.SaveAs("combined.pdf");
-
-// Cleaning up resources by disposing of PDFs
-foreach (PdfDocument pdf in pdfList)
-{
-    pdf.Dispose();
+    public class Section12
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument standardPdf = PdfDocument.FromFile("normal.pdf");
+            PdfDocument securePdf = PdfDocument.FromFile("encrypted.pdf", "PasswordHere");
+        }
+    }
 }
 ```
 
-Additionally, append a PDF at the end of an existing one or insert a PDF at a specified index within another PDF:
+### 9.2 Merge PDF Documents
+
+Easily combine several PDFs into one document. Below, you'll see how to merge three PDF files:
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-PdfDocument basePdf = PdfDocument.FromFile("base.pdf");
-PdfDocument appendPdf = PdfDocument.FromFile("append.pdf");
-
-// Append another PDF to the existing one
-basePdf.AppendPdf(appendPdf);
-basePdf.SaveAs("extended.pdf");
-
-// Inserting a PDF at a specific index
-basePdf.InsertPdf(appendPdf, 0);
-basePdf.SaveAs("modified.pdf");
-```
-
-### 9.3 Applying Headers and Footers
-
-Enhance your PDFs by adding custom headers and footers, utilizing text or rich HTML content:
-
-**Adding headers to an existing PDF:**
-
-```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-PdfDocument pdfDoc = PdfDocument.FromFile("example.pdf");
-TextHeaderFooter textHeader = new TextHeaderFooter
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    CenterText = "Company Header",
-    LeftText = "{date} {time}",
-    RightText = "{page} of {total-pages}",
-    DrawDividerLine = true,
-    FontSize = 12
-};
-
-pdfDoc.AddTextHeaders(textHeader);
-pdfDoc.SaveAs("withHeader.pdf");
-
-HtmlHeaderFooter htmlFooter = new HtmlHeaderFooter
-{
-    HtmlFragment = "<span style='color:navy;'>Page {page} of {total-pages}</span>",
-    DrawDividerLine = true,
-    MaxHeight = 15 // in millimeters
-};
-
-pdfDoc.AddHtmlFooters(htmlFooter);
-pdfDoc.SaveAs("complete.pdf");
-```
-
-This section demonstrates the powerful capabilities IronPDF offers for managing and manipulating existing PDF files within .NET Core applications, further detailed by numerous custom options available for text and HTML headers and footers.
-
-### 9.1 Opening Existing PDF Documents
-
-Just as you can generate PDFs from URLs and HTML (whether as text or complete files), you can also manipulate pre-existing PDF documents.
-
-Here's how you can open both standard and encrypted PDFs using a password:
-
-```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Loading an unsealed PDF document
-PdfDocument regularPdf = PdfDocument.FromFile("testFile.pdf");
-
-// Loading a secured PDF document using a password
-PdfDocument passwordProtectedPdf = PdfDocument.FromFile("testFile2.pdf", "MyPassword");
-```
-
-### 9.2 Combine Multiple PDFs into One
-
-The following code snippet demonstrates how to combine several PDF files into a single PDF document:
-
-```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-List<PdfDocument> pdfDocuments = new List<PdfDocument>();
-pdfDocuments.Add(PdfDocument.FromFile("1.pdf"));
-pdfDocuments.Add(PdfDocument.FromFile("2.pdf"));
-pdfDocuments.Add(PdfDocument.FromFile("3.pdf"));
-
-using PdfDocument combinedPdf = PdfDocument.Merge(pdfDocuments);
-combinedPdf.SaveAs("combinedFile.pdf");
-
-foreach (PdfDocument pdf in pdfDocuments)
-{
-    pdf.Dispose();
+    public class Section13
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            var documents = new List<PdfDocument>
+            {
+                PdfDocument.FromFile("file1.pdf"),
+                PdfDocument.FromFile("file2.pdf"),
+                PdfDocument.FromFile("file3.pdf")
+            };
+            using PdfDocument mergedPDF = PdfDocument.Merge(documents);
+            mergedPDF.SaveAs("combined.pdf");
+            foreach (PdfDocument doc in documents)
+            {
+                doc.Dispose();
+            }
+        }
+    }
 }
 ```
 
-This method uses `PdfDocument.Merge()` to consolidate multiple PDF files. It then saves the combined PDF as `"combinedFile.pdf"`. Ensure all individual PDF files are properly disposed of after merging to free up resources.
+Append PDFs or insert one PDF into another at a specific position:
 
 ```cs
-// Assign your license key
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Create a list of PdfDocument objects
-List<PdfDocument> pdfList = new List<PdfDocument>();
-pdfList.Add(PdfDocument.FromFile("1.pdf"));
-pdfList.Add(PdfDocument.FromFile("2.pdf"));
-pdfList.Add(PdfDocument.FromFile("3.pdf"));
-
-// Merge all PDFs into a single document
-using (PdfDocument mergedPdf = PdfDocument.Merge(pdfList))
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    // Save the merged PDF to a new file
-    mergedPdf.SaveAs("mergedFile.pdf");
+    public class Section14
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument originalPdf = PdfDocument.FromFile("original.pdf");
+            PdfDocument additionalPdf = PdfDocument.FromFile("insert.pdf");
+            originalPdf.AppendPdf(additionalPdf);
+            originalPdf.SaveAs("appendedFile.pdf");
+        }
+    }
 }
 
-// Properly dispose all individual PDF documents to free resources
-foreach (PdfDocument singlePdf in pdfList)
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    singlePdf.Dispose();
+    public class Section15
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument basePdf = PdfDocument.FromFile("base.pdf");
+            PdfDocument insertPdf = PdfDocument.FromFile("insert.pdf");
+            basePdf.InsertPdf(insertPdf, 0);
+            basePdf.SaveAs("EnhancedFile.pdf");
+        }
+    }
 }
 ```
 
-Here is a revised version of the section you provided, with relative URL paths resolved against `ironpdf.com`:
+### 9.3 Add Headers and Footers
+
+Enhance your PDFs by adding customized headers and footers. Here is how you can add textual or HTML content as headers and footers:
+
+**Add Text Headers and HTML Footers**
+
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section16
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument pdfDoc = PdfDocument.FromFile("demo.pdf");
+            var textHeader = new TextHeaderFooter()
+            {
+                CenterText = "Document Title",
+                LeftText = "{date} {time}",
+                RightText = "{page} of {total-pages}",
+                DrawDividerLine = true,
+                FontSize = 12
+            };
+            pdfDoc.AddTextHeaders(textHeader);
+            pdfDoc.SaveAs("WithTextHeaders.pdf");
+
+            var htmlFooter = new HtmlHeaderFooter()
+            {
+                HtmlFragment = "<div style='text-align:center;'>Page {page} of {total-pages}</div>",
+                DrawDividerLine = true,
+                MaxHeight = 15  // in millimeters
+            };
+            pdfDoc.AddHtmlFooters(htmlFooter);
+            pdfDoc.SaveAs("CompleteDocument.pdf");
+        }
+    }
+}
+```
+
+This snippet demonstrates opening, merging, and adding headers and footers to PDF documents using IronPDF in a .NET Core environment. Adapt and expand upon these examples to suit specific project needs and to fully leverage the capabilities of IronPDF.
+
+### 9.1. Opening Existing PDF Files
+
+Just as you can generate a PDF from URLs and HTML (either as strings or files), you similarly have the capability to manipulate already existing PDF files.
+
+Here's how you can open a standard or password-protected encrypted PDF document:
+
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section12
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            // Load a regular PDF
+            PdfDocument regularPdf = PdfDocument.FromFile("testFile.pdf");
+            
+            // Load a password-protected PDF
+            PdfDocument protectedPdf = PdfDocument.FromFile("secureTestFile.pdf", "MySecretPassword");
+        }
+    }
+}
+```
+
+Here's a paraphrased version of the provided code section:
+
+```cs
+using IronPdf;
+// Define the namespace for the PDF operations
+namespace ironpdf.DotnetCorePdfOperations
+{
+    // Class definition for interacting with PDF files
+    public class PdfInteractionExample
+    {
+        // Method to demonstrate opening PDF files
+        public void Execute()
+        {
+            // Set the license key for IronPDF
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+
+            // Load a non-secured PDF document from the storage
+            PdfDocument regularPdf = PdfDocument.FromFile("testFile.pdf");
+
+            // Load a secured PDF document using the provided password
+            PdfDocument securePdf = PdfDocument.FromFile("testFile2.pdf", "MyPassword");
+        }
+    }
+}
+```
+
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section13
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            List<PdfDocument> PDFs = new List<PdfDocument>();
+            PDFs.Add(PdfDocument.FromFile("1.pdf"));
+            PDFs.Add(PdfDocument.FromFile("2.pdf"));
+            PDFs.Add(PdfDocument.FromFile("3.pdf"));
+            using PdfDocument PDF = PdfDocument.Merge(PDFs);
+            PDF.SaveAs("mergedFile.pdf");
+            foreach (PdfDocument pdf in PDFs)
+            {
+                pdf.Dispose();
+            }
+        }
+    }
+}
+```
+
+In this example, the process of merging multiple PDF files into a single document is demonstrated. Importing the necessary IronPdf namespace and employing the `IronPdf` class, several PDF files are added to a list, subsequently merged, and the final consolidated PDF is saved as "mergedFile.pdf". Post-saving, the original documents in the list are disposed of to free up resources.
+
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class MergePDFExample
+    {
+        public void Execute()
+        {
+            // Set the license key for IronPDF
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+
+            // Create a list to hold the PDF documents
+            List<PdfDocument> pdfDocuments = new List<PdfDocument>();
+            // Adding PDF files to the list
+            pdfDocuments.Add(PdfDocument.FromFile("1.pdf"));
+            pdfDocuments.Add(PdfDocument.FromFile("2.pdf"));
+            pdfDocuments.Add(PdfDocument.FromFile("3.pdf"));
+
+            // Merge the PDF documents into a single PDF
+            using PdfDocument mergedPdf = PdfDocument.Merge(pdfDocuments);
+            // Save the merged PDF file
+            mergedPdf.SaveAs("mergedFile.pdf");
+
+            // Clean up: Dispose of the PDF documents to free resources
+            foreach (PdfDocument doc in pdfDocuments)
+            {
+                doc.Dispose();
+            }
+        }
+    }
+}
+```
+
+Here's the paraphrased section with resolved URLs:
 
 ---
-Append an additional PDF to an existing file with the following steps:
+### How to Append an Existing PDF to Another
+
+You can expand your current PDF document by appending another file to its end. Here is how you can achieve this:
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-PdfDocument pdf = PdfDocument.FromFile("1.pdf");
-PdfDocument pdf2 = PdfDocument.FromFile("2.pdf");
-
-pdf.AppendPdf(pdf2);
-pdf.SaveAs("appendedFile.pdf");
-```
-
-This code snippet demonstrates how to append the contents of one PDF file, `pdf2`, to another, `pdf`, using IronPDF's PDF document management features.
-
-```cs
-// Set your license key to unlock IronPdf features
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Load two PDF files from the local storage
-PdfDocument originalPdf = PdfDocument.FromFile("1.pdf");
-PdfDocument additionalPdf = PdfDocument.FromFile("2.pdf");
-
-// Append the second PDF to the end of the first PDF
-originalPdf.AppendPdf(additionalPdf);
-// Save the combined PDF to a new file
-originalPdf.SaveAs("appendedFile.pdf");
-```
-
-```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-PdfDocument mainPdf = PdfDocument.FromFile("1.pdf");
-PdfDocument insertablePdf = PdfDocument.FromFile("2.pdf");
-
-// Inserts the second PDF at the beginning of the first PDF
-mainPdf.InsertPdf(insertablePdf, 0);
-
-mainPdf.SaveAs("InsertIntoSpecificIndex.pdf");
-```
-
-Here's the paraphrased section with the relative URL paths resolved:
-
-```cs
-// Initialize the licensing key for your IronPDF installation.
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Load the primary PDF document.
-PdfDocument mainPdf = PdfDocument.FromFile("1.pdf");
-
-// Load another PDF document to insert.
-PdfDocument secondaryPdf = PdfDocument.FromFile("2.pdf");
-
-// Insert the secondary PDF at the beginning of the main PDF.
-mainPdf.InsertPdf(secondaryPdf, 0);
-
-// Save the updated document to a new file.
-mainPdf.SaveAs("InsertIntoSpecificIndex.pdf");
-```
-
-### 9.3 Incorporating Headers or Footers into PDF Documents
-
-It's possible to insert headers and footers either into an existing PDF document or during the PDF creation process from HTML or URL sources.
-
-There are primarily two classes available for adding headers and footers into your PDFs:
-
-- `TextHeaderFooter`: This class allows you to add plain text into the header or footer sections.
-- `HtmlHeaderFooter`: Utilize this class to incorporate more complex HTML content and images in headers or footers.
-
-Let's explore how you can utilize these classes to add headers and footers, either to existing PDFs or while generating them.
-
-**9.3.1 Adding Headers to an Existing PDF**
-
-Here's how you can open an existing PDF file and apply textual and HTML headers and footers using the `AddTextHeaders` and `AddHtmlFooters` methods:
-
-```cs
-// Set the license key for IronPDF
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Load a PDF document from the file system
-PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
-
-// Create a text-based header configuration
-TextHeaderFooter header = new TextHeaderFooter()
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    CenterText = "Pdf Header", // Centered text
-    LeftText = "{date} {time}", // Left text showing date and time
-    RightText = "{page} of {total-pages}", // Right text showing page count
-    DrawDividerLine = true, // Draw a line under the header
-    FontSize = 10 // Set the font size
-};
+    public class Section14
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument originalPdf = PdfDocument.FromFile("1.pdf"); // Load the original PDF
+            PdfDocument additionalPdf = PdfDocument.FromFile("2.pdf"); // Load the PDF to append
 
-// Add the configured text header to the PDF
-pdf.AddTextHeaders(header);
+            originalPdf.AppendPdf(additionalPdf); // Append the additional PDF to the end of the original
+            originalPdf.SaveAs("appendedFile.pdf"); // Save the combined document
+        }
+    }
+}
+``` 
 
-// Save the PDF with the text header
-pdf.SaveAs("withHeader.pdf");
+This method facilitates the incorporation of content from multiple PDF files into a single document, streamlining access and improving document management.
 
-// Prepare an HTML footer
-HtmlHeaderFooter footer = new HtmlHeaderFooter()
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    HtmlFragment = "<span style='text-align:right'> page {page} of {totalpages}</span>", // Right-aligned text showing page numbers
-    DrawDividerLine = true, // Include a dividing line above the footer
-    MaxHeight = 10 // Maximum height of the footer in mm
-};
+    public class Section14
+    {
+        public void Execute()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            // Load the primary PDF document
+            PdfDocument mainPdf = PdfDocument.FromFile("1.pdf");
+            // Load the PDF to be appended
+            PdfDocument additionalPdf = PdfDocument.FromFile("2.pdf");
+            // Append the second PDF to the first
+            mainPdf.AppendPdf(additionalPdf);
+            // Save the combined PDF to a new file
+            mainPdf.SaveAs("appendedFile.pdf");
+        }
+    }
+}
+```
 
-// Add the configured HTML footer to the PDF
-pdf.AddHtmlFooters(footer);
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section15
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument basePdf = PdfDocument.FromFile("1.pdf");
+            PdfDocument additionalPdf = PdfDocument.FromFile("2.pdf");
+            basePdf.InsertPdf(additionalPdf, 0);
+            basePdf.SaveAs("InsertIntoSpecificIndex.pdf");
+        }
+    }
+}
+```
 
-// Save the final PDF with both header and footer
-pdf.SaveAs("withHeaderAndFooters.pdf");
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class PdfInsertExample
+    {
+        public void Execute()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            var primaryPdf = PdfDocument.FromFile("1.pdf");
+            var secondaryPdf = PdfDocument.FromFile("2.pdf");
+            // Insert second PDF at the beginning of the first PDF
+            primaryPdf.InsertPdf(secondaryPdf, index: 0);
+            primaryPdf.SaveAs("InsertedAtFirstPosition.pdf");
+        }
+    }
+}
+```
+
+### 9.3 Adding Headers and Footers to PDFs
+
+It's possible to append both headers and footers to PDFs that are already compiled or when they are generated from HTML or URL sources.
+
+For this purpose, you can utilize two distinct classes:
+
+- **`TextHeaderFooter`**: This allows the addition of plain text into the header or footer.
+- **`HtmlHeaderFooter`**: This class is used for incorporating rich HTML content and images into the header or footer.
+
+Now, let's explore two practical uses of these classes for adding headers and footers, both to existing PDFs and during the PDF rendering process.
+
+#### 9.3.1 Inserting Headers into Existing PDFs
+
+Here's how you can enhance an existing PDF by injecting both a header and a footer using the `AddTextHeaders` and `AddHtmlFooters` methods.
+
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfCreating
+{
+    public class AddHeaderFooterExample
+    {
+        public void Execute()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument document = PdfDocument.FromFile("testFile.pdf");
+            TextHeaderFooter textHeader = new TextHeaderFooter()
+            {
+                CenterText = "PDF Document Header",
+                LeftText = "{date} {time}",
+                RightText = "{page} of {total-pages}",
+                DrawDividerLine = true,
+                FontSize = 10
+            };
+            document.AddTextHeaders(textHeader);
+            document.SaveAs("DocumentWithHeader.pdf");
+
+            HtmlHeaderFooter htmlFooter = new HtmlHeaderFooter()
+            {
+                HtmlFragment = "<span style='text-align:right'>Page {page} of {totalpages}</span>",
+                DrawDividerLine = true,
+                MaxHeight = 10 // Specified in mm
+            };
+            document.AddHtmlFooters(htmlFooter);
+            document.SaveAs("DocumentWithHeaderAndFooter.pdf");
+        }
+    }
+}
 ```
 
 **9.3.2 Adding Headers and Footers to a Newly Created PDF**
 
-In the example provided below, we demonstrate the process of generating a new PDF from an HTML file and how to incorporate a header and footer using specific rendering settings:
+Below, you'll find guidance on generating a PDF from an HTML file while incorporating headers and footers through rendering options.
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-renderer.RenderingOptions.TextHeader = new TextHeaderFooter()
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    CenterText = "Pdf Header",
-    LeftText = "{date} {time}",
-    RightText = "{page} of {total-pages}",
-    DrawDividerLine = true,
-    FontSize = 10
-};
-
-renderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter()
-{
-    HtmlFragment = "<span style='text-align:right'> page {page} of {totalpages}</span>",
-    DrawDividerLine = true,
-    MaxHeight = 10
-};
-
-PdfDocument pdf = renderer.RenderHtmlFileAsPdf("test.html");
-pdf.SaveAs("generatedFile.pdf");
+    public class Section17
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            renderer.RenderingOptions.TextHeader = new TextHeaderFooter()
+            {
+                CenterText = "Pdf Header",
+                LeftText = "{date} {time}",
+                RightText = "{page} of {total-pages}",
+                DrawDividerLine = true,
+                FontSize = 10
+            };
+            
+            renderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter()
+            {
+                HtmlFragment = "<span style='text-align:right'> page {page} of {total-pages}</span>",
+                DrawDividerLine = true,
+                MaxHeight = 10 // in mm, specifying the maximum height of the footer
+            };
+            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("test.html");
+            pdf.SaveAs("generatedFile.pdf");
+        }
+    }
+}
 ```
 
+Here's a paraphrased version of the specified section from the article, with resolved URL paths:
+
 ```cs
-// Set your IronPDF license key to activate the product
-IronPdf.License.LicenseKey = "YourLicenseKey";
+using IronPdf;
 
-// Create a new instance of ChromePdfRenderer to render HTML to PDF
-ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
-
-// Configure text-based headers by utilizing the TextHeaderFooter class
-pdfRenderer.RenderingOptions.TextHeader = new TextHeaderFooter
+namespace ironpdf.DotnetCorePdfProducing
 {
-    CenterText = "Pdf Header", // Text displayed at the center of the header
-    LeftText = "{date} {time}", // Date and time placeholders at the left
-    RightText = "{page} of {total-pages}", // Page information at the right
-    DrawDividerLine = true, // Draws a line beneath the header
-    FontSize = 10 // The font size for the header text
-};
+    public class Section17
+    {
+        public void Execute()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";  // Set your license key
+            ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
+            
+            // Configure header options
+            pdfRenderer.RenderingOptions.TextHeader = new TextHeaderFooter()
+            {
+                CenterText = "Pdf Document Header",
+                LeftText = "{date} {time}",
+                RightText = "{page} of {total-pages}",
+                DrawDividerLine = true,  // Include a divider line
+                FontSize = 10  // Set the font size
+            };
+            
+            // Set footer using HTML
+            pdfRenderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter()
+            {
+                HtmlFragment = "<span style='text-align:right'>Page {page} of {totalpages}</span>",
+                DrawDividerLine = true,  // Include a divider line
+                MaxHeight = 10  // Limit the height to 10mm
+            };
 
-// Setup HTML footers using the HtmlHeaderFooter class, which allows for HTML content
-pdfRenderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter
+            // Generate PDF from HTML file
+            PdfDocument pdfDoc = pdfRenderer.RenderHtmlFileAsPdf("test.html");
+            pdfDoc.SaveAs("generatedFile.pdf");  // Save the newly created PDF
+        }
+    }
+}
+``` 
+
+This paraphrasing maintains the original code's structure while varying descriptions and comments to reflect a more natural and diverse language tone.
+
+<hr class="separator">
+
+## 10. Implement PDF Security and Password Protection
+
+Secure your PDF documents with password protection and configure security settings to restrict actions such as copying and printing.
+
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    HtmlFragment = "<span style='text-align:right'> page {page} of {totalpages}</span>", // HTML content for the footer
-    DrawDividerLine = true, // Adds a dividing line above the footer
-    MaxHeight = 10 // Maximum height of the footer
-};
+    public class SecuritySettingsExample
+    {
+        public void Execute()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument document = PdfDocument.FromFile("testFile.pdf");
 
-// Render the HTML file into a PDF document
-PdfDocument pdfDocument = pdfRenderer.RenderHtmlFileAsPdf("test.html");
+            // Update file metadata
+            document.MetaData.Author = "john smith";
+            document.MetaData.Keywords = "SEO, Friendly";
+            document.MetaData.ModifiedDate = DateTime.Now;
 
-// Save the generated PDF to a file
-pdfDocument.SaveAs("generatedFile.pdf");
+            // Configure security settings to make the PDF read-only and restrict copy, paste, and printing functionalities
+            document.SecuritySettings.RemovePasswordsAndEncryption();
+            document.SecuritySettings.MakePdfDocumentReadOnly("secret-key"); // Using 'secret-key' as the owner password
+            document.SecuritySettings.AllowUserAnnotations = false;
+            document.SecuritySettings.AllowUserCopyPasteContent = false;
+            document.SecuritySettings.AllowUserFormData = false;
+            document.SecuritySettings.AllowUserPrinting = IronPdf.Security.PdfPrintSecurity.FullPrintRights;
+
+            // Set or update the PDF's encryption password
+            document.Password = "123";
+            document.SaveAs("secured.pdf");
+        }
+    }
+}
 ```
 
 <hr class="separator">
 
-## 10. Enhance PDF Security and Confidentiality
+## 11. Digitally Sign PDFs
 
-You have the ability to safeguard your PDF by setting a password and configuring document security settings to restrict actions such as copying and printing.
-
-Here is the paraphrased version of the provided code snippet, with resolved URLs for images and links as requested:
+Digitally signing a PDF can be done easily using the following method:
 
 ```cs
-// Assign a license key to IronPDF 
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Load an existing PDF from the file system
-PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
-
-// Modify the PDF metadata
-pdf.MetaData.Author = "john smith";
-pdf.MetaData.Keywords = "SEO, Friendly";
-pdf.MetaData.ModifiedDate = DateTime.Now;
-
-// Configure security settings for the PDF
-// This code segment sets the PDF to read-only, preventing copy, paste, and printing actions
-pdf.SecuritySettings.RemovePasswordsAndEncryption();
-pdf.SecuritySettings.MakePdfDocumentReadOnly("secret-key"); // 'secret-key' is treated as the owner password
-pdf.SecuritySettings.AllowUserAnnotations = false;
-pdf.SecuritySettings.AllowUserCopyPasteContent = false;
-pdf.SecuritySettings.AllowUserFormData = false;
-pdf.SecuritySettings.AllowUserPrinting = IronPdf.Security.PdfPrintSecurity.FullPrintRights;
-
-// Set or change the encryption password for the document
-pdf.Password = "123";
-// Save the updated PDF with the new settings
-pdf.SaveAs("secured.pdf");
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section19
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+            pdf.Sign(new PdfSignature("cert123.pfx", "password"));
+            pdf.SaveAs("signed.pdf");
+        }
+    }
+}
 ```
 
-<hr class="separator">
-
-## 11. Sign PDF Documents Digitally
-
-The process of digitally signing a PDF document can be executed using the following steps:
+For more detailed control over the digital signature, consider the following advanced example:
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Load the PDF to be signed
-PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
-
-// Digitally sign the PDF
-pdf.Sign(new PdfSignature("cert123.pfx", "password"), IronPdf.Signing.SignaturePermissions.Default);
-
-// Save the signed PDF
-pdf.SaveAs("signed.pdf");
-```
-
-For more granular control over the signing process, you can use the example below which includes optional settings:
-
-```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Load the PDF
-PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
-
-// Setup the digital signature
-IronPdf.Signing.PdfSignature signature = new IronPdf.Signing.PdfSignature("cert123.pfx", "123");
-
-// Optional: Configure additional properties of the signature
-signature.SigningContact = "support@ironsoftware.com";
-signature.SigningLocation = "Chicago, USA";
-signature.SigningReason = "To demonstrate digital signing";
-
-// Apply the signature to the PDF
-pdf.Sign(signature);
-
-// Save the digitally signed PDF
-pdf.SaveAs("customSigned.pdf");
-```
-
-These methods offer a reliable and secure way to add digital signatures to your PDFs, enhancing their authenticity and integrity.
-
-Below is your paraphrased section, where the relative URL paths have been resolved and the code snippet has been slightly modified to maintain functionality but differ from the original version:
-
------
-```cs
-// Assign your license key for IronPdf
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Load a PDF from file
-PdfDocument document = PdfDocument.FromFile("testFile.pdf");
-
-// Digitally sign the PDF with the specified certificate and permissions
-PdfSignature signature = new PdfSignature("cert123.pfx", "password");
-document.Sign(signature, IronPdf.Signing.SignaturePermissions.Default);
-
-// Save the signed PDF with a new file name
-document.SaveAs("signedDocument.pdf");
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section20
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+            IronPdf.Signing.PdfSignature signature = new IronPdf.Signing.PdfSignature("cert123.pfx", "123");
+            
+            // Optional parameters to further customize the signature
+            signature.SigningContact = "support@ironsoftware.com";
+            signature.SigningLocation = "Chicago, USA";
+            signature.SigningReason = "To demonstrate PDF digital signing";
+            
+            // Apply the digital signature to the PDF document. Multiple signatures can be added.
+            pdf.Sign(signature);
+        }
+    }
+}
 ```
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
+using IronPdf;
 
-PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
-IronPdf.Signing.PdfSignature signature = new IronPdf.Signing.PdfSignature("cert123.pfx", "123");
-
-// Optional customization for the signing process
-signature.SigningContact = "support@ironsoftware.com";
-signature.SigningLocation = "Chicago, USA";
-signature.SigningReason = "Demonstrating PDF signing capabilities";
-
-// Apply the digital signature to the PDF
-pdf.Sign(signature);
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section19
+    {
+        public void Execute()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument document = PdfDocument.FromFile("testFile.pdf");
+            PdfSignature signature = new PdfSignature("cert123.pfx", "password");
+            document.Sign(signature);
+            document.SaveAs("signed.pdf");
+        }
+    }
+}
 ```
 
-Here's the paraphrased content:
-
 ```cs
-// Set your license key
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Load an existing PDF file
-PdfDocument existingPdf = PdfDocument.FromFile("testFile.pdf");
-
-// Create a new digital signature using a specified certificate
-IronPdf.Signing.PdfSignature digitalSignature = new IronPdf.Signing.PdfSignature("cert123.pfx", "123");
-
-// You can set additional properties on the signature
-digitalSignature.SigningContact = "support@ironsoftware.com";
-digitalSignature.SigningLocation = "Chicago, USA";
-digitalSignature.SigningReason = "Demonstration of PDF signing";
-
-// Apply the digital signature to the PDF
-existingPdf.Sign(digitalSignature);
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section20
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+            IronPdf.Signing.PdfSignature signature = new IronPdf.Signing.PdfSignature("cert123.pfx", "123");
+            
+            // Additional options for signing
+            signature.SigningContact = "support@ironsoftware.com";
+            signature.SigningLocation = "Chicago, USA";
+            signature.SigningReason = "To demonstrate the process of signing a PDF";
+            
+            // Apply the signature to the PDF. You can use multiple certificates if needed
+            pdf.Sign(signature);
+        }
+    }
+}
 ```
 
-## 12. Extract Content from PDFs
+In this enhanced example, we delve deeper into the options available for digitally signing a PDF document. Here, a digital signature is not only applied, but it’s also customized with additional information such as the contact details, location, and reason for signing. This example utilizes `IronPdf.Signing.PdfSignature` to handle the signature process, showing how to set up a more detailed and controlled digital signing environment within your .NET applications.
 
-The robust IronPDF library not only supports the creation and manipulation of PDF files but also excels in extracting text and images from PDF documents. Below are some practical examples showing how to retrieve content from a PDF using IronPDF.
+Here's the paraphrased section of the article regarding a more detailed control in applying a digital signature to a PDF using IronPDF:
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class DetailedPdfSigning
+    {
+        public void Execute()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument document = PdfDocument.FromFile("testFile.pdf");
+            IronPdf.Signing.PdfSignature digitalSignature = new IronPdf.Signing.PdfSignature("cert123.pfx", "123");
+            
+            // Configuring optional signature properties
+            digitalSignature.SigningContact = "support@ironsoftware.com";
+            digitalSignature.SigningLocation = "Chicago, USA";
+            digitalSignature.SigningReason = "Demonstration of PDF signing capabilities";
 
-// Extract all textual content from the PDF
-var fullText = pdf.ExtractAllText();
-
-// Extract text from a specific page in the PDF
-var pageText = pdf.ExtractTextFromPage(0);
-
-// Retrieve all images contained in the entire PDF
-var imagesInPdf = pdf.ExtractAllImages();
-
-// Retrieve images from a specific page in the PDF
-var imagesOnPage = pdf.ExtractImagesFromPage(0);
+            // Applying the signature to the PDF using the specified certificate
+            document.Sign(digitalSignature);
+        }
+    }
+}
 ```
 
-### 12.1. Convert PDF Pages to Images
+This code snippet demonstrates how to digitally sign a PDF document using a certificate, providing optional information such as the contact email, location, and reason for signing. This ensures the authenticity and integrity of the document.
 
-In addition to text and image extraction, IronPDF allows you to rasterize PDF pages into image formats. Here’s how you can convert specified PDF pages into images:
+## 12. Retrieving Text and Images from PDFs
+
+Using IronPdf, accessing text and images within PDF files is straightforward. Below, you'll find the necessary steps to extract this information, whether you're interested in all text and images or only specific portions.
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section21
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+            
+            // Retrieve all text from the PDF
+            pdf.ExtractAllText();
+            // Extract text from a specific page
+            pdf.ExtractTextFromPage(0);
+            
+            // Get all images from the PDF
+            var AllImages = pdf.ExtractAllImages();
+            
+            // Extract images from a specific page
+            var ImagesOfAPage = pdf.ExtractImagesFromPage(0);
+        }
+    }
+}
+```
 
-// Define a list of pages to convert
-List<int> pagesToConvert = new List<int>() { 1, 2 };
+### 12.1. Converting PDF Pages to Images
 
-// Rasterize specified pages into PNG images
-pdf.RasterizeToImageFiles("output*.png", pagesToConvert);
+Further extend the capabilities by transforming PDF pages into image files. This is especially useful when previews or thumbnails are needed.
+
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section22
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+            var pageList = new List<int> { 1, 2 }; // Specify pages to convert
+            
+            // Convert selected pages to image files
+            pdf.RasterizeToImageFiles("*.png", pageList);
+        }
+    }
+}
 ```
 
 <b>Extract text and images</b>
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
-
-// Extract all text from the PDF
-var extractedText = pdf.ExtractAllText();
-
-// Extract text from a specific page, e.g., page 1
-var pageText = pdf.ExtractTextFromPage(1);
-
-// Retrieve all images from the PDF
-var imagesInPdf = pdf.ExtractAllImages();
-
-// Extract images from a particular page, e.g., page 1
-var imagesOnFirstPage = pdf.ExtractImagesFromPage(1);
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section21
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+            
+            // Extracting all text from the PDF
+            pdf.ExtractAllText(); 
+            // Extracting text from a specific page, e.g., the first page
+            pdf.ExtractTextFromPage(0); 
+            
+            // Extract all images contained in the PDF
+            var AllImages = pdf.ExtractAllImages();
+            
+            // Extract images from a specific page, e.g., the first page
+            var ImagesOfAPage = pdf.ExtractImagesFromPage(0);
+        }
+    }
+}
 ```
-
-Here's the paraphrased content for the provided section:
 
 ```cs
-// Assign your license key to activate IronPDF features
-IronPdf.License.LicenseKey = "YourLicenseKey";
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section21
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument pdfDocument = PdfDocument.FromFile("testFile.pdf");
 
-// Open a PDF from a file path
-PdfDocument document = PdfDocument.FromFile("testFile.pdf");
+            // Retrieve all text from the entire PDF
+            pdfDocument.ExtractAllText(); 
 
-// Extract text from the entire document
-document.ExtractAllText(); // This will extract all text from the PDF
-// Get text from the first page of the document
-document.ExtractTextFromPage(0); // This pulls text from the first page specifically
+            // Retrieve text from the first page of the PDF
+            pdfDocument.ExtractTextFromPage(0); 
 
-// Retrieve all images from the entire PDF
-var imagesInDocument = document.ExtractAllImages();
+            // Get all images from the entire PDF document
+            var imagesFromPdf = pdfDocument.ExtractAllImages();
 
-// Fetch images from the first page only
-var imagesOnFirstPage = document.ExtractImagesFromPage(0);
+            // Get images from the first page of the PDF
+            var imagesFromFirstPage = pdfDocument.ExtractImagesFromPage(0);
+        }
+    }
+}
 ```
 
-In this version, comments are expanded for clarity, variable names are slightly altered to enhance readability, and the code structure remains intact but with simplified presentation.
+### 12.1 Convert PDF to Image Format
 
-### 12.1 Converting PDF Pages to Images
+Transforming PDF documents into images can be accomplished with the following steps:
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section22
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+            
+            // Specify the pages to convert to images
+            List<int> pageList = new List<int>() { 1, 2 };
+            
+            // Convert and save specified pages as image files
+            pdf.RasterizeToImageFiles("*.png", pageList);
+        }
+    }
+}
+```
 
-Transform PDF documents into image files with the following approach:
+Here's the paraphrased version of the provided section, with all relative URLs resolved to `ironpdf.com`:
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
-
-List<int> pageNumbers = new List<int>() { 1, 2 };
-
-// Rasterize selected pages to image files (*.png format)
-pdf.RasterizeToImageFiles("*.png", pageNumbers);
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section22
+    {
+        public void Execute()
+        {
+            // Insert your IronPDF license key below
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            
+            // Load the PDF document from the file
+            PdfDocument pdfDocument = PdfDocument.FromFile("testFile.pdf");
+            
+            // Define a list of pages to convert to images
+            List<int> pagesToRasterize = new List<int> { 1, 2 };
+            
+            // Convert the specified pages to PNG images
+            pdfDocument.RasterizeToImageFiles("*.png", pagesToRasterize);
+        }
+    }
+}
 ```
 
-Here's the paraphrased section with updated paths for images and links resolved to `ironpdf.com`.
-
-```cs
-// Assign the license key to activate IronPDF
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Load a PDF document into the application
-PdfDocument document = PdfDocument.FromFile("testFile.pdf");
-
-// List of pages to convert from PDF to image (PNG format)
-List<int> pagesToConvert = new List<int>() { 1, 2 };
-
-// Convert specified pages to image files
-document.RasterizeToImageFiles("*.png", pagesToConvert);
-```
+The provided code snippet is reformulated for clarity and utilizes alternative variable and method names while retaining the original logic and structure.
 
 <hr class="separator">
 
-## 13. Adding Watermarks to PDF Documents
+## 13. Applying Watermarks to PDF Pages
 
-Here's how you can add watermarks to PDF pages using IronPDF:
-
-```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");
-
-// Implement watermark
-pdf.ApplyWatermark("<h2 style='color:red'>SAMPLE</h2>", 30, IronPdf.Editing.VerticalAlignment.Middle, IronPdf.Editing.HorizontalAlignment.Center);
-pdf.SaveAs("Watermarked.pdf");
-```
-
-To have more control over watermarking, consider using the `HTMLStamper` class:
+This section demonstrates how to add watermarks to your PDF documents:
 
 ```cs
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<div>test text </div>");
-
-// Set up HTML stamper
-HtmlStamper backgroundStamp = new HtmlStamper()
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
 {
-    Html = "<h2 style='color:red'>copyright 2018 ironpdf.com",
-    MaxWidth = new Length(20),
-    MaxHeight = new Length(20),
-    Opacity = 50,
-    Rotation = -45,
-    IsStampBehindContent = true,
-    VerticalAlignment = VerticalAlignment.Middle
-};
-
-pdf.ApplyStamp(backgroundStamp);
-pdf.SaveAs("stamped.pdf");
+    public class Section23
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");
+            
+            // Adding a watermark
+            pdf.ApplyWatermark("<h2 style='color:red'>SAMPLE</h2>", 30, IronPdf.Editing.VerticalAlignment.Middle, IronPdf.Editing.HorizontalAlignment.Center);
+            pdf.SaveAs("Watermarked.pdf");
+        }
+    }
+}
 ```
 
-Here is the paraphrased section of the article, with relative URL paths resolved to `ironpdf.com`:
+Watermarking offers limited customization options. For more comprehensive capabilities, consider using the **HTMLStamper** class.
 
 ```cs
-// Set your IronPDF license key to unlock full features
-IronPdf.License.LicenseKey = "YourLicenseKey";
-
-// Initialize the PDF renderer
-ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
-
-// Create a PDF from a URL
-PdfDocument document = pdfRenderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");
-
-// Add a red 'SAMPLE' watermark to the center of each page
-document.ApplyWatermark("<h2 style='color:red'>SAMPLE</h2>", 30, IronPdf.Editing.VerticalAlignment.Middle, IronPdf.Editing.HorizontalAlignment.Center);
-
-// Save the watermarked PDF to a file
-document.SaveAs("Watermarked.pdf");
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section24
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<div>test text </div>");
+            
+            // Configuring HTML stamper
+            HtmlStamper backgroundStamp = new HtmlStamper()
+            {
+                Html = "<h2 style='color:red'>copyright 2018 ironpdf.com",
+                MaxWidth = new Length(20),
+                MaxHeight = new Length(20),
+                Opacity = 50,
+                Rotation = -45,
+                IsStampBehindContent = true,
+                VerticalAlignment = VerticalAlignment.Middle
+            };
+            
+            pdf.ApplyStamp(backgroundStamp);
+            pdf.SaveAs("stamped.pdf");
+        }
+    }
+}
 ```
-
-Watermarking offers limited customization possibilities. For more extensive capabilities, consider using the **HTMLStamper** class.
-
-Here's a paraphrased version of the provided C# code snippet from the IronPDF article, with resolved relative URL paths from ironpdf.com:
 
 ```cs
-// Sets the license key for IronPdf
-IronPdf.License.LicenseKey = "YourLicenseKey";
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class Section23
+    {
+        public void Run()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");
 
-// Initialize a new instance of ChromePdfRenderer
-ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
-// Render HTML as a PDF document
-PdfDocument document = pdfRenderer.RenderHtmlAsPdf("<div>sample text</div>");
-
-// Setting up an HTML stamper
-HtmlStamper stamp = new HtmlStamper {
-    Html = "<h2 style='color:red'>copyright 2018 ironpdf.com",
-    MaxWidth = new Length(20),
-    MaxHeight = new Length(20),
-    Opacity = 50, // Set the opacity to 50%
-    Rotation = -45, // Rotate the stamp by -45 degrees
-    IsStampBehindContent = true, // Place the stamp behind the PDF content
-    VerticalAlignment = VerticalAlignment.Middle // Align vertically in the middle
-};
-
-// Apply the HTML stamper to the PDF
-document.ApplyStamp(stamp);
-// Save the PDF with the applied stamp
-document.SaveAs("stamped.pdf");
+            // Adding a watermark to the PDF
+            pdf.ApplyWatermark("<h2 style='color:red'>SAMPLE</h2>", 30, IronPdf.Editing.VerticalAlignment.Middle, IronPdf.Editing.HorizontalAlignment.Center);
+            pdf.SaveAs("Watermarked.pdf");
+        }
+    }
+}
 ```
 
-This code sets up a PDF document renderer, creates a simple HTML content PDF, applies a customized watermark using 'HtmlStamper', and finally saves the stamped PDF document.
+Watermarking comes with a limited range of functionalities. For more comprehensive customization capabilities, the **HTMLStamper** class offers extensive control.
+
+```cs
+using IronPdf;
+namespace ironpdf.DotnetCorePdfGenerating
+{
+    public class WatermarkingSection
+    {
+        public void Execute()
+        {
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
+            PdfDocument document = pdfRenderer.RenderHtmlAsPdf("<div>test content</div>");
+
+            // Setting up the HTML watermark
+            HtmlStamper watermark = new HtmlStamper()
+            {
+                Html = "<h2 style='color:red'>copyright 2018 ironpdf.com</h2>",
+                MaxWidth = new Length(20),
+                MaxHeight = new Length(20),
+                Opacity = 50,
+                Rotation = -45,
+                IsStampBehindContent = true,
+                VerticalAlignment = VerticalAlignment.Middle
+            };
+
+            // Applying the watermark to the PDF
+            document.ApplyStamp(watermark);
+            document.SaveAs("watermarkedOutput.pdf");
+        }
+    }
+}
+```
 
 <hr class="separator">
 

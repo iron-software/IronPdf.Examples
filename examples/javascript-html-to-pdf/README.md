@@ -1,13 +1,15 @@
-IronPDF provides the functionality to seamlessly integrate images into PDFs by embedding them directly within HTML strings, as opposed to relying on external sources.
+***Based on <https://ironpdf.com/examples/javascript-html-to-pdf/>***
 
-Assets that can be embedded include:
+IronPDF provides a feature that seamlessly incorporates images into PDFs by embedding them within HTML strings, eliminating the need for external assets.
+
+The types of assets that can be embedded include:
 
 - Image Files
 - `System.Drawing.Image`
 - `System.Drawing.Bitmap`
 
-This capability is beneficial as it eliminates the need to fetch external assets during the [HTML to PDF](https://ironpdf.com/tutorials/html-to-pdf/) conversion process. This enhancement not only accelerates the rendering speed but also reduces loading times. Additionally, it facilitates storing the complete render file in unconventional storage mediums like strings or databases.
+This capability is particularly beneficial during the [HTML to PDF conversion process with IronPDF](https://ironpdf.com/tutorials/html-to-pdf/). By embedding images directly, you enhance the rendering speed and reduce load times. Furthermore, this approach supports storing the rendered output in alternative formats such as strings or databases, instead of relying on traditional file-system storage.
 
-In the forthcoming example, we will demonstrate how to embed images directly into your PDFs using IronPDF.
+Here, we'll demonstrate how you can embed images directly into your PDFs.
 
-Adopting best practices for working with HTML strings and documents includes avoiding reliance on a directory of assets. Utilizing DataURIs allows for the direct insertion of images, files, and even typefaces right into an HTML document represented as a string. This technique proves to be incredibly effective for managing files and images within your PDF documents.
+A key recommendation for handling HTML strings and documents is to avoid relying on external asset directories. Instead, using DataURIs enables the direct embedding of images, files, and even fonts into an HTML document as a string. This technique proves highly effective for integrating and managing files and images within your PDF documents.

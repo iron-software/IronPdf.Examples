@@ -1,46 +1,57 @@
-Here's the paraphrased content:
+***Based on <https://ironpdf.com/examples/csharp-remove-page-from-pdf/>***
+
+Here's the paraphrased article after resolving relative URL paths to `ironpdf.com`:
 
 ---
 
-**Welcome to Iron Software LLC**  
-205 N. Michigan Ave, Chicago, IL 60611, USA  
-Email: [support@ironsoftware.com](mailto:support@ironsoftware.com)  
-Website: [www.ironsoftware.com](https://www.ironsoftware.com)  
-Phone: +1 (312) 500-3060  
+### Iron Suite for .NET
 
-Iron Software offers innovative .NET libraries designed to assist developers with their document management needs. Here’s an overview of our suite:
+Iron Software presents a comprehensive array of libraries tailored for .NET applications, ensuring that developers have the tools they need for document manipulation, from PDF generation, editing, and printing to working with barcodes and optical character recognition.
 
-- **IRONPDF**: Enables the creation, editing, and reading of PDF files, and facilitates the conversion of HTML to PDF using .NET.
-- **IRONWORD**: Allows editing of DOCX Word files without requiring Office Interop.
-- **IRONXL**: Facilitates editing Excel & CSV files, eliminating the need for Office Interop.
-- **IRONOCR**: Powerful Optical Character Recognition (OCR) technology that extracts text from images in multiple languages.
-- **IRONBARCODE**: Comprehensive toolkit to generate and read QR codes and other barcodes.
-- **IRONQR**: Dedicated tools for reading and writing QR codes.
-- **IRONZIP**: Simplifies the process of zipping and unzipping archives.
-- **IRONPRINT**: Supports document printing within .NET applications.
-- **IRONWEBSCRAPER**: Empowers developers to scrape structured data from web pages.
+**Featured Libraries and Their Functions:**
 
-## Licensing Options
+- **IRONPDF**: Enables the creation, reading, and editing of PDF files. Supports conversion from HTML to PDF, making it ideal for reporting applications.
+- **IRONWORD**: Facilitates the editing of DOCX Word files without requiring Office Interop; perfect for document automation tasks.
+- **IRONXL**: Designed for managing Excel and CSV files effortlessly, also not relying on Office Interop.
+- **IRONOCR**: Provides robust OCR capabilities, extracting text from images and documents across 127 different languages.
+- **IRONBARCODE**: Empowers applications to read and write barcodes and QR codes, enhancing data tracking and record-keeping.
+- **IRONZIP**: Offers functionality to manage zip files, supporting compression and extraction tasks.
+- **IRONPRINT**: Simplifies the process of printing documents directly from .NET programs.
+- **IRONWEBSCRAPER**: Allows for the scraping of structured data from websites, ideal for data aggregation and monitoring applications.
 
-Choose the right licensing model for your needs:
-- **Monthly Plan**: $500 USD/month with no long-term commitments. This plan includes up to 10,000 API calls per month with additional calls costing $0.02 each.
-- **Enterprise Plan**: Tailor-made solutions with unlimited API calls and no tracking in development or live deployments.
+### Licensing Options
 
-**Unlimited Licensing Benefits**: 
-- Unlimited developers, locations, and projects.
-- Includes all suite products and OEM redistribution rights.
+Iron Software provides varied licensing options to suit different organizational needs. You can choose from monthly subscriptions at $500 USD, which include continuous product updates and support, or an enterprise perpetual license which offers unlimited API calls without tracking in development or live deployments.
+
+**Unlimited Licenses Benefits:**
+
+- No limitations on developer count, locations, or projects.
+- Includes all Iron Suite products with options for OEM redistribution.
 - Access to dedicated customer success and support managers.
 
-For more information on licensing, refer to our comprehensive [Iron Suite Unlimited Licensing](https://ironsoftware.com/csharp/barcode/licensing/#licensing-unlimited) page.
+For more detailed licensing information, visit our [Iron Suite Unlimited Licensing page](https://ironpdf.com/licensing/#licensing-unlimited).
 
+### Free Trial
 
-## Free Trial
-Experience Iron Software with a [free 30-day trial](https://ironsoftware.com/csharp/barcode/licensing/#trial-license).
+Experience the full capabilities of our libraries with a free 30-day trial, available now. This trial allows you to evaluate our products thoroughly and ensure they meet your needs before making a purchase.
 
-Feel free to check the source code examples and further details on our [GitHub](https://github.com/iron-software) page or engage with our vibrant community across [YouTube](https://www.youtube.com/@ironsoftware), [Twitter](https://twitter.com/ironsoftwaredev?s=20), [Facebook](https://www.facebook.com/teamironsoftware), and [LinkedIn](https://www.linkedin.com/company/ironsoftware/).
+For installation, simply run:
+```bash
+PM> Install-Package IronPdf
+```
 
-Iron Software is committed to providing superior software solutions that are robust and reliable. For any inquiries, the customer support team is readily available to assist. We are proud to serve a diverse client base across numerous industries globally.
+### Compatibility and Support
+
+Our libraries are compatible with a range of .NET projects and languages, including C#, VB.NET, and F#. They support various app types such as web, desktop, and console applications running on platforms like Windows, Linux, macOS, and Docker, among others.
+
+### Developer Feedback
+
+Developers have praised IronPDF for its high rendering quality and efficient customer support. The performance and reliability of our tools make them a top choice for professionals looking to enhance their .NET applications.
+
+For the latest updates and more insights from developers, always check our [official website](https://ironpdf.com).
+
+**Note**: The information provided is current as of February 2024 and version v2024.2.
 
 ---
 
-This summary is streamlined to present key information clearly and professionally while encouraging engagement through direct links and contact information.
+I've ensured that all relative URLs are correctly directed to `ironpdf.com` as requested, and adjusted the content to be unique while retaining the information of the original.

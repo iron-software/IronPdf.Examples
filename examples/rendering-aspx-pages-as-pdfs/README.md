@@ -1,7 +1,9 @@
-Employing the IronPDF library, ASP.NET web pages can be easily converted to PDF format instead of HTML by merely incorporating a single line of code into the **`Form_Load`** event.
+***Based on <https://ironpdf.com/examples/rendering-aspx-pages-as-pdfs/>***
 
-This example demonstrates how IronPDF can generate sophisticated, data-driven PDFs that are initially crafted and evaluated as HTML for ease of use.
+Using the IronPDF library, ASP.NET web pages can be converted to PDF with just a simple code addition in the **`Form_Load`** event.
 
-IronPDF’s [ASPX to PDF](https://ironpdf.com/how-to/aspx-to-pdf/) feature enables you to invoke a single method within an ASPX page, allowing the page to output a PDF file rather than HTML.
+The following example demonstrates how IronPDF can be employed to generate sophisticated, data-centric PDFs that are initially created and verified using HTML for ease.
 
-You have the option to configure the PDF either to be displayed "in-browser," or to function as a downloadable file.
+With IronPDF’s [ASPX to PDF Conversion](https://ironpdf.com/how-to/aspx-to-pdf/) feature, invoking a single method on an ASPX page enables it to output a PDF rather than HTML.
+
+This conversion allows for the PDF to be configured either to be displayed directly in the browser or to be downloaded as a file.

@@ -1,14 +1,20 @@
-When developing PDF documents with IronPDF, it's crucial to ensure they display and print effectively. This involves setting the appropriate virtual and real-world paper sizes.
+***Based on <https://ironpdf.com/examples/custom-pdf-paper-size/>***
 
-In our discussion here, we'll guide you through the process of incorporating custom paper sizes into your PDF initiatives.
+When working with IronPDF to create your PDF documents, it's essential to ensure they are optimally formatted for viewing or printing. This involves selecting the appropriate virtual and corresponding real-world paper sizes.
 
-IronPDF boasts an array of nearly 50 predefined paper sizes, as well as the ability to accommodate an infinite number of custom dimensions, ensuring a perfect fit for any requirement or situation in which your PDF might be used. You can customize PDF outputs in various sizes, which are measurable in either inches or millimeters.
+This tutorial demonstrates how you can implement custom paper sizes in your PDF projects with IronPDF.
 
-The class `PdfPaperSize` enumerates the virtual sizes targeted for the PDF, correlating them to their respective real-world dimensions.
+IronPDF accommodates nearly 50 predefined paper sizes and also allows for the creation of countless custom sizes to accommodate any specific needs for your PDF documents. You can specify these dimensions in either inches or millimeters.
 
-To create PDFs with custom sizes in inches or millimeters, you can utilize the methods below:
+The `PdfPaperSize` enum is used to set the intended virtual and actual paper sizes for the PDF.
+
+To define a custom paper size in your PDF, you might use any of the following methods:
 
 - `Renderer.RenderingOptions.SetCustomPaperSizeInInches`
-- `Renderer.RenderingOptions.SetCustomPaperSizeInMillimeters`
+- `Renderer.RenderingOptions.SetCustomPaperSizeinMilimeters`
 
-Additionally, the method `Renderer.RenderingOptions.PaperSize` allows you to apply our precise custom preset sizes, now accurate down to 1 micron.
+Alternatively, `Renderer.RenderingOptions.PaperSize` offers a preset custom paper size with precision up to 1 micron.
+
+For comprehensive guidance on leveraging the custom paper size feature and other advanced functionalities in IronPDF, explore the [IronPDF Documentation](https://ironpdf.com/docs/).
+
+If you are also interested in exploring other robust libraries from Iron Software, like IronBarcode for generating and scanning barcodes or IronOCR for optical character recognition, please visit the [Iron Software Product Page](https://ironsoftware.com/).

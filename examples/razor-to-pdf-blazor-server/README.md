@@ -1,7 +1,9 @@
-The example below illustrates how to transform a Razor component into a PDF file.
+***Based on <https://ironpdf.com/examples/razor-to-pdf-blazor-server/>***
 
-Utilizing the `IronPdf.Extensions.Blazor` package, an add-on to the primary `IronPdf` library, you can convert the content of a Razor component into a PDF format. Both `IronPdf.Extensions.Blazor` and the main `IronPdf` packages must be installed for this operation.
+This sample illustrates how to convert a Razor component into a PDF document using IronPdf.
 
-In the provided code snippet, a model named `**PersonInfo**` is established. We populate multiple new `**PersonInfo**` instances into the `**persons**` list via the `OnInitializedAsync` method. Subsequently, this list is linked with the key "persons" in the `**Parameters**` dictionary.
+The package `IronPdf.Extensions.Blazor` complements the core `IronPdf` library. For transforming a Razor component's content page into a PDF, it's essential to have both `IronPdf.Extensions.Blazor` and `IronPdf` installed.
 
-Within the `PrintToPdf` method, the `**ChromePdfRenderer**` class is instantiated. To execute the conversion of the Razor component into a PDF, the `RenderRazorComponentToPdf` method is employed. Here, the `**Parameters**` dictionary is supplied to the method for processing.
+In the provided code snippet, a model named `PersonInfo` has been established. Within the `OnInitializedAsync` method, we populate the `persons` List with new instances of `PersonInfo`. These entries are then mapped to the key "persons" in the `Parameters` dictionary.
+
+During the execution of the `PrintToPdf` method, we create an instance of the `ChromePdfRenderer` class. This class employs the `RenderRazorComponentToPdf` method to transform the Razor component into a PDF file. Here, the `Parameters` dictionary is supplied to the method to facilitate the rendering process.

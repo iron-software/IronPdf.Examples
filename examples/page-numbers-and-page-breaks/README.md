@@ -1,13 +1,17 @@
-IronPDF stands out for its robust capability to customize headers and footers according to developer preferences, enhancing functionality significantly. This feature importantly supports the addition of page numbers within the header or footer.
+***Based on <https://ironpdf.com/examples/page-numbers-and-page-breaks/>***
 
-In this tutorial, I'll demonstrate methods for managing page numbers and implementing page breaks using IronPDF.
+IronPDF offers unparalleled flexibility when it comes to customizing and adding headers and footers according to a developer's specific requirements and functionality. This capability enables the inclusion of detailed information such as page numbers within the headers or footers.
 
-IronPDF facilitates this with two main options: `HtmlHeaderFooter` and `TextHeaderFooter`, both of which are straightforward to utilize.
+In the following demonstration, we will guide you through the process of managing page numbers and introducing page breaks using IronPDF.
 
-Using the `TextHeaderFooter` class, developers can effortlessly format headers and footers in PDFs. This class allows for the placement of page numbers in the left, center, or right of the header or footer. Additionally, you can fine-tune the font type and size, ensuring it aligns well with your document’s main text.
+IronPDF supports two types of header and footer configurations: `HtmlHeaderFooter` and `TextHeaderFooter`. Managing these configurations is straightforward.
 
-For inserting a page break when converting HTML to PDF in .NET environments, apply the following HTML tag:
+The `TextHeaderFooter` class is designed to set up header and footer configurations for PDFs using a straightforward method, accommodating most typical scenarios. This allows developers to position page numbers on the right, center, or left of the header or footer. Additionally, it's possible to modify the font style and size to maintain consistency with the main content of your PDF.
+
+To insert a page break when converting HTML to PDF in .NET, you can utilize the following HTML markup:
 
 ```txt
 <div style="page-break-after:always;"></div>
 ```
+
+For a comprehensive guide on effectively utilizing these features, please visit the [IronPDF Documentation for Headers and Footers](https://www.ironpdf.com/docs) available on the official website.

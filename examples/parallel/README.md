@@ -1,7 +1,9 @@
-IronPDF excels in multi-threading and parallelism utilizing the Chrome Rendering Engine API from 2021. This enables developers to leverage the full multi-threading capabilities of their computers for quick task completion.
+***Based on <https://ironpdf.com/examples/parallel/>***
 
-The following demonstrates how you can employ multiple threads for converting batches of HTML into PDF documents.
+IronPDF leverages the modern 2021 Chrome Rendering API, enhancing its multithreading and parallel processing capabilities. Developers can utilize the full potential of their computing systems to expedite tasks using these features.
 
-This technique could soon become a preferred method of utilizing multiple threads for batch conversion from HTML to PDF with IronPDF. Notably, IronPDF is designed to be thread-safe and fully supports multi-threading when utilizing the [`IronPdf.ChromePdfRenderer`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html) rendering engine. However, users should be aware of a specific limitation with multi-threading on macOS systems.
+The following example illustrates how to employ multithreading for efficient batch conversion from HTML to PDF.
 
-C#'s `Parallel.ForEach` function parallels what would traditionally be done in a sequential `foreach` loop. In the standard `foreach`, each iteration processes a single item at a time from the collection. Conversely, `Parallel.ForEach` performs multiple iterations simultaneously across different processors or cores. This approach introduces a risk of synchronization issues. As such, scenarios where each iteration is self-contained are ideal for this implementation.
+Using IronPDF's thread-safe features, particularly with the [`IronPdf.ChromePdfRenderer`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html) engine, can quickly become the preferred method for managing multithreaded batch processes. Note that while IronPDF excels in multithreaded environments, it does encounter some limitations on macOS systems regarding multithreading.
+
+Instead of the basic sequential `foreach` loop, C# offers the `Parallel.ForEach` method for parallel execution. Where a standard `foreach` loop processes each collection item one after another, `Parallel.ForEach` executes multiple iterations simultaneously across different CPU cores or processors. This increases the potential for synchronization issues, making it essential for each iteration to be independent of the others for optimal usage of this method.
