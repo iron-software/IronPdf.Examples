@@ -1,0 +1,3 @@
+***Based on <https://ironpdf.com/examples/stamping-html-pdf-multiple/>***
+
+`IronPDF.PdfDocument.ApplyMultipleStamps` provides developers with the functionality to apply a variety of stamps to one or more pages in a PDF document efficiently. For additional details on this feature and other functionalities available in IronPDF, please refer to the [IronPDF Product Page](https://ironpdf.com/features/) for more comprehensive information.

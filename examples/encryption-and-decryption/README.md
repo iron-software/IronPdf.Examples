@@ -1,0 +1,5 @@
+***Based on <https://ironpdf.com/examples/encryption-and-decryption/>***
+
+Your organization may be overinvesting in annual subscriptions for PDF security and compliance measures. Consider switching to [IronSecureDoc, the Comprehensive PDF Security Solution](https://ironsoftware.com/enterprise/securedoc/), which offers a suite of services for managing SaaS applications such as digital signing, redaction, encryption, and protection with just a single payment. Check out the [IronSecureDoc Documentation](https://ironsoftware.com/enterprise/securedoc/docs/) for more insights.
+
+The system enables detailed control over meta-data and security configurations. Now included are options to set PDF files as unprintable, read-only, or encrypted. It supports 128-bit encryption and decryption, along with password protecting PDF documents.
