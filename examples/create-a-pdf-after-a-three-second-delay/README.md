@@ -1,32 +1,32 @@
 ***Based on <https://ironpdf.com/examples/create-a-pdf-after-a-three-second-delay/>***
 
-IronPDF excels in converting HTML into PDF, ensuring that the layouts and designs are maintained. It enables PDF creation from web content, ideal for reports, invoices, and documentation. The library is adept at converting HTML files, URLs, and HTML strings directly into PDF files.
+IronPDF excels in converting HTML into PDFs, meticulously preserving the layout and styling. It's adept at producing PDFs from various web sources, including reports, invoices, and other documentation. This functionality extends to transforming HTML files, URLs, and HTML strings directly into PDF documents.
 
 ```cs
 using IronPdf;
 
-class Example
+class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         var pdfRenderer = new ChromePdfRenderer();
 
-        // 1. Transform HTML String into PDF
-        var htmlString = "<h1>Welcome to IronPDF!</h1><p>Convert this HTML string into a PDF file.</p>";
-        var pdfDocFromHtmlString = pdfRenderer.RenderHtmlAsPdf(htmlString);
-        pdfDocFromHtmlString.SaveAs("StringToPDF.pdf");
+        // 1. Transforming HTML string into a PDF
+        var htmlCode = "<h1>Welcome to IronPDF!</h1><p>Generate PDFs from an HTML string easily.</p>";
+        var pdfFromHtml = pdfRenderer.RenderHtmlAsPdf(htmlCode);
+        pdfFromHtml.SaveAs("HTMLStringToPDFOutput.pdf");
 
-        // 2. Convert HTML File to PDF File
-        var filePath = @"local_path_to_your_html.html";  // Define the path to your HTML file here
-        var pdfDocFromFile = pdfRenderer.RenderHtmlFileAsPdf(filePath);
-        pdfDocFromFile.SaveAs("FileToPDF.pdf");
+        // 2. Converting an HTML file into a PDF
+        var filePath = "your_html_file_path.html"; // Define the HTML file path
+        var pdfOutputFromHtmlFile = pdfRenderer.RenderHtmlFileAsPdf(filePath);
+        pdfOutputFromHtmlFile.SaveAs("OutputFromHTMLFile.pdf");
 
-        // 3. Creating PDF from a URL
-        var websiteUrl = "https://ironpdf.com"; // Define the URL here
-        var pdfDocFromUrl = pdfRenderer.RenderUrlAsPdf(websiteUrl);
-        pdfDocFromUrl.SaveAs("WebToPDF.pdf");
+        // 3. Creating a PDF from a web URL
+        var websiteUrl = "http://ironpdf.com"; // Provide the URL
+        var pdfFromWebUrl = pdfRenderer.RenderUrlAsPdf(websiteUrl);
+        pdfFromWebUrl.SaveAs("WebUrlToPDF.pdf");
     }
 }
 ```
 
-For additional information on IronPDF's capabilities, please visit the [IronPDF Product Page](https://ironpdf.com) or explore more options by visiting [Iron Software's Product Suite](https://ironsoftware.com).
+To delve deeper into the capabilities of IronPDF, check out the [IronPDF Product Page](https://ironpdf.com) or explore additional tools from [Iron Software's Product Suite](https://ironsoftware.com).

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.RenderWebgl
+namespace IronPdf.Examples.HowTo.RenderWebgl
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Configure IronPdf settings
             IronPdf.Installation.SingleProcess = true;

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.HtmlToPdf
+namespace IronPdf.Examples.Tutorial.HtmlToPdf
 {
-    public class Section16
+    public static class Section16
     {
-        public void Run()
+        public static void Run()
         {
             var htmlTemplate = "<p>[[NAME]]</p>";
             var names = new[] { "John", "James", "Jenny" };

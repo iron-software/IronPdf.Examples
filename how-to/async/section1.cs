@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using IronPdf;
-namespace ironpdf.Async
+namespace IronPdf.Examples.HowTo.Async
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate ChromePdfRenderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();

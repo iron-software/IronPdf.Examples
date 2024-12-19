@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.VbNetPdf
+namespace IronPdf.Examples.Tutorial.VbNetPdf
 {
-    public class Section12
+    public static class Section12
     {
-        public void Run()
+        public static void Run()
         {
             pdf.RemovePage((pdf.PageCount - 1))
         }

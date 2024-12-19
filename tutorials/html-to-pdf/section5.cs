@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.HtmlToPdf
+namespace IronPdf.Examples.Tutorial.HtmlToPdf
 {
-    public class Section5
+    public static class Section5
     {
-        public void Run()
+        public static void Run()
         {
             renderer.RenderingOptions.EnableJavaScript = true;
             renderer.RenderingOptions.WaitFor.RenderDelay(500); // milliseconds

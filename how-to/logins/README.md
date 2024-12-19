@@ -1,103 +1,105 @@
-# How to Convert HTML to PDF Utilizing Login Authentication
+# Converting HTML to PDF with Login Authentication
 
 ***Based on <https://ironpdf.com/how-to/logins/>***
 
 
-For optimal results, bypass login pages directly by rendering HTML from a local file or directly from a string when possible.
+It is generally advisable to bypass login requirements when converting HTML to PDF. This can typically be achieved by exporting HTML from a file or directly from a string.
 
-## Recommended Practices
+<h3>Introducing IronPDF</h3>
 
-IronPDF offers support for TLS network authentication, including username and password combinations, providing a high level of security. This is well-supported in .NET web applications using the [ChromeHttpLoginCredentials API](https://ironpdf.com/object-reference/api/IronPdf.ChromeHttpLoginCredentials.html).
+----
 
-It is advisable to use either `System.Net.WebClient` or `HttpClient` for retrieving HTML content and related resources. This approach supports custom request headers and authentication. After acquiring the HTML content, IronPDF can efficiently convert it into a PDF file. It's practical to utilize `HtmlAgilityPack` for parsing HTML, which enables downloading of associated assets like CSS and images with `System.Net.WebClient`.
+## Recommended Approaches
+
+IronPDF provides robust support for TLS network authentication, where both username and password can be securely implemented. .NET web applications can integrate this seamlessly using [ChromeHttpLoginCredentials API](https://ironpdf.com/object-reference/api/IronPdf.ChromeHttpLoginCredentials.html).
+
+A successful strategy includes using `System.Net.WebClient` or `HttpClient` to retrieve the HTML content and its associated resources. This approach not only handles headers and logins but also ensures all elements, such as stylesheets and images, are accounted for. Once the content is in memory or on disk, IronPDF can efficiently convert the HTML into a PDF. To manage assets effectively, `HtmlAgilityPack` offers a method to locate and download them using `System.Net.WebClient`.
 
 ```cs
 string htmlContent;
-using (var webClient = new WebClient()) {
+// Using WebClient to fetch HTML
+using (WebClient webClient = new WebClient()) {
     htmlContent = webClient.DownloadString("http://www.google.com");
 }
-HtmlDocument document = new HtmlDocument();
-document.LoadHtml(htmlContent);
-foreach(HtmlNode image in document.DocumentNode.SelectNodes("//img")) {
-    Console.WriteLine(image.GetAttributeValue("src", ""));
+
+// Loading HTML into the HtmlDocument
+HtmlDocument htmlDocument = new HtmlDocument();        
+htmlDocument.LoadHtml(htmlContent);
+
+// Extract and print image sources
+foreach(HtmlNode imageNode in htmlDocument.DocumentNode.SelectNodes("//img")) {
+    Console.WriteLine(imageNode.GetAttributeValue("src", null));
 }
 ```
 
-For handling relative URLs in HTML, use the `System.Uri` class to convert them into absolute URLs. To anchor relative paths within a document, implement a `<base>` tag in the HTML head, as explained [here](https://www.w3schools.com/tags/tag_base.asp).
+For handling relative URLs, one can use the overloaded constructor for the `System.Uri` class. You can integrate a `<base>` tag within the header of an HTML document to set a base path for all relative URLs using HtmlAgilityPack. [Learn how to use the base tag](https://www.w3schools.com/tags/tag_base.asp).
 
-## Network Authentication in Login
+## Implementing Network Authentication in Login
 
-Network authentication is robust and commonly used in ASP.NET applications, surpassing methods like HTML form submissions in reliability.
+Network authentication is commonly supported in most ASP.NET applications and offers more reliability than traditional HTML form submissions.
 
 ```cs
-using System;
 using IronPdf;
-namespace ironpdf.Logins
+using System;
+
+// Configuring PDF renderer with network credentials
+ChromePdfRenderer pdfRenderer = new ChromePdfRenderer
 {
-    public class NetworkLoginExample
+    // Establishing credentials
+    LoginCredentials = new ChromeHttpLoginCredentials()
     {
-        public void Execute()
-        {
-            ChromePdfRenderer pdfRenderer = new ChromePdfRenderer
-            {
-                // Set up credentials to navigate through basic authentication
-                LoginCredentials = new ChromeHttpLoginCredentials()
-                {
-                    NetworkUsername = "demoUser",
-                    NetworkPassword = "demoPass"
-                }
-            };
-
-            var targetUri = new Uri("http://localhost:51169/Invoice");
-
-            // Convert web page to PDF
-            PdfDocument document = pdfRenderer.RenderUrlAsPdf(targetUri);
-
-            // Save the generated PDF
-            document.SaveAs("WebToPdfExample.pdf");
-        }
+        NetworkUsername = "testUser",
+        NetworkPassword = "testPassword"
     }
-}
+};
+
+// Specifying the URI to render
+var targetUri = new Uri("http://localhost:51169/Invoice");
+
+// Convert the URL to PDF
+PdfDocument document = pdfRenderer.RenderUrlAsPdf(targetUri);
+
+// Saving the PDF document
+document.SaveAs("UrlToPdfExample.Pdf");
 ```
 
-## HTML Form Login
+## Using HTML Form for Login
 
-Logging in through HTML forms can be managed using the **ChromeHttpLoginCredentials** class as showcased earlier. More details at IronPDF's [ChromeHttpLoginCredentials API](https://ironpdf.com/object-reference/api/IronPdf.ChromeHttpLoginCredentials.html).
+Logging in via an HTML form can also utilize the **ChromeHttpLoginCredentials** class, akin to above examples. *See details in IronPDF's [ChromeHttpLoginCredentials API](https://ironpdf.com/object-reference/api/IronPdf.ChromeHttpLoginCredentials.html).* 
 
-**Points to Remember:**
+**Important notes:**
 
-- Ensure the login details are posted to the URL specified in the HTML form's ACTION attribute, which should be assigned to the *\[LoginFormUrl\](https://ironpdf.com/object-reference/api/IronPdf.ChromeHttpLoginCredentials.html)* property of the `HttpLoginCredentials`.
-- Input data fields should match the `name` attributes specified within the HTML form (ignore the `id` attributes).
-- Note that some sites may have defenses against automated logins.
+- The ACTION attribute of the HTML form should correspond to the *[LoginFormUrl](https://ironpdf.com/object-reference/api/IronPdf.ChromeHttpLoginCredentials.html)* setting in your `HttpLoginCredentials`.
+- The form data should reflect all inputs and text areas as defined by their 'name' attributes.
+- Note that some sites may shield against automated form posts.
 
-## MVC Approach
+## Handling MVC Views
 
-Below is a method enabling programmatic rendering of .NET MVC views into strings, which is particularly useful for evading logins while maintaining accurate view rendering.
+For programmatically rendering .NET MVC views into strings while sidestepping MVC logins, use the following method:
 
 ```cs
-public static string RenderViewToString(this Controller controller, string viewName, object viewModel = null)
+public static string RenderPartialViewToString(this Controller controller, string viewName, object model = null)
 {
     try
     {
         var controllerContext = controller.ControllerContext;
+        controller.ViewData.Model = model;
 
-        controller.ViewData.Model = viewModel;
-
-        using (var writer = new StringWriter())
+        using (var stringWriter = new StringWriter())
         {
-            var viewFindResult = ViewEngines.Engines.FindPartialView(controllerContext, viewName);
-
-            if (viewFindResult.View == null)
+            // Finding and rendering the partial view
+            var viewResult = ViewEngines.Engines.FindPartialView(controllerContext, viewName);
+            if (viewResult.View == null)
             {
-                throw new Exception($"The partial view {viewName} was not found.");
+                throw new Exception($"View \"{viewName}\" is unavailable.");
             }
 
-            var viewCtx = new ViewContext(controllerContext, viewFindResult.View, controller.ViewData, controller.TempData, writer);
+            // Setting the view context and rendering
+            var viewContext = new ViewContext(controllerContext, viewResult.View, controller.ViewData, controller.TempData, stringWriter);
+            viewResult.View.Render(viewContext, stringWriter);
+            viewResult.ViewEngine.ReleaseView(controllerContext, viewResult.View);
 
-            viewFindResult.View.Render(viewCtx, writer);
-            viewFindResult.ViewEngine.ReleaseView(controllerContext, viewFindResult.View);
-
-            return writer.GetStringBuilder().ToString();
+            return stringWriter.GetStringBuilder().ToString();
         }
     }
     catch (Exception ex)
@@ -106,4 +108,3 @@ public static string RenderViewToString(this Controller controller, string viewN
     }
 }
 ```
-This markdown content utilizes friendly, professional language aimed at offering clear and structured guidance on integrating authentication with HTML to PDF conversions using IronPDF.

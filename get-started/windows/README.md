@@ -1,68 +1,65 @@
-# Utilizing IronPDF for .NET on Windows Platforms
+# Operating IronPDF for .NET on Windows Platforms
 
 ***Based on <https://ironpdf.com/get-started/windows/>***
 
 
-IronPDF is fully compatible with Windows 10, 11, and various Windows Server editions for .NET versions 8, 7, 6, Core, .NET Standard, and .NET Framework.
+IronPDF is well-supported across various Windows versions including Windows 10, Windows 11, and several Windows Server editions suitable for .NET versions such as .NET 8, .NET 7, .NET 6, .NET Core, .NET Standard, and .NET Framework.
 
-## Key Considerations for Windows Server
+## Key Insights on Windows Server Compatibility
 
-Support is extended to **Windows Server 2022 and 2016** for both Desktop Experience and Core installations, whereas **Windows Server 2019 and 2012 are supported only in their Desktop Experience configurations**.
+IronPDF ensures compatibility with **Windows Server 2022 and 2016**, available for both the Desktop Experience and Core configurations. However, **Windows Server 2019 and 2012** are supported exclusively in the Desktop Experience format.
 
-**Windows Server 2022 & 2016**
+**Compatibility Breakdown for Windows Server Versions:**
 
-- <i class="fa-regular fa-circle-check" style="color: #63E6BE;"></i> Available with a graphical user interface ("Desktop experience").
-- <i class="fa-regular fa-circle-check" style="color: #63E6BE;"></i> Available in a command-line-only environment ("Core").
+- <i class="fa-regular fa-circle-check" style="color: #63E6BE;"></i> Full support for Windows Server 2022 & 2016 with GUI ("Desktop experience") and without GUI ("Core").
+- <i class="fa-regular fa-circle-check" style="color: #63E6BE;"></i> Supported Windows Server 2019 & 2012 with GUI ("Desktop experience").
+- <i class="fa-regular fa-circle-xmark" style="color: #ff4abd;"></i> Not supported for Windows Server 2019 & 2012 non-GUI ("Core").
 
-**Windows Server 2019 & 2012**
+Please note that IronPDF versions from 2023.3.2 to 2024.2.2 are incompatible with Windows Server 2012.
 
-- <i class="fa-regular fa-circle-check" style="color: #63E6BE;"></i> Supported with a graphical user interface ("Desktop experience").
-- <i class="fa-regular fa-circle-xmark" style="color: #ff4abd;"></i> Not supported in a command-line-only environment ("Core").
+Efforts are ongoing to extend support to Windows Server Core and Nano variations. The core challenge lies in the absence of certain media/graphics DLLs in these streamlined Windows versions, which are essential for Chromium's HTML to PDF rendering.
 
-Our commitment to expand support for the Core and Nano versions of Windows Server is ongoing. The challenge with the operating system does not stem from its architecture. It mainly relates to the absence of media/graphics DLLs needed by Chromium for HTML to PDF rendering, which are only accessible in the Desktop version.
+We anticipate supporting Windows Nano Server following the full integration of Windows Server Core.
 
-Additionally, we are considering support for the minimalistic Windows Nano Server once there's full compatibility with the Windows Server Core.
+### Regarding Unsupported Windows Versions
 
-Note: System.Drawing is not supported in Windows Nano Server or Server Core for .Net6.
-[Read More About libcef.dll Issues](https://ironpdf.com/troubleshooting/libcef-dll-203/)
+For Windows variants that do not natively support IronPDF, you can opt for IronPDF in Engine Mode to circumvent these limitations.
 
-### For Unsupported Windows Versions, Consider IronPDF's Engine Mode
+**Understanding Native & Engine Modes:**  
+Engine Mode enables resource-intensive features to be executed remotely, eliminating compatibility issues with older Windows versions or mobile platforms without requiring the full IronPdf package.
 
-**Differences Between Native & Engine Modes**  
-IronPDF provides some advanced features which you might opt to execute remotely to circumvent Chrome compatibility challenges with older Windows or mobile platforms. Using IronPdfEngine remotely is optional but helpful for these cases.
+**Coding with IronPDF in Engine Mode:**  
+This setup permits the use of older Windows versions, including Windows Server 2012.
 
-**Coding Changes with Engine Usage**  
-This adaptation facilitates using older Windows versions like Windows Server 2012.
-
-For applications utilizing Engine mode, it's recommended to install the lighter `IronPdf.Slim` package. Use the following PowerShell command:
+Instead of the full IronPDF package, it's advisable to install `IronPdf.Slim` to manage program overhead more effectively via the Engine mode.
 
 ```powershell
 PM> Install-Package IronPdf.Slim
 ```
 
-Configure the connection settings post-installation by directing IronPDF to your remote IronPdfEngine instance. Insert this code at your application’s startup (or before using any IronPDF functionalities):
+Upon installation, configure your application to connect with the remote IronPdfEngine service by inserting the following initialization code:
 
 ```csharp
-// Configuring connection to a remote IronPdfEngine
-// hosted at IP 123.456.7.8 on port 33350.
-IronPdf.Installation.ConnectToIronPdfHost(IronPdf.GrpcLayer.IronPdfConnectionConfiguration.RemoteServer("123.456.7.8:33350"));
+// Pointing to a remote IronPdfEngine instance
+// at the specified IP and port.
+Installation.ConnectToIronPdfHost(IronPdf.GrpcLayer.IronPdfConnectionConfiguration.RemoteServer("123.456.7.8:33350"));
 ```
 
-### Windows Server Standard & DataCenter Editions
+### Windows Server Standard vs. DataCenter
 
-Referencing Microsoft's documentation for a "[Comparison of Standard and DataCenter editions of Windows Server 2016](https://learn.microsoft.com/en-us/windows-server/get-started/editions-comparison-windows-server-2016?tabs=full-comparison)", both Standard and DataCenter variants are suitable for IronPDF, with DataCenter offering additional storage solutions and functionalities.
+Based on Microsoft's "[Comparison of Standard and Datacenter editions of Windows Server 2016](https://learn.microsoft.com/en-us/windows-server/get-started/editions-comparison-windows-server-2016?tabs=full-comparison)", the DataCenter edition encompasses all features of the Standard edition with added capabilities specifically for enhanced storage. IronPDF functions seamlessly within both Windows Server DataCenter and Standard Desktop Experiences.
 
-## Specifics on Windows Installation
+## Specific Installation Steps for Windows
 
-The principal IronPdf NuGet package relies on [IronPdf.Native.Chrome.Windows](https://www.nuget.org/packages/IronPdf.Native.Chrome.Windows/), which includes the required Chrome binaries for both x86 and x64 Windows architectures.
+IronPDF depends on the [IronPdf.Native.Chrome.Windows](https://www.nuget.org/packages/IronPdf.Native.Chrome.Windows/) package from NuGet, which supports the Chrome renderer in both x86 and x64 architectures.
 
-- The [IronPdf](https://www.nuget.org/packages/IronPdf/) package supports x86 and x46 Windows architectures.
+- The [IronPdf](https://www.nuget.org/packages/IronPdf/) package is compatible with Windows x86 and x64 systems.
 
-For optimal resource use, you may remove unused /runtimes directories (either x86 or x64).
+If only a single architecture is needed, the irrelevant /runtimes directory can be removed to streamline the installation.
 
-## Recommended Hardware Specifications
+## Hardware Requirements
 
-IronPDF leverages the Chromium engine to convert HTML into PDFs, matching the quality of Chrome's print feature. The hardware requirements are mainly to accommodate the demands of the Chromium engine:
+Since IronPDF is based on the Chromium engine to transform HTML into PDFs, the hardware primarily supports the operation of this engine. 
 
-- Minimum: 1 Core & 1.75 GB of RAM
-- Recommended: 2 Cores & 8 GB of RAM or more
+- Minimum specification requires: 1 Core & 1.75 GB of RAM
+- Recommended specification suggests: 2 Cores & 8 GB of RAM or more

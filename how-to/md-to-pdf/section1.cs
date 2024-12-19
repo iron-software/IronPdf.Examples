@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.MdToPdf
+namespace IronPdf.Examples.HowTo.MdToPdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate Renderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CustomPaperSize
+namespace IronPdf.Examples.HowTo.CustomPaperSize
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             

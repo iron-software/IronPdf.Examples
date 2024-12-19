@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.VbNetPdf
+namespace IronPdf.Examples.Tutorial.VbNetPdf
 {
-    public class Section11
+    public static class Section11
     {
-        public void Run()
+        public static void Run()
         {
             pdf.PrependPdf(renderer.RenderHtmlAsPdf("<h1>Cover Page</h1><hr>"))
         }

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.RotatingText
+namespace IronPdf.Examples.HowTo.RotatingText
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             var renderer = new IronPdf.ChromePdfRenderer();
             

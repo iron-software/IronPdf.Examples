@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using IronPdf;
-namespace ironpdf.AddCopyDeletePagesPdf
+namespace IronPdf.Examples.HowTo.AddCopyDeletePagesPdf
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Copy a single page into a new PDF object
             PdfDocument myReport = PdfDocument.FromFile("report_final.pdf");

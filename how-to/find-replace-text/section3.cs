@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.FindReplaceText
+namespace IronPdf.Examples.HowTo.FindReplaceText
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             string html = @"<p> .NET6 </p>
             <p> This is 1st Page </p>

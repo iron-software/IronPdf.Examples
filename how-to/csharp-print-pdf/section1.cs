@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using IronPdf;
-namespace ironpdf.CsharpPrintPdf
+namespace IronPdf.Examples.HowTo.CsharpPrintPdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Create a new PDF and print it
             ChromePdfRenderer renderer = new ChromePdfRenderer();

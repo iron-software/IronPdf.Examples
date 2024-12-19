@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.PdfPermissionsPasswords
+namespace IronPdf.Examples.HowTo.PdfPermissionsPasswords
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Open an Encrypted File, alternatively create a new PDF from HTML
             var pdf = PdfDocument.FromFile("protected.pdf", "password123");

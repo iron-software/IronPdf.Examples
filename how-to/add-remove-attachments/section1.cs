@@ -1,10 +1,10 @@
 using System.IO;
 using IronPdf;
-namespace ironpdf.AddRemoveAttachments
+namespace IronPdf.Examples.HowTo.AddRemoveAttachments
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Import attachment file
             byte[] fileData = File.ReadAllBytes(@"path/to/file");

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.VbNetPdf
+namespace IronPdf.Examples.Tutorial.VbNetPdf
 {
-    public class Section10
+    public static class Section10
     {
-        public void Run()
+        public static void Run()
         {
             Dim pdfs = New List(Of PdfDocument)
             pdfs.Add(PdfDocument.FromFile("A.pdf"))

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.Waitfor
+namespace IronPdf.Examples.HowTo.Waitfor
 {
-    public class Section9
+    public static class Section9
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             

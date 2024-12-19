@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using IronPdf;
-namespace ironpdf.RedactText
+namespace IronPdf.Examples.HowTo.RedactText
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("novel.pdf");
             

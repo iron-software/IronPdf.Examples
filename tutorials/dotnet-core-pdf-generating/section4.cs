@@ -1,22 +1,18 @@
 using IronPdf;
-namespace ironpdf.DotnetCorePdfGenerating
+namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
-            public class ClientServices
-            {
-                private static ClientModel _clientModel;
-                public static void AddClient(ClientModel clientModel)
-                {
-                    _clientModel = clientModel;
-                }
-                public static ClientModel GetClient()
-                {
-                    return _clientModel;
-                }
-            }
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            // Set rendering options
+            renderer.RenderingOptions.PaperSize = IronPdf.Rendering.PdfPaperSize.A4;
+            renderer.RenderingOptions.PaperOrientation = IronPdf.Rendering.PdfPaperOrientation.Portrait;
+            
+            renderer.RenderHtmlFileAsPdf(@"testFile.html").SaveAs("GeneratedFile.pdf");
         }
     }
 }

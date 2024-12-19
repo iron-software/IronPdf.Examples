@@ -1,58 +1,62 @@
+# Convert RTF to PDF Using IronPDF
+
 ***Based on <https://ironpdf.com/how-to/rtf-to-pdf/>***
 
-Here's the paraphrased article based on the document details provided:
 
----
+RTF, or Rich Text Format, is a file type created by Microsoft that handles basic text formatting and can include images. While functional, RTF is not as complex as other formats like DOCX or PDF.
 
-### Easily Convert HTML to PDF with IronPDF
+Using IronPDF, you can convert RTF content from files or strings directly to PDF. This conversion process provides advantages such as better accessibility, reduced size, and a format optimized for printing. The transformation ensures uniform presentation, heightened security, and print readiness on any platform.
 
-#### Get Started Quickly
-To start integrating PDF functionalities in your .NET projects with IronPDF, simply add it to your project using NuGet:
+## Getting Started with IronPDF
+-----
 
-```plaintext
-PM> Install-Package IronPdf
-```
+## Example: Converting RTF String to PDF
 
-#### Simple PDF Generation from HTML
+To convert an RTF string to a PDF, employ the `RenderRtfStringAsPdf` method. The method supports a variety of **RenderingOptions**. These include adding [text and HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/), [text and image stamping](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#stamper-abstract-class), [custom page numbering](https://ironpdf.com/how-to/headers-and-footers/), as well as setting custom orientations and sizes for pages. Once the PDF is created, you can modify the PDF further by [merging, splitting](https://ironpdf.com/how-to/merge-or-split-pdfs/), rotating pages, and adding [annotations](https://ironpdf.com/how-to/annotations/) and [bookmarks](https://ironpdf.com/how-to/bookmarks/).
 
-Below is a basic example of how to convert a straightforward HTML string to a PDF file. This example ensures that you're up and running in no time:
-
-```csharp
+```cs
 using IronPdf;
 
-var renderer = new HtmlToPdf();
-var PDF = renderer.RenderHtmlAsPdf("<h1>Hello World</h1>");
-PDF.SaveAs("result.pdf");
+// Instantiating the Renderer
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Defining the RTF string
+string rtf = @"{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}}{\colortbl;\red0\green0\blue0;}\cf0This is some \b bold \b0 and \i italic \i0 text.}";
+
+// Convert the RTF string to PDF
+PdfDocument pdf = renderer.RenderRtfStringAsPdf(rtf);
+
+// Save the resulting PDF
+pdf.SaveAs("pdfFromRtfString.pdf");
 ```
 
-#### Advanced Usage
-For more complex scenarios, including rendering external HTML assets like images, CSS, and JavaScript, you can specify an optional base path. This is useful for complete HTML rendering that references local media or styles.
+## Example: Converting RTF File to PDF
 
-```csharp
-var Renderer = new ChromePdfRenderer();
-Renderer.RenderingOptions.BaseUrl = @"C:\site\assets\";
+To convert an RTF file into a PDF document, utilize the `RenderRtfFileAsPdf` method. Download the example RTF file from the following [link](https://ironpdf.com/static-assets/pdf/how-to/rtf-to-pdf/sample.rtf) to try it yourself.
 
-var PDF = Renderer.RenderHtmlAsPdf(@"
-<h1>Html with CSS and Images</h1>
-<img src='icons/iron.png'>
-");
-PDF.SaveAs("html-with-assets.pdf");
+### Preview of RTF File in Microsoft Word
+
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironpdf.com/static-assets/pdf/how-to/rtf-to-pdf/rtf-on-microsoft-word.webp" alt="Open RTF file on Microsoft Word" class="img-responsive add-shadow">
+    </div>
+</div>
+
+### Sample Code
+
+```cs
+using IronPdf;
+
+// Initialize Renderer
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Convert the RTF file to PDF
+PdfDocument pdf = renderer.RenderRtfFileAsPdf("sample.rtf");
+
+// Save the generated PDF
+pdf.SaveAs("pdfFromRtfFile.pdf");
 ```
 
-#### Powerful PDF Processing Features
-IronPDF supports a myriad of functionalities enabling developers to generate, edit, and manipulate PDF files easily:
-
-- Convert HTML, MVC, ASPX, and image sources to PDF
-- Utilize advanced editing features to manipulate PDF documents
-- Digitally sign or password-protect your PDF files
-
-For more information on embedding IronPDF into your software solutions, visit [IronPDF](https://ironpdf.com/).
-
-#### Iron Software Support
-Iron Software provides robust support with their dedicated team ready to assist you with your development needs. You can contact them anytime at [support@ironsoftware.com](mailto:support@ironsoftware.com) or check their detailed documentation and licensing options at [Iron Software Documentation](https://ironsoftware.com/csharp/pdf/documentation/).
-
-For in-depth insights and advanced customization, IronPDF offers comprehensive documentation accessible through its official site, ensuring developers can fully leverage its capacities within their .NET applications.
-
----
-
-This version is revamped with a natural, conversational tone suitable for engaging software engineers while maintaining the technical credibility and comprehensiveness required for effective implementation.
+### View the Generated PDF 
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/rtf-to-pdf/pdfFromRtfFile.pdf" width="100%" height="400px">
+</iframe>

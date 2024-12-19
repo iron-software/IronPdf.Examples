@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.PageNumbers
+namespace IronPdf.Examples.HowTo.PageNumbers
 {
-    public class Section8
+    public static class Section8
     {
-        public void Run()
+        public static void Run()
         {
             // Skip the first page
             var skipFirstPage = allPageIndices.Skip(1);

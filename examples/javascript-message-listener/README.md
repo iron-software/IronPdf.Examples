@@ -1,3 +1,3 @@
 ***Based on <https://ironpdf.com/examples/javascript-message-listener/>***
 
-Using IronPDF's `ChromePdfRenderOptions.JavascriptMessageListener` property, you can establish a Method callback that will trigger whenever a browser console message is detected. For additional information on this functionality, please refer to the [IronPDF Documentation on Javascript Console Messages](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderOptions.html#IronPdf_ChromePdfRenderOptions_JavascriptMessageListener).
+IronPDF's `ChromePdfRenderOptions.JavascriptMessageListener` property allows you to incorporate a Method callback, which is invoked whenever a message is available from the browser console. For further details on this capability, consult the [IronPDF Documentation on Javascript Console Messages](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderOptions.html#IronPdf_ChromePdfRenderOptions_JavascriptMessageListener).

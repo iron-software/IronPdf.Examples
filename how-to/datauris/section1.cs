@@ -1,10 +1,10 @@
 using System;
 using IronPdf;
-namespace ironpdf.Datauris
+namespace IronPdf.Examples.HowTo.Datauris
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Read byte from image file
             var pngBinaryData = System.IO.File.ReadAllBytes("My_image.png");

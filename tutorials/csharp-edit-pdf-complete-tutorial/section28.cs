@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CsharpEditPdfCompleteTutorial
+namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
-    public class Section28
+    public static class Section28
     {
-        public void Run()
+        public static void Run()
         {
             var formDocument = PdfDocument.FromFile("BasicForm.pdf");
             

@@ -1,4 +1,4 @@
-# Implementing IronPDF in Android MAUI Apps
+# Implement IronPDF on Android with MAUI
 
 ***Based on <https://ironpdf.com/get-started/android/>***
 
@@ -14,31 +14,34 @@
     </div>
 </div>
 
-IronPDF offers remote service capabilities, providing enhanced ease of use, efficiency, and deployment options. Numerous clients have successfully integrated this functionality, executing [IronPDF within a Docker setup](https://hub.docker.com/r/ironsoftwareofficial/ironpdfengine) alongside their primary software systems.
+IronPDF, capable of operating as a remote service, enhances ease, performance, and scalability. Numerous customers utilize this setup to deploy [IronPDF within a Docker environment](https://hub.docker.com/r/ironsoftwareofficial/ironpdfengine) concurrently with their primary applications.
 
-The [`IronPdf.Server.Azure`](https://www.nuget.org/packages/IronPdf.Server.Azure) package makes it possible to deploy IronPDF in the cloud, facilitating its use on any platform, including mobile environments!
+The [`IronPdf.Server.Azure`](https://www.nuget.org/packages/IronPdf.Server.Azure) NuGet package facilitates the integration of IronPDF into cloud infrastructures, simplifying its use on any device, including mobile platforms!
 
-If you wish, there is a GitHub repository available for cloning on the right-hand side.
+Feel free to clone the GitHub repository mentioned on the right for quick access.
 
+<h3>Getting Started with IronPDF</h3>
 
-## Hosting with Azure App Service
+----------------
 
-1. Set up a new Azure BLOB Storage Container.
-2. Launch a new Azure App Service and a corresponding App Service Plan. We recommend selecting the Basic B2 plan or higher, although the Free F1 plan may also be adequate to start.
-3. In the "Settings/Configuration" area of your Web application, assign the following parameters:
-   - `BLOB_STORAGE_CONNECTION`: Define a connection string as specified by Microsoft guidelines.
-   - `BLOB_STORAGE_CONTAINER`: Simply the name of your storage container.
-   - `HTTP20_ONLY_PORT`: This should be set to 80.
-4. Open the sample Azure App Service Linux Container application, `IronPdf.Android.Server.csproj`, using Visual Studio.
-5. Create and configure a new publish profile that targets the Azure App Service set up in step 2.
-6. Deploy your application.
-7. Shortly after, you can confirm the successful deployment of your app by visiting the provided URL, which will display a straightforward debug message.
+## Azure App Service Setup
+
+1. Initialize a new Azure BLOB Storage Container.
+2. Set up a new Azure App Service and an App Service Plan. We recommend choosing the Basic B2 plan or higher, but the Free F1 plan should also be adequate to commence.
+3. In your Web app's Settings/Configuration area:
+   1. `BLOB_STORAGE_CONNECTION`: Set up a connection string as per Microsoft's specifications.
+   2. `BLOB_STORAGE_CONTAINER`: Simply the name of your container within the storage solution.
+   3. `HTTP20_ONLY_PORT`: Should be configured to port 80.
+4. Open the project `IronPdf.Android.Server.csproj` with Visual Studio under the example Azure App Service Linux Container.
+5. Generate a new publish profile targeting your previously created Azure App Service.
+6. Deploy your application!
+7. After a few minutes, check the successful deployment of your app by visiting its URL via a browser, which will display a basic debug message.
 
 ## Android MAUI Client Setup
 
-1. Launch the example MAUI Android app, `IronPdf.Android.Client.csproj`, with Visual Studio.
-2. In MainPage.xaml.cs, either input your license key or omit this step to produce watermarked documents.
-3. Modify the `Host = "https://YOUR-APP-SERVICE.azurewebsites.net/"` line in MainPage.xaml.cs to point to your web app hosting IronPdf.
-4. Execute the demo on an Android device supporting API level 21.0 or newer.
+1. Start by opening the `IronPdf.Android.Client.csproj` MAUI Android example application in Visual Studio.
+2. In `MainPage.xaml.cs`, either insert your license key or proceed without it to produce documents with watermarks.
+3. Modify the `Host = "https://YOUR-APP-SERVICE.azurewebsites.net/"` line in `MainPage.xaml.cs` to point to your hosted IronPdf on Azure App Service.
+4. Launch the application on an Android device supporting API level 21.0 or above.
 
-Please be aware that initial document rendering might take longer if your Azure App Service is being booted up for the first time.
+NOTE: The initial document rendering might take longer as the Azure App Service boots up for the first time.

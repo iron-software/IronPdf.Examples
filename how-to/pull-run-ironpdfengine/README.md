@@ -1,58 +1,142 @@
-# IRONPDF
+# How to Pull and Run IronPdfEngine
 
 ***Based on <https://ironpdf.com/how-to/pull-run-ironpdfengine/>***
 
 
-## Convert HTML to PDF in .NET
+This guide covers the process of obtaining and launching the IronPdfEngine image from Dockerhub, AWS ECR Public Gallery, or AWS Marketplace within a Docker environment.
 
-IronPDF is a robust library designed for developers using .NET versions including 8, 7, 6, Core, and Framework. It allows you to efficiently convert HTML content into PDF files, making it a versatile tool for creating documentation or reports from web-based content. The process is straightforward, requiring minimal code and setup, thanks to the `NuGet` support.
+**Pulling:** This step involves downloading the IronPdfEngine container image from one of the registries like Dockerhub, AWS ECR Public Gallery, or AWS Marketplace to your local machine using the `docker pull` command.
 
-## Key Features
+**Running:** After acquiring the image, you can start a container by using the `docker run` command. This action initiates the IronPdfEngine within a Docker container, enabling you to access its features.
 
-### Simple HTML to PDF Conversion
-
-Convert HTML to PDF with high fidelity, including complex web pages featuring CSS, JavaScript, and images. Whether it's a single HTML string or entire web pages, IronPDF ensures a crisp, clean conversion that replicates your HTML design accurately in the resulting PDF.
-
-### Code Example
-
-Here’s how you can convert an HTML string to a PDF in C#:
-
-```csharp
-// Add the IronPDF library to your project
-using IronPdf;
-
-// Create an instance of the HtmlToPdf class
-var renderer = new HtmlToPdf();
-
-// Render an HTML string as a PDF file
-var pdf = renderer.RenderHtmlAsPdf("<h1>Hello, World!</h1>");
-
-// Save the PDF to a file
-pdf.SaveAs("hello-world.pdf");
-```
-
-### Comprehensive Feature Set
-
-- Generate PDFs directly from URLs or HTML files.
-- Create PDFs from ASPX, Razor, and MVC views.
-- Utilize advanced PDF functionalities like editing, digital signing, and PDF text extraction.
-- IronPDF supports a wide array of .NET project types and languages, ensuring compatibility across different platforms including Windows, Linux, and Mac.
-
-## Deployment and Installation
-
-Quickly integrate IronPDF into your projects using the NuGet Package Manager installation:
-
-```nuget
-PM> Install-Package IronPdf
-```
-
-For more details on integration and extensive features, visit [IronPDF's official documentation](https://ironsoftware.com/csharp/pdf/).
-
-## Why Choose IronPDF?
-
-Opt for IronPDF for your .NET applications to leverage state-of-the-art PDF generation and manipulation. Each license comes with comprehensive support, including a dedicated success manager for enterprise clients, ensuring that the integration and continued use of the library meet your project's needs and standards.
-
-Deploy IronPDF today and enhance your applications' capabilities with advanced PDF functionalities! For further inquiries or custom license advice, reach out to Iron Software's customer success team via [support@ironsoftware.com](mailto:support@ironsoftware.com).
+### Get Started with IronPDF
 
 ---
-For the complete set of IronPDF features and licensing details, explore our complete [online resource](https://ironpdf.com/documentation/).
+
+## Downloading IronPdfEngine from Dockerhub
+
+### Prerequisite
+
+* Docker should be installed on your system.
+
+### Step-by-Step Instructions
+
+1. Visit [IronPdfEngine Dockerhub Page](https://hub.docker.com/r/ironsoftwareofficial/ironpdfengine).
+2. Download the `ironsoftwareofficial/ironpdfengine` image using:
+
+```shell
+docker pull ironsoftwareofficial/ironpdfengine
+```
+
+Alternatively, you can download a specific version by running:
+
+```shell
+docker pull ironsoftwareofficial/ironpdfengine:2023.12.6
+```
+
+3. Launch the `ironsoftwareofficial/ironpdfengine` container:
+
+```shell
+docker run -d -p 33350:33350 ironsoftwareofficial/ironpdfengine
+```
+
+To learn how to connect the IronPdf client with IronPdfEngine, proceed to the section "[Update the Code to Use IronPdfEngine](#anchor-update-the-code-to-use-ironpdfengine)."
+
+---
+
+## Configuring IronPdfEngine using Docker Compose
+
+Create a Docker environment where IronPdfEngine and your application can interact seamlessly. Use the `depends_on` directive to ensure IronPdfEngine is running before your application launches.
+
+### Instructions
+
+1. Begin by constructing a `docker-compose.yml` file with this template:
+```yml
+version: "3.6"
+services:
+  myironpdfengine:
+    container_name: ironpdfengine
+    image: ironsoftwareofficial/ironpdfengine:latest
+    ports:
+      - "33350:33350"
+    networks:
+      - ironpdf-network
+  myconsoleapp:
+    container_name: myconsoleapp
+    build:
+      context: ./MyConsoleApp/
+      dockerfile: Dockerfile
+    networks:
+      - ironpdf-network
+    depends_on:
+      myironpdfengine:
+        condition: service_started
+networks:
+  ironpdf-network: 
+    driver: "bridge"
+```
+
+2. Set the target address of IronPdfEngine within your application (myconsoleapp) to `myironpdfengine:33350`.
+3. Execute the Docker Compose setup:
+```shell
+docker compose up --detach --force-recreate --remove-orphans --timestamps
+```
+
+---
+
+## Accessing IronPdfEngine from AWS ECR Public Gallery
+
+### Prerequisite
+* Ensure Docker is installed on your system.
+
+### Setup Instructions
+1. Navigate to [IronPdfEngine AWS ECR Public Gallery](https://gallery.ecr.aws/v1m9w8y1/ironpdfengine).
+2. Download the `v1m9w8y1/ironpdfengine` image:
+```shell
+docker pull https://gallery.ecr.aws/v1m9w8y1/ironpdfengine
+```
+Or, download a specific version:
+```shell
+docker pull https://gallery.ecr.aws/v1m9w8y1/ironpdfengine:2023.12.6
+```
+3. Start the `ironpdfengine` container, ensuring it runs in the background on port 33350:
+```shell
+docker run -d -p 33350:33350 ironsoftwareofficial/ironpdfengine
+```
+
+For configuration details, refer to "[Update the Code to Use IronPdfEngine](#anchor-update-the-code-to-use-ironpdfengine)."
+
+---
+
+## Deploying IronPdfEngine via AWS Marketplace
+
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <a href="https://aws.amazon.com/marketplace/pp/prodview-t66wmni5ri7ve?sr=0-1&ref_=beagle&applicationId=AWSMPContessa"><img src="https://ironpdf.com/static-assets/pdf/how-to/pull-run-ironpdfengine/aws-marketplace.webp" alt="AWS Marketplace" class="img-responsive add-shadow"></a>
+    </div>
+</div>
+
+### Prerequisites
+* Docker and AWS CLI must be installed and configured.
+
+### Installation Steps
+1. Visit [IronPdfEngine on AWS marketplace](https://aws.amazon.com/marketplace/pp/prodview-t66wmni5ri7ve?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) and click 'Continue to Subscribe.'
+
+2. Agree to the Terms.
+3. Continue to Configuration.
+4. Fetch the `ironpdfengine` image using the command shown below. Note: Replace the placeholder AWS account information and region with your actual details:
+
+```shell
+aws ecr get-login-password \
+    --region us-east-1 | docker login \
+    --username AWS \
+    --password-stdin 000000000000.dkr.ecr.us-east-1.amazonaws.com
+CONTAINER_IMAGES="000000000000.dkr.ecr.us-east-1.amazonaws.com/iron-software/ironpdfengine:2024.1.15"    
+for i in $(echo $CONTAINER_IMAGES | sed "s/,/ /g"); do docker pull $i; done
+```
+
+5. Start the `ironpdfengine` container using the provided command, making sure to run it on port 33350:
+
+```shell
+docker run -d -p 33350:33350 000000000000.dkr.ecr.us-east-1.amazonaws.com/iron-software/ironpdfengine:2024.1.15
+```

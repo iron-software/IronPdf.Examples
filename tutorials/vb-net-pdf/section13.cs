@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.VbNetPdf
+namespace IronPdf.Examples.Tutorial.VbNetPdf
 {
-    public class Section13
+    public static class Section13
     {
-        public void Run()
+        public static void Run()
         {
             // Save with a strong encryption password.
             pdf.Password = "my.secure.password";

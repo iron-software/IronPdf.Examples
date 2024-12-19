@@ -1,10 +1,10 @@
 using IronPdf.Rendering;
 using IronPdf;
-namespace ironpdf.PageOrientationRotation
+namespace IronPdf.Examples.HowTo.PageOrientationRotation
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("rotatedLandscape.pdf");
             

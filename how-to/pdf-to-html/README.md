@@ -1,112 +1,91 @@
-# Transforming PDF to HTML
+# How to Convert PDF to HTML
 
 ***Based on <https://ironpdf.com/how-to/pdf-to-html/>***
 
 
-### Advantages of PDF to HTML Conversion
+Converting PDFs into HTML can greatly enhance web compatibility and accessibility, optimize your content for search engines, and allow for easier editing and integration on web platforms. This conversion is ideal for ensuring content responsiveness across various devices, and for using dynamic web capabilities like multimedia.
 
-Transforming a PDF into HTML format offers numerous advantages that enhance user interaction and accessibility. This includes making content easily accessible on the web across different devices, enhancing SEO, ensuring seamless integration into websites, facilitating straightforward edits via web tools or CMS, and achieving across-the-board compatibility while allowing dynamic and multimedia elements.
+IronPdf streamlines the conversion of PDF files to HTML format using .NET C#.
 
-IronPdf streamlines and simplifies the conversion from PDF to HTML in .NET C# environments.
+### Starting with IronPDF
 
-## Example: Converting PDF to HTML
+-----
 
-The method `ToHtmlString` is designed to facilitate the examination of HTML content within a PDF file. This is particularly useful for debugging or comparing PDF documents. Alongside, IronPdf features the `SaveAsHtml` method. This method enables users to save a PDF as an HTML file directly, adding flexibility to select an approach that best fits their requirements.
+## Example: PDF to HTML Conversion
 
-It should be noted that any interactive form fields from the source PDF will not function in the HTML output.
+The method `ToHtmlString` is specifically designed to help analyze HTML content within existing PDF files and is particularly helpful for debugging or comparing PDFs. Alongside this, IronPdf provides the `SaveAsHtml` method which lets users directly save a PDF as an HTML file. This dual approach gives flexibility depending on the project requirements.
 
-#### Sample PDF File
+Note, any interactive elements from the original PDF will not function in the HTML output.
 
-```html
+#### Display PDF File Sample
+
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/pdf-to-html/sample.pdf" width="100%" height="500px">
 </iframe>
-```
 
 ```cs
-using System;
 using IronPdf;
+using System;
 
-namespace ironpdf.PdfToHtml
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            var pdf = PdfDocument.FromFile("sample.pdf");
-            
-            // Converting PDF to HTML string
-            var html = pdf.ToHtmlString();
-            Console.WriteLine(html);
-            
-            // Converting PDF to HTML file
-            pdf.SaveAsHtml("output.html");
-        }
-    }
-}
+PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
+
+// Demonstrating conversion of PDF to HTML string
+string html = pdf.ToHtmlString();
+Console.WriteLine(html);
+
+// Demonstrating saving PDF as an HTML file
+pdf.SaveAsHtml("myHtml.html");
 ```
 
-#### Rendered HTML Output
+#### HTML Output Sample
 
-The full HTML output generated via `SaveAsHtml` can be viewed at the link below.
+The HTML output via the `SaveAsHtml` method is shown in the following link.
 
-```html
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/pdf-to-html/myHtml.html" width="100%" height="500px">
 </iframe>
-```
 
 <hr>
 
-## Advanced PDF to HTML Conversion Example
+## Advanced PDF to HTML Example
 
-The methods `ToHtmlString` and `SaveAsHtml` provide various configuration options:
+The `ToHtmlString` and `SaveAsHtml` methods include options for customization as listed below:
+- **BackgroundColor**: Defines the background color.
+- **PdfPageMargin**: Sets the margins of the PDF pages.
 
-- **BackgroundColor**: Sets the background color of the HTML.
-- **PdfPageMargin**: Defines margins around the PDF pages.
-- For the `title` parameter in both `ToHtmlString` and `SaveAsHtml`, the properties below can be used to prepend a title to the output:
-  - **H1Color**: Color of the title.
-  - **H1FontSize**: Font size of the title.
-  - **H1TextAlignment**: Alignment of the title text (left, center, or right).
+The following settings pertain to the 'title' parameter in the `ToHtmlString` and `SaveAsHtml` methods, which is used to prepend a new title to the HTML content. These do not change the original title or main heading of the original PDF:
+- **H1Color**: Sets the color of the title.
+- **H1FontSize**: Sets the font size of the title.
+- **H1TextAlignment**: Aligns the title text (left, center, or right).
 
 ```cs
-using System;
 using IronPdf;
+using IronSoftware.Drawing;
+using System;
 
-namespace ironpdf.PdfToHtml
+PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
+
+// Configuration options for PDF to HTML
+HtmlFormatOptions htmlformat = new HtmlFormatOptions
 {
-    public class Section2
-    {
-        public void Run()
-        {
-            var pdf = PdfDocument.FromFile("sample.pdf");
-            
-            // Configuration options for PDF to HTML conversion
-            var htmlFormatOptions = new HtmlFormatOptions
-            {
-                BackgroundColor = Color.White,
-                PdfPageMargin = 10,
-                H1Color = Color.Blue,
-                H1FontSize = 25,
-                H1TextAlignment = TextAlignment.Center,
-            };
-            
-            // Converting PDF to HTML string considering formatting
-            var html = pdf.ToHtmlString();
-            Console.WriteLine(html);
-            
-            // Saving the PDF as a HTML file with configuration and a custom title
-            pdf.SaveAsHtml("configuredOutput.html", true, "Document Title", htmlFormatOptions: htmlFormatOptions);
-        }
-    }
-}
+    BackgroundColor = Color.White,
+    PdfPageMargin = 10,
+    H1Color = Color.Blue,
+    H1FontSize = 25,
+    H1TextAlignment = TextAlignment.Center
+};
+
+// Displaying PDF to HTML conversion with configuration
+string html = pdf.ToHtmlString();
+Console.WriteLine(html);
+
+// Saving configured PDF as an HTML file
+pdf.SaveAsHtml("myHtmlConfigured.html", true, "Hello World", htmlFormatOptions: htmlformat);
 ```
 
-#### Configured Output HTML
+#### Configured HTML Output
 
-See the generated HTML through the configured `SaveAsHtml` method:
+The result of the configured `SaveAsHtml` method can be viewed below.
 
-```html
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/pdf-to-html/myHtmlConfigured.html" width="100%" height="500px">
 </iframe>
-```
 
-Note: These methods produce an HTML string with inline CSS, utilizing SVG terms/tags instead of the standard HTML tags. Although there's a slight difference, it remains valid HTML that can be rendered identically in browsers. It is crucial to understand that the HTML output might differ when the input PDF was previously converted from HTML using the `RenderHtmlAsPdf` method, because of the reasons mentioned.
+These methods generate an HTML string with in-line CSS and use SVG tags instead of standard HTML tags. Although this HTML looks different from typical HTML, it is fully functional and compatible with web browsers. Users should be aware that the generated HTML might differ from the original file, especially if the original was converted to a PDF using a separate rendering process.

@@ -1,10 +1,10 @@
 using System.Drawing.Printing;
 using IronPdf;
-namespace ironpdf.PrintPdf
+namespace IronPdf.Examples.HowTo.PrintPdf
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             

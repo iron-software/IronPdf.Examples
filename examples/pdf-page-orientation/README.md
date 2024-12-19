@@ -1,25 +1,23 @@
 ***Based on <https://ironpdf.com/examples/pdf-page-orientation/>***
 
-When working with IronPDF to create or render PDFs, you have the option to configure the document orientation, which is critical for ensuring your content is displayed precisely as intended. The `PdfPaperOrientation` class is essential for setting the paper orientation when converting [HTML to PDF with IronPDF](https://ironpdf.com/tutorials/html-to-pdf/).
+When generating or visualizing your PDF using IronPDF, you can select from two layout orientations for your document. The `PdfPaperOrientation` class is key in setting the paper orientation while converting [HTML to PDF with IronPDF](https://ironpdf.com/tutorials/html-to-pdf/).
 
-Here’s how to apply specific paper orientations to your documents:
+The following example demonstrates how to configure the paper orientation for your PDF documents.
 
-IronPDF provides two key properties called `PaperOrientation` and `PageRotation`, each serving distinct purposes. Understanding when and how to use each can enhance your document handling capabilities.
+IronPDF provides two distinct settings for PDFs known as `PaperOrientation` and `PageRotation`, each serving different purposes. It's essential to understand the appropriate context for using each setting.
 
-### `PdfPaperOrientation` - For New PDF Documents Created from HTML or URLs:
+`PdfPaperOrientation` - Applies to NEW PDF documents created from HTML or URL sources:
 
-- This parameter is applicable only when converting HTML content or URLs into PDFs.
-- To set the document to Landscape orientation, utilize: `renderer.RenderingOptions.PaperOrientation = PdfPaperOrientation.Landscape;`
-- To set it to Portrait orientation, use: `renderer.RenderingOptions.PaperOrientation = PdfPaperOrientation.Portrait;`
-- Note that once the document is rendered, the orientation setting does not persist within the PDF file.
+- This setting is applicable only when you are generating a document from HTML or a URL.
+- To set the orientation to Landscape: `renderer.RenderingOptions.PaperOrientation = PdfPaperOrientation.Landscape;`
+- To set the orientation to Portrait: `renderer.RenderingOptions.PaperOrientation = PdfPaperOrientation.Portrait;`
+- Note that once the document is rendered, this orientation setting is no longer retained.
 
-### `PageRotation` - For Modifying Existing PDF Documents:
+`PageRotation` - Pertains to existing PDF documents:
 
-- This parameter adjusts the rotation of pages within an existing PDF and is not applicable during the creation of new PDFs.
-- It’s a property maintained within the PDF document and can be applied on a per-page basis.
-- Newly created documents default to a `PageRotation` of `None`.
-- Changing the `PageRotation` does not alter the physical dimensions of the page:
-  - A rotation of `None` on a page sized `210mm x 297mm` will keep it at `width=210 height=297`
-  - A rotation of `Clockwise90` on the same page dimensions does not change the width and height either.
-
-Understanding these settings can streamline your PDF generation and modification processes, enabling more precise document layout management.
+- This attribute can only be used with an existing document; it cannot be specified during the creation of a new document.
+- This detail is preserved within the document itself and applies on a per-page basis.
+- Pages in newly created documents will always default to a `PageRotation` of `None`.
+- Changing the `PageRotation` does not alter the actual `width` and `height` of the page.
+- For instance, applying a `PageRotation` of `None` to a `210mm x 297mm` size page will maintain the dimensions with `width=210 height=297`
+- Likewise, setting a `PageRotation` of `Clockwise90` on a `210mm x 297mm` size page will keep the dimensions as `width=210 height=297`

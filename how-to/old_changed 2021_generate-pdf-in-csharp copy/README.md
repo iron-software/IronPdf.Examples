@@ -1,52 +1,135 @@
-# Converting HTML Code into a PDF Document: A NuGet Package Overview
+# Create PDFs in C&num;
 
 ***Based on <https://ironpdf.com/how-to/old_changed 2021_generate-pdf-in-csharp copy/>***
 
 
-## Enhance Your .NET Project with `IronPdf` Library
+Creating and managing PDF documents efficiently in C# is a common requirement across multiple projects. Leveraging a comprehensive library for these tasks focuses our effort more on core development rather than getting bogged down in intricate PDF generation details applicable to both .NET Core and .NET Framework.
 
-### Introduction
+Below are several scenarios demonstrating how to integrate PDF generation into your C# projects, including creating PDFs from HTML strings and ASPX input.
 
-Integrating Iron Software's `IronPdf` library into your projects allows for robust and versatile PDF generation. By harnessing the power of this library, developers can convert HTML directly into PDFs efficiently in their .NET applications. It's a powerful tool, especially valuable for applications requiring report generation, invoice creation, or document storage in a standard format, achievable with only a few lines of code.
+<div class="learnn-how-section">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>PDF Creation with C#</h2>
+      <ul class="list-unstyled">
+        <li><a href="#anchor-1-install-the-free-c-library">Install the IronPDF Library</a></li>
+        <li><a href="#anchor-4-generate-pdf-from-html-string">Create PDF from HTML Strings</a></li>
+        <li><a href="#anchor-5-generate-pdf-from-aspx">Create PDF from ASPX Inputs</a></li>
+        <li><a href="#anchor-7-generate-pdf-with-custom-viewport">Implement Custom Viewports with JavaScript</a></li>
+    </div>
+    <div class="col-sm-6">
+      <div class="download-card">
+        <a href="https://ironpdf.com/csharp-pdf.pdf" target="_blank">
+          <img style="box-shadow: none; width: 308px; height: 320px;" src="https://ironpdf.com/img/faq/pdf-in-csharp-no-button.svg" class="img-responsive learn-how-to-img">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Installation and Setup
+<hr class="separator">
 
-To begin using `IronPdf`, initiate by installing the NuGet package:
+<h4 class="tutorial-segment-title">Step 1</h4>
 
-```bash
-PM> Install-Package IronPdf
+## 1. Installing IronPDF
+
+To get started with this guide, install the IronPDF C# HTML to PDF library. This library is free for development use and can be implemented as demonstrated below.
+
+Get the IronPDF tools via [direct file download](https://ironpdf.com/packages/IronPdf.Package.For.Generate.PDF.Documents.zip) or the latest [NuGet package installation](https://www.nuget.org/packages/IronPdf) for integration into your Visual Studio project.
+
+```shell
+Install-Package IronPdf
 ```
 
-To convert HTML content to a PDF:
+<hr class="separator">
+<h4 class="tutorial-segment-title">Guide Tutorial</h4>
 
-```csharp
+## 2. Integration with .NET Framework & .NET Core 
+
+IronPDF offers a straightforward API that significantly enhances coding productivity and speeds up project development, perfectly aligning with .NET Framework (from Version 4) and .NET Core (from Version 2).
+
+<hr class="separator">
+
+## 3. Utilizing Clear Naming Conventions 
+
+Why is IronPDF exceptional for .NET-based PDF production?
+
+Primarily, it's the efficiency. IronPDF accelerates PDF processing, aiding developers with clear and intuitive method names within its library, making it simple to quickly incorporate PDF functionalities in both VB.NET and C#.
+
+Additionally, its straightforward usability is a standout feature, simplifying the engagement with method names and their functions, so .NET developers can effortlessly implement PDF generation.
+
+<hr class="separator">
+
+## 4. PDF Creation from HTML Content 
+
+Here's how simple it is to create a PDF from HTML content using IronPDF:
+
+```cs
+/**
+PDF from HTML Content
+anchor-generate-pdf-from-html-string
+**/
+private void GenerateFromHTMLString()
+        {
+            // Convert HTML content directly to PDF
+            var pdfRenderer = new IronPdf.ChromePdfRenderer();
+            using var document = pdfRenderer.RenderHtmlAsPdf("<h1>Welcome to IronPDF</h1>");
+            
+            var filePath = "OutputPDF.pdf";
+            document.SaveAs(filePath);
+
+        }
+```
+
+The concise C# code snippet above demonstrates converting an HTML string into a PDF document efficiently using clearly named methods.
+
+<hr class="separator">
+
+## 5. Creating PDF from ASPX
+
+Convert ASPX to PDF effortlessly:
+
+```cs
+/**
+PDF from ASPX
+anchor-generate-pdf-from-aspx
+**/
+protected void OnPageLoad(object sender, EventArgs e)
+        {
+            IronPdf.AspxToPdf.RenderThisPageAsPdf();
+        }
+```
+
+<hr class="separator">
+
+## 6. Enhanced JavaScript Support
+
+IronPDF is renowned for its competent handling of CSS and JavaScript within PDFs, providing versatility and functionality that are essential for modern .NET applications.
+
+<hr class="separator">
+
+## 7. Customizing Viewport Dimensions  
+
+Responsive designs and JavaScript implementation within PDFs are made easy with IronPDF:
+
+```cs
+/**
+Customize Viewport
+anchor-generate-pdf-with-custom-viewport
+**/
 using IronPdf;
+IronPdf.ChromePdfRenderer pdfRenderer = new IronPdf.ChromePdfRenderer();
 
-var chromePdf = new ChromePdfRenderer();
-var pdfDocument = chromePdf.RenderHtmlAsPdf("<h1>Your HTML contents here</h1>");
-pdfDocument.SaveAs("resulting-pdf.pdf");
+pdfRenderer.RenderingOptions.CssMediaType = IronPdf.Rendering.PdfCssMediaType.Screen;
+pdfRenderer.ViewPortWidth = 1280; 
+
+pdfRenderer.RenderHtmlFileAsPdf("Assets/Responsive.html");
+
 ```
 
-With this simple method, developers can render intricate HTML with CSS and JavaScript directly to a PDF that maintains the layout and structure of the web design.
+To accommodate JavaScript execution during PDF conversion, consider adding:
 
-### Advanced Settings: Adding Assets
-
-For a more refined control, sometimes you might want to include external resources such as images, CSS, or JavaScript. Here’s how to set a base path and incorporate assets into your PDFs:
-
-```csharp
-var pdfRenderer = new ChromePdfRenderer();
-pdfRenderer.RenderingOptions.CssMediaType = PdfCssMediaType.Screen;
+```cs
 pdfRenderer.RenderingOptions.EnableJavaScript = true;
-pdfRenderer.RenderingOptions.RenderDelay = TimeSpan.FromSeconds(2); // Wait for JS execution
-var htmlWithAssets = "<img src='icons/your-image.png'><h1>Styled with External CSS</h1>";
-var pdf = pdfRenderer.RenderHtmlAsPdf(htmlWithAssets, @"C:\site\assets\");
-pdf.SaveAs("html-with-assets.pdf");
+pdfRenderer.RenderingOptions.RenderDelay = 500; //milliseconds
 ```
-
-### Conclusion
-
-`IronPdf` offers a straightforward, yet powerful way to generate and work with PDF files within .NET environments, including web, mobile, and desktop applications. Striking the perfect balance between ease of use and depth of functionality, it ensures high-quality PDF outputs essential for modern software solutions.
-
-Visit [IronPdf's official documentation](https://ironpdf.com) for more detailed code examples and additional features like digital signatures, PDF editing, and much more.
-
-For any support inquiries, contact [support@ironsoftware.com](mailto:support@ironsoftware.com) or view the extended product services at [Iron Software](https://www.ironsoftware.com).

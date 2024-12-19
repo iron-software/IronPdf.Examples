@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using IronPdf;
-namespace ironpdf.Openai
+namespace IronPdf.Examples.HowTo.Openai
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Setup OpenAI
             string azureEndpoint = "AzureEndPoint";

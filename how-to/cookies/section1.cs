@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.Cookies
+namespace IronPdf.Examples.HowTo.Cookies
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate ChromePdfRenderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();

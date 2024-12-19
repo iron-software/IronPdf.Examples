@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.Signing
+namespace IronPdf.Examples.HowTo.Signing
 {
-    public class Section7
+    public static class Section7
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("annual_census.pdf");
             bool isValid = pdf.VerifyPdfSignatures();

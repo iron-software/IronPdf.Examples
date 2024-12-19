@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.PrintPdf
+namespace IronPdf.Examples.HowTo.PrintPdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.VbNetPdf
+namespace IronPdf.Examples.Tutorial.VbNetPdf
 {
-    public class Section6
+    public static class Section6
     {
-        public void Run()
+        public static void Run()
         {
             <!DOCTYPE html>
             <html>

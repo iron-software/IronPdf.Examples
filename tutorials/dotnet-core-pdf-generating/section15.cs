@@ -1,15 +1,16 @@
 using IronPdf;
-namespace ironpdf.DotnetCorePdfGenerating
+namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
-    public class Section15
+    public static class Section15
     {
-        public void Run()
+        public static void Run()
         {
             IronPdf.License.LicenseKey = "YourLicenseKey";
-            PdfDocument pdf = PdfDocument.FromFile("1.pdf");
-            PdfDocument pdf2 = PdfDocument.FromFile("2.pdf");
-            pdf.InsertPdf(pdf2, 0);
-            pdf.SaveAs("InsertIntoSpecificIndex.pdf");
+            PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+            
+            List<int> pageList = new List<int>() { 1, 2 };
+            
+            pdf.RasterizeToImageFiles("*.png", pageList);
         }
     }
 }

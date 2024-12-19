@@ -1,10 +1,10 @@
 using System.Linq;
 using IronPdf;
-namespace ironpdf.ImageToPdf
+namespace IronPdf.Examples.HowTo.ImageToPdf
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Retrieve all JPG and JPEG image paths in the 'images' folder.
             IEnumerable<String> imagePaths = Directory.EnumerateFiles("images").Where(f => f.EndsWith(".jpg") || f.EndsWith(".jpeg"));

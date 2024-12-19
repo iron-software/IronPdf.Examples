@@ -1,19 +1,23 @@
-# Split a Multi-Page Document into a Single PDF
+# Divide a Multi-Page PDF into Individual PDFs
 
 ***Based on <https://ironpdf.com/how-to/split-multipage-pdf/>***
 
 
-Converting a multi-page PDF document into separate single-page PDFs is a straightforward process. The example below demonstrates how to accomplish this in just a few lines of code using IronPDF.
+Dividing a multi-page PDF into individual pages is a process that can be accomplished with a few lines of code. Review our example below to see how to integrate this into your project.
 
-IronPDF simplifies the task of dividing a single PDF document into multiple documents, with each one containing a single page.
+IronPDF simplifies the process of segmenting a single PDF into multiple documents, where each document contains a single page.
+
+### Begin with IronPDF
+
+---
 
 <div class="learn-how-section">
   <div class="row">
     <div class="col-sm-6">
-      <h2>Split a PDF Document</h2>
+      <h2>Separate a PDF Document</h2>
       <ul class="list-unstyled">
-        <li><a href="#anchor-1-install-ironpdf-to-your-c-project">Install the IronPDF library</a></li>
-        <li><a href="#anchor-2-split-a-multipage-pdf">Split a multiple-page PDF into individual documents</a></li>
+        <li><a href="#anchor-1-install-ironpdf-to-your-c-project">Add the IronPDF library to your C# project</a></li>
+        <li><a href="#anchor-2-split-a-multipage-pdf">Separate a PDF with multiple pages into individual documents</a></li>
     </div>
     <div class="col-sm-6">
       <div class="download-card">
@@ -25,33 +29,25 @@ IronPDF simplifies the task of dividing a single PDF document into multiple docu
   </div>
 </div>
 
-## Split a Multipage PDF
+## Segment a Multipage PDF
 
-Once IronPDF is set up in your project, you can easily separate a multipage PDF into individual single-page PDF files. This is primarily achieved by extracting pages using the `CopyPage` or `CopyPages` methods.
+Upon installing IronPDF, you're set to break a multipage PDF into individual one-page files. Splitting such a document entails duplicating one or several pages utilizing the `CopyPage` or `CopyPages` method.
 
 ```cs
 using IronPdf;
-namespace ironpdf.SplitMultipagePdf
+
+PdfDocument pdf = PdfDocument.FromFile("multiPage.pdf");
+
+for (int idx = 0; idx < pdf.PageCount; idx++)
 {
-    public class Section1
-    {
-        public void Run()
-        {
-            PdfDocument pdf = PdfDocument.FromFile("multiPage.pdf");
-            
-            for (int idx = 0; idx < pdf.PageCount; idx++)
-            {
-                // Generate a new document for each individual page
-                PdfDocument singlePageDocument = pdf.CopyPage(idx);
-            
-                string newFileName = $"SinglePage-{idx + 1}.pdf";
-            
-                // Save the single page document
-                singlePageDocument.SaveAs(newFileName);
-            }
-        }
-    }
+    // Generate a new document for each page
+    PdfDocument singlePageDocument = pdf.CopyPage(idx);
+
+    string fileName = $"multiPage - Page {idx + 1}_tempfile.pdf";
+
+    // Save each page as a new file
+    singlePageDocument.SaveAs(fileName);
 }
 ```
 
-In the code snippet above, a loop iterates through each page of the existing PDF. The `CopyPage` method is then used to create a new `PdfDocument` instance for every page, which is subsequently saved as a new file, thereby effectively splitting the PDF into separate single-page documents.
+This code snippet demonstrates how to use a for loop for traversing through the pages of an existing PDF, extracting each page into a new `PdfDocument` instance using the `CopyPage` method. Each extracted page is then saved as a separate file.

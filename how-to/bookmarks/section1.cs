@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.Bookmarks
+namespace IronPdf.Examples.HowTo.Bookmarks
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Create a new PDF or edit an existing document.
             PdfDocument pdf = PdfDocument.FromFile("existing.pdf");

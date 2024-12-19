@@ -1,21 +1,21 @@
 using IronPdf;
-namespace ironpdf.DotnetCorePdfGenerating
+namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
-    public class Section13
+    public static class Section13
     {
-        public void Run()
+        public static void Run()
         {
             IronPdf.License.LicenseKey = "YourLicenseKey";
-            List<PdfDocument> PDFs = new List<PdfDocument>();
-            PDFs.Add(PdfDocument.FromFile("1.pdf"));
-            PDFs.Add(PdfDocument.FromFile("2.pdf"));
-            PDFs.Add(PdfDocument.FromFile("3.pdf"));
-            using PdfDocument PDF = PdfDocument.Merge(PDFs);
-            PDF.SaveAs("mergedFile.pdf");
-            foreach (PdfDocument pdf in PDFs)
-            {
-                pdf.Dispose();
-            }
+            PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+            IronPdf.Signing.PdfSignature signature = new IronPdf.Signing.PdfSignature("cert123.pfx", "123");
+            
+            // Optional signing options
+            signature.SigningContact = "support@ironsoftware.com";
+            signature.SigningLocation = "Chicago, USA";
+            signature.SigningReason = "To show how to sign a PDF";
+            
+            // Sign the PDF with the PdfSignature. Multiple signing certificates may be used
+            pdf.Sign(signature);
         }
     }
 }

@@ -1,42 +1,35 @@
-# Converting SVG to PDF in C&#35;
+# Transform SVG to PDF Using C#
 
 ***Based on <https://ironpdf.com/how-to/SVGs/>***
 
 
-IronPDF provides robust support for transforming SVG graphics into PDF documents using the "HTML to PDF" approach.
+IronPDF offers robust capabilities for converting SVG graphics to PDF documents leveraging the "HTML to PDF" conversion approach.
 
-It's crucial to specify the **width** and/or **height** style attributes for the **img** element when incorporating an SVG. If not set, the SVG could render at zero size and fail to display in the final PDF.
+It's crucial to specify the **width** and/or **height** attributes in the **img** tag when embedding an SVG. Without these attributes, the SVG could shrink to a zero size and fail to display in the generated PDF.
 
-## Example of SVG to PDF Conversion
+<h3>Getting Started with IronPDF</h3>
 
-While many browsers can handle SVGs that lack explicit sizes, the rendering engine used by IronPDF requires these dimensions to be set.
+-----
+
+## Example: Converting SVG to PDF
+
+While many web browsers can handle SVGs without explicit dimensions, our rendering engine requires them to prevent issues.
 
 ```cs
 using IronPdf;
-namespace ironpdf.SVGs
-{
-    public class SvgToPdfConverter
-    {
-        public void Execute()
-        {
-            // Define the HTML format with an embedded SVG image
-            string htmlContent = "<img src='https://ironsoftware.com/img/svgs/new-banner-svg.svg' style='width:100px'>";
-            
-            // Create a new instance of the PDF renderer with Chrome engine
-            ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
-            pdfRenderer.RenderingOptions.WaitFor.RenderDelay(1000); // Set render delay to 1000 milliseconds
-            
-            // Render the HTML content to a PDF document
-            PdfDocument document = pdfRenderer.RenderHtmlAsPdf(htmlContent);
-            document.SaveAs("ConvertedSvgToPdf.pdf");
-        }
-    }
-}
+
+string htmlCode = "<img src='https://ironsoftware.com/img/svgs/new-banner-svg.svg' style='width:100px;'>";
+
+ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
+pdfRenderer.RenderingOptions.WaitFor.RenderDelay(1000); // Wait for 1000 milliseconds for rendering
+
+PdfDocument outputPdf = pdfRenderer.RenderHtmlAsPdf(htmlCode);
+outputPdf.SaveAs("convertedSvgToPdf.pdf");
 ```
 
-### Viewing the Output PDF
+### Displaying the Generated PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/SVGs/svgToPdf.pdf" width="100%" height="300px">
 </iframe>
 
-In some cases, setting explicit width and height attributes directly on the SVG node can be beneficial. For further details, please view [SVG styling examples on CodePen](https://codepen.io/AmeliaBR/pen/MYbzaW).
+It's also possible to set explicit width and height attributes directly on the SVG element. For more detailed examples on SVG styling, refer to [these illustrative examples on CodePen](https://codepen.io/AmeliaBR/pen/MYbzaW).

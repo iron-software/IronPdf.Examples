@@ -1,15 +1,15 @@
 using IronPdf;
-namespace ironpdf.DotnetCorePdfGenerating
+namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
-    public class Section7
+    public static class Section7
     {
-        public void Run()
+        public static void Run()
         {
-            public class TicketModel : ClientModel
-            {
-                public int TicketNumber { get; set; }
-                public DateTime TicketDate { get; set; }
-            }
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument pdf = PdfDocument.FromFile("1.pdf");
+            PdfDocument pdf2 = PdfDocument.FromFile("2.pdf");
+            pdf.AppendPdf(pdf2);
+            pdf.SaveAs("appendedFile.pdf");
         }
     }
 }

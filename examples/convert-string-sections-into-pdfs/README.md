@@ -1,32 +1,32 @@
 ***Based on <https://ironpdf.com/examples/convert-string-sections-into-pdfs/>***
 
-IronPDF's standout capability is its [HTML to PDF conversion features](https://ironpdf.com/tutorials/html-to-pdf/), which not only convert but also maintain the original layout and styling. This functionality allows for the creation of PDFs from various web content including reports, invoices, and documentation. It adeptly handles conversions from HTML files, URLs, and HTML strings into PDF documents.
+IronPDF's standout functionality is its [HTML to PDF conversion capabilities](https://ironpdf.com/tutorials/html-to-pdf/), which adeptly maintain the original layout and styles. This feature excels in creating PDFs from various web contents such as reports, invoices, and documentation. It adeptly handles the conversion of HTML files, URLs, and HTML strings into PDF documents.
 
 ```cs
 using IronPdf;
 
-class ExampleConversion
+class Program
 {
     static void Main(string[] args)
     {
         var pdfRenderer = new ChromePdfRenderer();
 
-        // Converting an HTML string to a PDF document
-        string htmlSource = "<h1>Welcome to IronPDF!</h1><p>Generating PDF from an HTML string.</p>";
-        var resultFromHtml = pdfRenderer.RenderHtmlAsPdf(htmlSource);
-        resultFromHtml.SaveAs("ConvertedFromHTMLString.pdf");
+        // 1. Convert an HTML String to PDF
+        var htmlCode = "<h1>Welcome to IronPDF!</h1><p>Create a PDF from this HTML string.</p>";
+        var pdfDocumentFromString = pdfRenderer.RenderHtmlAsPdf(htmlCode);
+        pdfDocumentFromString.SaveAs("FromStringToPDF.pdf");
 
-        // Converting an HTML file to a PDF document
-        string filePath = "your_filename.html";  // Provide your HTML file path
-        var resultFromFile = pdfRenderer.RenderHtmlFileAsPdf(filePath);
-        resultFromFile.SaveAs("ConvertedFromHTMLFile.pdf");
+        // 2. Convert an HTML File to PDF
+        var filePath = "your_html_file_path.html"; // Provide the path to your HTML file
+        var pdfDocumentFromFile = pdfRenderer.RenderHtmlFileAsPdf(filePath);
+        pdfDocumentFromFile.SaveAs("FromFileToPDF.pdf");
 
-        // Converting a web URL to a PDF document
-        string webpageUrl = "https://ironpdf.com";  // Define the webpage URL here
-        var resultFromUrl = pdfRenderer.RenderUrlAsPdf(webpageUrl);
-        resultFromUrl.SaveAs("ConvertedFromURL.pdf");
+        // 3. Convert a Web URL to PDF
+        var webUrl = "https://ironpdf.com"; // Provide the URL that points to your target website
+        var pdfDocumentFromUrl = pdfRenderer.RenderUrlAsPdf(webUrl);
+        pdfDocumentFromUrl.SaveAs("FromUrlToPDF.pdf");
     }
 }
 ```
 
-This example demonstrates using IronPDF to convert HTML sources, whether they are strings, local files, or URLs, into PDF documents, each preserving the essence and design of the original HTML content.
+By utilizing IronPDF, developers can efficiently transform HTML content into high-fidelity PDF files using concise and straightforward code examples, covering a range of sources from strings and local files to web URLs.

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.HtmlToPdf
+namespace IronPdf.Examples.Tutorial.HtmlToPdf
 {
-    public class Section12
+    public static class Section12
     {
-        public void Run()
+        public static void Run()
         {
             renderer.RenderingOptions.MarginTop = 50; // millimeters
             renderer.RenderingOptions.MarginBottom = 50; // millimeters

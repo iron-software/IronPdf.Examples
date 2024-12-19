@@ -4,356 +4,228 @@
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-	Save on yearly subscriptions for PDF security and compliance by considering <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>. It provides a range of features including digital signing, redaction, encryption, and protection, all at a one-time cost. Explore it in detail at <a href="https://ironsoftware.com/enterprise/securedoc/docs/">IronSecureDoc Documentation</a>.
+	Is your business overpaying for annual PDF security and compliance subscriptions? Check out <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>, which delivers a suite of services such as digital signing, redaction, encryption, and protection through a single payment. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Explore IronSecureDoc Documentation</a>
 </div>
 
-IronPDF offers a robust solution for form creation in PDF documents. It supports a variety of form elements such as input fields, text areas, checkboxes, comboboxes, radio buttons, and image forms. With IronPDF, you can create dynamic PDF forms that are interactive, enabling users to fill out fields, make selections, and save the information, making your PDFs more engaging and useful across multiple use cases.
+IronPDF equips you with a robust suite of features for creating PDF forms. It supports a variety of form elements such as input fields, text areas, checkboxes, comboboxes, radio buttons, and image forms. With IronPDF, you can craft dynamic PDF forms that engage users by allowing them to fill out fields, make selections, and submit changes. This functionality makes it simpler to construct interactive and accessible PDF forms for various needs and contexts.
 
-## Form Creation Features
+<h3>Getting Started with IronPDF</h3>
 
-With IronPDF, inserting embedded form fields of various types into your PDFs is straightforward, turning a static document into a flexible, interactive experience.
+---
 
-## Text Areas and Input Fields
+---
 
-### Generate from HTML
+---
 
-You can efficiently create forms for text areas and input fields to gather user inputs directly within your PDF files. Text area forms are ideal for capturing longer text blocks, while input forms are perfect for shorter, specific entries.
+## Create Forms
+
+IronPDF seamlessly generates PDF documents that incorporate interactive form fields. By embedding dynamic form elements into a static PDF, the document becomes more flexible and interactive.
+
+## Text Area and Input Forms
+
+### Render From HTML
+
+Creating text area and input forms in your PDFs is straightforward with IronPDF. Text areas offer plenty of space for large text inputs, while input forms are great for capturing precise user inputs.
 
 ```cs
 using IronPdf;
-namespace ironpdf.CreateForms
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // HTML for Input and Text Area forms
-            string FormHtml = @"
-            <html>
-                <body>
-                    <h2>Editable PDF Form</h2>
-                    <form>
-                        First name: <br> <input type='text' name='firstname' value=''> <br>
-                        Last name: <br> <input type='text' name='lastname' value=''> <br>
-                        Address: <br> <textarea name='address' rows='4' cols='50'></textarea>
-                    </form>
-                </body>
-            </html>
-            ";
-            
-            // Create a new Renderer
-            ChromePdfRenderer Renderer = new ChromePdfRenderer();
-            Renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
-            
-            Renderer.RenderHtmlAsPdf(FormHtml).SaveAs("textAreaAndInputForm.pdf");
-        }
-    }
-}
+
+// HTML content with form fields
+string htmlContent = @"
+<html>
+    <body>
+        <h2>Editable PDF Form</h2>
+        <form>
+            First Name: <br> <input type='text' name='firstname' value=''> <br>
+            Last Name: <br> <input type='text' name='lastname' value=''> <br>
+            Address: <br> <textarea name='address' rows='4' cols='50'></textarea>
+        </form>
+    </body>
+</html>
+";
+
+// Create a PDF renderer
+ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
+pdfRenderer.RenderingOptions.CreatePdfFormsFromHtml = true;
+
+// Generate PDF from HTML form and save it
+pdfRenderer.RenderHtmlAsPdf(htmlContent).SaveAs("editableForm.pdf");
 ```
 
-### Display PDF
+### Output PDF document
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/create-forms/textAreaAndInputForm.pdf#zoom=100" width="100%" height="400px">
 </iframe>
 
-### Adding Text Forms Programmatically
+### Add Text Form via Code
 
-Besides rendering HTML to create forms, it is also feasible to programmatically add text form fields. Begin by instantiating a **TextFormField** and then add it to the PDF document using the `Add` method of the **Form** property.
+You can add text form fields programmatically as shown in the example below, which starts by creating a PDF from HTML, then adds a form field via code.
 
 ```cs
-using IronSoftware.Forms;
 using IronPdf;
-namespace ironpdf.CreateForms
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            // Set up PDF Renderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h2>Editable PDF Form</h2>");
-            
-            // Define form field parameters
-            string name = "firstname";
-            string value = "first name";
-            uint pageIndex = 0;
-            double x = 100;
-            double y = 700;
-            double width = 50;
-            double height = 15;
-            
-            // Create and add a text form field
-            var textForm = new TextFormField(name, value, pageIndex, x, y, width, height);
-            
-            pdf.Form.Add(textForm);
-            
-            pdf.SaveAs("addTextForm.pdf");
-        }
-    }
-}
+using IronSoftware.Forms;
+
+// Create a PDF renderer
+ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
+
+// Generate a PDF document
+PdfDocument document = pdfRenderer.RenderHtmlAsPdf("<h2>Editable PDF Form</h2>");
+
+// Define form field parameters
+string fieldName = "firstname";
+string fieldValue = "Type your first name";
+uint pageIndex = 0;
+double posX = 100;
+double posY = 700;
+double fieldWidth = 50;
+double fieldHeight = 15;
+
+// Create a text form field
+var formField = new TextFormField(fieldName, fieldValue, pageIndex, posX, posY, fieldWidth, fieldHeight);
+
+// Add the form field to the PDF
+document.Form.Add(formField);
+
+// Save the PDF with the form
+document.SaveAs("textFormField.pdf");
 ```
 
-### Display PDF Document
+### Output PDF document
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/create-forms/addTextForm.pdf#zoom=100" width="100%" height="300px">
 </iframe>
 
-For adding context and clarity, consider labeling the form field, leveraging the `DrawText` method. Further information on embedding text and images in PDFs can be found [here](https://ironpdf.com/how-to/draw-text-and-bitmap/).
+It's important to make your text forms valuable by labeling them correctly in the PDF. IronPdf supports adding text labels with its `DrawText` method. Discover more about this in "[How to Draw Text and Bitmap on PDFs](https://ironpdf.com/how-to/draw-text-and-bitmap/)."
 
-<hr>
+---
 
 ## Checkbox and Combobox Forms
 
-### Creation from HTML
+### Render From HTML
 
-Creating checkbox and combobox forms can also be done by rendering HTML code that includes these elements. Ensure that the **CreatePdfFormsFromHtml** setting is activated to produce these interactive forms.
-
-Comboboxes give users a dropdown menu to provide inputs effectively within PDFs.
+Checkbox and combobox forms can also be rendered from HTML, allowing for interactive forms within your PDFs. Users can check off tasks or select preferences via combobox dropdowns, enriching the data collection process within a PDF.
 
 ```cs
 using IronPdf;
-namespace ironpdf.CreateForms
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            // HTML for Checkbox and Combobox forms
-            string FormHtml = @"
-            <html>
-                <body>
-                    <h2>Editable PDF Form</h2>
-                    <h2>Task Completed</h2>
-                    <label>
-                        <input type='checkbox' id='taskCompleted' name='taskCompleted'> Mark task as completed
-                    </label>
-            
-                    <h2>Select Priority</h2>
-                    <label for='priority'>Choose priority level:</label>
-                    <select id='priority' name='priority'>
-                        <option value='high'>High</option>
-                        <option value='medium'>Medium</option>
-                        <option value='low'>Low</option>
-                    </select>
-                </body>
-            </html>
-            ";
-            
-            // Initialize the Renderer
-            ChromePdfRenderer Renderer = new ChromePdfRenderer();
-            Renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
-            
-            Renderer.RenderHtmlAsPdf(FormHtml).SaveAs("checkboxAndComboboxForm.pdf");
-        }
-    }
-}
+
+// Checkbox and Combobox HTML
+string htmlContent = @"
+<html>
+    <body>
+        <h2>Editable PDF Form</h2>
+        <h2>Task Completed</h2>
+        <label>
+            <input type='checkbox' id='taskCompleted' name='taskCompleted'> Mark task as completed
+        </label>
+
+        <h2>Select Priority</h2>
+        <label for='priority'>Choose a priority level:</label>
+        <select id='priority' name='priority'>
+            <option value='high'>High</option>
+            <option value='medium'>Medium</option>
+            <option value='low'>Low</option>
+        </select>
+    </body>
+</html>
+";
+
+// Configure renderer to create forms from HTML
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
+
+// Create PDF with form fields
+renderer.RenderHtmlAsPdf(htmlContent).SaveAs("checkboxComboboxForm.pdf");
 ```
 
-### View PDF
+### Output PDF document
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/create-forms/checkboxAndComboboxForm.pdf#zoom=100" width="100%" height="400px">
 </iframe>
 
-### Code-based Form Addition
+### Adding Forms via Code
 
-#### Checkbox Form Addition
+#### Checkbox
 
-To incorporate a checkbox form field, create an instance of **CheckboxFormField** and then simply append it to your PDF using the `Add` method of the **Form** property.
+To add a checkbox field programmatically, instantiate its form field object with specified parameters, add it to the form, and save the document.
 
 ```cs
-using IronSoftware.Forms;
 using IronPdf;
-namespace ironpdf.CreateForms
-{
-    public class Section4
-    {
-        public void Run()
-        {
-            // Initialize the PDF Renderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h2>Checkbox Form Field</h2>");
-            
-            // Set form parameters
-            string name = "checkbox";
-            string value = "no";
-            uint pageIndex = 0;
-            double x = 100;
-            double y = 700;
-            double width = 15;
-            double height = 15;
-            
-            // Create and add a checkbox form field
-            var checkboxForm = new CheckboxFormField(name, value, pageIndex, x, y, width, height);
-            
-            pdf.Form.Add(checkboxForm);
-            
-            pdf.SaveAs("addCheckboxForm.pdf");
-        }
-    }
-}
+using IronSoftware.Forms;
+
+// Initialize PDF renderer
+ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
+
+// Render an empty page as a PDF
+PdfDocument pdf = pdfRenderer.RenderHtmlAsPdf("<h2>Checkbox Form Field</h2>");
+
+// Setup checkbox parameters
+string checkboxName = "agree";
+string checkboxValue = "no"; // Initially unchecked
+uint pageIndex = 0;
+double posX = 100;
+double posY = 700;
+double width = 15;
+double height = 15;
+
+// Create a checkbox form field
+var checkbox = new CheckboxFormField(checkboxName, checkboxValue, pageIndex, posX, posY, width, height);
+
+// Add the checkbox to the PDF form
+pdf.Form.Add(checkbox);
+
+// Save the PDF
+pdf.SaveAs("checkboxForm.pdf");
 ```
 
-### View PDF Form
+### Output PDF document
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/create-forms/addCheckboxForm.pdf#zoom=100" width="100%" height="300px">
 </iframe>
 
-#### Combobox Addition
+#### Combobox
 
-Creating a combobox form field involves similar steps; instantiate a **ComboboxFormField** and add it to the PDF.
+For adding a combobox, configure it similarly by defining the parameters and adding it to the form.
 
 ```cs
-using System.Collections.Generic;
 using IronPdf;
-namespace ironpdf.CreateForms
-{
-    public class Section5
-    {
-        public void Run()
-        {
-            // Configure the Renderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h2>Combobox Form Field</h2>");
-            
-            // Define combobox parameters
-            string name = "combobox";
-            string value = "Car";
-            uint pageIndex = 0;
-            double x = 100;
-            double y = 700;
-            double width = 60;
-            double height = 15;
-            var choices = new List<string> { "Car", "Bike", "Airplane" };
-            
-            // Create and add a combobox form field
-            var comboboxForm = new ComboboxFormField(name, value, pageIndex, x, y, width, height, choices);
-            
-            pdf.Form.Add(comboboxForm);
-            
-            pdf.SaveAs("addComboboxForm.pdf");
-        }
-    }
-}
+using IronSoftware.Forms;
+using System.Collections.Generic;
+
+// Initialize renderer
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Create an empty PDF document
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h2>Combobox Form Field</h2>");
+
+// Set up combobox parameters
+string comboboxName = "vehicleType";
+string selectedValue = "Car";  // Default selected value
+uint pageIndex = 0;
+double posX = 100;
+double posY = 700;
+double width = 60;
+double height = 15;
+var options = new List<string> { "Car", "Bike", "Airplane" };
+
+// Create a combobox form field
+var combobox = new ComboboxFormField(comboboxName, selectedValue, pageIndex, posX, posY, width, height, options);
+
+// Add the combobox to the PDF
+pdf.Form.Add(combobox);
+
+// Save the PDF with the combobox
+pdf.SaveAs("comboboxForm.pdf");
 ```
 
-### View PDF Document
+### Output PDF document
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/create-forms/addComboboxForm.pdf#zoom=100" width="100%" height="300px">
 </iframe>
 
-<hr>
+---
 
-## Creating Radio Button Forms
+## Creating Forms with Radio Buttons
 
-### Form Creation from HTML
+### Render from HTML
 
-Using IronPDF, managing radio button forms is straightforward, as they are grouped within a single form object, retrievable through `FindFormField`. If a button within the group is selected, its **Value** property holds the respective value.
-
-```cs
-using IronPdf;
-namespace ironpdf.CreateForms
-{
-    public class Section6
-    {
-        public void Run()
-        {
-            // HTML for Radio buttons
-            string FormHtml = @"
-            <html>
-                <body>
-                    <h2>Editable PDF Form</h2>
-                    Choose your preferred travel type: <br>
-                    <input type='radio' name='traveltype' value='Bike'>
-                    Bike <br>
-                    <input type='radio' name='traveltype' value='Car'>
-                    Car <br>
-                    <input type='radio' name='traveltype' value='Airplane'>
-                    Airplane
-                </body>
-            </html>
-            ";
-            
-            // Set up PDF Renderer
-            ChromePdfRenderer Renderer = new ChromePdfRenderer();
-            Renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
-            
-            Renderer.RenderHtmlAsPdf(FormHtml).SaveAs("radioButtomForm.pdf");
-        }
-    }
-}
-```
-
-### Display Radio Button PDF
-
-<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/create-forms/radioButtomForm.pdf#zoom=110" width="100%" height="400px">
-</iframe>
-
-### Adding Radio Buttons via Code
-
-Programmatic addition of radio buttons is executed by creating instances of **RadioFormField**, configuring parameters, and including them in your PDF.
-
-```cs
-using IronSoftware.Forms;
-using IronPdf;
-namespace ironpdf.CreateForms
-{
-    public class Section7
-    {
-        public void Run()
-        {
-            // Initialize the PDF Renderer
-            ChromePdfRenderer renderer = a new ChromePdfRenderer();
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h2>Editable PDF Form</h2>");
-            
-            // Radio form configurations
-            string name = "choice";
-            string value = "yes";
-            uint pageIndex = 0;
-            double x = 100;
-            double y = 700;
-            double width = 15;
-            double height = 15;
-            
-            // Creation and addition of radio forms
-            var yesRadioForm = new RadioFormField(name, value, pageIndex, x, y, width, height);
-            
-            value = "no";
-            x = 200;
-            
-            // Second radio form
-            var noRadioForm = new RadioFormField(name, value, pageIndex, x, y, width, height);
-            
-            pdf.Form.Add(yesRadioForm);
-            pdf.Form.Add(noRadioForm);
-            
-            pdf.SaveAs("addRadioForm.pdf");
-        }
-    }
-}
-```
-
-### View Radio Button PDF
-
-<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/create-forms/addRadioForm.pdf#zoom=100" width="100%" height="300px">
-</iframe>
-
-For clarity and to provide orientation, include labels for the radio buttons using the `DrawText` method. Discover more about setting text and images on PDFs in the comprehensive guide [here](https://ironpdf.com/how-to/draw-text-and-bitmap/).
-
-<hr>
-
-## Implementing Image Forms Programmatically
-
-Image forms are exclusively added through code. Start by creating an **ImageFormField** with configured parameters, and then append it to your PDF document.
-
-```cs
-using IronSoftware.Forms;
-using IronPdf;
-namespace ironpdf.CreateForms
-{
-    public class Section8
-    {
-        publi
+When utilizing radio button forms with IronPDF, bear in mind that all radio buttons in a group are managed within a single form object. You can access this form using the `FindFormField` method. If a radio button i

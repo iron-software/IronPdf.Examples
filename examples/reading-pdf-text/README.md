@@ -1,15 +1,15 @@
 ***Based on <https://ironpdf.com/examples/reading-pdf-text/>***
 
-The `PdfDocument.ExtractAllText` functionality of the IronPDF C# PDF library excels in straightforward PDF text extraction operations. It effectively manages inconsistencies in whitespace and encoding found in the original PDF documents.
+The `PdfDocument.ExtractAllText` function of the IronPDF C# PDF library is ideal for straightforward PDF text extraction operations. It effectively manages whitespace and encoding differences found within source PDF documents.
 
-The `PdfDocument.ExtractTextFromPage` function is specifically designed to extract text from designated pages of a PDF document. In the earlier demonstration, this method was repeatedly employed to obtain text from a certain range of pages.
+The method `PdfDocument.ExtractTextFromPage` is employed to extract text from designated pages of a PDF. In the prior example, this function is utilized through a loop to pull text from a certain page range.
 
-Furthermore, IronPDF offers capabilities to extract images from PDF files. Utilize the methods listed below from the `PdfDocument` class:
+IronPDF is also capable of extracting images directly from PDFs. For this task, you can use any of the following methods available in the `PdfDocument` class:
 
-* **`ExtractAllImages`**: This method fetches all images embedded within a PDF, returning them as `IronSoftware.Drawing.AnyBitmap` objects.
-* **`ExtractAllRawImages`**: This extracts all images embedded in the PDF as a collection of raw bytes (`byte []`).
-* **`ExtractImagesFromPage`**: This extracts images from a specified indexed page within the PDF.
-* **`ExtractImagesFromPages`**: This is akin to `ExtractImagesFromPage`, but allows for image extraction from a defined page range or a sequence of specified pages.
-* **`ExtractRawImagesFromPage`** and **`ExtractRawImagesFromPages`**: These functions operate similarly to the aforementioned image extraction methods, but they return the images as byte arrays, instead of as `IronSoftware.Drawing.AnyBitmap` objects.
+* **`ExtractAllImages`**: This method fetches all images embedded within a PDF and returns them as `IronSoftware.Drawing.AnyBitmap` objects.
+* **`ExtractAllRawImages`**: This retrieves all images embedded in the document as a collection of raw byte arrays (`byte[]`).
+* **`ExtractImagesFromPage`**: This function pulls images from a specified page.
+* **`ExtractImagesFromPages`**: Similar to `ExtractImagesFromPage`, except it operates over a range of pages or a specified list of pages.
+* **`ExtractRawImagesFromPage`** and **`ExtractRawImagesFromPages`**: These methods function akin to the prior image extraction methods, but deliver the extracted images in the form of byte arrays instead of as `IronSoftware.Drawing.AnyBitmap` objects.
 
 ____

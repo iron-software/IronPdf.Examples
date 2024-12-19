@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.Utf8
+namespace IronPdf.Examples.HowTo.Utf8
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             const string html_with_utf_8 =
                 @"<p>周態告応立待太記行神正用真最。音日独素円政進任見引際初携食。更火識将回興継時億断保媛全職。

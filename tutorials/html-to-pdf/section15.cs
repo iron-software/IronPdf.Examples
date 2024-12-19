@@ -1,10 +1,10 @@
 using System;
 using IronPdf;
-namespace ironpdf.HtmlToPdf
+namespace IronPdf.Examples.Tutorial.HtmlToPdf
 {
-    public class Section15
+    public static class Section15
     {
-        public void Run()
+        public static void Run()
         {
             String.Format("<h1>Hello {0} !</h1>", "World");
         }

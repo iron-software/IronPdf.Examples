@@ -3,46 +3,47 @@
 ***Based on <https://ironpdf.com/how-to/export-save-pdf-csharp/>***
 
 
-IronPDF is a [C# PDF Library](https://ironpdf.com/use-case/csharp-pdf-library/) that enables C# developers to convert HTML to PDF format. It also provides functionality for C# and VB developers to modify PDF documents programmatically.
+IronPDF is a powerful [C# PDF Library](https://ironpdf.com/use-case/csharp-pdf-library/) designed to enable the conversion of HTML to PDF using C#. It also provides functionalities for C# and VB developers to programmatically modify PDF documents.
 
-## Methods for Exporting PDFs
+### Getting Started with IronPDF
 
-### Saving a PDF to Disk
+---
 
-Utilize the [`PdfDocument.SaveAs`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html) method to store your PDF files on a local drive.
+## Saving PDF Options
 
-This functionality includes options for password protection of the PDF files. For additional resources on how to add digital signatures to your documents, refer to '[Digitally Sign a PDF Document](https://ironpdf.com/how-to/signing/).'
+### Save PDF to Disk
 
-### Storing a PDF in a `MemoryStream` in C#
+To save a PDF file to your disk, utilize the [`PdfDocument.SaveAs`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html) technique. This function allows you to add password protection to your PDF files. For more details on how to add digital signatures to your PDFs, refer to '[Digitally Sign a PDF Document](https://ironpdf.com/how-to/signing/).'
 
-The [`IronPdf.PdfDocument.Stream`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html) property allows the storage of the PDF in a `System.IO.MemoryStream`.
+### Stream PDF to `System.IO.MemoryStream` in C#
 
-### Exporting PDF to Binary Format
+The [`IronPdf.PdfDocument.Stream`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html) attribute enables saving the PDF to a memory stream using a `System.IO.MemoryStream`.
 
-The [`IronPdf.PdfDocument.BinaryData`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html) property lets you export and store PDF documents as binary data in memory.
+### Export to Binary Data
 
-This binary data is represented in C# as an array of bytes, `byte[]`.
+Save your PDF document as binary data with the [`IronPdf.PdfDocument.BinaryData`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html) property. This method involves exporting the PDF as a byte array, represented in C# as `byte[]`.
 
-### Delivering PDFs from a Web Server to a Browser
+### Serve PDF from Web Server to Browser
 
-When serving PDF files online, deliver them as binary data instead of HTML content.
+To deliver a PDF file directly from a web server to a client's browser using binary data:
 
-#### Exporting PDF in MVC
+#### MVC PDF Delivery
 
 ```cs
-// Pass MyPdfDocument.Stream to this method to send a PDF file
-return new FileStreamResult(stream, "application/pdf")
+// Prepare the PDF stream
+FileStreamResult result = new FileStreamResult(MyPdfDocument.Stream, "application/pdf")
 {
-    FileDownloadName = "downloaded-file.pdf"
+    FileDownloadName = "downloadedFile.pdf"
 };
+return result;
 ```
 
-#### Exporting PDF in ASP.NET
+#### ASP.NET PDF Delivery
 
 ```cs
-byte [] binaryData = MyPdfDocument.BinaryData;
+byte[] binaryData = MyPdfDocument.BinaryData;
 Response.Clear();
 Response.ContentType = "application/octet-stream";
-Context.Response.OutputStream.Write(binaryData, 0, binaryData.Length);
-Response.Flush();      
+Response.OutputStream.Write(binaryData, 0, binaryData.Length);
+Response.Flush();
 ```

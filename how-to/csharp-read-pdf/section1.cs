@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using IronPdf;
-namespace ironpdf.CsharpReadPdf
+namespace IronPdf.Examples.HowTo.CsharpReadPdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Select the desired PDF File
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");

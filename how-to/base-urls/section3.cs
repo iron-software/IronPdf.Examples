@@ -1,10 +1,10 @@
 using System;
 using IronPdf;
-namespace ironpdf.BaseUrls
+namespace IronPdf.Examples.HowTo.BaseUrls
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate ChromePdfRenderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();

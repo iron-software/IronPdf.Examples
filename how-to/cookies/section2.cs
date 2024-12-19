@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using IronPdf;
-namespace ironpdf.Cookies
+namespace IronPdf.Examples.HowTo.Cookies
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate ChromePdfRenderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();

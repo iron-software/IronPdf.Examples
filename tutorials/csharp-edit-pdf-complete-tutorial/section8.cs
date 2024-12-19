@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CsharpEditPdfCompleteTutorial
+namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
-    public class Section8
+    public static class Section8
     {
-        public void Run()
+        public static void Run()
         {
             // Step 1. Create a PDF
             var renderer = new ChromePdfRenderer();

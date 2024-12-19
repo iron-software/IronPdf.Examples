@@ -1,35 +1,38 @@
-# Utilizing IronPdfEngine
+# Utilizing IronPdfEngine for Enhanced PDF Operations
 
 ***Based on <https://ironpdf.com/how-to/use-ironpdfengine/>***
 
 
-IronPdfEngine is a dedicated gRPC server that facilitates various operations on PDFs such as creation, modification, and retrieval. It is developed as a standalone C# .NET application, enabling it to function autonomously without relying on the .NET runtime for its operation.
+IronPdfEngine is structured as a gRPC server to support various functions of IronPDF, which range from generating and modifying to processing PDF documents. Engineered as an autonomous C# .NET application, IronPdfEngine operates on its own, avoiding reliance on the .NET runtime during its operations.
 
-## Relationship Between IronPdf .NET and IronPdfEngine
+<h3>Getting Started with IronPDF</h3>
 
-IronPdf .NET can operate independently and does not mandatorily require IronPdfEngine. IronPdfEngine serves as an optional component for utilizing IronPdf functionalities. By default, IronPdf for .NET does not incorporate IronPdfEngine.
+-----
 
-Compatibility between IronPdf for .NET and IronPdfEngine is version-specific; thus, simultaneous version alignment is essential. For instance, IronPdf 2024.2.2 will correspondingly utilize IronPdfEngine 2024.2.2.
+## IronPdf .NET and IronPdfEngine Integration
 
-### Integrating IronPdf .NET with Remote IronPdfEngine
+IronPdf .NET does not depend on IronPdfEngine for functionality. It’s important to note that the use of IronPdfEngine is purely optional. IronPdf for .NET, by default, functions exclusively without the implementation of IronPdfEngine.
 
-To connect IronPdf for .NET with a remotely hosted IronPdfEngine, the `IronPdf.slim` NuGet package is the sole requirement. This package can also replace `IronPdf` or `IronPdf.Linux` if the goal is to minimize the application size.
+For seamless operation, each iteration of IronPdf for .NET is tied to a corresponding version of IronPdfEngine, with no allowance for cross-version interactions. For instance, IronPdf version 2024.2.2 will specifically require IronPdfEngine version 2024.2.2 for compatibility.
 
-Suppose the IronPdfEngine is hosted remotely at `123.456.7.8:33350`. For detailed steps on setting up IronPdfEngine remotely, visit the following guide: [Pull and Run IronPdfEngine](https://ironpdf.com/how-to/pull-run-ironpdfengine/).
+### Implementing IronPdf .NET with Remote IronPdfEngine
 
-You can begin by installing the required IronPdf package via NuGet with the following command:
+To employ IronPdf for .NET alongside a remote IronPdfEngine, the `IronPdf.slim` NuGet package suffices. If you currently use `IronPdf` or `IronPdf.Linux`, consider switching to `IronPdf.slim` to optimize the footprint of your application.
+
+In scenarios where IronPdfEngine is hosted remotely, for example at `123.456.7.8:33350`.
+
+For details on executing IronPdfEngine in a remote context, please consult the guide ["Deploy and Operate IronPdfEngine"](https://ironpdf.com/how-to/pull-run-ironpdfengine/).
+
+To install IronPdf, use the following NuGet command:
 
 ```shell
 PM> Install-Package IronPdf
 ```
 
-Once `IronPdf.slim` is installed, configure the connection to the IronPdfEngine by ensuring the server address is reachable and not restricted by your firewall. Use the `IronPdf.GrpcLayer.IronPdfConnectionConfiguration` class to establish these settings. Integrate the following example into the commencement phase of your application or just before executing any IronPdf method:
+Once you've installed `IronPdf.slim`, the next step is to configure the location of the IronPdfEngine (ensure the address is reachable and not obstructed by any firewall). Utilize the **IronPdfConnectionConfiguration** class to set up these specifics. Include the subsequent code at the beginning of your application or just before utilizing any IronPdf methods:
 
 ```cs
-// Establish connection to the IronPdfEngine
-Installation.ConnectToIronPdfHost(
-    IronPdf.GrpcLayer.IronPdfConnectionConfiguration.RemoteServer("123.456.7.8:33350")
-);
+Installation.ConnectToIronPdfHost(IronPdf.GrpcLayer.IronPdfConnectionConfiguration.RemoteServer("123.456.7.8:33350"));
 ```
 
-By incorporating the above configuration, your application will be able to interact with the Remote IronPdfEngine efficiently.
+With this configuration in place, your application is now linked to the Remote IronPdfEngine, enhancing your document processing capabilities!

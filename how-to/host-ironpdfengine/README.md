@@ -1,25 +1,25 @@
-# How to Install and Operate IronPdfEngine in Cloud Environments
+# Implementing and Operating IronPdfEngine on Cloud Platforms
 
 ***Based on <https://ironpdf.com/how-to/host-ironpdfengine/>***
 
 
-IronPdfEngine's Docker image can be set up and executed within cloud services such as AWS (Amazon Web Services) and Azure. This procedure involves uploading the Docker image to a container registry hosted by the cloud service, adjusting the deployment settings, and initiating a process to establish and operate container instances utilizing the IronPdfEngine image within the cloud setup.
+The IronPdfEngine Docker image is adaptable for cloud computing services such as AWS (Amazon Web Services) and Azure, where it can be run within a containerized framework. This involves the steps of uploading the Docker image to the respective cloud provider's container registry, adjusting the deployment configurations, and launching the deployment to establish and operate container instances from the IronPdfEngine image in a cloud setting.
 
-## Configuring IronPdfEngine on AWS ECS
+## Deploying IronPdfEngine on AWS ECS
 
-### Requirements
+### Prerequisites
 
-* Download the IronPdfEngine Docker image. More details are available in the guide on [how to download and operate IronPdfEngine](https://ironpdf.com/how-to/pull-run-ironpdfengine/).
-* An operational AWS account with ECS access.
+* Retrieve the IronPdfEngine Docker image. Detailed information can be found in [how to pull and run IronPdfEngine](https://ironpdf.com/how-to/pull-run-ironpdfengine/).
+* You must have an active AWS account with ECS access.
 
 ### Configuration Steps
 
-1. Initiate an ECS Cluster. Use this resource for [setting up a cluster for the Fargate and External launch type via the AWS console](https://docs.aws.amazon.com/AmazonECS/latest/userguide/create-cluster-console-v2.html).
-2. Establish a task definition. Refer to this resource for [configuring a task definition via the AWS console](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-task-definition.html).
+1. Generate an ECS Cluster. You can use this guide on [creating a cluster for the Fargate and External launch type via the AWS console](https://docs.aws.amazon.com/AmazonECS/latest/userguide/create-cluster-console-v2.html).
+2. Formulate a task definition. Instructions can be found in this guide for [creating a task definition with the console](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-task-definition.html).
 
-Recommended configurations:
-- **AWS Fargate** deployment
-- At least 1 vCPU and 2 GB of RAM, with higher configurations needed for large PDFs or high load scenarios
+Recommended settings include:
+- **AWS Fargate**
+- A minimum of 1 vCPU and 2 GB of RAM is recommended. For demanding scenarios, like processing PDFs with over 10 pages or handling intensive load requests, please opt for a more robust configuration.
 - **Network mode**: awsvpc 
 - **Port mappings**: 
 ```json
@@ -28,38 +28,38 @@ Recommended configurations:
     "protocol": "tcp",
     "appProtocol": "grpc"
 ```
-- **Image URI**: Should direct to any IronPdfEngine from our repository, such as "ironsoftwareofficial/ironpdfengine:2024.1.20" (available on DockerHub)
-- Responsibility for **AWS Permission & Networking** lies with the user
-- **Enable Amazon CloudWatch** for logging is advised
-- **Container startup order** is crucial for deploying multiple containers within the same task definition
-3. Execute the task definition either as a **Task** or a **Service**. Here is a guide on [creating a service through the AWS console](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-service-console-v2.html).
+- **Image URI**: Use any IronPdfEngine provided by us. For instance, "ironsoftwareofficial/ironpdfengine:2024.1.20" (available on DockerHub)
+- AWS Permission & Networking settings are required as per your setup
+- **Enabling Amazon CloudWatch** is advised for logging.
+- Implement the **Container startup order** if including multiple containers in your task definition.
+3. Implement the task definition either as a **Task** or a **Service**. Utilize this guide for [initiating a service via the AWS console](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-service-console-v2.html).
 
-Recommended configurations:
-* Utilize **AWS Fargate** for launch
-* Configure the Public IP: **Enabled** for testing and **Disabled** for production environments. Security and AWS network configurations are user-managed.
-4. Congratulations! The IronPdfEngine Docker container is now operational on your AWS environment!
+Recommended setup for operation:
+* Launch type: **AWS Fargate**
+* Public IP configuration: **Enabled** for testing and **Disabled** for production environments. Security measures and AWS Networking need custom configuration.
+4. Success! The IronPdfEngine Docker is operational on AWS!
 
-[Note: Horizontal scaling is not supported. For further details, consult the [IronPdfEngine Limitations](https://ironpdf.com/tutorials/what-is-ironpdfengine/#anchor-ironpdfengine-limitation).]
+[Note: Horizontal scaling is not supported by IronPdfEngine. For detailed limitations, refer to the [IronPdfEngine Limitation](https://ironpdf.com/tutorials/what-is-ironpdfengine/#anchor-ironpdfengine-limitation).]
 
 <hr>
 
 ## Implementing IronPdfEngine on Azure Container Instances
 
-### Requirements
+### Prerequisites
 
-* Download the IronPdfEngine Docker image. For details, refer to [how to download and operate IronPdfEngine](https://ironpdf.com/how-to/pull-run-ironpdfengine/).
-* An active Azure account
+* Acquire the IronPdfEngine Docker image. For additional details, check [how to pull and run IronPdfEngine](https://ironpdf.com/how-to/pull-run-ironpdfengine/).
+* An Azure account is required.
 
 ### Configuration Steps
 
-1. Create an Azure Container using the [step-by-step guide on launching a container instance in Azure via the Azure portal](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart-portal).
+1. Establish an Azure Container. Use this [quickstart guide on deploying a container instance in Azure via the Azure portal](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart-portal).
 
-Recommended configurations:
+Recommended settings:
 - **Image source**: Other registry
-- **Image**: **ironsoftwareofficial/ironpdfengine:2024.1.20** (sourced from Docker Hub)
+- **Image**: **ironsoftwareofficial/ironpdfengine:2024.1.20** (from Docker Hub)
 - **OS type**: Linux
-- **Size**: At least 1 vCPU and 2 GiB of memory or greater
+- **Size**: A minimum of 1 vCPU and 2 GiB of memory is advisable
 - **Port**: TCP Port 33350
-2. Congratulations! Your IronPdfEngine Docker container is now functioning in your Azure Container Instances!
+2. Success! The IronPdfEngine Docker is now active on your Azure Container Instances!
 
-[Note: Horizontal scaling is not supported. For additional information, please see the [IronPdfEngine Limitations](https://ironpdf.com/tutorials/what-is-ironpdfengine/#anchor-ironpdfengine-limitation).]
+[Note: Horizontal scaling is not supported by IronPdfEngine. For comprehensive limitations, please see the [IronPdfEngine Limitation](https://ironpdf.com/tutorials/what-is-ironpdfengine/#anchor-ironpdfengine-limitation).]

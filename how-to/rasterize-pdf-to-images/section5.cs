@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.RasterizePdfToImages
+namespace IronPdf.Examples.HowTo.RasterizePdfToImages
 {
-    public class Section5
+    public static class Section5
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate Renderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();

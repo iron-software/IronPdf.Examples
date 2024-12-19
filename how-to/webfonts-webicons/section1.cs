@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.WebfontsWebicons
+namespace IronPdf.Examples.HowTo.WebfontsWebicons
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // HTML contains webfont
             var html = @"<link href=""https://fonts.googleapis.com/css?family=Lobster"" rel=""stylesheet"">

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CsharpEditPdfCompleteTutorial
+namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
-    public class Section25
+    public static class Section25
     {
-        public void Run()
+        public static void Run()
         {
             new Length(value: 5, unit: MeasurementUnit.Inch); // 5 inches
             

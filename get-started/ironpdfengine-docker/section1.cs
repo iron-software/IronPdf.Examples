@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.IronpdfengineDocker
+namespace IronPdf.Examples.GettingStarted.IronpdfengineDocker
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             string ironPdfEngineVersion = IronPdf.Installation.IronPdfEngineVersion;
         }

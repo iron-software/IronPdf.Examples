@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CsharpEditPdfCompleteTutorial
+namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
-    public class Section27
+    public static class Section27
     {
-        public void Run()
+        public static void Run()
         {
             // Step 1.  Creating a PDF with editable forms from HTML using form and input tags
             const string formHtml = @"

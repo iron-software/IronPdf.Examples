@@ -1,10 +1,10 @@
 using System.Linq;
 using IronPdf;
-namespace ironpdf.RasterizePdfToImages
+namespace IronPdf.Examples.HowTo.RasterizePdfToImages
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate Renderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();

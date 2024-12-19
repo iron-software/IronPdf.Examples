@@ -1,10 +1,10 @@
 using System.Linq;
 using IronPdf;
-namespace ironpdf.RotatingText
+namespace IronPdf.Examples.HowTo.RotatingText
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Import PDF
             PdfDocument pdf = PdfDocument.FromFile("multi-page.pdf");

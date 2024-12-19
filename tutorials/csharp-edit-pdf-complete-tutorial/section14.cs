@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CsharpEditPdfCompleteTutorial
+namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
-    public class Section14
+    public static class Section14
     {
-        public void Run()
+        public static void Run()
         {
             // Using an existing PDF
             var pdf = PdfDocument.FromFile("sample.pdf");

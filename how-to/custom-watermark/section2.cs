@@ -1,10 +1,10 @@
 using IronPdf.Editing;
 using IronPdf;
-namespace ironpdf.CustomWatermark
+namespace IronPdf.Examples.HowTo.CustomWatermark
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             string watermarkHtml = @"
             <img style='width: 200px;' src='https://ironsoftware.com/img/products/ironpdf-logo-text-dotnet.svg'>

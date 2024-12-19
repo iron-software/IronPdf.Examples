@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using IronPdf;
-namespace ironpdf.Async
+namespace IronPdf.Examples.HowTo.Async
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             var queue = new List<string>() { "<h1>Html 1</h1>", "<h1>Html 2</h1>", "<h1>Html 3</h1>" };
             

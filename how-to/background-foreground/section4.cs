@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.BackgroundForeground
+namespace IronPdf.Examples.HowTo.BackgroundForeground
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             

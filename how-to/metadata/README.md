@@ -1,145 +1,112 @@
-# Managing PDF Metadata with IronPDF
+# How to Manage PDF Metadata
 
 ***Based on <https://ironpdf.com/how-to/metadata/>***
 
 
-PDF metadata consists of details that describe the document, such as the title, author, subject, keywords, creation and modification dates, among others. Effective management of metadata enhances a PDF's discoverability and organization in databases and on the web.
+Metadata within a PDF document encompasses various descriptive details about the document, including its title, author, subject, keywords, and creation and modification dates. This metadata enhances the document's indexing capabilities within databases and improves its visibility on internet searches.
 
 ***
+
+<h3>Introduction to IronPDF</h3>
 
 ***
 
 ## Example: Setting and Modifying Metadata
 
-IronPDF simplifies modifying metadata fields in PDF documents. You can manipulate these fields by accessing the `MetaData` property.
+IronPDF makes it simple to adjust the metadata of your PDF documents. By accessing the **MetaData** property, you can easily change these details.
 
 ```cs
+using IronPdf;
 using System;
-using IronPdf;
-namespace ironpdf.Metadata
-{
-    public class MetadataExample
-    {
-        public void Execute()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Metadata Example</h1>");
 
-            // Set metadata fields using the MetaData class.
-            pdf.MetaData.Author = "Iron Software";
-            pdf.MetaData.CreationDate = DateTime.Today;
-            pdf.MetaData.Creator = "IronPDF";
-            pdf.MetaData.Keywords = "ironsoftware, ironpdf, pdf";
-            pdf.MetaData.ModifiedDate = DateTime.Now;
-            pdf.MetaData.Producer = "IronPDF";
-            pdf.MetaData.Subject = "PDF Metadata Manipulation";
-            pdf.MetaData.Title = "Understanding IronPDF Metadata";
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Metadata</h1>");
 
-            pdf.SaveAs("enhanced-metadata.pdf");
-        }
-    }
-}
+// Modify the specific metadata properties using the MetaData class.
+pdf.MetaData.Author = "Iron Software";
+pdf.MetaData.CreationDate = DateTime.Today;
+pdf.MetaData.Creator = "IronPDF";
+pdf.MetaData.Keywords = "ironsoftware,ironpdf,pdf";
+pdf.MetaData.ModifiedDate = DateTime.Now;
+pdf.MetaData.Producer = "IronPDF";
+pdf.MetaData.Subject = "Understanding Metadata";
+pdf.MetaData.Title = "Exploring Metadata with IronPDF";
+
+pdf.SaveAs("enhanced-pdf-metadata.pdf");
 ```
 
-### Viewing Metadata in a PDF
+### Viewing the Updated PDF
 
-To inspect the metadata of a PDF, navigate to the Document Properties through the menu symbolized by three vertical dots.
+To inspect the updated metadata, click the three vertical dots in your PDF reader and navigate to "Document properties."
 
-<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/metadata/pdf-with-metadata.pdf" width="100%" height="400px">
-</iframe>
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/metadata/pdf-with-metadata.pdf" width="100%" height="400px"></iframe>
 
-## Metadata Retrieval and Modification in IronPDF
+## Managing Metadata Through a Dictionary
 
-`GetMetaDataDictionary` allows extraction of metadata from a PDF, and `SetMetaDataDictionary` provides a method to overwrite or add metadata entries.
+To manage the metadata more flexibly, IronPDF allows you to interact with a dictionary of metadata. This approach facilitates the addition of custom metadata items.
 
 ```cs
+using IronPdf;
 using System.Collections.Generic;
-using IronPdf;
-namespace ironpdf.Metadata
-{
-    public class MetadataDictionaryExample
-    {
-        public void Execute()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument document = renderer.RenderHtmlAsPdf("<h1>Metadata</h1>");
 
-            var metadataUpdates = new Dictionary<string, string>
-            {
-                {"Title", "Detailed Article"},
-                {"Author", "Iron Software"}
-            };
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Metadata</h1>");
 
-            // Update metadata dictionary
-            document.MetaData.SetMetaDataDictionary(metadataUpdates);
+Dictionary<string, string> updatedMetadata = new Dictionary<string, string>();
+updatedMetadata.Add("Title", "IronPDF Metadata Guide");
+updatedMetadata.Add("Author", "Iron Software");
 
-            // Retrieve updated metadata
-            var metaDataInfo = document.MetaData.GetMetaDataDictionary();
-        }
-    }
-}
+// Apply the new metadata dictionary
+pdf.MetaData.SetMetaDataDictionary(updatedMetadata);
+
+// Fetch and review the metadata
+Dictionary<string, string> metadataDetails = pdf.MetaData.GetMetaDataDictionary();
 ```
 
-### Viewing Updated Metadata
+### Viewing Metadata in the PDF
 
-Access the Document Properties through the vertical menu dots to see the updated metadata.
+To see the assigned metadata, access "Document properties" in your PDF reader by clicking the three dots icon.
 
-<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/metadata/set-and-get-metadata-dictionary.pdf" width="100%" height="400px">
-</iframe>
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/metadata/set-and-get-metadata-dictionary.pdf" width="100%" height="400px"></iframe>
 
-## Handling Custom Metadata Entries
+## Adding, Modifying, and Removing Custom Metadata
 
-IronPDF lets you add, modify, and delete custom metadata fields which are generally not visible in standard PDF viewers.
+Beyond standard metadata, IronPDF enables the inclusion of custom metadata properties which might not typically be shown in standard PDF viewers.
 
-### Adding and Modifying Custom Metadata
+### How to Add and Modify Custom Metadata
+
+This process involves using the **CustomProperties** property for adding or changing custom metadata values.
 
 ```cs
-using IronPdf.MetaData;
 using IronPdf;
-namespace ironpdf.Metadata
-{
-    public class CustomMetadataExample
-    {
-        public void Execute()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Metadata</h1>");
-            
-            PdfCustomMetadataProperties customProperties = pdf.MetaData.CustomProperties;
-            
-            // Add a custom metadata property
-            customProperties.Add("exampleKey", "initialValue");
-            
-            // Modify the custom metadata property
-            customProperties["exampleKey"] = "updatedValue";
-        }
-    }
-}
+using IronPdf.MetaData;
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Metadata</h1>");
+
+PdfCustomMetadataProperties customMetadata = pdf.MetaData.CustomProperties;
+
+// Insert a new custom metadata entry
+customMetadata.Add("uniqueKey", "initialValue");
+
+// Update the value of an existing entry
+customMetadata["uniqueKey"] = "updatedValue";
 ```
 
 ### Removing Custom Metadata
 
-You have multiple ways to erase custom metadata entries, either directly from the `CustomProperties` or by using specific methods provided by IronPDF.
+IronPDF provides two methods to eliminate custom metadata from a PDF.
 
 ```cs
 using IronPdf;
-namespace ironpdf.Metadata
-{
-    public class RemoveCustomMetadataExample
-    {
-        public void Execute()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Remove Metadata</h1>");
-            
-            // Add then remove a custom metadata property
-            pdf.MetaData.CustomProperties.Add("temporaryInfo", "temporaryValue");
-            
-            // Demonstrating two removal methods
-            pdf.MetaData.CustomProperties.Remove("temporaryInfo");
-            pdf.MetaData.RemoveMetaDataKey("temporaryInfo");
-        }
-    }
-}
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Metadata</h1>");
+
+// Initially add a custom property to demonstrate deletion
+pdf.MetaData.CustomProperties.Add("toBeRemoved", "sampleValue");
+
+// Example methods to remove a custom metadata entry
+pdf.MetaData.RemoveMetaDataKey("toBeRemoved"); // First method
+pdf.MetaData.CustomProperties.Remove("toBeRemoved"); // Second method
 ```
-This brief provides an introduction to managing PDF metadata with IronPDF, facilitating the handling of both standard and custom metadata entries.

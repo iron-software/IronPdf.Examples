@@ -1,115 +1,96 @@
-# Setting Page Orientation and Rotation in IronPDF
+# Managing Page Orientation and Rotation with IronPDF
 
 ***Based on <https://ironpdf.com/how-to/page-orientation-rotation/>***
 
 
-Page orientation determines the layout of the page, either in a vertical (portrait) or horizontal (landscape) manner. 
+## Introduction to Page Orientation and Rotation
 
-Page rotation modifies the angle at which a page appears, ideal for correcting orientation, and assists in achieving specific presentation needs. You can set page angles to 90, 180, or 270 degrees to adjust the view accordingly.
+**Page Orientation** refers to the configuration of a page, which can be vertically set (portrait) or laid out horizontally (landscape).
 
-IronPDF grants the flexibility to designate page orientation as portrait or landscape and to rotate pages at 0, 90, 180, or 270-degree angles as necessary during the PDF rendering process.
+**Page Rotation**, alternatively, means adjusting a page’s tilt to various degrees (e.g., 90, 180, 270 degrees). This feature is especially beneficial for rectifying the alignment of a page or adapting to specific viewing requirements.
 
-## Example of Configuring Page Orientation
+With IronPDF, users can set page orientation to portrait or landscape during the document creation process. It is also conceivable to rotate pages in your PDF to desired angles, such as 0, 90, 180, or 270 degrees, whether the pages are existing or newly added to the document.
 
-You can set the orientation only when converting other document formats into PDF. Use the `PaperOrientation` property of the `RenderingOptions` class to specify orientation: either portrait or landscape, with portrait being the default.
+## Example of Setting Page Orientation
 
-### Example Code
+While creating a PDF from other document formats, you can decide on its page orientation via the **RenderingOptions** class, which includes the **PaperOrientation** property. By default, the orientation is set to portrait.
+
+### Example Code:
 
 ```cs
-using IronPdf.Rendering;
 using IronPdf;
-namespace ironpdf.PageOrientationRotation
-{
-    public class OrientationExample
-    {
-        public void Execute()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Setting the paper orientation
-            renderer.RenderingOptions.PaperOrientation = PdfPaperOrientation.Landscape;
-            
-            PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
-            
-            pdf.SaveAs("landscape.pdf");
-        }
-    }
-}
+using IronPdf.Rendering;
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Configure paper orientation
+renderer.RenderingOptions.PaperOrientation = PdfPaperOrientation.Landscape;
+
+PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
+
+pdf.SaveAs("landscape.pdf");
 ```
 
-### Rendered PDF Output
+### Display PDF:
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/page-orientation-rotation/landscape.pdf#zoom=55%" width="100%" height="450px">
 </iframe>
 
 <hr>
 
-## Example of Adjusting Page Rotation
+## Example on Applying Page Rotation
 
-IronPDF supports several rotation settings for flexibility:
+IronPDF allows four rotation settings:
 
-- **None**: 0-degree (default, no rotation).
-- **Clockwise90**: Rotates the page by 90 degrees clockwise.
-- **Clockwise180**: Rotates the page by 180 degrees clockwise.
-- **Clockwise270**: Rotates the page by 270 degrees clockwise.
+- **None**: 0 degrees or no rotation.
+- **Clockwise90**: Rotates the page 90 degrees clockwise.
+- **Clockwise180**: Rotates the page 180 degrees clockwise.
+- **Clockwise270**: Rotates the page 270 degrees clockwise.
 
-### Methods to Adjust Page Rotation
+All instructions regarding the page index use zero-based indexing.
 
-Adjust the rotation for individual, multiple, or all pages in a document:
+### Rotate Pages:
 
-- `SetAllPageRotations`: Applies a specified rotation to all pages.
-- `SetPageRotation`: Applies rotation to a specific page.
-- `SetPageRotations`: Applies the chosen rotation to a list of specific pages.
+To manipulate page rotation use the following methods:
+
+- `SetAllPageRotations`: Applies a specified rotation to every page.
+- `SetPageRotation`: Applies a rotation to a particular single page.
+- `SetPageRotations`: Applies a rotation to a specific set of pages.
 
 ```cs
-using System.Collections.Generic;
 using IronPdf;
-namespace ironpdf.PageOrientationRotation
-{
-    public class RotationExample
-    {
-        public void Execute()
-        {
-            PdfDocument pdf = PdfDocument.FromFile("landscape.pdf");
-            
-            // Rotate all pages
-            pdf.SetAllPageRotations(PdfPageRotation.Clockwise90);
-            
-            // Rotate a single page
-            pdf.SetPageRotation(1, PdfPageRotation.Clockwise180);
-            
-            // Rotate selected pages
-            List<int> selectedPages = new List<int>() { 0, 3 };
-            pdf.SetPageRotations(selectedPages, PdfPageRotation.Clockwise270);
-            
-            pdf.SaveAs("rotatedLandscape.pdf");
-        }
-    }
-}
+using IronPdf.Rendering;
+using System.Collections.Generic;
+
+PdfDocument pdf = PdfDocument.FromFile("landscape.pdf");
+
+// Apply rotation to all pages
+pdf.SetAllPageRotations(PdfPageRotation.Clockwise90);
+
+// Apply rotation to a specific page
+pdf.SetPageRotation(1, PdfPageRotation.Clockwise180);
+
+// Target multiple specific pages for rotation
+List<int> selectedPages = new List<int>() { 0, 3 };
+pdf.SetPageRotations(selectedPages, PdfPageRotation.Clockwise270);
+
+pdf.SaveAs("rotatedLandscape.pdf");
 ```
 
-### Rotated PDF Output
+### Display Rotated PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/page-orientation-rotation/rotatedLandscape.pdf#zoom=55%" width="100%" height="450px">
 </iframe>
 
-### Retrieving Page Rotation
+### Retrieve Page Rotation:
 
-The `GetPageRotation` method allows you to ascertain the rotation of a specific page by providing the page index.
+To access the rotation setting of any specific page:
 
 ```cs
-using IronPdf.Rendering;
 using IronPdf;
-namespace ironpdf.PageOrientationRotation
-{
-    public class RetrieveRotationExample
-    {
-        public void Execute()
-        {
-            PdfDocument pdf = PdfDocument.FromFile("rotatedLandscape.pdf");
-            
-            PdfPageRotation rotation = pdf.GetPageRotation(1);
-        }
-    }
-}
+using IronPdf.Rendering;
+
+PdfDocument pdf = PdfDocument.FromFile("rotatedLandscape.pdf");
+
+PdfPageRotation rotation = pdf.GetPageRotation(1);
 ```

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.PixelPerfectHtmlToPdf
+namespace IronPdf.Examples.HowTo.PixelPerfectHtmlToPdf
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Example of setting Timeout and RenderDelay options
             renderer.RenderingOptions.Timeout = 90; // seconds (default is 60)

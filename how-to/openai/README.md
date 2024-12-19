@@ -1,4 +1,4 @@
-# Utilizing OpenAI with PDFs
+# Leveraging OpenAI for Enhanced PDF Interactions
 
 ***Based on <https://ironpdf.com/how-to/openai/>***
 
@@ -11,52 +11,52 @@
     </div>
 </div>
 
-OpenAI operates as a research organization specializing in artificial intelligence. It includes the business entity OpenAI LP and its non-profit counterpart, OpenAI Inc. Founded to foster the progression of digital intelligence in a manner that could universally benefit humanity, OpenAI pursues research in numerous AI fields and seeks to create AI technologies that are not only safe and beneficial but also widely accessible.
+OpenAI, a hybrid of for-profit and non-profit entities, boasts a mission to promote and develop digital intelligence in ways that benefit society at large. Through extensive research in multiple domains of artificial intelligence (AI), OpenAI is dedicated to creating AI tools that are safe, beneficial, and universally accessible.
 
-The [`IronPdf.Extensions.AI`](https://www.nuget.org/packages/IronPdf.Extensions.AI) NuGet package has introduced capabilities for enhancing PDFs with OpenAI, offering features such as summarization, querying, and memorization. This functionality is powered by the Microsoft [Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/).
+The [`IronPdf.Extensions.AI`](https://www.nuget.org/packages/IronPdf.Extensions.AI) NuGet package introduces the capability to enhance PDFs using OpenAI technology, including features like summarization, querying, and data recall. This package is powered by Microsoft's [Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/).
 
-## PDF Summarization Example
+<h3>Getting Started with IronPDF</h3>
 
-For utilizing the OpenAI-based features, you will require an Azure Endpoint and an API Key. The setup for Semantic Kernel can be followed as demonstrated in the code sample below. First, load your PDF file and then apply the `Summarize` method to output a brief summary of the document. A sample PDF file can be obtained from [OpenAI PDF Summarization Example](https://ironsoftware.com/csharp/examples/openai-pdf-summarization/).
+----
+
+## Example: Summarizing PDF Documents
+
+To activate the OpenAI features, you'll need an Azure Endpoint and an API Key. Following the configuration setup with Semantic Kernel shown in the example below, you can load your PDF file and apply the `Summarize` method to get a concise version of its content. Access a practical example PDF here: [OpenAI for PDF Summarization Example](https://ironsoftware.com/csharp/examples/openai-pdf-summarization/).
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/openai/wikipedia.pdf" width="100%" height="400px">
 </iframe>
 
 ```cs
-using System.Threading.Tasks;
 using IronPdf;
-namespace ironpdf.Openai
-{
-    public class Section1
-    {
-        public async Task Execute()
-        {
-            // Configuration for OpenAI
-            string azureEndpoint = "AzureEndPoint";
-            string apiKey = "APIKEY";
-            
-            var memoryStore = new VolatileMemoryStore();
-            var builder = new KernelBuilder()
-                .WithAzureTextEmbeddingGenerationService("oaiembed", azureEndpoint, apiKey)
-                .WithAzureChatCompletionService("oaichat", azureEndpoint, apiKey)
-                .WithMemoryStorage(memoryStore);
-            var kernel = builder.Build();
-            
-            // Start IronAI
-            IronAI.Initialize(kernel);
-            
-            // Load the PDF file
-            PdfDocument pdf = PdfDocument.FromFile("wikipedia.pdf");
-            
-            // Generate a summary of the PDF
-            string summary = await pdf.Summarize(); // Optionally specify the AI instance or directly use it
-            Console.WriteLine($"Summary of the document: {summary}");
-        }
-    }
-}
+using IronPdf.AI;
+using Microsoft.SemanticKernel;
+using Microsoft.SemanticKernel.Memory;
+using System;
+using System.Threading.Tasks;
+
+// Configuration for OpenAI
+string azureEndpoint = "AzureEndPoint";
+string apiKey = "APIKEY";
+
+var volatileMemoryStore = new VolatileMemoryStore();
+var builder = new KernelBuilder()
+    .WithAzureTextEmbeddingGenerationService("oaiembed", azureEndpoint, apiKey)
+    .WithAzureChatCompletionService("oaichat", azureEndpoint, apiKey)
+    .WithMemoryStorage(volatileMemoryStore);
+var kernel = builder.Build();
+
+// Initializing IronAI
+IronAI.Initialize(kernel);
+
+// Loading PDF document
+PdfDocument pdf = PdfDocument.FromFile("wikipedia.pdf");
+
+// Executing document summarization
+string summary = await pdf.Summarize(); // Optionally pass AI instance or directly use it
+Console.WriteLine($"Document summary: {summary}");
 ```
 
-### Summary Output Display
+### Summarization Output
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -64,45 +64,42 @@ namespace ironpdf.Openai
     </div>
 </div>
 
-## Continuous Querying Example
+## Example: Continuous Querying
 
-Sometimes, a single query might not meet all needs. The [`IronPdf.Extensions.AI`](https://www.nuget.org/packages/IronPdf.Extensions.AI) package also enables continuous querying capabilities.
+For situations that require ongoing interaction, the [`IronPdf.Extensions.AI`](https://www.nuget.org/packages/IronPdf.Extensions.AI) package also provides a method to perform continuous queries.
 
 ```cs
-using System.Threading.Tasks;
 using IronPdf;
-namespace ironpdf.Openai
+using IronPdf.AI;
+using Microsoft.SemanticKernel;
+using Microsoft.SemanticKernel.Memory;
+using System;
+using System.Threading.Tasks;
+
+// Initialization for OpenAI
+string azureEndpoint = "AzureEndPoint";
+string apiKey = "APIKEY";
+
+var volatileMemoryStore = new VolatileMemoryStore();
+var builder = new KernelBuilder()
+    .WithAzureTextEmbeddingGenerationService("oaiembed", azureEndpoint, apiKey)
+    .WithAzureChatCompletionService("oaichat", azureEndpoint, apiKey)
+    .WithMemoryStorage(volatileMemoryStore);
+var kernel = builder.Build();
+
+// Launching IronAI
+IronAI.Initialize(kernel);
+
+// PDF document import
+PdfDocument pdf = PdfDocument.FromFile("wikipedia.pdf");
+
+// Engaging in continuous query
+while (true)
 {
-    public class Section2
-    {
-        public async Task Execute()
-        {
-            // Configuration for OpenAI
-            string azureEndpoint = "AzureEndPoint";
-            string apiKey = "APIKEY";
-            
-            var memoryStore = new VolatileMemoryStore();
-            var builder = new KernelBuilder()
-                .WithAzureTextEmbeddingGenerationService("oaiembed", azureEndpoint, apiKey)
-                .WithAzureChatCompletionService("oaichat", azureEndpoint, apiKey)
-                .WithMemoryStorage(memoryStore);
-            var kernel = builder.Build();
-            
-            // Start IronAI
-            IronAI.Initialize(kernel);
-            
-            // Load the PDF file
-            PdfDocument pdf = PdfDocument.FromFile("wikipedia.pdf");
-            
-            // Initiate continuous querying
-            while (true)
-            {
-                Console.Write("Enter query: ");
-                var userInput = Console.ReadLine();
-                var response = await pdf.Query(userInput);
-                Console.WriteLine($"\nResponse: {response}");
-            }
-        }
-    }
+    Console.Write("User Input: ");
+    var response = await pdf.Query(Console.ReadLine());
+    Console.WriteLine($"\n{response}");
 }
 ```
+
+In these examples, IronPDF seamlessly integrates with OpenAI services to provide powerful PDF manipulation capabilities that leverage advanced AI functionalities for querying and summarization, enhancing the utility and accessibility of PDF contents.

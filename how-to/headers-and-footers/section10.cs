@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.HeadersAndFooters
+namespace IronPdf.Examples.HowTo.HeadersAndFooters
 {
-    public class Section10
+    public static class Section10
     {
-        public void Run()
+        public static void Run()
         {
             string headerHtml = @"
                 <html>

@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using IronPdf;
-namespace ironpdf.AddCopyDeletePagesPdf
+namespace IronPdf.Examples.HowTo.AddCopyDeletePagesPdf
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("full_report.pdf");
             

@@ -1,12 +1,12 @@
 ***Based on <https://ironpdf.com/examples/headers-and-footers/>***
 
-There are two primary methods for incorporating headers and footers into PDF documents:
+PDF documents can be enhanced with headers and footers in two primary ways:
 
-1. **Text-based Headers and Footers**: This traditional method enables the inclusion of text headers, and allows for the integration of dynamic data within them.
-2. **[HTML Headers and Footers with IronPDF](https://ironpdf.com/examples/html-headers-and-footers/)**: This technique permits developers to embed HTML content as headers and footers in PDF files, enhancing flexibility with the capability to template dynamic data. This approach offers greater versatility but may be more complex to implement.
+- Traditional text headers and footers provide a straightforward method to incorporate text elements, with capabilities to integrate dynamic content.
+- [HTML headers and footers via IronPDF](https://ironpdf.com/examples/html-headers-and-footers/), this method allows developers to integrate HTML content into PDF headers and footers, offering a more adaptable approach to embedding dynamic content, though it can be more complex to utilize.
 
-The `TextHeaderFooter` class within IronPDF is specifically designed to manage the display options for PDF headers and footers, providing a structured method to apply these elements in typical scenarios.
+`TextHeaderFooter`, a class provided by IronPDF, is tailored to set up headers and footers efficiently for common scenarios.
 
-Here’s how you can add traditional text headers and footers to your PDFs using IronPDF:
+Here, we illustrate how to implement traditional text headers and footers in your PDFs using IronPDF.
 
-When configuring headers and footers, you have the flexibility to center the header text across the PDF. Additionally, dynamic metadata can be incorporated into the header via placeholder strings, which are detailed in the [TextHeaderFooter API Documentation](https://ironpdf.com/object-reference/api/IronPdf.TextHeaderFooter.html). It's also possible to insert a horizontal line to separate the header or footer from the main content on each page. This feature enforces the use of standard fonts and sizes, making it an exceptionally beneficial tool that meets diverse needs.
+When you're setting up headers and footers, there is an option to align the header text centrally within the document. Additionally, incorporating metadata into your header is possible by utilizing placeholders found in the [TextHeaderFooter API Documentation](https://ironpdf.com/object-reference/api/IronPdf.TextHeaderFooter.html). Features like adding a line separator between the page content and the headers or footers, customizing font styles and sizes are also available. This functionality is extremely handy, covering a comprehensive range of needs.

@@ -1,47 +1,40 @@
-# Working with Base URLs & Asset Encoding in IronPDF
+# Utilizing Base URLs & Asset Encoding with IronPDF
 
 ***Based on <https://ironpdf.com/how-to/base-urls/>***
 
 
-IronPDF excels in generating PDFs within .NET applications and often involves converting HTML to PDF. This raises the question: *How do we integrate CSS stylesheets and image files into our HTML to PDF conversions?* Let's explore the details.
+IronPDF is a premier tool for generating PDF documents within .NET environments.
 
-## Generating PDFs from HTML Strings Using Assets
+One common application of this library is the "HTML to PDF" functionality, which leverages HTML as the layout language for creating PDF files. This raises an important question: *how can we effectively utilize CSS stylesheets and image files in our HTML to PDF transformations*?
 
-When converting HTML strings into PDF, it is crucial to configure the **BaseUrlOrPath** parameter to ensure the accurate loading of assets like CSS, JavaScript files, and images. The **BaseUrlOrPath** stipulates the base URL for fetching all referenced assets.
+## Generating a PDF from HTML String with Image and CSS Assets
 
-Assets can be fetched from a web URL beginning with 'http' or from local storage using a local file path. Configuring this correctly guarantees that assets are correctly located during the conversion.
+When converting HTML strings to PDF, it's critical to establish a **BaseUrlOrPath**. This setting defines the base URL or path from which assets like CSS, JavaScript, and images are loaded.
+
+This value can be an external web URL prefixed by 'http' for remote assets or a local file path for accessing disk-based resources. Correctly configuring the BaseUrlOrPath ensures the successful loading of these assets during the conversion.
 
 ```cs
 using IronPdf;
-namespace ironpdf.BaseUrls
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // Create instance of ChromePdfRenderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            string baseUrl = @"C:\site\assets\";
-            string htmlContent = "<img src='icons/iron.png'>";
-            
-            // Translate HTML to PDF
-            PdfDocument pdfDocument = renderer.RenderHtmlAsPdf(htmlContent, baseUrl);
-            
-            // Save the generated PDF
-            pdfDocument.SaveAs("html-with-assets.pdf");
-        }
-    }
-}
+
+// Create a ChromePdfRenderer instance
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+string baseUrl = @"C:\site\assets\";
+string html = "<img src='icons/iron.png'>";
+
+// Convert HTML to PDF
+PdfDocument pdf = renderer.RenderHtmlAsPdf(html, baseUrl);
+
+// Save the PDF
+pdf.SaveAs("html-with-assets.pdf");
 ```
 
-### Applying Base URLs within MVC Applications
+### MVC Application Context
 
-In the context of an MVC application, correctly linking an image file requires precise configuration of the **baseUrl** in IronPDF alongside the **src** attribute in the HTML string.
+Specifying paths in an MVC app can sometimes be complex. To ensure the image is detected by IronPDF and rendered correctly in the PDF:
 
-Setting up your directory like this:
 - Set `baseUrlOrPath` to @"wwwroot/image"
-- Point the `src` attribute to "../image/Sample.jpg"
+- Configure the `src` attribute in the HTML to point to "../image/Sample.jpg"
 
 ```txt
 wwwroot
@@ -50,22 +43,14 @@ wwwroot
     └── Sample.png
 ```
 
-**For instance:**
+**Example:**
 
 ```cs
-using IronPdf;
-namespace ironpdf.BaseUrls
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("html.Result", @"wwwroot/image");
-        }
-    }
-}
+// Create a ChromePdfRenderer instance
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Generate PDF from HTML
+PdfDocument pdf = renderer.RenderHtmlAsPdf("html.Result", @"wwwroot/image");
 ```
 
 ```html
@@ -73,119 +58,110 @@ namespace ironpdf.BaseUrls
 <img src="../image/Sample.png"/>
 ```
 
-#### Path Formats to Avoid
+#### Clarifying File Path Formats
 
-The following path formats may function correctly in Chrome, but may not correctly locate directories in an MVC application unless paired with the appropriate `BaseUrlOrPath` setting in IronPDF:
+While certain formats appear correct in a browser like Chrome, they may not translate accurately in an MVC environment. The following are adaptable for IronPDF if a `baseUrlOrPath` is specified in `RenderHtmlAsPdf`:
 
 ```html
 <img src="image/footer.png"/>  
 <img src="./image/footer.png"/>  
 ```
 
-Conversely, these paths are suitable for MVC setup but not for file locating in IronPDF:
+Conversely, these formats are suitable for MVC apps but may not function optimally in IronPDF contexts:
 
 ```html
 <img src="/image/footer.png"/>  
 <img src="~/image/footer.png"/>
 ```
 
-## PDF Rendering with HTML Headers and Footers
+## Implementing HTML Headers and Footers with Assets
 
-HTML headers and footers in a PDF are treated as separate documents and thus do not inherit the BaseURL. Specify a BaseURL to load assets from:
+When incorporating HTML headers and footers in a new or existing PDF, these sections are processed as separate HTML documents and do not share the BaseURL of the PDF.
+
+We need to specify a BaseURL where assets can be sourced:
 
 ```cs
+using IronPdf;
 using System;
-using IronPdf;
-namespace ironpdf.BaseUrls
+
+// Create a ChromePdfRenderer instance
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Configure header
+renderer.RenderingOptions.HtmlHeader = new HtmlHeaderFooter()
 {
-    public class Section3
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            renderer.RenderingOptions.HtmlHeader = new HtmlHeaderFooter()
-            {
-                MaxHeight = 20,
-                HtmlFragment = "<img src='logo.png'>",
-                BaseUrl = new Uri(@"C:\assets\images\").AbsoluteUri
-            };
-        }
-    }
-}
+    MaxHeight = 20,
+    HtmlFragment = "<img src='logo.png'>",
+    BaseUrl = new Uri(@"C:\assets\images\").AbsoluteUri
+};
 ```
 
-## Converting HTML Files to PDFs Including Asset Links
+## Rendering HTML Files to PDF with Associated Assets
 
-When converting an entire HTML file to PDF, all linked assets (JS, CSS, images) are presumed to be local to the file's directory.
+When converting an HTML document to PDF, all related assets are assumed to be in the same directory as the HTML file.
 
 ```cs
 using IronPdf;
-namespace ironpdf.BaseUrls
-{
-    public class Section4
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("C:\\Assets\\TestInvoice1.html");
-            
-            pdf.SaveAs("Invoice.pdf");
-        }
-    }
-}
+
+// Create a ChromePdfRenderer instance
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Convert HTML file to PDF
+PdfDocument pdf = renderer.RenderHtmlFileAsPdf("C:\\Assets\\TestInvoice1.html");
+
+// Save PDF
+pdf.SaveAs("Invoice.pdf");
 ```
 
-Additionally, you can specify a unique stylesheet for .NET PDF rendering by using the [CustomCssUrl in ChromePdfRenderOptions](https://ironpdf.com/api/IronPdf.ChromePdfRenderOptions.html#IronPdf_ChromePdfRenderOptions_CustomCssUrl).
+Here, all JavaScript, CSS, and image files are sourced from the directory `C:\Assets`.
+
+You might consider utilizing the [CustomCssUrl](https://ironpdf.com/api/IronPdf.ChromePdfRenderOptions.html#IronPdf_ChromePdfRenderOptions_CustomCssUrl) in `ChromePdfRenderOptions` for additional stylesheets specific to PDF rendering in .NET:
 
 ```cs
 using IronPdf;
-namespace ironpdf.BaseUrls
-{
-    public class Section5
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            renderer.RenderingOptions.CustomCssUrl = "./style.css";
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World</h1>");
-            
-            pdf.SaveAs("tryCss.pdf");
-        }
-    }
-}
+
+// Create a ChromePdfRenderer instance
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Define additional CSS URL
+renderer.RenderingOptions.CustomCssUrl = "./style.css";
+
+// Convert HTML to PDF
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World</h1>");
+
+// Save the PDF
+pdf.SaveAs("tryCss.pdf");
 ```
 
-## Direct Encoding of Image Assets
+The `ChromePdfRenderOptions.CustomCssUrl` is effective when converting from an HTML string to a PDF.
 
-To circumvent issues where images fail to load, you can embed images directly using base64 encoding. First, convert the image's binary data to a base64 string.
+## Base64 Image Asset Embedding
+
+To avoid issues with missing images, consider encoding them directly into the HTML using base64:
+
+1. Acquire the image binary data either by reading the file or from a network request.
+2. Use the `Convert.ToBase64String` method from Microsoft .NET to convert this data into a base64 string.
+3. Formulate the image tag in HTML using "data:image/svg+xml;base64," followed by the base64 data. Refer to the [MDN Web Docs on Image Types and Formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) to understand more about specifying image types.
 
 ```cs
+using IronPdf;
+using System;
 using System.IO;
-using IronPdf;
-namespace ironpdf.BaseUrls
-{
-    public class Section6
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            byte[] binaryData = File.ReadAllBytes("ironpdf-logo-text-dotnet.svg");
-            
-            string imgDataUri = Convert.ToBase64String(binaryData);
-            
-            string html = $"<img src='data:image/svg+xml;base64,{imgDataUri}'>";
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
-            
-            pdf.SaveAs("embedImageBase64.pdf");
-        }
-    }
-}
-```
 
-These methods allow for flexible and reliable PDF generation from HTML, leveraging both local and web assets within .NET applications using IronPDF.
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Load binary data of the image
+byte[] binaryData = File.ReadAllBytes("ironpdf-logo-text-dotnet.svg");
+
+// Convert binary data to base 64 string
+string imgDataUri = Convert.ToBase64String(binaryData);
+
+// Embed image in HTML
+string html = $"<img src='data:image/svg+xml;base64,{imgDataUri}'>";
+
+// Convert HTML to PDF
+PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
+
+// Save the PDF
+pdf.SaveAs("embedImageBase64.pdf");
+```

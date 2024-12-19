@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.Pdfa
+namespace IronPdf.Examples.HowTo.Pdfa
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Use the Chrome Renderer to make beautiful HTML designs
             var chromeRenderer = new ChromePdfRenderer();

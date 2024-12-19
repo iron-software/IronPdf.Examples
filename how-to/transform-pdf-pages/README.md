@@ -1,35 +1,33 @@
-# Modifying PDF Pages in .NET
+# Transform PDF Pages in .NET
 
 ***Based on <https://ironpdf.com/how-to/transform-pdf-pages/>***
 
 
-In .NET, modifying a PDF page refers to the process of applying different operations which alter how content is displayed on the page. These modifications can range from scaling (adjusting the page size) to translating (shifting the content on the page).
+Modifying a PDF page often entails executing various operations to alter how the content on that page appears or is arranged. Such transformations might include scaling (changing the size of the page) and translating (shifting the content to a new location).
 
-## PDF Page Modifications
+### Start Using IronPDF
 
-The `Transform` feature enables the adjustment of the content's appearance through moving and resizing operations. It's important to note that these actions modify only how the content is presented and do not alter the actual dimensions of the physical page. Below is an example that demonstrates how to use the `Transform` method on a [simple PDF document](https://ironpdf.com/static-assets/pdf/how-to/transform-pdf-pages/basic.pdf).
+-----
+
+## PDF Page Transformations
+
+Two key transformation features allow you to move and scale the content on a PDF page. These adjustments alter only the visible aspect of the content, without modifying the actual dimensions of the page itself. Let's use the `Transform` method on a [sample PDF document](https://ironpdf.com/static-assets/pdf/how-to/transform-pdf-pages/basic.pdf).
 
 ```cs
 using IronPdf;
-namespace ironpdf.TransformPdfPages
-{
-    public class Section1
-    {
-        public void Execute()
-        {
-            PdfDocument pdfDoc = PdfDocument.FromFile("basic.pdf");
-            
-            // Applying transformations: translation x=50, y=50, scale x=0.8, y=0.8
-            pdfDoc.Pages[0].Transform(50, 50, 0.8, 0.8);
-            
-            pdfDoc.SaveAs("modifiedPage.pdf");
-        }
-    }
-}
+
+// Load a basic PDF document
+PdfDocument pdf = PdfDocument.FromFile("basic.pdf");
+
+// Apply transformation: move (50, 50) and scale by 80%
+pdf.Pages[0].Transform(50, 50, 0.8, 0.8);
+
+// Save the transformed PDF
+pdf.SaveAs("transformPage.pdf");
 ```
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironpdf.com/static-assets/pdf/how-to/transform-pdf-pages/transform.webp" alt="Modifying PDF pages" class="img-responsive add-shadow">
+      <img src="https://ironpdf.com/static-assets/pdf/how-to/transform-pdf-pages/transform.webp" alt="Transform PDF pages" class="img-responsive add-shadow">
     </div>
 </div>

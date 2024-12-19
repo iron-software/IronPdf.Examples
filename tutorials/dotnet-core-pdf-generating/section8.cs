@@ -1,25 +1,15 @@
 using IronPdf;
-namespace ironpdf.DotnetCorePdfGenerating
+namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
-    public class Section8
+    public static class Section8
     {
-        public void Run()
+        public static void Run()
         {
-            public ActionResult TicketView()
-            {
-                var rand = new Random();
-                var client = ClientServices.GetClient();
-                var ticket = new TicketModel()
-                {
-                    TicketNumber = rand.Next(100000, 999999),
-                    TicketDate = DateTime.Now,
-                    Email = client.Email,
-                    Name = client.Name,
-                    Phone = client.Phone
-                };
-            
-                return View(ticket);
-            }
+            IronPdf.License.LicenseKey = "YourLicenseKey";
+            PdfDocument pdf = PdfDocument.FromFile("1.pdf");
+            PdfDocument pdf2 = PdfDocument.FromFile("2.pdf");
+            pdf.InsertPdf(pdf2, 0);
+            pdf.SaveAs("InsertIntoSpecificIndex.pdf");
         }
     }
 }

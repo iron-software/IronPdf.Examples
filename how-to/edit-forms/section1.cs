@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.EditForms
+namespace IronPdf.Examples.HowTo.EditForms
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("textAreaAndInputForm.pdf");
             

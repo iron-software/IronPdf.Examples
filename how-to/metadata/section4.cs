@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.Metadata
+namespace IronPdf.Examples.HowTo.Metadata
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Metadata</h1>");

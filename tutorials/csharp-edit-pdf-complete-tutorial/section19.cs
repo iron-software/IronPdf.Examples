@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CsharpEditPdfCompleteTutorial
+namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
-    public class Section19
+    public static class Section19
     {
-        public void Run()
+        public static void Run()
         {
             var pdf = new PdfDocument("/attachments/2022_Q1_sales.pdf");
             

@@ -1,10 +1,10 @@
 using IronPdf.Editing;
 using IronPdf;
-namespace ironpdf.Signing
+namespace IronPdf.Examples.HowTo.Signing
 {
-    public class Section8
+    public static class Section8
     {
-        public void Run()
+        public static void Run()
         {
             var pdf = PdfDocument.FromFile("invoice.pdf");
             

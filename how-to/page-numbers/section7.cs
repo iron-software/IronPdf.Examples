@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.PageNumbers
+namespace IronPdf.Examples.HowTo.PageNumbers
 {
-    public class Section7
+    public static class Section7
     {
-        public void Run()
+        public static void Run()
         {
             // First page only
             var firstPageIndex = new List<int>() { 0 };

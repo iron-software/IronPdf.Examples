@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.EditAddCoverPageCsharp
+namespace IronPdf.Examples.HowTo.EditAddCoverPageCsharp
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate Chrome renderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();

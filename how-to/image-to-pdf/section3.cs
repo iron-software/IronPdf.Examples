@@ -1,10 +1,10 @@
 using IronPdf.Imaging;
 using IronPdf;
-namespace ironpdf.ImageToPdf
+namespace IronPdf.Examples.HowTo.ImageToPdf
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             string imagePath = "meetOurTeam.jpg";
             

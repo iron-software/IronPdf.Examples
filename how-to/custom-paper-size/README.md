@@ -1,83 +1,72 @@
-# Rendering PDFs with Personalized Paper Sizes
+# Rendering PDFs with Customized Paper Sizes
 
 ***Based on <https://ironpdf.com/how-to/custom-paper-size/>***
 
 
-A personalized paper size is a custom-defined size by the user, different from common standards such as A4 or letter size (8.5 x 11 inches). These sizes are particularly useful for distinct projects that require specialized formats like posters, banners, or unique documents.
+Custom paper sizes refer to dimensions that are specifically tailored by the user, rather than adhering to traditional standards such as A4 or the US letter size (8.5 x 11 inches). Such sizes are particularly useful for unique document layouts required for niche applications like banners, posters, and other specialized forms.
 
-IronPDF provides a comprehensive selection of paper sizes to cater to various requirements.
+Explore IronPDF's broad selection of paper sizes tailored to accommodate any unique requirement you may have!
 
-## Example: Implementing Custom Paper Sizes
+## Implementing a Custom Paper Size
 
-Initially, set up an instance of **ChromePdfRenderer**. This object enables access to `RenderingOptions`, where you can specify a unique paper size for your PDF documents. IronPDF supports various methods to define the output paper size, each utilizing a different unit of measure:
+To start, instantiate the `ChromePdfRenderer` class which allows access to various rendering options, including setting a custom paper size for the PDFs you generate. There are four methods available for setting the desired paper size, each accommodating different units of measure:
 
-- `SetCustomPaperSizeInCentimeters`: Sizes in **centimeters**.
-- `SetCustomPaperSizeInInches`: Sizes in **inches**.
-- `SetCustomPaperSizeInMillimeters`: Sizes in **millimeters**.
-- `SetCustomPaperSizeInPixelsOrPoints`: Sizes in **pixels or points**.
+- `SetCustomPaperSizeInCentimeters`: Sets the size in **centimeters**.
+- `SetCustomPaperSizeInInches`: Sets the size in **inches**.
+- `SetCustomPaperSizeInMillimeters`: Sets the size in **millimeters**.
+- `SetCustomPaperSizeInPixelsOrPoints`: Sets the size in **pixels or points**.
 
-### Sample Code
+### Example Code
 
 ```cs
 using IronPdf;
-namespace ironpdf.CustomPaperSize
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Set custom paper size using centimeters
-            renderer.RenderingOptions.SetCustomPaperSizeInCentimeters(15, 15);
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Custom Paper Size</h1>");
-            
-            pdf.SaveAs("customPaperSize.pdf");
-        }
-    }
-}
+
+// Create a new PDF renderer
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Define the custom paper size in centimeters
+renderer.RenderingOptions.SetCustomPaperSizeinCentimeters(15, 15);
+
+// Render HTML to PDF with a custom paper size
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Custom Paper Size</h1>");
+
+// Save the PDF
+pdf.SaveAs("customPaperSize.pdf");
 ```
 
-### Rendered PDF Example
+### Display Resulting PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/custom-paper-size/customPaperSize.pdf#view=fit" width="100%" height="400px">
 </iframe>
 
-### Essential Properties
+### Associated Properties
 
-- **PaperSize**: Defines the output paper size using predefined dimensions like letter, A3, A4, etc.
-- **ForcePaperSize**: Enforces the specific dimensions set in IronPdf.ChromePdfRenderOptions.PaperSize, overriding CSS rules that dictate paper size.
+- **PaperSize**: This property allows setting a predefined paper size such as A3, A4, etc., for your PDF pages.
+- **ForcePaperSize**: This capability ensures that the pages conform exactly to the specified size by adjusting the dimensions after the PDF is generated from HTML, ignoring any contrary CSS rules.
 
 <hr>
 
-## Altering Paper Dimensions Example
+## Adjusting Page Dimensions in a PDF
 
-Modify the dimensions of pages within a new or existing PDF document via the `ExtendPage` method. This function adjustments the page dimensions by extending or reducing specified sides based on the values and units provided.
+To alter the dimensions of a page within an existing PDF or a newly created PDF document, you can use the `ExtendPage` method. This method provides the flexibility to adjust the four margins of a targeted page and specify the measurement units. The adjustments can either increase (positive values) or decrease (negative values) the respective margins.
 
-### Sample Code
+### Example Code
 
 ```cs
-using IronPdf.Editing;
 using IronPdf;
-namespace ironpdf.CustomPaperSize
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            PdfDocument pdf = PdfDocument.FromFile("customPaperSize.pdf");
-            
-            // Extend the left side of the first page by 50 millimeters
-            pdf.ExtendPage(0, 50, 0, 0, 0, MeasurementUnit.Millimeter);
-            
-            pdf.SaveAs("extendedLeftSide.pdf");
-        }
-    }
-}
+using IronPdf.Editing;
+
+// Load an existing PDF
+PdfDocument pdf = PdfDocument.FromFile("customPaperSize.pdf");
+
+// Modify the left margin of the first page
+pdf.ExtendPage(0, 50, 0, 0, 0, MeasurementUnit.Millimeter);
+
+// Save the modified PDF
+pdf.SaveAs("extendedLeftSide.pdf");
 ```
 
-### Demonstration PDF
+### Display Updated PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/custom-paper-size/extendedLeftSide.pdf#view=fit" width="100%" height="400px">
 </iframe>

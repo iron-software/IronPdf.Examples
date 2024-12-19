@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.PixelPerfectHtmlToPdf
+namespace IronPdf.Examples.Tutorial.PixelPerfectHtmlToPdf
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Example using PdfCssMediaType.Screen
             IronPdf.ChromePdfRenderer renderer = new IronPdf.ChromePdfRenderer();

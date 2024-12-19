@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using IronPdf;
-namespace ironpdf.CsharpPdfReports
+namespace IronPdf.Examples.HowTo.CsharpPdfReports
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             

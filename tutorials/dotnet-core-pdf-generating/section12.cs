@@ -1,16 +1,14 @@
 using IronPdf;
-namespace ironpdf.DotnetCorePdfGenerating
+namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
-    public class Section12
+    public static class Section12
     {
-        public void Run()
+        public static void Run()
         {
             IronPdf.License.LicenseKey = "YourLicenseKey";
-            // Open an unencrypted pdf
-            PdfDocument unencryptedPdf = PdfDocument.FromFile("testFile.pdf");
-            
-            // Open an encrypted pdf
-            PdfDocument encryptedPdf = PdfDocument.FromFile("testFile2.pdf", "MyPassword");
+            PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+            pdf.Sign(new PdfSignature("cert123.pfx", "password"));
+            pdf.SaveAs("signed.pdf");
         }
     }
 }

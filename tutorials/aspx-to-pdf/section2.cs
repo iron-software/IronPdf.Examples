@@ -1,18 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using IronPdf;
-
-namespace AspxToPdfTutorial
+namespace IronPdf.Examples.Tutorial.AspxToPdf
 {
-    public partial class Invoice : System.Web.UI.Page
+    public static class Section2
     {
-        protected void Page_Load(object sender, EventArgs e)
+        public static void Run()
         {
-            IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.InBrowser);
+            var AspxToPdfOptions = new IronPdf.ChromePdfRenderOptions()
+            {
+                EnableJavaScript = false,
+                //.. many more options available
+            };
+            IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.Attachment, "Invoice.pdf", AspxToPdfOptions);
         }
     }
 }

@@ -1,10 +1,10 @@
 using IronSoftware.Forms;
 using IronPdf;
-namespace ironpdf.CreateForms
+namespace IronPdf.Examples.HowTo.CreateForms
 {
-    public class Section8
+    public static class Section8
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate ChromePdfRenderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();

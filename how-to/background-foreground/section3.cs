@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.BackgroundForeground
+namespace IronPdf.Examples.HowTo.BackgroundForeground
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             string backgroundHtml = @"
             <div style = 'background-color: cyan; height: 100%;'></div>

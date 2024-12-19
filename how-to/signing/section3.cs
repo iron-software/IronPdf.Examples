@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using IronPdf;
-namespace ironpdf.Signing
+namespace IronPdf.Examples.HowTo.Signing
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Create PdfSignature object
             var sig = new PdfSignature("IronSoftware.pfx", "123456");

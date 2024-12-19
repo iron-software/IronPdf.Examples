@@ -1,15 +1,15 @@
-# Leveraging IronPDF to Generate PDFs on AWS Lambda
+# Implementing PDF Generation in AWS Lambda with IronPDF
 
 ***Based on <https://ironpdf.com/how-to/creating-pdfs-csharp-amazon-aws-lambda/>***
 
 
-## 1. Setting Up AWS Lambda with a .NET 5 Container
+## 1. Setting Up AWS Lambda Using a .NET 5 Container
 
-We recommend checking out the initial segment of this [official AWS documentation](https://aws.amazon.com/blogs/developer/net-5-aws-lambda-support-with-container-images/) which details how to use .NET 5 with AWS Lambda in container images.
+For initial setup instructions, please consult the AWS guide on integrating [.NET 5 with Lambda via Container Images](https://aws.amazon.com/blogs/developer/net-5-aws-lambda-support-with-container-images/).
 
-## 2. Incorporating Package Dependencies
+## 2. Incorporating Required Packages
 
-For Chrome compatibility in the AWS environment, the following modifications to your Docker file are necessary:
+To accommodate Chrome's requirements in AWS, adjust your Docker file as per the following configurations:
 
 ### For .NET 5 in AWS Lambda
 
@@ -29,19 +29,17 @@ For Chrome compatibility in the AWS environment, the following modifications to 
 <script src="https://gist.github.com/ironsoftwarebuild/b700ca3ee47f405c257e72b2f8a33d52.js"></script>
 ```
 
-## 3. Installing IronPDF (Linux) NuGet Package
+## 3. Adding IronPDF (Linux) NuGet Package
 
-To integrate `IronPdf.Linux`:
+Here’s how to include the `IronPdf.Linux` package:
 
-1. Right-click on References in the Solution Explorer, navigate to Manage NuGet Packages.
-2. Click on Browse and type `IronPdf.Linux` in the search bar.
-3. Select and install the package.
+1. Right-click References in Solution Explorer, then choose Manage NuGet Packages.
+2. Use Browse to locate and add the `IronPdf.Linux` package.
+3. Confirm and execute the installation.
 
-## 4. Adjusting the FunctionHandler Code
+## 4. Customizing the FunctionHandler Code
 
-In this example, we create a PDF from the [IronPDF website](https://ironpdf.com/) and store it in the `/tmp` directory. To view this PDF, you must transfer it to a service like S3.
-
-Here’s an essential configuration for the temporary folder when utilizing IronPDF on AWS Lambda: use **TempFolderPath** and **CustomDeploymentDirectory** properties.
+Below is how to adapt your Lambda function to generate and store a PDF from the [IronPDF homepage](https://ironpdf.com/) in the `/tmp` directory. Remember to subsequently transfer this PDF to a service like Amazon S3 for storage and retrieval.
 
 ```csharp
 public Casing FunctionHandler(string input, ILambdaContext context)
@@ -50,66 +48,65 @@ public Casing FunctionHandler(string input, ILambdaContext context)
     {
         context.Logger.LogLine($"START FunctionHandler RequestId: {context.AwsRequestId} Input: {input}");
 
-        var awsTemporaryStorage = @"/tmp/";
+        var awsTmpPath = @"/tmp/"; // path for temporary storage in AWS
 
-        // Uncomment the following lines to enable logging if troubleshooting is required
-        // IronPdf.Logging.Logger.EnableDebugging = true;
-        // IronPdf.Logging.Logger.LogFilePath = awsTemporaryStorage;
-        // IronPdf.Logging.Logger.LoggingMode = IronPdf.Logging.Logger.LoggingModes.All;
+        //Uncomment below for detailed troubleshooting logs
+        //IronPdf.Logging.Logger.EnableDebugging = true;
+        //IronPdf.Logging.Logger.LogFilePath = awsTmpPath;
+        //IronPdf.Logging.Logger.LoggingMode = IronPdf.Logging.Logger.LoggingModes.All;
 
-        // Set your license key
+        //apply your license key here
         IronPdf.License.LicenseKey = "YOUR_LICENSE_KEY";
 
-        // Disable Chrome GPU as AWS Lambda doesn't support GPU
+        //disable Chrome GPU usage
         IronPdf.Installation.ChromeGpuMode = IronPdf.Engines.Chrome.ChromeGpuModes.Disabled;
 
-        // Configure IronPDF temporary path and deployment directories
-        IronPdf.Installation.TempFolderPath = awsTemporaryStorage;
-        IronPdf.Installation.CustomDeploymentDirectory = awsTemporaryStorage;
+        //configure IronPDF to use custom temporary paths
+        IronPdf.Installation.TempFolderPath = awsTmpPath;
+        IronPdf.Installation.CustomDeploymentDirectory = awsTmpPath;
 
-        // Automate Linux and Docker dependencies configuration
+        //automatically configure Linux and Docker dependencies
         IronPdf.Installation.LinuxAndDockerDependenciesAutoConfig = true;
 
-        context.Logger.LogLine($"initializing IronPdf.ChromePdfRenderer");
-        var renderer = new IronPdf.ChromePdfRenderer();
+        context.Logger.LogLine($"Initialized IronPdf.ChromePdfRenderer");
+        var Renderer = new IronPdf.ChromePdfRenderer();
 
-        context.Logger.LogLine($"generating PDF");
-        using var pdfDoc = renderer.RenderUrlAsPdf("https://ironpdf.com/");
+        context.Logger.LogLine($"Start rendering PDF");
+        using var pdfDoc = Renderer.RenderUrlAsPdf("https://ironpdf.com/");
 
-        var fileGuid = Guid.NewGuid();
-        var pdfFilePath = $"/tmp/{input}_{fileGuid}.pdf"; // Store file in /tmp
+        var guid = Guid.NewGuid();
+        var fileName = $"/tmp/{input}_{guid}.pdf"; // Naming and saving the file
 
-        context.Logger.LogLine($"file saved: {pdfFilePath}");
-        pdfDoc.SaveAs(pdfFilePath);
+        context.Logger.LogLine($"File saved as: {fileName}");
+        pdfDoc.SaveAs(fileName);
 
-        // Option to upload the PDF to a cloud service such as AWS S3
+        context.Logger.LogLine($"Operation complete. Upload the PDF as needed.");
 
-        context.Logger.LogLine($"COMPLETE!");
     }
     catch (Exception e)
     {
-        context.Logger.LogLine($"[ERROR] FunctionHandler: {e.Message}");
+        context.Logger.LogLine($"[ERROR] during PDF creation: {e.Message}");
     }
 
     return new Casing(input?.ToLower(), input?.ToUpper());
 }
 ```
 
-## 5. Configuring Lambda for Enhanced Performance
+## 5. Allocate More Resources
 
-IronPDF may require more resources than what Lambda provides by default. Specify higher values in `aws-lambda-tools-defaults.json` such as 512 MB for memory and 330 seconds for timeout:
+Given IronPDF’s resource demands, adjust the Lambda settings in `aws-lambda-tools-defaults.json` to provide adequate memory and time.
 
-```csharp
-"function-memory-size": 512,
-"function-timeout": 330,
+```json
+"function-memory-size" : 512,
+"function-timeout"     : 330,
 ```
 
-Further configuration can be adjusted via the Lambda console as detailed in the [AWS Lambda Memory Configuration Guide](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console).
+For more details on adjusting these settings in the AWS console, see the [AWS Lambda Memory Configuration Guide](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console).
 
-## 6. Deploying the Function
+## 6. Deployment
 
-Follow the steps found in the latter part of the ['NET 5 AWS Lambda Support with Container Images'](https://aws.amazon.com/blogs/developer/net-5-aws-lambda-support-with-container-images/) guide to deploy and evaluate your Lambda function.
+Refer to the latter sections of the [.NET 5 AWS Lambda Support with Container Images](https://aws.amazon.com/blogs/developer/net-5-aws-lambda-support-with-container-images/) documentation to deploy and test your function.
 
-## 7. Testing Your Implementation
+## 7. Testing the Functionality
 
-Activate your Lambda function either through the [AWS Lambda Console](https://console.aws.amazon.com/lambda) or within Visual Studio by using the [AWS Toolkit for Visual Studio](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/lambda-creating-project-in-visual-studio.html). Start exploring the capabilities of your newly configured service.
+Activate and test your Lambda function from the [AWS Lambda Console](https://console.aws.amazon.com/lambda) or through the [AWS Toolkit for Visual Studio](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/lambda-creating-project-in-visual-studio.html).

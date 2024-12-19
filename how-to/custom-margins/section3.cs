@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CustomMargins
+namespace IronPdf.Examples.HowTo.CustomMargins
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             renderer.RenderingOptions.UseMarginsOnHeaderAndFooter = UseMargins.All;
         }

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.DotnetCorePdfGenerating
+namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             IronPdf.License.LicenseKey = "YourLicenseKey";
             ChromePdfRenderer renderer = new ChromePdfRenderer();

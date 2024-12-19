@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.Bookmarks
+namespace IronPdf.Examples.HowTo.Bookmarks
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Load existing PDF document
             PdfDocument pdf = PdfDocument.FromFile("multiLayerBookmarks.pdf");

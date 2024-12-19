@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CustomMargins
+namespace IronPdf.Examples.HowTo.CustomMargins
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
             // Use only the left margin from the document.
             renderer.RenderingOptions.UseMarginsOnHeaderAndFooter = UseMargins.Left;

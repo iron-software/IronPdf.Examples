@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.JavascriptToPdf
+namespace IronPdf.Examples.HowTo.JavascriptToPdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             string htmlWithJavaScript = @"<h1>This is HTML</h1>
             <script>

@@ -1,10 +1,10 @@
 using System.Linq;
 using IronPdf;
-namespace ironpdf.AddRemoveAttachments
+namespace IronPdf.Examples.HowTo.AddRemoveAttachments
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Open existing PDF
             PdfDocument pdf = PdfDocument.FromFile("addAttachment.pdf");

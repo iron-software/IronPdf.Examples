@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.PageNumbers
+namespace IronPdf.Examples.HowTo.PageNumbers
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Create text header
             TextHeaderFooter textHeader = new TextHeaderFooter()

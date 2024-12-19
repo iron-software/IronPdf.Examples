@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.HeadersAndFooters
+namespace IronPdf.Examples.HowTo.HeadersAndFooters
 {
-    public class Section7
+    public static class Section7
     {
-        public void Run()
+        public static void Run()
         {
             // Create header and footer
             TextHeaderFooter textHeader = new TextHeaderFooter

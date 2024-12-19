@@ -1,67 +1,55 @@
-# How to Sanitize PDF
+# How to Sanitize PDF Documents
 
 ***Based on <https://ironpdf.com/how-to/sanitize-pdf/>***
 
 
-Sanitizing PDF documents is an essential practice that offers several advantages. It primarily bolsters document security by eliminating potentially hazardous components such as embedded scripts or metadata, thus diminishing the likelihood of exploitation by malicious actors. Moreover, it enhances compatibility across diverse platforms by stripping away complex or proprietary elements, thereby improving accessibility. By reducing the risks associated with data leakage and maintaining document integrity, the sanitization of PDFs plays a vital role in fortifying the security and reliability of document management processes.
+Sanitizing PDF documents is an essential procedure that offers numerous benefits. It primarily enhances document security by eliminating potentially dangerous elements such as embedded scripts or metadata, minimizing the threat of malicious exploitation. Furthermore, it boosts compatibility across various platforms by stripping out complex or proprietary components, improving accessibility. Through reducing the chances of data leaks and maintaining document integrity, the process of sanitizing PDFs plays a vital role in safeguarding the reliability and security of document management systems.
 
-## Sanitize PDF Example
+### Getting Started with IronPDF
 
-The technique for sanitizing a PDF involves converting the PDF file into an image format, which effectively strips away JavaScript code, embedded objects, and buttons, and then re-converting it back into a PDF. We support both Bitmap and SVG image formats for this process. The advantages of using SVG over Bitmap include:
-- Faster processing time than sanitizing with a bitmap
-- Produces a PDF that retains text searchability
-- Potential variations in layout
+---
+
+## Example: Sanitizing a PDF
+
+The essence of sanitizing a PDF involves transforming the PDF into an image format, effectively stripping away JavaScript code, embedded objects, and interactive buttons, and then reconverting it to a PDF. IronPDF supports both Bitmap and SVG formats for this purpose. The advantages of using SVG over Bitmap include:
+- Faster sanitization process
+- Generates a searchable PDF
+- Possible inconsistencies in layout
 
 ```cs
 using IronPdf;
-namespace ironpdf.SanitizePdf
-{
-    public class SanitizeExample
-    {
-        public void Execute()
-        {
-            // Load the PDF document
-            PdfDocument document = PdfDocument.FromFile("sample.pdf");
-            
-            // Sanitization using Bitmap
-            PdfDocument bitmapSanitized = Cleaner.SanitizeWithBitmap(document);
-            
-            // Sanitization using SVG
-            PdfDocument svgSanitized = Cleaner.SanitizeWithSvg(document);
-            
-            // Save the sanitized PDFs
-            bitmapSanitized.SaveAs("bitmapSanitized.pdf");
-            svgSanitized.SaveAs("svgSanitized.pdf");
-        }
-    }
-}
+
+// Load the PDF document
+PdfDocument originalPdf = PdfDocument.FromFile("sample.pdf");
+
+// Sanitize using Bitmap
+PdfDocument bitmapSanitizedPdf = Cleaner.SanitizeWithBitmap(originalPdf);
+
+// Sanitize using SVG
+PdfDocument svgSanitizedPdf = Cleaner.SanitizeWithSvg(originalPdf);
+
+// Save the sanitized PDFs
+bitmapSanitizedPdf.SaveAs("bitmapSanitized.pdf");
+svgSanitizedPdf.SaveAs("svgSanitized.pdf");
 ```
 
-## Scan PDF Example
+## Example: Scanning a PDF for Vulnerabilities
 
-To verify possible vulnerabilities in a PDF, utilize the `ScanPdf` method from the `Cleaner` class. It initially utilizes a default YARA file to conduct the check, but you can also supply a custom YARA file as the second parameter to meet specific security needs.
+The `ScanPdf` method from the `Cleaner` class is designed to inspect a PDF for potential vulnerabilities using a default YARA file. Users can also supply their custom YARA file as a second parameter to tailor the scanning process to specific needs.
 
-A YARA file is a set of rules or patterns designed to identify characteristics typical of malicious PDF files. These rules are instrumental for security analysts in automating the detection of potential threats and implementing measures to address these risks effectively.
+A YARA file targeted at PDFs includes a set of rules meant to identify traits linked with malicious PDFs, assisting security professionals in automating the detection of threats and implementing preventive measures.
 
 ```cs
-using System;
 using IronPdf;
-namespace ironpdf.SanitizePdf
-{
-    public class ScanExample
-    {
-        public void Execute()
-        {
-            // Load the PDF document
-            PdfDocument document = PdfDocument.FromFile("sample.pdf");
-            
-            // Perform a scan on the PDF
-            CleanerScanResult scanResult = Cleaner.ScanPdf(document);
-            
-            // Display the scan results
-            Console.WriteLine(scanResult.IsDetected);
-            Console.WriteLine(scanResult.Risks.Count);
-        }
-    }
-}
+using System;
+
+// Load the PDF document
+PdfDocument pdfToScan = PdfDocument.FromFile("sample.pdf");
+
+// Perform a security scan on the PDF
+CleanerScanResult scanResult = Cleaner.ScanPdf(pdfToScan);
+
+// Display the scan results
+Console.WriteLine(scanResult.IsDetected);
+Console.WriteLine(scanResult.Risks.Count);
 ```

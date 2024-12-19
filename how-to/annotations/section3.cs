@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.Annotations
+namespace IronPdf.Examples.HowTo.Annotations
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("multipleAnnotation.pdf");
             

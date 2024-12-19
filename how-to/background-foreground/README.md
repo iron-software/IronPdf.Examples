@@ -1,177 +1,165 @@
-# Enhancing PDFs with Backgrounds and Foregrounds
+# How to Add Background and Overlay Foreground on PDFs
 
 ***Based on <https://ironpdf.com/how-to/background-foreground/>***
 
 
-Incorporating a background into a PDF lets you append an image or another PDF beneath the principal content. This is particularly useful for crafting unique letterheads, inserting watermarks, or enhancing documents with artistic elements. Conversely, foreground overlay enables the addition of text, images, or other items above the existing PDF content. This method is widely employed for appending annotations, stamps, signatures, or supplementary details, preserving the underlying document intact.
+Inserting a background into your PDF can involve adding a new layer of an image or another PDF document behind the original content of your PDF. This technique is particularly helpful for designing letterheads, creating watermarks, or integrating artistic elements into your documents.
 
-IronPdf supports both processes, allowing the integration of PDFs as backgrounds or foregrounds with ease.
+On the other hand, overlaying foreground content enables you to superimpose text, images, or other materials directly over the content of an existing PDF. This method is widely utilized for introducing annotations, stamps, signatures, or extra details atop a PDF while preserving the integrity of the underlying original.
 
-## Adding a Background to a PDF
+Both background and foreground additions can be efficiently handled using IronPdf, offering functionalities to handle both elements using PDF layers.
 
-To insert a background, utilize the `AddBackgroundPdf` method provided by IronPdf. This method can accept a PdfDocument instance. Below is an illustrative example where a background is added to a PDF. You can also directly use a file path to import and set the PDF as a background seamlessly.
+<h3>Getting Started with IronPDF</h3>
 
-### Example Code
+----------------------------------
+
+## Add Background Example
+
+The `AddBackgroundPdf` method makes it possible to integrate a background into both newly created or existing PDF files. Below is a sample code snippet that uses a `PdfDocument` object with this method. Alternatively, you can directly use a file path to import and set a background with a singular call.
+
+### Code
 
 ```cs
-// Import necessary namespaces
 using IronPdf;
 
-// Declare the namespace and class
-namespace ironpdf.BackgroundForeground
-{
-    public class BackgroundExample
-    {
-        public void Execute()
-        {
-            // Create a PDF renderer instance
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Generate a PDF from basic HTML
-            PdfDocument mainPdf = renderer.RenderHtmlAsPdf("<h1>Main HTML content</h1>");
-            
-            // Create a PDF to be used as a background
-            PdfDocument backgroundPdf = renderer.RenderHtmlAsPdf("<body style='background-color: cyan;'></body>");
-            
-            // Apply the background
-            mainPdf.AddBackgroundPdf(backgroundPdf);
-            
-            // Save the final PDF
-            mainPdf.SaveAs("addBackground.pdf");
-        }
-    }
-}
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Main HTML content</h1>");
+
+// Generating the background
+PdfDocument background = renderer.RenderHtmlAsPdf("<body style='background-color: cyan;'></body>");
+
+// Background application
+pdf.AddBackgroundPdf(background);
+
+pdf.SaveAs("addBackground.pdf");
 ```
 
-### Displayed Output
+### Output PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/background-foreground/addBackground.pdf#view=fit" width="100%" height="400px">
 </iframe>
 
----
+<hr>
 
-## Example of Overlaying a Foreground
+## Overlay Foreground Example
 
-Similarly, for foregrounds, IronPdf's `AddForegroundOverlayPdf` method facilitates the overlaying process, which can also handle direct file paths.
+Just as with backgrounds, the `AddForegroundOverlayPdf` method is used for overlaying foregrounds; simply indicate the PDF file path to import the file and set it as a foreground over the primary PDF.
 
-### Example Code
+### Code
 
 ```cs
-// Import necessary namespaces
 using IronPdf;
 
-// Declare the namespace and class
-namespace ironpdf.BackgroundForeground
-{
-    public class ForegroundExample
-    {
-        public void Execute()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument mainPdf = renderer.RenderHtmlAsPdf("<h1>Main HTML content</h1>");
-            
-            PdfDocument foregroundPdf = renderer.RenderHtmlAsPdf("<h1 style='transform: rotate(-45deg); opacity: 50%;'>Overlay Watermark</h1>");
-            
-            mainPdf.AddForegroundOverlayPdf(foregroundPdf);
-            
-            mainPdf.SaveAs("overlayForeground.pdf");
-        }
-    }
-}
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Main HTML content</h1>");
+
+// Foreground generation
+PdfDocument foreground = renderer.RenderHtmlAsPdf("<h1 style='transform: rotate(-45deg); opacity: 50%;'>Overlay Watermark</h1>");
+
+// Foreground overlay
+pdf.AddForegroundOverlayPdf(foreground);
+
+pdf.SaveAs("overlayForeground.pdf");
 ```
 
-### Shown Output
+### Output PDF
 
-<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/background-foreground/overlayForeground.pdf#view=fit" width="100%" height="400px">
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/background-foreground/overlayForeground.pdf" width="100%" height="400px">
 </iframe>
 
----
+<hr>
 
-## Specifying Pages for Background or Foreground
+## Select Pages for Background or Foreground
 
-You can select specific pages of a PDF on which to apply a background or foreground. For instance, to apply a distinct background color to the second page:
+You can designate specific pages of a PDF to serve as backgrounds or foregrounds. Here's an example that applies a background, using a `PdfDocument` that adds the second page as a background.
 
-### Example Code
+All page indexes follow zero-based indexing.
+
+### Code
 
 ```cs
-// Import necessary namespaces
 using IronPdf;
 
-// Declare the namespace and class
-namespace ironpdf.BackgroundForeground
-{
-    public class PageSpecificBackground
-    {
-        public void Execute()
-        {
-            string backgroundHtml = @"
-            <div style='background-color: cyan; height: 100%;'></div>
-            <div style='page-break-after: always;'></div>
-            <div style='background-color: lemonchiffon; height: 100%;'></div>";
-            
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument mainPdf = renderer.RenderHtmlAsPdf("<h1>Main HTML content</h1>");
-            
-            PdfDocument backgroundPdf = renderer.RenderHtmlAsPdf(backgroundHtml);
-            
-            mainPdf.AddBackgroundPdf(backgroundPdf, 1);
-            
-            mainPdf.SaveAs("addBackgroundFromPage2.pdf");
-        }
-    }
-}
+string backgroundHtml = @"
+<div style = 'background-color: cyan; height: 100%;'></div>
+<div style = 'page-break-after: always;'></div>
+<div style = 'background-color: lemonchiffon; height: 100%;'></div>";
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Main HTML content</h1>");
+
+// Background rendering
+PdfDocument background = renderer.RenderHtmlAsPdf(backgroundHtml);
+
+// Applying second page as background
+pdf.AddBackgroundPdf(background, 1);
+
+pdf.SaveAs("addBackgroundFromPage2.pdf");
 ```
 
-### Displayed Output
+### Output PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/background-foreground/addBackgroundFromPage2.pdf#view=fit" width="100%" height="400px">
 </iframe>
 
----
+<hr>
 
-## Applying Background or Foreground to Selected Pages
+## Apply Background or Foreground on Specified Pages
 
-IronPdf provides methods to apply background or foreground settings to specific pages within a PDF, either individually or across a range of pages. Here’s how you can add a background to the first and third pages of a document:
+It's feasible to apply the background or foreground to specifically chosen pages using different methods. Use `AddBackgroundPdfToPage` for a single page and `AddForegroundOverlayPdfToPage` for overlaying foregrounds on one precise page respectively.
 
-### Example for Multiple Pages
+### Apply on a Single Page
 
 ```cs
-using System.Collections.Generic;
 using IronPdf;
 
-namespace ironpdf.BackgroundForeground
-{
-    public class MultiplePageBackground
-    {
-        public void Execute()
-        {
-            string htmlContent = @"<p> This is 1st Page </p>
-            <div style='page-break-after: always;'></div>
-            <p> This is 2nd Page</p>
-            <div style='page-break-after: always;'></div>
-            <p> This is 3rd Page</p>";
-            
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument mainPdf = renderer.RenderHtmlAsPdf(htmlContent);
-            
-            PdfDocument backgroundPdf = renderer.RenderHtmlAsPdf("<body style='background-color: cyan;'></body>");
-            
-            List<int> pages = new List<int>() { 0, 2 };
-            
-            mainPdf.AddBackgroundPdfToPageRange(pages, backgroundPdf);
-            
-            mainPdf.SaveAs("addBackgroundOnMultiplePage.pdf");
-        }
-    }
-}
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Main HTML content</h1>");
+
+// Rendering the background
+PdfDocument background = renderer.RenderHtmlAsPdf("<body style='background-color: cyan;'></body>");
+
+// Adding background to the first page
+pdf.AddBackgroundPdfToPage(0, background);
+
+pdf.SaveAs("addBackgroundOnASinglePage.pdf");
 ```
 
-### Displayed Output
+For multiple pages, use the `AddBackgroundPdfToPageRange` and `AddForegroundOverlayPdfToPageRange` methods.
+
+### Apply on Multiple Pages
+
+```cs
+using IronPdf;
+using System.Collections.Generic;
+
+string html = @"<p> This is 1st Page </p>
+<div style = 'page-break-after: always;'></div>
+<p> This is 2nd Page</p>
+<div style = 'page-break-after: always;'></div>
+<p> This is 3rd Page</p>";
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
+
+// Background rendering
+PdfDocument background = renderer.RenderHtmlAsPdf("<body style='background-color: cyan;'></body>");
+
+// List of pages for background application
+List<int> pages = new List<int>() { 0, 2 };
+
+// Adding background to pages 1 & 3
+pdf.AddBackgroundPdfToPageRange(pages, background);
+
+pdf.SaveAs("addBackgroundOnMultiplePage.pdf");
+```
+
+### Output PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/background-foreground/addBackgroundOnMultiplePage.pdf#view=fit" width="100%" height="500px">
 </iframe>
-
-These tools and methods from IronPdf enhance the flexibility and creativity of managing PDF documents, providing robust solutions for customizing and securing digital documentation.

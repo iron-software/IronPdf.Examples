@@ -1,10 +1,10 @@
 using System.Security.Cryptography.X509Certificates;
 using IronPdf;
-namespace ironpdf.Signing
+namespace IronPdf.Examples.HowTo.Signing
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>foo</h1>");

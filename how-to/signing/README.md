@@ -1,246 +1,136 @@
-# Apply Digital Signatures to PDF Documents
+# Digitally Secure Your PDF Documents
 
 ***Based on <https://ironpdf.com/how-to/signing/>***
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-	Is your company overpaying for annual PDF security subscriptions? Look into <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc by Iron Software</a>, your all-in-one solution for digital signatures, redaction, encryption, and document protection with a one-time fee. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Check Out IronSecureDoc Documentation</a>
+	Are you spending too much annually on PDF security and compliance subscriptions? Consider <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc by Iron Software</a> as a cost-effective solution for managing your SaaS needs such as digital signatures, redaction, encryption, and protection - all via a one-time fee. Learn more at <a href="https://ironsoftware.com/enterprise/securedoc/docs/">IronSecureDoc Documentation</a>.
 </div>
 
-### Clarification: Types of PDF Signatures
+## Key Clarifications: PDF Document Signing
 
-A frequent query from developers using IronPDF is how to programmatically append a signature to a PDF. The term "signing" could mean different actions:
+The topic of digitally signing PDFs often leads to confusion among developers using IronPDF. The term 'signing' can mean different things:
 
-1. <a href="#anchor-sign-a-pdf-with-a-digital-certificate">Digitally signing a PDF document with a Certificate to ensure document integrity.</a>
-2. <a href="#anchor-stamp-a-signature-onto-a-pdf">Adding a signature image to a PDF using a graphic file.</a>
-3. <a href="#anchor-stamp-a-signature-onto-a-pdf">Stamping a digital certificate as an image onto a PDF.</a>
-4. <a href="#anchor-add-a-signature-form-field-to-a-pdf">Inserting a Signature Form Field into a PDF that prompts viewers to sign.</a>
+1. <a href="#anchor-sign-a-pdf-with-a-digital-certificate">Digitally signing a PDF with a certificate for security from tampering.</a>
+2. <a href="#anchor-stamp-a-signature-onto-a-pdf">Applying a graphical representation of a handwritten signature as an image to a PDF.</a>
+3. <a href="#anchor-stamp-a-signature-onto-a-pdf">Embedding an image of a certificate in a PDF.</a>
+4. <a href="#anchor-add-a-signature-form-field-to-a-pdf">Incorporating a form field in a PDF that prompts users to sign digitally.</a>
 
-
-
-## Digitally Sign a PDF Using a Certificate
-
-IronPDF enables various methods for applying digital signatures using certificates in `.pfx` and `.p12` formats. This guide will walk you through the **three primary techniques** available to digitally sign PDF files:
-
-<style type="text/css">
-.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
-.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
-  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
-  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-u0o7{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
-.tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-fymr">Signing Method</th>
-    <th class="tg-u0o7">Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0pky">Sign</td>
-    <td class="tg-0pky">Apply a digital signature using a <strong>PdfSignature</strong> object.</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">SignWithFile</td>
-    <td class="tg-0pky">Utilize a digital certificate from a file (.pfx or .p12) to sign a PDF.</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">SignWithStore</td>
-    <td class="tg-0pky">Use a digital signature sourced from your system’s certificate store by referencing a thumbprint ID.</td>
-  </tr>
-</tbody>
-</table>
-
-### Compatible Digital Signature Certificate Files
-
-IronPDF adheres to the `X509Certificate2` standard for digital signatures, accepting both `.pfx` and `.p12` formats. Should a direct application of your certificate fail with IronPDF’s methods, you'll need to establish a `X509Certificate2` certificate following the guidelines available on the [Microsoft documentation](https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate2.-ctor).
-
-### Utilizing PdfSignature With X509Certificate2
-
-IronPDF mandates the use of `X509Certificate2` objects configured with **X509KeyStorageFlags** as **Exportable** for its digital signing methods. Note that attempting to use certificates not set as Exportable may trigger an exception indicating that the operation is unsupported.
-
-```cs
-using System.Security.Cryptography.X509Certificates;
-using IronPdf;
-namespace ironpdf.Signing
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>foo</h1>");
-
-            // Instantiate X509Certificate2 with Exportable KeyStorageFlags
-            X509Certificate2 cert = new X509Certificate2("IronSoftware.pfx", "123456", X509KeyStorageFlags.Exportable);
-
-            // Generate PdfSignature instance
-            var sig = new PdfSignature(cert);
-
-            // Sign the PDF
-            pdf.Sign(sig);
-
-            pdf.SaveAs("signed.pdf");
-        }
-    }
-}
-```
-
-### Augmenting Detail in PdfSignature
-
-Details such as dates, contact information, signing reasons, and graphical representations can be added to the `PdfSignature` both during and after its creation.
-
-Supports timestamping servers that are compliant with SHA256 and SHA512 standards. 
-
-```cs
-using System;
-using IronPdf;
-namespace ironpdf.Signing
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>foo</h1>");
-
-            pdf.SaveAs("signed.pdf");
-
-            // Initialize PdfSignature
-            var sig = new PdfSignature("IronSoftware.pfx", "123456");
-
-            // Embed additional details into PdfSignature
-            sig.SignatureDate = new DateTime(2000, 12, 02);
-            sig.SigningContact = "IronSoftware";
-            sig.SigningLocation = "Chicago";
-            sig.SigningReason = "How to guide";
-            sig.TimestampHashAlgorithm = TimestampHashAlgorithms.SHA256;
-            sig.TimeStampUrl = "http://timestamp.digicert.com";
-            sig.SignatureImage = new PdfSignatureImage("IronSoftware.png", 0, new Rectangle(0, 600, 100, 100));
-
-            // Finalize signing and save
-            sig.SignPdfFile("signed.pdf");
-        }
-    }
-}
-```
+<h3>Initiating with IronPDF</h3>
 
 <div class="alert alert-info iron-variant-1" role="alert">
 
-Your organization may be investing excessively in annual subscriptions for PDF security and compliance. Check out [IronSecureDoc from Iron Software](https://ironsoftware.com/enterprise/securedoc/), offering one-time payment solutions for SaaS services including digital signing, redaction, encryption, and protection. Delve into the capabilities further by exploring the [IronSecureDoc Documentation](https://ironsoftware.com/enterprise/securedoc/docs/).
+If your company is facing high expenses due to annual fees for PDF security and compliance, you might want to evaluate IronSecureDoc from Iron Software. This service offers comprehensive management of SaaS capabilities including digital signatures, redaction, encryption, and protection, all available for a singular payment. Learn more about this solution by visiting the [IronSecureDoc page](https://ironsoftware.com/enterprise/securedoc/) and enhance your knowledge by exploring the [IronSecureDoc Documentation](https://ironsoftware.com/enterprise/securedoc/docs/).
 
 </div>
 
-### Clarifying PDF Signing Options with IronPDF
+## Clarifying PDF Signing Terminology
 
-There is often confusion among developers about the various ways to incorporate signatures into PDF documents using IronPDF. The term "signing" can encompass several different methods, each serving unique needs:
+A frequent query from developers involves how to use IronPDF to insert a signature into a PDF document programmatically. The term 'signing' can vary in meaning depending on the developer's intention:
 
-1. <a href="#anchor-sign-a-pdf-with-a-digital-certificate">Digitally signing a PDF with a certificate to ensure its integrity remains intact.</a>
-2. <a href="#anchor-stamp-a-signature-onto-a-pdf">Integrating a graphical handwritten signature from an image file into a PDF.</a>
-3. <a href="#anchor-stamp-a-signature-onto-a-pdf">Embedding a digital certificate's image into a PDF.</a>
-4. <a href="#anchor-add-a-signature-form-field-to-a-pdf">Adding a signature form field that can be activated by certain PDF viewers for signing.</a>
+1. [Digitally sign a PDF document with a Certificate to guarantee its integrity](#anchor-sign-a-pdf-with-a-digital-certificate).
+2. [Embed a graphical handwritten signature image into an existing PDF from an image file](#anchor-stamp-a-signature-onto-a-pdf).
+3. [Stamp a Certificate's Image onto a PDF](#anchor-stamp-a-signature-onto-a-pdf).
+4. [Insert a Signature Form Field into a PDF, enabling certain PDF viewers to prompt users for a signature](#anchor-add-a-signature-form-field-to-a-pdf).
 
-## Digitally Signing PDF Documents with IronPDF
+<h3>Get started with IronPDF</h3>
 
-IronPDF offers robust capabilities for applying digital signatures to PDF documents, accommodating both `.pfx` and `.p12` certificate formats. This tutorial delves into the **three primary techniques** for digitally signing PDF files using IronPDF:
+# Add a Watermark Signature to a PDF
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
-.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
-  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
-  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-u0o7{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
-.tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-fymr">Method of Signing</th>
-    <th class="tg-u0o7">Method Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0pky">Sign</td>
-    <td class="tg-0pky">Utilizes the <strong>PdfSignature object</strong> to sign the PDF document securely.</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">SignWithFile</td>
-    <td class="tg-0pky">Employs a digital signature certificate (.pfx or .p12) stored on the disk to sign the PDF document.</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">SignWithStore</td>
-    <td class="tg-0pky">Implements signature from the digital certificate retrieved from the system's signature repository, using a specific <strong>thumbprint ID</strong>.</td>
-  </tr>
-</tbody>
-</table>
+***Based on <https://ironpdf.com/how-to/signing/>***
+
+
+When you need to apply a handwritten signature as a watermark to a PDF, IronPDF makes this process straightforward. For demonstration purposes, let's use a hypothetical invoice PDF as the document to be signed.
+
+Here's the sample signature we intend to use, displayed in image format:
+
+![Sample Signature](https://ironpdf.com/static-assets/pdf/how-to/signing/signature.png)
+
+## Sample Code
+
+The code snippet below will guide you through the steps of applying the `.png` image as a watermark signature to the selected PDF:
+
+```cs
+using IronPdf;
+using IronPdf.Editing;
+
+// Load the PDF document
+var pdfDoc = PdfDocument.FromFile("invoice.pdf");
+
+// Apply a watermark image to the PDF
+pdfDoc.ApplyWatermark("<img src='signature.png'/>", 90, VerticalAlignment.Bottom, HorizontalAlignment.Right);
+
+// Save the modified PDF with the signature applied
+pdfDoc.SaveAs("official_invoice.pdf");
+```
+
+## Resulting Document
+
+After executing the code, a new PDF file will be generated which includes the signature positioned at the bottom right:
+
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/signing/official_invoice.pdf#view=fit" width="100%" height="500px">
+</iframe>
+
+In this way, IronPDF allows you to seamlessly integrate signature images into your documents, enhancing their authenticity and professionalism.
+
+## Digitally Signing PDFs with a Certificate
+
+IronPDF offers robust support for digitally signing PDF documents using certificates in `.pfx` and `.p12` file formats. This guide showcases the **three principal techniques** used to apply digital signatures to PDF files:
 
 <style type="text/css">
 
 ```css
-/* Table styles for clear visualization of data */
 .tg {
-  border-collapse: collapse; /* Remove spaces between borders */
-  border-color: #ccc; /* Set border color */
-  border-spacing: 0; /* Remove spacing between cells */
+    border-collapse: collapse;
+    border-color: #ccc; /* Sets the border color */
+    border-spacing: 0; /* Removes the space between borders */
 }
 
-/* Styles for table data cells */
 .tg td {
-  background-color: #fff; /* Set background color */
-  border-color: #ccc; /* Border color */
-  border-style: solid; /* Solid line border */
-  border-width: 1px; /* Border width */
-  color: #333; /* Text color */
-  font-family: Arial, sans-serif; /* Font family */
-  font-size: 14px; /* Font size */
-  overflow: hidden; /* Hide overflowing content */
-  padding: 10px 5px; /* Padding inside cell */
-  word-break: normal; /* Normal word breaking */
+    background-color: #fff; /* Background color of table cells */
+    border-color: #ccc; /* Border color */
+    border-style: solid; /* Style of border */
+    border-width: 1px; /* Border width */
+    color: #333; /* Text color */
+    font-family: Arial, sans-serif; /* Font of the text */
+    font-size: 14px; /* Font size */
+    overflow: hidden; /* Prevents content from overlapping */
+    padding: 10px 5px; /* Cell padding */
+    word-break: normal; /* Text wrapping behavior */
 }
 
-/* Styles for table header cells */
 .tg th {
-  background-color: #f0f0f0; /* Light grey background */
-  border-color: #ccc; /* Border color */
-  border-style: solid; /* Solid line border */
-  border-width: 1px; /* Border width */
-  color: #333; /* Text color */
-  font-family: Arial, sans-serif; /* Font family */
-  font-size: 14px; /* Font size */
-  font-weight: normal; /* Normal font weight */
-  overflow: hidden; /* Hide overflowing content */
-  padding: 10px 5px; /* Padding inside cell */
-  word-break: normal; /* Normal word breaking */
+    background-color: #f0f0f0; /* Header background color */
+    border-color: #ccc; /* Border color */
+    border-style: solid; /* Style of border */
+    border-width: 1px; /* Border width */
+    color: #333; /* Text color */
+    font-family: Arial, sans-serif; /* Typeface setting */
+    font-size: 14px; /* Font size */
+    font-weight: normal; /* Font weight, overwrites the usual bold for table headers */
+    overflow: hidden; /* Ensures content doesn't spill out */
+    padding: 10px 5px; /* Padding inside of header cells */
+    word-break: normal; /* Ensures words are not split at the end of the line */
 }
 
-/* Custom class for main heading cells */
 .tg .tg-u0o7 {
-  border-color: inherit; /* Inherit border color */
-  font-weight: bold; /* Bold text */
-  text-align: left; /* Left text alignment */
-  vertical-align: top; /* Top vertical alignment */
+    border-color: inherit; /* Inherit border color from parent element */
+    font-weight: bold; /* Bold text style */
+    text-align: left; /* Text alignment */
+    vertical-align: top; /* Align text to the top of the cell */
 }
 
-/* Custom class for subheading cells */
 .tg .tg-fymr {
-  border-color: inherit; /* Inherit border color */
-  font-weight: bold; /* Bold text */
-  text-align: left; /* Left text alignment */
-  vertical-align: top; /* Top vertical alignment */
+    border-color: inherit; /* Inherits the border color */
+    font-weight: bold; /* Bold text formatting */
+    text-align: left; /* Aligned to the left */
+    vertical-align: top; /* Vertical alignment to top */
 }
 
-/* Custom class for standard data cells */
 .tg .tg-0pky {
-  border-color: inherit; /* Inherit border color */
-  text-align: left; /* Left text alignment */
-  vertical-align: top; /* Top vertical alignment */
+    border-color: inherit; /* Inherits the border color */
+    text-align: left; /* Sets text alignment to the left */
+    vertical-align: top; /* Vertical alignment to the top of the cell */
 }
 ```
 
@@ -268,103 +158,88 @@ IronPDF offers robust capabilities for applying digital signatures to PDF docume
 </tbody>
 </table>
 
-### Compatible Digital Signature Formats
+### Supported Digital Signature Certificate Formats
 
-IronPDF adheres to the `X509Certificate2` standard and supports digital signatures in `.pfx` and `.p12` file formats. If you encounter issues with applying your signature using the available methods in IronPDF, it may be necessary to generate a `X509Certificate2` certificate. Detailed guidelines for this process can be accessed through the [Microsoft documentation](https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate2.-ctor).
+IronPDF adheres strictly to the `X509Certificate2` standards and accommodates both `.pfx` and `.p12` signature formats. Should there be a case where your signature cannot be directly utilized via IronPDF's signing functionalities, it becomes necessary to establish an `X509Certificate2` certificate. Guidance on creating this certificate is available on the [Microsoft documentation](https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate2.-ctor).
 
-### Create a PdfSignature from an X509Certificate2
+### Creating a `PdfSignature` from an `X509Certificate2`
 
-IronPDF supports digital signing using `X509Certificate2` objects, provided the **X509KeyStorageFlags** are set to **Exportable**.
+IronPDF allows you to utilize `X509Certificate2` objects for signing documents, provided that these objects have the **X509KeyStorageFlags** configured as **Exportable**.
 
-- The library specifically requires the use of **X509KeyStorageFlags.Exportable** when handling certificates. While some certificates might be preset with these flags, attempting to utilize any non-exportable flags will lead to an exception: Internal.Cryptography.CryptoThrowHelper.WindowsCryptographicException: 'The requested operation is not supported.'
+- It's important to note that IronPDF exclusively supports the **X509KeyStorageFlags.Exportable** configuration for certificates. Certificates configured this way by default will seamlessly integrate with IronPDF. However, attempting to utilize certificates with non-exportable flags will trigger a specific exception: `Internal.Cryptography.CryptoThrowHelper.WindowsCryptographicException` with the message "The requested operation is not supported."
 
-Here's the paraphrased version of the provided C# code section, maintaining its original logic and structure but using varied naming and comments for clarity:
+Here is the paraphrased section from the article:
 
 ```cs
+using IronPdf;
+using IronPdf.Signing;
 using System.Security.Cryptography.X509Certificates;
-using IronPdf;
-namespace ironpdf.SignatureProcessing
-{
-    public class SignatureDemo
-    {
-        public void Execute()
-        {
-            // Initialize the PDF renderer
-            ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
-            // Generate a PDF from HTML content
-            PdfDocument document = pdfRenderer.RenderHtmlAsPdf("<h1>foo</h1>");
 
-            // Set up the digital certificate with exportable key storage flags
-            X509Certificate2 certificate = new X509Certificate2("IronSoftware.pfx", "123456", X509KeyStorageFlags.Exportable);
+// Initializing the PDF renderer
+ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
+PdfDocument document = pdfRenderer.RenderHtmlAsPdf("<h1>foo</h1>");
 
-            // Configure PDF signature using the specified certificate
-            PdfSignature signature = new PdfSignature(certificate);
+// Constructing certificate with exportable keys
+X509Certificate2 certificate = new X509Certificate2("IronSoftware.pfx", "123456", X509KeyStorageFlags.Exportable);
 
-            // Apply the digital signature to the PDF
-            document.Sign(signature);
+// Configuring the PDF signature using the certificate
+PdfSignature signature = new PdfSignature(certificate);
 
-            // Save the digitally signed PDF
-            document.SaveAs("signed.pdf");
-        }
-    }
-}
+// Applying the digital signature to the PDF
+document.Sign(signature);
+
+// Saving the signed PDF
+document.SaveAs("signed.pdf");
 ```
 
-This rewritten code segment effectively demonstrates the process of digitally signing a PDF using IronPDF, from rendering the document to applying the digital signature and saving the signed PDF. The variable names and comments have been adjusted for enhanced readability and understanding.
+### Enhance Your PdfSignature with Detailed Information
 
-### PdfSignature: Enhance with Detailed Information
+Upon creating a `PdfSignature` or adding to an existing one, you can enrich the signature with critical details. The attributes you can include are the signing date, contact details, geographical location, rationale behind the signature, and even incorporating a visual representation through an image. This addition not only provides a robust description but also visually authenticates the document.
 
-During the creation of a `PdfSignature` or even post-creation, you can enrich the `PdfSignature` object with crucial details such as signing date, contact person, location, purpose of signing, and timing, as well as incorporating a visual aspect in the form of an image onto the PDF.
+This functionality also accommodates timestamping, supporting both SHA256 and SHA512 protocols, ensuring your PDF's integrity within secured timeframes.
 
-This feature is compatible with timestamping servers that utilize either SHA256 or SHA512 protocols.
+Below is the paraphrased section of the article:
 
 ```cs
-using System;
 using IronPdf;
-namespace ironpdf.Signing
-{
-    public class DetailedSignatureSection
-    {
-        public void Execute()
-        {
-            // Initialize a renderer for creating the PDF
-            ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
-            // Render an HTML string into a PDF document
-            PdfDocument document = pdfRenderer.RenderHtmlAsPdf("<h1>Welcome</h1>");
+using IronPdf.Signing;
+using IronSoftware.Drawing;
+using System;
 
-            // Save the PDF to a file
-            document.SaveAs("detailed-signed.pdf");
+// Initialize a PDF renderer to create a PDF document
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example Header</h1>");
 
-            // Instantiate a new PdfSignature using a PFX file
-            PdfSignature signature = new PdfSignature("IronSoftware.pfx", "123456");
+// Save the initial PDF document
+pdf.SaveAs("initial_signed.pdf");
 
-            // Setting the detailed information for the signature
-            signature.SignatureDate = new DateTime(2000, 12, 02); // Date of the signature
-            signature.SigningContact = "IronSoftware"; // Contact name
-            signature.SigningLocation = "Chicago"; // Location of signing
-            signature.SigningReason = "Documentation Example"; // Reason for signing
-            signature.TimestampHashAlgorithm = TimestampHashAlgorithms.SHA256; // Hash algorithm for timestamp
-            signature.TimeStampUrl = "http://timestamp.digicert.com"; // URL of the timestamping service
-            signature.SignatureImage = new PdfSignatureImage("IronSoftware.png", 0, new Rectangle(0, 600, 100, 100)); // Adding an image to the signature
+// Initialize a PdfSignature object with your digital certificate
+var signature = new PdfSignature("IronSoftware.pfx", "123456");
 
-            // Apply the signature to the PDF and save it
-            signature.SignPdfFile("detailed-signed.pdf");
-        }
-    }
-}
-```
+// Set detailed information for the signature
+signature.SignatureDate = new DateTime(2000, 12, 02);
+signature.SigningContact = "Contact@IronSoftware.com";
+signature.SigningLocation = "Chicago, USA";
+signature.SigningReason = "Documentation Example";
+signature.TimestampHashAlgorithm = TimestampHashAlgorithms.SHA256;
+signature.TimeStampUrl = "http://timestamp.digicert.com";
+signature.SignatureImage = new PdfSignatureImage("IronSoftware.png", 0, new IronSoftware.Drawing.Rectangle(0, 600, 100, 100));
 
-### Demonstrative Example
+// Apply the signature to the PDF and save the signed document
+signature.SignPdfFile("final_signed.pdf");
+``` 
 
-```html
+This snippet highlights how to use IronPDF's `PdfSignature` object to add detailed signature data like date, contact info, and location to a PDF. The digital certificate and its details are utilized to create a signature that is then applied to the PDF, and the final signed document is saved under a new filename.
+
+### Visual Demonstration
+
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
          <img src="https://ironpdf.com/static-assets/pdf/how-to/signing/granular-information.png" alt="Viewing Signer detail" class="img-responsive add-shadow">
     </div>
 </div>
-```
 
-In instances where Adobe does not verify the PDF's authenticity or integrity because the certificate is not included, you might notice either an exclamation mark or a warning sign instead of a checkmark. To resolve this and show a checkmark, please add the certificate into Adobe and reload the document.
+Despite valid signing certificates, when a PDF is opened in Adobe, it might display a warning or an exclamation mark rather than a check mark because Adobe is unable to verify the document's authenticity and integrity without the certificate being added directly. To resolve this and get the check mark upon opening in Adobe, simply add your certificate to Adobe's list and re-open the document.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -372,49 +247,43 @@ In instances where Adobe does not verify the PDF's authenticity or integrity bec
     </div>
 </div>
 
-Occasionally, an exclamation mark or warning icon may appear in place of a check mark. This issue occurs when Adobe is unable to verify the document’s authenticity and integrity due to the absence of the certificate. To resolve this, add the certificate to Adobe and reload the document.
+It's possible that you'll notice a warning sign or an exclamation mark rather than a verification check mark when viewing the document in Adobe. This occurs if Adobe is unable to verify the document's authenticity and integrity due to the absence of the certificate. To resolve this, import the certificate into Adobe and then reopen the document to see the check mark.
 
-### Diverse Approaches for Including Images
+### Various Methods to Incorporate Images into Signatures
 
-There are multiple techniques to incorporate images into your document:
+There are several approaches to embedding images into signatures:
 
-- Define the **SignatureImage** by initiating a new PdfSignatureImage instance.
+- Assign a new `PdfSignatureImage` object to the **SignatureImage** property.
+  
+- Employ the `LoadSignatureImageFromFile` function to upload an image from a file. This method is compatible with a range of image formats.
 
-- Employ the `LoadSignatureImageFromFile` function to import an image directly from a file, supporting a wide array of image formats.
+- Utilize the `LoadSignatureImageFromStream` function for importing an image from a stream. This technique supports importing image streams from external libraries that match the formats TGA, PBM, TIFF, BMP, GIF, PNG, JPEG, and Webp.
 
-- Utilize the `LoadSignatureImageFromStream` function to integrate an image from a stream. This stream can originate from various libraries, provided the image conforms to formats like TGA, PBM, TIFF, BMP, GIF, PNG, JPEG, or Webp.
+Below is the paraphrased version of the provided C# section from the article. The URL paths for images have been resolved to the `ironpdf.com` domain.
 
 ```cs
+using IronPdf.Signing;
 using IronSoftware.Drawing;
-using IronPdf;
-namespace ironpdf.Signing
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            // Initialize a PdfSignature instance
-            var signature = new PdfSignature("IronSoftware.pfx", "123456");
 
-            // Directly add a signature image to the PdfSignature instance
-            signature.SignatureImage = new PdfSignatureImage("IronSoftware.png", 0, new Rectangle(0, 600, 100, 100));
+// Instantiate a PdfSignature object
+PdfSignature signature = new PdfSignature("IronSoftware.pfx", "123456");
 
-            // Use LoadSignatureImageFromFile method to incorporate a signature image
-            signature.LoadSignatureImageFromFile("IronSoftware.png", 0, new Rectangle(0, 600, 100, 100));
+// Assign a signature image using the SignatureImage property
+signature.SignatureImage = new PdfSignatureImage("IronSoftware.png", 0, new Rectangle(0, 600, 100, 100));
 
-            // Utilize IronSoftware.Drawing to import an image
-            AnyBitmap importedImage = AnyBitmap.FromFile("IronSoftware.png");
+// Add an image to the signature by using the LoadSignatureImageFromFile method
+signature.LoadSignatureImageFromFile("IronSoftware.png", 0, new Rectangle(0, 600, 100, 100));
 
-            // Stream the imported image directly into the signature
-            signature.LoadSignatureImageFromStream(importedImage.ToStream(), 0, new Rectangle(0, 600, 100, 100));
-        }
-    }
-}
+// Load an image into the signature using the IronSoftware.Drawing library
+AnyBitmap imageFromLibrary = AnyBitmap.FromFile("IronSoftware.png");
+
+// Stream the loaded image into the signature
+signature.LoadSignatureImageFromStream(imageFromLibrary.ToStream(), 0, new Rectangle(0, 600, 100, 100));
 ```
 
-### Managing Signature Permissions
+### Signature Permissions
 
-When setting up your digital signature, it's possible to define the specific conditions that must be met to keep the signature valid. If your preference is to have the signature voided if any modifications are made, or perhaps just allowing modifications to form fields, review the options in the table below to understand the different permissions available:
+You have the ability to define specific conditions to maintain the validity of your digital signature. For different levels of document modification permissions after signing, please consult the table below for detailed options: 
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
@@ -429,85 +298,40 @@ When setting up your digital signature, it's possible to define the specific con
 <thead>
   <tr>
     <th class="tg-u0o7">PdfDocument.SignaturePermissions</th>
-    <th class="tg-u0o7">Explanation</th>
+    <th class="tg-u0o7">Definition</th>
   </tr>
 </thead>
 <tbody>
   <tr>
     <td class="tg-0pky">NoChangesAllowed</td>
-    <td class="tg-0pky">No modifications are allowed under any circumstance.</td>
+    <td class="tg-0pky">Absolutely no changes permitted</td>
   </tr>
   <tr>
     <td class="tg-0pky">FormFillingAllowed</td>
-    <td class="tg-0pky">Only changes to form field values are permitted.</td>
+    <td class="tg-0pky">Only changes to form field values are permitted</td>
   </tr>
   <tr>
     <td class="tg-0pky">FormFillingAndAnnotationsAllowed</td>
-    <td class="tg-0pky">Changes to form field values and annotations are permitted.</td>
+    <td class="tg-0pky">Modifications to form fields and annotations are permitted</td>
   </tr>
 </tbody>
 </table>
 
-The use of these settings is optional, but not specifying them will result in a signature that secures a particular revision of the document and will be voided if any unauthorized alterations are made.
+Specifying signature permissions is optional, and by default, a signature will certify a particular document revision which cannot be invalidated by further changes.
 
 <style type="text/css">
 
-Here is the paraphrased section describing the table's CSS styles which determine the visual presentation of tables used in the document:
-
-```css
-/* Table style that collapses borders between cells and uses a light gray border. */
-.table-style {
-  border-collapse: collapse;
-  border-color: #ccc;
-  border-spacing: 0;
-}
-
-/* Table cells have a white background, light gray border, and padding for text. */
-.table-style td {
-  background-color: #fff;
-  border-color: #ccc;
-  border-style: solid;
-  border-width: 1px;
-  color: #333;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
-}
-
-/* Table headers have a light gray background, matching cell styling, and normal font weight. */
-.table-style th {
-  background-color: #f0f0f0;
-  border-color: #ccc;
-  border-style: solid;
-  border-width: 1px;
-  color: #333;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
-}
-
-/* Styles specifically for bold left-aligned text in certain table headers. */
-.table-style .header-bold-left {
-  border-color: inherit;
-  font-weight: bold;
-  text-align: left;
-  vertical-align: top;
-}
-
-/* Styles for standard left-aligned text in table cells. */
-.table-style .text-left-top {
-  border-color: inherit;
-  text-align: left;
-  vertical-align: top;
-}
+```html
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;margin: 0 auto;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;word-break:normal; text-align: center;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px; text-align: center;}
+.tg .tg-u0o7{border-color:inherit;font-weight:bold;vertical-align:middle;}
+.tg .tg-0pky{border-color:inherit;vertical-align:top;}
+</style>
 ```
-
-This revised CSS maintains the original formatting intent but uses different class names and a more standardized comment system to enhance readability and maintenance.
 
 </style>
 <table class="tg">
@@ -533,77 +357,60 @@ This revised CSS maintains the original formatting intent but uses different cla
 </tbody>
 </table>
 
-This setting is not required, and if left unspecified, it will establish a signature that certifies a particular revision of the document, making it irreversible.
+This parameter is optional. If not specified, the signature will apply only to a specific version of the document and will be considered irrevocable.
 
-### Preserving and Signing Modifications in a PDF
+Here is the paraphrased section of the article, with the links resolved to the specified domain (ironpdf.com):
 
-In the outlined walkthrough below, we begin by loading an existing PDF document and then we make several modifications to it. Prior to saving these changes, we apply a digital signature. This procedure enables form filling in subsequent editions while invalidating the signature if any other modifications are made.
+### Revision and Digital Signature Process for PDFs
 
-Following this, we invoke the `SaveAsRevision` method to commit these changes to the file's revision history. Lastly, the updated version of the document is saved to storage.
+In this example, we demonstrate the process of opening a PDF, making several modifications, and then digitally signing the document to certify those changes. The signature will be configured to permit only filling out forms in future modifications, as any other alterations will void the signature.
 
-Here's the paraphrased section with absolute URL paths resolved:
+After these steps, we utilize the `SaveAsRevision` function to retain this version in the document’s revision log. Finally, we proceed to finalize and store this newly signed and edited document on your local drive.
 
+Below is the paraphrased section of the article about signing a revised version of a PDF document using IronPDF, with all references to images and URLs resolved against ironpdf.com:
+
+-----
 ```cs
-using IronPdf.Rendering;
 using IronPdf;
-namespace ironpdf.Signing
-{
-    public class EditAndSignSection
-    {
-        public void Execute()
-        {
-            // Load the PDF document and activate change tracking
-            PdfDocument document = PdfDocument.FromFile("annual_census.pdf", TrackChanges: ChangeTrackingModes.EnableChangeTracking);
-            // Edit the document as needed
-            document.SignWithFile("https://www.ironsoftware.com/assets/IronSignature.p12", "password", null, IronPdf.Signing.SignaturePermissions.AdditionalSignaturesAndFormFillingAllowed);
+using IronPdf.Rendering;
 
-            // Create a new version of the PDF document
-            PdfDocument updatedDocument = document.SaveAsRevision();
+// Load the PDF document and activate change tracking
+PdfDocument document = PdfDocument.FromFile("annual_census.pdf", TrackChanges: ChangeTrackingModes.EnableChangeTracking);
+// Assume changes were made to the PDF here...
+document.SignWithFile("https://ironpdf.com/assets/IronSignature.p12", "password", null, IronPdf.Signing.SignaturePermissions.AdditionalSignaturesAndFormFillingAllowed);
 
-            // Save the revised document
-            updatedDocument.SaveAs("annual_census_revised.pdf");
-        }
-    }
-}
+// Save the current state of the document as a new revision
+PdfDocument revisedDocument = document.SaveAsRevision();
+
+// Save the new, signed revision to a file
+revisedDocument.SaveAs("annual_census_2.pdf");
 ```
-
-In this revised example, the code comments are updated for better clarity and the method, and class names are slightly altered to provide a fresh perspective while maintaining the original meaning and functionality. The URL path to the digital certificate file has also been updated to an absolute path.
 
 ### Understanding Incremental Saving for Signatures
 
-While basic PDF viewers like those in Chrome display only the current version of a PDF, the format itself supports storing multiple versions or revisions, akin to tracking changes in a version control system like Git. This is visible in more sophisticated PDF viewers, such as Adobe Acrobat.
+PDF files resemble version control systems like Git in their ability to preserve multiple iterations of the document. While some PDF viewers, such as those found in Chrome, only display the latest version, more sophisticated readers like Adobe Acrobat can access earlier versions.
 
-It's crucial to grasp this feature when working with PDF signatures. This is because the signature is associated with a specific version of the document. Thus, a PDF may have signatures tied to its earlier versions, as well as some versions that remain unsigned. Below is a conceptual visualization of this process:
+It's crucial to understand this dynamic when working with PDF signatures. Signing a document applies only to the iteration at hand. Thus, a PDF might carry signatures from previous versions, have iterations without any signatures, or a combination of both. Here’s an illustration of how this concept plays out:
 
 <style type="text/css">
 
-Here is the paraphrased section of the article incorporating the resolved URL paths and improved formatting:
+Here is the paraphrased section:
 
 ```html
 <style type="text/css">
-.tg {border-collapse:collapse; border-spacing:0;}
-
-.tg td {border-style:solid; border-width:1px; font-family:Arial, sans-serif; font-size:14px; padding:10px 5px; word-break:normal; overflow:hidden; }
-
-.tg th {border-color:black; border-style:solid; border-width:1px; font-family:Arial, sans-serif; font-size:14px; padding:10px 5px; word-break:normal; overflow:hidden; font-weight:normal;}
-
-.tg .tg-italic {border-color:inherit; font-style:italic; text-align:center; vertical-align:top}
-
-.tg .tg-center {text-align:center; vertical-align:top; border-color:inherit;}
-
-.tg .tg-bold-center {border-color:inherit; font-weight:bold; text-align:center; vertical-align:top}
-
-.tg .tg-bold-left {border-color:inherit; font-weight:bold; text-align:left; vertical-align:top}
-
-.tg .tg-left {border-color:inherit; text-align:left; vertical-align:top}
-
-.tg .tg-italic-center {font-style:italic; text-align:center; vertical-align:top}
-
-.tg .tg-left-center {text-align:left; vertical-align:top}
+.tg {border-collapse: collapse; margin: 0;}
+.tg td {font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;}
+.tg th {font-family: Arial, sans-serif; font-size: 14px; font-weight: normal; padding: 10px 5px; border-color: black; border-style: solid; border-width: 1px; overflow: hidden;}
+.tg .tg-7btt {font-weight: bold; text-align: center; border-color: inherit;}
+.tg .tg-0pky {text-align: left; border-color: inherit;}
+.tg .tg-fymr {font-weight: bold; text-align: left; border-color: inherit;}
+.tg .tg-8bgf {text-align: center; border-color: inherit; font-style: italic; vertical-align: top;}
+.tg .tg-c3ow {text-align: center; border-color: inherit; vertical-align: top;}
+.tg .tg-baqh {text-align: center; vertical-align: top;}
+.tg .tg-5frq {text-align: center; border-color: inherit; font-style: italic; vertical-align: top;}
+.tg .tg-0lax {text-align: left; vertical-align: top;}
 </style>
 ```
-
-This revised section maintains the same stylistic and functional aspects, but the class names have been simplified and made more descriptive, facilitating easier reference and interpretation.
 
 </style>
 <table class="tg">
@@ -662,202 +469,170 @@ This revised section maintains the same stylistic and functional aspects, but th
 </tbody>
 </table>
 
-The document described has undergone six revisions, being circulated among different company departments for approvals until solidifying at iteration three. At this stage, both Person A and Person B have authenticated the document, setting permissions to "Form Field Edits Only." This setting permits modifications to the form fields alone, with any other alterations potentially rendering the signatures void.
+The section provided illustrates a scenario where a document undergoes six separate iterations. Initially, the document circulates across various company departments for approval, culminating at the third iteration. At this stage, both Person A and Person B applied their signatures with specific conditions labeled as "Form Field Edits Only". This designation permits the modification of form fields within the document, but any further alterations would void their signatures.
 
-In the scenario presented, it's understood that Person C completed the form and returned it to Persons A, B, and D, who then each affixed their signatures under a "No Edits Allowed" condition. Given that the document was unaltered in ways that would compromise its integrity, executing IronPDF's signature validation method on the document would yield a result of **true**.
+Moreover, it is inferred that Person C completed the required form fields and returned the updated document to Persons A, B, and D. This trio subsequently endorsed the document with a "No Edits Allowed" condition. Given that there were no disqualifying alterations made to the document after their signatures, executing IronPDF's signature verification method would confirm the document's authenticity with a return value of `true`.
 
 ### Reverting to a Previous PDF Revision
 
-To revert a PDF to an earlier revision, employ the `GetRevision` method from IronPDF. This functionality discards all modifications (including new signatures) that occurred after the specified revision. Here's how you can perform this rollback:
+To revert to an earlier version of a PDF document, employ the `GetRevision` method. This function discards all subsequent modifications, including newer signatures, effectively restoring the PDF to its selected historical state. Here's how to implement it:
 
 ```cs
 using IronPdf;
-namespace ironpdf.Signing
-{
-    public class UndoChanges
-    {
-        public void Execute()
-        {
-            // Load a PDF file
-            PdfDocument originalPdf = PdfDocument.FromFile("report.pdf");
 
-            // Display the total number of revisions
-            int totalRevisions = originalPdf.RevisionCount;
+PdfDocument pdf = PdfDocument.FromFile("report.pdf");
 
-            // Retrieve the third version (index 2) of the PDF
-            PdfDocument revertedPdf = originalPdf.GetRevision(2);
+// Retrieve the number of revisions
+int versions = pdf.RevisionCount;
 
-            // Save the reverted PDF as a new file
-            revertedPdf.SaveAs("report-draft.pdf");
-        }
-    }
-}
+// Retrieve a specific revision of the document
+PdfDocument rolledBackPdf = pdf.GetRevision(2);
+
+// Save the reverted document to a new file
+rolledBackPdf.SaveAs("report-draft.pdf");
 ```
 
-### Erasing Signatures from a PDF Document
-
-The IronPDF library provides a functionality named `RemoveSignatures` designed to eliminate every signature across all revisions within a PDF file. Here's how you can employ this method:
+Here's the paraphrased section of the code from the article with appropriate comments and modifications:
 
 ```cs
 using IronPdf;
-namespace ironpdf.Signing
-{
-    public class Section6
-    {
-        public void Run()
-        {
-            PdfDocument pdf = PdfDocument.FromFile("invoice.pdf");
-            
-            // Use the RemoveSignatures method to delete all signatures
-            pdf.RemoveSignatures();
-        }
-    }
-}
+
+// Load the PDF from file
+PdfDocument originalPdf = PdfDocument.FromFile("report.pdf");
+
+// Retrieve the total number of revisions in this PDF
+int totalRevisions = originalPdf.RevisionCount;
+
+// Access a previous version of the PDF (Revision number 2)
+PdfDocument revertedPdf = originalPdf.GetRevision(2);
+
+// Save the reverted PDF as a draft version
+revertedPdf.SaveAs("report-draft.pdf");
 ```
 
-Here's the paraphrased section of the article with the relative URL paths resolved to ironpdf.com:
+### Clearing All Signatures from a PDF
+
+IronPDF offers a convenient feature through its `RemoveSignatures` method, which allows the removal of all signatures across every version of a PDF file. Here's how to use it:
 
 ```cs
 using IronPdf;
-namespace ironpdf.Signing
-{
-    public class RemoveAllSignatures
-    {
-        public void Execute()
-        {
-            // Load a PDF from file
-            PdfDocument document = PdfDocument.FromFile("invoice.pdf");
 
-            // Remove all signatures from the PDF document
-            document.RemoveSignatures();
-        }
-    }
-}
+PdfDocument pdf = PdfDocument.FromFile("invoice.pdf");
+pdf.RemoveSignatures();
 ```
 
-### Verifying All Signatures in a PDF
+Below is the paraphrased content based on your requirements, with relative URL paths resolved to `ironpdf.com`:
 
-To ensure the integrity of a PDF, you can use IronPDF's method to check the validation of every signature across every revision of the document. If all signatures are confirmed to be valid, the method will return a `bool` value of `true`.
+---
 
-Here's the paraphrased section with modified code example and paths resolved to `ironpdf.com`:
+```cs
+// Utilizing IronPdf namespace
+using IronPdf;
+
+// Loading an existing PDF document
+PdfDocument existingPdf = PdfDocument.FromFile("invoice.pdf");
+
+// Removing all signatures from the PDF
+existingPdf.RemoveSignatures();
+```
+
+### Validating All Signatures in a PDF
+
+Utilizing the signature verification function on a PDF will scan through each signature from every version of the document to confirm their validity. If all signatures remain authentic, it will yield a `bool` value of `true`.
+
+Here's the paraphrased section of the article:
 
 ```cs
 using IronPdf;
-namespace ironpdf.Signing
-{
-    public class SignatureVerification
-    {
-        public void Execute()
-        {
-            // Load a PDF document
-            PdfDocument document = PdfDocument.FromFile("annual_census.pdf");
-            
-            // Verify the validity of all signatures in the document
-            bool isAllSignaturesValid = document.VerifyPdfSignatures();
-        }
-    }
-}
+
+// Load the PDF document from the specified file
+PdfDocument document = PdfDocument.FromFile("annual_census.pdf");
+
+// Check if all the digital signatures in the document are still valid
+bool areSignaturesValid = document.VerifyPdfSignatures();
 ```
 
-## Applying a Handwritten Signature to a PDF
+## Imprinting a Signature onto a PDF
 
-Let's dive into the process of signing a PDF document. For demonstration purposes, we'll be using a sample invoice PDF, as shown below:
+To begin with, let's consider a PDF document that needs signing. For illustration, we'll use the following example invoice:
 
-<iframe loading="lazy" src="https://ironsoftware.com/static-assets/pdf/how-to/signing/invoice.pdf#view=fit" width="100%" height="500px"></iframe>
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/signing/invoice.pdf#view=fit" width="100%" height="500px">
+</iframe>
 
-We aim to add a handwritten signature, typically saved as a `.png` image file, which could either represent an actual handwritten signature or be utilized as the visual representation for a digital certificate. Here's the example signature image used:
+This section of the document will be adorned with a handwritten signature, which typically comes in the form of a `.png` image file. This is the sample signature that will be utilized:
+<img src="https://ironpdf.com/static-assets/pdf/how-to/signing/signature.png" alt="" class="img-responsive add-shadow">
 
-<img src="https://ironsoftware.com/static-assets/pdf/how-to/signing/signature.png" alt="" class="img-responsive add-shadow">
+### Implementing the Code
 
-### Implementation Code
-
-To add the signature to the PDF as a watermark, we employ the following method:
+To add the signature as a watermark to the aforementioned PDF, utilize the following block of code:
 
 ```cs
+using IronPdf;
 using IronPdf.Editing;
-using IronPdf;
 
-namespace ironpdf.Signing
-{
-    public class Section8
-    {
-        public void Run()
-        {
-            var pdf = PdfDocument.FromFile("invoice.pdf");
-            
-            // Apply a watermark signature at the specified location
-            pdf.ApplyWatermark("<img src='signature.png'/>", 90, VerticalAlignment.Bottom, HorizontalAlignment.Right);
-            
-            // Save the signed PDF
-            pdf.SaveAs("official_invoice.pdf");
-        }
-    }
-}
+// Load the PDF document
+var pdf = PdfDocument.FromFile("invoice.pdf");
+
+// Apply the watermark with the signature image at a specific position
+pdf.ApplyWatermark("<img src='signature.png'/>", 90, VerticalAlignment.Bottom, HorizontalAlignment.Right);
+
+// Save the PDF with the signature applied
+pdf.SaveAs("official_invoice.pdf");
 ```
 
-### Resulting Document
+### Viewing the Result
 
-Following the execution of the above code, the PDF document will be stamped with the signature at the designated bottom right corner. Here's the output PDF featuring the signed invoice:
+After executing the above code, the resulting file will display the signature placed strategically at the bottom right corner:
 
-<iframe loading="lazy" src="https://ironsoftware.com/static-assets/pdf/how-to/signing/official_invoice.pdf#view=fit" width="100%" height="500px"></iframe>
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/signing/official_invoice.pdf#view=fit" width="100%" height="500px">
+</iframe>
 
 <iframe loading="lazy" src="/static-assets/pdf/how-to/signing/invoice.pdf#view=fit" width="100%" height="500px">
 </iframe>
 
-We're going to add a handwritten signature, which is a `.png` image, to our PDF document. This could either be an actual handwritten signature or an image used in generating a certificate file. Below is the example signature we'll be using:
+We're going to embed a `.png` image of a handwritten signature into our PDF. This image might represent a physical signature or could have been utilized in crafting a digital certificate. Below is the example of the signature we'll be using:
+<img src="https://ironpdf.com/static-assets/pdf/how-to/signing/signature.png" alt="" class="img-responsive add-shadow">
 
 <img src="/static-assets/pdf/how-to/signing/signature.png" alt="" class="img-responsive add-shadow">
 
 ```cs
-using IronPdf.Editing;
 using IronPdf;
+using IronPdf.Editing;
 
-namespace ironpdf.Signing
-{
-    public class Section8
-    {
-        public void Run()
-        {
-            var pdf = PdfDocument.FromFile("invoice.pdf");
-            
-            // Apply a watermark using a signature image
-            pdf.ApplyWatermark("<img src='signature.png'/>", 90, VerticalAlignment.Bottom, HorizontalAlignment.Right);
-            
-            // Save the PDF document with the watermark
-            pdf.SaveAs("official_invoice.pdf");
-        }
-    }
-}
+// Load the PDF document
+var pdfDocument = PdfDocument.FromFile("invoice.pdf");
+
+// Apply a watermark signature image to the bottom right of the PDF
+pdfDocument.ApplyWatermark("<img src='signature.png'/>", 90, VerticalAlignment.Bottom, HorizontalAlignment.Right);
+
+// Save the modified PDF
+pdfDocument.SaveAs("official_invoice.pdf");
 ```
 
-Here is the paraphrased markdown content for the specified code section:
+Here's the paraphrased content of the specified section, with all relative URL paths resolved to `ironpdf.com`:
 
 ```cs
 using IronPdf;
 using IronPdf.Editing;
-namespace ironpdf.Signing {
-    public class Section8 {
-        public void Execute() {
-            var document = PdfDocument.FromFile("invoice.pdf");
-            
-            // Applying a watermark using a signature image
-            document.ApplyWatermark("<img src='signature.png'/>", 90, VerticalAlignment.Bottom, HorizontalAlignment.Right);
-            
-            // Saving the document with the applied signature
-            document.SaveAs("official_invoice.pdf");
-        }
-    }
-}
+
+// Load the PDF document from file
+PdfDocument invoicePdf = PdfDocument.FromFile("invoice.pdf");
+
+// Apply a watermark signature image to the PDF
+invoicePdf.ApplyWatermark("<img src='signature.png'/>", 90, VerticalAlignment.Bottom, HorizontalAlignment.Right);
+
+// Save the modified PDF document under a new name
+invoicePdf.SaveAs("official_invoice.pdf");
 ```
 
-### Resulting Output
+### Output Result
 
-Upon executing the code provided, the resultant file will display our signature prominently positioned at the bottom right corner.
+Upon executing the code, the resultant file will display our signature at the lower right corner:
 
 <iframe loading="lazy" src="/static-assets/pdf/how-to/signing/official_invoice.pdf#view=fit" width="100%" height="500px">
 </iframe>
 
-## Add an Unsigned Signature Field to a PDF
+## Adding an Unsigned Signature Field to a PDF Document
 
-Currently, adding an unsigned signature field to a PDF is not available. For additional details on what IronPDF supports, including its form features, check out the [IronPDF Forms and Features Article](https://ironpdf.com/blog/using-ironpdf/programmatically-fill-pdf-form-csharp/).
+Currently, IronPDF does not yet offer the capability to add an unsigned signature field to PDF files. For further insights into what IronPDF does support regarding form handling and features, please visit the [IronPDF Forms and Features Article](https://ironpdf.com/blog/using-ironpdf/programmatically-fill-pdf-form-csharp/).
 

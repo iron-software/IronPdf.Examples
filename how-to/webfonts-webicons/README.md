@@ -1,94 +1,85 @@
-# Setting Fonts in PDF Documents
+# How to Apply Fonts in PDF Files
 
 ***Based on <https://ironpdf.com/how-to/webfonts-webicons/>***
 
 
-Webfonts are specifically designed for websites, hosted on web servers and used to ensure that text appears consistent and visually engaging on various devices regardless of the local fonts installed. Icon fonts also play a crucial role in web design, allowing for scalable and customizable icons through CSS, which aids in maintaining a visually coherent interface.
+Webfonts, which are essential for creating visually cohesive and appealing websites, are hosted on web servers and deployed through web browsers to provide a consistent typographical experience. This approach ensures that even if a user does not have a specific font installed, the website's text appears as intended. In web design, icon fonts comprising symbols and glyphs are also popular for crafting scalable and uniform user interface elements via CSS styling.
 
-CSS can specify web fonts to be downloaded automatically when someone visits your webpage. IronPDF extends this functionality to PDFs, where it supports loading and rendering fonts from HTML content.
+CSS is integral in implementing web fonts, as it directs the browser to download specific font files when accessing a website. IronPDF supports the handling of fonts directly from HTML to PDF rendering, accommodating both traditional webfonts and iconographic fonts.
 
-## Implementing WebFonts and Icons with IronPDF
+### Getting Started with IronPDF
 
-IronPDF has robust support for WebFonts (like those from Google Fonts and Adobe’s web font API) and popular icon fonts such as Bootstrap icons and [FontAwesome](https://www.w3schools.com/icons/fontawesome5_intro.asp).
+#### Implementing WebFonts and Icons with IronPDF
 
-To ensure fonts load correctly and avoid any rendering issues such as blank pages, IronPDF includes a `WaitFor.AllFontsLoaded` method. This method enables you to define a maximum waiting period for font loading, with the default set at 500ms.
+IronPDF extends support for various [WebFonts](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts) like Google Fonts and Adobe's web font service, as well as icon fonts used in libraries such as Bootstrap and [FontAwesome](https://www.w3schools.com/icons/fontawesome5_intro.asp).
 
-Below is an example of incorporating a [WebFont](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts) named Lobster into your application using IronPDF:
+It's common for fonts to require some loading time, which can occasionally result in pages rendering without text if the font fails to load promptly. This can be managed using IronPDF's `WaitFor.AllFontsLoaded` method by setting a maximum wait time, traditionally set at 500ms by default.
 
-```cs
-using IronPdf;
-namespace ironpdf.WebfontsWebicons
-{
-    public class SessionExample
-    {
-        public void Execute()
-        {
-            // HTML with a webfont link
-            var html = @"<link href=""https://fonts.googleapis.com/css?family=Lobster"" rel=""stylesheet"">
-            <p style=""font-family: 'Lobster', serif; font-size:30px;"">Hello Google Fonts</p>";
-            
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Ensure all fonts are loaded
-            renderer.RenderingOptions.WaitFor.AllFontsLoaded(2000);
-            
-            // Generate PDF from HTML
-            PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
-            
-            // Save the generated PDF
-            pdf.SaveAs("example-font.pdf");
-        }
-    }
-}
-```
-
-Discover additional waiting options for fonts, scripts, HTML elements, and network states in the [IronPDF WaitFor Class Documentation](https://ironpdf.com/how-to/waitfor/).
-
-## Embedding Custom Font Files Into PDFs
-
-To include custom fonts in your PDFs, you can use the `@font-face` rule in CSS. This method is effective when combining CSS rules with base64-encoded woff files. Here’s how you might incorporate a custom font named Pixelify Sans:
+Below is an example of integrating the [WebFont](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts) named Lobster into your project:
 
 ```cs
 using IronPdf;
-namespace ironpdf.WebfontsWebicons
-{
-    public class CustomFontExample
-    {
-        public void Execute()
-        {
-            // HTML with embedded custom font
-            string html = @"<!DOCTYPE html>
-            <html>
-            <head>
-            <style>
-            @font-face {font-family: 'Pixelify';
-            src: url('fonts\PixelifySans-VariableFont_wght.ttf');
-            }
-            p {
-                font-family: 'Pixelify';
-                font-size: 70px;
-            }
-            </style>
-            </head>
-            <body>
-            <p>Experiment with custom font.</p>
-            </body>
-            </html>";
-            
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Convert HTML to PDF
-            PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
-            
-            // Output the PDF
-            pdf.SaveAs("custom-font-example.pdf");
-        }
-    }
-}
+
+// HTML that includes a WebFont
+var html = @"<link href=""https://fonts.googleapis.com/css?family=Lobster"" rel=""stylesheet"">
+<p style=""font-family: 'Lobster', serif; font-size:30px;"" >Hello Google Fonts</p>";
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Ensure all fonts are loaded
+renderer.RenderingOptions.WaitFor.AllFontsLoaded(2000);
+
+// Convert HTML to PDF
+PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
+
+// Save the generated PDF
+pdf.SaveAs("font-test.pdf");
 ```
 
-View the live example [here](https://ironpdf.com/static-assets/pdf/how-to/webfonts-webicons/customFont.pdf).
+Discover additional `WaitFor` configurations for handling fonts, JavaScript, and other resources in the '[IronPDF WaitFor Class Documentation](https://ironpdf.com/how-to/waitfor/).'
 
-## Considerations for Azure PDF Rendering
+---
 
-When deploying on Azure, be aware that its lower-tier shared web apps do not support SVG fonts. Only the VPS and Web Role environments, which are not limited by the same sandbox, can render web fonts.
+#### Example: Incorporating a Custom Font File
+
+To integrate an existing font file, use the CSS `@font-face` rule. This feature allows for great customization, including embedding fonts in base64-encoded woff file format. Here’s how to incorporate a custom font, specifically the [Pixelify Sans Font](https://fonts.google.com/specimen/Pixelify+Sans):
+
+```cs
+using IronPdf;
+
+// Embedding a custom font
+string html = @"<!DOCTYPE html>
+<html>
+<head>
+<style>
+@font-face {font-family: 'Pixelify';
+src: url('fonts\PixelifySans-VariableFont_wght.ttf');
+}
+p {
+    font-family: 'Pixelify';
+    font-size: 70px;
+}
+</style>
+</head>
+<body>
+<p>Custom font utilized here</p>
+</body>
+</html>";
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Generate PDF from HTML
+PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
+
+// Output the PDF
+pdf.SaveAs("customFont.pdf");
+```
+
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/webfonts-webicons/customFont.pdf" width="100%" height="400px">
+</iframe>
+
+---
+
+### Font Limitations on Microsoft Azure
+
+The [Azure hosting platform](https://azure.microsoft.com/en-us/) accommodates different capabilities across its service tiers. Notably, the lower shared web app tiers on Azure do not support the loading of SVG fonts. Conversely, higher-tier services such as VPS and Web Role offer enhanced support and are not restricted in this manner.

@@ -1,10 +1,10 @@
 using IronPdf.GrpcLayer;
 using IronPdf;
-namespace ironpdf.IronpdfengineDocker
+namespace IronPdf.Examples.GettingStarted.IronpdfengineDocker
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             var config = new IronPdfConnectionConfiguration();
             config.ConnectionType = IronPdfConnectionType.Docker;

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.WebfontsWebicons
+namespace IronPdf.Examples.HowTo.WebfontsWebicons
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Import custom font
             string html = @"<!DOCTYPE html>

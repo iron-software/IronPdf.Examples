@@ -1,7 +1,10 @@
 ***Based on <https://ironpdf.com/examples/paper-printing-pdfs/>***
 
-Explore IronPrint, the latest .NET printing library from Iron Software, tailored for a range of platforms including Windows, macOS, Android, and iOS. Discover more about this cutting-edge resource and learn how to begin leveraging IronPrint at [Learn More About IronPrint - The .NET Printing Library by Iron Software](https://ironsoftware.com/csharp/print/) and [Discover How to Get Started with IronPrint](https://ironsoftware.com/csharp/print/docs/).
+Explore the new .NET printing library from Iron Software, **IronPrint**, which supports a diverse range of operating systems including Windows, macOS, Android, and iOS. Learn more about IronPrint and how you can get started by visiting:
 
-To print a PDF, you can either send it to the system's default printer, which might show Windows print UI dialogs, or use silent printing by utilizing the overloads of the `IronPdf.PdfDocument.Print` method.
+- [Learn More About IronPrint - The .NET Printing Library by Iron Software](https://ironsoftware.com/csharp/print/)
+- [Discover How to Get Started with IronPrint](https://ironsoftware.com/csharp/print/docs/)
 
-Additional printing configurations can be accessed through the native .NET Framework `PrintDocument` object by using the `IronPdf.PdfDocument.GetPrintDocument` method. This requires adding a reference to `System.Drawing.dll` in your assembly.
+**Printing a PDF using IronPrint** is straightforward. You can send a PDF to the default printer on your computer. Depending on your settings, Windows print UI dialogs might appear, or you can choose to print silently by utilizing various overloads of the `IronPdf.PdfDocument.Print` method.
+
+For more advanced printing capabilities, `IronPdf.PdfDocument.GetPrintDocument` method connects to the native .NET Framework `PrintDocument` object. To leverage this functionality, an assembly reference to `System.Drawing.dll` must be added to your project.

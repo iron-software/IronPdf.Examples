@@ -1,18 +1,35 @@
 using IronPdf;
-namespace ironpdf.ImagesAzureBlobStorage
+namespace IronPdf.Examples.HowTo.ImagesAzureBlobStorage
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
-            // Instantiate Renderer
-            var renderer = new ChromePdfRenderer();
+            // Define your connection string and container name
+            string connectionString = "your_connection_string";
+            string containerName = "your_container_name";
             
-            // Create a PDF from a HTML string using C#
-            var pdf = renderer.RenderHtmlAsPdf(imageTag);
+            // Initialize BlobServiceClient with the connection string
+            BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
             
-            // Export to a file
-            pdf.SaveAs("imageToPdf.pdf");
+            // Get the BlobContainerClient for the specified container
+            BlobContainerClient blobContainer = blobServiceClient.GetBlobContainerClient(containerName);
+            
+            // Get Blob
+            var blob = blobContainer.GetBlobReference("867.jpg");
+            
+            var stream = new MemoryStream();
+            
+            await blob.DownloadToStreamAsync(stream);
+            
+            var array = new byte[blob.Properties.Length];
+            
+            await blob.DownloadToByteArrayAsync(target: array, 0);
+            
+            // Convert bytes to base64
+            var base64 = Convert.ToBase64String(array);
+            
+            var imageTag = $"<img src=\"data:image/jpeg;base64, {base64}\"/><br/>";
         }
     }
 }

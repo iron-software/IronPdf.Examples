@@ -1,10 +1,10 @@
 using System.Linq;
 using IronPdf;
-namespace ironpdf.DocxToPdf
+namespace IronPdf.Examples.HowTo.DocxToPdf
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             var recipients = new List<RecipientsDataModel>()
                 {

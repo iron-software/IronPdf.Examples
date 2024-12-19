@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.HeadersAndFooters
+namespace IronPdf.Examples.HowTo.HeadersAndFooters
 {
-    public class Section5
+    public static class Section5
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate renderer and create PDF
             ChromePdfRenderer renderer = new ChromePdfRenderer();

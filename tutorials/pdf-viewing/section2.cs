@@ -1,11 +1,16 @@
 using IronPdf;
-namespace ironpdf.PdfViewing
+namespace IronPdf.Examples.Tutorial.PdfViewing
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
-            .ConfigureIronPdfView("YOUR-LICENSE-KEY");
+            <?xml version="1.0" encoding="utf-8" ?>
+            <ContentPage ...
+                xmlns:ipv="clr-namespace:IronPdf.Viewer.Maui;assembly=IronPdf.Viewer.Maui"
+                ...>
+                <ipv:IronPdfView x:Name="pdfView"/>
+            </ContentPage>
         }
     }
 }

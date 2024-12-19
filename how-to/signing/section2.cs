@@ -1,10 +1,10 @@
 using System;
 using IronPdf;
-namespace ironpdf.Signing
+namespace IronPdf.Examples.HowTo.Signing
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>foo</h1>");

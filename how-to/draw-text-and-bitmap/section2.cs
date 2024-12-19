@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using IronPdf;
-namespace ironpdf.DrawTextAndBitmap
+namespace IronPdf.Examples.HowTo.DrawTextAndBitmap
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>testing</h1>");

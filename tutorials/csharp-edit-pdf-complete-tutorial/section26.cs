@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CsharpEditPdfCompleteTutorial
+namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
-    public class Section26
+    public static class Section26
     {
-        public void Run()
+        public static void Run()
         {
             HtmlStamper logoStamper = new HtmlStamper
             {

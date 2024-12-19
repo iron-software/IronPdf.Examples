@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using IronPdf;
-namespace ironpdf.PageNumbers
+namespace IronPdf.Examples.HowTo.PageNumbers
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             string multi_page_html = @"
                 <p>This is the 1st Page</p>

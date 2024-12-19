@@ -1,16 +1,18 @@
 ***Based on <https://ironpdf.com/examples/form-data/>***
 
-Your organization might be allocating extensive resources to annual memberships for PDF security and conformance measures. Consider switching to [IronSecureDoc, an All-Encompassing PDF Security Solution](https://ironsoftware.com/enterprise/securedoc/), which offers a range of services such as digital signing, redaction, encryption, and defense through a one-time investment. Delve into the finer points of IronSecureDoc by visiting the [IronSecureDoc Documentation page](https://ironsoftware.com/enterprise/securedoc/docs/).
+<div class="alert alert-info iron-variant-1" role="alert">
+  Your organization may be overspending on annual subscriptions for PDF security and compliance. We recommend checking out <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc, a Comprehensive PDF Security Solution</a>. This product offers a robust suite of features for managing SaaS services, including digital signing, redaction, encryption, and protection, available with a single purchase. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">View IronSecureDoc Documentation</a>
+</div>
 
-IronPDF empowers you to craft editable PDF documents as effortlessly as working with typical text documents. The `PdfForm` class encompasses a suite of editable fields within a PDF, allowing it to function either as a form or a modifiable document.
+IronPDF allows you to effortlessly create editable PDF documents just as you would create any regular document. The `PdfForm` class contains a series of user-editable form fields within a PDF document. This can be integrated into your PDF rendering process to transform it into an interactive form or an editable document.
 
-Here’s a guide on generating PDF forms that users can edit using IronPDF.
+Here’s a guide on how to construct editable PDF forms using IronPDF.
 
-Creating PDFs with modifiable forms is straightforward: you simply incorporate `<form>`, `<input>`, and `<textarea>` tags within the HTML content.
+Creating PDFs with editable forms is straightforward. Simply include `<form>`, `<input>`, and `<textarea>` tags within the parts of your HTML document.
 
-To modify or read values from form fields, utilize the `PdfDocument.Form.GetFieldByName` method. This field's identifier corresponds to the 'name' attribute you assign within your HTML.
+To access and modify any form field, utilize `PdfDocument.Form.FindFormField`. The field's name in the PDF will match the 'name' attribute assigned to that field in the HTML source.
 
-Additionally, the `PdfDocument.Form` object serves dual purposes:
+The `PdfDocument.Form` object provides two functionalities:
 
-- Firstly, it seeds default values into form fields which, when opened with Adobe Reader, display these predefined entries.
-- Secondly, it provides the functionality to extract data from PDF forms that have been completed by users, supporting multiple languages.
+- Firstly, it allows setting the default values of form fields, which Adobe Reader requires to be in focus to display these values.
+- Secondly, it enables the extraction of data from PDF forms that have been filled out by users, supporting various languages.

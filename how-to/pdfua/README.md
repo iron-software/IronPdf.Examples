@@ -1,44 +1,40 @@
-# Generating PDF/UA Compliant Documents in C#
+# How to Generate PDF/UA Compliant Documents in C&#35;
 
 ***Based on <https://ironpdf.com/how-to/pdfua/>***
 
 
-IronPDF supports the creation of PDF documents adhering to the PDF/UA standard, which ensures that the content is accessible to individuals with disabilities. PDF/UA compliance involves adhering to established guidelines that enhance the compatibility with assistive technologies such as screen readers. Adhering to these standards will ensure that your PDFs are in line with Section 508 of the Rehabilitation Act requirements.
+IronPDF facilitates the generation of PDF documents adhering to the PDF/UA standard, enhancing accessibility for users with disabilities. The PDF/UA standard incorporates guidelines that support assistive technologies such as screen readers, ensuring your documents comply with the accessibility mandates of Section 508 of the Rehabilitation Act.
 
-In addition to its accessibility features, PDF/UA also offers various advantages including the ability to reflow text for better viewing on smaller screens, improved document navigation, customizable text attributes, better functionality for search engines, and more efficient text selection and copying capabilities.
+Additionally, the PDF/UA standard enhances the user experience by offering features like text reflow on smaller devices, advanced navigation aids, customizable text styles, improved search capabilities, and better text selection and copying functionality.
 
-## Example: Creating a PDF/UA-Compliant Document
+<h3>Getting Started with IronPDF</h3>
 
-To create a PDF document that meets the PDF/UA standard, use the `SaveAsPdfUA` method. First, load your PDF file into the software, then apply this method to generate a PDF/UA compliant version. You should specify the **naturalLanguages** parameter to indicate the document's primary language. The code below demonstrates how to convert an existing document, for example, the one named "wikipedia.pdf," into a PDF/UA compliant file.
+---
+
+## Example of Exporting a PDF/UA Document
+
+To create a PDF document that complies with the PDF/UA standard, utilize the `SaveAsPdfUA` method. First, load your PDF document, then apply this method to produce a PDF/UA compliant version. Use the **naturalLanguages** parameter to define the primary language of the document. Below is an example of how you might convert an existing PDF using this method.
 
 Input file: "**[wikipedia.pdf](https://ironpdf.com/static-assets/pdf/how-to/pdfua/wikipedia.pdf)**"
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/pdfua/wikipedia.pdf#view=fit" width="100%" height="500px">
 </iframe>
 
-### Code Example
+### Example Code
 
 ```cs
 using IronPdf;
-namespace ironpdf.Pdfua
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // Load the PDF file
-            PdfDocument pdf = PdfDocument.FromFile("wikipedia.pdf");
-            
-            // Convert and save the PDF as PDF/UA compliant
-            pdf.SaveAsPdfUA("pdf-ua-wikipedia.pdf");
-        }
-    }
-}
+
+// Initialize the PDF document from a file
+PdfDocument pdf = PdfDocument.FromFile("wikipedia.pdf");
+
+// Convert to a PDF/UA compliant version
+pdf.SaveAsPdfUA("pdf-ua-wikipedia.pdf");
 ```
 
-### Resulting Output
+### Final Output
 
-The resulting document complies with PDF/UA standards:
+The resulting file is compliant with PDF/UA standards:
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -46,9 +42,9 @@ The resulting document complies with PDF/UA standards:
     </div>
 </div>
 
-Output PDF:
+PDF Output:
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/pdfua/pdf-ua-wikipedia.pdf#view=fit" width="100%" height="500px">
 </iframe>
 
-Note: The current version of IronPDF does not support exporting a PDF/UA file from HTML strings, files, or URLs that have been newly rendered.
+Please note that converting HTML strings, files, or URLs directly into a PDF/UA compliant PDF is not supported at this time.

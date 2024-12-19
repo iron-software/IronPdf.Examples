@@ -1,10 +1,10 @@
 using System;
 using IronPdf;
-namespace ironpdf.EditForms
+namespace IronPdf.Examples.HowTo.EditForms
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("radioButtomForm.pdf");
             var radioForm = pdf.Form.FindFormField("traveltype");

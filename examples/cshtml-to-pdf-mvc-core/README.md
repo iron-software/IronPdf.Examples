@@ -1,9 +1,9 @@
 ***Based on <https://ironpdf.com/examples/cshtml-to-pdf-mvc-core/>***
 
-The following code example illustrates how to transform Views into PDF documents.
+This code snippet illustrates how to transform MVC Views into PDF documents using Iron Software tools.
 
-The `IronPdf.Extensions.Mvc.Core` and `IronPdf` packages collaboratively facilitate the conversion of Views into PDFs. The `IronPdf.Extensions.Mvc.Core` package enhances IronPdf by providing the capability to convert Views into PDF documents.
+The packages `IronPdf.Extensions.Mvc.Core` and `IronPdf` collaboratively facilitate the conversion of Views into PDFs. The `IronPdf.Extensions.Mvc.Core` package extends the capabilities of `IronPdf` to encompass the rendering of Views into PDF format.
 
-To perform this conversion, utilize the `RenderRazorViewToPdf` method. This method demands an `IRazorViewRenderer`, the path to your ".cshtml" file, and the necessary data to populate the ".cshtml" file. For a detailed guide, refer to the [How to Convert View to PDF in ASP.NET Core MVC](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/) article.
+To undertake this conversion, utilize the `RenderRazorViewToPdf` method. This method demands an `IRazorViewRenderer`, the path to your ".cshtml" file, and the necessary data for the ".cshtml" file rendering. For a more detailed guide, check out the [How to Convert View to PDF in ASP.NET Core MVC](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/) article.
 
-Additionally, this process allows you to leverage the extensive features of the **RenderingOptions** class. This includes incorporating [page numbers in PDFs with IronPDF](https://ironpdf.com/how-to/add-page-numbers-to-existing-pdf/), embedding [text and HTML headers and footers with IronPDF](https://ironpdf.com/how-to/add-headers-and-footers-using-html-in-csharp/), and adjusting the PDF paper size as per your requirements. The final PDF file can be edited or exported according to your needs.
+Additionally, this functionality allows you to leverage the extensive features available in the **RenderingOptions** class. This includes inserting [page numbers in PDFs with IronPDF](https://ironpdf.com/how-to/add-page-numbers-to-existing-pdf/), embedding [text and HTML headers and footers with IronPDF](https://ironpdf.com/how-to/add-headers-and-footers-using-html-in-csharp/), and specifying custom paper sizes for PDFs. Once created, the PDF document can be edited or exported as required.

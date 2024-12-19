@@ -1,43 +1,39 @@
-# Embedding Images Using Data URIs in C# and VB for PDF Conversion
+# Embedding Images with Data URIs in C# & VB PDF Generation
 
 ***Based on <https://ironpdf.com/how-to/datauris/>***
 
 
-When handling HTML strings and documents in development, it's often more convenient to avoid relying on a directory of external assets. One effective solution to this is utilizing the [data URI scheme](https://en.wikipedia.org/wiki/Data_URI_scheme).
+In instances where managing HTML strings and documents, it's often preferable to avoid relying on an asset directory. To address this, the [data URI scheme](https://en.wikipedia.org/wiki/Data_URI_scheme) can be utilized.
 
-The data URI scheme is a technique employed in web development that embeds data directly within HTML or CSS, removing the necessity for external resource files. This method allows the inclusion of images, files, and fonts directly into HTML documents as base64-encoded strings.
+The data URI scheme is a technique in web development that embeds data directly into HTML or CSS, removing the need for external files. This approach enables embedding images, files, and typefaces straight into an HTML document as textual data.
 
-## Example of Embedding an Image Directly in HTML
+<h3>Introduction to IronPDF</h3>
 
-Below is an example that demonstrates how to embed an image directly into an HTML document without needing a separate asset file:
+---
+
+## Example of Basic Image Embedding
+
+This example demonstrates how to embed an image into an HTML document using a data URI, hence avoiding the use of external asset files:
 
 ```cs
-using System;
 using IronPdf;
-namespace IronPdfExamples.DataUriEmbedding
-{
-    public class BasicEmbedding
-    {
-        public void Execute()
-        {
-            // Load image as byte array
-            var imageBytes = System.IO.File.ReadAllBytes("My_image.png");
-            
-            // Encode image bytes to base64
-            var base64Image = @"data:image/png;base64," + Convert.ToBase64String(imageBytes);
-            
-            // Embed the base64 string into an HTML img tag
-            var htmlContent = $"<img src='{base64Image}'>";
-            
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Convert HTML string to PDF
-            var pdfDocument = renderer.RenderHtmlAsPdf(htmlContent);
-            
-            pdfDocument.SaveAs("embedded_image_example.pdf");
-        }
-    }
-}
+using System;
+
+// Loading the image file into byte array
+var imageBytes = System.IO.File.ReadAllBytes("My_image.png");
+
+// Encoding bytes into base64
+var imageDataURI = @"data:image/png;base64," + Convert.ToBase64String(imageBytes);
+
+// Creating HTML content with embedded image
+var htmlContent = $"<img src='{imageDataURI}'>";
+
+ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
+
+// Generating PDF from HTML string
+var pdfDocument = pdfRenderer.RenderHtmlAsPdf(htmlContent);
+
+pdfDocument.SaveAs("embedded_image_example.pdf");
 ```
 
-Additionally, it's possible to serve an [entire HTML String or PDF document as a Byte Array using IronPDF's ASP.NET MVC integration](https://www.ironpdf.com/how-to/asp-net-mvc-pdf-binary/).
+Furthermore, IronPDF allows serving a complete [HTML String or PDF document as a Byte Array through its ASP.NET MVC framework integration](https://ironpdf.com/how-to/asp-net-mvc-pdf-binary/).

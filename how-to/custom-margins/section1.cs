@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CustomMargins
+namespace IronPdf.Examples.HowTo.CustomMargins
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             

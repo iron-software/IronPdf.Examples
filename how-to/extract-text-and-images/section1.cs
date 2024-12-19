@@ -1,10 +1,10 @@
 using System.IO;
 using IronPdf;
-namespace ironpdf.ExtractTextAndImages
+namespace IronPdf.Examples.HowTo.ExtractTextAndImages
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
             

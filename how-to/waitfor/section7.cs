@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.Waitfor
+namespace IronPdf.Examples.HowTo.Waitfor
 {
-    public class Section7
+    public static class Section7
     {
-        public void Run()
+        public static void Run()
         {
             string htmlContent = @"
             <!DOCTYPE html>

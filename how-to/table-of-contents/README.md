@@ -3,150 +3,159 @@
 ***Based on <https://ironpdf.com/how-to/table-of-contents/>***
 
 
-A table of contents (TOC) serves as a detailed guide, allowing readers to effortlessly navigate through the sections of a PDF document. Usually positioned at the start, it enumerates the principal sections or chapters along with their corresponding starting pages. This feature enables users to swiftly locate and access specific sections within the document.
+A table of contents (TOC) in a PDF serves as a navigational tool, much like a roadmap that guides readers through the document. It is generally placed at the beginning of the PDF and enumerates the primary sections or chapters along with their starting page numbers. This feature facilitates quick and easy access to different sections of the document, enhancing the reader's ability to efficiently locate information.
 
-IronPDF supports the creation of a navigable table of contents for PDF documents, automatically linking to elements like `h1`, `h2`, `h3`, `h4`, `h5`, and `h6`. The integrated style of the table of contents ensures it does not interfere with existing styles in the HTML content.
+IronPDF includes functionality that enables the automatic creation of a table of contents, linking to the 'h1' through 'h6' headings within the document. This TOC is styled by default to ensure it does not interfere with other styles within the HTML source.
+
+<h3> Get Started with IronPDF</h3>
+
+---
 
 ## Example: Adding a Table of Contents
 
-The `TableOfContents` property within IronPDF allows you to incorporate a table of contents in your PDF. This property can be set to one of three `TableOfContentsTypes`:
-- `None`: No table of contents is created.
-- `Basic`: Generates a table of contents without including page numbers.
-- `WithPageNumbers`: Produces a table of contents that includes page numbers for each section.
+To introduce a table of contents in your PDF, utilize the **TableOfContents** property. This property accepts one of three **TableOfContentsTypes** values:
+- None: No table of contents is created.
+- Basic: Generates a table of contents without page numbers.
+- WithPageNumbers: Produces a table of contents that includes page numbers.
 
-For a practical demonstration, you can download a sample HTML file through the following link:
-- [Download the sample HTML file](https://ironpdf.com/static-assets/pdf/how-to/table-of-contents/tableOfContent.html)
+For a practical demonstration, consider downloading the provided sample HTML:
+- [Download the sample HTML file](https://ironsoftware.com/static-assets/pdf/how-to/table-of-contents/tableOfContent.html)
 
-### Code Example
+### Implementing the Code
 
 ```cs
-using System.IO;
 using IronPdf;
-namespace IronPdf.TableOfContents
+using System.IO;
+
+// Initialize the PDF renderer
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Set rendering options, including enabling the TOC
+renderer.RenderingOptions = new ChromePdfRenderOptions
 {
-    public class Example
-    {
-        public void Execute()
-        {
-            // Initialize the PDF renderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Set rendering options to include the table of contents with page numbers
-            renderer.RenderingOptions = new ChromePdfRenderOptions
-            {
-                TableOfContents = TableOfContentsTypes.WithPageNumbers
-            };
-            
-            // Render the HTML file to a PDF document
-            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("tableOfContent.html");
-            
-            // Save the PDF file
-            pdf.SaveAs("tableOfContents.pdf");
-        }
-    }
-}
+    TableOfContents = TableOfContentsTypes.WithPageNumbers,  // TOC with page numbers
+};
+
+PdfDocument pdf = renderer.RenderHtmlFileAsPdf("tableOfContent.html");
+
+pdf.SaveAs("tableOfContents.pdf");
 ```
 
-### Visualizing the PDF Output
+### Viewing the Output PDF
 
-<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/table-of-contents/tableOfContents.pdf#view=75%&page=2" width="100%" height="500px">
+<iframe loading="lazy" src="https://ironsoftware.com/static-assets/pdf/how-to/table-of-contents/tableOfContents.pdf#view=75%&page=2" width="100%" height="500px">
 </iframe>
 
-The generated table of contents will automatically include hyperlinks to each header tag, from `h1` to `h6`.
+The TOC will include interactive hyperlinks for each 'h1' through 'h6' heading.
 
-**Note:** Using the `Merge` method on the document will disrupt the hyperlinks in the table of contents.
+Note: Applying the `Merge` method on the document will disrupt the hyperlinks in the TOC.
 
-## Placement of the Table of Contents in the PDF
+<hr>
 
-1. Your HTML document should contain proper header tags from `h1` to `h6`.
-2. Optionally, you can specify where the table of contents should appear by including a `div` with the ID `ironpdf-toc`. If this `div` is not present, IronPDF will automatically place the table of contents at the beginning of the document.
-3. Set the `RenderingOptions` to render the table of contents either with or without page numbers according to your preference.
+## Positioning the Table of Contents in the PDF
 
-## Customizing the Table of Contents' Style
+1. Ensure your HTML document contains proper header tags (h1 to h6).
+2. Optionally, place a div for the TOC. Without this div, IronPDF will place the TOC at the beginning by default.
+```html
+    <div id="ironpdf-toc"></div>
+```
+3. Decide in the render options whether to include page numbers in the TOC.
 
-The appearance of the table of contents can be customized using CSS. For advanced customization, you can use the `CustomCssUrl` property to link to an external CSS file. Start by downloading the baseline CSS for the table of contents:
+<hr>
 
-- [Download the custom CSS file](https://ironpdf.com/static-assets/pdf/how-to/table-of-contents/custom.css)
+## Customizing the Table of Contents Style
 
-### Styling Code Example
+You can style the Table of Contents using CSS. Start by downloading the default style sheet:
+- [Download the custom CSS file](https://ironsoftware.com/static-assets/pdf/how-to/table-of-contents/custom.css)
+
+Avoid modifying the `page-break-before` and `page-break-after` CSS properties for the table of contents to ensure accurate page number calculation.
 
 ```cs
-using System.IO;
 using IronPdf;
-namespace IronPdf.TableOfContents
+using System.IO;
+
+// Create a PDF renderer instance
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Setting render options
+renderer.RenderingOptions = new ChromePdfRenderOptions
 {
-    public class StylingExample
-    {
-        public void Execute()
-        {
-            // Initialize the renderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Configure options to include custom styles and the table of contents
-            renderer.RenderingOptions = new ChromePdfRenderOptions
-            {
-                TableOfContents = TableOfContentsTypes.WithPageNumbers,
-                CustomCssUrl = "./custom.css"
-            };
-            
-            // Read HTML and generate PDF
-            string html = File.ReadAllText("tableOfContent.html");
-            PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
-            
-            // Save the styled PDF
-            pdf.SaveAs("styledTableOfContents.pdf");
-        }
-    }
-}
+    TableOfContents = TableOfContentsTypes.WithPageNumbers, // Enable TOC with page numbers
+    CustomCssUrl = "./custom.css"  // Custom styling
+};
+
+// Load and render the HTML as PDF
+string html = File.ReadAllText("tableOfContent.html");
+PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
+
+pdf.SaveAs("tableOfContents.pdf");
 ```
 
-### Specific Styling Adjustments
+### Custom Header Styles
 
-Target different levels of headers within the table of contents to apply varied styling effects using CSS selectors like `#ironpdf-toc ul li.h1` for H1 headers.
+Modify the appearance of headers within the TOC by adapting the CSS classes for each header level (from 'h1' to 'h6').
 
 ```css
 #ironpdf-toc ul li.h1 {
 	font-style: italic;
-	font-weight: bold;
+    font-weight: bold;
 }
 ```
 
-### Altering Font Families
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/pdf/how-to/table-of-contents/style-headers.webp" alt="Style headers" class="img-responsive add-shadow">
+    </div>
+</div>
 
-Adjust font families for different parts of the table of contents using appropriate CSS properties. Here is how to implement a custom 'Lemon' font, downloadable through the link below:
-
-- [Download the Lemon font](https://ironpdf.com/static-assets/pdf/how-to/table-of-contents/Lemon-Regular.ttf)
-
-Implement font changes in CSS:
+### Changing Font Family
 
 ```css
 #ironpdf-toc li .title {
     order: 1;
-    font-family: cursive;
+    font-family: cursive;  // Title font style
 }
 
 @font-face {
     font-family: 'lemon';
-    src: url('Lemon-Regular.ttf')
+    src: url('https://ironsoftware.com/static-assets/pdf/how-to/table-of-contents/Lemon-Regular.ttf')  // Custom font
 }
 
 #ironpdf-toc li .page {
     order: 3;
-    font-family: 'lemon', sans-serif;
+    font-family: 'lemon', sans-serif;  // Page number font style
 }
 ```
 
-### Customizing Indentation and Decorative Lines
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/pdf/how-to/table-of-contents/font-family.webp" alt="Set custom font family" class="img-responsive add-shadow">
+    </div>
+</div>
 
-Control indentation using the `:root` selector and customize the separator lines within the table of contents to enhance readability:
+### Handling Indentation
+
+Control the indent level for each header type using the ':root' CSS selector, adjusting as needed.
 
 ```css
 :root {
-	--indent-length: 25px;
+	--indent-length: 25px;  // Specify the indent length
 }
+```
 
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/pdf/how-to/table-of-contents/indentation.webp" alt="Set custom indentation" class="img-responsive add-shadow">
+    </div>
+</div>
+
+### Removing Dotted Lines
+
+Customize or remove the dotted lines between header titles and page numbers by altering the ':after' pseudo-element.
+
+```css
 #ironpdf-toc li::after {
-    background-image: radial-gradient(circle, transparent 1px, transparent 1.5px);
+    background-image: radial-gradient(circle, transparent 1px, transparent 1.5px);  // Modify dot style
     background-position: bottom;
     background-size: 1ex 4.5px;
     background-repeat: space no-repeat;
@@ -156,3 +165,9 @@ Control indentation using the `:root` selector and customize the separator lines
     order: 2;
 }
 ```
+
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/pdf/how-to/table-of-contents/dot-line.webp" alt="Remove dots" class="img-responsive add-shadow">
+    </div>
+</div>

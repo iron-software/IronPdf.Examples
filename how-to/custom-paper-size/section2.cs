@@ -1,10 +1,10 @@
 using IronPdf.Editing;
 using IronPdf;
-namespace ironpdf.CustomPaperSize
+namespace IronPdf.Examples.HowTo.CustomPaperSize
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("customPaperSize.pdf");
             

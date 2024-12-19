@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CsharpEditPdfCompleteTutorial
+namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
-    public class Section23
+    public static class Section23
     {
-        public void Run()
+        public static void Run()
         {
             var pdf = new PdfDocument("/attachments/design.pdf");
             string html = "<h1> Example Title <h1/>";

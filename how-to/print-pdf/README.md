@@ -1,39 +1,35 @@
-# Printing PDF Files in .NET with IronPrint
+# Printing PDF Files in C# with IronPrint
 
 ***Based on <https://ironpdf.com/how-to/print-pdf/>***
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-	Discover the capabilities of the [IronPrint .NET Printing Library](https://ironsoftware.com/csharp/print/), the latest solution from Iron Software, ensuring compatibility across diverse platforms such as Windows, macOS, Android, and iOS. Start your journey with IronPrint by accessing the [Getting Started Guide](https://ironsoftware.com/csharp/print/docs/).
+	Discover the new [IronPrint .NET Printing Library](https://ironsoftware.com/csharp/print/), a comprehensive .NET library ensuring compatibility across numerous platforms like Windows, macOS, Android, and iOS. Start with IronPrint and [Learn How to Get Started](https://ironsoftware.com/csharp/print/docs/) today!
 </div>
 
-Automating the printing of PDF documents via .NET C# is efficient, allowing for the integration of print functionality into your apps. This process facilitates streamlined PDF output and ensures uniformity in your printed documents.
+Automate the process of sending PDF documents to a printer directly from .NET C# code. This functionality simplifies integrating robust printing capabilities into your applications, minimizing manual operations while enhancing the consistency of your PDF outputs. Gain precise control over every aspect of the printing process.
 
-IronPDF enables swift printing to physical printers with a single method call, supporting the printing of multiple PDF documents simultaneously. You can define the printer resolution, opting for specific DPI values both horizontally and vertically. Advanced control over the print function is provided through integration with both Microsoft `PrinterSettings` and `PrintController`.
+IronPDF provides a straightforward means to print documents directly to a physical printer through a single method call, supporting the printing of multiple PDF documents. Additionally, you can define the print resolution through adjustable DPI settings for both horizontal and vertical axes. Advanced control can be achieved by utilizing the `Microsoft PrinterSettings` and `PrintController` for comprehensive management of your printing needs.
 
-## Example: Printing a PDF File
+### Getting Started with IronPDF
 
-Using the `Print` method from the `PdfDocument` class, you can print your PDFs. This method allows for printing from both newly generated and existing PDFs directly to your default printer or to a specified printer using its name as a parameter.
+----------------------------
 
-It's important to note that all printing capabilities are currently only supported on the 'Windows' platform.
+## Printing a PDF File Example
+
+The `Print` method within the `PdfDocument` class allows for printing of both newly created and pre-existing PDF files. Use this method to send a document to the default system printer, or specify a different printer using the printer's name.
+
+Please note, printing features are primarily supported on Windows platforms.
 
 ```cs
 using IronPdf;
-namespace ironpdf.PrintPdf
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Demonstrating Print</h1>");
-            
-            // Directs the PDF to the intended printer "Microsoft Print to PDF"
-            pdf.Print("Microsoft Print to PDF");
-        }
-    }
-}
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example Print</h1>");
+
+// Printing the document using a specific printer
+pdf.Print("Microsoft Print to PDF");
 ```
 
 <div class="content-img-align-center">
@@ -46,113 +42,85 @@ namespace ironpdf.PrintPdf
 
 ## Setting Printer Resolution
 
-You can set the resolution for printing your PDF by supplying a DPI value to the `Print` method. For separate DPI settings for horizontal and vertical dimensions, two parameters can be used.
+Adjust the printed PDF's resolution by inputting your desired DPI. Specify uniform DPI for both axes or different values for horizontal (x) and vertical (y) resolutions respectively.
 
 ```cs
 using IronPdf;
-namespace ironpdf.PrintPdf
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Testing Resolution</h1>");
-            
-            // Establish a custom DPI
-            pdf.Print(300);
-            
-            // Adjustable printing resolutions
-            pdf.Print(10, 10, "Microsoft Print to PDF");
-        }
-    }
-}
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example DPI Setting</h1>");
+
+// Setting a custom uniform DPI
+pdf.Print(300);
+
+// Defining specific DPI for horizontal and vertical resolutions
+pdf.Print(10, 10, "Microsoft Print to PDF");
 ```
 
-Now, let's explore an example of rasterizing and saving a PDF file.
+Next, we'll explore the concept of printing to a file format.
 
 <hr>
 
-## Printing to File
+## Printing to a File
 
-Utilize the `PrintToFile` method for converting PDF documents into a bitmap format, thereby saving them as a file. This operation is facilitated by an internal printer, in my case, "Microsoft Print to PDF". This operation saves the file on disk without actually printing it.
+Utilize the `PrintToFile` method to convert a PDF into a bitmap format, which is then saved as a PDF. This rasterization uses the native Windows printer—in this case, "Microsoft Print to PDF." It's important to note that this function saves the file to the disk rather than sending it to a physical printer.
 
 ```cs
 using IronPdf;
-namespace ironpdf.PrintPdf
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = a ChromePdfRenderer();
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example Print to File</h1>");
-            
-            // Performs print to file operation
-            pdf.PrintToFile("");
-        }
-    }
-}
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>File Print Example</h1>");
+
+// Save the document as a file
+pdf.PrintToFile("");
 ```
 
 <hr>
 
-## Advanced Print PDF Document Configuration
+## Fine-Tuning Print PDF Document Settings
 
-For more refined control, the `GetPrintDocument` method allows integration with both `PrinterSettings` and `PrintController`, offering detailed management of the printing process. Below is an example accompanied by a description of various settings.
+To adjust print settings further, the `GetPrintDocument` method can be implemented, which supports `Microsoft PrinterSettings` and `PrintController`. This method retrieves the current print document configuration. Below is an example showing how to configure the settings, and descriptions on each setting are provided after the code.
 
 ```cs
+using IronPdf;
 using System.Drawing.Printing;
-using IronPdf;
-namespace ironpdf.PrintPdf
-{
-    public class Section4
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Advanced Printing</h1>");
 
-            PrinterSettings settings = new PrinterSettings()
-            {
-                PrinterName = "Microsoft Print to PDF",
-                Copies = 2,
-                FromPage = 2,
-                ToPage = 4,
-            };
+ChromePdfRenderer renderer = new ChromePdfRenderer();
 
-            PrintDocument document = pdf.GetPrintDocument(settings);
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Advanced Setting Example</h1>");
 
-            // Initiates the printing process
-            document.Print();
-        }
-    }
-}
+PrinterSettings settings = new PrinterSettings() {
+    PrinterName = "Microsoft Print to PDF",
+    Copies = 2,
+    FromPage = 2,
+    ToPage = 4
+};
+
+PrintDocument document = pdf.GetPrintDocument(settings);
+
+// Execute the print job
+document.Print();
 ```
-- **CanDuplex**: Indicates the printer's capability for duplex printing.
-- **Collate**: Organizes multiple files or copies during printing.
-- **Copies**: Specifies the number of copies to print.
-- **DefaultPageSettings**: Contains default settings like paper size and orientation.
-- **Duplex**: The mode of duplex printing.
-- **InstalledPrinters**: Lists the printers installed on the system.
-- **IsDefaultPrinter**: Checks if a specified printer is the default.
-- **IsPlotter**: Identifies if the printer is a plotter.
-- **IsValid**: Validates the viability of the printer settings.
-- **LandscapeAngle**: The rotation angle for landscape orientation.
-- **MaximumCopies**: The maximum number of copies allowed.
-- **MaximumPage**: The highest page number available for printing.
-- **MinimumPage**: The lowest page number available for printing.
-- **PaperSizes**: Lists available paper sizes.
-- **PaperSources**: Available paper sources or trays.
-- **PrinterName**: The name of the printer.
-- **PrinterResolutions**: Available printer resolutions.
-- **PrintFileName**: The filename for printing to a file.
-- **PrintRange**: Defines the range of pages to print.
-- **FromPage**: The start page number for printing.
-- **ToPage**: The end page number for printing.
-- **PrintToFile**: Specifies printing to a file.
-- **SupportsColor**: Checks if the printer supports color printing.
 
-To set up a default printer for PDFs, access the "Printers & Scanners" section in your system settings.
+- **CanDuplex:** Determines whether double-sided printing is possible.
+- **Collate:** Organizes multiple files or copies when printed, based on setting.
+- **Copies:** Defines how many copies of a document to print.
+- **DefaultPageSettings:** Sets default paper size, margins, and orientation.
+- **Duplex:** Chooses the mode of double-sided printing.
+- **InstalledPrinters:** Lists available printers.
+- **IsDefaultPrinter:** Checks if a specified printer is the default.
+- **IsPlotter:** Identifies if the device is a plotter, useful for large prints.
+- **IsValid:** Validates if the printer settings are suitable for PDF printing.
+- **LandscapeAngle:** Angle adjustment for landscape printing.
+- **MaximumCopies, MaximumPage, MinimumPage:** Configures limits on copies and page numbers.
+- **PaperSizes, PaperSources:** Lists supported paper sizes and input trays.
+- **PrinterName:** Specifies which printer to use.
+- **PrinterResolutions:** Lists possible print resolutions.
+- **PrintFileName:** Sets the filename for printing to file.
+- **PrintRange, FromPage, ToPage:** Determines range of pages to print.
+- **PrintToFile:** Decides if output is to file rather than printer.
+- **SupportsColor:** Indicates color printing capability.
+
+To set the default printer, access the "Printers & Scanners" section in your machine settings.

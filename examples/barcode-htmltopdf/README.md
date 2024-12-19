@@ -1,9 +1,9 @@
 ***Based on <https://ironpdf.com/examples/barcode-htmltopdf/>***
 
-IronPDF not only supports custom fonts but also extends its capabilities to include web fonts like [Barcode Fonts with IronPDF](https://ironpdf.com/examples/barcode-htmltopdf/), allowing for the easy inclusion of barcode details in your PDF projects. This feature lets developers efficiently integrate barcode representations directly into PDF files.
+IronPDF not only supports standard custom fonts but also encompasses web fonts, including [Barcode Fonts with IronPDF](https://ironpdf.com/examples/barcode-htmltopdf/), allowing effortless incorporation of barcode data into your PDF projects. This capability provides developers with the tools needed to integrate barcodes directly into PDF documents.
 
-Here's how you can utilize IronPDF to embed barcodes in your PDF documents.
+This guide illustrates the process of embedding barcodes into your PDFs using IronPDF.
 
-Nonetheless, there might be instances where specific barcode types, such as QR codes, aren't supported directly. For these scenarios, you can use [IronOCR for generating barcodes](https://ironsoftware.com/csharp/ocr/) and subsequently incorporate them into your PDFs as images.
+However, it's important to note that some specific barcode types, like QR codes, might not be directly supported. In these instances, you can utilize [IronOCR to generate barcodes](https://ironsoftware.com/csharp/ocr/), then integrating these barcodes as images within your PDFs.
 
-To discover various styles for barcode rendering, visit Google Fonts which offers seven Google WebFont-based barcode styles. However, it's important to note certain restrictions with this approach, including the necessity for a `RenderDelay`. Additionally, due to security precautions, web fonts are not supported on Azure's shared Windows Web App hosting environments.
+For further customization, you can explore Google Fonts, which offers 7 distinct Google WebFont-based styles for barcode rendering. Be aware, though, that using barcode fonts comes with certain constraints, such as the requirement for a `RenderDelay`. Moreover, web fonts may face compatibility issues on Azure shared Windows Web App hosting due to Microsoft's security policies.

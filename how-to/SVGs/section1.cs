@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.SVGs
+namespace IronPdf.Examples.HowTo.SVGs
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             string html = "<img src='https://ironsoftware.com/img/svgs/new-banner-svg.svg' style='width:100px'>";
             

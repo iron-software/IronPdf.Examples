@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.SanitizePdf
+namespace IronPdf.Examples.HowTo.SanitizePdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Import PDF document
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");

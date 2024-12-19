@@ -1,10 +1,10 @@
 using System.Linq;
 using IronPdf;
-namespace ironpdf.ManageFonts
+namespace IronPdf.Examples.HowTo.ManageFonts
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Import PDF
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");

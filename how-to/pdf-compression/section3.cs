@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.PdfCompression
+namespace IronPdf.Examples.HowTo.PdfCompression
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
             

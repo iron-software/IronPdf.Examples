@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.Ironpdf2021ChromeRenderingEngineEap
+namespace IronPdf.Examples.HowTo.Ironpdf2021ChromeRenderingEngineEap
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             

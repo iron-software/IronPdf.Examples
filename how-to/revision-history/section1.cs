@@ -1,10 +1,10 @@
 using IronPdf.Rendering;
 using IronPdf;
-namespace ironpdf.RevisionHistory
+namespace IronPdf.Examples.HowTo.RevisionHistory
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Import PDF and enable TrackChanges
             PdfDocument pdf = PdfDocument.FromFile("annual_census.pdf", TrackChanges: ChangeTrackingModes.EnableChangeTracking);

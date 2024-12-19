@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CreateForms
+namespace IronPdf.Examples.HowTo.CreateForms
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Input and Text Area forms HTML
             string FormHtml = @"

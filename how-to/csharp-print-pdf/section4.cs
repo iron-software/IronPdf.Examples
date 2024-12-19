@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using IronPdf;
-namespace ironpdf.CsharpPrintPdf
+namespace IronPdf.Examples.HowTo.CsharpPrintPdf
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
             

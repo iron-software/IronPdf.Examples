@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.HtmlFileToPdf
+namespace IronPdf.Examples.HowTo.HtmlFileToPdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             <!DOCTYPE html>
             <html>

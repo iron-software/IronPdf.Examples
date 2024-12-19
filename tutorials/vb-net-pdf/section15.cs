@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.VbNetPdf
+namespace IronPdf.Examples.Tutorial.VbNetPdf
 {
-    public class Section15
+    public static class Section15
     {
-        public void Run()
+        public static void Run()
         {
             <div style='page-break-after: always;'>&nbsp;</div>
         }

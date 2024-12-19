@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.UrlToPdf
+namespace IronPdf.Examples.HowTo.UrlToPdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate Renderer
             var renderer = new ChromePdfRenderer();

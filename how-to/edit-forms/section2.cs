@@ -1,10 +1,10 @@
 using System;
 using IronPdf;
-namespace ironpdf.EditForms
+namespace IronPdf.Examples.HowTo.EditForms
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("checkboxAndComboboxForm.pdf");
             

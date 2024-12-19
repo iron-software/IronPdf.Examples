@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.FindReplaceText
+namespace IronPdf.Examples.HowTo.FindReplaceText
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             

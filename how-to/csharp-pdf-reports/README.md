@@ -1,18 +1,18 @@
-# Creating PDF Reports in ASP.NET Using C# or VB
+# Generating PDF Reports in ASP.NET Using C# or VB
 
 ***Based on <https://ironpdf.com/how-to/csharp-pdf-reports/>***
 
 
-Creating management or database reports from structured sources like SQL databases is a frequent task in .NET development. IronPDF serves as a robust tool for reading and parsing PDFs, allowing developers to visualize and convert SSIS reports into PDF format within ASP.NET applications effectively.
+Creating management or database reports from structured sources like SQL is a routine task in .NET development. IronPDF excels as a PDF reader in C# and provides capabilities to visualize and convert SSIS reports into PDFs within ASP.NET C# applications.
 
-IronPDF enables you to capture snapshots of data and present them as PDF "reports," functioning seamlessly as a PDF parser in C#.
+IronPDF is also effective for converting data snapshots into PDF reports, serving as a proficient PDF parser in C#.
 
 <hr class="separator">
 
 <h4 class="tutorial-segment-title">Step 1</h4>
 
-## 1. Installing IronPDF
-Add IronPDF to your project using NuGet: [https://www.nuget.org/packages/IronPdf](https://www.nuget.org/packages/IronPdf)
+## 1. Setting Up IronPDF
+Install via NuGet: [IronPdf on NuGet](https://www.nuget.org/packages/IronPdf)
 ```shell
 /Install-Package IronPdf
 ```
@@ -20,132 +20,86 @@ Alternatively, you can [download the IronPDF DLL manually](https://ironpdf.com/p
 
 <hr class="separator">
 
-<h4 class="tutorial-segment-title">How to Tutorial</h4>
+<h4 class="tutorial-segment-title">How-to Tutorial</h4>
 
-## 2. Method to Create a PDF Report
+## 2. Creating a PDF Report
 
-Begin by constructing the report in HTML format. Subsequently, use IronPDF to convert this HTML into a PDF document. This tutorial provides a detailed demonstration of generating a PDF report using ASP.NET C#.
+The standard approach involves generating an HTML document which is then converted to PDF using IronPDF. Here, we demonstrate how to craft a PDF report in ASP.NET C#:
 
 ```cs
 using IronPdf;
-namespace ironpdf.CsharpPdfReports
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            renderer.RenderHtmlFileAsPdf("report.html").SaveAs("report.pdf");
-        }
-    }
-}
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+renderer.RenderHtmlFileAsPdf("report.html").SaveAs("report.pdf");
 ```
 
-## 3. Convert Crystal Reports into PDF Using .NET
+## 3. Converting Crystal Reports to PDF
 
-Initially, export your Crystal Reports as HTML:
+First, in Crystal Reports, export your report as HTML:
 
-File -> Export -> Select HTML 4.0
+File -> Export -> choose HTML 4.0
 
-These HTML reports can then be converted to PDF using the C# methodology shown above.
-
-Here’s an example:
+Then, convert the HTML output to PDF using the previously shown C# code:
 
 ```cs
+using IronPdf;
 using IronSoftware.Drawing;
-using IronPdf;
-namespace ironpdf.CsharpPdfReports
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Easily add a header to every page
-            renderer.RenderingOptions.FirstPageNumber = 1;
-            renderer.RenderingOptions.TextHeader.DrawDividerLine = true;
-            renderer.RenderingOptions.TextHeader.CenterText = "{url}";
-            renderer.RenderingOptions.TextHeader.Font = FontTypes.Arial;
-            renderer.RenderingOptions.TextHeader.FontSize = 12;
-            
-            // Incorporate a footer as well
-            renderer.RenderingOptions.TextFooter.DrawDividerLine = true;
-            renderer.RenderingOptions.TextFooter.Font = FontTypes.Arial;
-            renderer.RenderingOptions.TextFooter.FontSize = 10;
-            renderer.RenderingOptions.TextFooter.LeftText = "{date} {time}";
-            renderer.RenderingOptions.TextFooter.RightText = "{page} of {total-pages}";
-            
-            renderer.RenderHtmlFileAsPdf(@"c:\my\exported\report.html").SaveAs("report.pdf");
-        }
-    }
-}
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Easily add a header
+renderer.RenderingOptions.FirstPageNumber = 1;
+renderer.RenderingOptions.TextHeader.DrawDividerLine = true;
+renderer.RenderingOptions.TextHeader.CenterText = "{url}";
+renderer.RenderingOptions.TextHeader.Font = FontTypes.Arial;
+renderer.RenderingOptions.TextHeader.FontSize = 12;
+
+// And a footer
+renderer.RenderingOptions.TextFooter.DrawDividerLine = true;
+renderer.RenderingOptions.TextFooter.LeftText = "{date} {time}";
+renderer.RenderingOptions.TextFooter.RightText = "{page} of {total-pages}";
+renderer.RenderingOptions.TextFooter.Font = FontTypes.Arial;
+renderer.RenderingOptions.TextFooter.FontSize = 10;
+
+renderer.RenderHtmlFileAsPdf(@"c:\my\exported\report.html").SaveAs("report.pdf");
 ```
 
-### 3.1 Programmatically Convert Crystal Reports to PDF with C#
+### 3.1 Automated Crystal Reports Conversion to PDF
 
-You can also handle RPT files programmatically to create PDFs, offering more control over the process.
+For a more automated approach using C# to convert Crystal Reports (RPT) files to PDF:
 
 ```cs
-using System.IO;
-using IronPdf;
-using CrystalDecisions.Shared;
-using CrystalDecisions.CrystalReports.Engine;
-
-ReportDocument rpt = new ReportDocument();
-
-DiskFileDestinationOptions diskOpts = new DiskFileDestinationOptions()
+var diskOpts = new CrystalDecisions.Shared.DiskFileDestinationOptions()
 {
-    DiskFileName = @"c:\tmp\html\b.html"
+    DiskFileName = @"c:\tmp\html\output.html"
 };
 
-ExportOptions exportOpts = new ExportOptions();
-
-HTMLFormatOptions HTMLExpOpts = new HTMLFormatOptions();
+var exportOpts = new CrystalDecisions.Shared.ExportOptions
+{
+    ExportDestinationType = CrystalDecisions.Shared.ExportDestinationType.DiskFile,
+    ExportFormatType = CrystalDecisions.Shared.ExportFormatType.HTML40,
+    ExportDestinationOptions = diskOpts
+};
 
 rpt.Load(@"c:\my\report.rpt");
-
-exportOpts.ExportDestinationType = ExportDestinationType.DiskFile;
-exportOpts.ExportFormatType = ExportFormatType.HTML40;
-exportOpts.ExportDestinationOptions = diskOpts;
-
-HTMLExpOpts.HTMLBaseFolderName = @"c:\tmp\html\b.html";
-HTMLExpOpts.HTMLEnableSeparatedPages = false;
-
-Stream htmlStream;
-byte[] htmlByteArray;
-
-htmlStream = rpt.ExportToStream(ExportFormatType.HTML40);
-
-htmlByteArray = new byte[htmlStream.Length];
-
-htmlStream.Read(htmlByteArray, 0, Convert.ToInt32(htmlStream.Length - 1));
-
-File.Create(diskOpts.DiskFileName, Convert.ToInt32(htmlStream.Length - 1)).Close();
-
-File.OpenWrite(diskOpts.DiskFileName).Write(htmlByteArray, 0, Convert.ToInt32(htmlStream.Length - 1));
-
-File.SetAttributes(diskOpts.DiskFileName, FileAttributes.Directory);
-
-htmlStream.Close();
+rpt.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.HTML40, diskOpts.DiskFileName);
 
 IronPdf.ChromePdfRenderer renderer = new IronPdf.ChromePdfRenderer();
 
-renderer.RenderingOptions.TextHeader.DrawDividerLine = true;
+// Add page elements
 renderer.RenderingOptions.TextHeader.CenterText = "{url}";
-renderer.RenderingOptions.TextFooter.DrawDividerLine = true;
+renderer.RenderingOptions.TextFooter.LeftText = "{date} {time}";
+renderer.RenderingOptions.TextFooter.RightText = "{page} of {total-pages}";
 
-renderer.RenderFileAsPdf(diskOpts.DiskFileName).SaveAs("Report.pdf");
+renderer.RenderFileAsPdf(diskOpts.DiskFileName).SaveAs("FinalReport.pdf");
 
-Console.WriteLine("Report Written To {0}", Path.GetFullPath(diskOpts.DiskFileName));
+Console.WriteLine("PDF created at: {0}", Path.GetFullPath("FinalReport.pdf"));
 ```
 
-## 4. Handling XML Reports
+## 4. Transitioning XML to PDF
 
-While JSON has become a more common format, exporting data as XML persists in certain settings. To style XML data, one could parse the XML and generate HTML. However, a more direct approach utilizes XSLT to convert XML to HTML.
-
-Consult the documentation on [Using the XslCompiledTransform Class](https://docs.microsoft.com/en-us/dotnet/standard/data/xml/using-the-xslcompiledtransform-class) and then render the resulting HTML to PDF with IronPDF:
+While XML data export is prevalent, a more modern approach involves using XSLT for transformation:
 
 ```cs
 XslCompiledTransform transform = new XslCompiledTransform();
@@ -154,6 +108,7 @@ using (XmlReader reader = XmlReader.Create(new StringReader(xslt)))
 {
     transform.Load(reader);
 }
+
 StringWriter results = new StringWriter();
 using (XmlReader reader = XmlReader.Create(new StringReader(xml)))
 {
@@ -161,6 +116,40 @@ using (XmlReader reader = XmlReader.Create(new StringReader(xml)))
 }
 
 IronPdf.ChromePdfRenderer renderer = new IronPdf.ChromePdfRenderer();
-
-renderer.RenderHtmlFileAsPdf(results.ToString()).SaveAs("Report.pdf");
+renderer.RenderHtmlFileAsPdf(results.ToString()).SaveAs("StyledReport.pdf");
 ```
+
+Further reading: [Convert XML to PDF in C# and VB.NET](https://ironpdf.com/how-to/xml-to-pdf/)
+
+## 5. SQL Server Reports
+
+Microsoft SQL Server and SQL Server Express include tools for reporting. Learn how to harness these reports in ASP.NET for PDF conversion with IronPDF through [Reporting Services Tools Tutorial (SSRS)](https://docs.microsoft.com/en-us/sql/reporting-services/tools/tutorial-how-to-locate-and-start-reporting-services-tools-ssrs?view=sql-server-2017) and [HTML Rendering](https://docs.microsoft.com/en-us/sql/reporting-services/report-builder/rendering-to-html-report-builder-and-ssrs?view=sql-server-2017).
+
+## 6. Securing PDF Reports
+
+Ensure your PDF reports remain unchanged and secure by digitally signing them post-render:
+
+```cs
+using IronPdf.Signing;
+
+new PdfSignature("IronSoftware.pfx", "123456").SignPdfFile("secured.pdf");
+```
+
+Create a digital signature file using Adobe Acrobat Reader on various platforms if needed.
+
+## 7. Converting ASPX to PDF
+
+Serving HTML content in ASP.NET WebForms is streamlined using IronPdf:
+
+```cs
+var options = new IronPdf.ChromePdfRenderOptions
+{
+    EnableJavaScript = false
+};
+
+IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.Attachment, "WebReport.pdf", options);
+```
+
+Explore the full [ASP.NET ASPX to PDF Tutorial](https://ironpdf.com/how-to/aspx-to-pdf/) for more details.
+
+We hope

@@ -1,113 +1,108 @@
-# Guide to Adding PDF Bookmarks and Outlining in C#
+# Enhancing PDF Functionality with IronPDF: Adding Bookmarks and Outlines
 
 ***Based on <https://ironpdf.com/how-to/bookmarks/>***
 
 
-Adding outlines or bookmarks to your PDFs is an excellent way to improve navigation and enhance the user experience. These outlines act much like a table of contents, enabling quick access to significant sections of the document. Integrating such features in your C# applications can make your PDFs more interactive and user-friendly.
+Incorporating bookmarks (also known as outlines) into your C# projects can significantly improve the document's usability and user experience. PDF outlines serve as a navigational aid, much like a Table of Contents, enabling users to quickly locate important pages within a document. By implementing these features, developers can elevate the document’s accessibility, making it more user-centric.
 
-## Example of Adding Outlines & Bookmarks
+<h3>Introduction to IronPDF</h3>
 
-In applications like Adobe Acrobat Reader, bookmarks are displayed along the left sidebar. These make it easier for users to leap to important parts of the PDF document.
+----------------------------------
 
-Using IronPDF, developers can not only add but also manage bookmarks with functionalities that include editing, deleting, and rearranging them. This helps in effectively managing the document's structure.
+* * *
 
-Pages are indexed starting from zero.
+* * *
 
-### Implementing a Single Bookmark Layer
+## Implementing Outlines & Bookmarks with IronPDF
 
-Creating a new bookmark with IronPDF involves simple steps. You'll need to utilize the `AddBookmarkAtEnd` method, specifying the name for the bookmark and its page index within the document.
+Outlines, or bookmarks, are a familiar feature in Adobe Acrobat Reader, appearing on the left sidebar and allowing for rapid navigation to critical sections of the PDF.
+
+IronPDF steps up as a comprehensive tool, empowering developers with functionalities for managing outlines in PDFs. You can add, reorder, modify, or delete bookmarks, granting you complete mastery over the PDF layout and structure.
+
+Indexing of pages begins from zero (0-based indexing).
+
+### Implementing a Single Layer of Bookmarks
+
+IronPDF allows for the uncomplicated addition of bookmarks, using the `AddBookmarkAtEnd` method with parameters for the bookmark's name and its page number.
 
 ```cs
 using IronPdf;
-namespace IronPdf.Bookmarks
-{
-    public class BookmarkExample
-    {
-        public void Execute()
-        {
-            // Instantiate a PDF document by loading an existing file
-            PdfDocument pdf = PdfDocument.FromFile("existing.pdf");
-            
-            // Append a bookmark
-            pdf.Bookmarks.AddBookMarkAtEnd("Chapter1", 0);  // Adding bookmark for first chapter
-            
-            // Append a sub-bookmark
-            pdf.Bookmarks.AddBookMarkAtEnd("IntroSection", 1);  // Introduction section under Chapter 1
-            
-            pdf.SaveAs("UpdatedWithBookmarks.pdf");  // Save the document with bookmarks
-        }
-    }
-}
+
+// Create a new PDF or open an existing file.
+PdfDocument pdf = PdfDocument.FromFile("existing.pdf");
+
+// Introducing a new bookmark
+pdf.Bookmarks.AddBookMarkAtEnd("NameOfBookmark", 0);
+
+// Adding a sub-bookmark under the previous one
+pdf.Bookmarks.AddBookMarkAtEnd("NameOfSubBookmark", 1);
+
+// Save the PDF with new bookmarks
+pdf.SaveAs("singleLayerBookmarks.pdf");
 ```
 
-#### Document with a Single Bookmark Layer
+#### View Single-layer Bookmarks Document
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/bookmarks/singleLayerBookmarks.pdf" width="100%" height="400px">
 </iframe>
 
-### Adding Hierarchical Bookmarks
+### Creating Multiple Layers of Bookmarks
 
-In larger documents, such as those containing multiple reports or varied records, maintaining a structured navigation with IronPDF is straightforward. You can create a bookmark hierarchy that makes complex documents easily navigable.
+IronPDF’s capabilities extend to creating a hierarchical structure of bookmarks, ideal for lengthy and complex documents such as collection of tests, sales records, or archived receipts.
 
-Below, we add multiple bookmarks to build a structured outline using the `AddBookMarkAtEnd` method which returns an `IPdfBookMark`. This allows the addition of child bookmarks, enhancing navigational structure.
+When using `AddBookMarkAtEnd`, an **IPdfBookMark** object is returned, enabling the addition of sub-bookmarks using methods like `Children.AddBookMarkAtStart` or `Children.AddBookMarkAtEnd`.
 
 ```cs
 using IronPdf;
-namespace IronPdf.Bookmarks
-{
-    public class MultipleBookmarksExample
-    {
-        public void Execute()
-        {
-            // Open a PDF document
-            PdfDocument pdf = PdfDocument.FromFile("complexDocument.pdf");
-            
-            // Add a main bookmark with children
-            var mainBookmark = pdf.Bookmarks.AddBookMarkAtEnd("MainSection", 0);
-            
-            // Adding sub-bookmarks
-            var subsectionBookmark = mainBookmark.Children.AddBookMarkAtStart("Subsection1", 2);
-            
-            // More nested bookmarks under a subsection
-            var detailBookmark = subsectionBookmark.Children.AddBookMarkAtStart("Detail1", 2);
-            detailBookmark.Children.AddBookMarkAtEnd("PartA", 4);
-            detailBookmark.Children.AddBookMarkAtEnd("PartB", 5);
-            
-            pdf.SaveAs("StructuredBookmarks.pdf");  // Saving the document with hierarchical bookmarks
-        }
-    }
-}
+
+// Open an existing PDF
+PdfDocument pdf = PdfDocument.FromFile("examinationPaper.pdf");
+
+// Main parent bookmark
+var mainBookmark = pdf.Bookmarks.AddBookMarkAtEnd("Examination", 0);
+
+// Creating child bookmarks
+var date1Bookmark = mainBookmark.Children.AddBookMarkAtStart("Date1", 1);
+var paperBookmark = date1Bookmark.Children.AddBookMarkAtStart("Paper", 1);
+
+// More nested bookmarks
+paperBookmark.Children.AddBookMarkAtEnd("PersonA", 3);
+paperBookmark.Children.AddBookMarkAtEnd("PersonB", 4);
+
+// Second date bookmark
+var date2Bookmark = mainBookmark.Children.AddBookMarkAtEnd("Date2", 5);
+var computerBookmark = date2Bookmark.Children.AddBookMarkAtStart("Computer", 5);
+
+computerBookmark.Children.AddBookMarkAtEnd("PersonC", 6);
+computerBookmark.Children.AddBookMarkAtEnd("PersonD", 7);
+
+// Save the structured document
+pdf.SaveAs("multiLayerBookmarks.pdf");
 ```
 
-#### Document with Multi-layer Bookmarks
+#### View Multi-layer Bookmarks Document
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/bookmarks/multiLayerBookmarks.pdf" width="100%" height="400px">
 </iframe>
 
 ### Retrieving a List of Bookmarks
 
-IronPDF simplifies the process of accessing and navigating through a document's bookmarks. By using the `GetAllBookmarks` method, you can fetch a complete list of bookmarks, helping in further analysis or modifications.
+Navigating IronPDF's bookmark architecture is intuitive, providing efficient access to distinct sections. For instance, in the `multi-layer bookmarks document` example above, hierarchical bookmarking is utilized for organization.
+
+Using the `GetAllBookmarks` function, you can fetch all bookmarks embedded within the PDF, facilitating an insightful review and manipulation of the structure.
 
 ```cs
 using IronPdf;
-namespace IronPdf.Bookmarks
-{
-    public class FetchBookmarks
-    {
-        public void Execute()
-        {
-            // Loading the PDF document
-            PdfDocument pdf = PdfDocument.FromFile("StructuredBookmarks.pdf");
-            
-            // Acquiring all bookmarks
-            var bookmarksList = pdf.Bookmarks.GetAllBookmarks();  // Retrieves all bookmarks from the document.
-        }
-    }
-}
+
+// Open a PDF document
+PdfDocument pdf = PdfDocument.FromFile("multiLayerBookmarks.pdf");
+
+// Accessing all bookmarks
+var mainBookmark = pdf.Bookmarks.GetAllBookmarks();
 ```
 
-Combining PDFs that contain bookmarks with identical names might disrupt the bookmarks hierarchy.
+Note, merging PDFs with overlapping bookmarks names could disrupt the bookmarks arrangement.
 
-It is important to note that bookmarks based on page indexes are supported, whereas those linked to document segments might not function as expected, potentially being set to an index of **-1**.
+Only page-index-based bookmarks are recognized; any bookmark linked to other elements will default to an index of **-1**.
 
-To learn about generating a Table of Contents in a PDF from HTML content, visit the tutorial "[Creating a Table of Contents with IronPDF](https://ironpdf.com/how-to/table-of-contents/)."
+Discover methods to generate a Table of Contents from HTML into PDF in our detailed guide here: "[Creating a Table of Contents with IronPDF](https://ironpdf.com/how-to/table-of-contents/)."

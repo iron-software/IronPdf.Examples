@@ -1,44 +1,43 @@
-# IronPDF Compatibility with Windows Platforms for .NET Usage
+# IronPDF Compatibility for Windows Platforms using .NET
 
 ***Based on <https://ironpdf.com/how-to/windows/>***
 
 
-IronPDF fully supports Windows 10, 11, and Windows Server operating environments for various .NET versions including .NET 8, 7, 6, Core, Standard, and Framework.
+IronPDF is compatible with multiple Windows versions, including Windows 10, Windows 11, and Windows Server, working with .NET versions 8, 7, 6, Core, Standard, and Framework.
 
 ## Support for Windows Server
 
-For **Windows Server 2022 and 2016** versions, IronPDF extends compatibility both for installations with a graphical user interface ("Desktop Experience") and for command-line only environments ("Core"). However, compatibility with **Windows Server 2019 and 2012** is available strictly for the Desktop Experience setup.
+IronPDF facilitates support for **Windows Server 2022 and 2016** in both Desktop Experience and Core versions, though it only extends support to **Windows Server 2019 and 2012** for the Desktop Experience configuration.
 
-**Coverage for Windows Server 2022 & 2016:**
+**For Windows Server 2022 & 2016**
 
-- <i class="fa-regular fa-circle-check" style="color: #63E6BE;"></i> Both UI and Core installations for Windows Server 2022 & 2016.
+- <i class="fa-regular fa-circle-check" style="color: #63E6BE;"></i> Available for Windows Server 2022 & 2016 using the Desktop Experience.
+- <i class="fa-regular fa-circle-check" style="color: #63E6BE;"></i> Functional for Windows Server 2022 & 2016 in a command-line environment ("Core").
 
-**Coverage for Windows Server 2019 & 2012:**
+**For Windows Server 2019 & 2012**
 
-- <i class="fa-regular fa-circle-check" style="color: #63E6BE;"></i> UI ("Desktop experience") for Windows Server 2019 & 2012
-- <i class="fa-regular fa-circle-xmark" style="color: #ff4abd;"></i> Core installations for Windows Server 2019 & 2012 not supported.
+- <i class="fa-regular fa-circle-check" style="color: #63E6BE;"></i> Supported for Windows Server 2019 & 2012 with a Desktop Experience.
+- <i class="fa-regular fa-circle-xmark" style="color: #ff4abd;"></i> Not supported for Windows Server 2019 & 2012 in Core version.
 
-Our efforts to support Core and Nano editions of Windows Server are in progress. The challenge mainly lies in the dependencies on certain media/graphics DLLs that the Chromium engine requires. These are typically absent in the more minimalistic Core versions.
+The ongoing development aims to accommodate the Core and Nano versions of Windows Server. The lack of support is currently not due to operating system constraints but likely relates to necessary graphics DLLs used by the Chromium rendering engine, which are absent in trimmed versions of Windows Server. Following the achievement of full compatibility with Windows Server Core, strides towards supporting Windows Nano Server will commence.
 
-On a related note, once support for Windows Server Core is solidified, IronPDF will also aim to extend support to Windows Nano Server, a more condensed form of Windows Server Core.
+[Addressing Issues with System.Drawing on Windows Nano Server](https://ironpdf.com/troubleshooting/libcef-dll-203/)
 
-[Resolving System.Drawing Issues on Windows Nano Server](https://ironpdf.com/troubleshooting/libcef-dll-203/)
+### Windows Server Standard & DataCenter Differentiation
 
-### Windows Server Standard & DataCenter Variants
+Referring to Microsoft's detailed comparison "[Comparison of Standard and Datacenter editions of Windows Server 2016](https://learn.microsoft.com/en-us/windows-server/get-started/editions-comparison-windows-server-2016?tabs=full-comparison)," the DataCenter edition of Windows Server harbors all features of the Standard edition plus additional enhancements for storage solutions. IronPDF is operational on Windows Server DataCenter with the Desktop Experience.
 
-As per Microsoft's "[Comparison of Standard and Datacenter editions of Windows Server 2016](https://learn.microsoft.com/en-us/windows-server/get-started/editions-comparison-windows-server-2016?tabs=full-comparison)", Windows Server DataCenter builds upon the Standard edition by adding enhanced storage capabilities. IronPDF functions seamlessly on Windows Server DataCenter with Desktop Experience.
+## Specific Windows Installation Requirements
 
-## Specific Installation for Windows 
+The core IronPDF NuGet package relies on [IronPDF.Native.Chrome.Windows Package](https://www.nuget.org/packages/IronPdf.Native.Chrome.Windows/), which brings the necessary Chrome binaries for both x86 and x64 architectures.
 
-The primary IronPDF NuGet package leverages the [IronPDF.Native.Chrome.Windows Package](https://www.nuget.org/packages/IronPdf.Native.Chrome.Windows/), which supports the Chrome browser binaries needed for both x86 and x64 Windows architectures.
+- The [IronPDF NuGet Package](https://www.nuget.org/packages/IronPdf/) caters to both x86 and x64 architectures of Windows.
 
-- The core [IronPDF NuGet Package](https://www.nuget.org/packages/IronPdf/) is compatible with both x86 and x64 configurations.
+For application targeting specific runtime architectures, surplus directories under `/runtimes` that aren't in use (either x86 or x64) may be eliminated.
 
-Should there be a need to target a specific system architecture, it is possible to remove the irrelevant `/runtimes` directory (either x86 or x64).
+## Hardware Requirements
 
-## Recommended Hardware Specifications
+Using the Chromium engine, IronPDF renders HTML to PDF with the same precision as the Chrome printing feature. The necessary hardware specifications are configured predominantly to manage the workload of the Chromium engine:
 
-Since IronPDF utilizes the Chromium engine to convert HTML to PDFs with high fidelity, resembling Google Chrome’s printing functionality, the specifications needed are mostly to accommodate Chromium's operational requirements.
-
-- Minimum Specifications: 1 Core & 1.75 GB of RAM
-- Recommended Specifications: 2 Cores & 8 GB of RAM or higher
+- Minimum Requirements: 1 Core CPU & 1.75 GB of RAM
+- Recommended Setup: At least 2 Core CPU & 8 GB of RAM

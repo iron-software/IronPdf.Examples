@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.DocxToPdf
+namespace IronPdf.Examples.HowTo.DocxToPdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate Renderer
             DocxToPdfRenderer renderer = new DocxToPdfRenderer();

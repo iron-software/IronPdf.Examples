@@ -1,29 +1,28 @@
 using IronPdf;
-namespace ironpdf.DotnetCorePdfGenerating
+namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
-    public class Section17
+    public static class Section17
     {
-        public void Run()
+        public static void Run()
         {
             IronPdf.License.LicenseKey = "YourLicenseKey";
             ChromePdfRenderer renderer = new ChromePdfRenderer();
-            renderer.RenderingOptions.TextHeader = new TextHeaderFooter()
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<div>test text </div>");
+            
+            // Configure HTML stamper
+            HtmlStamper backgroundStamp = new HtmlStamper()
             {
-                CenterText = "Pdf Header",
-                LeftText = "{date} {time}",
-                RightText = "{page} of {total-pages}",
-                DrawDividerLine = true,
-                FontSize = 10
+                Html = "<h2 style='color:red'>copyright 2018 ironpdf.com",
+                MaxWidth = new Length(20),
+                MaxHeight = new Length(20),
+                Opacity = 50,
+                Rotation = -45,
+                IsStampBehindContent = true,
+                VerticalAlignment = VerticalAlignment.Middle
             };
             
-            renderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter()
-            {
-                HtmlFragment = "<span style='text-align:right'> page {page} of {totalpages}</span>",
-                DrawDividerLine = true,
-                MaxHeight = 10
-            };
-            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("test.html");
-            pdf.SaveAs("generatedFile.pdf");
+            pdf.ApplyStamp(backgroundStamp);
+            pdf.SaveAs("stamped.pdf");
         }
     }
 }

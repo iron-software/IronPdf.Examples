@@ -1,11 +1,11 @@
-# Integrating IronPDF with Your Docker Setup
+# Integrating IronPDF into Your Docker Setup
 
 ***Based on <https://ironpdf.com/get-started/ironpdf-docker/>***
 
 
-IronPDF is now fully compatible with Docker frameworks, including Azure Docker Containers for both Linux and Windows platforms.
+IronPDF now completely supports Docker environments, including both Linux and Windows containers, specifically tailored for Azure Docker Containers.
 
-For those who prefer running IronPDF in a dedicated Docker container, find out more on this topic here: [IronPdfEngine Guide](https://ironpdf.com/tutorials/what-is-ironpdfengine/).
+Interested in setting up IronPDF within a separate Docker container? Discover more at the [IronPdfEngine Guide](https://ironpdf.com/tutorials/what-is-ironpdfengine/).
 
 <div class="container-fluid">
     <div class="row">
@@ -27,103 +27,65 @@ For those who prefer running IronPDF in a dedicated Docker container, find out m
     </div>
 </div>
 
-## Benefits of Using Docker on Azure
+## The Advantages of Docker on Azure
 
-Docker Containers on Azure provide improved permissions over typical WebApps. This elevates their capability to render SVG fonts through enabled access to GDI+ graphics.
+Docker Containers on Azure provide superior scalability for enterprises and offer broader permissions compared to traditional WebApps. This enhanced access allows for the rendering of SVG fonts thanks to the enabled GDI+ graphics system access.
 
-## Getting Started with IronPDF on Linux
+## Getting Started with IronPDF and Linux in Docker
 
-If you're new to Docker and .NET, it is recommended to start with this instructive piece on [how to configure Docker for integration and debugging with Visual Studio projects](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
+If you're new to Docker and .NET, we recommend checking out Microsoft's guide on [setting up Docker debugging and integration with Visual Studio projects](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
 
-Explore our detailed guide on setting up IronPDF in Linux environments: [IronPDF Linux Setup and Compatibility Guide](https://ironpdf.com/how-to/linux/).
+It's also beneficial to review our [IronPDF Linux Setup and Compatibility Guide](https://ironpdf.com/how-to/linux/).
 
-### Preferred Linux Docker Distributions
+### Recommended Linux Distributions for Docker
 
-For optimal configuration of IronPDF, consider the following modern 64-bit Linux distributions:
+For a seamless IronPDF configuration, consider the following 64-bit Linux OS options:
 
-- Ubuntu 22
-- Ubuntu 20
-- Ubuntu 18
-- Debian 11 (the default Linux Distro on Microsoft Azure)
-- Debian 10
+- Ubuntu 22, 20, 18
+- Debian 11, 10 (The default Linux Distro in Microsoft Azure)
 - CentOS 8
-- Amazon AWS Linux 2 (review the [IronPDF AWS Lambda Setup Guide](https://ironpdf.com/how-to/creating-pdfs-csharp-amazon-aws-lambda/))
+- Amazon AWS Linux 2 ([IronPDF AWS Lambda Setup Guide](https://ironpdf.com/how-to/creating-pdfs-csharp-amazon-aws-lambda/))
 
-Use the [Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/) by Microsoft for these Linux setups. Other distributions might require manual installations via `apt-get`. Refer to our [Linux Manual Setup Guide](https://ironpdf.com/how-to/linux/#linux-manual-setup).
+For Docker images, we suggest using [Microsoft's Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/). While other Linux distributions are supported, they may need manual configurations.
 
-Included are working Docker files for both Ubuntu and Debian in this guide:
+Sample Docker files for Ubuntu and Debian are provided in this document.
 
-## Essential Steps for IronPDF Linux Docker Installation
+## Essential Installation Instructions for IronPDF on Linux Docker
 
-### Linux Optimized NuGet Packages
+### Optimal NuGet Packages for Linux
 
-Opt for the [IronPdf.Linux](https://www.nuget.org/packages/IronPdf.Linux) NuGet package to decrease disk space usage and prevent automated downloads during Docker initialization. This package is optimized for Linux but is also suitable for development on Windows or macOS.
+Select the [IronPdf.Linux](https://www.nuget.org/packages/IronPdf.Linux) NuGet package over the standard [IronPdf](https://www.nuget.org/packages/IronPdf/) package to optimize for Linux, save disk space, and minimize start-up downloads.
 
 ```shell
 :InstallCmd Install-Package IronPdf.Linux
 ```
 
-Alternatively, install [IronPdf.Native.Chrome.Linux](https://www.nuget.org/packages/IronPdf.Native.Chrome.Linux/) alongside the standard [IronPdf](https://www.nuget.org/packages/IronPdf/) package.
+Alternatively, consider adding [IronPdf.Native.Chrome.Linux](https://www.nuget.org/packages/IronPdf.Native.Chrome.Linux/) alongside the regular package.
 
 ```shell
 :InstallCmd Install-Package IronPdf.Native.Chrome.Linux
 ```
 
-### Disabling Automatic Dependency Installation
+### Manual Dependency Control
 
-Many developers see enhanced performance on Linux & Docker when they disable automatic dependency configuration by setting `LinuxAndDockerDependenciesAutoConfig` to false, relying instead on the already installed packages by Docker file package managers.
+Configuring the `LinuxAndDockerDependenciesAutoConfig` to false has shown to produce better outcomes since the necessary packages are generally pre-installed in Docker environments.
 
 ```sh
 IronPdf.Installation.LinuxAndDockerDependenciesAutoConfig = false;
 ```
 
-### Turn Off GPU Acceleration
+### Disabling GPU Acceleration
 
-Disable GPU acceleration within your Linux Docker containers as they generally lack GPU access. This setting is mandatory if you had previously enabled it via `ChromeGpuModes.Enabled`.
+Due to the typical unavailability of a GPU in Docker environments for Linux, we advise keeping the GPU acceleration disabled.
 
 ```sh
 IronPdf.Installation.ChromeGpuMode = IronPdf.Engines.Chrome.ChromeGpuModes.Disabled;
 ```
 
-### Initiate IronPDF Early
+### Pre-Intializing IronPDF
 
-Initialize IronPDF explicitly using the `IronPdf.Installation.Initialize()` method to pre-load necessary components and improve the startup time of Docker instances.
+You might consider pre-initializing IronPDF to prevent delays during the first usage within your Docker instance.
 
 ```sh
 IronPdf.Installation.Initialize();
 ```
-
-## Deploying IronPDF on Various Linux Platforms
-
-The setup instructions and Dockerfiles for Ubuntu and Debian versions are provided directly from the content. Each version-specific setup guide is intended to grant adequate permissions and manage required settings for optimal performance of IronPdf within the given environment.
-
-## Windows Docker Containers for IronPDF
-
-Windows Docker Containers are increasingly popular on Azure, providing superior performance, scalability, and developer-configurable settings.
-
-IronPDF enhances text rendering inside both Windows and Linux Docker containers on Azure by leveraging more advanced access to the graphics library and virtualized graphics hardware.
-
-For an introductory guide to using containers in Visual Studio, see '[Visual Studio Container Tools for Docker](https://docs.microsoft.com/en-us/visualstudio/containers/overview?view=vs-2019)'.
-
-Below is a Dockerfile example for setting up .NET Core 3.1 on a Windows container:
-
-```shell
-FROM mcr.microsoft.com/dotnet/sdk:6.0-windowsservercore-ltsc2019 AS build
-WORKDIR /src
-COPY ["nuget.config", "."]
-COPY ["ConsoleApp/ConsoleApp.csproj", "ConsoleApp/"]
-RUN dotnet restore "ConsoleApp/ConsoleApp.csproj"
-COPY . .
-WORKDIR "/src/ConsoleApp"
-RUN dotnet build "ConsoleApp.csproj" -c Release -o /app/build
-
-FROM build AS publish
-RUN dotnet publish "ConsoleApp.csproj" -c Release -o /app/publish /p:UseAppHost=false
-
-FROM ironsoftwareofficial/windows:2019-net60
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
-```
-
-Explore additional pre-configured Docker images by IronPDF at their [Docker repository](https://hub.docker.com/repositories/ironsoftwareofficial).

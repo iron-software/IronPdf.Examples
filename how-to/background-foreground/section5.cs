@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using IronPdf;
-namespace ironpdf.BackgroundForeground
+namespace IronPdf.Examples.HowTo.BackgroundForeground
 {
-    public class Section5
+    public static class Section5
     {
-        public void Run()
+        public static void Run()
         {
             string html = @"<p> This is 1st Page </p>
             <div style = 'page-break-after: always;'></div>

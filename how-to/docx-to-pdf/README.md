@@ -1,143 +1,108 @@
-# How to Convert Microsoft Word to PDF
+# Converting DOCX Files to PDFs with IronPDF
 
 ***Based on <https://ironpdf.com/how-to/docx-to-pdf/>***
 
 
-A DOCX file represents a document created using Microsoft Word, leveraging the Office Open XML (OOXML) standard. This standard ensures efficiency and compatibility across different platforms. DOCX has been the default file format for Word since 2007, superseding the older DOC format.
+A DOCX file is essentially a document format created using Microsoft Word, which employs the Office Open XML (OOXML) standard. The format is known for its efficiency and wide compatibility. Since the release of Microsoft Word 2007, DOCX has been the standard format, superseding the older DOC format.
 
-IronPDF facilitates the transformation of DOCX files into PDFs. It also offers a Mail Merge feature, which allows for the creation of individualized document batches for distinct recipients. The conversion process from DOCX to PDF guarantees universal accessibility, maintains original formatting, and enhances document security.
+IronPDF provides functionality to transform DOCX documents into PDFs, including a Mail Merge capability that allows the creation of customized document batches for each recipient. This conversion process not only maintains the layout and formatting intact but also enhances document security and promotes better compatibility across different platforms.
 
-## Example: Converting a DOCX File to a PDF
+### Getting Started with IronPDF
 
-To transform a Microsoft Word document into a PDF, you'll need to create an instance of the `DocxToPdfRenderer` class. The `RenderDocxAsPdf` method of this class accepts the file path of the DOCX document, returning a `PdfDocument` object which can be further customized. As an example, the *Modern Chronological Resume* template from Microsoft Word is used here. You can download the [Modern Chronological Resume DOCX example file](http://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/Modern-chronological-resume.docx).
+#### Example: Converting a DOCX File to a PDF
 
-### Preview of the Microsoft Word Document
+To convert a Microsoft Word document to a PDF, start by initializing an instance of the `DocxToPdfRenderer` class. Next, utilize the `RenderDocxAsPdf` method from a `DocxToPdfRenderer` instance, passing it the file path of the DOCX document. This method produces a `PdfDocument` object which can be further customized according to your needs. Here, we use the "Modern Chronological Resume" as an example. You can access the [Modern Chronological Resume DOCX](https://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/Modern-chronological-resume.docx).
 
-<div class="content-img-align-center">
-    <div class="center-image-wrapper" style="width=50%">
-         <img src="http://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/microsoft-word-preview.webp" alt="Microsoft Word Preview" class="img-responsive add-shadow">
-    </div>
+#### Microsoft Word Preview
+
+<div align="center">
+  <img src="https://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/microsoft-word-preview.webp" alt="Microsoft Word Preview" style="width:50%; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
 </div>
 
-### Code Sample
+#### Code Sample
 
-The `RenderDocxAsPdf` method also supports DOCX data in the form of bytes and streams.
+The `RenderDocxAsPdf` method additionally supports DOCX file content in the form of bytes and streams.
 
 ```cs
 using IronPdf;
-namespace ironpdf.DocxToPdf
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // Create an instance of the Renderer
-            DocxToPdfRenderer renderer = new DocxToPdfRenderer();
-            
-            // Convert DOCX to PDF
-            PdfDocument pdf = renderer.RenderDocxAsPdf("Modern-chronological-resume.docx");
-            
-            // Save the resulting PDF
-            pdf.SaveAs("pdfFromDocx.pdf");
-        }
-    }
-}
+
+// Create a new renderer
+DocxToPdfRenderer renderer = new DocxToPdfRenderer();
+
+// Convert a DOCX to PDF
+PdfDocument pdf = renderer.RenderDocxAsPdf("Modern-chronological-resume.docx");
+
+// Save the created PDF
+pdf.SaveAs("convertedPDF.pdf");
 ```
 
-### Display of the Output PDF
+#### Output PDF View
 
-<iframe loading="lazy" src="http://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/pdfFromDocx.pdf" width="100%" height="500px">
+<iframe src="https://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/pdfFromDocx.pdf" width="100%" height="500px" loading="lazy">
 </iframe>
 
 <hr>
 
-## Example of Mail Merge
+#### Mail Merge Example: Creating Personalized Documents
 
-The Mail Merge feature found under the "Mailings" tab in Microsoft Word allows for the creation of multiple documents personalized for each recipient. It's commonly used for items like letters, envelopes, labels, or emails for events like invitations, newsletters, or standard communications where the core content is consistent, but specific details vary per recipient.
+The Mail Merge feature, which can be found under the "Mailings" tab in Microsoft Word, is typically employed for generating a batch of personalized documents such as invitations, newsletters, or letters, where most of the content remains consistent but specific details vary per recipient.
 
-### Data Model
+##### Data Model for Mail Merge
 
-Let's start by defining a model to store the data used in our mail merge:
+First, we construct a data model to represent the information needed for our mail merge.
+
 ```cs
-using IronPdf;
-namespace ironpdf.DocxToPdf
+internal class RecipientsDataModel
 {
-    public class Section2
-    {
-        public void Run()
-        {
-            internal class RecipientsDataModel
-            {
-                public string Date { get; set; }
-                public string Location{ get; set; }
-                public string Recipients_Name { get; set; }
-                public string Contact_Us { get; set; }
-            }
-        }
-    }
+    public string EventDate { get; set; }
+    public string Venue { get; set; }
+    public string Name { get; set; }
+    public string ContactInfo { get; set; }
 }
 ```
 
-I've adapted a template from Microsoft Word for this demonstration. Please download the [Party Invitation DOTX example file](http://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/Party-invitation.dotx). For our demonstration, the `MailMergePrintAllInOnePdfDocument` is set to true to merge the outputs into a single PDF.
+A Microsoft Word template has been adapted for our mail merge purposes. Please download the [Party Invitation DOTX file](https://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/Party-invitation.dotx). We will configure the operation to combine all generated PDFs into a single document. The merge fields include EventDate, Venue, Name, and Contact Info.
 
-### Preview of Microsoft Word
+##### Microsoft Word Preview
 
-<div class="content-img-align-center">
-    <div class="center-image-wrapper" style="width=50%">
-         <img src="http://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/microsoft-word-preview-mail-merge.webp" alt="Microsoft Word Preview" class="img-responsive add-shadow">
-    </div>
+<div align="center">
+  <img src="https://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/microsoft-word-preview-mail-merge.webp" alt="Microsoft Word Preview" style="width:50%; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
 </div>
 
-### Example Code
+##### Code Sample
 
 ```cs
-using System.Linq;
 using IronPdf;
-namespace ironpdf.DocxToPdf
+using System.Collections.Generic;
+
+List<RecipientsDataModel> recipients = new List<RecipientsDataModel>()
 {
-    public class Section3
+    new RecipientsDataModel()
     {
-        public void Run()
-        {
-            var recipients = new List<RecipientsDataModel>()
-                {
-                    new RecipientsDataModel()
-                    {
-                        Date ="Saturday, October 15th, 2023",
-                        Location="Iron Software Cafe, Chiang Mai",
-                        Recipients_Name="Olivia Smith",
-                        Contact_Us = "support@ironsoftware.com"
-                    },
-                    new RecipientsDataModel()
-                    {
-                        Date ="Saturday, October 15th, 2023",
-                        Location="Iron Software Cafe, Chiang Mai",
-                        Recipients_Name="Ethan Davis",
-                        Contact_Us = "support@ironsoftware.com"
-                    },
-                };
-            
-            DocxToPdfRenderer docxToPdfRenderer = new DocxToPdfRenderer();
-            
-            // Set options for rendering
-            DocxPdfRenderOptions options = new DocxPdfRenderOptions();
-            options.MailMergePrintAllInOnePdfDocument = true;
-            
-            // Perform the mail merge and convert to PDF
-            var pdfs = docxToPdfRenderer.RenderDocxMailMergeAsPdf<RecipientsDataModel>(
-                 recipients,
-                 "Party-invitation.dotx",
-                 options);
-            
-            pdfs.First().SaveAs("mailMerge.pdf");
-        }
-    }
-}
+        EventDate = "Saturday, October 15th, 2023",
+        Venue = "Iron Software Cafe, Chiang Mai",
+        Name = "Olivia Smith",
+        ContactInfo = "support@ironsoftware.com"
+    },
+    new RecipientsDataModel()
+    {
+        EventDate = "Saturday, October 15th, 2023",
+        Venue = "Iron Software Cafe, Chiang Mai",
+        Name = "Ethan Davis",
+        ContactInfo = "support@ironsoftware.com"
+    },
+};
+
+DocxToPdfRenderer pdfRenderer = new DocxToPdfRenderer();
+DocxPdfRenderOptions renderOptions = new DocxPdfRenderOptions { MailMergePrintAllInOnePdfDocument = true };
+
+var combinedPdf = pdfRenderer.RenderDocxMailMergeAsPdf(recipients, "Party-invitation.dotx", renderOptions);
+combinedPdf.First().SaveAs("mailMergeOutput.pdf");
 ```
 
-### Output PDF Display
+##### Output PDF
 
-<iframe loading="lazy" src="http://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/mailMerge.pdf" width="100%" height="500px">
+<iframe src="https://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/mailMerge.pdf" width="100%" height="500px" loading="lazy">
 </iframe>
 
-Upon creation of the PDF document, additional modifications are possible, such as exporting it as [PDF/A](http://ironpdf.com/how-to/pdfa/) or [PDF/UA](http://ironpdf.com/how-to/pdfua/). Options to [digitally sign the document](http://ironpdf.com/how-to/signing/), merge, split, rotate pages, and add [annotations](http://ironpdf.com/how-to/annotations/) or [bookmarks](http://ironpdf.com/how-to/bookmarks/) are also available.
+Once your PDF is ready, you can perform additional modifications such as converting it to [PDF/A](https://ironpdf.com/how-to/pdfa/) or [PDF/UA](https://ironpdf.com/how-to/pdfua/), signing it digitally at [Digital Certificate](https://ironpdf.com/how-to/signing/), and adjusting pages by [merging, splitting](https://ironpdf.com/how-to/merge-or-split-pdfs/), or rotating them. You also have the option to enhance your documents with [annotations](https://ironpdf.com/how-to/annotations/) and [bookmarks](https://ironpdf.com/how-to/bookmarks/).

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.MergeOrSplitPdfs
+namespace IronPdf.Examples.HowTo.MergeOrSplitPdfs
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // We will use the 4-page PDF from the Merge example above:
             var pdf = PdfDocument.FromFile("Merged.pdf");

@@ -1,31 +1,17 @@
 using IronPdf;
-namespace ironpdf.DotnetCorePdfGenerating
+namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
-    public class Section16
+    public static class Section16
     {
-        public void Run()
+        public static void Run()
         {
             IronPdf.License.LicenseKey = "YourLicenseKey";
-            PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
-            TextHeaderFooter header = new TextHeaderFooter()
-            {
-                CenterText = "Pdf Header",
-                LeftText = "{date} {time}",
-                RightText = "{page} of {total-pages}",
-                DrawDividerLine = true,
-                FontSize = 10
-            };
-            pdf.AddTextHeaders(header);
-            pdf.SaveAs("withHeader.pdf");
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");
             
-            HtmlHeaderFooter Footer = new HtmlHeaderFooter()
-            {
-                HtmlFragment = "<span style='text-align:right'> page {page} of {totalpages}</span>",
-                DrawDividerLine = true,
-                MaxHeight = 10 //mm
-            };
-            pdf.AddHtmlFooters(Footer);
-            pdf.SaveAs("withHeaderAndFooters.pdf");
+            // Apply watermark
+            pdf.ApplyWatermark("<h2 style='color:red'>SAMPLE</h2>", 30, IronPdf.Editing.VerticalAlignment.Middle, IronPdf.Editing.HorizontalAlignment.Center);
+            pdf.SaveAs("Watermarked.pdf");
         }
     }
 }

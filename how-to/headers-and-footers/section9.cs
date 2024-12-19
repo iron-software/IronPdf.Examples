@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.HeadersAndFooters
+namespace IronPdf.Examples.HowTo.HeadersAndFooters
 {
-    public class Section9
+    public static class Section9
     {
-        public void Run()
+        public static void Run()
         {
             // Add to PDF
             pdf.AddHtmlHeaders(header, 0, 0, 0);

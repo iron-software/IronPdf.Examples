@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CreateForms
+namespace IronPdf.Examples.HowTo.CreateForms
 {
-    public class Section6
+    public static class Section6
     {
-        public void Run()
+        public static void Run()
         {
             // Radio buttons HTML
             string FormHtml = @"

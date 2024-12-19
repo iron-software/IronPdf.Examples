@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CustomLogging
+namespace IronPdf.Examples.HowTo.CustomLogging
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             IronSoftware.Logger.LoggingMode = IronSoftware.Logger.LoggingModes.Custom;
             IronSoftware.Logger.CustomLogger = new CustomLoggerClass("logging");

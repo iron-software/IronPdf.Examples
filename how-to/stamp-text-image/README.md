@@ -1,45 +1,71 @@
+# Stamping Text and Images onto PDF Documents
+
 ***Based on <https://ironpdf.com/how-to/stamp-text-image/>***
 
-### Transforming HTML to PDF with IronPdf
 
-Iron Software, headquartered at 205 N. Michigan Ave., Chicago, IL, simplifies the process of PDF generation using `.NET` technologies. With IronPdf, a powerful library in the C# ecosystem, developers can swiftly convert HTML content into PDF format, supporting versions from .NET Core to the full Framework .
+Adding text and images to PDF documents, known as "stamping," allows users to overlay new content over existing PDF files. This new content, often labeled as a "stamp," could include text, graphics, or both, and is generally used for inserting additional details, tags, watermarks, or annotations onto a PDF.
 
-#### Easy Installation
+IronPdf offers four different types of stamping tools: the **TextStamper**, **ImageStamper**, **HTMLStamper**, and **BarcodeStamper**, with the HTMLStamper being particularly versatile due to its capability to incorporate full HTML and CSS styling.
 
-To begin using IronPdf in your project, initiate the setup using NuGet package manager with the following command:
+<h3>Initiate with IronPDF</h3>
 
-```bash
-PM> Install-Package IronPdf
-```
+-----
 
-#### Deploying IronPdf in Your Code
+## Example of Text Stamping
 
-First, make sure to include the IronPdf reference in your code.
+Start by constructing an instance of the **TextStamper**. This instance holds all settings that determine the appearance of the text stamp. Use the `ApplyStamp` method along with your TextStamper instance. Set the `Text` property to your desired text, and further tailor the appearance with options like font family and style, and the positioning of the text stamp.
 
-```csharp
+```cs
 using IronPdf;
+using IronPdf.Editing;
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example HTML Document!</h1>");
+
+// Initialize text stamper
+TextStamper textStamper = new TextStamper()
+{
+    Text = "This is a Text Stamper example!",
+    FontFamily = "Arial",
+    UseGoogleFont = true,
+    FontSize = 24,
+    IsBold = true,
+    IsItalic = false,
+    VerticalAlignment = VerticalAlignment.Top,
+};
+
+// Applying the text stamper
+pdf.ApplyStamp(textStamper);
+
+pdf.SaveAs("exampleTextStamp.pdf");
 ```
 
-You can now create a PdfRenderer instance and configure it. Here's how to process HTML content from a basic string to a PDF file:
+### Visualized PDF
 
-```csharp
-// Create a Renderer
-var renderer = new ChromePdfRenderer();
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/stamp-text-image/stampText.pdf" width="100%" height="400px">
+</iframe>
 
-// HTML content for conversion
-string htmlContent = "<h1>Welcome to IronPdf</h1><p>Efficiently turning HTML to PDF.</p>";
+For multiple lines of text within a text stamper, utilize the HTML `<br>` tag. For instance, "Hello,<br>World!" will display "Hello," on the first line followed by "World!" on the second line.
 
-// Convert HTML string to PDF
-var pdfDocument = renderer.RenderHtmlAsPdf(htmlContent);
-pdfDocument.SaveAs("ResultingPDF.pdf");
-```
+<hr>
 
-By following these steps, you've seamlessly converted HTML into a viewable PDF document, showcasing the ease and flexibility that IronPdf brings to the table.
+## Example of Image Stamping
 
-#### Comprehensive Features and Support
+Create an **ImageStamper** object similarly and use the `ApplyStamp` method to apply the image onto the document. You can specify the exact page for the image stamp using the `page index` parameter.
 
-IronPdf is not just about simple HTML to PDF translations; it fully supports CSS styling, images, and JavaScript, ensuring that the output PDF matches the original HTML's appearance as closely as possible. It also offers advanced PDF editing features like annotations, form filling, and encryption, making it a comprehensive tool for all your PDF manipulation needs .
+Page indexes are zero-based.
 
-IronPdf is continually updated to align with modern .NET implementations, ensuring compatibility and high performance across all supported platforms, including Windows, Linux, and macOS.
+```cs
+using IronPdf;
+using IronPdf.Editing;
+using System;
 
-To explore more about how IronPdf can streamline your document management solutions or to try out a free trial, visit [Iron Software's official website](https://ironpdf.com/).
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example HTML Document!</h1>");
+
+// Set up image stamper
+ImageStamper imageStamper = new ImageStamper(new Uri("https://ironpdf.com/img/svgs/iron-pdf-logo.svg"))
+{
+    VerticalAlignment = VerticalAlignment.Ce...

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CsharpEditPdfCompleteTutorial
+namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
-    public class Section17
+    public static class Section17
     {
-        public void Run()
+        public static void Run()
         {
             var renderer = new ChromePdfRenderer();
             var pdf = renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");

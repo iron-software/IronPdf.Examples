@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CsharpPrintPdf
+namespace IronPdf.Examples.HowTo.CsharpPrintPdf
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
             

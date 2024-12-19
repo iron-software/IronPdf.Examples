@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CsharpEditPdfCompleteTutorial
+namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
-    public class Section22
+    public static class Section22
     {
-        public void Run()
+        public static void Run()
         {
             BarcodeStamper qrStamp = new BarcodeStamper("IronPDF", BarcodeEncoding.QRCode);
             

@@ -1,24 +1,24 @@
 ***Based on <https://ironpdf.com/examples/image-to-pdf/>***
 
-Create a PDF using images with the `IronPdf.ImageToPdfConverter` class.
+Create a PDF using Image Files with `IronPdf.ImageToPdfConverter`
 
-## Transform an Image into a PDF in C#
+## Convert an Image to a PDF in C&#35;
 
-To convert a specific image on your computer, such as the one at `C:\images\example.png`, into a PDF document, use the `IronPdf.ImageToPdfConverter.ImageToPdf` method with the image's file path:
+If you have an image stored locally, such as `C:\images\example.png`, you can easily transform it into a PDF document. This is accomplished by utilizing the `IronPdf.ImageToPdfConverter.ImageToPdf` method with the image's file path:
 
 ```cs
-IronPdf.ImageToPdfConverter.ImageToPdf(@"C:\images\example.png").SaveAs("converted-example.pdf");
+IronPdf.ImageToPdfConverter.ImageToPdf(@"C:\images\example.png").SaveAs("example.pdf");
 ```
 
-## Merge Several Images into One PDF Document
+## Merge Multiple Images into One PDF Document
 
-To consolidate multiple images into a single PDF file, utilize `System.IO.Directory.EnumerateFiles` in conjunction with `ImageToPdfConverter.ImageToPdf`:
+For batch conversion of multiple images into a single PDF, you can combine the usage of `System.IO.Directory.EnumerateFiles` with `ImageToPdfConverter.ImageToPdf`:
 
 ```cs
 string sourceDirectory = @"D:\web\assets";
-string destinationFile = "CombinedImages.pdf";
+string destinationFile = "JpgToPDF.pdf";
 var imageFiles = Directory.EnumerateFiles(sourceDirectory, "*.jpg");
 ImageToPdfConverter.ImageToPdf(imageFiles).SaveAs(destinationFile);
 ```
 
-Learn more about [transforming images into PDFs with IronPDF](https://ironpdf.com/how-to/image-to-pdf/) to improve your applications, or visit the [Iron Software website](https://ironsoftware.com) to explore the full range of development tools available, including IronBarcode, IronOCR, and more.
+Discover further insights on [transforming images into PDFs using IronPDF](https://ironpdf.com/how-to/image-to-pdf/) to enhance your software solutions, or visit the [Iron Software website](https://ironsoftware.com) to explore the full range of developer tools available, including IronBarcode, IronOCR, and others.

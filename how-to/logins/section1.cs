@@ -1,28 +1,19 @@
-using System;
 using IronPdf;
-namespace ironpdf.Logins
+namespace IronPdf.Examples.HowTo.Logins
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer
-            {
-                // setting login credentials to bypass basic authentication
-                LoginCredentials = new ChromeHttpLoginCredentials()
-                {
-                    NetworkUsername = "testUser",
-                    NetworkPassword = "testPassword"
-                }
-            };
-            
-            var uri = new Uri("http://localhost:51169/Invoice");
-            
-            // Render web URL to PDF
-            PdfDocument pdf = renderer.RenderUrlAsPdf(uri);
-            
-            // Export PDF
-            pdf.SaveAs("UrlToPdfExample.Pdf");
+            string html;
+            using (WebClient client = new WebClient()) {
+                html = client.DownloadString("http://www.google.com");
+            }
+            HtmlDocument doc = new HtmlDocument();        
+            doc.LoadHtml(html);
+            foreach(HtmlNode img in doc.DocumentNode.SelectNodes("//img")) {
+                Console.WriteLine(img.GetAttributeValue("src", null));
+            }
         }
     }
 }

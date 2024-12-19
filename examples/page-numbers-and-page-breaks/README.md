@@ -1,17 +1,17 @@
 ***Based on <https://ironpdf.com/examples/page-numbers-and-page-breaks/>***
 
-IronPDF offers unparalleled flexibility when it comes to customizing and adding headers and footers according to a developer's specific requirements and functionality. This capability enables the inclusion of detailed information such as page numbers within the headers or footers.
+IronPDF provides unparalleled flexibility for customizing and implementing headers and footers according to developer preferences and needs. This capability facilitates the integration of additional page numbering information within headers or footers.
 
-In the following demonstration, we will guide you through the process of managing page numbers and introducing page breaks using IronPDF.
+Here, we'll demonstrate the management of page numbers and page breaks using IronPDF.
 
-IronPDF supports two types of header and footer configurations: `HtmlHeaderFooter` and `TextHeaderFooter`. Managing these configurations is straightforward.
+The functionality spans across the two main header and footer options—`HtmlHeaderFooter` and `TextHeaderFooter`. Utilizing these options is straightforward.
 
-The `TextHeaderFooter` class is designed to set up header and footer configurations for PDFs using a straightforward method, accommodating most typical scenarios. This allows developers to position page numbers on the right, center, or left of the header or footer. Additionally, it's possible to modify the font style and size to maintain consistency with the main content of your PDF.
+`TextHeaderFooter` is a class that lays out the PDF header and footer settings, adopting a straightforward methodology in the rendering process for typical scenarios. It allows you to position page numbers at the right, center, or left of the header or footer and modify the font type and size for uniformity with your document's main text.
 
-To insert a page break when converting HTML to PDF in .NET, you can utilize the following HTML markup:
+To force a page break in an HTML to PDF conversion in .NET, employ the following HTML code:
 
 ```txt
 <div style="page-break-after:always;"></div>
 ```
 
-For a comprehensive guide on effectively utilizing these features, please visit the [IronPDF Documentation for Headers and Footers](https://www.ironpdf.com/docs) available on the official website.
+For further insights on leveraging these features proficiently, consult the [IronPDF Documentation for Headers and Footers](https://ironpdf.com/docs) on the official website.

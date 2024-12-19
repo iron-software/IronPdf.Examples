@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.SplitMultipagePdf
+namespace IronPdf.Examples.HowTo.SplitMultipagePdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             PdfDocument pdf = PdfDocument.FromFile("multiPage.pdf");
             

@@ -1,15 +1,21 @@
 using IronPdf;
-namespace ironpdf.DotnetCorePdfGenerating
+namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
-    public class Section14
+    public static class Section14
     {
-        public void Run()
+        public static void Run()
         {
             IronPdf.License.LicenseKey = "YourLicenseKey";
-            PdfDocument pdf = PdfDocument.FromFile("1.pdf");
-            PdfDocument pdf2 = PdfDocument.FromFile("2.pdf");
-            pdf.AppendPdf(pdf2);
-            pdf.SaveAs("appendedFile.pdf");
+            PdfDocument pdf = PdfDocument.FromFile("testFile.pdf");
+            
+            pdf.ExtractAllText(); // Extract all text in the pdf
+            pdf.ExtractTextFromPage(0); // Read text from specific page
+            
+            // Extract all images in the pdf
+            var AllImages = pdf.ExtractAllImages();
+            
+            // Extract images from specific page
+            var ImagesOfAPage = pdf.ExtractImagesFromPage(0);
         }
     }
 }

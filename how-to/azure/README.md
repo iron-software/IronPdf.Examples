@@ -1,66 +1,66 @@
-# How to Run HTML to PDF with .NET on Azure?
+# How to Convert HTML to PDF with .NET on Azure Using IronPDF
 
 ***Based on <https://ironpdf.com/how-to/azure/>***
 
 
-Yes, IronPDF can be effectively utilized to create, modify, and read PDF documents in Azure environments. It has been extensively tested across various Azure services, including MVC websites, Azure Functions, and more.
+IronPDF offers robust capabilities for generating, manipulating, and reading PDF documents on Azure, having been rigorously tested across a variety of Azure platforms including MVC websites, Azure Functions, and more.
 
-#### Azure Functions on Docker
+#### Docker Containers with Azure Functions
 
-For those utilizing Azure Functions within a Docker container, please consult [this Azure Docker Linux tutorial](https://ironpdf.com/how-to/docker-linux/) for specific guidance.
+If you are deploying Azure Functions within a Docker Container, please consult [this Azure Docker Linux Guide](https://ironpdf.com/how-to/docker-linux/).
 
 <hr class="separator">
 
-<p class="main-content__segment-title">How to Tutorial</p>
+<p class="main-content__segment-title">Step-by-Step Guide</p>
 
-## Setting Up Your Project
+## Configuring Your Development Environment
 
-### Installing IronPDF to Get Started
+### How to Install IronPDF
 
-The initial step involves installing IronPDF via NuGet:
+To begin, you need to add IronPDF to your project via NuGet:
 
-- Use the `IronPdf` package for Windows-based Azure Functions - [NuGet IronPdf package for Windows](https://www.nuget.org/packages/IronPdf/)
-- For Linux-based Azure Functions, opt for the `IronPdf.Linux` package - [NuGet IronPdf package for Linux](https://www.nuget.org/packages/IronPdf.Linux/)
+- For Windows-based Azure Functions, use the `IronPdf` package available at [NuGet IronPdf for Windows](https://www.nuget.org/packages/IronPdf/)
+- For Linux-based Azure Functions, use the `IronPdf.Linux` package, accessible at [NuGet IronPdf for Linux](https://www.nuget.org/packages/IronPdf.Linux/)
 
-```bash
+```shell
 Install-Package IronPdf
 ```
 
-*Alternatively, you can manually install the .dll through the [IronPDF direct download package for Azure](https://ironpdf.com/packages/IronPdf.Package.For.azure.zip).*
+*Alternatively, you can directly download the .dll from the [IronPDF Package for Azure](https://ironpdf.com/packages/IronPdf.Package.For.azure.zip).*
 
-### Select Correct Azure Options
+### Select Appropriate Azure Services
 
-#### Choosing the Correct Hosting Level Azure Tier
+#### Choosing the Right Azure Hosting Plan
 
-The Azure Basic **B1** tier is the base hosting level needed for user rendering demands. For high-volume systems, an upgrade might be necessary.
+The Basic Azure Tier **B1** is the recommended starting point for your PDF rendering projects. However, higher demand systems might require more robust hosting options.
 
-Selecting a non-compliant Plan Type such as **App service plan** could result in IronPdf not being able to render PDF documents.
-
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-        <img src="https://ironpdf.com/static-assets/pdf/how-to/azure/azure-hosting-tier.webp" alt="Choosing the correct hosting level Azure Tier" class="img-responsive add-shadow" />
-    </div>
-</div>
-
-#### The "Run from package file" Checkbox
-
-Ensure that `Run from package file` is **NOT** checked when deploying your Azure Functions application.
+Selecting an incorrect plan, such as not choosing an **App service plan**, can lead to failures in PDF rendering by IronPdf.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
-        <img src="https://ironpdf.com/static-assets/pdf/how-to/azure/azure-package-file.webp" alt="Uncheck Run from package file option" class="img-responsive add-shadow" />
+        <img src="https://ironpdf.com/static-assets/pdf/how-to/azure/azure-hosting-tier.webp" alt="Selecting the appropriate Azure hosting tier" class="img-responsive add-shadow" />
     </div>
 </div>
 
-#### Configuration for .NET 6
+#### Configuration to Avoid
 
-With the removal of imaging libraries from .NET 6, it's crucial to adjust your setup to accommodate legacy API calls:
+Ensure that the `Run from package file` option is **NOT** checked when deploying your Azure Functions app.
 
-1. On Linux, enable auto-configuration of Docker dependencies by setting `Installation.LinuxAndDockerDependenciesAutoConfig=true;`
-2. Include in your .csproj file for your .NET 6 project: `<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>`
-3. Create a `runtimeconfig.template.json` in your project and populate it:
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+        <img src="https://ironpdf.com/static-assets/pdf/how-to/azure/azure-package-file.webp" alt="Ensure 'Run from package file' is unchecked" class="img-responsive add-shadow" />
+    </div>
+</div>
 
-```csharp
+#### Adjustments for .NET 6 Support
+
+Due to the removal of imaging libraries from .NET 6+, it's crucial to adjust your project settings to support legacy APIs:
+
+1.  On Linux, enable automatic configuration of Docker dependencies with `Installation.LinuxAndDockerDependenciesAutoConfig = true;`.
+2.  Update your .csproj file: `<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>`.
+3.  Create a `runtimeconfig.template.json` in your project directory with:
+
+```json
 {
       "configProperties": {
          "System.Drawing.EnableUnixSupport": true
@@ -68,61 +68,61 @@ With the removal of imaging libraries from .NET 6, it's crucial to adjust your s
 }
 ```
 
-4. At the start of your program, set the legacy API support: `System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);`
+5.  Add this line at the start of your application: `System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);`.
 
-#### Using Docker on Azure
+#### Docker Benefits on Azure
 
-To optimize control, font handling, and performance on Azure, consider using Docker. A detailed guide is available in our [IronPDF Azure Docker tutorial](https://ironpdf.com/how-to/docker-linux/) for both Linux and Windows setups.
+Using Docker Containers on Azure with IronPDF increases control over application performance and font rendering.
 
-## Azure Function Code Example
+For a detailed guide, visit the [IronPDF Docker Guide for Azure](https://ironpdf.com/how-to/docker-linux/).
 
-This example demonstrates logging and PDF rendering within an Azure function:
+## Example Azure Function for PDF Generation
+
+Below is a code example that logs activities and generates a PDF:
 
 ```csharp
-[FunctionName("PrintPdf")]
-public static async Task<IActionResult> Run(
+[FunctionName("CreatePdfDocument")]
+public static async Task<IActionResult> Execute(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-    ILogger log, ExecutionContext context)
+    ILogger log, ExecutionContext executionContext)
 {
-    log.LogInformation("Entering PrintPdf API function...");
-    // Set license and configure logging
-    IronPdf.License.LicenseKey = "IRONPDF-MYLICENSE-KEY-1EF01";
+    log.LogInformation("Entering CreatePdfDocument function...");
+    // Set the IronPDF license key
+    IronPdf.License.LicenseKey = "YOUR-LICENSE-KEY";
+    // Customized logger
     IronPdf.Logging.Logger.LoggingMode = IronPdf.Logging.Logger.LoggingModes.Custom;
     IronPdf.Logging.Logger.CustomLogger = log;
-    IronPdf.Logging.Logger.EnableDebugging = false;
 
-    // Configuration for IronPdf
-    Installation.LinuxAndDockerDependenciesAutoConfig = false;
-    Installation.ChromeGpuMode = IronPdf.Engines.Chrome.ChromeGpuModes.Disabled;
+    IronPdf.Logging.Logger.EnableDebugging = false;
+    // Configure the PDF renderer
+    var renderer = new ChromePdfRenderer();
     try
     {
-        log.LogInformation("Starting PDF render...");
-        ChromePdfRenderer renderer = new ChromePdfRenderer();
-        var pdf = renderer.RenderUrlAsPdf("https://www.google.com/");
-        log.LogInformation("PDF rendering complete...");
-        return new FileContentResult(pdf.BinaryData, "application/pdf") { FileDownloadName = "google.pdf" };
+        var pdf = renderer.RenderUrlAsPdf("https://www.example.com/");
+        log.LogInformation("PDF successfully rendered.");
+        return new FileContentResult(pdf.BinaryData, "application/pdf") { FileDownloadName = "example.pdf" };
     }
     catch (Exception e)
     {
-        log.LogError(e, "Failed during PDF rendering", e);
+        log.LogError(e, "Failed to render PDF.");
     }
 
     return new OkObjectResult("OK");
 }
 ```
 
-## Known Issues
+## Limitations and Recommendations
 
-### SVG Fonts on Shared Hosting
+### Limitations on SVG Font Rendering
 
-SVG fonts, like Google Fonts, are unavailable on shared Azure hosting plans due to security restrictions on accessing Windows GDI+ graphics objects.
+The Azure platform, particularly in its lower-cost shared hosting tiers, does not support loading SVG fonts due to security restrictions.
 
-To overcome this, consider using a [Docker Container guide for IronPDF](https://ironpdf.com/how-to/docker-linux/) or a VPS on Azure for optimal font rendering.
+For optimal font rendering, consider using [IronPDF’s Guide for Docker Containers](https://ironpdf.com/how-to/docker-linux/).
 
-### Azure Free Tier Performance
+### Performance in Free and Low-Cost Tiers
 
-The free and shared tiers, and the consumption plan on Azure, are generally too slow for efficient PDF rendering. Instead, we recommend using the Azure B1 hosting or Premium plans, which offer performance comparable to standard desktop machines as they utilize a real browser engine for rendering.
+Azure's free and basic tiers may not meet the performance needs for PDF rendering. We suggest using at least a B1 tier or a premium plan for better performance, mirroring that of a desktop machine.
 
-### Creating an Engineering Support Request Ticket
+### How to Request Technical Support
 
-For support, refer to our guide on [How to Make an Engineering Support Request for IronPDF](https://ironpdf.com/troubleshooting/engineering-request-pdf/).
+If you need to open a support ticket, refer to the [IronPDF Engineering Support Request Guide](https://ironpdf.com/troubleshooting/engineering-request-pdf/).

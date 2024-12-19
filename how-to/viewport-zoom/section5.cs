@@ -1,17 +1,20 @@
 using IronPdf;
-namespace ironpdf.ViewportZoom
+namespace IronPdf.Examples.HowTo.ViewportZoom
 {
-    public class Section5
+    public static class Section5
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
+            int width = 90;
+            int margin = 0;
+            
             // Continuous feed rendering
-            renderer.RenderingOptions.PaperFit.UseContinuousFeedRendering();
+            renderer.RenderingOptions.PaperFit.UseContinuousFeedRendering(width, margin);
             
             // Render web URL to PDF
-            PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
+            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("receipt.html");
             
             pdf.SaveAs("continuousFeed.pdf");
         }

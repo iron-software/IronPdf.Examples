@@ -1,11 +1,11 @@
 using IronPdf;
-namespace ironpdf.PdfViewing
+namespace IronPdf.Examples.Tutorial.PdfViewing
 {
-    public class Section11
+    public static class Section11
     {
-        public void Run()
+        public static void Run()
         {
-            pdfView.Options = IronPdfViewOptions.All;
+            pdfView.Options = IronPdfViewOptions.Thumbs | IronPdfViewOptions.Open;
         }
     }
 }

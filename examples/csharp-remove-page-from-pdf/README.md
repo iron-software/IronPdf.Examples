@@ -1,57 +1,49 @@
+# IronPDF - The Comprehensive .NET PDF Library
+
 ***Based on <https://ironpdf.com/examples/csharp-remove-page-from-pdf/>***
 
-Here's the paraphrased article after resolving relative URL paths to `ironpdf.com`:
 
----
+IronPDF stands as a robust library for developers using C# to convert HTML to PDF directly within .NET projects, including versions 8, 7, 6, Core, and Frameworks. This library supports generating PDF documents using HTML, MVC, ASPX, and images, while also providing capabilities to sign, edit, and read PDFs with over 50 features.
 
-### Iron Suite for .NET
+To incorporate IronPDF into your .NET project, start by installing the NuGet package:
 
-Iron Software presents a comprehensive array of libraries tailored for .NET applications, ensuring that developers have the tools they need for document manipulation, from PDF generation, editing, and printing to working with barcodes and optical character recognition.
-
-**Featured Libraries and Their Functions:**
-
-- **IRONPDF**: Enables the creation, reading, and editing of PDF files. Supports conversion from HTML to PDF, making it ideal for reporting applications.
-- **IRONWORD**: Facilitates the editing of DOCX Word files without requiring Office Interop; perfect for document automation tasks.
-- **IRONXL**: Designed for managing Excel and CSV files effortlessly, also not relying on Office Interop.
-- **IRONOCR**: Provides robust OCR capabilities, extracting text from images and documents across 127 different languages.
-- **IRONBARCODE**: Empowers applications to read and write barcodes and QR codes, enhancing data tracking and record-keeping.
-- **IRONZIP**: Offers functionality to manage zip files, supporting compression and extraction tasks.
-- **IRONPRINT**: Simplifies the process of printing documents directly from .NET programs.
-- **IRONWEBSCRAPER**: Allows for the scraping of structured data from websites, ideal for data aggregation and monitoring applications.
-
-### Licensing Options
-
-Iron Software provides varied licensing options to suit different organizational needs. You can choose from monthly subscriptions at $500 USD, which include continuous product updates and support, or an enterprise perpetual license which offers unlimited API calls without tracking in development or live deployments.
-
-**Unlimited Licenses Benefits:**
-
-- No limitations on developer count, locations, or projects.
-- Includes all Iron Suite products with options for OEM redistribution.
-- Access to dedicated customer success and support managers.
-
-For more detailed licensing information, visit our [Iron Suite Unlimited Licensing page](https://ironpdf.com/licensing/#licensing-unlimited).
-
-### Free Trial
-
-Experience the full capabilities of our libraries with a free 30-day trial, available now. This trial allows you to evaluate our products thoroughly and ensure they meet your needs before making a purchase.
-
-For installation, simply run:
 ```bash
 PM> Install-Package IronPdf
 ```
 
-### Compatibility and Support
+Once installed, you'll integrate IronPDF into your project with the following using directive:
 
-Our libraries are compatible with a range of .NET projects and languages, including C#, VB.NET, and F#. They support various app types such as web, desktop, and console applications running on platforms like Windows, Linux, macOS, and Docker, among others.
+```csharp
+using IronPdf;
+```
 
-### Developer Feedback
+Creating a PDF from HTML is straightforward:
 
-Developers have praised IronPDF for its high rendering quality and efficient customer support. The performance and reliability of our tools make them a top choice for professionals looking to enhance their .NET applications.
+```csharp
+var Renderer = new HtmlToPdf();
+var PDF = Renderer.RenderHtmlAsPdf("<h1>Your HTML here</h1>");
+PDF.SaveAs("yourfile.pdf");
+```
 
-For the latest updates and more insights from developers, always check our [official website](https://ironpdf.com).
+IronPDF ensures that all assets such as CSS, images, and JS are resolved correctly, especially when handling external resources. Here’s an example of rendering HTML files with external assets, specifying the base path for the assets:
 
-**Note**: The information provided is current as of February 2024 and version v2024.2.
+```csharp
+var Renderer = new HtmlToPdf()
+{
+    PrintOptions = new PdfPrintOptions()
+    {
+        BaseUrl = new Uri("https://ironsoftware.com/assets")
+    }
+};
+var PDF = Renderer.RenderHtmlAsPdf("<img src='icons/iron.png'>");
+PDF.SaveAs("HtmlWithAssets.pdf");
+```
 
----
+For further documentation, support, and examples, you can visit our comprehensive online resources:
 
-I've ensured that all relative URLs are correctly directed to `ironpdf.com` as requested, and adjusted the content to be unique while retaining the information of the original.
+- Main website: [IronPDF - The C# PDF Library](https://ironpdf.com)
+- Developer support: [support@ironsoftware.com](mailto:support@ironsoftware.com)
+
+Iron Software is located at 205 N. Michigan Ave., Chicago, IL 60611 USA. For more details on licensing and downloads, you can reach us at +1 (312) 500-3060 or visit [Iron Software Website](https://www.ironsoftware.com).
+
+IronPDF remains dedicated to providing high-quality solutions that integrate seamlessly into modern development environments, making PDF generation and manipulation easier and more accessible.

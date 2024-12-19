@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.AddCopyDeletePagesPdf
+namespace IronPdf.Examples.HowTo.AddCopyDeletePagesPdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Import cover page
             PdfDocument coverPage = PdfDocument.FromFile("coverPage.pdf");

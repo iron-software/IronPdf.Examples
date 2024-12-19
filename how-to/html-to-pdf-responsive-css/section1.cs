@@ -1,10 +1,10 @@
 using IronPdf.Rendering;
 using IronPdf;
-namespace ironpdf.HtmlToPdfResponsiveCss
+namespace IronPdf.Examples.HowTo.HtmlToPdfResponsiveCss
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             

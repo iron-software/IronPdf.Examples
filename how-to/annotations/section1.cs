@@ -1,10 +1,10 @@
 using IronPdf.Annotations;
 using IronPdf;
-namespace ironpdf.Annotations
+namespace IronPdf.Examples.HowTo.Annotations
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Annotation</h1>");

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.Pdfa
+namespace IronPdf.Examples.HowTo.Pdfa
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Create a PdfDocument object or open any PDF File
             PdfDocument pdf = PdfDocument.FromFile("wikipedia.pdf");

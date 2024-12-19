@@ -1,10 +1,10 @@
 using IronPdf.Editing;
 using IronPdf;
-namespace ironpdf.HtmlToPdf
+namespace IronPdf.Examples.Tutorial.HtmlToPdf
 {
-    public class Section20
+    public static class Section20
     {
-        public void Run()
+        public static void Run()
         {
             var renderer = new ChromePdfRenderer();
             var pdf = renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf");

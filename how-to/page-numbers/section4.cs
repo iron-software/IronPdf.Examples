@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.PageNumbers
+namespace IronPdf.Examples.HowTo.PageNumbers
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
             // Get even page indexes (resulting in odd page numbers)
             var evenPageIndices = allPageIndices.Where(i => i % 2 == 0);

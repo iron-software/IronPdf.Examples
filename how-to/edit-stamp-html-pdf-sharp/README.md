@@ -1,56 +1,114 @@
+# Enhance PDF with HTML using C&num;
+
 ***Based on <https://ironpdf.com/how-to/edit-stamp-html-pdf-sharp/>***
 
-Here is the paraphrased version of the article, with all relative URL paths resolved to ironpdf.com:
+
+It's critical to execute PDF stamping, authorization, or watermark addition accurately to accurately reflect usage limitations. We'll explore how to proficiently execute these tasks using IronPDF's tools in C# through the steps outlined below.
+
+<center>
+	<h3>Stamping / Watermark</h3>
+	<div style="display: flex; align-items: center; justify-content: center;">
+		<div class="center-image-wrapper" style="max-width: 100px">
+			<img src="https://ironpdf.com/img/faq/edit-stamp-html-pdf-sharp/edit-stamp-html-pdf-sharp.png" alt="" class="img-responsive add-shadow">
+		</div>
+		<div class="center-image-wrapper" style="max-width: 165px">
+			<img src="https://ironpdf.com/img/faq/edit-stamp-html-pdf-sharp/edit-stamp-html-pdf-sharp2.png" alt="" class="img-responsive add-shadow">
+		</div>
+		<div class="center-image-wrapper" style="max-width: 130px;">
+			<img src="https://ironpdf.com/img/faq/edit-stamp-html-pdf-sharp/edit-stamp-html-pdf-sharp3.png" alt="" class="img-responsive add-shadow">
+		</div>
+	</div>
+</center>
+
+<h3>Getting Started with IronPDF</h3>
 
 ---
 
-## IronPdf Overview
+## Enhancing a C# PDF
 
-**IronPdf** offers C# developers a robust library to manage HTML-to-PDF conversion on .NET platforms including .NET 8, .NET 7, .NET 6, .NET Core, and the .NET Framework. Employing this library, you can create rich, well-formatted PDF documents directly from HTML, MVC, ASPX pages, or directly from image files. The library comes packed with features allowing PDF signing, editing, and reading, with over 50 functionalities available to streamline PDF management in your applications.
+Stamps and authorization marks are crucial for numerous document scenarios within .NET applications.
 
-Quickly integrate into your projects using `"PM> Install-Package IronPdf"` and enhance your application capabilities within minutes.
+With IronPDF installed, stamping your document becomes an efficient task.
 
-**Company Details:**
-Iron Software LLC,
-205 N. Michigan Ave., Suite 810, 
-Chicago, IL 60601, 
-USA
-Email: [support@ironsoftware.com](mailto:support@ironsoftware.com)
-[Website](https://www.ironpdf.com)
+Below, we utilize the `HtmlStamper()` method. By setting `IsStampBehindContent = true`, the selected data will appear on the BACK of the document. Conversely, setting this to `false` places the stamp on TOP of the content.
 
-For detailed licensing options including enterprise and perpetual licenses, visit their dedicated pages:
-- Unlimited license: [IronPdf Unlimited Licensing](https://ironpdf.com/licensing/#licensing-unlimited)
-- Help Scout support details: [Help Scout for IronPdf](https://ironpdf.com/licensing/#helpscout-support)
+Here’s an application of how to integrate these functionalities into your projects.
 
-**Compatibility and Supported Technologies:**
-- Languages: C#, VB.NET, F#
-- App Frameworks: .NET versions (8, 7, 6), .NET Core (starting 2.0+), .NET Standard (from 2.0+), .NET Framework (4.6.2+)
-- Project Applications: Web (includes Blazor & WebForms), Desktop (supports WPF & MAUI), Console (both App & Library types)
-- Environments: Windows (7, 10, Server 2016+), Linux (Ubuntu, Debian, CentOS), MacOS (10.14+), Cloud (Azure, AWS Docker compatible) 
-- IDEs supported: Visual Studio, ReSharper, Rider
-- Certified by DigiCert ensuring trusted, secure binary distributions.
+```cs
+using IronPdf;
+using IronPdf.Editing;
 
-### Features for PDF Generation
-- **HTML to PDF**: Transform HTML pages directly into PDF files.
-- **URL to PDF**: Directly render web pages to PDF documents by URL references.
-- **JS & CSS Rendering**: Full support for JavaScript, CSS, and HTML5 during PDF generation.
-- **Editing and Security**: Edit existing PDFs, add digital signatures, and secure with password protections.
-- **Advanced Rendering Options**: Configure headers, footers, pagination, and fine-tune rendering settings.
+// Initialize the loaded PDF for stamping or watermarking
+PdfDocument pdf = PdfDocument.FromFile("example.pdf");
 
-### Advanced Usage:
-- **External Asset Loading**: Set up a base path like `C:\\site\\assets\\` for seamless asset loading during PDF generation.
+// Configuring and applying the background HTML stamp
+var backgroundStamp = new HtmlStamper()
+{
+    Html = "<img src='https://ironpdf.com/img/products/ironpdf-logo-text-dotnet.svg'/>",
+    Opacity = 50,
+    VerticalAlignment = IronPdf.Editing.VerticalAlignment.Top,
+    HorizontalAlignment = IronPdf.Editing.HorizontalAlignment.Right,
+    IsStampBehindContent = true
+};
+pdf.ApplyStamp(backgroundStamp);
 
-```csharp
-// Prepare HTML with assets for PDF transformation
-var Renderer = new IronPdf.HtmlToPdf();
-var PDF = Renderer.RenderHtmlAsPdf("<h1>Heading</h1><img src='https://ironpdf.com/icons/iron.png'>", @"C:\\site\\assets\\");
-PDF.SaveAs("html-with-assets.pdf");
+// Configuring and applying the foreground HTML stamp
+var foregroundStamp = new HtmlStamper()
+{
+    Html = "<h2 style='color:red'>Copyright 2023 IronPDF.com</h2>",
+    MaxWidth = new Length(50),
+    MaxHeight = new Length(50),
+    Opacity = 50,
+    Rotation = -45,
+    IsStampBehindContent = false
+};
+pdf.ApplyStamp(foregroundStamp);
+
+// Save the updated PDF
+pdf.SaveAs("enhanced.pdf");
 ```
 
-For more guidance on deploying and leveraging the IronPdf library in your applications, refer to the comprehensive documentation at [IronPdf Docs](https://ironpdf.com/documentation/).
+## Authentic and Reliable PDF Documents
 
-*Note: All product and feature updates are diligently posted on their website, ensuring you stay updated with the latest enhancements and capabilities of IronPdf.*
+Using IronPDF for stamping enhances the reliability and authenticity of a document. The example above illustrates how IronPDF simplifies editing and securing PDF files, making them suitable for various applicationsin your .NET projects.
 
----
+<div class="row">
+	<div class="col-md-6">
+		<center>
+			<h3>Without Stamp</h3>
+			<div class="center-image-wrapper">
+				<a rel="nofollow" href="https://ironpdf.com/img/faq/edit-stamp-html-pdf-sharp/edit-stamp-html-pdf-sharp4.png" target="_blank">
+					<img src="https://ironpdf.com/img/faq/edit-stamp-html-pdf-sharp/edit-stamp-html-pdf-sharp4.png" alt="" class="img-responsive add-shadow">
+				</a>
+			</div>
+		</center>
+	</div>
+	<div class="col-md-6">
+		<center>
+			<h3>With Stamp</h3>
+			<div class="center-image-wrapper">
+				<a rel="nofollow" href="https://ironpdf.com/img/faq/edit-stamp-html-pdf-sharp/edit-stamp-html-pdf-sharp5.png" target="_blank">
+					<img src="https://ironpdf.com/img/faq/edit-stamp-html-pdf-sharp/edit-stamp-html-pdf-sharp5.png" alt="" class="img-responsive add-shadow">
+				</a>
+			</div>
+		</center>
+	</div>
+</div>
 
-This paraphrased content retains the same factual, technical information as the original while enhancing readability and incorporating direct links to Iron Software's licensing and support pages.
+<hr class="separator">
+<h4 class="tutorial-segment-title">Library Quick Access</h4>
+
+<div class="tutorial-section">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="tutorial-image">
+        <img style="max-width: 110px; width: 100px; height: 140px;" alt="" class="img-responsive add-shadow" src="https://ironpdf.com/img/svgs/documentation.svg" width="100" height="140">
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <h3>More API Reference</h3>
+      <p>Access more documentation in the API Reference, offering additional tools for watermarking, authenticating, editing, and manipulating C# PDF documents.</p>
+      <a class="doc-link" href="https://ironpdf.com/object-reference/api/IronPdf.html" target="_blank"> Explore More API Reference <i class="fa fa-chevron-right"></i></a>
+    </div>
+  </div>
+</div>

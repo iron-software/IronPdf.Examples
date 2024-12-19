@@ -1,10 +1,10 @@
 using System.IO;
 using IronPdf;
-namespace ironpdf.TableOfContents
+namespace IronPdf.Examples.HowTo.TableOfContents
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Instantiate Renderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();

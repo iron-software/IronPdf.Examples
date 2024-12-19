@@ -3,50 +3,49 @@
 ***Based on <https://ironpdf.com/how-to/razor-view-to-pdf/>***
 
 
-IronPDF is a robust PDF manipulation library designed for .NET and .NET Core developers. It primarily operates as a commercial C# PDF library, offering free use during development with a licensing requirement for commercial deployment. This straightforward licensing model eliminates the complexity associated with GNU / AGPL licenses, allowing developers to concentrate on their project development.
+IronPDF serves as a versatile PDF management library tailored for both .NET and .NET Core developers. While it operates under a commercial model for production environments, it remains free for developmental use. This straightforward licensing arrangement frees developers from the complexities often associated with GNU / AGPL licenses, allowing them to concentrate more fully on their projects.
 
-IronPDF empowers developers using .NET and .NET Core to effortlessly generate, edit, merge, split, and extract content from PDF documents using C#, F#, and VB.NET. It supports creating PDFs from various sources including HTML, ASPX, CSS, JS, and images.
+IronPDF empowers developers using .NET and .NET Core to create, merge, split, modify, and extract content from PDF files using languages like C#, F#, and VB.NET. Additionally, it supports PDF creation from HTML, ASPX, CSS, JS, and image materials.
 
-IronPDF's functionality extends to turning HTML into fully formatted PDFs with ease. It takes full advantage of existing HTML and HTML5 assets to style and layout documents.
+Utilizing comprehensive PDF manipulation capabilities, IronPDF converts HTML to PDF seamlessly. How does this functionality come to life? It leverages existing HTML and HTML5 assets for document design and layout.
 
-You can grab the C# Razor-to-PDF example project by visiting the [IronPDF Razor View to PDF download](https://ironpdf.com/downloads/csharp-razor-view-to-pdf.zip).
+The IronPDF C# Razor-to-PDF sample project is accessible for download at [IronPDF Razor View to PDF download](https://ironpdf.com/downloads/csharp-razor-view-to-pdf.zip).
 
-## IronPDF Features for .NET & .NET Core Applications
 
-IronPDF boasts a variety of impressive features:
+## Key Features of IronPDF for .NET & .NET Core
+
+IronPDF introduces an array of impressive features for .NET applications:
 <ul>
-    <li>Creating PDFs from HTML, images, and ASPX using the .NET PDF library</li>
-    <li>Text extraction capabilities for PDF documents</li>
-    <li>Data and image extraction from PDF files</li>
-    <li>Functionalities to merge and split PDF files</li>
-    <li>Advanced manipulation of PDF documents</li>
+    <li>Generate PDF documents from HTML, images, and ASPX files with the .NET PDF library</li>
+    <li>Read PDF text within .NET and .NET Core programs</li>
+    <li>Extract images and data from PDF documents</li>
+    <li>Merge and split PDF files</li>
+    <li>Edit and alter PDF documents</li>
 </ul>
 
-## IronPDF Advantages
+## Advantages of IronPDF
 
 <ul>
-    <li>Simplified installation process for IronPDF</li>
-    <li>Streamlined licensing options</li>
-    <li>Superior performance compared to other .NET and .NET Core PDF libraries</li>
+    <li>Installing IronPDF is straightforward</li>
+    <li>The licensing for the IronPDF .NET library is quick and hassle-free</li>
+    <li>Performance-wise, IronPDF excels beyond many other .NET and .NET Core PDF libraries</li>
 </ul>
 
 **IronPDF is the go-to solution for your PDF needs.**
 
-<hr class="separator">
+---
 
-## Installing the IronPDF PDF library
+## How to Install IronPDF
 
-It's straightforward to install the IronPDF library in .NET or .NET Core applications:
+Installing IronPDF in your .NET or .NET Core projects is simple. Here are quick ways to do it:
 
-Using NuGet package manager, simply type the following command:
+You can use the NuGet package manager with the command line prompt:
 
 ```shell
-Install-Package IronPdf
+/Install-Package IronPdf
 ```
 
-Alternatively, in Visual Studio, navigate to "Manage NuGet Packages" via the project menu and search for IronPDF, as demonstrated below:
-
-[//]: # 'image wrapper to make margin bigger - still has link'
+Or, configure it directly from Visual Studio by navigating to "Manage NuGet Packages" and searching for IronPDF, as depicted below:
 
 <div class="content-img-align-center">
 	<div class="center-image-wrapper">
@@ -55,28 +54,26 @@ Alternatively, in Visual Studio, navigate to "Manage NuGet Packages" via the pro
         </a>
 	</div>
 </div>
+**Figure 1** - *IronPDF NuGet Package*
 
-**Figure 1** - *IronPDF NuGet Package Installation Illustrated*
+Upon successful installation, your project will have PDF functionalities.
 
-This process installs the PDF extension efficiently.
+With IronPDF, you can now generate PDF files using ASP.NET MVC. Below are a few examples:
 
-IronPDF can also be integrated with ASP.NET MVC to return a PDF file. Here are some code samples to provide a clearer picture:
-
-Example of a method in your controller:
+To serve a PDF file in MVC, you could use a method like this:
 
 ```cs
 public FileResult Generate_PDF_FromHTML_Or_MVC(long id) {
   
   using var objPDF = Renderer.RenderHtmlAsPdf("<h1>IronPDF and MVC Example</h1>"); //Create a PDF Document 
-  var objLength = objPDF.BinaryData.Length; // Return PDF document size
+  var objLength = objPDF.BinaryData.Length; //return a PDF document from a view
   Response.AppendHeader("Content-Length", objLength.ToString());
   Response.AppendHeader("Content-Disposition", "inline; filename=PDFDocument_" + id + ".pdf");
 
   return File(objPDF.BinaryData, "application/pdf;");
 }
 ```
-
-Here's how you might serve an already existing PDF in ASP.NET:
+In another scenario, to directly serve an existing PDF:
 
 ```cs
 Response.Clear();
@@ -87,10 +84,6 @@ Response.Flush();
 Response.End();
 ```
 
-<hr>
+---
 
-Now, let’s proceed with an example in ASP.NET using MVC and .NET Core. Launch Visual Studio and initiate a new ASP.NET Core web application.
-
-## 1. Create a New ASP.NET Core Web Project in Visual Studio
-
-<img src="https://ironpdf.com/static-assets/pdf/how-to/razor-view-to-pdf/create-asp.net-core-project.gif" alt="Create ASP.NET Core Project" class="img-responsive add-shadow" style="margin-bottom: 30px;">
+Let's now dive into creating a sample ASP.NET using MVC and .NET Core in Visual Studio.

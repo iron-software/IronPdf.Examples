@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using IronPdf;
-namespace ironpdf.HeadersAndFooters
+namespace IronPdf.Examples.HowTo.HeadersAndFooters
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Create text header
             TextHeaderFooter textHeader = new TextHeaderFooter

@@ -1,16 +1,11 @@
 using IronPdf;
-namespace ironpdf.AspxToPdf
+namespace IronPdf.Examples.HowTo.AspxToPdf
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
-            var AspxToPdfOptions = new IronPdf.ChromePdfRenderOptions()
-            {
-                EnableJavaScript = false,
-                //.. many more options available
-            };
-            IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.Attachment, "Invoice.pdf", AspxToPdfOptions);
+            <div style='page-break-after: always;'>&nbsp;</div>
         }
     }
 }

@@ -1,76 +1,70 @@
-# Working with Cookies in IronPDF
+# Utilizing Cookies with IronPDF
 
 ***Based on <https://ironpdf.com/how-to/cookies/>***
 
 
-Cookies are crucial data elements that a website deposits on a user's computer. They help in numerous functions such as maintaining user sessions by keeping users signed in, and in tracking and analytics by capturing data about user interactions for website enhancement. Despite these roles, the usage of cookies has raised privacy concerns, giving rise to regulations like GDPR and CCPA. Consequently, modern web browsers enable users to manage cookies, ensuring adherence to these privacy concerns.
+Cookies play a crucial role in web technologies, facilitating functionalities ranging from maintaining user sessions to gathering data on user activities for website enhancements. The application of cookies, however, does raise privacy concerns, which have been addressed through regulations such as the GDPR and CCPA. In response, modern web browsers have enhanced cookie management features to mitigate these issues.
 
-## Example of Applying Cookies
+### Introduction to IronPDF
 
-To start applying cookies, first set the `RequestContext` property to `RequestContexts.Global`. This setup involves using the `ChromeHttpLoginCredentials` class and invoking the `ApplyCookies` method. Afterward, the renderer can proceed to convert HTML content into PDFs while incorporating cookies.
+---
+
+## Implementing Cookies with IronPDF
+
+To begin using cookies with IronPDF, first configure the **RequestContext** to use `RequestContexts.Global`. Subsequently, initialize the `ChromeHttpLoginCredentials` and employ them through the `ApplyCookies` method. With this setup, the renderer is prepared to generate PDFs from HTML content while appropriately managing cookies.
 
 ```cs
 using IronPdf;
-namespace ironpdf.Cookies
-{
-    public class ApplyingCookiesSection
-    {
-        public void Execute()
-        {
-            // Create an instance of ChromePdfRenderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Set global request context
-            renderer.RenderingOptions.RequestContext = IronPdf.Rendering.RequestContexts.Global;
-            
-            // Define credentials for HTTP login
-            ChromeHttpLoginCredentials credentials = new ChromeHttpLoginCredentials() {
-                NetworkUsername = "demoUser",
-                NetworkPassword = "demoPass"
-            };
-            
-            string uri = "http://example.com/ContentPage";
-            
-            // Apply cookies to the specified URI
-            renderer.ApplyCookies(uri, credentials);
-        }
-    }
-}
+
+// Create a ChromePdfRenderer instance
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Configure the renderer to use global request contexts
+renderer.RenderingOptions.RequestContext = IronPdf.Rendering.RequestContexts.Global;
+
+// Set up login credentials
+ChromeHttpLoginCredentials credentials = new ChromeHttpLoginCredentials() {
+    NetworkUsername = "testUser",
+    NetworkPassword = "testPassword"
+};
+
+// Define the URL for PDF rendering
+string uri = "http://localhost:51169/Invoice";
+
+// Implement cookie application
+renderer.ApplyCookies(uri, credentials);
 ```
 
-The `RequestContexts` enumeration: This enum is pivotal in defining browser request contexts that help maintain consistency across renders and manage cookies efficiently.
+### Explaining RequestContext Enum
 
-- **Isolated**: Sets up a new and detached request context, ensuring no interference from past or future renders.
-- **Global**: Maintains a shared request context across all renders, useful for persisting browser states over multiple renders.
-- **Auto**: Defaults to `IronPdf.Rendering.RequestContexts.Isolated`, but changes to `IronPdf.Rendering.RequestContexts.Global` if `ApplyCookies` has previously been used.
+This enumeration manages browser request contexts crucial for handling cookies and user settings efficiently:
 
-## Example of Applying Custom Cookies
+- **Isolated**: Establishes a new and separate request context for each render, recommended to avoid interference from previous outputs.
+- **Global**: Applies a global request context shared across renders, which can be advantageous for maintaining consistent browser states across sessions.
+- **Auto**: Initially, the context is set to `RequestContexts.Isolated` but switches to `RequestContexts.Global` if the `ApplyCookies` method has been utilized previously.
 
-To apply custom cookies, configure the `CustomCookies` property, which accepts a dictionary containing cookies in the form of key-value string pairs.
+---
+
+## Example of Custom Cookie Implementation
+
+Creating a personalized request with distinct cookies involves setting the `CustomCookies` attribute. This attribute accepts a dictionary where both keys and values are strings. Here's how to set it up:
 
 ```cs
+using IronPdf;
+using System;
 using System.Collections.Generic;
-using IronPdf;
-namespace ironpdf.Cookies
-{
-    public class CustomCookiesSection
-    {
-        public void Execute()
-        {
-            // Initialize ChromePdfRenderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Creating a dictionary for custom cookies
-            Dictionary<string, string> customCookies = new Dictionary<string, string>();
-            
-            // Assigning custom cookies to renderer
-            renderer.RenderingOptions.CustomCookies = customCookies;
-            
-            var uri = new Uri("https://example.com/InvoicePage");
-            PdfDocument pdf = renderer.RenderUrlAsPdf(uri);
-        }
-    }
-}
-```
 
-In both examples, cookies are carefully managed and applied to ensure the typical functionalities like authentication and session maintenance during the PDF rendering process with IronPDF.
+// Initialize ChromePdfRenderer
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Prepare custom cookies
+Dictionary<string, string> customCookies = new Dictionary<string, string>();
+
+// Set custom cookies
+renderer.RenderingOptions.CustomCookies = customCookies;
+
+// URL setup for PDF rendering
+var uri = new Uri("https://localhost:44362/invoice");
+// Render URL to PDF
+PdfDocument pdf = renderer.RenderUrlAsPdf(uri);
+```

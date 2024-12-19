@@ -1,64 +1,118 @@
-# IronPDF: The Premier C# PDF Library
+# F# PDF Library (Complete Tutorial)
 
 ***Based on <https://ironpdf.com/how-to/fsharp-pdf-library-html-to-pdf/>***
 
 
-IronPDF, a leading .NET library developed by Iron Software, provides developers with powerful tools for generating and manipulating PDF files directly from within their .NET applications. Whether you are working on a .NET Framework, .NET Core, or .NET Standard project, IronPDF seamlessly integrates into your developer toolkit, allowing you to convert HTML to PDF, create, sign, and edit PDF documents with ease.
+This comprehensive guide shows you the process of creating and editing PDF documents in F# with IronPDF. Ensure you have Visual Studio installed and an F# project ready.
 
-## Getting Started with IronPDF
+To explore IronPDF usage with **C#**, visit [this detailed guide](https://ironpdf.com/docs/).
 
-To begin utilizing IronPDF, start by adding the library to your project via the NuGet Package Manager:
+For guidance on IronPDF with **VB.NET**, refer to [this resource](https://ironpdf.com/how-to/vb-net-pdf/).
 
-```bash
-PM> Install-Package IronPdf
+## Setting Up the F# PDF Library
+
+### Via NuGet Package Manager
+
+In Visual Studio, go to your project in the Solution Explorer, right-click, and choose "Manage NuGet Packages...". Search for IronPDF, select it, and proceed to install the latest version. Confirm any prompts that appear. This method is compatible with any .NET project.
+
+### Via NuGet Package Manager Console
+
+Alternatively, you can install IronPDF using the package manager console with the following command:
+```shell
+/Install-Package IronPdf
 ```
 
-After installation, you can immediately begin transforming HTML pages into pristine PDF documents by integrating the following namespaces in your C# script:
+### Directly in the .fsproj File
 
-```csharp
-using IronPdf;
-using IronPdf.Rendering;
+You can also integrate IronPDF by adding the next `ItemGroup` to your .fsproj file:
+```xml
+<ItemGroup>
+  <PackageReference Include="IronPdf" Version="*" />
+</ItemGroup>
 ```
 
-Here’s a basic example to create a PDF from HTML content:
+### Via DLL
 
-```csharp
-// Initializing the Pdf Renderer
-var renderer = new ChromePdfRenderer();
+Or, download and manually integrate the IronPDF DLL into your project or the Global Assembly Cache (GAC) from [here](https://ironpdf.com/packages/IronPdf.zip).
 
-// Generating PDF from HTML
-var pdfDocument = renderer.RenderHtmlAsPdf("<h1>Hello IronPDF</h1>");
-
-// Saving the PDF to a file
-pdfDocument.SaveAs("example.pdf");
+Include this statement at the beginning of any **.fs** file where you're using IronPDF:
+```fsharp
+open IronPdf
 ```
 
-This straightforward approach allows you to generate high-quality PDFs in any .NET application quickly.
+## Generating a PDF from HTML in F#
 
-## Advanced Usage
+Start by importing the `IronPdf` namespace with `open`. Then, instantiate a `ChromePdfRenderer` and utilize its `RenderHtmlAsPdf` method with an HTML string, or use the `RenderHtmlFileAsPdf` if you're working with an existing HTML file.
 
-For more complex tasks, IronPDF supports a wealth of features, including CSS styling, JavaScript, and high-resolution images in your PDFs. Below is an example of advanced HTML rendering:
+### Convert HTML String to PDF in F#
 
-```csharp
-// Initialize the renderer and set assets path
-var advancedRenderer = new ChromePdfRenderer();
-advancedRenderer.RenderingOptions.AssetPath = @"C:\site\assets\";
+```fsharp
+open IronPdf
 
-// Sample HTML content with CSS and Images
-string htmlContent = @"
-    <h1 style='color: blue;'>Styled Header</h1>
-    <img src='icons/iron.png'>
-";
+let html = "<p>Hello World</p>"
+let renderer = ChromePdfRenderer()
 
-// Convert HTML to a PDF document with assets
-var advancedPdf = advancedRenderer.RenderHtmlAsPdf(htmlContent);
-
-// Save the generated PDF
-advancedPdf.SaveAs("styled-example.pdf");
+let pdfDocument = html |> renderer.RenderHtmlAsPdf
+pdfDocument.SaveAs("document.pdf") |> ignore
 ```
 
-This snippet demonstrates the incorporation of external CSS files and images, ensuring that the layout and style match your specifications precisely.
+### Convert HTML File to PDF in F#
 
-Visit the official IronPDF documentation at [IronPDF Documentation](https://ironpdf.com/docs/) for more detailed instructions and feature descriptions.
+```fsharp
+open IronPdf
 
-With IronPDF, .NET developers have access to an extensive suite of functionalities that simplify PDF generation and manipulation, making it an invaluable component of a developer’s toolkit. Whether for generating reports, automating document handling, or integrating complex PDF functionalities into .NET applications, IronPDF stands out as a top choice.
+let filePath = "C:/designs/html/layout.html"
+let renderer = ChromePdfRenderer()
+
+let pdfDocument = filePath |> renderer.RenderHtmlFileAsPdf
+pdfDocument.SaveAs("document.pdf") |> ignore
+```
+
+### Advanced PDF Generation in F# Using IronPDF
+
+Below is an elaborate example demonstrating how to generate a styled PDF from a URL, using specific settings and templates:
+
+```fsharp
+open IronPdf
+
+let CreateCompanyStandardDocument (url : string) =
+    
+    // Configure Render Options
+    let renderOptions = ChromePdfRenderOptions(
+        CssMediaType = Rendering.PdfCssMediaType.Screen,
+        EnableJavaScript = true,
+        PrintHtmlBackgrounds = true,
+        InputEncoding = System.Text.Encoding.UTF8,
+        MarginTop = 0.39,
+        MarginBottom = 0.38,
+        MarginLeft = 0.39,
+        MarginRight = 0.38
+    )
+    
+    // Define a Header Template
+    let companyHeader = HtmlHeaderFooter()
+    companyHeader.HtmlFragment <- "<img src='https://ironpdf.com/img/svgs/ironsoftware-logo-black.svg' />"
+    companyHeader.DrawDividerLine <- true
+    
+    // Include the header in Render Options
+    renderOptions.HtmlHeader <- companyHeader
+    
+    // Initialize Renderer with Options
+    let renderer = ChromePdfRenderer(RenderingOptions = renderOptions)
+    
+    // Produce
+    let basic_html_pdf = url |> renderer.RenderUrlAsPdf
+    
+    // Add Headers and finalize PDF
+    basic_html_pdf.AddHtmlHeaders(companyHeader) |> ignore
+    
+    // Done
+    basic_html_pdf
+   
+let CreatePdfFromUrl (url : string) =
+    let pdf = url |> CreateCompanyStandardDocument
+    pdf.SaveAs("document.pdf") |> ignore
+
+IronPdf.License.LicenseKey <- "YOUR_LICENSE_KEY_HERE"
+CreatePdfFromUrl("https://ironpdf.com/")
+```

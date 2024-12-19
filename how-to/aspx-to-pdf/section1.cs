@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.AspxToPdf
+namespace IronPdf.Examples.HowTo.AspxToPdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.InBrowser);
         }

@@ -1,9 +1,9 @@
 using IronPdf;
-namespace ironpdf.CsharpEditPdfCompleteTutorial
+namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
-    public class Section18
+    public static class Section18
     {
-        public void Run()
+        public static void Run()
         {
             var renderer = new ChromePdfRenderer();
             var pdf = renderer.RenderHtmlAsPdf("<h1>Example HTML Document!</h1>");
