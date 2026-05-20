@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.BackgroundForeground
 {
@@ -6,26 +5,17 @@ namespace IronPdf.Examples.HowTo.BackgroundForeground
     {
         public static void Run()
         {
-            string html = @"<p> This is 1st Page </p>
-            <div style = 'page-break-after: always;'></div>
-            <p> This is 2nd Page</p>
-            <div style = 'page-break-after: always;'></div>
-            <p> This is 3rd Page</p>";
-            
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Main HTML content</h1>");
             
             // Render background
             PdfDocument background = renderer.RenderHtmlAsPdf("<body style='background-color: cyan;'></body>");
             
-            // Create list of pages
-            List<int> pages = new List<int>() { 0, 2 };
+            // Add background to page 1
+            pdf.AddBackgroundPdfToPage(0, background);
             
-            // Add background to page 1 & 3
-            pdf.AddBackgroundPdfToPageRange(pages, background);
-            
-            pdf.SaveAs("addBackgroundOnMultiplePage.pdf");
+            pdf.SaveAs("addBackgroundOnASinglePage.pdf");
         }
     }
 }

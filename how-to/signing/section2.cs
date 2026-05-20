@@ -1,4 +1,4 @@
-using System;
+using System.Security.Cryptography.X509Certificates;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Signing
 {
@@ -6,25 +6,22 @@ namespace IronPdf.Examples.HowTo.Signing
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>foo</h1>");
+            // Create a new PDF from an HTML string for demonstration.
+            var renderer = new ChromePdfRenderer();
+            var pdf = renderer.RenderHtmlAsPdf("<h1>Signed Document</h1><p>This document has been digitally signed.</p>");
             
-            pdf.SaveAs("signed.pdf");
+            // Load the certificate from a .pfx file with its password.
+            // The X509KeyStorageFlags.Exportable flag is crucial for allowing the private key to be used in the signing process.
+            var cert = new X509Certificate2("IronSoftware.pfx", "123456", X509KeyStorageFlags.Exportable);
             
-            // Create PdfSignature object
-            var sig = new PdfSignature("IronSoftware.pfx", "123456");
+            // Create a PdfSignature object using the loaded certificate.
+            var signature = new PdfSignature(cert);
             
-            // Add granular information
-            sig.SignatureDate = new DateTime(2000, 12, 02);
-            sig.SigningContact = "IronSoftware";
-            sig.SigningLocation = "Chicago";
-            sig.SigningReason = "How to guide";
-            sig.TimestampHashAlgorithm = TimestampHashAlgorithms.SHA256;
-            sig.TimeStampUrl = "http://timestamp.digicert.com";
-            sig.SignatureImage = new PdfSignatureImage("IronSoftware.png", 0, new Rectangle(0, 600, 100, 100));
+            // Apply the signature to the PDF document.
+            pdf.Sign(signature);
             
-            // Sign and save PDF document
-            sig.SignPdfFile("signed.pdf");
+            // Save the securely signed PDF document.
+            pdf.SaveAs("Signed.pdf");
         }
     }
 }

@@ -5,11 +5,13 @@ namespace IronPdf.Examples.GettingStarted.Ironpdfengine
     {
         public static void Run()
         {
-            // ... your code ...
+            // Establish a connection with the remote IronPdfEngine
+            // Remember to replace the IP address and port with your actual server details
+            Installation.ConnectToIronPdfHost(
+                IronPdf.GrpcLayer.IronPdfConnectionConfiguration.RemoteServer("123.456.7.8:33350")
+            );
             
-            Installation.ConnectToIronPdfHost( IronPdf.GrpcLayer.IronPdfConnectionConfiguration.RemoteServer("123.456.7.8:33350"));
-            
-            // ... your code ...
+            // Additional code for your application
         }
     }
 }

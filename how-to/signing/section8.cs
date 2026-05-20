@@ -1,4 +1,4 @@
-using IronPdf.Editing;
+using IronSoftware.Drawing;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Signing
 {
@@ -6,11 +6,23 @@ namespace IronPdf.Examples.HowTo.Signing
     {
         public static void Run()
         {
-            var pdf = PdfDocument.FromFile("invoice.pdf");
+            // Create a new PDF to add the signature field to.
+            var renderer = new ChromePdfRenderer();
+            var pdf = renderer.RenderHtmlAsPdf("&lt;h1&gt;Please Sign Below&lt;/h1&gt;");
             
-            pdf.ApplyWatermark("<img src='signature.png'/>", 90, VerticalAlignment.Bottom, HorizontalAlignment.Right);
+            // Define the properties for the signature form field.
+            string fieldName = "ClientSignature";
+            int pageIndex = 0; // Add to the first page.
+            var fieldRect = new Rectangle(50, 200, 300, 100); // Position: (x, y), Size: (width, height)
             
-            pdf.SaveAs("official_invoice.pdf");
+            // Create the SignatureFormField object.
+            var signatureField = new SignatureFormField(fieldName, pageIndex, fieldRect);
+            
+            // Add the signature field to the PDF's form.
+            pdf.Form.Add(signatureField);
+            
+            // Save the PDF with the new interactive signature field.
+            pdf.SaveAs("interactive_signature.pdf");
         }
     }
 }

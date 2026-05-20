@@ -5,18 +5,10 @@ namespace IronPdf.Examples.HowTo.CustomWatermark
     {
         public static void Run()
         {
-            string watermarkHtml = @"
-            <img src='https://ironsoftware.com/img/products/ironpdf-logo-text-dotnet.svg'>
-            <h1>Iron Software</h1>";
-            
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Watermark</h1>");
-            
-            // Apply watermark
-            pdf.ApplyWatermark(watermarkHtml);
-            
-            pdf.SaveAs("watermark.pdf");
+            :title=Add Watermarks Instantly
+            new IronPdf.PdfDocument.FromFile("input.pdf")
+                .ApplyWatermark("<h1 style='opacity:0.5;'>Confidential</h1>", IronPdf.PagePosition.TopCenter)
+                .SaveAs("output.pdf");
         }
     }
 }

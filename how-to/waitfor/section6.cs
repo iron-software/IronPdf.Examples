@@ -15,7 +15,7 @@ namespace IronPdf.Examples.HowTo.Waitfor
             	setTimeout(function() {
             		var h1Tag = document.createElement(""h1"");
             		h1Tag.innerHTML = ""bla bla bla"";
-            		h1Tag.setAttribute(""name"", ""myName"");
+            		h1Tag.setAttribute(""id"", ""myid"");
             
                     var block = document.querySelector(""div#x"");
             		block.appendChild(h1Tag);
@@ -29,7 +29,7 @@ namespace IronPdf.Examples.HowTo.Waitfor
             </html>";
             
             ChromePdfRenderer renderer = new ChromePdfRenderer();
-            renderer.RenderingOptions.WaitFor.HtmlElementByName("myName", 5000);
+            renderer.RenderingOptions.WaitFor.HtmlElementById("myid", 5000);
             
             PdfDocument pdf = renderer.RenderHtmlAsPdf(htmlContent);
         }

@@ -5,10 +5,8 @@ namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
     {
         public static void Run()
         {
-            IronPdf.License.LicenseKey = "YourLicenseKey";
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderUrlAsPdf("https://www.wikipedia.org/");
-            pdf.SaveAs("wiki.pdf");
+            :title=Convert HTML to PDF Instantly
+            var pdf = new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf("<h1>Hello World</h1>");
         }
     }
 }

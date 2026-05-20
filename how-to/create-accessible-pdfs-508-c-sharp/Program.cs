@@ -1,5 +1,5 @@
 using IronPdf;
+using IronPdf.Examples.HowTo.CreateAccessiblePdfs508CSharp;
 
 
-// Add Your Own Code Here
-
+Section1.Run();

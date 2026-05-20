@@ -5,11 +5,10 @@ namespace IronPdf.Examples.HowTo.TransformPdfPages
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("basic.pdf");
-            
-            pdf.Pages[0].Transform(50, 50, 0.8, 0.8);
-            
-            pdf.SaveAs("transformPage.pdf");
+            :title=Transform PDF pages with translation and scaling in one line!
+            IronPdf.PdfDocument.FromFile("input.pdf")
+              .Pages[0].Transform(50,50,0.8,0.8)
+              .SaveAs("output‑transformed.pdf");
         }
     }
 }

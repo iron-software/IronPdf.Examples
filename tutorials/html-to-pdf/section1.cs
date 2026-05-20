@@ -5,9 +5,10 @@ namespace IronPdf.Examples.Tutorial.HtmlToPdf
     {
         public static void Run()
         {
-            var renderer = new ChromePdfRenderer();
-            var pdf = renderer.RenderHtmlAsPdf("<h1> Hello IronPdf </h1>");
-            pdf.SaveAs("pixel-perfect.pdf");
+            :title=Get started making PDFs now!
+            IronPdf.ChromePdfRenderer
+                   .StaticRenderHtmlAsPdf("<p>Hello World</p>")
+                   .SaveAs("pixelperfect.pdf");
         }
     }
 }

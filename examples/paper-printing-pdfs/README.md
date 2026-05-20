@@ -1,10 +1,9 @@
 ***Based on <https://ironpdf.com/examples/paper-printing-pdfs/>***
 
-Explore the new .NET printing library from Iron Software, **IronPrint**, which supports a diverse range of operating systems including Windows, macOS, Android, and iOS. Learn more about IronPrint and how you can get started by visiting:
+<div class="alert alert-info iron-variant-1" role="alert">
+Explore the capabilities of <a href="https://ironsoftware.com/csharp/print/">IronPrint - The .NET Printing Library by Iron Software</a>, a modern .NET printing library that supports a variety of platforms such as Windows, macOS, Android, and iOS. Get started with IronPrint by visiting <a href="https://ironsoftware.com/csharp/print/docs/">this guide</a> today!
+</div>
 
-- [Learn More About IronPrint - The .NET Printing Library by Iron Software](https://ironsoftware.com/csharp/print/)
-- [Discover How to Get Started with IronPrint](https://ironsoftware.com/csharp/print/docs/)
+The provided code example illustrates the process of printing a PDF using the IronPdf library in .NET environments. This includes the ability to print using the standard Windows printing dialog or in a silent mode. Additionally, it demonstrates how to effectively use the `PrintDocument` object for enhanced printing setups. Remember to link the `System.Drawing.dll` if you're customizing settings via the `PrintDocument` object.
 
-**Printing a PDF using IronPrint** is straightforward. You can send a PDF to the default printer on your computer. Depending on your settings, Windows print UI dialogs might appear, or you can choose to print silently by utilizing various overloads of the `IronPdf.PdfDocument.Print` method.
-
-For more advanced printing capabilities, `IronPdf.PdfDocument.GetPrintDocument` method connects to the native .NET Framework `PrintDocument` object. To leverage this functionality, an assembly reference to `System.Drawing.dll` must be added to your project.
+Visit <a href="https://ironpdf.com/how-to/print-pdf/" class="code_content__related-link__doc-cta-link">this page</a> to learn more about sophisticated printing techniques with IronPDF.

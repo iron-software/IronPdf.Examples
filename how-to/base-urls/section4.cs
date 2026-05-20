@@ -1,3 +1,4 @@
+using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.BaseUrls
 {
@@ -8,11 +9,13 @@ namespace IronPdf.Examples.HowTo.BaseUrls
             // Instantiate ChromePdfRenderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            // Render HTML file to PDF
-            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("C:\\Assets\\TestInvoice1.html");
-            
-            // Export PDF
-            pdf.SaveAs("Invoice.pdf");
+            // Add header
+            renderer.RenderingOptions.HtmlHeader = new HtmlHeaderFooter()
+            {
+                MaxHeight = 20,
+                HtmlFragment = "<img src='logo.png'>",
+                BaseUrl = new Uri(@"C:\assets\images\").AbsoluteUri
+            };
         }
     }
 }

@@ -5,15 +5,14 @@ namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
     {
         public static void Run()
         {
-            var pdf = new PdfDocument("sample.pdf");
+            // Select the desired PDF File
+            PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
             
-            // Take the first page
-            var pdf_page1 = pdf.CopyPage(0);
-            pdf_page1.SaveAs("Split1.pdf");
+            // Extract all text from an pdf
+            string allText = pdf.ExtractAllText();
             
-            // Take the pages 2 & 3
-            var pdf_page2_3 = pdf.CopyPages(1, 2);
-            pdf_page2_3.SaveAs("Spli2t.pdf");
+            // Extract all text from page 1
+            string page1Text = pdf.ExtractTextFromPage(0);
         }
     }
 }

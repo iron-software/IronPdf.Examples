@@ -1,4 +1,4 @@
-using System;
+using IronPdf.Editing;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.StampTextImage
 {
@@ -6,16 +6,31 @@ namespace IronPdf.Examples.HowTo.StampTextImage
     {
         public static void Run()
         {
-            // Create text stamper
-            ImageStamper imageStamper = new ImageStamper(new Uri("https://ironpdf.com/img/svgs/iron-pdf-logo.svg"))
-            {
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Top,
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-                // Specify offsets
-                HorizontalOffset = new Length(10),
-                VerticalOffset = new Length(10),
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example HTML Document!</h1>");
+            
+            // Create two text stampers
+            TextStamper stamper1 = new TextStamper()
+            {
+                Text = "Text stamp 1",
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Left,
             };
+            
+            TextStamper stamper2 = new TextStamper()
+            {
+                Text = "Text stamp 2",
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Right,
+            };
+            
+            Stamper[] stampersToApply = { stamper1, stamper2 };
+            
+            // Apply multiple stamps
+            pdf.ApplyMultipleStamps(stampersToApply);
+            
+            pdf.SaveAs("multipleStamps.pdf");
         }
     }
 }

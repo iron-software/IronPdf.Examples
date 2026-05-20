@@ -1,5 +1,5 @@
 using IronPdf;
+using IronPdf.Examples.HowTo.CshtmlToPdfRazor;
 
 
-// Add Your Own Code Here
-
+Section1.Run();

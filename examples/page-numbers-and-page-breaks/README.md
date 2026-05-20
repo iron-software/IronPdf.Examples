@@ -1,17 +1,15 @@
 ***Based on <https://ironpdf.com/examples/page-numbers-and-page-breaks/>***
 
-IronPDF provides unparalleled flexibility for customizing and implementing headers and footers according to developer preferences and needs. This capability facilitates the integration of additional page numbering information within headers or footers.
+IronPDF excels in tailoring headers and footers to meet specific developer needs and functionalities. This includes seamlessly integrating extra details like page numbers into the header or footer areas.
 
-Here, we'll demonstrate the management of page numbers and page breaks using IronPDF.
+In this guide, we'll explore how to implement page numbers and manage page breaks using IronPDF.
 
-The functionality spans across the two main header and footer options—`HtmlHeaderFooter` and `TextHeaderFooter`. Utilizing these options is straightforward.
+IronPDF supports two main types of headers and footers: `HtmlHeaderFooter` and `TextHeaderFooter`. Both options are straightforward to use.
 
-`TextHeaderFooter` is a class that lays out the PDF header and footer settings, adopting a straightforward methodology in the rendering process for typical scenarios. It allows you to position page numbers at the right, center, or left of the header or footer and modify the font type and size for uniformity with your document's main text.
+The `TextHeaderFooter` class allows you to define the appearance of PDF headers and footers. It provides an intuitive approach to inserting these elements into your documents. You can position the page numbers on the left, right, or center of the header or footer. Additionally, you have the flexibility to alter the font style and size to match the overall design of your PDF document.
 
-To force a page break in an HTML to PDF conversion in .NET, employ the following HTML code:
+To insert a page break when converting HTML to PDF in .NET, utilize the following HTML snippet:
 
-```txt
-<div style="page-break-after:always;"></div>
-```
+For further details on maximizing the use of these features, please review the [IronPDF Documentation for Headers and Footers](https://ironpdf.com/docs/) on our official site.
 
-For further insights on leveraging these features proficiently, consult the [IronPDF Documentation for Headers and Footers](https://ironpdf.com/docs) on the official website.
+[Learn how to manage HTML to PDF page breaks with IronPDF.](https://ironpdf.com/how-to/html-to-pdf-page-breaks/)

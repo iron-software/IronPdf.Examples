@@ -5,6 +5,7 @@ namespace IronPdf.Examples.GettingStarted.Linux
     {
         public static void Run()
         {
+            // Enables automatic configuration of dependencies for Linux
             IronPdf.Installation.LinuxAndDockerDependenciesAutoConfig = true;
         }
     }

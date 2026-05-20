@@ -7,13 +7,10 @@ namespace IronPdf.Examples.HowTo.Annotations
         {
             PdfDocument pdf = PdfDocument.FromFile("multipleAnnotation.pdf");
             
-            // Remove all annotaions on a specified page
-            pdf.Annotations.RemoveAllAnnotationsForPage(0);
+            // Remove a single annotation with specified index
+            pdf.Annotations.RemoveAt(1);
             
-            // Remove all annotaions on the document
-            pdf.Annotations.Clear();
-            
-            pdf.SaveAs("removeAllAnnotation.pdf");
+            pdf.SaveAs("removeSingleAnnotation.pdf");
         }
     }
 }

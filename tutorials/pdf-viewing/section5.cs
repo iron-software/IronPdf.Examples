@@ -5,8 +5,12 @@ namespace IronPdf.Examples.Tutorial.PdfViewing
     {
         public static void Run()
         {
-            // We assume an IronPdfView instance is created previously called pdfView
-            pdfView.Source = IronPdfViewSource.FromFile("C:/path/to/my/example.pdf");
+            <?xml version="1.0" encoding="utf-8" ?>
+            <ContentPage ...
+                xmlns:ipv="clr-namespace:IronPdf.Viewer.Maui;assembly=IronPdf.Viewer.Maui"
+                ...>
+                <ipv:IronPdfView Source="C:/path/to/my/example.pdf" />
+            </ContentPage>
         }
     }
 }

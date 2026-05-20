@@ -1,3 +1,4 @@
+using IronSoftware.Drawing;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
@@ -5,32 +6,13 @@ namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
     {
         public static void Run()
         {
-            var renderer = new ChromePdfRenderer
-            {
-                RenderingOptions =
-                {
-                    FirstPageNumber = 1, // use 2 if a cover-page  will be appended
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>testing</h1>");
             
-                    // Add a header to every page easily:
-                    TextHeader =
-                    {
-                        DrawDividerLine = true,
-                        CenterText = "{url}",
-                        Font = IronSoftware.Drawing.FontTypes.Helvetica,
-                        FontSize = 12
-                    },
+            // Draw text on PDF
+            pdf.DrawText("Some text", FontTypes.TimesNewRoman.Name, FontSize: 12, PageIndex: 0, X: 100, Y: 100, Color.Black, Rotation: 0);
             
-                    // Add a footer too:
-                    TextFooter =
-                    {
-                        DrawDividerLine = true,
-                        Font = IronSoftware.Drawing.FontTypes.Arial,
-                        FontSize = 10,
-                        LeftText = "{date} {time}",
-                        RightText = "{page} of {total-pages}"
-                    }
-                }
-            };
+            pdf.SaveAs("drawText.pdf");
         }
     }
 }

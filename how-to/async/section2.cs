@@ -6,26 +6,26 @@ namespace IronPdf.Examples.HowTo.Async
     {
         public static void Run()
         {
-            var queue = new List<string>() { "<h1>Html 1</h1>", "<h1>Html 2</h1>", "<h1>Html 3</h1>" };
-            
             // Instantiate ChromePdfRenderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            // Create a list to store the rendered PDFs
-            List<PdfDocument> pdfResults = new List<PdfDocument>();
+            string[] htmlStrings = {"<h1>Html 1</h1>", "<h1>Html 2</h1>", "<h1>Html 3</h1>"};
             
-            Parallel.ForEach(queue, html =>
+            // Create an array to store the tasks for rendering
+            var renderingTasks = new Task<PdfDocument>[htmlStrings.Length];
+            
+            for (int i = 0; i < htmlStrings.Length; i++)
             {
-                // Render HTML to PDF
-                PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
-            
-                // You may choose to save the PDF to disk here if needed
-                // For this example, we'll store it in the pdfResults list
-                lock (pdfResults)
+                int index = i; // Capturing the loop variable
+                renderingTasks[i] = Task.Run(async () =>
                 {
-                    pdfResults.Add(pdf);
-                }
-            });
+                    // Render HTML to PDF
+                    return await renderer.RenderHtmlAsPdfAsync(htmlStrings[index]);
+                });
+            }
+            
+            // Wait for all rendering tasks to complete
+            // await Task.WhenAll(renderingTasks);
         }
     }
 }

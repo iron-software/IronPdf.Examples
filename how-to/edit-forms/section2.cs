@@ -1,4 +1,3 @@
-using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.EditForms
 {
@@ -6,22 +5,16 @@ namespace IronPdf.Examples.HowTo.EditForms
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("checkboxAndComboboxForm.pdf");
+            PdfDocument pdf = PdfDocument.FromFile("textAreaAndInputForm.pdf");
             
-            var checkboxForm = pdf.Form.FindFormField("taskCompleted");
-            // Check the checkbox form
-            checkboxForm.Value = "Yes";
+            // Set text input form values
+            pdf.Form.FindFormField("firstname").Value = "John";
+            pdf.Form.FindFormField("lastname").Value = "Smith";
             
-            var comboboxForm = pdf.Form.FindFormField("priority");
-            // Set the combobox value
-            comboboxForm.Value = "Low";
+            // Set text area form values
+            pdf.Form.FindFormField("address").Value = "Iron Software LLC\r\n205 N. Michigan Ave.";
             
-            // Print out all the available choices
-            foreach (var choice in comboboxForm.Choices)
-            {
-                Console.WriteLine(choice);
-            }
-            pdf.SaveAs("checkboxAndComboboxFormEdited.pdf");
+            pdf.SaveAs("textAreaAndInputFormEdited.pdf");
         }
     }
 }

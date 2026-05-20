@@ -1,3 +1,4 @@
+using System.Linq;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.RotatingText
 {
@@ -5,24 +6,17 @@ namespace IronPdf.Examples.HowTo.RotatingText
     {
         public static void Run()
         {
-            var renderer = new IronPdf.ChromePdfRenderer();
+            // Import PDF
+            PdfDocument pdf = PdfDocument.FromFile("multi-page.pdf");
             
-            var pdf = renderer.RenderHtmlAsPdf(@"
-            <html>
-            <head>
-             <style>
-              .rotated{
-              -webkit-transform: rotate(-180deg);
-              width:400;
-              height:400;
-              }
-            </style>
-            </head>
-            <body>
-            <p class='rotated'>Rotated Text</p>
-            </body>
-            </html>
-            ");
+            // Set rotation for a single page
+            pdf.SetPageRotation(0, PdfPageRotation.Clockwise90);
+            
+            // Set rotation for multiple pages
+            pdf.SetPageRotations(Enumerable.Range(1,3), PdfPageRotation.Clockwise270);
+            
+            // Set rotation for the entire document
+            pdf.SetAllPageRotations(PdfPageRotation.Clockwise180);
             
             pdf.SaveAs("rotated.pdf");
         }

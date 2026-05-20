@@ -5,12 +5,10 @@ namespace IronPdf.Examples.HowTo.CustomMargins
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            renderer.RenderingOptions.MarginTop = 40;
-            renderer.RenderingOptions.MarginLeft = 20;
-            renderer.RenderingOptions.MarginRight = 20;
-            renderer.RenderingOptions.MarginBottom = 40;
+            :title=Set custom PDF margins in one line!
+            new IronPdf.ChromePdfRenderer { RenderingOptions = { MarginTop = 10, MarginBottom = 10, MarginLeft = 10, MarginRight = 10, UseMarginsOnHeaderAndFooter = true } }
+                .RenderHtmlAsPdf("<h1>Hello with margins!</h1>")
+                .SaveAs("custom‑margins.pdf");
         }
     }
 }

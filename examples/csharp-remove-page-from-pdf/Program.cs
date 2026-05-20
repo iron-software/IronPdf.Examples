@@ -15,7 +15,7 @@ const string html =
 var renderer = new ChromePdfRenderer();
 var pdf = renderer.RenderHtmlAsPdf(html);
 
-// Remove a pages 2 & 3.  Similar syntax to to Substring
+// Remove 2 & 3 pages. Similar syntax to to Substring
 pdf.RemovePages(1, 2);
 
 pdf.SaveAs("Page1And4.pdf");

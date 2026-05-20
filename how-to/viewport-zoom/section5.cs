@@ -7,16 +7,13 @@ namespace IronPdf.Examples.HowTo.ViewportZoom
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            int width = 90;
-            int margin = 0;
-            
-            // Continuous feed rendering
-            renderer.RenderingOptions.PaperFit.UseContinuousFeedRendering(width, margin);
+            // Fit to page rendering
+            renderer.RenderingOptions.PaperFit.UseFitToPageRendering();
             
             // Render web URL to PDF
-            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("receipt.html");
+            PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
             
-            pdf.SaveAs("continuousFeed.pdf");
+            pdf.SaveAs("fitToPage.pdf");
         }
     }
 }

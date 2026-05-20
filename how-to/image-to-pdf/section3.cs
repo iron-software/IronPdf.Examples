@@ -1,4 +1,4 @@
-using IronPdf.Imaging;
+using System.Linq;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.ImageToPdf
 {
@@ -6,13 +6,14 @@ namespace IronPdf.Examples.HowTo.ImageToPdf
     {
         public static void Run()
         {
-            string imagePath = "meetOurTeam.jpg";
+            // Retrieve all JPG and JPEG image paths in the 'images' folder.
+            IEnumerable<String> imagePaths = Directory.EnumerateFiles("images").Where(f => f.EndsWith(".jpg") || f.EndsWith(".jpeg"));
             
-            // Convert an image to a PDF with image behavior of centered on page
-            PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePath, ImageBehavior.CenteredOnPage);
+            // Convert images to a PDF
+            PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePaths);
             
             // Export the PDF
-            pdf.SaveAs("imageToPdf.pdf");
+            pdf.SaveAs("imagesToPdf.pdf");
         }
     }
 }

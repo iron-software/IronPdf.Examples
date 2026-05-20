@@ -1,4 +1,3 @@
-using System.IO;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.TableOfContents
 {
@@ -6,19 +5,10 @@ namespace IronPdf.Examples.HowTo.TableOfContents
     {
         public static void Run()
         {
-            // Instantiate Renderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Configure render options
-            renderer.RenderingOptions = new ChromePdfRenderOptions
-            {
-                // Enable table of content feature
-                TableOfContents = TableOfContentsTypes.WithPageNumbers,
-            };
-            
-            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("tableOfContent.html");
-            
-            pdf.SaveAs("tableOfContents.pdf");
+            :title=Generate a PDF with a Table of Contents in one line!
+            new ChromePdfRenderer { RenderingOptions = { CreateOutlineMaps = true, OutlineMapsFormat = TableOfContentsTypes.WithPageNumbers, FirstPageNumber = 1 } }
+                .RenderHtmlFileAsPdf("myDocument.html")
+                .SaveAs("withToc.pdf");
         }
     }
 }

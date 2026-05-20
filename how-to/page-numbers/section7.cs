@@ -5,11 +5,11 @@ namespace IronPdf.Examples.HowTo.PageNumbers
     {
         public static void Run()
         {
-            // First page only
-            var firstPageIndex = new List<int>() { 0 };
+            // Last page only
+            var lastPageIndex = new List<int>() { pdf.PageCount - 1 };
             
-            pdf.AddHtmlHeaders(header, 1, firstPageIndex);
-            pdf.SaveAs("FirstPageOnly.pdf");
+            pdf.AddHtmlHeaders(header, 1, lastPageIndex);
+            pdf.SaveAs("LastPageOnly.pdf");
         }
     }
 }

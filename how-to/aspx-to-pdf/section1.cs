@@ -5,7 +5,8 @@ namespace IronPdf.Examples.HowTo.AspxToPdf
     {
         public static void Run()
         {
-            IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.InBrowser);
+            :title=Convert this ASPX page to PDF in one line!
+            IronPdf.AspxToPdf.RenderThisPageAsPdf();
         }
     }
 }

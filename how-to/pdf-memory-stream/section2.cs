@@ -1,3 +1,4 @@
+using System.IO;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.PdfMemoryStream
 {
@@ -5,10 +6,11 @@ namespace IronPdf.Examples.HowTo.PdfMemoryStream
     {
         public static void Run()
         {
-            return new FileStreamResult(pdfAsStream, "application/pdf")
-            {
-                FileDownloadName = "downloadedfile.pdf"
-            };
+            // Read PDF file as stream
+            var fileByte = File.ReadAllBytes("sample.pdf");
+            
+            // Instantiate PDF object from stream
+            PdfDocument pdf = new PdfDocument(fileByte);
         }
     }
 }

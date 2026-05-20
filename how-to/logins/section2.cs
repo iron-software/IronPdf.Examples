@@ -1,4 +1,3 @@
-using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Logins
 {
@@ -6,23 +5,22 @@ namespace IronPdf.Examples.HowTo.Logins
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer
+            // Download HTML content from a URL
+            string html;
+            using (WebClient client = new WebClient()) 
             {
-                // setting login credentials to bypass basic authentication
-                LoginCredentials = new ChromeHttpLoginCredentials()
-                {
-                    NetworkUsername = "testUser",
-                    NetworkPassword = "testPassword"
-                }
-            };
+                html = client.DownloadString("http://www.google.com");
+            }
             
-            var uri = new Uri("http://localhost:51169/Invoice");
+            // Load the HTML into an HtmlDocument
+            HtmlDocument doc = new HtmlDocument();        
+            doc.LoadHtml(html);
             
-            // Render web URL to PDF
-            PdfDocument pdf = renderer.RenderUrlAsPdf(uri);
-            
-            // Export PDF
-            pdf.SaveAs("UrlToPdfExample.Pdf");
+            // Iterate through all image nodes and print their src attributes
+            foreach(HtmlNode img in doc.DocumentNode.SelectNodes("//img")) 
+            {
+                Console.WriteLine(img.GetAttributeValue("src", null));
+            }
         }
     }
 }

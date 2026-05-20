@@ -5,6 +5,7 @@ namespace IronPdf.Examples.HowTo.LicenseKeys
     {
         public static void Run()
         {
+            // Apply the IronPDF license key
             IronPdf.License.LicenseKey = "YOUR-IRONPDF-LICENSE-KEY";
         }
     }

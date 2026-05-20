@@ -1,3 +1,4 @@
+using IronPdf.Imaging;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.ImageToPdf
 {
@@ -7,20 +8,11 @@ namespace IronPdf.Examples.HowTo.ImageToPdf
         {
             string imagePath = "meetOurTeam.jpg";
             
-            ChromePdfRenderOptions options = new ChromePdfRenderOptions()
-            {
-                HtmlHeader = new HtmlHeaderFooter()
-                {
-                    HtmlFragment = "<h1 style='color: #2a95d5;'>Content Header</h1>",
-                    DrawDividerLine = true,
-                },
-            };
-            
-            // Convert an image to a PDF with custom header
-            PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePath, options: options);
+            // Convert an image to a PDF with image behavior of centered on page
+            PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePath, ImageBehavior.CenteredOnPage);
             
             // Export the PDF
-            pdf.SaveAs("imageToPdfWithHeader.pdf");
+            pdf.SaveAs("imageToPdf.pdf");
         }
     }
 }

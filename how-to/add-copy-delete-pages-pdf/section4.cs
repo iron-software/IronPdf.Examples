@@ -6,13 +6,12 @@ namespace IronPdf.Examples.HowTo.AddCopyDeletePagesPdf
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("full_report.pdf");
+            // Copy a single page into a new PDF object
+            PdfDocument myReport = PdfDocument.FromFile("report_final.pdf");
+            PdfDocument copyOfPageOne = myReport.CopyPage(0);
             
-            // Remove a single page
-            pdf.RemovePage(0);
-            
-            // Remove multiple pages
-            pdf.RemovePages(new List<int> { 2, 3 });
+            // Copy multiple pages into a new PDF object
+            PdfDocument copyOfFirstThreePages = myReport.CopyPages(new List<int> { 0, 1, 2 });
         }
     }
 }

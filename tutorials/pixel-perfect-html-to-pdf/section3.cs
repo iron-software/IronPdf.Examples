@@ -5,9 +5,10 @@ namespace IronPdf.Examples.Tutorial.PixelPerfectHtmlToPdf
     {
         public static void Run()
         {
-            // Example of setting Timeout and RenderDelay options
-            renderer.RenderingOptions.Timeout = 90; // seconds (default is 60)
-            renderer.RenderingOptions.WaitFor.RenderDelay(30000); // milliseconds
+            // Example using PdfCssMediaType.Screen
+            IronPdf.ChromePdfRenderer renderer = new IronPdf.ChromePdfRenderer();
+            renderer.RenderingOptions.CssMediaType = IronPdf.Rendering.PdfCssMediaType.Screen; // or Print
+            renderer.RenderingOptions.PrintHtmlBackgrounds = true;
         }
     }
 }

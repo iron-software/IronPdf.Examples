@@ -1,40 +1,46 @@
-# How to Convert Razor Views to PDFs Without a GUI
+# Transforming Razor Views into PDFs Without a User Interface
 
 ***Based on <https://ironpdf.com/how-to/cshtml-to-pdf-razor-headlessly/>***
 
 
-In the world of web development, 'headless rendering' is a method where web content is processed without a visible graphical user interface (GUI) or browser window. Although the [IronPdf.Extensions.Razor](https://www.nuget.org/packages/IronPdf.Extensions.Razor/) library is quite useful, it lacks the capability to perform headless rendering. This function can fill the gaps that the IronPdf.Extensions.Razor library doesn't cover.
+Headless rendering allows the conversion of web content into other formats without the need for a graphical user interface (GUI) or browser window. Although the [IronPdf.Extensions.Razor](https://www.nuget.org/packages/IronPdf.Extensions.Razor/) package is valuable, it lacks support for headless rendering. To fill this gap, we can use headless rendering techniques suited for other scenarios not covered by the IronPdf.Extensions.Razor package.
 
-To transform Razor Views (.cshtml) into HTML, we will employ the [Razor.Templating.Core](https://www.nuget.org/packages/Razor.Templating.Core) package and then use IronPDF to convert the HTML into PDFs.
+We will employ the [Razor.Templating.Core](https://www.nuget.org/packages/Razor.Templating.Core) package to convert cshtml (Razor Views) files into HTML and then use IronPDF to create PDF files from the HTML content.
 
-The process detailed in this article is inspired by a YouTube video.
+*as-heading:2(Quickstart: Rapid Razor to PDF Conversion)*
 
-<h3>Initializing IronPDF</h3>
+Effortlessly convert Razor Views into PDFs using IronPDF's headless conversion technique. Implement the `IronPdf.HtmlToPdf.StaticRender.RenderHtmlAsPdf` method for fast and easy HTML to PDF conversion, leveraging the efficiency and power of IronPDF within your ASP.NET Core projects.
 
----
-
-### Implement the Razor.Templating.Core Package
-
-Begin by installing the **Razor.Templating.Core package** in your ASP.NET Core Web App to convert Razor Views to HTML documents.
-
-```shell
-:InstallCmd Install-Package Razor.Templating.Core
+```cs
+:title=Convert Razor views to PDF without a GUI!
+var htmlContent = await RazorTemplateEngine.RenderAsync("Views/Template.cshtml", model); 
+var pdfDocument = new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf(htmlContent).SaveAs("output.pdf");
 ```
 
-## Processing Razor Views to PDF
+Start by installing the **Razor.Templating.Core package** to transition Razor Views into HTML within your ASP.NET Core Web Application.
 
-An ASP.NET Core Web App with a Model-View-Controller architecture is required to convert Views into PDF documents.
+```shell
+# Install the Razor.Templating.Core package via NuGet Package Manager
 
-## Include a View
+***Based on <https://ironpdf.com/how-to/cshtml-to-pdf-razor-headlessly/>***
 
-- Access the "Home" folder by right-clicking, then select "add" followed by "Add View."
-- Craft an empty Razor View and title it "Data.cshtml".
+Install-Package Razor.Templating.Core
+```
+
+## Converting Razor Views to PDF
+
+You'll require an ASP.NET Core Web Application using the Model-View-Controller architecture to convert views into PDF format.
+
+## Adding a View
+
+- Right-click the "Home" folder, select "add" followed by "Add View."
+- Generate a new Razor View and name it "Data.cshtml".
 
 ![Add view](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor-headlessly/add-view.webp)
 
-### Modify the Data.cshtml File
+### Modify Data.cshtml File
 
-Place the following HTML content into the file to render it to PDF later:
+Incorporate the HTML code that will be converted to PDF:
 
 ```html
 <table class="table">
@@ -46,59 +52,67 @@ Place the following HTML content into the file to render it to PDF later:
     <tr>
         <td>John Doe</td>
         <td>Software Engineer</td>
-        <td>Expert in web development with extensive experience.</td>
+        <td>Expert in web applications.</td>
     </tr>
     <tr>
         <td>Alice Smith</td>
         <td>Project Manager</td>
-        <td>Adept in leading projects with a focus on agile practices.</td>
+        <td>Expertise in agile project management.</td>
     </tr>
     <tr>
         <td>Michael Johnson</td>
         <td>Data Analyst</td>
-        <td>Proficient in using statistical tools and data interpretation methods.</td>
+        <td>Proficient in data interpretation and visualization.</td>
     </tr>
 </table>
 ```
 
 ## Update Program.cs File
 
-Add the following code inside the "Program.cs" file. It employs the `RenderAsync` method from the Razor.Templating.Core library to convert Razor Views to HTML. Following that, it creates an instance of the **ChromePdfRenderer** class and sends the generated HTML to the `RenderHtmlAsPdf` method. Numerous options, such as inserting custom [text, including HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/), setting up margins, and implementing [page numbers](https://ironpdf.com/how-to/page-numbers/), are available through **RenderingOptions**.
+Modify "Program.cs" to include code that utilizes the `RenderAsync` method from the `Razor.Templating.Core` library to convert Razor Views to HTML. Then, instantiate the `ChromePdfRenderer` to convert the HTML to a PDF document.
 
-```cs
+```csharp
 app.MapGet("/PrintPdf", async () =>
 {
-    IronPdf.License.LicenseKey = "IRONPDF-MYLICENSE-KEY-1EF01";
+    // Your IronPDF license key
+    IronPdf.License.LicenseKey = "IRONPDF-YOUR_LICENSE_KEY";
+    
+    // Enable comprehensive logging
     IronPdf.Logging.Logger.LoggingMode = IronPdf.Logging.Logger.LoggingModes.All;
 
-    string html = await RazorTemplateEngine.RenderAsync("Views/Home/Data.cshtml");
+    // HTML conversion from Razor view
+    string htmlContent = await RazorTemplateEngine.RenderAsync("Views/Home/Data.cshtml");
 
-    ChromePdfRenderer renderer = new ChromePdfRenderer();
-    PdfDocument pdf = renderer.RenderHtmlAsPdf(html, "./wwwroot");
+    // Chrome PDF Renderer initialization
+    ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
+   
+    // HTML to PDF conversion
+    PdfDocument generatedPdf = pdfRenderer.RenderHtmlAsPdf(htmlContent, "./wwwroot");
 
-    return Results.File(pdf.BinaryData, "application/pdf", "razorViewToPdf.pdf");
+    // Send the PDF as a response
+    return Results.File(generatedPdf.BinaryData, "application/pdf", "convertedRazorView.pdf");
 });
 ```
 
-## Adjust Asset Links
+## Update Asset Links
 
-In your project, navigate to the "Views" folder, then to the "Shared" folder, and open the "_Layout.cshtml" file. Modify the links by changing "~/" to "./".
+In the "_Layout.cshtml" within the "Views/Shared" directory, modify the link paths by replacing "~/" with "./".
 
-This adjustment ensures compatibility with IronPDF.
+This adjustment is essential for compatibility with IronPDF.
 
 ## Execute the Project
 
-Here's how to run the project and generate a PDF document from it.
+Learn how to execute the project and generate a PDF document from a Razor View.
 
-<img src="https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor-headlessly/viewToPdfMVCCoreProjectRun.gif" alt="Execute ASP.NET Core MVC Project" class="img-responsive add-shadow" style="margin-bottom: 30px;"/>
+<img src="https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor-headlessly/viewToPdfMVCCoreProjectRun.gif" alt="Run ASP.NET Core MVC Project" class="img-responsive add-shadow" style="margin-bottom: 30px;"/>
 
-#### Display the PDF Output
+#### Resulting PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor-headlessly/razorViewToPdf.pdf" width="100%" height="400px">
-</iframe> 
+</iframe>
 
 ## Download the ASP.NET Core MVC Project
 
-Access the complete code for this guide, available as a zipped file. You can use it in Visual Studio as an ASP.NET Core Web App (Model-View-Controller) project.
+Download the full example code for this guide. It is provided in a zip file, which can be opened in Visual Studio to start an ASP.NET Core MVC project.
 
-[Download the ASP.NET Core MVC Project Code](https://ironpdf.com/static-assets/pdf/how-to/ccshtml-to-pdf-razor-headlessly/ViewToPdfMVCCoreHeadlesslySample.zip)
+[Click here to download the project.](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor-headlessly/ViewToPdfMVCCoreHeadlesslySample.zip)

@@ -1,9 +1,11 @@
 ***Based on <https://ironpdf.com/examples/razor-to-pdf-blazor-server/>***
 
-This sample illustrates the process of transforming a Razor component into a PDF file.
+This example illustrates the process of converting Razor components into PDFs.
 
-The package `IronPdf.Extensions.Blazor` serves as an addition to the primary `IronPdf` library. To transfer the contents of a Razor component into a PDF format, it's essential to utilize both the `IronPdf.Extensions.Blazor` and the core `IronPdf` packages.
+The IronPdf.Extensions.Blazor package extends the capabilities of the base IronPdf library. To transform content from a Razor component into a PDF format, it is essential to implement both IronPdf.Extensions.Blazor and the original IronPdf libraries.
 
-In the provided code snippet, a model known as `PersonInfo` is pre-established. During the execution of the `OnInitializedAsync` method, we populate the `persons` List with several new instances of `PersonInfo`. Subsequently, this `persons` List is linked to the key "persons" within the `Parameters` dictionary.
+In the provided code snippet, we have already defined a model named **PersonInfo**. Within the `OnInitializedAsync` method, we populate a **persons** List with several new **PersonInfo** objects. We also map this list to the string identifier "persons" in the **Parameters** dictionary.
 
-When calling the `PrintToPdf` method, we create an instance of the `ChromePdfRenderer` class. To perform the conversion of the Razor component into a PDF document, we utilize the `RenderRazorComponentToPdf` method. In this example, the `Parameters` dictionary is furnished to the method to successfully render the content.
+For the PDF conversion, we utilize the `PrintToPdf` method where the **ChromePdfRenderer** class is initiated. The `RenderRazorComponentToPdf` function is employed here to perform the conversion of the Razor component into a PDF by passing the **Parameters** dictionary for rendering.
+
+[Discover how to convert Razor Components to PDF in Blazor Server](https://ironpdf.com/how-to/razor-to-pdf-blazor-server/).

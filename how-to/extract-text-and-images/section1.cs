@@ -1,4 +1,3 @@
-using System.IO;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.ExtractTextAndImages
 {
@@ -6,13 +5,10 @@ namespace IronPdf.Examples.HowTo.ExtractTextAndImages
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
-            
-            // Extract text
+            :title=Extract PDF Content in Seconds
+            var pdf = new IronPdf.PdfDocument("sample.pdf");
             string text = pdf.ExtractAllText();
-            
-            // Export the extracted text to a text file
-            File.WriteAllText("extractedText.txt", text);
+            var images = pdf.ExtractAllImages();
         }
     }
 }

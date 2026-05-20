@@ -1,4 +1,4 @@
-using IronPdf.MetaData;
+using System.Collections.Generic;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Metadata
 {
@@ -9,13 +9,15 @@ namespace IronPdf.Examples.HowTo.Metadata
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Metadata</h1>");
             
-            PdfCustomMetadataProperties customProperties = pdf.MetaData.CustomProperties;
+            Dictionary<string, string> newMetadata = new Dictionary<string, string>();
+            newMetadata.Add("Title", "How to article");
+            newMetadata.Add("Author", "IronPDF");
             
-            // Add custom property
-            customProperties.Add("foo", "bar"); // Key: foo, Value: bar
+            // Set metadata dictionary
+            pdf.MetaData.SetMetaDataDictionary(newMetadata);
             
-            // Edit custom property
-            customProperties["foo"] = "baz";
+            // Retreive metadata dictionary
+            Dictionary<string, string> metadataProperties = pdf.MetaData.GetMetaDataDictionary();
         }
     }
 }

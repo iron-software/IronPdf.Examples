@@ -5,18 +5,25 @@ namespace IronPdf.Examples.HowTo.JavascriptToPdf
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            string htmlWithJavaScript = @"<h1>This is HTML</h1>
+            <script>
+                document.write('<h1>This is JavaScript</h1>');
+                window.ironpdf.notifyRender();
+            </script>";
             
-            // JavaScript code
-            renderer.RenderingOptions.Javascript = @"
-            document.querySelectorAll('h1').forEach(function(el){
-                el.style.color='red';
-            })";
+            // Instantiate Renderer
+            var renderer = new ChromePdfRenderer();
             
-            // Render HTML to PDF
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Happy New Year!</h1>");
+            // Enable JavaScript
+            renderer.RenderingOptions.EnableJavaScript = true;
+            // Set waitFor for JavaScript
+            renderer.RenderingOptions.WaitFor.JavaScript(500);
             
-            pdf.SaveAs("executed_js.pdf");
+            // Render HTML contains JavaScript
+            var pdfJavaScript = renderer.RenderHtmlAsPdf(htmlWithJavaScript);
+            
+            // Export PDF
+            pdfJavaScript.SaveAs("javascriptHtml.pdf");
         }
     }
 }

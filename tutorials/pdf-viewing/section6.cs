@@ -5,7 +5,8 @@ namespace IronPdf.Examples.Tutorial.PdfViewing
     {
         public static void Run()
         {
-            pdfView.Source = IronPdfViewSource.FromBytes(File.ReadAllBytes("~/Downloads/example.pdf"));
+            // We assume an IronPdfView instance is created previously called pdfView
+            pdfView.Source = IronPdfViewSource.FromFile("C:/path/to/my/example.pdf");
         }
     }
 }

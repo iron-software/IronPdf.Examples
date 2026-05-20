@@ -1,25 +1,30 @@
-# Replacing Text in PDF Documents
+# How to Replace Text in a PDF
 
 ***Based on <https://ironpdf.com/how-to/find-replace-text/>***
 
 
-The ability to replace text in PDFs is crucial for efficiently managing document edits, such as correcting errors, updating details, or tailoring templates for various uses. This capability greatly reduces time and effort, especially for documents that need regular updates or customization.
+Replacing text in PDF documents is an essential feature for efficiently editing documents by correcting errors, updating details, or tailoring content for varied uses. This capability significantly reduces time and effort for those managing documents needing regular updates or personalization.
 
-IronPDF offers a robust text replacement feature, making it an essential tool for developers and professionals who manage automated or customized PDF content.
+IronPDF offers a robust solution for text replacement within PDFs, proving to be a crucial tool for developers and professionals looking to automate or tailor PDF content.
 
-<h3>Getting Started with IronPDF</h3>
+## Quickstart: Replace Text in PDF with IronPDF
 
---------------------------------------
+Easily replace text within your PDF documents using IronPDF. This straightforward approach requires only a few lines of code to swiftly alter or personalize your documents. Below, we provide an example showing how to replace text across a PDF’s entire document. Just load your PDF, enter the text you wish to replace, and save the revised document. IronPDF enables effortless text modification in C# and enhances efficiency within .NET frameworks.
 
-## Example of Text Replacement
+```cs
+:title=Effortless PDF Text Replacement
+IronPdf.PdfDocument.FromFile("example.pdf")
+    .ReplaceTextOnAllPages("old text", "new text")
+    .SaveAs("updated.pdf");
+```
 
-Text replacement can be implemented on any `PdfDocument` instance, whether it's a newly created document or an imported one. Utilize the `ReplaceTextOnAllPages` method, entering both the text to be replaced and the new text. If the specified text to replace is not found, an exception is thrown stating "Error while replacing text: failed to find text '.NET6'."
+## Replace Text Example
 
-The following code example illustrates how to replace text in a freshly rendered PDF document that contains the text '.NET6':
+The text replacement feature can be utilized on any `PdfDocument`, whether it is a new or imported document. Employ the `ReplaceTextOnAllPages` method by specifying the text you want to change. Should the method not find the intended text, an exception will be thrown, notifying that the text replacement has failed.
 
 ### Code
 
-```cs
+```csharp
 using IronPdf;
 
 ChromePdfRenderer renderer = new ChromePdfRenderer();
@@ -29,21 +34,23 @@ PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>.NET6</h1>");
 string oldText = ".NET6";
 string newText = ".NET7";
 
-// Replacing text across all pages
+// Execute text replacement across all pages
 pdf.ReplaceTextOnAllPages(oldText, newText);
 
 pdf.SaveAs("replaceText.pdf");
 ```
 
-## Specifying Pages for Text Replacement
+### Replace Text with Newline
 
-IronPDF also enables precision in text modification within a document, allowing for text replacement on either a particular page or multiple selected pages. Use `ReplaceTextOnPage` for a single page, or `ReplaceTextOnPages` for multiple specified pages.
+This feature also supports replacing text with new strings that include newline characters (`\n`), enhancing format and readability.
 
-Page indexes are zero-based.
+## Replace Text on Specific Pages
 
-### Replacing Text on a Single Page
+IronPDF also supports text replacement on designated pages, enhancing precision when editing specific parts of a document. Utilize `ReplaceTextOnPage` for single pages or `ReplaceTextOnPages` for multiple specified pages. Remember that page indexes are zero-based.
 
-```cs
+### Replace Text on a Single Page
+
+```csharp
 using IronPdf;
 
 ChromePdfRenderer renderer = new ChromePdfRenderer();
@@ -53,18 +60,24 @@ PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>.NET6</h1>");
 string oldText = ".NET6";
 string newText = ".NET7";
 
-// Text replacement on page 1
+// Focus text replacement on page one
 pdf.ReplaceTextOnPage(0, oldText, newText);
 
 pdf.SaveAs("replaceTextOnSinglePage.pdf");
 ```
 
-### Replacing Text on Multiple Pages
+### Replace Text on Multiple Pages
 
-```cs
+```csharp
 using IronPdf;
 
-string html = "<p>.NET6</p><p>This is 1st Page</p><div style='page-break-after: always;'></div><p>This is 2nd Page</p><div style='page-break-after: always;'></div><p>.NET6</p><p>This is 3rd Page</p>";
+string html = @"<p> .NET6 </p>
+<p> This is 1st Page </p>
+<div style = 'page-break-after: always;'></div>
+<p> This is 2nd Page</p>
+<div style = 'page-break-after: always;'></div>
+<p> .NET6 </p>
+<p> This is 3rd Page</p>";
 
 ChromePdfRenderer renderer = new ChromePdfRenderer();
 
@@ -75,13 +88,45 @@ string newText = ".NET7";
 
 int[] pages = { 0, 2 };
 
-// Replacing text on pages 1 and 3
+// Apply text replacement on pages 1 and 3
 pdf.ReplaceTextOnPages(pages, oldText, newText);
 
 pdf.SaveAs("replaceTextOnMultiplePages.pdf");
 ```
 
-### Display of Output PDF
+### Output PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/find-replace-text/replaceTextOnMultiplePages.pdf" width="100%" height="400px">
 </iframe>
+
+## Use Custom Font
+
+With IronPDF, adding and utilizing custom fonts during text replacement is feasible. Below is an example using the [Pixelify Sans Font](https://fonts.google.com/specimen/Pixelify+Sans).
+
+```csharp
+using IronPdf;
+using System.IO;
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Use custom font .NET6</h1>");
+
+string oldText = ".NET6";
+string newText = ".NET7";
+
+// Load custom font
+byte[] fontByte = File.ReadAllBytes(@".\PixelifySans-VariableFont_wght.ttf");
+var pdfFont = pdf.Fonts.Add(fontByte);
+
+// Replace text using the custom font
+pdf.ReplaceTextOnPage(0, oldText, newText, pdfFont, 24);
+
+pdf.SaveAs("replaceCustomText.pdf");
+```
+
+### Result
+
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironpdf.com/static-assets/pdf/how-to/find-replace-text/custom-font.webp" alt="Use custom font" class="img-responsive add-shadow">
+    </div>
+</div>

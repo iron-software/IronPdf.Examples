@@ -5,7 +5,7 @@ namespace IronPdf.Examples.HowTo.AspxToPdf
     {
         public static void Run()
         {
-            <div style='page-break-after: always;'>&nbsp;</div>
+            IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.InBrowser);
         }
     }
 }

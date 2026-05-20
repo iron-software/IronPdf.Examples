@@ -1,68 +1,75 @@
-# Adding Lines and Rectangles to PDF Documents
+# Enhancing PDFs with Lines and Rectangles
 
 ***Based on <https://ironpdf.com/how-to/draw-line-and-rectangle/>***
 
 
-When we refer to adding lines and rectangles to a PDF document, we are discussing the technique of integrating specific geometric figures—lines and rectangles—into a PDF's visual layout. This insertion is commonly carried out through programming, particularly using C# or VB.NET, coupled with a supportive library such as IronPDF.
+Adding geometric shapes, such as lines and rectangles, to PDF documents enriches the content and visual appeal. This type of enhancement can be achieved programmatically using languages like C# or VB.NET along with a library such as IronPDF.
 
-Drawing a line involves the creation of a distinct line segment defined by its starting and ending coordinates. On the other hand, drawing a rectangle involves specifying a quadrilateral based on its size and position on the document.
+This guide will show you how easy it is to insert clean, professional-looking lines and rectangles into your PDF files using IronPDF. Let's begin by exploring the methods you'll use.
 
-<h3>Introduction to IronPDF</h3>
+## Easy Steps to Add Lines and Rectangles Using IronPDF
 
---------------------------------------
-
-## Example: Drawing a Line
-
-Using the `DrawLine` method from the **PdfDocument** class in IronPDF, you can seamlessly introduce lines into any existing PDF. The **Color** class, as described in the [IronDrawing API Documentation](https://ironsoftware.com/open-source/csharp/drawing/docs/), allows you to specify the line color using a HEX code.
+Unlock the potential of your PDFs by incorporating lines and rectangles through IronPDF. This quickstart guide will introduce you to the `DrawLine` and `DrawRectangle` methods. These methods enable you to effortlessly add dynamic graphical elements to your documents. Let’s dive right in.
 
 ```cs
+:title=Quick Shape Drawing in PDFs
+IronPdf.PdfDocument pdf = IronPdf.PdfDocument.FromFile("input.pdf");
+pdf.DrawLine(10, 10, 200, 10, "#FF0000", 2);
+pdf.SaveAs("output.pdf");
+```
+
+## Example of Drawing Lines
+
+The `DrawLine` method is part of the **PdfDocument** class and allows for the insertion of line elements within a PDF. You can use the **IronSoftware.Drawing.Color** class which is found in the [IronDrawing API Documentation](https://ironsoftware.com/open-source/csharp/drawing/docs/) to set the color of the line using HEX codes.
+
+```csharp
 using IronPdf;
 
 ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Sample Header</h1>");
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>testing</h1>");
 
 // Set up the necessary parameters
 int pageIndex = 0;
-var startPoint = new IronSoftware.Drawing.PointF(200,150);
-var endPoint = new IronSoftware.Drawing.PointF(1000,150);
-int lineThickness = 10;
-var lineColor = new IronSoftware.Drawing.Color("#000000");
+var start = new IronSoftware.Drawing.PointF(200, 150);
+var end = new IronSoftware.Drawing.PointF(1000, 150);
+int width = 10;
+var color = new IronSoftware.Drawing.Color("#000000");
 
-// Execute the draw line operation
-pdf.DrawLine(pageIndex, startPoint, endPoint, lineThickness, lineColor);
+// Drawing a line in the PDF
+pdf.DrawLine(pageIndex, start, end, width, color);
 
 pdf.SaveAs("drawLine.pdf");
 ```
 
-### Visual Output of PDF
+### View the PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/draw-line-and-rectangle/drawLine.pdf" width="100%" height="300px">
 </iframe>
 
-## Example: Drawing a Rectangle
+## Example of Drawing Rectangles
 
-Utilize the `DrawRectangle` method available in the **PdfDocument** class to insert rectangles into PDF files. After loading or rendering the PDF, you can easily set the coordinates, dimensions, and colors with the **RectangleF** class, as detailed in the [IronDrawing API Documentation](https://ironsoftware.com/open-source/csharp/drawing/docs/).
+Using the `DrawRectangle` method, rectangles can be added to PDF files after the document is loaded or rendered. This method is part of the **PdfDocument** class too. Define the rectangle using parameters from the **RectangleF** class provided in the [IronDrawing API Documentation](https://ironsoftware.com/open-source/csharp/drawing/docs/).
 
-```cs
+```csharp
 using IronPdf;
 
 ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Sample Header</h1>");
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>testing</h1>");
 
-// Set up the necessary parameters
+// Setting up necessary parameters
 int pageIndex = 0;
-var rectangleSpecs = new IronSoftware.Drawing.RectangleF(200, 100, 1000, 100);
-var borderColor = new IronSoftware.Drawing.Color("#000000");
-var backgroundColor = new IronSoftware.Drawing.Color("#32AB90");
-int borderThickness = 5;
+var rectangle = new IronSoftware.Drawing.RectangleF(200, 100, 1000, 100);
+var lineColor = new IronSoftware.Drawing.Color("#000000");
+var fillColor = new IronSoftware.Drawing.Color("#32AB90");
+int lineWidth = 5;
 
-// Execute the draw rectangle operation
-pdf.DrawRectangle(pageIndex, rectangleSpecs, borderColor, backgroundColor, borderThickness);
+// Rectangular shape addition to PDF
+pdf.DrawRectangle(pageIndex, rectangle, lineColor, fillColor, lineWidth);
 
 pdf.SaveAs("drawRectangle.pdf");
 ```
 
-### Visual Output of PDF
+### View the PDF
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/draw-line-and-rectangle/drawRectangle.pdf" width="100%" height="300px">
 </iframe>

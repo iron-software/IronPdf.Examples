@@ -1,4 +1,3 @@
-using System.IO;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.TableOfContents
 {
@@ -14,12 +13,9 @@ namespace IronPdf.Examples.HowTo.TableOfContents
             {
                 // Enable table of content feature
                 TableOfContents = TableOfContentsTypes.WithPageNumbers,
-                CustomCssUrl = "./custom.css"
             };
             
-            // Read HTML text from file
-            string html = File.ReadAllText("tableOfContent.html");
-            PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
+            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("tableOfContent.html");
             
             pdf.SaveAs("tableOfContents.pdf");
         }

@@ -1,49 +1,69 @@
-# Converting Razor Pages to PDFs in ASP.NET Core
+# Transforming Razor Pages into PDFs within an ASP.NET Core Web Application
 
 ***Based on <https://ironpdf.com/how-to/cshtml-to-pdf-razor/>***
 
 
-Razor Pages, identified by the `.cshtml` extension, skillfully blend C# and HTML to produce dynamic web content. In ASP.NET Core, Razor Pages simplify code management, ideally suiting scenarios involving minimal data input or static content display.
+Razor Pages, which bear the `.cshtml` file extension, integrate C# with HTML to dynamically produce web content. In the realm of ASP.NET Core, Razor Pages provide a streamlined approach to managing web app code, especially suited to pages involving straightforward data entry or display.
 
-ASP.NET Core itself is a robust, cross-platform framework used to create modern web applications. Using IronPDF, developers can efficiently convert Razor Pages into PDFs within ASP.NET Core Web Apps, streamlining document generation.
+An ASP.NET Core Web Application is developed using ASP.NET Core, a versatile framework designed for crafting contemporary web applications.
 
-## IronPDF Extension for ASP.NET Core Web Apps
+IronPDF streamlines converting Razor Pages into PDF documents within any ASP.NET Core Web App project, greatly simplifying PDF creation directly within these applications.
 
-The `IronPdf.Extensions.Razor` is a valuable extension to the core `IronPdf` library, essential for converting Razor Pages into PDF files within ASP.NET Core Web Apps.
+## Quick Guide: Effortlessly Convert Razor Pages to PDF
 
-```shell
-Install-Package IronPdf.Extensions.Razor
-```
-
-![C# NuGet Library for PDF](https://www.ironpdf.com/img/nuget-logo.svg)
-
-For installation, NuGet provides a convenient management package:
-
-```shell
-Install-Package IronPdf.Extensions.Razor
-```
-
-<div class="js-open-modal-ignore copy-nuget-section" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Click to copy">
-    <div class="copy-nuget-row">
-        <pre class="install-script">Install-Package IronPdf.Extensions.Razor</pre>
-        <div class="copy-button">
-            <button class="btn btn-default copy-nuget-script" type="button" data-toggle="popover" data-placement="bottom" data-content="Copied." aria-label="Copy the Package Manager command" data-original-title="" title="">
-            <span class="far fa-copy"></span>
-            </button>
-        </div>
-    </div>
-</div>
-For further details, visit [NuGet's Package Page](https://www.nuget.org/packages/IronPdf.Extensions.Razor/).
-
-## PDF Rendering from Razor Pages
-
-To begin, an ASP.NET Core Web App project is necessary for converting Razor Pages into PDF files.
-
-### Establishing a Data Model
-
-Create a new folder named "Models" within your project and add a class named `Person` to represent individual entries.
+Empower your projects with IronPDF as it swiftly transforms Razor Pages into professional-quality PDF documents in your ASP.NET Core applications. Utilize the `RenderRazorToPdf` method to effortlessly convert CSHTML files into PDFs, enhancing your workflow and document dissemination. Follow the steps in this guide for a quick and efficient conversion process.
 
 ```cs
+:title=Instant Razor to PDF Conversion
+// Ensure you have installed the necessary IronPdf package
+var pdf = new IronPdf.ChromePdfRenderer().RenderRazorToPdf("Views/Home/Index.cshtml");
+```
+
+## IronPDF Extension Packages
+
+The **IronPdf.Extensions.Razor** package enhances the main **IronPdf** library. Both the IronPdf.Extensions.Razor and IronPdf packages are essential for converting Razor Pages to PDFs in an ASP.NET Core Web App.
+
+```shell
+# Installation command for IronPdf.Extensions.Razor package via NuGet Package Manager
+
+***Based on <https://ironpdf.com/how-to/cshtml-to-pdf-razor/>***
+
+Install-Package IronPdf.Extensions.Razor
+```
+
+<link rel="stylesheet" type="text/css" href="https://ironpdf.com/front/css/content__install-components__extended.css" media="print" onload="this.media='all'; this.onload=null;">
+<div class="products-download-section">
+    <div class="js-modal-open product-item nuget" style="width: fit-content; margin-left: auto; margin-right: auto;" data-modal-id="trial-license-after-download">
+        <div class="product-image">
+            <img class="img-responsive add-shadow" alt="C# NuGet Library for PDF" src="https://ironpdf.com/img/nuget-logo.svg">
+        </div>
+        <div class="product-info">
+            <h3>Install with <span>NuGet</span></h3>
+        </div>
+        <div class="js-open-modal-ignore copy-nuget-section" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Click to copy">
+            <div class="copy-nuget-row">
+            <pre class="install-script">Install-Package IronPdf.Extensions.Razor</pre>
+            <div class="copy-button">
+                <button class="btn btn-default copy-nuget-script" type="button" data-toggle="popover" data-placement="bottom" data-content="Copied." aria-label="Copy the Package Manager command" data-original-title="" title="">
+                <span class="far fa-copy"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="nuget-link">nuget.org/packages/IronPdf.Extensions.Razor/</div>
+    </div>
+</div>
+
+## Converting Razor Pages into PDFs
+
+To begin transforming Razor Pages into PDF files, you need an ASP.NET Core Web App project.
+
+### Establishing a Model Class
+
+- Initiate a new folder within your project titled "Models."
+- Insert a standard C# class file named "Person" within this folder, which will act as a data model. Here's an example:
+
+```csharp
 namespace RazorPageSample.Models
 {
     public class Person
@@ -58,7 +78,9 @@ namespace RazorPageSample.Models
 
 ### Integrating a Razor Page
 
-Add a new Razor Page named "Persons.cshtml" in the "Pages" directory. Here is an example of how to setup the page:
+Create and incorporate a new Razor Page called "persons.cshtml" in the "Pages" folder.
+
+Modify this freshly added page with the code sample below meant for displaying data:
 
 ```html
 @page
@@ -88,10 +110,14 @@ Add a new Razor Page named "Persons.cshtml" in the "Pages" directory. Here is an
 </form>
 ```
 
-To transform this Razor Page into a PDF, use the `ChromePdfRenderer` with the `RenderRazorToPdf` method, enabling customization like adding page numbers, setting margins, and inserting headers and footers.
+The subsequent code snippet handles the instantiation of the **ChromePdfRenderer** class and uses `RenderRazorToPdf` for document conversion.
 
-```cs
-using IronPdf.Razor.Pages;
+The **RenderingOptions** provide multiple customization features, including adding [page numbers](https://ironpdf.com/how-to/page-numbers/), setting special margins, and including custom [text and HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/).
+
+
+
+```csharp
+using IronPdf.Razor;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPageSample.Models;
@@ -101,36 +127,52 @@ namespace RazorPageSample.Pages
     public class PersonsModel : PageModel
     {
         [BindProperty(SupportsGet = true)]
-        public List<Person> persons { get; set; }
-
+        public List<Person> Persons { get; set; }
+        
+        // Fetch data on GET request
         public void OnGet()
         {
-            persons = new List<Person>
+            Persons = new List<Person>
             {
                 new Person { Name = "Alice", Title = "Mrs.", Description = "Software Engineer" },
                 new Person { Name = "Bob", Title = "Mr.", Description = "Software Engineer" },
                 new Person { Name = "Charlie", Title = "Mr.", Description = "Software Engineer" }
             };
 
-            ViewData["personList"] = persons;
+            ViewData["personList"] = Persons;
         }
 
-        public IActionResult OnPostAsync()
+        // Convert Razor page to PDF on POST request
+        public IActionResult OnPost()
         {
+            Persons = new List<Person>
+            {
+                new Person { Name = "Alice", Title = "Mrs.", Description "Software Engineer" },
+                new Person { Name = "Bob", Title = "Mr.", Description "Software Engineer" },
+                new Person { Name = "Charlie", Title = "Mr.", Description "Software Engineer" }
+            };
+
+            ViewData["personList"] = Persons;
+
             ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+            // Generate PDF from Razor Page
             PdfDocument pdf = renderer.RenderRazorToPdf(this);
+
+            // Serve the PDF with appropriate headers for inline display
             Response.Headers.Add("Content-Disposition", "inline");
             return File(pdf.BinaryData, "application/pdf", "razorPageToPdf.pdf");
+
+            // To display the PDF in a browser window, uncomment the following line
+            // return File(pdf.BinaryData, "application/pdf");
         }
     }
 }
 ```
 
-The resulting PDF can be directly viewed in the browser, ensuring a smooth user experience.
+### Enhancing Top Navigation Bar
 
-### Navigation Integration
-
-In your `_Layout.cshtml`, integrate a navigation link for easy access:
+Update your top navigation bar to include a link to the "Person" page by altering the _Layout.cshtml file within the Pages -> Shared directory. Ensure the `asp-page` attribute accurately reflects our Razor Page.
 
 ```html
 <header>
@@ -159,12 +201,14 @@ In your `_Layout.cshtml`, integrate a navigation link for easy access:
 </header>
 ```
 
-#### Running the Project to Generate PDFs
+#### Launching the Project
 
-![Run the ASP.NET Core Web App](https://www.ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor/razorPageProjectRun.gif)
+Get ready to preview how your project builds and generates a comprehensive PDF document.
 
-## Project Files Download
+![Execute the ASP.NET Core Web App Project](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor/razorPageProjectRun.gif)
 
-Download the complete source code of the guide as a zipped ASP.NET Core Web App project from the following link:
+## Downloading the Complete ASP.NET Core Web App Project
 
-[Download RazorPageSample.zip ASP.NET Core Web App Project](https://www.ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor/RazorPageSample.zip)
+Ensure you obtain the complete set of source files for this guide by downloading them. This comes as a zip file which can be opened in Visual Studio to view the ASP.NET Core Web App project.
+
+[Download the complete RazorPageSample.zip ASP.NET Core Web App Project](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor/RazorPageSample.zip)

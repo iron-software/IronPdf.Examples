@@ -5,18 +5,9 @@ namespace IronPdf.Examples.HowTo.CshtmlToPdfRazorHeadlessly
     {
         public static void Run()
         {
-            app.MapGet("/PrintPdf", async () =>
-            {
-                IronPdf.License.LicenseKey = "IRONPDF-MYLICENSE-KEY-1EF01";
-                IronPdf.Logging.Logger.LoggingMode = IronPdf.Logging.Logger.LoggingModes.All;
-            
-                string html = await RazorTemplateEngine.RenderAsync("Views/Home/Data.cshtml");
-            
-                ChromePdfRenderer renderer = new ChromePdfRenderer();
-                PdfDocument pdf = renderer.RenderHtmlAsPdf(html, "./wwwroot");
-            
-                return Results.File(pdf.BinaryData, "application/pdf", "razorViewToPdf.pdf");
-            });
+            :title=Render a Razor view to PDF headlessly!
+            var html = await RazorTemplateEngine.RenderAsync("Views/Template.cshtml", model); 
+            new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf(html).SaveAs("output.pdf");
         }
     }
 }

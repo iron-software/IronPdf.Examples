@@ -10,17 +10,14 @@ namespace IronPdf.Examples.HowTo.Waitfor
             <html lang=""en"">
             <head>
               <meta charset=""UTF-8"">
-              <title>Test Registration of Extension</title>
+              <title>Delayed render tests</title>
               <script type=""text/javascript"">
             	setTimeout(function() {
-            		var img = document.createElement(""img"");
-            		img.onload = function() {
-            			img.setAttribute(""id"", ""myid"");
-            			img.setAttribute(""class"", ""blablastyle"");
-            			var block = document.getElementById(""x"");
-            			block.appendChild(img);
-            		};
-            		img.src = ""https://www.w3schools.com/images/picture.jpg"";	// .src after .onload to ignore cached, if any
+            		var newElem = document.createElement(""h2"");
+            		newElem.innerHTML = ""bla bla bla"";
+            
+                    var block = document.querySelector(""div#x"");
+            		block.appendChild(newElem);
             	}, 1000);
               </script>
             </head>
@@ -31,7 +28,7 @@ namespace IronPdf.Examples.HowTo.Waitfor
             </html>";
             
             ChromePdfRenderer renderer = new ChromePdfRenderer();
-            renderer.RenderingOptions.WaitFor.HtmlQuerySelector("img#myid.blablastyle", 5000);
+            renderer.RenderingOptions.WaitFor.HtmlElementByTagName("h2", 5000);
             
             PdfDocument pdf = renderer.RenderHtmlAsPdf(htmlContent);
         }

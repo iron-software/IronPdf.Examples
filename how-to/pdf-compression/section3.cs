@@ -5,22 +5,12 @@ namespace IronPdf.Examples.HowTo.PdfCompression
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
+            PdfDocument pdf = PdfDocument.FromFile("table.pdf");
             
-            CompressionOptions compressionOptions = new CompressionOptions();
+            // Compress tree structure in PDF
+            pdf.CompressStructTree();
             
-            // Configure image compression
-            compressionOptions.CompressImages = true;
-            compressionOptions.JpegQuality = 80;
-            compressionOptions.HighQualityImageSubsampling = true;
-            compressionOptions.ShrinkImages = true;
-            
-            // Configure tree structure compression
-            compressionOptions.RemoveStructureTree = true;
-            
-            pdf.Compress(compressionOptions);
-            
-            pdf.SaveAs("compressed.pdf");
+            pdf.SaveAs("compressedTable.pdf");
         }
     }
 }

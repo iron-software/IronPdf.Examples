@@ -5,10 +5,18 @@ namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
     {
         public static void Run()
         {
-            var pdf = new PdfDocument("document.pdf");
+            string watermarkHtml = @"
+            <img src='https://ironsoftware.com/img/products/ironpdf-logo-text-dotnet.svg'>
+            <h1>Iron Software</h1>";
             
-            pdf.CompressImages(90, true);
-            pdf.SaveAs("document_scaled_compressed.pdf");
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Watermark</h1>");
+            
+            // Apply watermark
+            pdf.ApplyWatermark(watermarkHtml);
+            
+            pdf.SaveAs("watermark.pdf");
         }
     }
 }

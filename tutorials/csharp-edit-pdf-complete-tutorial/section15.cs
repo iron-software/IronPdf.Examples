@@ -1,3 +1,4 @@
+using System.Linq;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
@@ -5,23 +6,19 @@ namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
     {
         public static void Run()
         {
-            // Create a new PDF or edit an existing document.
-            PdfDocument pdf = PdfDocument.FromFile("existing.pdf");
+            // Import PDF
+            PdfDocument pdf = PdfDocument.FromFile("multi-page.pdf");
             
-            // Add bookmark
-            pdf.Bookmarks.AddBookMarkAtEnd("Author's Note", 2);
-            pdf.Bookmarks.AddBookMarkAtEnd("Table of Contents", 3);
+            // Set rotation for a single page
+            pdf.SetPageRotation(0, PdfPageRotation.Clockwise90);
             
-            // Store new bookmark in a variable to add nested bookmarks to
-            var summaryBookmark = pdf.Bookmarks.AddBookMarkAtEnd("Summary", 17);
+            // Set rotation for multiple pages
+            pdf.SetPageRotations(Enumerable.Range(1,3), PdfPageRotation.Clockwise270);
             
-            // Add a sub-bookmark within the summary
-            var conclusionBookmark = summaryBookmark.Children.AddBookMarkAtStart("Conclusion", 18);
+            // Set rotation for the entire document
+            pdf.SetAllPageRotations(PdfPageRotation.Clockwise180);
             
-            // Add another bookmark to end of highest-level bookmark list
-            pdf.Bookmarks.AddBookMarkAtEnd("References", 20);
-            
-            pdf.SaveAs("existing.pdf");
+            pdf.SaveAs("rotated.pdf");
         }
     }
 }

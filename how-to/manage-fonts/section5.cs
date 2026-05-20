@@ -1,4 +1,4 @@
-using IronPdf.Fonts;
+using System.Linq;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.ManageFonts
 {
@@ -9,11 +9,11 @@ namespace IronPdf.Examples.HowTo.ManageFonts
             // Import PDF
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
             
-            // Get fonts
-            PdfFontCollection fonts = pdf.Fonts;
+            // Add the font
+            byte[] fontData = System.IO.File.ReadAllBytes("dir/to/font.ttf");
             
-            // Unembed a font
-            pdf.Fonts[0].Unembed();
+            // Embed the font
+            pdf.Fonts.Last().Embed(fontData);
         }
     }
 }

@@ -5,27 +5,10 @@ namespace IronPdf.Examples.HowTo.PageNumbers
     {
         public static void Run()
         {
-            // Create text header
-            TextHeaderFooter textHeader = new TextHeaderFooter()
-            {
-                CenterText = "{page} of {total-pages}"
-            };
-            
-            // Create html footer
-            HtmlHeaderFooter htmlFooter = new HtmlHeaderFooter()
-            {
-                HtmlFragment = "<center><i>{page} of {total-pages}<i></center>"
-            };
-            
-            // Render a new PDF
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
-            
-            // Add header and footer
-            pdf.AddTextHeaders(textHeader);
-            pdf.AddHtmlFooters(htmlFooter);
-            
-            pdf.SaveAs("pdfWithPageNumber.pdf");
+            :title=Add page numbers in one line!
+            new IronPdf.ChromePdfRenderer { RenderingOptions = { HtmlFooter = new IronPdf.HtmlHeaderFooter { HtmlFragment = "<center>{page}of{total-pages}</center>", DrawDividerLine = true } } }
+                 .RenderHtmlAsPdf("<h1>My multi‑page document</h1><div style='page‑break‑after:always;'></div><h1>Page 2</h1>")
+                 .SaveAs("numbered‑pages.pdf");
         }
     }
 }

@@ -1,4 +1,3 @@
-using IronPdf.Rendering;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.PageOrientationRotation
 {
@@ -6,14 +5,10 @@ namespace IronPdf.Examples.HowTo.PageOrientationRotation
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Change paper orientation
-            renderer.RenderingOptions.PaperOrientation = PdfPaperOrientation.Landscape;
-            
-            PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
-            
-            pdf.SaveAs("landscape.pdf");
+            :title=Easily Rotate & Orient PDF Pages
+            IronPdf.PdfDocument.FromFile("file.pdf")
+                .SetAllPageRotations(IronPdf.PdfDocument.PageRotation.Rotate90)
+                .SaveAs("rotated.pdf");
         }
     }
 }

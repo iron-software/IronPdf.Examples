@@ -7,8 +7,8 @@ namespace IronPdf.Examples.HowTo.Waitfor
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            // Render after 3000ms
-            renderer.RenderingOptions.WaitFor.RenderDelay(3000);
+            // Render as soon as the page is loaded
+            renderer.RenderingOptions.WaitFor.PageLoad();
             
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>testing</h1>");
         }

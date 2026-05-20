@@ -1,3 +1,4 @@
+using IronPdf.Rendering;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.HtmlToPdf
 {
@@ -5,8 +6,13 @@ namespace IronPdf.Examples.Tutorial.HtmlToPdf
     {
         public static void Run()
         {
-            renderer.RenderingOptions.EnableJavaScript = true;
-            renderer.RenderingOptions.WaitFor.RenderDelay(500); // milliseconds
+            // Initialize HTML to PDF converter
+            var renderer = new ChromePdfRenderer();
+            
+            // Configure CSS media type for rendering specified URLs
+            renderer.RenderingOptions.CssMediaType = PdfCssMediaType.Print;
+            
+            // Screen media type shows the entire web page as displayed on screen
         }
     }
 }

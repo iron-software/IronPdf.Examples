@@ -1,4 +1,3 @@
-using System.Linq;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.ImageToPdf
 {
@@ -6,14 +5,13 @@ namespace IronPdf.Examples.HowTo.ImageToPdf
     {
         public static void Run()
         {
-            // Retrieve all JPG and JPEG image paths in the 'images' folder.
-            IEnumerable<String> imagePaths = Directory.EnumerateFiles("images").Where(f => f.EndsWith(".jpg") || f.EndsWith(".jpeg"));
+            string imagePath = "meetOurTeam.jpg";
             
-            // Convert images to a PDF
-            PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePaths);
+            // Convert an image to a PDF
+            PdfDocument pdf = ImageToPdfConverter.ImageToPdf(imagePath);
             
             // Export the PDF
-            pdf.SaveAs("imagesToPdf.pdf");
+            pdf.SaveAs("imageToPdf.pdf");
         }
     }
 }

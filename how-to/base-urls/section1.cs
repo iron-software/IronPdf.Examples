@@ -5,17 +5,8 @@ namespace IronPdf.Examples.HowTo.BaseUrls
     {
         public static void Run()
         {
-            // Instantiate ChromePdfRenderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            string baseUrl = @"C:\site\assets\";
-            string html = "<img src='icons/iron.png'>";
-            
-            // Render HTML to PDF
-            PdfDocument pdf = renderer.RenderHtmlAsPdf(html, baseUrl);
-            
-            // Export PDF
-            pdf.SaveAs("html-with-assets.pdf");
+            :title=Render HTML with assets via BaseUrl in one line!
+            new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf("<img src='icons/logo.png'>", @"C:\site\assets\").SaveAs("with‑assets.pdf");
         }
     }
 }

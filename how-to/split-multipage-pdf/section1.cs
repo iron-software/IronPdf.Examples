@@ -5,17 +5,11 @@ namespace IronPdf.Examples.HowTo.SplitMultipagePdf
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("multiPage.pdf");
-            
-            for (int idx = 0; idx < pdf.PageCount; idx++)
-            {
-                // Create new document for each page
-                PdfDocument outputDocument = pdf.CopyPage(idx);
-            
-                string fileName = @$"multiPage - Page {idx + 1}_tempfile.pdf";
-            
-                // Export to new file
-                outputDocument.SaveAs(fileName);
+            :title=Effortlessly Split PDFs Now
+            var pdf = new IronPdf.PdfDocument("multipage.pdf");
+            for (int i = 0; i < pdf.PageCount; i++) {
+              var singlePagePdf = pdf.CopyPage(i);
+              singlePagePdf.SaveAs($"page_{i + 1}.pdf");
             }
         }
     }

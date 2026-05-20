@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.CreateForms
 {
@@ -5,27 +6,28 @@ namespace IronPdf.Examples.HowTo.CreateForms
     {
         public static void Run()
         {
-            // Radio buttons HTML
-            string FormHtml = @"
-            <html>
-                <body>
-                    <h2>Editable PDF Form</h2>
-                    Choose your preferred travel type: <br>
-                    <input type='radio' name='traveltype' value='Bike'>
-                    Bike <br>
-                    <input type='radio' name='traveltype' value='Car'>
-                    Car <br>
-                    <input type='radio' name='traveltype' value='Airplane'>
-                    Airplane
-                </body>
-            </html>
-            ";
+            // Instantiate ChromePdfRenderer
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            // Instantiate Renderer
-            ChromePdfRenderer Renderer = new ChromePdfRenderer();
-            Renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h2>Combobox Form Field</h2>");
             
-            Renderer.RenderHtmlAsPdf(FormHtml).SaveAs("radioButtomForm.pdf");
+            // Configure required parameters
+            string name = "combobox";
+            string value = "Car";
+            uint pageIndex = 0;
+            double x = 100;
+            double y = 700;
+            double width = 60;
+            double height = 15;
+            var choices = new List<string>() { "Car", "Bike", "Airplane" };
+            
+            // Create combobox form field
+            var comboboxForm = new ComboboxFormField(name, value, pageIndex, x, y, width, height, choices);
+            
+            // Add form
+            pdf.Form.Add(comboboxForm);
+            
+            pdf.SaveAs("addComboboxForm.pdf");
         }
     }
 }

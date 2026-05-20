@@ -1,39 +1,33 @@
-# IronPDF Licensing Guide
+# IronPDF License Keys
 
 ***Based on <https://ironpdf.com/how-to/license-keys/>***
 
 
-## Obtaining Your License Key
+Acquiring an IronPDF license key enhances your ability to take your project from development to production without any limitations.
 
-Securing an IronPDF license key lets you shift your project from development to production seamlessly.
+You can [purchase a license key here](https://ironpdf.com/licensing/) or begin with a [free 30-day trial key](https://ironpdf.com/trial-license).
 
-You can [purchase a license key](https://ironpdf.com/licensing/) or [obtain a 30-day trial key for free](https://ironpdf.com/trial-license).
+---
 
---------------------------------------------------------------------------------
+## Step 1: Download the Latest Version of IronPDF
 
-## Step 1: Installing the Latest IronPDF Version
+### Install via NuGet
 
-### Installation via NuGet
+Within Visual Studio, right-click on the project in the solution explorer and choose "Manage NuGet Packages...". Search for IronPDF and proceed to install the newest version. Accept any prompts that appear.
 
-Using Visual Studio, right-click on your project in the solution explorer and opt for "Manage NuGet Packages...". Search and install IronPDF by confirming any prompts that appear.
-
-This method supports C# projects on .NET Framework 4.6.2 and newer, .NET Core 2.0 and above, as well as VB.NET projects.
+This method is compatible with C# .NET Framework versions starting from 4.6.2 and all .NET Core versions beginning from 2.0, as well as VB.NET projects.
 
 ```shell
-# Install the IronPdf package using NuGet package manager
-
-***Based on <https://ironpdf.com/how-to/license-keys/>***
-
 Install-Package IronPdf
 ```
 
-[View IronPdf on NuGet](https://www.nuget.org/packages/IronPdf)
+[View on NuGet](https://www.nuget.org/packages/IronPdf)
 
-### Manual Installation via DLL
+### Install via DLL
 
-Download and manually add the IronPDF DLL to your project or the Global Assembly Cache from [https://ironpdf.com/packages/IronPdf.zip](https://ironpdf.com/packages/IronPdf.zip)
+You can also opt to manually download and integrate the IronPDF DLL into your project or the Global Assembly Cache (GAC) from [IronPDF ZIP package](https://ironpdf.com/packages/IronPdf.zip).
 
-Include the following statement at the beginning of any **cs** class file that uses IronPDF:
+Ensure you include the following using directive at the beginning of any `.cs` file that utilizes IronPDF:
 
 ```csharp
 using IronPdf;
@@ -41,62 +35,69 @@ using IronPdf;
 
 --------------------------------------------------------------------------------
 
-## Step 2: Activate Your License Key
+## Step 2: Apply Your License Key
 
-### Coding in the License Key
+### Set your IronPDF license key programmatically
 
-Early in your application's lifecycle, before utilizing IronPDF, insert the following code to activate your license. This approach is reliable across both .NET Core and .NET Framework applications.
+Incorporate this code snippet at the beginning of your application's lifecycle, prior to any IronPDF utilization. This setting is equally effective in .NET Core and .NET Framework.
 
-```cs
+```csharp
+// Assign the IronPDF license key
 IronPdf.License.LicenseKey = "YOUR-IRONPDF-LICENSE-KEY";
 ```
 
-To confirm your license's activation, you can use `IronPdf.License.IsValidLicense(string LicenseKey)` or check the `IronPdf.License.IsLicensed` property.
+Check if the software is properly licensed either by using `IronPdf.License.IsValidLicense(string LicenseKey)` method or checking the `IronPdf.License.IsLicensed` property.
 
-### Applying Key with Web.Config or App.Config in .NET Framework
+### Configure your key using Web.Config or App.Config in .NET Framework Applications
 
-For a global application scope in .NET Framework, insert your license key into your configuration file within the `<appSettings>` section.
+For a system-wide key application in .NET Framework, insert the following lines in your config file under the `<appSettings>` section.
 
 ```xml
 <configuration>
+  ...
   <appSettings>
     <add key="IronPdf.LicenseKey" value="IRONPDF-MYLICENSE-KEY-1EF01"/>
   </appSettings>
+  ...
 </configuration>
 ```
 
-Notice an issue with .NET Framework versions >= 4.6.2 in ASP.NET projects where the key in `Web.config` might not be recognized. Visit the '[Setting License Key in Web.config](https://ironpdf.com/troubleshooting/license-key-web.config/)' guide for assistance.
+There's a licensing compatibility issue between IronPdf versions 2023.4.4 and 2024.3.3 in:
 
-### Applying Key in .NET Core with appsettings.json
+- **ASP.NET** projects
+- **.NET Framework version >= 4.6.2**
 
-For .NET Core applications:
+The key from a `Web.config` isn't recognized. Visit the '[Setting License Key in Web.config](https://ironpdf.com/troubleshooting/license-key-web.config/)' guide for further information.
 
-- Introduce a `appsettings.json` in your project's root.
-- Insert 'IronPdf.LicenseKey' key with your license key as the value.
-- Set file properties to _Copy to Output Directory: Copy always_.
-- Check if `IronPdf.License.IsLicensed` returns `true`.
+Verify `IronPdf.License.IsLicensed` returns `true`.
 
-Example content of `appsettings.json`:
+### Configure your key in a .NET Core appsettings.json file
+
+For a global license key configuration in .NET Core:
+
+- Create a `appsettings.json` in the root directory of your project
+- Add a 'IronPdf.LicenseKey' entry to your JSON configuration. Set the value to your license key.
+- Adjust the file properties to include _Copy to Output Directory: Copy always_
+- Verify that `IronPdf.License.IsLicensed` is `true`.
+
+File: _appsettings.json_
 
 ```json
 {
-
-    "IronPdf.LicenseKey":"IRONPDF-MYLICENSE-KEY-1EF01"
-
+  "IronPdf.LicenseKey": "IRONPDF-MYLICENSE-KEY-1EF01"
 }
 ```
 
-### Azure Functions Licensing
+### Apply your key in Azure Functions
 
-#### Local Setup
+#### Local
 
-Insert your license key in `local.settings.json`:
+Incorporate the license key in `local.settings.json`:
 
 ```json
 {
   "IsEncrypted": false,
-  "Values":
-  {
+  "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
     "IronPdf.LicenseKey": "YOUR-LICENSE-KEY"
@@ -104,43 +105,41 @@ Insert your license key in `local.settings.json`:
 }
 ```
 
-#### During Deployment
+#### Deployment
 
-In Azure portal:
+1. Access the Azure portal and locate your Function app using the search function.
+2. Navigate to **Settings** then **Environment variables** from the selection on the left.
+3. Hit **+ Add**, and input the following when the panel appears:
 
-1. Search and select your function app.
-2. Navigate to Settings > Configuration.
-3. Add a new application setting with the license key:
-
-    ```txt
+    ```plaintext
     Name - IronPdf.LicenseKey
     Value - YOUR-LICENSE-KEY
     ```
 
-4. Save the configuration.
+4. Tap on **Apply** to save changes.
 
---------------------------------------------------------------------------------
+---
 
-## Step 3: Verify the License Installation
+## Step 3: Test if your key has been installed correctly
 
 ```csharp
-// Validate the provided license key
+// Validate the entered license key.
 bool result = IronPdf.License.IsValidLicense("IRONPDF-MYLICENSE-KEY-1EF01");
 
-// Confirm if IronPDF is correctly licensed
-bool is_licensed = IronPdf.License.IsLicensed;
+// Confirm that IronPDF is authorized
+bool isLicensed = IronPdf.License.IsLicensed;
 ```
 
-_Reminder:_ Always clean and republish your application after licensing to avoid deployment errors.
+_Reminder:_ Always perform a clean and republish of your application after adding a license to prevent deployment errors.
 
---------------------------------------------------------------------------------
+---
 
-## Step 4: Begin Your Project
+## Step 4: Get started with your project
 
-Explore our [Starting Guide with IronPDF](https://ironpdf.com/docs/).
+Follow our tutorial on [how to get started with IronPDF](https://ironpdf.com/docs/).
 
---------------------------------------------------------------------------------
+---
 
-## Need Assistance?
+## Questions?
 
-For further inquiries, contact <support@ironsoftware.com>.
+For any inquiries, please contact <support@ironsoftware.com>.

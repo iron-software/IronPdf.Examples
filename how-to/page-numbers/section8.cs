@@ -5,11 +5,11 @@ namespace IronPdf.Examples.HowTo.PageNumbers
     {
         public static void Run()
         {
-            // Skip the first page
-            var skipFirstPage = allPageIndices.Skip(1);
+            // First page only
+            var firstPageIndex = new List<int>() { 0 };
             
-            pdf.AddHtmlHeaders(header, 1, skipFirstPage);
-            pdf.SaveAs("SkipFirstPage.pdf");
+            pdf.AddHtmlHeaders(header, 1, firstPageIndex);
+            pdf.SaveAs("FirstPageOnly.pdf");
         }
     }
 }

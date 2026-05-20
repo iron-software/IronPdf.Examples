@@ -1,4 +1,4 @@
-using System.Linq;
+using IronPdf.Fonts;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.ManageFonts
 {
@@ -9,15 +9,8 @@ namespace IronPdf.Examples.HowTo.ManageFonts
             // Import PDF
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
             
-            // Select which font to embed
-            PdfFont targetFont = pdf.Fonts["MyCustomFont"];
-            
-            // Add the font
-            byte[] fontData = System.IO.File.ReadAllBytes("dir/to/font.ttf");
-            pdf.Fonts.Add(fontData);
-            
-            // Embed the font
-            pdf.Fonts.Last().Embed(fontData);
+            // Add font
+            pdf.Fonts.Add("Helvetica");
         }
     }
 }

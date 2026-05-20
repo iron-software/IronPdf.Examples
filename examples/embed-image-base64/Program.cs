@@ -6,11 +6,10 @@ using System.IO;
 ChromePdfRenderer renderer = new ChromePdfRenderer();
 
 // Import image file as byte
-byte[] pngBinaryData = File.ReadAllBytes("use your image here");
-byte[] base64Bytes = new byte[3]; // Use your own here
+byte[] binaryData = File.ReadAllBytes("sample.jpg");
 
 // Convert byte to base64
-string imgDataUri = @"data:image/png;base64," + Convert.ToBase64String(base64Bytes);
+string imgDataUri = @"data:image/jpg;base64," + Convert.ToBase64String(binaryData);
 string imgHtml = $"<img src='{imgDataUri}'>";
 
 PdfDocument pdf = renderer.RenderHtmlAsPdf(imgHtml);

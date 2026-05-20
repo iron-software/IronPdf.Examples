@@ -1,4 +1,3 @@
-using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.SanitizePdf
 {
@@ -9,12 +8,15 @@ namespace IronPdf.Examples.HowTo.SanitizePdf
             // Import PDF document
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
             
-            // Scan PDF
-            CleanerScanResult result = Cleaner.ScanPdf(pdf);
+            // Sanitize with Bitmap
+            PdfDocument sanitizeWithBitmap = Cleaner.SanitizeWithBitmap(pdf);
             
-            // Output the result
-            Console.WriteLine(result.IsDetected);
-            Console.WriteLine(result.Risks.Count);
+            // Sanitize with SVG
+            PdfDocument sanitizeWithSvg = Cleaner.SanitizeWithSvg(pdf);
+            
+            // Export PDFs
+            sanitizeWithBitmap.SaveAs("sanitizeWithBitmap.pdf");
+            sanitizeWithSvg.SaveAs("sanitizeWithSvg.pdf");
         }
     }
 }

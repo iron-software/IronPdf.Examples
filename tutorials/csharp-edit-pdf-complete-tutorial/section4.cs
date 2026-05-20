@@ -1,3 +1,4 @@
+using System.IO;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
@@ -5,20 +6,16 @@ namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
     {
         public static void Run()
         {
-            var pdfs = new List<PdfDocument>
-            {
-                PdfDocument.FromFile("A.pdf"),
-                PdfDocument.FromFile("B.pdf"),
-                PdfDocument.FromFile("C.pdf")
-            };
+            var renderer = new ChromePdfRenderer();
             
-            PdfDocument mergedPdf = PdfDocument.Merge(pdfs);
-            mergedPdf.SaveAs("merged.pdf");
+            // Convert the URL into PDF
+            PdfDocument pdf = renderer.RenderUrlAsPdf("https://ironpdf.com/");
             
-            foreach (var pdf in pdfs)
-            {
-                pdf.Dispose();
-            }
+            // Export PDF as Stream
+            MemoryStream pdfAsStream = pdf.Stream;
+            
+            // Export PDF as Byte Array
+            byte[] pdfAsByte = pdf.BinaryData;
         }
     }
 }

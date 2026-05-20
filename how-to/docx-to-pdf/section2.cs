@@ -5,13 +5,14 @@ namespace IronPdf.Examples.HowTo.DocxToPdf
     {
         public static void Run()
         {
-            internal class RecipientsDataModel
-            {
-                public string Date { get; set; }
-                public string Location{ get; set; }
-                public string Recipients_Name { get; set; }
-                public string Contact_Us { get; set; }
-            }
+            // Instantiate Renderer
+            DocxToPdfRenderer renderer = new DocxToPdfRenderer();
+            
+            // Render from DOCX file
+            PdfDocument pdf = renderer.RenderDocxAsPdf("Modern-chronological-resume.docx");
+            
+            // Save the PDF
+            pdf.SaveAs("pdfFromDocx.pdf");
         }
     }
 }

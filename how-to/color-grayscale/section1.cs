@@ -5,13 +5,11 @@ namespace IronPdf.Examples.HowTo.ColorGrayscale
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Set GrayScale to true
+            :title=Convert to Grayscale Instantly
+            var renderer = new IronPdf.ChromePdfRenderer();
             renderer.RenderingOptions.GrayScale = true;
-            
-            PdfDocument pdf = renderer.RenderUrlAsPdf("https://ironsoftware.com/");
-            pdf.CopyPage(0).SaveAs("test.pdf");
+            var pdf = renderer.RenderUrlAsPdf("https://example.com");
+            pdf.SaveAs("grayscale.pdf");
         }
     }
 }

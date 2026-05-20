@@ -13,11 +13,12 @@ namespace IronPdf.Examples.HowTo.Waitfor
               <title>Delayed render tests</title>
               <script type=""text/javascript"">
             	setTimeout(function() {
-            		var newElem = document.createElement(""h2"");
-            		newElem.innerHTML = ""bla bla bla"";
+            		var h1Tag = document.createElement(""h1"");
+            		h1Tag.innerHTML = ""bla bla bla"";
+            		h1Tag.setAttribute(""name"", ""myName"");
             
                     var block = document.querySelector(""div#x"");
-            		block.appendChild(newElem);
+            		block.appendChild(h1Tag);
             	}, 1000);
               </script>
             </head>
@@ -28,7 +29,7 @@ namespace IronPdf.Examples.HowTo.Waitfor
             </html>";
             
             ChromePdfRenderer renderer = new ChromePdfRenderer();
-            renderer.RenderingOptions.WaitFor.HtmlElementByTagName("h2", 5000);
+            renderer.RenderingOptions.WaitFor.HtmlElementByName("myName", 5000);
             
             PdfDocument pdf = renderer.RenderHtmlAsPdf(htmlContent);
         }

@@ -1,13 +1,11 @@
 ***Based on <https://ironpdf.com/examples/rasterize-a-pdf-to-images/>***
 
-Leverage IronPDF to transform PDF documents into images with your preferred file format, size, and DPI settings.
+To transform a PDF file into images, utilize the `RasterizeToImageFiles` function from IronPDF on a `PdfDocument` instance. Load a PDF either by invoking `PdfDocument.FromFile` or via any of the [PDF generation techniques designed for .NET Core](https://ironpdf.com/tutorials/dotnet-core-pdf-generating/).
 
-To perform this conversion, use the `RasterizeToImageFiles` method on a `PdfDocument` object. You can load a PDF document either by employing the `PdfDocument.FromFile` method or by utilizing one of the [PDF creation methods for .NET Core](https://ironpdf.com/tutorials/dotnet-core-pdf-generating/).
+The `RasterizeToImageFiles` method processes each PDF page into a raster image. The primary parameter sets the filename pattern for each resultant image. There are additional options to tailor the image quality and size. Also, you can selectively rasterize specific PDF pages if needed.
 
-***
+In our code snippet example on line 24, the `ToBitMap` method is highlighted. Apply this method to any `PdfDocument` object to swiftly convert the document into `AnyBitmap` objects, which can then be either saved as files or further modified.
 
-`RasterizeToImageFiles` processes each PDF page into a raster image. The first parameter determines the naming convention for each output image. Additionally, there are optional parameters available that allow for the customization of image quality and dimensions. It is also possible to specify a subset of pages to be converted into images.
+---
 
-In Line 24 of our code sample, the `ToBitMap` method is shown. This method can be invoked on any `PdfDocument` object to swiftly convert a PDF into `AnyBitmap` objects. These objects can then be either saved as files or further modified as required.
-
-* * *
+[Discover How to Convert PDFs into Images with IronPDF](https://ironpdf.com/how-to/rasterize-pdf-to-images/)

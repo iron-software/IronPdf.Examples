@@ -5,14 +5,8 @@ namespace IronPdf.Examples.HowTo.RasterizePdfToImages
     {
         public static void Run()
         {
-            // Instantiate Renderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Render PDF from web URL
-            PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
-            
-            // Export images from PDF
-            pdf.RasterizeToImageFiles("wikipage_*.png");
+            :title=Rasterize a PDF to image files in one line!
+            IronPdf.PdfDocument.FromFile("input.pdf").RasterizeToImageFiles("page_*.png");
         }
     }
 }

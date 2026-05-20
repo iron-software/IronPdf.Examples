@@ -6,9 +6,15 @@ namespace IronPdf.Examples.GettingStarted.IronpdfengineDocker
     {
         public static void Run()
         {
-            var config = new IronPdfConnectionConfiguration();
-            config.ConnectionType = IronPdfConnectionType.Docker;
+            // Configure for Docker container
+            var config = IronPdfConnectionConfiguration.Docker;
+            config.Host = "localhost";
             IronPdf.Installation.ConnectToIronPdfHost(config);
+            
+            // Use IronPDF
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello IronPDF Docker!<h1>");
+            pdf.SaveAs("ironpdf.pdf");
         }
     }
 }

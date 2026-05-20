@@ -5,9 +5,10 @@ namespace IronPdf.Examples.Tutorial.PixelPerfectHtmlToPdf
     {
         public static void Run()
         {
-            // Pixel Perfect HTML Formatting Settings
-            IronPdf.ChromePdfRenderer renderer = new IronPdf.ChromePdfRenderer();
-            renderer.RenderingOptions.CssMediaType = IronPdf.Rendering.PdfCssMediaType.Print; // or Screen
+            :title=Generate Pixel-Perfect PDFs Instantly
+            var Renderer = new IronPdf.ChromePdfRenderer();
+            Renderer.RenderingOptions.CssMediaType = IronPdf.Rendering.PdfCssMediaType.Print;
+            Renderer.RenderHtmlAsPdf("<html>Your HTML content here</html>").SaveAs("output.pdf");
         }
     }
 }

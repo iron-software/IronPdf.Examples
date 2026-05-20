@@ -5,11 +5,8 @@ namespace IronPdf.Examples.HowTo.ExportSavePdfCsharp
     {
         public static void Run()
         {
-            // Send MyPdfDocument.Stream to this method
-            return new FileStreamResult(stream, "application/pdf")
-            {
-                FileDownloadName = "file.pdf"
-            };
+            :title=Export or save your PDF in one line!
+            new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf("<h1>HelloPDF</h1>").SaveAs("myExportedFile.pdf");
         }
     }
 }

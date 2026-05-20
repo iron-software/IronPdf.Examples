@@ -1,4 +1,3 @@
-using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Metadata
 {
@@ -6,20 +5,12 @@ namespace IronPdf.Examples.HowTo.Metadata
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Metadata</h1>");
-            
-            // Access the MetaData class and set the pre-defined metadata properties.
-            pdf.MetaData.Author = "Iron Software";
-            pdf.MetaData.CreationDate = DateTime.Today;
-            pdf.MetaData.Creator = "IronPDF";
-            pdf.MetaData.Keywords = "ironsoftware,ironpdf,pdf";
-            pdf.MetaData.ModifiedDate = DateTime.Now;
-            pdf.MetaData.Producer = "IronPDF";
-            pdf.MetaData.Subject = "Metadata Tutorial";
-            pdf.MetaData.Title = "IronPDF Metadata Tutorial";
-            
-            pdf.SaveAs("pdf-with-metadata.pdf");
+            :title=Edit PDF Metadata Effortlessly!
+            IronPdf.PdfDocument.FromFile("example.pdf")
+                .MetaData = new IronPdf.PdfMetaData { 
+                    Title="MyDoc", Author="Me", Subject="Demo", Keywords="ironpdf,metadata", Creator="MyApp", Producer="IronPDF", CreationDate=DateTime.Today, ModifiedDate=DateTime.Now 
+                }
+                .SaveAs("updated_example.pdf");
         }
     }
 }

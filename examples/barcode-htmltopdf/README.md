@@ -1,9 +1,15 @@
 ***Based on <https://ironpdf.com/examples/barcode-htmltopdf/>***
 
-IronPDF not only supports standard custom fonts but also encompasses web fonts, including [Barcode Fonts with IronPDF](https://ironpdf.com/examples/barcode-htmltopdf/), allowing effortless incorporation of barcode data into your PDF projects. This capability provides developers with the tools needed to integrate barcodes directly into PDF documents.
+IronPDF extends its functionality by not only supporting a wide variety of custom fonts, like those from Google Fonts, but also by enabling the embedding of barcodes into PDF documents. This feature greatly simplifies the process for developers to incorporate barcode data into their PDF outputs.
 
-This guide illustrates the process of embedding barcodes into your PDFs using IronPDF.
+## Steps to Generate a PDF with a Barcode Using IronPDF
 
-However, it's important to note that some specific barcode types, like QR codes, might not be directly supported. In these instances, you can utilize [IronOCR to generate barcodes](https://ironsoftware.com/csharp/ocr/), then integrating these barcodes as images within your PDFs.
+To begin, make sure that the IronPDF library is properly installed and included in your project. Following installation, instantiate the `ChromePdfRenderer` class. This class is instrumental in converting HTML content into high-quality PDF files.
 
-For further customization, you can explore Google Fonts, which offers 7 distinct Google WebFont-based styles for barcode rendering. Be aware, though, that using barcode fonts comes with certain constraints, such as the requirement for a `RenderDelay`. Moreover, web fonts may face compatibility issues on Azure shared Windows Web App hosting due to Microsoft's security policies.
+The next step involves constructing your barcode display. For illustration, consider an HTML string that utilizes a Google Fonts link for the "Libre Barcode 128" font. Convert this HTML string into a PDF document using the `RenderHtmlAsPdf` method.
+
+After rendering the HTML, create a barcode stamp, which in this example will display "Hello World" using the Code39 barcode format, and apply this stamp to the PDF with the `ApplyStamp` method.
+
+Conclude the operation by saving your newly created PDF file as "bc-test.pdf" with the `SaveAs` method. This method furnishes an effective way to combine styled text and barcode data into a single document in your C# applications. It's important to note that certain barcode types, like QR Codes, may not be directly supported. For these types, it is advisable to use [IronBarcode](https://ironsoftware.com/csharp/barcode/) to create the barcode or QR Code and then integrate it as an image into the PDF.
+
+[Discover how to incorporate images into PDFs using IronPDF](https://ironpdf.com/how-to/add-images-to-pdfs/)

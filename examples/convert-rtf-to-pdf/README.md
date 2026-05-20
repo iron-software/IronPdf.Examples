@@ -1,3 +1,5 @@
 ***Based on <https://ironpdf.com/examples/convert-rtf-to-pdf/>***
 
-IronPDF enables you to transform your RTF (Rich Text Format) documents, along with any embedded images, into PDF files. Once converted, you have the option to enhance your documents by adding watermarks, headers, footers, signatures, and numerous other elements to finalize a professional and secure PDF, ready for distribution or personal application.
+IronPDF simplifies the conversion of RTF to PDF, making it a breeze to handle. This is particularly beneficial when you need to transform RTF files into professional PDFs for either distribution or archival purposes. Thanks to its potent Chromium-based rendering engine, IronPDF guarantees that the resulting PDFs are produced with precision and superior quality.
+
+[Visit the RTF to PDF Conversion Guide for more information.](https://ironpdf.com/how-to/rtf-to-pdf/)

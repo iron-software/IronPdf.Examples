@@ -12,19 +12,27 @@ namespace IronPdf.Examples.HowTo.CreateForms
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h2>Editable PDF Form</h2>");
             
             // Configure required parameters
-            string name = "image1";
+            string name = "choice";
+            string value = "yes";
             uint pageIndex = 0;
             double x = 100;
-            double y = 600;
-            double width = 200;
-            double height = 200;
+            double y = 700;
+            double width = 15;
+            double height = 15;
             
-            // Create the image form
-            ImageFormField imageForm = new ImageFormField(name, pageIndex, x, y, width, height);
+            // Create the first radio form
+            var yesRadioform = new RadioFormField(name, value, pageIndex, x, y, width, height);
             
-            pdf.Form.Add(imageForm);
+            value = "no";
+            x = 200;
             
-            pdf.SaveAs("addImageForm.pdf");
+            // Create the second radio form
+            var noRadioform = new RadioFormField(name, value, pageIndex, x, y, width, height);
+            
+            pdf.Form.Add(yesRadioform);
+            pdf.Form.Add(noRadioform);
+            
+            pdf.SaveAs("addRadioForm.pdf");
         }
     }
 }

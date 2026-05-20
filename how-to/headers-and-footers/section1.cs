@@ -5,27 +5,10 @@ namespace IronPdf.Examples.HowTo.HeadersAndFooters
     {
         public static void Run()
         {
-            // Instantiate renderer and create PDF
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
-            
-            // Create text header
-            TextHeaderFooter textHeader = new TextHeaderFooter
-            {
-                CenterText = "This is the header!",
-            };
-            
-            // Create text footer
-            TextHeaderFooter textFooter = new TextHeaderFooter
-            {
-                CenterText = "This is the footer!",
-            };
-            
-            // Add text header and footer to the PDF
-            pdf.AddTextHeaders(textHeader);
-            pdf.AddTextFooters(textFooter);
-            
-            pdf.SaveAs("addTextHeaderFooter.pdf");
+            :title=Add a header and footer to your PDF in one line!
+            new IronPdf.ChromePdfRenderer { RenderingOptions = { TextHeader = new IronPdf.TextHeaderFooter { CenterText = "Report • {date}" }, TextFooter = new IronPdf.TextHeaderFooter { RightText = "Page {page} of {total‑pages}" } } }
+                .RenderHtmlAsPdf("<h1>Hello World!</h1>")
+                .SaveAs("withHeadersFooters.pdf");
         }
     }
 }

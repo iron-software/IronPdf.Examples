@@ -5,14 +5,8 @@ namespace IronPdf.Examples.HowTo.CsharpParsePdf
     {
         public static void Run()
         {
-            // Select the desired PDF File
-            PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
-            
-            // Extract all text from an pdf
-            string allText = pdf.ExtractAllText();
-            
-            // Extract all text from page 1
-            string page1Text = pdf.ExtractTextFromPage(0);
+            :title=Parse PDFs Instantly with IronPDF
+            var text = IronPdf.FromFile("sample.pdf").ExtractAllText();
         }
     }
 }

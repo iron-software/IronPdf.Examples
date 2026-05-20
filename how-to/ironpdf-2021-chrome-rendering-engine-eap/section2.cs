@@ -5,13 +5,12 @@ namespace IronPdf.Examples.HowTo.Ironpdf2021ChromeRenderingEngineEap
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            renderer.RenderingOptions.CssMediaType = IronPdf.Rendering.PdfCssMediaType.Print;
-            renderer.RenderingOptions.PrintHtmlBackgrounds = false;
-            renderer.RenderingOptions.CreatePdfFormsFromHtml = false;
-            
-            PdfDocument pdf = renderer.RenderUrlAsPdf("https://www.google.com/");
+            // Example of setting up RenderingOptions and HttpLoginCredentials in the new API
+            var renderer = new IronPdf.ChromePdfRenderer();
+            renderer.RenderingOptions.CssMediaType = IronPdf.Rendering.CssMediaType.Screen;
+            // Set HTTP credentials if needed
+            renderer.RenderingOptions.HttpLoginCredentials.Username = "yourUsername";
+            renderer.RenderingOptions.HttpLoginCredentials.Password = "yourPassword";
         }
     }
 }

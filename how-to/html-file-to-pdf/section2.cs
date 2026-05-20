@@ -1,4 +1,3 @@
-using IronPdf.Rendering;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.HtmlFileToPdf
 {
@@ -6,25 +5,17 @@ namespace IronPdf.Examples.HowTo.HtmlFileToPdf
     {
         public static void Run()
         {
-            var renderer = new ChromePdfRenderer
-            {
-                RenderingOptions = new ChromePdfRenderOptions
-                {
-                    CssMediaType = PdfCssMediaType.Print,
-                    MarginBottom = 0,
-                    MarginLeft = 0,
-                    MarginRight = 0,
-                    MarginTop = 0,
-                    Timeout = 120,
-                },
-            };
-            renderer.RenderingOptions.WaitFor.RenderDelay(50);
+            <!DOCTYPE html>
+            <html>
+            	<head>
+            		<title>Page Title</title>
+            	</head>
             
-            // Create a PDF from an existing HTML file using C#
-            var pdf = renderer.RenderHtmlFileAsPdf("example.html");
-            
-            // Export to a file or Stream
-            pdf.SaveAs("output.pdf");
+            	<body>
+            		<h1>My First Heading</h1>
+            		<p>My first paragraph.</p>
+            	</body>
+            </html>
         }
     }
 }

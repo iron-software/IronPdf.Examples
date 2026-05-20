@@ -8,14 +8,11 @@ namespace IronPdf.Examples.HowTo.BaseUrls
             // Instantiate ChromePdfRenderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            // Set additional CSS url
-            renderer.RenderingOptions.CustomCssUrl = "./style.css";
-            
             // Render HTML file to PDF
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World</h1>");
+            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("C:\\Assets\\TestInvoice1.html");
             
             // Export PDF
-            pdf.SaveAs("tryCss.pdf");
+            pdf.SaveAs("Invoice.pdf");
         }
     }
 }

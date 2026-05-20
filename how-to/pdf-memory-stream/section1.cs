@@ -1,4 +1,3 @@
-using System.IO;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.PdfMemoryStream
 {
@@ -6,12 +5,9 @@ namespace IronPdf.Examples.HowTo.PdfMemoryStream
     {
         public static void Run()
         {
-            var renderer = new IronPdf.ChromePdfRenderer();
-            
-            // Conversion of the URL into PDF
-            Uri url = new Uri("https://ironpdf.com/how-to/pdf-memory-stream/");
-            
-            MemoryStream pdfAsStream = renderer.RenderUrlAsPdf(url).Stream; //Read stream
+            :title=Convert MemoryStream to PDF Instantly!
+            var bytes = File.ReadAllBytes("sample.pdf");
+            var pdfDoc = new IronPdf.PdfDocument(myMemoryStream);
         }
     }
 }

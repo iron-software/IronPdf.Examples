@@ -1,3 +1,4 @@
+using IronPdf.Annotations;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
@@ -5,16 +6,21 @@ namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
     {
         public static void Run()
         {
-            var Renderer = new ChromePdfRenderer();
-            var myPdf = Renderer.RenderHtmlFileAsPdf("my-content.html");
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Annotation</h1>");
             
-            // Here we can add an attachment with a name and byte[]
-            var attachment1 = myPdf.Attachments.AddAttachment("attachment_1", example_attachment);
+            // Create a PDF annotation object on a specified page index
+            TextAnnotation annotation = new TextAnnotation(0)
+            {
+                Title = "This is the title",
+                Contents = "This is the long 'sticky note' comment content...",
+                X = 50,
+                Y = 700,
+            };
             
-            // And here is an example of removing an attachment
-            myPdf.Attachments.RemoveAttachment(attachment1);
-            
-            myPdf.SaveAs("my-content.pdf");
+            // Add the annotation
+            pdf.Annotations.Add(annotation);
+            pdf.SaveAs("annotation.pdf");
         }
     }
 }

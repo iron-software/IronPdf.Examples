@@ -5,10 +5,9 @@ namespace IronPdf.Examples.Tutorial.HtmlToPdf
     {
         public static void Run()
         {
-            // Create a PDF from an existing HTML using C#
-            var renderer = new ChromePdfRenderer();
-            var pdf = renderer.RenderHtmlFileAsPdf("Assets/TestInvoice1.html");
-            pdf.SaveAs("Invoice.pdf");
+            // Configure for optimal responsive design handling in HTML to PDF
+            
+            renderer.RenderingOptions.CssMediaType = IronPdf.Rendering.PdfCssMediaType.Print;
         }
     }
 }

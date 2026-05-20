@@ -1,4 +1,4 @@
-using IronSoftware.Drawing;
+using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Signing
 {
@@ -6,19 +6,31 @@ namespace IronPdf.Examples.HowTo.Signing
     {
         public static void Run()
         {
-            // Create PdfSignature object
-            var sig = new PdfSignature("IronSoftware.pfx", "123456");
+            // Load an existing PDF document to be signed.
+            var pdf = PdfDocument.FromFile("invoice.pdf");
             
-            // Add image by property
-            sig.SignatureImage = new PdfSignatureImage("IronSoftware.png", 0, new Rectangle(0, 600, 100, 100));
+            // Create a PdfSignature object directly from the certificate file and password.
+            var signature = new PdfSignature("IronSoftware.pfx", "123456");
             
-            // Add image by LoadSignatureImageFromFile method
-            sig.LoadSignatureImageFromFile("IronSoftware.png", 0, new Rectangle(0, 600, 100, 100));
+            // Add detailed metadata to the signature for a comprehensive audit trail.
+            signature.SignatureDate = DateTime.Now;
+            signature.SigningContact = "legal@ironsoftware.com";
+            signature.SigningLocation = "Chicago, USA";
+            signature.SigningReason = "Contractual Agreement";
             
-            // Import image using IronSoftware.Drawing
-            AnyBitmap image = AnyBitmap.FromFile("IronSoftware.png");
+            // Add a secure timestamp from a trusted Time Stamp Authority (TSA).
+            // This provides cryptographic proof of the signing time.
+            signature.TimeStampUrl = new Uri("[http://timestamp.digicert.com](http://timestamp.digicert.com)");
+            signature.TimestampHashAlgorithm = TimestampHashAlgorithms.SHA256;
             
-            sig.LoadSignatureImageFromStream(image.ToStream(), 0, new Rectangle(0, 600, 100, 100));
+            // Apply a visual appearance to the signature. (More on this in the next section)
+            signature.SignatureImage = new PdfSignatureImage("assets/visual-signature.png", 0, new Rectangle(350, 750, 200, 100));
+            
+            // Sign the PDF document with the configured signature object.
+            pdf.Sign(signature);
+            
+            // Save the final, signed PDF document.
+            pdf.SaveAs("DetailedSignature.pdf");
         }
     }
 }

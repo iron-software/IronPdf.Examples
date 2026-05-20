@@ -1,4 +1,3 @@
-using IronSoftware.Drawing;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.RedactText
 {
@@ -8,12 +7,10 @@ namespace IronPdf.Examples.HowTo.RedactText
         {
             PdfDocument pdf = PdfDocument.FromFile("novel.pdf");
             
-            RectangleF rectangle = new RectangleF(5, 700, 50, 50);
+            // Redact 'Alaric' phrase from all pages
+            pdf.RedactTextOnAllPages("Alaric");
             
-            // Redact region on coordinates(5,700) with width and height 50 pixels
-            pdf.RedactRegionsOnAllPages(rectangle);
-            
-            pdf.SaveAs("redactedRegion.pdf");
+            pdf.SaveAs("redacted.pdf");
         }
     }
 }

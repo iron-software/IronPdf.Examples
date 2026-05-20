@@ -1,3 +1,4 @@
+using IronSoftware.Forms;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.CreateForms
 {
@@ -5,32 +6,27 @@ namespace IronPdf.Examples.HowTo.CreateForms
     {
         public static void Run()
         {
-            // Input and Text Area forms HTML
-            string FormHtml = @"
-            <html>
-                <body>
-                    <h2>Editable PDF Form</h2>
-                    <h2>Task Completed</h2>
-                    <label>
-                        <input type='checkbox' id='taskCompleted' name='taskCompleted'> Mark task as completed
-                    </label>
+            // Instantiate ChromePdfRenderer
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-                    <h2>Select Priority</h2>
-                    <label for='priority'>Choose priority level:</label>
-                    <select id='priority' name='priority'>
-                        <option value='high'>High</option>
-                        <option value='medium'>Medium</option>
-                        <option value='low'>Low</option>
-                    </select>
-                </body>
-            </html>
-            ";
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h2>Editable PDF Form</h2>");
             
-            // Instantiate Renderer
-            ChromePdfRenderer Renderer = new ChromePdfRenderer();
-            Renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
+            // Configure required parameters
+            string name = "firstname";
+            string value = "first name";
+            uint pageIndex = 0;
+            double x = 100;
+            double y = 700;
+            double width = 50;
+            double height = 15;
             
-            Renderer.RenderHtmlAsPdf(FormHtml).SaveAs("checkboxAndComboboxForm.pdf");
+            // Create text form field
+            var textForm = new TextFormField(name, value, pageIndex, x, y, width, height);
+            
+            // Add form
+            pdf.Form.Add(textForm);
+            
+            pdf.SaveAs("addTextForm.pdf");
         }
     }
 }

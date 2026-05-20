@@ -4,6 +4,7 @@ using IronPdf.Examples.HowTo.HeadersAndFooters;
 
 Section1.Run();
 // Section10.Run();
+// Section11.Run();
 // Section2.Run();
 // Section3.Run();
 // Section4.Run();

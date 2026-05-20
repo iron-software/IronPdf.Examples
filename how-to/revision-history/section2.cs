@@ -1,3 +1,4 @@
+using IronPdf.Rendering;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.RevisionHistory
 {
@@ -5,12 +6,14 @@ namespace IronPdf.Examples.HowTo.RevisionHistory
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("report.pdf");
+            // Import PDF and enable TrackChanges
+            PdfDocument pdf = PdfDocument.FromFile("annual_census.pdf", TrackChanges: ChangeTrackingModes.EnableChangeTracking);
+            // ... various edits ...
+            pdf.SignWithFile("/assets/IronSignature.p12", "password", null, IronPdf.Signing.SignaturePermissions.AdditionalSignaturesAndFormFillingAllowed);
             
-            int versions = pdf.RevisionCount; // total revisions
+            PdfDocument pdfWithRevision = pdf.SaveAsRevision();
             
-            PdfDocument rolledBackPdf = pdf.GetRevision(2);
-            rolledBackPdf.SaveAs("report-draft.pdf");
+            pdfWithRevision.SaveAs("annual_census_2.pdf");
         }
     }
 }

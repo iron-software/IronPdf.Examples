@@ -8,11 +8,14 @@ namespace IronPdf.Examples.HowTo.MdToPdf
             // Instantiate Renderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            // Render from markdown file
-            PdfDocument pdf = renderer.RenderMarkdownFileAsPdf("sample.md");
+            // Markdown string
+            string md = "This is some **bold** and *italic* text.";
+            
+            // Render from markdown string
+            PdfDocument pdf = renderer.RenderMarkdownStringAsPdf(md);
             
             // Save the PDF
-            pdf.SaveAs("pdfFromMarkdownFile.pdf");
+            pdf.SaveAs("pdfFromMarkdownString.pdf");
         }
     }
 }

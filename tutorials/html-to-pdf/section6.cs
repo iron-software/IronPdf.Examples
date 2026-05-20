@@ -5,10 +5,14 @@ namespace IronPdf.Examples.Tutorial.HtmlToPdf
     {
         public static void Run()
         {
-            // Create a PDF Chart a live rendered dataset using d3.js and javascript
+            // Configure JavaScript rendering for dynamic HTML content to PDF
             var renderer = new ChromePdfRenderer();
-            var pdf = renderer.RenderUrlAsPdf("https://bl.ocks.org/mbostock/4062006");
-            pdf.SaveAs("chart.pdf");
+            
+            // Enable JavaScript execution during PDF generation
+            renderer.RenderingOptions.EnableJavaScript = true;
+            
+            // WaitFor.RenderDelay pauses before capturing the HTML
+            renderer.RenderingOptions.WaitFor.RenderDelay = 500; // milliseconds
         }
     }
 }

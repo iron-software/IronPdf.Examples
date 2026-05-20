@@ -1,4 +1,3 @@
-using System.Drawing.Printing;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.PrintPdf
 {
@@ -8,23 +7,10 @@ namespace IronPdf.Examples.HowTo.PrintPdf
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Testing</h1>");
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Test printing</h1>");
             
-            PrinterSettings settings = new PrinterSettings() {
-                PrinterName = "Microsoft Print to PDF",
-            
-                // Number of Copy
-                Copies = 2,
-            
-                // Page range to print
-                FromPage = 2,
-                ToPage = 4,
-            };
-            
-            PrintDocument document = pdf.GetPrintDocument(settings);
-            
-            // Print
-            document.Print();
+            // Print to file
+            pdf.PrintToFile("");
         }
     }
 }

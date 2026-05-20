@@ -1,107 +1,114 @@
-# How to Add Headers and Footers to PDFs
+# How to Add Headers and Footers
 
 ***Based on <https://ironpdf.com/how-to/headers-and-footers/>***
 
 
-Interested in adding page numbers, a company logo, or dates to the top or bottom of every page in your PDF document? Headers and footers are perfect for this, and using IronPDF, it's incredibly straightforward to embed these into PDFs within your C# Project.
+Do you need to insert page numbers, your company's logo, or the date on every page of a PDF document? Adding headers and footers is the solution, and with IronPDF, it's incredibly easy to do so in your C# projects.
 
-***
+## Quickstart: Add Headers and Footers to PDFs in C#
 
-<h3>Begin with IronPDF</h3>
+Quickly and efficiently enhance your PDF documents by adding headers and footers using IronPDF in your C# applications. This brief guide will demonstrate how to implement text-based headers and footers, including page numbers and custom text. Leverage the `AddTextHeaders` and `AddTextFooters` methods for rapid enhancements, ensuring a polished look for your documents with minimal code. This is ideal for developers who need a quick solution for document formatting using IronPDF.
 
-***
+```cs
+:title=Implementing a header and footer in a single step!
+new IronPdf.ChromePdfRenderer { RenderingOptions = { TextHeader = new IronPdf.TextHeaderFooter { CenterText = "Report • {date}" }, TextFooter = new IronPdf.TextHeaderFooter { RightText = "Page {page} of {total‑pages}" } } }
+    .RenderHtmlAsPdf("<h1>Hello World!</h1>")
+    .SaveAs("withHeadersFooters.pdf");
+```
 
-## Example: Adding a Text Header/Footer
+## Example: Adding Text Headers and Footers
 
-For a simple text-based header or footer, begin by creating a **TextHeaderFooter** instance, set your preferred text, and attach it to your PDF.
+To add a text-based header or footer, create a `TextHeaderFooter` object, customize your text, and integrate it into your PDF.
 
 ```cs
 using IronPdf;
-
-// Create a PDF renderer instance and generate a PDF from HTML
+// Initialize renderer and generate PDF
 ChromePdfRenderer renderer = new ChromePdfRenderer();
 PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
 
-// Construct a text-based header
+// Define text header
 TextHeaderFooter textHeader = new TextHeaderFooter
 {
     CenterText = "This is the header!",
 };
 
-// Construct a text-based footer
+// Define text footer
 TextHeaderFooter textFooter = new TextHeaderFooter
 {
     CenterText = "This is the footer!",
 };
 
-// Attach the header and footer to the PDF
+// Attach text header and footer to the PDF
 pdf.AddTextHeaders(textHeader);
 pdf.AddTextFooters(textFooter);
 
 pdf.SaveAs("addTextHeaderFooter.pdf");
 ```
 
-You can also add headers and footers directly through the rendering options of the renderer, which will include them during the PDF generation process.
+You can also directly incorporate a header and footer using the rendering options of the renderer.
 
 ```cs
 using IronPdf;
-
 // Initialize renderer
 ChromePdfRenderer renderer = new ChromePdfRenderer();
 
-// Setup the header and integrate it into the rendering options
+// Setup text header
 renderer.RenderingOptions.TextHeader = new TextHeaderFooter
 {
     CenterText = "This is the header!",
 };
 
-// Setup the footer and integrate it into the rendering options
+// Setup text footer
 renderer.RenderingOptions.TextFooter = new TextHeaderFooter
 {
     CenterText = "This is the footer!",
 };
 
-// Generate the PDF with both header and footer included
+// Generate PDF with header and footer
 PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
 pdf.SaveAs("renderWithTextHeaderFooter.pdf");
 ```
 
-## Customize Font and Divider Options
+## Customize Text and Divider Properties
 
-The **TextHeaderFooter** allows you to define text for three positions: left, center, and right. Enhance your headers and footers by setting the font type, size, and even a custom-colored divider.
+Modify text position, font, size, and add a custom-colored divider using properties in the `TextHeaderFooter` class.
 
 ```cs
 using IronPdf;
-using IronPdf.Fonts;
+using IronPdf.Font;
 using IronSoftware.Drawing;
 
-// Set up a text header with custom font and divider *color
+// Establish text header settings
 TextHeaderFooter textHeader = new TextHeaderFooter
 {
-    CenterText = "Center text", // Central text
-    LeftText = "Left text", // Left-aligned text
-    RightText = "Right text", // Right-aligned text
-    Font = IronSoftware.Drawing.FontTypes.ArialBoldItalic, // Font style and weight
+    CenterText = "Center text", // Text in the center
+    LeftText = "Left text", // Text on the left
+    RightText = "Right text", // Text on the right
+    Font = IronSoftware.Drawing.FontTypes.ArialBoldItalic, // Font style
     FontSize = 16, // Font size
-    DrawDividerLine = true, // Enable divider line
-    DrawDividerLineColor = Color.Red, // Divider line color
+    DrawDividerLine = true, // Activate a divider line
+    DrawDividerLineColor = Color.Red, // Color of the divider line
 };
 ```
 
-#### Output Of Text Header
+#### Output Text Header
 
-![Text Header Options](https://ironpdf.com/static-assets/pdf/how-to/headers-and-footers/textheaderfooter-options.webp)
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironpdf.com/static-assets/pdf/how-to/headers-and-footers/textheaderfooter-options.webp" alt="Text Header" class="img-responsive add-shadow">
+    </div>
+</div>
 
-For a full overview of available font types, see the [IronPDF API Reference](https://ironpdf.com/object-reference/api/IronSoftware.Forms.IFormField.html).
+Check available font types in the <a href="https://ironpdf.com/object-reference/api/IronSoftware.Forms.IFormField.html">IronPDF API Reference</a>.
 
-## Margin Settings for Text Headers and Footers
+## Set Margins for Text Header/Footer
 
-By default, **TextHeaderFooter** in IronPDF has preset margins. To extend the text header across the full width of the document, you can override these by specifying zero margins. This can be set directly in functions like `AddTextHeaders` and `AddTextFooters` or via **RenderingOptions** in **ChromePdfRenderer**.
+Set margins for text headers and footers to customize their layout, accommodating the entire width of the PDF if needed.
 
 ```cs
 using IronPdf;
 
-// Initialize renderer and create a PDF
+// Instancing the renderer and creating a PDF
 ChromePdfRenderer renderer = new ChromePdfRenderer();
 PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
 
@@ -115,27 +122,55 @@ TextHeaderFooter footer = new TextHeaderFooter
     CenterText = "This is the footer!",
 };
 
-// Set custom margins for header and footer (measurements in mm)
-pdf.AddTextHeaders(header, 35, 30, 25);
+pdf.AddTextHeaders(header, 35, 30, 25); // Specify margin values in mm
 pdf.AddTextFooters(footer, 35, 30, 25);
 ```
 
-### Dynamic Margin Adjustment
+If you define margin settings via `RenderingOptions` of `ChromePdfRenderer`, they apply to both header and footer.
 
-When header and footer sizes change across different documents, it's important to adjust the margins for the main content area as well, to ensure a consistent layout. Therefore, IronPDF includes a Dynamic Margin Sizing feature to automatically adjust header and footer heights based on their content.
+```cs
+using IronPdf;
+
+// Initialize renderer and create PDF document
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+TextHeaderFooter header = new TextHeaderFooter
+{
+    CenterText = "This is the header!",
+};
+
+TextHeaderFooter footer = new TextHeaderFooter
+{
+    CenterText = "This is the footer!",
+};
+
+// Margin configuration in mm
+renderer.RenderingOptions.MarginRight = 30;
+renderer.RenderingOptions.MarginLeft = 30;
+renderer.RenderingOptions.MarginTop = 25;
+renderer.RenderingOptions.MarginBottom = 25;
+
+// Integrate header and footer via renderer
+renderer.RenderingOptions.TextHeader = header;
+renderer.RenderingOptions.TextFooter = footer;
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
+```
+
+The `UseMarginsOnHeaderAndFooter` option doesn't suit this setup since it applies uniform margins, which could overlap the header with the main content. Instead, alongside predefined methods, implement Dynamic Margin Sizing, which adjusts header and footer based on their content.
 
 ```cs
 using IronPdf;
 
 ChromePdfRenderer renderer = new ChromePdfRenderer();
 
-// Enable dynamic sizing for the header
 renderer.RenderingOptions.HtmlHeader = new HtmlHeaderFooter()
 {
     HtmlFragment = @"<div style='background-color: #4285f4; color: white; padding: 15px; text-align: center;'>
                     <h1>Example header</h1> <br>
                     <p>Header content</p>
                     </div>",
+    // Activate dynamic height adjustment
     MaxHeight = HtmlHeaderFooter.FragmentHeight,
 };
 
@@ -146,25 +181,24 @@ pdf.SaveAs("dynamicHeaderSize.pdf");
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/headers-and-footers/dynamicHeaderSize.pdf" width="100%" height="300px">
 </iframe>
 
-## Metadata Integration with Text Headers and Footers
+## Metadata to Text Header/Footer
 
-Enhance your headers and footers with dynamic content such as page numbers, current date, or document titles using placeholder strings.
+Enhance your PDFs by embedding useful metadata like page numbers, dates, and titles through placeholder strings.
 
-Here are the available metadata placeholders:
-- `{page}`: Current page number.
-- `{total-pages}`: Total pages.
-- `{url}`: URL of the web page PDF was generated from.
-- `{date}`: Current date.
-- `{time}`: Current time.
-- `{html-title}`: HTML title from the <title> tag.
-- `{pdf-title}`: PDF document title.
+- `{page}`: Displays the current page number.
+- `{total-pages}`: Shows the total number of pages.
+- `{url}`: Indicates the webpage URL from which the PDF was generated.
+- `{date}`: Displays the current date.
+- `{time}`: Shows the current time.
+- `{html-title}`: The title from the HTML's `title` tag.
+- `{pdf-title}`: The title defined in the PDF metadata.
 
-For details on the metadata placeholders `{page}` and `{total-pages}`, refer to the [IronPDF Page Numbers Guide](https://ironpdf.com/how-to/page-numbers/).
+For details about `{page}` and `{total-pages}`, refer to the [IronPDF Page Numbers Guide](https://ironpdf.com/how-to/page-numbers/).
 
 ```cs
 using IronPdf;
 
-// Initialize header and footer with metadata
+// Set up header and footer
 TextHeaderFooter textHeader = new TextHeaderFooter
 {
     CenterText = "{page} of {total-pages}",
@@ -180,9 +214,9 @@ TextHeaderFooter textFooter = new TextHeaderFooter
 };
 ```
 
-## Example: Creating an HTML Header/Footer
+## Implement HTML Headers and Footers
 
-For more customization, consider using HTML and CSS to design your headers and footers. Create an **HtmlHeaderFooter** instance and ensure CSS styles are retained by setting `LoadStylesAndCSSFromMainHtmlDocument` to `true`.
+For enhanced customization and styling, opt for HTML headers and footers. Both approaches have their pros and cons, with text being quicker to render and HTML offering more design flexibility.
 
 ```cs
 using IronPdf;
@@ -200,4 +234,31 @@ string headerHtml = @"
 string footerHtml = @"
     <html>
     <head>
-        <link rel='...
+        <link rel='stylesheet' href='style.css'>
+    </head>
+    <body>
+        <h1>This is a footer!</h1>
+    </body>
+    </html>";
+
+// Initialize the renderer and create a PDF with HTML headers and footers
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Configuration for header and footer
+renderer.RenderingOptions.HtmlHeader = new HtmlHeaderFooter
+{
+    HtmlFragment = headerHtml,
+    LoadStylesAndCSSFromMainHtmlDocument = true,
+};
+
+renderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter
+{
+    HtmlFragment = footerHtml,
+    LoadStylesAndCSSFromMainHtmlDocument = true,
+};
+
+// Render and save PDF
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
+```
+
+Explore more possibilities in creating and customizing PDFs with our comprehensive [Create PDFs tutorial](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/).

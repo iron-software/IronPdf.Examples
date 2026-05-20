@@ -1,3 +1,4 @@
+using System.Linq;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.ExtractTextAndImages
 {
@@ -5,16 +6,16 @@ namespace IronPdf.Examples.HowTo.ExtractTextAndImages
     {
         public static void Run()
         {
+            // Open PDF from file
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
             
-            // Extract images
-            var images = pdf.ExtractAllImages();
+            // Extract text by lines
+            var lines = pdf.Pages[0].Lines;
             
-            for(int i = 0; i < images.Count; i++)
-            {
-                // Export the extracted images
-                images[i].SaveAs($"images/image{i}.png");
-            }
+            // Extract text by characters
+            var characters = pdf.Pages[0].Characters;
+            
+            File.WriteAllLines("lines.txt", lines.Select(l => $"at Y={l.BoundingBox.Bottom:F2}: {l.Contents}"));
         }
     }
 }

@@ -5,14 +5,10 @@ namespace IronPdf.Examples.HowTo.DocxToPdf
     {
         public static void Run()
         {
-            // Instantiate Renderer
-            DocxToPdfRenderer renderer = new DocxToPdfRenderer();
-            
-            // Render from DOCX file
-            PdfDocument pdf = renderer.RenderDocxAsPdf("Modern-chronological-resume.docx");
-            
-            // Save the PDF
-            pdf.SaveAs("pdfFromDocx.pdf");
+            :title=Convert DOCX to PDF in One line of Code!
+            new IronPdf.DocxToPdfRenderer()
+                .RenderDocxAsPdf("document.docx")
+                .SaveAs("output.pdf");
         }
     }
 }

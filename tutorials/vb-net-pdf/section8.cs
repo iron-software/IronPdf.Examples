@@ -5,12 +5,16 @@ namespace IronPdf.Examples.Tutorial.VbNetPdf
     {
         public static void Run()
         {
-            Imports IronPdf
-            
-            Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs)
-                Dim PdfOptions = New IronPdf.ChromePdfRenderOptions()
-                IronPdf.AspxToPdf.RenderThisPageAsPDF(AspxToPdf.FileBehavior.Attachment, "MyPdf.pdf", PdfOptions)
-            End Sub
+            Dim pdfs = New List(Of PdfDocument)
+            pdfs.Add(PdfDocument.FromFile("A.pdf"))
+            pdfs.Add(PdfDocument.FromFile("B.pdf"))
+            pdfs.Add(PdfDocument.FromFile("C.pdf"))
+            Dim mergedPdf As PdfDocument = PdfDocument.Merge(pdfs)
+            mergedPdf.SaveAs("merged.pdf")
+            mergedPdf.Dispose()
+            For Each pdf As PdfDocument In pdfs
+                pdf.Dispose()
+            Next
         }
     }
 }

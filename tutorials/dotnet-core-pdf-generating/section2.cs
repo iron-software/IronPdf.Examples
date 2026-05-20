@@ -5,10 +5,16 @@ namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
     {
         public static void Run()
         {
-            IronPdf.License.LicenseKey = "YourLicenseKey";
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello IronPdf</h1>");
-            pdf.SaveAs("HtmlString.pdf");
+            // Program.cs — .NET 8 LTS
+            using IronPdf;
+            
+            var renderer = new ChromePdfRenderer();
+            
+            // Render a live website to PDF
+            using PdfDocument pdf = renderer.RenderUrlAsPdf("https://example.com");
+            
+            // Persist to disk
+            pdf.SaveAs("website-snapshot.pdf");
         }
     }
 }

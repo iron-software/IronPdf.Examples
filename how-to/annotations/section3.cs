@@ -1,3 +1,4 @@
+using System.Linq;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Annotations
 {
@@ -5,12 +6,21 @@ namespace IronPdf.Examples.HowTo.Annotations
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("multipleAnnotation.pdf");
+            PdfDocument pdf = PdfDocument.FromFile("annotation.pdf");
             
-            // Remove a single annotation with specified index
-            pdf.Annotations.RemoveAt(1);
+            // Retrieve annotation collection
+            PdfAnnotationCollection annotationCollection = pdf.Annotations;
             
-            pdf.SaveAs("removeSingleAnnotation.pdf");
+            // Select the first annotation
+            TextAnnotation annotation = (TextAnnotation)annotationCollection.First();
+            
+            // Edit annotation
+            annotation.Title = "New title";
+            annotation.Contents = "New content...";
+            annotation.X = 150;
+            annotation.Y = 800;
+            
+            pdf.SaveAs("editedAnnotation.pdf");
         }
     }
 }

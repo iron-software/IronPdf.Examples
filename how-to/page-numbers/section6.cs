@@ -5,11 +5,11 @@ namespace IronPdf.Examples.HowTo.PageNumbers
     {
         public static void Run()
         {
-            // Last page only
-            var lastPageIndex = new List<int>() { pdf.PageCount - 1 };
+            // Get odd page indexes (resulting in even page numbers)
+            var oddPageIndexes = allPageIndices.Where(i => i % 2 != 0);
             
-            pdf.AddHtmlHeaders(header, 1, lastPageIndex);
-            pdf.SaveAs("LastPageOnly.pdf");
+            pdf.AddHtmlHeaders(header, 1, oddPageIndexes);
+            pdf.SaveAs("OddPages.pdf");
         }
     }
 }

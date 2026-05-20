@@ -9,11 +9,8 @@ namespace IronPdf.Examples.HowTo.PrintPdf
             
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Test printing</h1>");
             
-            // Set custom DPI
-            pdf.Print(300);
-            
-            // Specify printing resolution
-            pdf.Print(10, 10, "Microsoft Print to PDF");
+            // Send the document to "Microsoft Print to PDF" printer
+            pdf.Print("Microsoft Print to PDF");
         }
     }
 }

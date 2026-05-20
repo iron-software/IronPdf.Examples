@@ -8,11 +8,14 @@ namespace IronPdf.Examples.HowTo.RtfToPdf
             // Instantiate Renderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            // Render from RTF file
-            PdfDocument pdf = renderer.RenderRtfFileAsPdf("sample.rtf");
+            // RTF string
+            string rtf = @"{\rtf1\ansi\deff0{\fonttbl{\f0 Arial;}}{\colortbl;\red0\green0\blue0;}\cf0This is some \b bold \b0 and \i italic \i0 text.}";
+            
+            // Render from RTF string
+            PdfDocument pdf = renderer.RenderRtfStringAsPdf(rtf);
             
             // Save the PDF
-            pdf.SaveAs("pdfFromRtfFile.pdf");
+            pdf.SaveAs("pdfFromRtfString.pdf");
         }
     }
 }

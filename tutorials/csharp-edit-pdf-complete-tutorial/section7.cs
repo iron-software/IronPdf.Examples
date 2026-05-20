@@ -1,4 +1,3 @@
-using IronPdf.Signing;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
@@ -6,7 +5,12 @@ namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
     {
         public static void Run()
         {
-            new IronPdf.Signing.PdfSignature("Iron.p12", "123456").SignPdfFile("any.pdf");
+            PdfDocument pdf = PdfDocument.FromFile("novel.pdf");
+            
+            // Redact 'Alaric' phrase from all pages
+            pdf.RedactTextOnAllPages("Alaric");
+            
+            pdf.SaveAs("redacted.pdf");
         }
     }
 }

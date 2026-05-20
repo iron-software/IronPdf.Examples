@@ -1,13 +1,22 @@
 ***Based on <https://ironpdf.com/examples/set-temp-path/>***
 
-IronPDF, like many other tools, tends to create temporary files during the process of generating, editing, and rendering your PDF tasks. This functionality is essentially unavoidable and crucial for the software to operate correctly as these files are used to temporarily hold data. IronPDF simplifies the handling of these files by allowing you to customize where these temporary files are stored, among other settings related to the temp PDF file path. Overall, IronPDF ensures ease of management and utilization of temporary files.
+When utilizing IronPDF, the software may create temporary files while processing the generation, alteration, and rendering of PDF documents. This behavior aligns with typical operations of software applications which temporarily house data during active sessions. Crucially, IronPDF grants you comprehensive control over the creation location of this folder and other essential settings pertaining to temporary files.
 
-The following example demonstrates how to specify the temp PDF file path for your PDF projects.
+## Steps to Configure Temporary File Paths in IronPDF
 
-In the settings section for global installation and setup that applies to all IronPDF instances, you can adjust the `IronPdf.Installation.TempFolderPath` to manage the temporary file storage. Note that while this setting can be customized, third-party libraries might opt to use the default Environmental TempPath Directory.
+### Explanation:
 
-To oversee this configuration, the TempPath Environmental Variable can be set globally across your application in C# during the application's startup phase.
+1. **Specify a Custom Path**:
+   - Begin by creating a variable `MyTempPath`, a string that specifies the directory path designated for storing temporary files. Before proceeding, confirm that this directory exists and has the necessary access permissions since IronPDF relies on this path during its operation.
+2. **Configure Environment Variables**:
+   - Utilize the `Environment.SetEnvironmentVariable` method to assign the `TEMP` environment variable to our custom `MyTempPath`. This system-wide variable is pivotal for many applications, including IronPDF, to locate the directory for temporary files.
+3. **Define IronPDF's Temporary Directory**:
+   - Assign the `Installation.TempFolderPath` property by combining `Path.Combine` to merge "IronPdfTemp" with our custom path, thus crafting a specific subdirectory for IronPDF's temporary files.
+4. **Produce a PDF**:
+   - Create a `ChromePdfRenderer` instance, employed to transform HTML content into a PDF document.
+   - Execute `RenderHtmlAsPdf` on said renderer with a string of HTML content to create the PDF, which is then stored in the `doc` variable.
+   - The document is saved as "example.pdf" through the method `doc.SaveAs`.
 
-It's advisable to erase the temporary files once your project is complete. Failing to delete these files when they are no longer needed will cause them to persist, which can lead to an accumulation of unused data, cluttering your temp directory.
+By managing the temporary file paths, you enhance your ability to oversee the files produced during PDF generation, hence ensuring the seamless operation of your application without overloading the default temporary directories.
 
-For additional details on how to manage temporary files and explore more advanced settings, please visit the [IronPDF Temporary File Management page](https://ironpdf.com/examples/set-temp-path/).
+[Learn More About Custom Logging with IronPDF for Enhanced Control](https://ironpdf.com/how-to/custom-logging/)

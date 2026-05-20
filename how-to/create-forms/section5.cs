@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using IronSoftware.Forms;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.CreateForms
 {
@@ -9,25 +9,24 @@ namespace IronPdf.Examples.HowTo.CreateForms
             // Instantiate ChromePdfRenderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h2>Combobox Form Field</h2>");
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h2>Checkbox Form Field</h2>");
             
             // Configure required parameters
-            string name = "combobox";
-            string value = "Car";
+            string name = "checkbox";
+            string value = "no";
             uint pageIndex = 0;
             double x = 100;
             double y = 700;
-            double width = 60;
+            double width = 15;
             double height = 15;
-            var choices = new List<string>() { "Car", "Bike", "Airplane" };
             
-            // Create combobox form field
-            var comboboxForm = new ComboboxFormField(name, value, pageIndex, x, y, width, height, choices);
+            // Create checkbox form field
+            var checkboxForm = new CheckboxFormField(name, value, pageIndex, x, y, width, height);
             
             // Add form
-            pdf.Form.Add(comboboxForm);
+            pdf.Form.Add(checkboxForm);
             
-            pdf.SaveAs("addComboboxForm.pdf");
+            pdf.SaveAs("addCheckboxForm.pdf");
         }
     }
 }

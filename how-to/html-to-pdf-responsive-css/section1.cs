@@ -1,4 +1,3 @@
-using IronPdf.Rendering;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.HtmlToPdfResponsiveCss
 {
@@ -6,18 +5,10 @@ namespace IronPdf.Examples.HowTo.HtmlToPdfResponsiveCss
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Change the paper size to small
-            renderer.RenderingOptions.SetCustomPaperSizeinPixelsOrPoints(600, 400);
-            
-            // Choose screen or print CSS media
-            renderer.RenderingOptions.CssMediaType = PdfCssMediaType.Print;
-            
-            // Render HTML to PDF
-            PdfDocument pdf = renderer.RenderHtmlFileAsPdf("tableHeader.html");
-            
-            pdf.SaveAs("tableHeader.pdf");
+            :title=Convert responsive web HTML to PDF in one line!
+            new IronPdf.ChromePdfRenderer { RenderingOptions = { CssMediaType = IronPdf.Rendering.PdfCssMediaType.Print } }
+                .RenderUrlAsPdf("https://example.com")
+                .SaveAs("responsive.pdf");
         }
     }
 }

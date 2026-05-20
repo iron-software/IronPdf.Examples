@@ -5,20 +5,10 @@ namespace IronPdf.Examples.HowTo.Cookies
     {
         public static void Run()
         {
-            // Instantiate ChromePdfRenderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            renderer.RenderingOptions.RequestContext = IronPdf.Rendering.RequestContexts.Global;
-            
-            ChromeHttpLoginCredentials credentials = new ChromeHttpLoginCredentials() {
-                NetworkUsername = "testUser",
-                NetworkPassword = "testPassword"
-            };
-            
-            string uri = "http://localhost:51169/Invoice";
-            
-            // Apply cookies
-            renderer.ApplyCookies(uri, credentials);
+            :title=Render a cookies‑protected page to PDF in one line!
+            new IronPdf.ChromePdfRenderer { RenderingOptions = { RequestContext = IronPdf.Rendering.RequestContexts.Global, CustomCookies = new Dictionary<string, string> { { "sessionId", "your_cookie_value" } } } }
+                .RenderUrlAsPdf("https://example.com/protected")
+                .SaveAs("secureWithCookies.pdf");
         }
     }
 }

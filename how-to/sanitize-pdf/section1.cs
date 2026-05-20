@@ -5,18 +5,8 @@ namespace IronPdf.Examples.HowTo.SanitizePdf
     {
         public static void Run()
         {
-            // Import PDF document
-            PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
-            
-            // Sanitize with Bitmap
-            PdfDocument sanitizeWithBitmap = Cleaner.SanitizeWithBitmap(pdf);
-            
-            // Sanitize with SVG
-            PdfDocument sanitizeWithSvg = Cleaner.SanitizeWithSvg(pdf);
-            
-            // Export PDFs
-            sanitizeWithBitmap.SaveAs("sanitizeWithBitmap.pdf");
-            sanitizeWithSvg.SaveAs("sanitizeWithSvg.pdf");
+            :title=Sanitize a PDF in one call!
+            IronPdf.Cleaner.SanitizeWithSvg(PdfDocument.FromFile("input.pdf")).SaveAs("sanitized.pdf");
         }
     }
 }

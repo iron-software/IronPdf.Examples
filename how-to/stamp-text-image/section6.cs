@@ -10,16 +10,18 @@ namespace IronPdf.Examples.HowTo.StampTextImage
             
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example HTML Document!</h1>");
             
-            // Create barcode stamper
-            BarcodeStamper barcodeStamper = new BarcodeStamper("IronPdf!!", BarcodeEncoding.Code39)
+            // Create HTML stamper
+            HtmlStamper htmlStamper = new HtmlStamper()
             {
+                Html = @"<img src='https://ironpdf.com/img/svgs/iron-pdf-logo.svg'>
+                <h1>Iron Software</h1>",
                 VerticalAlignment = VerticalAlignment.Top,
             };
             
-            // Stamp the barcode stamper
-            pdf.ApplyStamp(barcodeStamper);
+            // Stamp the HTML stamper
+            pdf.ApplyStamp(htmlStamper);
             
-            pdf.SaveAs("stampBarcode.pdf");
+            pdf.SaveAs("stampHtml.pdf");
         }
     }
 }

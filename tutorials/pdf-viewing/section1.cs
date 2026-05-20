@@ -5,7 +5,8 @@ namespace IronPdf.Examples.Tutorial.PdfViewing
     {
         public static void Run()
         {
-            .ConfigureIronPdfView("YOUR-LICENSE-KEY");
+            :title=Embed the PDF viewer and load a file instantly!
+            var viewer = new IronPdf.Viewer.Maui.PdfViewer { Source = "document.pdf" };
         }
     }
 }

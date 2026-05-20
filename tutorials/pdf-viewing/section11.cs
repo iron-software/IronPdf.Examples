@@ -5,7 +5,7 @@ namespace IronPdf.Examples.Tutorial.PdfViewing
     {
         public static void Run()
         {
-            pdfView.Options = IronPdfViewOptions.Thumbs | IronPdfViewOptions.Open;
+            <ipv:IronPdfView x:Name="pdfView" Options="Thumbs, Open"/>
         }
     }
 }

@@ -11,8 +11,10 @@ namespace IronPdf.Examples.HowTo.AddCopyDeletePagesPdf
             // Import content document
             PdfDocument contentPage = PdfDocument.FromFile("contentPage.pdf");
             
-            // Insert PDF
-            contentPage.InsertPdf(coverPage, 0);
+            // Merge the two documents
+            PdfDocument finalPdf = PdfDocument.Merge(coverPage, contentPage);
+            
+            finalPdf.SaveAs("pdfWithCover.pdf");
         }
     }
 }

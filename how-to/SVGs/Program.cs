@@ -3,3 +3,4 @@ using IronPdf.Examples.HowTo.SVGs;
 
 
 Section1.Run();
+// Section2.Run();

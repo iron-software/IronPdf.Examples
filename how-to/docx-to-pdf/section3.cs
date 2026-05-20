@@ -1,4 +1,3 @@
-using System.Linq;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.DocxToPdf
 {
@@ -6,39 +5,13 @@ namespace IronPdf.Examples.HowTo.DocxToPdf
     {
         public static void Run()
         {
-            var recipients = new List<RecipientsDataModel>()
-                {
-                    new RecipientsDataModel()
-                    {
-                        Date ="Saturday, October 15th, 2023",
-                        Location="Iron Software Cafe, Chiang Mai",
-                        Recipients_Name="Olivia Smith",
-                        Contact_Us = "support@ironsoftware.com"
-                    },
-                    new RecipientsDataModel()
-                    {
-                        Date ="Saturday, October 15th, 2023",
-                        Location="Iron Software Cafe, Chiang Mai",
-                        Recipients_Name="Ethan Davis",
-                        Contact_Us = "support@ironsoftware.com"
-                    },
-                };
-            
-            DocxToPdfRenderer docxToPdfRenderer = new DocxToPdfRenderer();
-            
-            // Apply render options
-            DocxPdfRenderOptions options = new DocxPdfRenderOptions();
-            
-            // Configure the output PDF to be combined into a single PDF document
-            options.MailMergePrintAllInOnePdfDocument = true;
-            
-            // Convert DOTX to PDF
-            var pdfs = docxToPdfRenderer.RenderDocxMailMergeAsPdf<RecipientsDataModel>(
-                 recipients,
-                 "Party-invitation.dotx",
-                 options);
-            
-            pdfs.First().SaveAs("mailMerge.pdf");
+            internal class RecipientsDataModel
+            {
+                public string Date { get; set; }
+                public string Location{ get; set; }
+                public string Recipients_Name { get; set; }
+                public string Contact_Us { get; set; }
+            }
         }
     }
 }

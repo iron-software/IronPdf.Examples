@@ -5,16 +5,22 @@ namespace IronPdf.Examples.HowTo.MergeOrSplitPdfs
     {
         public static void Run()
         {
-            // We will use the 4-page PDF from the Merge example above:
-            var pdf = PdfDocument.FromFile("Merged.pdf");
+            // Load an existing PDF document from a file.
+            PdfDocument pdf = PdfDocument.FromFile("Merged.pdf");
             
-            // Takes only the first page into a new PDF
-            var page1doc = pdf.CopyPage(0);
-            page1doc.SaveAs("Page1Only.pdf");
+            // Combine pages of the loaded PDF into a grid with specified dimensions.
+            // The parameters for CombinePages are the width and height of each page
+            // in millimeters followed by the number of rows and columns to create the grid.
+            int pageWidth = 250;  // Width of each page in the grid
+            int pageHeight = 250; // Height of each page in the grid
+            int rows = 2;         // Number of rows in the grid
+            int columns = 2;      // Number of columns in the grid
             
-            // Take the pages 2 & 3 (Note: index starts at 0)
-            var page23doc = pdf.CopyPages(1, 2);
-            page23doc.SaveAs("Pages2to3.pdf");
+            // Combine the pages of the PDF document into a single page with specified dimensions.
+            PdfDocument combinedPages = pdf.CombinePages(pageWidth, pageHeight, rows, columns);
+            
+            // Save the combined document as a new PDF file.
+            combinedPages.SaveAs("combinedPages.pdf");
         }
     }
 }

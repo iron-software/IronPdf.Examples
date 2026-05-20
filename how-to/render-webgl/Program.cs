@@ -3,3 +3,4 @@ using IronPdf.Examples.HowTo.RenderWebgl;
 
 
 Section1.Run();
+// Section2.Run();

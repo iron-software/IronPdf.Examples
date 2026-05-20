@@ -1,3 +1,4 @@
+using IronPdf.Editing;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
 {
@@ -5,11 +6,26 @@ namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
     {
         public static void Run()
         {
-            var pdf = new PdfDocument("document.pdf");
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            // Quality parameter can be 1-100, where 100 is 100% of original quality
-            pdf.CompressImages(60);
-            pdf.SaveAs("document_compressed.pdf");
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example HTML Document!</h1>");
+            
+            // Create text stamper
+            TextStamper textStamper = new TextStamper()
+            {
+                Text = "Text Stamper!",
+                FontFamily = "Bungee Spice",
+                UseGoogleFont = true,
+                FontSize = 30,
+                IsBold = true,
+                IsItalic = true,
+                VerticalAlignment = VerticalAlignment.Top,
+            };
+            
+            // Stamp the text stamper
+            pdf.ApplyStamp(textStamper);
+            
+            pdf.SaveAs("stampText.pdf");
         }
     }
 }

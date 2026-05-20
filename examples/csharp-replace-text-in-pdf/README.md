@@ -1,39 +1,17 @@
 ***Based on <https://ironpdf.com/examples/csharp-replace-text-in-pdf/>***
 
-IronPDF empowers developers with the capability to seamlessly locate and modify text within PDF documents. This functionality is a cornerstone of the `IronPDF` library, allowing for refined control over PDF content management.
+IronPDF provides the functionality to search for and modify text within PDF files.
 
-Here's a step-by-step guide to using `IronPDF` to find and replace text in a PDF document:
+### How to Modify Text within a PDF Using C#
 
-1. **Installation**:
-   Begin by installing the IronPDF package via NuGet:
-   ```plaintext
-   PM> Install-Package IronPdf
-   ```
+Follow these straightforward steps to manipulate text within your PDF documents using IronPDF:
 
-2. **Importing the Namespace**:
-   Make sure to include the IronPDF namespace in your project:
-   ```csharp
-   using IronPdf;
-   ```
+1. [Install the IronPDF C# library](https://nuget.org/packages/IronPdf/) suitable for text manipulation in PDFs.
+2. Open the desired PDF file by employing the `FromFile` method in C#.
+3. Use the `ReplaceTextOnPage` method to alter text.
+4. Specify the page number, the text you wish to change, and the new text in the method.
+5. Save the updated PDF document.
 
-3. **Creating the PDF Document**:
-   Instantiate the `PdfDocument` class:
-   ```csharp
-   var PdfDoc = new PdfDocument("path/to/your/file.pdf");
-   ```
+The sequence demonstrates the process of text replacement in a PDF document utilizing the IronPDF library in C#. To start, ensure that the IronPDF library is incorporated into your project via NuGet. Access the required PDF with the `FromFile` method, modify the desired text on the targeted page through `ReplaceTextOnPage`, and record the updates in a new PDF file using `SaveAs`. Confirm the successful update with a completion message.
 
-4. **Finding and Replacing Text**:
-   Utilize the `ReplaceText` method. For instance, to change "Hello" to "World":
-   ```csharp
-   PdfDoc.ReplaceText("Hello", "World");
-   ```
-
-5. **Saving the Modified PDF**:
-   Save the edited document to a new file:
-   ```csharp
-   PdfDoc.SaveAs("path/to/your/new-file.pdf");
-   ```
-
-This method showcases IronPDF’s straightforward approach to editing PDFs, much to the benefit of .NET developers looking to automate document workflows efficiently.
-
-For more details and advanced features, you can visit the official site at [IronPDF Text Replacement](https://ironpdf.com/docs/questions/text-replacement/).
+For further insights and guidance on modifying text in PDF files with IronPDF, explore more at [Learn to Find & Replace Text in PDFs with IronPDF](https://ironpdf.com/how-to/find-replace-text/).

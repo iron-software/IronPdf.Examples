@@ -1,4 +1,4 @@
-using System.Linq;
+using IronPdf.Annotations;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Annotations
 {
@@ -6,21 +6,21 @@ namespace IronPdf.Examples.HowTo.Annotations
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("annotation.pdf");
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Annotation</h1>");
             
-            // Retrieve annotation collection
-            PdfAnnotationCollection annotationCollection = pdf.Annotations;
+            // Create a PDF annotation object on a specified page index
+            TextAnnotation annotation = new TextAnnotation(0)
+            {
+                Title = "This is the title",
+                Contents = "This is the long 'sticky note' comment content...",
+                X = 50,
+                Y = 700,
+            };
             
-            // Select the first annotation
-            TextAnnotation annotation = (TextAnnotation)annotationCollection.First();
-            
-            // Edit annotation
-            annotation.Title = "New title";
-            annotation.Contents = "New content...";
-            annotation.X = 150;
-            annotation.Y = 800;
-            
-            pdf.SaveAs("editedAnnotation.pdf");
+            // Add the annotation
+            pdf.Annotations.Add(annotation);
+            pdf.SaveAs("annotation.pdf");
         }
     }
 }

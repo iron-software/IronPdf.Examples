@@ -5,9 +5,9 @@ namespace IronPdf.Examples.GettingStarted.Windows
     {
         public static void Run()
         {
-            // Assuming that IronPdfEngine runs
-            // remotely at 123.456.7.8:33350.
-            Installation.ConnectToIronPdfHost( IronPdf.GrpcLayer.IronPdfConnectionConfiguration.RemoteServer("123.456.7.8:33350"));
+            // Configure IronPDF to connect to the remote IronPdfEngine instance
+            // Replace "123.456.7.8:33350" with the actual remote host and port
+            Installation.ConnectToIronPdfHost(IronPdf.GrpcLayer.IronPdfConnectionConfiguration.RemoteServer("123.456.7.8:33350"));
         }
     }
 }

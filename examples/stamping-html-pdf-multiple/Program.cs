@@ -27,9 +27,9 @@ ImageStamper imageStamper = new ImageStamper(filepath)
 };
 
 // Use BarcodeStamper to stamp QR code/Barcode onto pdf
-BarcodeStamper barcodeStamper = new BarcodeStamper("IronPDF", BarcodeEncoding.Code39)
+BarcodeStamper barcodeStamper = new BarcodeStamper("IronPDF", BarcodeEncoding.Code128)
 {
-    MaxHeight = new Length(5),
+    Height=75,
     VerticalAlignment = VerticalAlignment.Bottom,
     HorizontalAlignment = HorizontalAlignment.Left,
 };

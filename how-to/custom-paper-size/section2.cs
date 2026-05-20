@@ -1,4 +1,4 @@
-using IronPdf.Editing;
+using IronPdf.Rendering;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.CustomPaperSize
 {
@@ -6,11 +6,14 @@ namespace IronPdf.Examples.HowTo.CustomPaperSize
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("customPaperSize.pdf");
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            pdf.ExtendPage(0, 50, 0, 0, 0, MeasurementUnit.Millimeter);
+            // Set paper size to A4
+            renderer.RenderingOptions.PaperSize = PdfPaperSize.A4;
             
-            pdf.SaveAs( "extendedLeftSide.pdf");
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Standard Paper Size</h1>");
+            
+            pdf.SaveAs("standardPaperSize.pdf");
         }
     }
 }

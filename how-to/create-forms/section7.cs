@@ -1,4 +1,3 @@
-using IronSoftware.Forms;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.CreateForms
 {
@@ -6,33 +5,27 @@ namespace IronPdf.Examples.HowTo.CreateForms
     {
         public static void Run()
         {
-            // Instantiate ChromePdfRenderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            // Radio buttons HTML
+            string FormHtml = @"
+            <html>
+                <body>
+                    <h2>Editable PDF Form</h2>
+                    Choose your preferred travel type: <br>
+                    <input type='radio' name='traveltype' value='Bike'>
+                    Bike <br>
+                    <input type='radio' name='traveltype' value='Car'>
+                    Car <br>
+                    <input type='radio' name='traveltype' value='Airplane'>
+                    Airplane
+                </body>
+            </html>
+            ";
             
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h2>Editable PDF Form</h2>");
+            // Instantiate Renderer
+            ChromePdfRenderer Renderer = new ChromePdfRenderer();
+            Renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
             
-            // Configure required parameters
-            string name = "choice";
-            string value = "yes";
-            uint pageIndex = 0;
-            double x = 100;
-            double y = 700;
-            double width = 15;
-            double height = 15;
-            
-            // Create the first radio form
-            var yesRadioform = new RadioFormField(name, value, pageIndex, x, y, width, height);
-            
-            value = "no";
-            x = 200;
-            
-            // Create the second radio form
-            var noRadioform = new RadioFormField(name, value, pageIndex, x, y, width, height);
-            
-            pdf.Form.Add(yesRadioform);
-            pdf.Form.Add(noRadioform);
-            
-            pdf.SaveAs("addRadioForm.pdf");
+            Renderer.RenderHtmlAsPdf(FormHtml).SaveAs("radioButtomForm.pdf");
         }
     }
 }

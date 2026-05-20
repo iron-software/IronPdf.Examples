@@ -5,14 +5,10 @@ namespace IronPdf.Examples.HowTo.RasterizePdfToImages
     {
         public static void Run()
         {
-            // Instantiate Renderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = PdfDocument.FromFile("url.pdf");
             
-            // Render PDF from web URL
-            PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
-            
-            // Export images from PDF with DPI 150
-            pdf.RasterizeToImageFiles("wikipage_*.png", DPI: 150);
+            var image = pdf.ToBitmapHighQuality();
+            image[0].SaveAs("output.png");
         }
     }
 }

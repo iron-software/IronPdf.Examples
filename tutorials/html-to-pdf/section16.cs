@@ -1,3 +1,4 @@
+using IronPdf.Signing;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.HtmlToPdf
 {
@@ -5,14 +6,23 @@ namespace IronPdf.Examples.Tutorial.HtmlToPdf
     {
         public static void Run()
         {
-            var htmlTemplate = "<p>[[NAME]]</p>";
-            var names = new[] { "John", "James", "Jenny" };
-            foreach (var name in names)
+            var renderer = new ChromePdfRenderer();
+            
+            // Generate PDF from HTML page
+            var pdf = renderer.RenderHtmlAsPdf("<h1>Contract Agreement</h1>");
+            
+            // Create digital signature with certificate for PDF files
+            var signature = new PdfSignature("certificate.pfx", "password")
             {
-                var htmlInstance = htmlTemplate.Replace("[[NAME]]", name);
-                var pdf = renderer.RenderHtmlAsPdf(htmlInstance);
-                pdf.SaveAs(name + ".pdf");
-            }
+                SigningContact = "legal@company.com",
+                SigningLocation = "New York, NY",
+                SigningReason = "Contract Approval",
+                SignerName = "Authorized Signer"  // New property in v2025.8.8 for enhanced signature details
+            };
+            
+            // Apply signature to PDF documents
+            pdf.Sign(signature);
+            pdf.SaveAs("signed-contract.pdf");
         }
     }
 }

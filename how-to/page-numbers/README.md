@@ -1,55 +1,63 @@
-# How to Insert Page Numbers into a PDF Document
+# How to Incorporate Page Numbers into a PDF Document
 
 ***Based on <https://ironpdf.com/how-to/page-numbers/>***
 
 
-Page numbers are essential navigational aids in a PDF document. They guide the reader to specific sections, facilitate easy referencing, and are crucial for citation purposes. With the IronPDF library, incorporating page numbers into your PDFs becomes straightforward.
+Page numbering assigns unique identifiers to each page of a PDF, facilitating easier navigation and referencing. This feature is invaluable for locating specific portions of content, understanding one's position within the document, and referencing for academic or professional purposes. Using IronPDF, you have the ability to seamlessly integrate page numbers into your PDF documents.
 
-### Initial Setup with IronPDF
+## Simplified Guide: Inserting Page Numbers in PDFs
 
----
-
-## Example: Adding Page Numbers
-
-Through the utilization of placeholders `{page}` and `{total-pages}`, you can seamlessly integrate both current and total page numbers using either the `TextHeaderFooter` or `HtmlHeaderFooter` class.
+Enhance your PDF documents by easily adding page numbers with IronPDF. A few lines of C# code allow you to dynamically insert page numbers within the headers or footers, control their location, and designate which pages should feature them. Whether you're modifying existing PDFs or crafting new ones, IronPDF offers an efficient and adaptable solution for improving document structure and readability. Start following this guide to quickly integrate page numbering into your projects.
 
 ```cs
+:title=Implementing page numbers easily!
+// Instantiate a new renderer
+var pdfRenderer = new IronPdf.ChromePdfRenderer { RenderingOptions = { HtmlFooter = new IronPdf.HtmlHeaderFooter { HtmlFragment = "<center>{page} of {total-pages}</center>", DrawDividerLine = true } } };
+var pdfDocument = pdfRenderer.RenderHtmlAsPdf("<h1>First Page</h1><div style='page-break-after:always;'></div><h1>Second Page</h1>");
+pdfDocument.SaveAs("numbered-pages-output.pdf");
+```
+
+## Example of Adding Page Numbers
+
+Using placeholders like `{page}` and `{total-pages}`, you can implement page number features using the **TextHeaderFooter** or the **HtmlHeaderFooter** classes to include current and total page numbers.
+
+```csharp
 using IronPdf;
 
-// Define text header
+// Initiate a textual header
 TextHeaderFooter textHeader = new TextHeaderFooter()
 {
     CenterText = "{page} of {total-pages}"
 };
 
-// Define HTML footer
+// Initiate an HTML footer
 HtmlHeaderFooter htmlFooter = new HtmlHeaderFooter()
 {
-    HtmlFragment = "<center><i>{page} of {total-pages}</i></center>"
+    HtmlFragment = "<center><i>{page} of {total-pages}<i></center>"
 };
 
-// Instantiate PDF renderer
+// Render a fresh PDF
 ChromePdfRenderer renderer = new ChromePdfRenderer();
-PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Welcome</h1>");
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Welcome to our PDF!</h1>");
 
-// Append headers and footers
+// Append the header and footer
 pdf.AddTextHeaders(textHeader);
 pdf.AddHtmlFooters(htmlFooter);
 
-pdf.SaveAs("EnhancedPdfWithPageNumbers.pdf");
+pdf.SaveAs("pdfDocumentWithPageNumbers.pdf");
 ```
 
-The resulting PDF is accessible here:
+The output from this example is available here:
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/page-numbers/pdf-with-page-numbers.pdf" width="100%" height="500px">
 </iframe>
 
-Alternatively, you can include headers and footers directly in the `ChromePdfRenderer` rendering options:
+You can directly integrate the headers and footers within the rendering options of the **ChromePdfRenderer** as shown in the example below:
 
-```cs
+```csharp
 using IronPdf;
 
-// Configuration for rendering
+// Setup renderer with headers and footers
 ChromePdfRenderer renderer = new ChromePdfRenderer();
 renderer.RenderingOptions.TextHeader = new TextHeaderFooter()
 {
@@ -57,109 +65,107 @@ renderer.RenderingOptions.TextHeader = new TextHeaderFooter()
 };
 renderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter()
 {
-    HtmlFragment = "<center><i>{page} of {total-pages}</i></center>"
+    HtmlFragment = "<center><i>{page} of {total-pages}<i></center>"
 };
 
 string htmlContent = @"
-    <h1>Welcome Page!</h1>
-<div style='page-break-after: always;'></div>
-    <h1>Second Page</h1>";
+    <h1>Welcome!</h1>
+<div style='page-break-after: always;'/>
+    <h1>Page Two</h1>";
 
-// Generate PDF
+// Generate the new PDF
 PdfDocument pdf = renderer.RenderHtmlAsPdf(htmlContent);
 
-pdf.SaveAs("DirectPageNumberApplication.pdf");
+pdf.SaveAs("PageNumberOptions.pdf");
 ```
 
-## Custom Page Number Placement Example
+## Specifying Page Numbers on Certain Pages
 
-With IronPDF, it is possible to customize where page numbers appear in your document, such as starting from a specific page or on only even or odd pages.
+IronPDF lets you choose specific pages for applying page numbers, such as starting from a certain page or targeting pages with even or odd indexes.
 
-Prepare the PDF document:
+Let's prepare a multi-page PDF to apply page numbering.
 
-```cs
+```csharp
 using IronPdf;
 using System.Linq;
-using System.Collections.Generic;
 
 string htmlPages = @"
-    <p>Initial Page</p>
-<div style='page-break-after: always;'></div>
-    <p>Second Page</p>
-<div style='page-break-after: always;'></div>
-    <p>Third Page</p>";
+    <p>Opening Page</p>
+<div style = 'page-break-after: always;' ></div>
+    <p>Second Page</p>";
 
-// Initialize header
+// Setup a header with numbering on all pages
 HtmlHeaderFooter header = new HtmlHeaderFooter()
 {
-    HtmlFragment = "<center><i>{page} of {total-pages}</i></center>"
+    HtmlFragment = "<center><i>{page} of {total-pages}<i></center>"
 };
 
-// Prepare PDF
+// Produce the PDF
 ChromePdfRenderer renderer = new ChromePdfRenderer();
 PdfDocument pdf = renderer.RenderHtmlAsPdf(htmlPages);
 
-var pageIndices = Enumerable.Range(0, pdf.PageCount);
+// Define all pages
+var pageNumbers = Enumerable.Range(0, pdf.PageCount);
 ```
 
-### Specific Page Indexes for Page Numbers
+### Apply numbers to even-indexed pages
 
-For applying page numbers to even page indexes, resulting in showing numbers on odd pages:
+This snippet targets even-indexed pages (which translates to odd page numbers):
 
-```cs
-var evenPageIndices = pageIndices.Where(i => i % 2 == 0);
+```csharp
+// Identify even indexes for page numbering
+var evenIndexPages = pageNumbers.Where(i => i % 2 == 0);
 
-pdf.AddHtmlHeaders(header, 1, evenPageIndices);
+pdf.AddHtmlHeaders(header, 1, evenIndexPages);
 pdf.SaveAs("EvenIndexedPages.pdf");
 ```
 
-For odd page indexes:
+### Number the odd-indexed pages
 
-```cs
-var oddPageIndexes = pageIndices.Where(i => i % 2 != 0);
+Here, page numbers are added to odd-indexed pages (resulting in even page numbers):
 
-pdf.AddHtmlHeaders(header, 1, oddPageIndexes);
+```csharp
+// Filter for odd indexes
+var oddIndexPages = pageNumbers.Where(i => i % 2 != 0);
+
+pdf.AddHtmlHeaders(header, 1, oddIndexPages);
 pdf.SaveAs("OddIndexedPages.pdf");
 ```
 
-### Page-specific Numbering
+### Numbering the last page
 
-For the last page only:
+To number only the last pageNo
 
-```cs
-var lastPageIndex = new List<int>() { pdf.PageCount - 1 };
+```csharp
+// Target the final page for numbering
+var lastPage = new List<int>() { pdf.PageCount - 1 };
 
-pdf.AddHtmlHeaders(header, 1, lastPageIndex);
-pdf.SaveAs("OnlyLastPage.pdf");
+pdf.AddHtmlHeaders(header, 1, lastPage);
+pdf.SaveAs("NumberOnFinalPage.pdf");
 ```
 
-And for the first page only:
+### Targeting the first page
 
-```cs
-var firstPageIndex = new List<int>() { 0 };
+To apply a pageNumber to only the first pageNo
 
-pdf.AddHtmlHeaders(header, 1, firstPageIndex);
-pdf.SaveAs("OnlyFirstPage.pdf");
+```csharp
+// Set numbering to start on the first pageNo
+var firstPage = new List<int>() { 0 };
+
+pdf.AddHtmlHeaders(header, 1, firstPage);
+pdf.SaveAs("FirstPageNumbering.pdf");
 ```
 
-### Omitting Specific Pages
+### Override initial page numbering
 
-To skip the first page:
+This example skips the first page in numbering:
 
-```cs
-var skipFirstPage = pageIndices.Skip(1);
+```csharp
+// Exclude the first page from numbering
+var skipFirstPage = pageNumbers.Skip(1);
 
 pdf.AddHtmlHeaders(header, 1, skipFirstPage);
-pdf.SaveAs("ExceptFirstPage.pdf");
+pdf.SaveAs("ExcludeFirstPageNumbering.pdf");
 ```
 
-And to start numbering from the second page, considering it as page 1:
-
-```cs
-var ignoreFirstPage = pageIndices.Skip(1);
-
-pdf.AddHtmlHeaders(header, 0, ignoreFirstPage);
-pdf.SaveAs("NumberingFromSecondPage.pdf");
-```
-
-For further details on customization, refer to the comprehensive [IronPDF Headers and Footers Guide](https://ironpdf.com/how-to/headers-and-footers/#anchor-metadata-to-text-header-footer).
+For more detailed options and methods, consider visiting the [IronPDF Headers and Footers Documentation](https://ironpdf.com/how-to/headers-and-footers/#anchor-metadata-to-text-header-footer).

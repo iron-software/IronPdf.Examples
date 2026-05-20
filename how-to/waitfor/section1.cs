@@ -5,12 +5,10 @@ namespace IronPdf.Examples.HowTo.Waitfor
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Render as soon as the page is loaded
-            renderer.RenderingOptions.WaitFor.PageLoad();
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>testing</h1>");
+            :title=Delay rendering until content is ready in one line!
+            new IronPdf.ChromePdfRenderer { RenderingOptions = { WaitFor = IronPdf.WaitFor.RenderDelay(3000) } }
+                .RenderUrlAsPdf("https://example.com")
+                .SaveAs("output.pdf");
         }
     }
 }

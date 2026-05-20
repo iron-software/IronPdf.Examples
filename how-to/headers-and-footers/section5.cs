@@ -7,6 +7,7 @@ namespace IronPdf.Examples.HowTo.HeadersAndFooters
         {
             // Instantiate renderer and create PDF
             ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
             
             TextHeaderFooter header = new TextHeaderFooter
             {
@@ -18,18 +19,8 @@ namespace IronPdf.Examples.HowTo.HeadersAndFooters
                 CenterText = "This is the footer!",
             };
             
-            // Margin values are in mm
-            renderer.RenderingOptions.MarginRight = 30;
-            renderer.RenderingOptions.MarginLeft = 30;
-            renderer.RenderingOptions.MarginTop = 25;
-            renderer.RenderingOptions.MarginBottom = 25;
-            renderer.RenderingOptions.UseMarginsOnHeaderAndFooter = UseMargins.All;
-            
-            // Add header and footer to renderer
-            renderer.RenderingOptions.TextHeader = header;
-            renderer.RenderingOptions.TextFooter = footer;
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
+            pdf.AddTextHeaders(header, 35, 30, 25); // Left Margin = 35, Right Margin  = 30, Top Margin = 25
+            pdf.AddTextFooters(footer, 35, 30, 25); // Margin values are in mm
         }
     }
 }

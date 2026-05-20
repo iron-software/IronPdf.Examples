@@ -5,22 +5,20 @@ namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
     {
         public static void Run()
         {
-            // Using an existing PDF
-            var pdf = PdfDocument.FromFile("sample.pdf");
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>testing</h1>");
             
-            // Parameters
-            int pageIndex = 1;
-            string oldText = ".NET 6"; // Old text to remove
-            string newText = ".NET 7"; // New text to add
+            // Configure the required parameters
+            int pageIndex = 0;
+            var start = new IronSoftware.Drawing.PointF(200,150);
+            var end = new IronSoftware.Drawing.PointF(1000,150);
+            int width = 10;
+            var color = new IronSoftware.Drawing.Color("#000000");
             
-            // Replace Text on Page
-            pdf.ReplaceTextOnPage(pageIndex, oldText, newText);
+            // Draw line on PDF
+            pdf.DrawLine(pageIndex, start, end, width, color);
             
-            // Placeholder Template Example
-            pdf.ReplaceTextOnPage(pageIndex, "[DATE]", "01/01/2000");
-            
-            // Save your new PDF
-            pdf.SaveAs("new_sample.pdf");
+            pdf.SaveAs("drawLine.pdf");
         }
     }
 }

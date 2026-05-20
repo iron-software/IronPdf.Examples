@@ -1,37 +1,17 @@
 ***Based on <https://ironpdf.com/examples/merge-pdfs/>***
 
-Efficiently combine PDFs of varying sizes and complexities using the `Merge` method from IronPDF.
+IronPDF's merge functionality enables you to seamlessly consolidate multiple PDF documents into a single file. This is achievable with both HTML-rendered PDFs or existing PDF documents, thanks to IronPDF's straightforward API for merging. Utilize the robust merging capabilities of IronPDF to merge your PDFs efficiently while preserving the structural and content integrity of each document.
 
-The `PdfDocument.Merge` function allows you to amalgamate multiple PDF documents into a singular PDF file.
+## The 5 Steps to Merging PDF Documents in C#
 
-Incorporate the `PdfDocument.Merge` function within your C# applications to:
+To start merging PDF documents, the initial step is to construct the HTML strings that will be rendered into PDFs. For this example, we'll refer to these HTML strings as `html_a` and `html_b`. After formulating these strings, the next phase involves rendering them into PDF files.
 
-1. Programmatically incorporate cover pages or cover letters into existing PDFs,
-2. Combine PDFs that have been transformed from HTML documents.
+You will begin by initiating a new `ChromePdfRenderer` object. This renderer is crucial for transforming the HTML we crafted earlier into high-quality PDF documents through the `RenderHtmlAsPdf` method.
 
-The `PdfDocument.Merge` can concatenate an unlimited number of PDF files.
+Following the rendering process, the next step is to merge these PDFs into a unified document named `Merged.pdf`. This merging is executed using the `Merge` method, which efficiently combines the provided PDF documents into one with a single line of code, streamlining the document merging process using IronPDF.
 
-* * *
+The final step is to save the newly merged PDF file. Once saved, you can leverage the diverse suite of tools provided by IronPDF to further refine and alter the PDF document.
 
-* * *
+Moreover, IronPDF's functionality is not limited to merging just two PDFs. In our simplified example, we showcased the process for two documents. To merge a more extensive set of PDF files, you would apply a List overload in place of the two-argument method, accommodating multiple documents. This advanced technique allows for greater flexibility in PDF management.
 
-### Further Insights
-
-To concatenate two PDF documents, input each PDF as an individual argument, as demonstrated in line 17 of the showcased example.
-
-For merging more than two PDF files, replace the method that takes two arguments with its `List` counterpart:
-
-```cs
-// Create a list of PdfDocument objects
-List<PdfDocument> pdfs = new List<PdfDocument>()
-{
-    pdfdoc_a,  // First PDF document
-    pdfdoc_b,  // Second PDF document
-    pdfdoc_c,  // Third PDF document
-    // Add more PDF documents as needed
-};
-// Merge all PDF documents into one
-var merged = PdfDocument.Merge(pdfs);
-// Save the merged document to a file
-merged.SaveAs("Merged.pdf");
-```
+Discover advanced merging techniques and straightforward code examples by visiting [here](https://ironpdf.com/how-to/merge-or-split-pdfs/#simple-pdf-merge-code-example).

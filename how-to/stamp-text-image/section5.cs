@@ -1,4 +1,4 @@
-using IronPdf.Editing;
+using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.StampTextImage
 {
@@ -6,22 +6,16 @@ namespace IronPdf.Examples.HowTo.StampTextImage
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Example HTML Document!</h1>");
-            
-            // Create HTML stamper
-            HtmlStamper htmlStamper = new HtmlStamper()
+            // Create text stamper
+            ImageStamper imageStamper = new ImageStamper(new Uri("https://ironpdf.com/img/svgs/iron-pdf-logo.svg"))
             {
-                Html = @"<img src='https://ironpdf.com/img/svgs/iron-pdf-logo.svg'>
-                <h1>Iron Software</h1>",
+                HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Top,
+            
+                // Specify offsets
+                HorizontalOffset = new Length(10),
+                VerticalOffset = new Length(10),
             };
-            
-            // Stamp the HTML stamper
-            pdf.ApplyStamp(htmlStamper);
-            
-            pdf.SaveAs("stampHtml.pdf");
         }
     }
 }

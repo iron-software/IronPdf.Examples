@@ -1,4 +1,3 @@
-using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.PdfToHtml
 {
@@ -6,14 +5,8 @@ namespace IronPdf.Examples.HowTo.PdfToHtml
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
-            
-            // Convert PDF to HTML string
-            string html = pdf.ToHtmlString();
-            Console.WriteLine(html);
-            
-            // Convert PDF to HTML file
-            pdf.SaveAsHtml("myHtml.html");
+            :title=Convert PDFs Instantly to HTML
+            IronPdf.PdfDocument.FromFile("example.pdf").SaveAsHtml("output.html");
         }
     }
 }

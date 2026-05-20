@@ -1,22 +1,60 @@
-![Nuget Version](https://img.shields.io/nuget/v/IronPdf?color=informational&label=latest)![Installation Count](https://img.shields.io/nuget/dt/IronPdf?color=informational&label=installs&logo=nuget)![Build Status](https://img.shields.io/badge/build-%20%E2%9C%93%203158%20tests%20passed%20(0%20failed)%20-107C10?logo=visualstudio)[![Windows Compatibility](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=windows)](https://ironpdf.com/docs/questions/installation/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield)[![macOS Compatibility](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=apple)](https://ironpdf.com/docs/questions/macos/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield)[![Linux Compatibility](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=linux&logoColor=white)](https://ironpdf.com/docs/questions/linux/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield)[![Docker Compatibility](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=docker&logoColor=white)](https://ironpdf.com/docs/questions/docker-linux/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield)[![AWS Compatibility](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=amazonaws)](https://ironpdf.com/docs/questions/creating-pdfs-csharp-amazon-aws-lambda/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield)[![Azure Compatibility](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=microsoftazure)](https://ironpdf.com/docs/questions/azure/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield)[![Live Chat Available](https://img.shields.io/badge/Live%20Chat:-24/5-purple?logo=googlechat&logoColor=white)](https://ironpdf.com/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield#helpscout-support)
+# IronPdf.Examples
 
-## IronPDF - Enhancing .NET Applications with Advanced PDF Capabilities
+Runnable C# examples for [IronPDF](https://ironpdf.com/), a .NET PDF library that converts HTML to PDF and generates, edits, and extracts PDF content.
 
-[![IronPDF NuGet Trial Banner Image](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronPDF-readme/nuget-trial-banner-large.png)](https://ironpdf.com/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topbanner#trial-license)
+## Install
 
-[Get Started](https://ironpdf.com/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Explore Features](https://ironpdf.com/features/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Tutorials](https://ironpdf.com/how-to/html-file-to-pdf/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Coding Examples](https://ironpdf.com/examples/using-html-to-create-a-pdf/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Licensing Details](https://ironpdf.com/licensing/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Trial Offer](https://ironpdf.com/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation#trial-license)
+```bash
+dotnet add package IronPdf
+```
 
-IronPDF, a library offered by Iron Software, empowers C# developers to generate, modify, and extract PDF content seamlessly within .NET projects.
+## Quickstart
 
-#### Key features of IronPDF include:
+```csharp
+using IronPdf;
 
-  * Creation of PDFs from: [HTML Content](https://ironpdf.com/examples/using-html-to-create-a-pdf/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist), [Web URLs](https://ironpdf.com/examples/converting-a-url-to-a-pdf/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist), [JavaScript Elements](https://ironpdf.com/examples/javascript-html-to-pdf/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist), [CSS](https://ironpdf.com/docs/questions/base-urls/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist) and various [image types](https://ironpdf.com/examples/image-to-pdf/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist)
-  * Incorporation of [headers and footers](https://ironpdf.com/examples/headers-and-footers/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist), [digital signatures](https://ironpdf.com/examples/digitally-sign-a-pdf/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist), [attachments](https://ironpdf.com/examples/csharp-add-attachment-to-pdf/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist), and [secure password protections](https://ironpdf.com/examples/security-and-metadata/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist)
-  * High-efficiency rendering: Full [Multithreading](https://ironpdf.com/examples/threading/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist) and [Asynchronous Operations](https://ironpdf.com/examples/async/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist) support
-  * Integrations like [PDF Viewer for applications](https://ironpdf.com/tutorials/pdf-viewing/), extensions for [MAUI](https://ironpdf.com/how-to/net-maui-create-pdf-tutorial) andfor [ASP.NET](https://ironpdf.com/how-to/razor-to-pdf-blazor-server/)
-  * Learn more by exploring [our extensive list of 50+ features](https://ironpdf.com/features/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist) and [code samples](https://ironpdf.com/examples/using-html-to-create-a-pdf/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featureslist) on our website.
+var renderer = new ChromePdfRenderer();
+var pdf = renderer.RenderHtmlAsPdf("<h1>Hello, PDF!</h1>");
+pdf.SaveAs("hello.pdf");
+```
 
-#### IronPDF is compatible across multiple platforms:
+That produces a working PDF on the first run. To render from other sources, swap `RenderHtmlAsPdf` for `RenderUrlAsPdf(url)`, `RenderHtmlFileAsPdf(path)`, or use `ImageToPdfConverter.ImageToPdf(image)`.
 
-  * Supported on .NET 8, .NET 7, .NET 6, .NET 5, .NET Core, Standard, and Framework
-  * Compatible with Windows, macOS, Linux, Docker, Azure, and AWS platforms
+For production use, set a license key via `License.LicenseKey = "YOUR-KEY"`. Without one, generated PDFs include a watermark.
+
+## What's in this repo
+
+Each folder contains a self-contained .NET project you can open and run:
+
+- `examples/` — focused snippets demonstrating individual features
+- `get-started/` — minimal first projects covering installation and basic rendering
+- `how-to/` — task-oriented guides for specific PDF operations
+- `quickstart/` — end-to-end project scaffolds
+- `tutorials/` — longer walkthroughs combining multiple features
+- `IronPdf.AI/` — examples integrating IronPDF with RAG and AI document workflows
+- `IronPdf.AndroidDemo/` — server-side IronPDF deployment for use by Android clients
+
+## Common tasks covered
+
+- HTML, URL, and image to PDF conversion
+- Merging, splitting, and rearranging existing PDFs
+- Headers, footers, watermarks, and page numbering
+- Digital signatures and PDF/A compliance
+- Password protection and security metadata
+- Form filling and form data extraction
+- Rendering PDFs from ASP.NET Core, Blazor, and .NET MAUI
+
+## Platform support
+
+.NET 8, 7, 6, 5, .NET Core, .NET Standard, and .NET Framework. Windows, macOS, Linux, Docker, Azure, and AWS Lambda. See the [installation docs](https://ironpdf.com/docs/questions/installation/) for environment-specific notes.
+
+## Documentation and support
+
+- Full documentation: [ironpdf.com/docs](https://ironpdf.com/docs/)
+- API reference: [ironpdf.com/object-reference/api](https://ironpdf.com/object-reference/api/)
+- Issues with these examples: file directly on this repository
+- Product support: [support@ironsoftware.com](mailto:support@ironsoftware.com)
+
+## About
+
+This repository is maintained by [Iron Software](https://ironsoftware.com/). IronPDF is a commercial library — see [licensing](https://ironpdf.com/licensing/) for terms and trial details.

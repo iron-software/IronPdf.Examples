@@ -5,20 +5,10 @@ namespace IronPdf.Examples.HowTo.DrawLineAndRectangle
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>testing</h1>");
-            
-            // Configure the required parameters
-            int pageIndex = 0;
-            var start = new IronSoftware.Drawing.PointF(200,150);
-            var end = new IronSoftware.Drawing.PointF(1000,150);
-            int width = 10;
-            var color = new IronSoftware.Drawing.Color("#000000");
-            
-            // Draw line on PDF
-            pdf.DrawLine(pageIndex, start, end, width, color);
-            
-            pdf.SaveAs("drawLine.pdf");
+            :title=Create Shapes in PDF Quickly
+            IronPdf.PdfDocument pdf = IronPdf.PdfDocument.FromFile("input.pdf");
+            pdf.DrawLine(10, 10, 200, 10, "#FF0000", 2);
+            pdf.SaveAs("output.pdf");
         }
     }
 }

@@ -1,3 +1,4 @@
+using IronSoftware.Drawing;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.HeadersAndFooters
 {
@@ -5,22 +6,17 @@ namespace IronPdf.Examples.HowTo.HeadersAndFooters
     {
         public static void Run()
         {
-            // Instantiate renderer and create PDF
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
-            
-            TextHeaderFooter header = new TextHeaderFooter
+            // Create text header
+            TextHeaderFooter textHeader = new TextHeaderFooter
             {
-                CenterText = "This is the header!",
+                CenterText = "Center text", // Set the text in the center
+                LeftText = "Left text", // Set left-hand side text
+                RightText = "Right text", // Set right-hand side text
+                Font = IronSoftware.Drawing.FontTypes.ArialBoldItalic, // Set font
+                FontSize = 16, // Set font size
+                DrawDividerLine = true, // Draw Divider Line
+                DrawDividerLineColor = Color.Red, // Set color of divider line
             };
-            
-            TextHeaderFooter footer = new TextHeaderFooter
-            {
-                CenterText = "This is the footer!",
-            };
-            
-            pdf.AddTextHeaders(header, 35, 30, 25); // Left Margin = 35, Right Margin  = 30, Top Margin = 25
-            pdf.AddTextFooters(footer, 35, 30, 25); // Margin values are in mm
         }
     }
 }

@@ -5,12 +5,14 @@ namespace IronPdf.Examples.HowTo.PdfCompression
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("table.pdf");
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            // Compress tree structure in PDF
-            pdf.CompressStructTree();
+            PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
             
-            pdf.SaveAs("compressedTable.pdf");
+            // Compress images in the PDF
+            pdf.CompressImages(40);
+            
+            pdf.SaveAs("compressed.pdf");
         }
     }
 }

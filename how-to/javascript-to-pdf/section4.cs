@@ -1,3 +1,4 @@
+using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.JavascriptToPdf
 {
@@ -5,53 +6,23 @@ namespace IronPdf.Examples.HowTo.JavascriptToPdf
     {
         public static void Run()
         {
-            string html = @"
-            <!DOCTYPE html>
-            <html>
-            <head>
-            <meta charset=""utf-8"" />
-            <title>C3 Bar Chart</title>
-            </head>
-            <body>
-            <div id=""chart"" style=""width: 950px;""></div>
-            <script src=""https://d3js.org/d3.v4.js""></script>
-            <!-- Load c3.css -->
-            <link href=""https://cdnjs.cloudflare.com/ajax/libs/c3/0.5.4/c3.css"" rel=""stylesheet"">
-            <!-- Load d3.js and c3.js -->
-            <script src=""https://cdnjs.cloudflare.com/ajax/libs/c3/0.5.4/c3.js""></script>
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            <script>
-            Function.prototype.bind = Function.prototype.bind || function (thisp) {
-                var fn = this;
-                return function () {
-                    return fn.apply(thisp, arguments);
-                };
-            };
-            var chart = c3.generate({
-                bindto: '#chart',
-                data: {
-                    columns: [['data1', 30, 200, 100, 400, 150, 250],
-                              ['data2', 50, 20, 10, 40, 15, 25]]
-                }
-            });
-            </script>
-            </body>
-            </html>
-            ";
+            // Method callback to be invoked whenever a browser console message becomes available:
+            renderer.RenderingOptions.JavascriptMessageListener = message => Console.WriteLine($"JS: {message}");
+            // Log 'foo' to the console
+            renderer.RenderingOptions.Javascript = "console.log('foo');";
             
-            // Instantiate Renderer
-            var renderer = new ChromePdfRenderer();
+            // Render HTML to PDF
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1> Hello World </h1>");
             
-            // Enable JavaScript
-            renderer.RenderingOptions.EnableJavaScript = true;
-            // Set waitFor for JavaScript
-            renderer.RenderingOptions.WaitFor.JavaScript(500);
+            //--------------------------------------------------//
+            // Error will be logged
+            // message => Uncaught TypeError: Cannot read properties of null (reading 'style')
+            renderer.RenderingOptions.Javascript = "document.querySelector('non-existent').style.color='foo';";
             
-            // Render HTML contains JavaScript
-            var pdfJavaScript = renderer.RenderHtmlAsPdf(html);
-            
-            // Export PDF
-            pdfJavaScript.SaveAs("renderChart.pdf");
+            // Render HTML to PDF
+            PdfDocument pdf2 = renderer.RenderHtmlAsPdf("<h1> Hello World </h1>");
         }
     }
 }

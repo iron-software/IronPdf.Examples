@@ -1,34 +1,49 @@
-# How to Insert Custom PDF Watermarks
+# How to Add Watermarks to PDFs in C# Using IronPDF
 
 ***Based on <https://ironpdf.com/how-to/custom-watermark/>***
 
 
-A custom watermark refers to a unique mark, either as a text or an image, added to the background of a PDF's page. This can be utilized for a myriad of purposes such as branding through the incorporation of logos or names, boosting security with 'Confidential' labels, reinforcing copyright claims or indicating the document's stage of process. You can craft these watermarks using either text or images, apply them across all pages or just few, and even adjust their transparency, ensuring flexibility in how documents are personalized, protected, and marked.
+A custom watermark is a unique overlay of text or an image used primarily as a background on a PDF page. It offers several uses such as promoting branding through logos or names, enhancing document security with labels such as "Confidential", fortifying copyright protection, and denoting the status of a document. These watermarks may consist of text, images, or a combination of both and can be applied either selectively or across multiple pages, with adjustable opacity to suit different needs for customization, security, and contextualization of PDFs.
 
-IronPDF simplifies adding watermarks to PDFs. It does this via a straightforward method that accepts HTML string for creating watermarks, which allows the full spectrum of HTML and CSS styling capabilities.
+IronPDF simplifies this process with an integrated feature to add watermarks to PDF documents using just a single line of code. This feature utilizes an HTML string to create the watermark, leveraging the full spectrum of HTML and CSS capabilities for versatility.
 
-<h3>Start Using IronPDF</h3>
+## Quickstart: Effortlessly Applying Custom Watermarks
 
---------------------------------------
+Adding a custom watermark to your PDF is straightforward with IronPDF. A single line of code can apply a distinctive watermark, custom-designed using HTML and CSS for adjustments in opacity, rotation, and placement based on a simple 3x3 grid system. This guide demonstrates how to rapidly enhance your PDF documents with custom watermarks, thereby ensuring both enhanced security and brand visibility.
 
-## Example: Applying a Watermark
+```cs
+// Adding Watermarks Instantly
+new IronPdf.PdfDocument.FromFile("input.pdf")
+    .ApplyWatermark("<h1 style='opacity:0.5;'>Confidential</h1>", IronPdf.PagePosition.TopCenter)
+    .SaveAs("output.pdf");
+```
 
-The `ApplyWatermark` function facilitates placing a watermark on a newly created PDF document or on an existing one, embracing the broad functionalities of HTML, including CSS for styling. The example below demonstrates setting a watermark that consists of both image and text. It’s important to note that this watermark will be repeated on every page of the document as the feature doesn't support page-specific application.
+## Minimal Workflow (5 Steps)
+
+1. [Download the IronPDF Library for C#](https://www.nuget.org/packages/IronXL.Excel/)
+2. Open an existing PDF document or create a new one.
+3. Set up the HTML string for the watermark.
+4. Apply the watermark using the `ApplyWatermark` method.
+5. Adjust the watermark's rotation, opacity, and positioning as necessary.
+
+## Example of Applying a Watermark
+
+The `ApplyWatermark` method allows for the placement of a watermark on either a new or existing PDF. This method supports HTML strings for the watermark, enabling the utilization of all HTML and CSS offerings. Below, we demonstrate incorporating both an image and text into a single watermark, noting that this application will affect all pages of the document.
 
 ### Code
 
-```cs
+```csharp
 using IronPdf;
 
 string watermarkHtml = @"
-<img src='https://ironsoftware.com/img/products/ironpdf-logo-text-dotnet.svg'>
+<img src='https://ironpdf.com/img/products/ironpdf-logo-text-dotnet.svg'>
 <h1>Iron Software</h1>";
 
 ChromePdfRenderer renderer = new ChromePdfRenderer();
 
 PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Watermark</h1>");
 
-// Implementing the watermark
+// Applying watermark
 pdf.ApplyWatermark(watermarkHtml);
 
 pdf.SaveAs("watermark.pdf");
@@ -39,29 +54,29 @@ pdf.SaveAs("watermark.pdf");
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/custom-watermark/watermark.pdf#zoom=45%" width="100%" height="400px">
 </iframe>
 
-This method is quite effective in adding watermarks using various image formats, such as PNG, and custom font text.
+This method is a straightforward means to add both image and text watermarks, allowing for customization with various image formats such as PNG and different text styles.
 
 <hr>
 
-## Manipulating Watermark Opacity and Angle
+## Watermark Opacity and Rotation
 
-To adjust a watermark's visibility and orientation, you can set its opacity and rotation angle. IronPDF enables these customizations directly in the `ApplyWatermark` method, allowing adjustments for opacity and degrees of rotation.
+By default, the watermark's opacity is set at 50%. This attribute can be altered to better meet specific needs. The `ApplyWatermark` method also allows for the adjustment of rotation.
 
 ### Code
 
-```cs
+```csharp
 using IronPdf;
 using IronPdf.Editing;
 
 string watermarkHtml = @"
-<img style='width: 200px;' src='https://ironsoftware.com/img/products/ironpdf-logo-text-dotnet.svg'>
+<img style='width: 200px;' src='https://ironpdf.com/img/products/ironpdf-logo-text-dotnet.svg'>
 <h1>Iron Software</h1>";
 
 ChromePdfRenderer renderer = new ChromePdfRenderer();
 
 PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Watermark</h1>");
 
-// Adding watermark with configured opacity and rotation
+// Applying watermark with 45 degrees rotation and 70% opacity
 pdf.ApplyWatermark(watermarkHtml, rotation: 45, opacity: 70);
 
 pdf.SaveAs("watermarkOpacity&Rotation.pdf");
@@ -69,14 +84,14 @@ pdf.SaveAs("watermarkOpacity&Rotation.pdf");
 
 ### Output PDF
 
-<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/custom-watermark/watermarkOpacity&Rotation.pdf#zoom=50%" width="100%" height="400px">
+<iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/custom-watermark/watermarkOpacity&Rotation.pdf" zoom="50%" style="width: 100%; height: 400px;">
 </iframe>
 
 <hr>
 
-## Setting Watermark Position in a PDF
+## Watermark Placement on PDF
 
-Watermark positioning can be fine-tuned using a grid approach, divided into three columns and three rows, allowing placement in nine distinct positions within the page. The example below illustrates this configuration.
+To establish watermark placement, employ a 3x3 grid system segmented into three horizontal columns and three vertical rows. This arrangement allows for nine distinct positional options per page. For a visual guide, please refer to the image below.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -84,23 +99,23 @@ Watermark positioning can be fine-tuned using a grid approach, divided into thre
     </div>
 </div>
 
-To adjust the watermark's location, make use of the **VerticalAlignment** and **HorizontalAlignment** enums available in IronPdf.Editing.
+To set a watermark to a specifically desired location, utilize the **VerticalAlignment** and **HorizontalAlignment** enums available in the `IronPdf.Editing` namespace.
 
 ### Code
 
-```cs
+```csharp
 using IronPdf;
 using IronPdf.Editing;
 
 string watermarkHtml = @"
-<img style='width: 200px;' src='https://ironsoftware.com/img/products/ironpdf-logo-text-dotnet.svg'>
+<img style='width: 200px;' src='https://ironpdf.com/img/products/ironpdf-logo-text-dotnet.svg'>
 <h1>Iron Software</h1>";
 
 ChromePdfRenderer renderer = new ChromePdfRenderer();
 
 PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Watermark</h1>");
 
-// Positioning watermark at the top-right
+// Placing watermark at the top-right of the document
 pdf.ApplyWatermark(watermarkHtml, 50, VerticalAlignment.Top, HorizontalAlignment.Right);
 
 pdf.SaveAs("watermarkLocation.pdf");
@@ -110,3 +125,5 @@ pdf.SaveAs("watermarkLocation.pdf");
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/custom-watermark/watermarkLocation.pdf" width="100%" height="400px">
 </iframe>
+
+Explore further possibilities with our comprehensive tutorial here: [Edit PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/)

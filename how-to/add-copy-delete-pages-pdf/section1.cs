@@ -5,16 +5,10 @@ namespace IronPdf.Examples.HowTo.AddCopyDeletePagesPdf
     {
         public static void Run()
         {
-            // Import cover page
-            PdfDocument coverPage = PdfDocument.FromFile("coverPage.pdf");
-            
-            // Import content document
-            PdfDocument contentPage = PdfDocument.FromFile("contentPage.pdf");
-            
-            // Merge the two documents
-            PdfDocument finalPdf = PdfDocument.Merge(coverPage, contentPage);
-            
-            finalPdf.SaveAs("pdfWithCover.pdf");
+            :title=Effortlessly Manage PDF Pages
+            IronPdf.PdfDocument.FromFile("/input/path.pdf")
+                .AppendPdf(IronPdf.PdfDocument.FromFile("/additional/path.pdf"))
+                .SaveAs("/output/path.pdf");
         }
     }
 }

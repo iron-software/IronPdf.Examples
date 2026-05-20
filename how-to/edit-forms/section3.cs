@@ -6,19 +6,22 @@ namespace IronPdf.Examples.HowTo.EditForms
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("radioButtomForm.pdf");
-            var radioForm = pdf.Form.FindFormField("traveltype");
+            PdfDocument pdf = PdfDocument.FromFile("checkboxAndComboboxForm.pdf");
             
-            // Set the radio button value
-            radioForm.Value = "Airplane";
+            var checkboxForm = pdf.Form.FindFormField("taskCompleted");
+            // Check the checkbox form
+            checkboxForm.Value = "Yes";
+            
+            var comboboxForm = pdf.Form.FindFormField("priority");
+            // Set the combobox value
+            comboboxForm.Value = "Low";
             
             // Print out all the available choices
-            foreach(var annotation in radioForm.Annotations)
+            foreach (var choice in comboboxForm.Choices)
             {
-                Console.WriteLine(annotation.OnAppearance);
+                Console.WriteLine(choice);
             }
-            
-            pdf.SaveAs("radioButtomFormEdited.pdf");
+            pdf.SaveAs("checkboxAndComboboxFormEdited.pdf");
         }
     }
 }

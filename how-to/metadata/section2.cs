@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Metadata
 {
@@ -9,15 +9,17 @@ namespace IronPdf.Examples.HowTo.Metadata
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Metadata</h1>");
             
-            Dictionary<string, string> newMetadata = new Dictionary<string, string>();
-            newMetadata.Add("Title", "How to article");
-            newMetadata.Add("Author", "IronPDF");
+            // Access the MetaData class and set the pre-defined metadata properties.
+            pdf.MetaData.Author = "Iron Software";
+            pdf.MetaData.CreationDate = DateTime.Today;
+            pdf.MetaData.Creator = "IronPDF";
+            pdf.MetaData.Keywords = "ironsoftware,ironpdf,pdf";
+            pdf.MetaData.ModifiedDate = DateTime.Now;
+            pdf.MetaData.Producer = "IronPDF";
+            pdf.MetaData.Subject = "Metadata Tutorial";
+            pdf.MetaData.Title = "IronPDF Metadata Tutorial";
             
-            // Set metadata dictionary
-            pdf.MetaData.SetMetaDataDictionary(newMetadata);
-            
-            // Retreive metadata dictionary
-            Dictionary<string, string> metadataProperties = pdf.MetaData.GetMetaDataDictionary();
+            pdf.SaveAs("pdf-with-metadata.pdf");
         }
     }
 }

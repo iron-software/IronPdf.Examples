@@ -1,3 +1,4 @@
+using IronPdf.Signing;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.CsharpPdfReports
 {
@@ -5,23 +6,8 @@ namespace IronPdf.Examples.HowTo.CsharpPdfReports
     {
         public static void Run()
         {
-            XslCompiledTransform transform = new XslCompiledTransform();
-            
-            using (XmlReader reader = XmlReader.Create(new StringReader(xslt)))
-            {
-                transform.Load(reader);
-            }
-            StringWriter results = new StringWriter();
-            using (XmlReader reader = XmlReader.Create(new StringReader(xml)))
-            {
-                transform.Transform(reader, null, results);
-            }
-            
-            IronPdf.ChromePdfRenderer renderer = new IronPdf.ChromePdfRenderer();
-            
-            // Options, headers, and footers may be set there
-            // Render our report as a PDF
-            renderer.RenderHtmlFileAsPdf(results.ToString()).SaveAs("Report.pdf");
+            // Sign our PDF Report using a p12 or pix digital certificate file
+            new PdfSignature("IronSoftware.pfx", "123456").SignPdfFile("signed.pdf");
         }
     }
 }

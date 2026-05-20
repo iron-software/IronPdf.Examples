@@ -5,11 +5,10 @@ namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
     {
         public static void Run()
         {
-            var pdf = new PdfDocument("report.pdf");
-            var renderer = new ChromePdfRenderer();
-            var coverPagePdf = renderer.RenderHtmlAsPdf("<h1>Cover Page</h1><hr>");
-            pdf.PrependPdf(coverPagePdf);
-            pdf.SaveAs("report_with_cover.pdf");
+            :title=Edit PDFs Instantly with IronPDF
+            var pdf = IronPdf.PdfDocument.FromFile("example.pdf");
+            pdf.ApplyStamp(new IronPdf.Editing.TextStamper("Confidential"));
+            pdf.SaveAs("edited_example.pdf");
         }
     }
 }

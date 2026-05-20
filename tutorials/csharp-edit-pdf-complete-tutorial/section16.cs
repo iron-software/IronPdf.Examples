@@ -5,28 +5,11 @@ namespace IronPdf.Examples.Tutorial.CsharpEditPdfCompleteTutorial
     {
         public static void Run()
         {
-            // create a new PDF or load and edit an existing document.
-            var pdf = PdfDocument.FromFile("existing.pdf");
+            PdfDocument pdf = PdfDocument.FromFile("basic.pdf");
             
-            // Create a PDF annotation object
-            var textAnnotation = new IronPdf.Annotations.TextAnnotation(PageIndex: 0)
-            {
-                Title = "This is the major title",
-                Contents = "This is the long 'sticky note' comment content...",
-                Subject = "This is a subtitle",
-                Icon = IronPdf.Annotations.TextAnnotation.AnnotationIcon.Help,
-                Opacity = 0.9,
-                Printable = false,
-                Hidden = false,
-                OpenByDefault = true,
-                ReadOnly = false,
-                Rotatable = true,
-            };
+            pdf.Pages[0].Transform(50, 50, 0.8, 0.8);
             
-            // Add the annotation "sticky note" to a specific page and location within any new or existing PDF.
-            pdf.Annotations.Add(textAnnotation);
-            
-            pdf.SaveAs("existing.pdf");
+            pdf.SaveAs("transformPage.pdf");
         }
     }
 }

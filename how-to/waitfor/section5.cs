@@ -5,33 +5,27 @@ namespace IronPdf.Examples.HowTo.Waitfor
     {
         public static void Run()
         {
-            string htmlContent = @"
-            <!DOCTYPE html>
-            <html lang=""en"">
-            <head>
-              <meta charset=""UTF-8"">
-              <title>Delayed render tests</title>
-              <script type=""text/javascript"">
-            	setTimeout(function() {
-            		var h1Tag = document.createElement(""h1"");
-            		h1Tag.innerHTML = ""bla bla bla"";
-            		h1Tag.setAttribute(""id"", ""myid"");
-            
-                    var block = document.querySelector(""div#x"");
-            		block.appendChild(h1Tag);
-            	}, 1000);
-              </script>
-            </head>
+            string html = @"<!DOCTYPE html>
+            <html>
             <body>
-            	<h1>This is Delayed Render Test!</h1>
-                <div id=""x""></div>
+            <h1>Testing</h1>
+            <script type='text/javascript'>
+            
+            // Set delay
+            setTimeout(function() {
+                window.ironpdf.notifyRender();
+            }, 1000);
+            
+            </script>
             </body>
             </html>";
             
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            renderer.RenderingOptions.WaitFor.HtmlElementById("myid", 5000);
+            ChromePdfRenderOptions renderingOptions = new ChromePdfRenderOptions();
             
-            PdfDocument pdf = renderer.RenderHtmlAsPdf(htmlContent);
+            // Set rendering to wait for the notifyRender function
+            renderingOptions.WaitFor.JavaScript(5000);
+            
+            PdfDocument pdf = ChromePdfRenderer.StaticRenderHtmlAsPdf(html, renderingOptions);
         }
     }
 }

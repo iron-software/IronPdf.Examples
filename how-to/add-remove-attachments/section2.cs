@@ -1,4 +1,4 @@
-using System.Linq;
+using System.IO;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.AddRemoveAttachments
 {
@@ -6,16 +6,16 @@ namespace IronPdf.Examples.HowTo.AddRemoveAttachments
     {
         public static void Run()
         {
+            // Import attachment file
+            byte[] fileData = File.ReadAllBytes(@"path/to/file");
+            
             // Open existing PDF
-            PdfDocument pdf = PdfDocument.FromFile("addAttachment.pdf");
+            PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
             
             // Add attachment to the PDF
-            PdfAttachmentCollection retrieveAttachments = pdf.Attachments;
+            pdf.Attachments.AddAttachment("Example", fileData);
             
-            // Remove attachment from PDF
-            pdf.Attachments.RemoveAttachment(retrieveAttachments.First());
-            
-            pdf.SaveAs("removeAttachment.pdf");
+            pdf.SaveAs("addAttachment.pdf");
         }
     }
 }

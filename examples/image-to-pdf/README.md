@@ -1,24 +1,9 @@
 ***Based on <https://ironpdf.com/examples/image-to-pdf/>***
 
-Create a PDF using Image Files with `IronPdf.ImageToPdfConverter`
+Transforming an image from a local storage, such as one found at `C:\images\example.png`, into a PDF file is straightforward with IronPDF. Utilize the `IronPdf.ImageToPdfConverter.ImageToPdf` method and provide the image file path to accomplish this:
 
-## Convert an Image to a PDF in C&#35;
+Additionally, for converting multiple images into a unified PDF document, combine `System.IO.Directory.EnumerateFiles` with `ImageToPdfConverter.ImageToPdf`:
 
-If you have an image stored locally, such as `C:\images\example.png`, you can easily transform it into a PDF document. This is accomplished by utilizing the `IronPdf.ImageToPdfConverter.ImageToPdf` method with the image's file path:
+For further details on [converting images to PDFs using IronPDF](https://ironpdf.com/how-to/image-to-pdf/) and to enhance your software applications, or to explore a broad range of developer tools available at Iron Software like IronBarcode and IronOCR, visit the [Iron Software website](https://ironsoftware.com).
 
-```cs
-IronPdf.ImageToPdfConverter.ImageToPdf(@"C:\images\example.png").SaveAs("example.pdf");
-```
-
-## Merge Multiple Images into One PDF Document
-
-For batch conversion of multiple images into a single PDF, you can combine the usage of `System.IO.Directory.EnumerateFiles` with `ImageToPdfConverter.ImageToPdf`:
-
-```cs
-string sourceDirectory = @"D:\web\assets";
-string destinationFile = "JpgToPDF.pdf";
-var imageFiles = Directory.EnumerateFiles(sourceDirectory, "*.jpg");
-ImageToPdfConverter.ImageToPdf(imageFiles).SaveAs(destinationFile);
-```
-
-Discover further insights on [transforming images into PDFs using IronPDF](https://ironpdf.com/how-to/image-to-pdf/) to enhance your software solutions, or visit the [Iron Software website](https://ironsoftware.com) to explore the full range of developer tools available, including IronBarcode, IronOCR, and others.
+[Learn to Convert Images to PDF with IronPDF](https://ironpdf.com/how-to/image-to-pdf/){.code_content__related-link__doc-cta-link}

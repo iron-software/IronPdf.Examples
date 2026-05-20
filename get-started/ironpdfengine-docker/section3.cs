@@ -1,4 +1,3 @@
-using IronPdf.GrpcLayer;
 using IronPdf;
 namespace IronPdf.Examples.GettingStarted.IronpdfengineDocker
 {
@@ -6,13 +5,25 @@ namespace IronPdf.Examples.GettingStarted.IronpdfengineDocker
     {
         public static void Run()
         {
-            var config = new IronPdfConnectionConfiguration();
-            config.ConnectionType = IronPdfConnectionType.Docker;
+            // This code demonstrates how to use IronPdf with gRPC in a .NET Framework application.
+            
+            // 1. Configure connection to use local IronPdfEngine executable
+            var config = IronPdf.GrpcLayer.IronPdfConnectionConfiguration.Executable;
+            
+            // 2. Connect to the IronPDF host with the executable configuration
             IronPdf.Installation.ConnectToIronPdfHost(config);
             
+            // 3. Create a PDF renderer instance
             ChromePdfRenderer renderer = new ChromePdfRenderer();
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello IronPDF Docker!<h1>");
-            pdf.SaveAs("ironpdf.pdf");
+            
+            // 4. Render HTML string as PDF document
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("Hello world");
+            
+            // 5. Save the PDF to disk
+            pdf.SaveAs("output.pdf");
+            
+            // 6. Clean up , this is needed to work
+            pdf.Dispose();
         }
     }
 }

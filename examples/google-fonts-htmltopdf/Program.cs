@@ -5,7 +5,7 @@ var htmlWithFont =
 
 // Instantiate Renderer
 var renderer = new ChromePdfRenderer();
-renderer.RenderingOptions.WaitFor.RenderDelay(500);
+renderer.RenderingOptions.WaitFor.AllFontsLoaded();
 
 var doc = renderer.RenderHtmlAsPdf(htmlWithFont);
 

@@ -5,20 +5,20 @@ namespace IronPdf.Examples.HowTo.HeadersAndFooters
     {
         public static void Run()
         {
-            // Create header and footer
-            TextHeaderFooter textHeader = new TextHeaderFooter
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
+            
+            renderer.RenderingOptions.HtmlHeader = new HtmlHeaderFooter()
             {
-                CenterText = "{page} of {total-pages}",
-                LeftText = "Today's date: {date}",
-                RightText = "The time: {time}",
+                HtmlFragment = @"<div style='background-color: #4285f4; color: white; padding: 15px; text-align: center;'>
+                                <h1>Example header</h1> <br>
+                                <p>Header content</p>
+                                </div>",
+                // Enable the dynamic height feature
+                MaxHeight = HtmlHeaderFooter.FragmentHeight,
             };
             
-            TextHeaderFooter textFooter = new TextHeaderFooter
-            {
-                CenterText = "Current URL: {url}",
-                LeftText = "Title of the HTML: {html-title}",
-                RightText = "Title of the PDF: {pdf-title}",
-            };
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Main HTML content</h1>");
+            pdf.SaveAs("dynamicHeaderSize.pdf");
         }
     }
 }

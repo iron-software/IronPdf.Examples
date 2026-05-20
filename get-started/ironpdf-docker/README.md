@@ -1,91 +1,102 @@
-# Integrating IronPDF into Your Docker Setup
+# Integrating IronPDF within Docker Containers
 
 ***Based on <https://ironpdf.com/get-started/ironpdf-docker/>***
 
 
-IronPDF now completely supports Docker environments, including both Linux and Windows containers, specifically tailored for Azure Docker Containers.
+IronPDF now fully supports integration with Docker across diverse environments, including Azure Docker Containers tailored for both Linux and Windows platforms.
 
-Interested in setting up IronPDF within a separate Docker container? Discover more at the [IronPdfEngine Guide](https://ironpdf.com/tutorials/what-is-ironpdfengine/).
+Interested in deploying IronPDF in a standalone Docker container? Explore further in the [IronPDFEngine tutorials guide](https://ironpdf.com/tutorials/what-is-ironpdfengine/).
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <img src="https://img.icons8.com/color/96/000000/docker--v1.png">
+            <img src="https://img.icons8.com/color/96/000000/docker--v1.png" alt="Docker Logo">
         </div>
         <div class="col-md-2">
-            <img src="https://img.icons8.com/fluency/96/000000/azure-1.png">
+            <img src="https://img.icons8.com/fluency/96/000000/azure-1.png" alt="Azure Logo">
         </div>
         <div class="col-md-2">
-            <img src="https://img.icons8.com/color/96/000000/linux--v1.png">
+            <img src="https://img.icons8.com/color/96/000000/linux--v1.png" alt="Linux Logo">
         </div>
         <div class="col-md-2">
-            <img src="https://img.icons8.com/color/96/000000/amazon-web-services--v1.png">
+            <img src="https://img.icons8.com/color/96/000000/amazon-web-services--v1.png" alt="AWS Logo">
         </div>
         <div class="col-md-2">
-            <img src="https://img.icons8.com/color/96/000000/windows-logo--v1.png">
+            <img src="https://img.icons8.com/color/96/000000/windows-logo--v1.png" alt="Windows Logo">
         </div>
     </div>
 </div>
 
-## The Advantages of Docker on Azure
+### Benefits of Using Docker on Azure
 
-Docker Containers on Azure provide superior scalability for enterprises and offer broader permissions compared to traditional WebApps. This enhanced access allows for the rendering of SVG fonts thanks to the enabled GDI+ graphics system access.
+Docker Containers deployed on Azure provide superior scalability and offer enhanced permissions compared to traditional WebApps. These capabilities allow for effective rendering of SVG fonts due to accessible GDI+ graphics.
 
-## Getting Started with IronPDF and Linux in Docker
+### Getting Started with IronPDF on Linux Docker
 
-If you're new to Docker and .NET, we recommend checking out Microsoft's guide on [setting up Docker debugging and integration with Visual Studio projects](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
+New to Docker and .NET? We recommend this useful guide on [configuring Docker for debugging and project integration with Visual Studio](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
 
-It's also beneficial to review our [IronPDF Linux Setup and Compatibility Guide](https://ironpdf.com/how-to/linux/).
+For specifics on setting up IronPDF with Linux, be sure to consult our [IronPDF Linux Setup and Compatibility Guide](https://ironpdf.com/get-started/linux/).
 
-### Recommended Linux Distributions for Docker
+### Suggested Linux Docker Distros
 
-For a seamless IronPDF configuration, consider the following 64-bit Linux OS options:
+Here are recommended 64-bit Linux operating systems ideal for configuring IronPDF with minimal effort:
 
-- Ubuntu 22, 20, 18
-- Debian 11, 10 (The default Linux Distro in Microsoft Azure)
+- Ubuntu versions 22, 20, and 18
+- Debian versions 11 and 10
 - CentOS 8
-- Amazon AWS Linux 2 ([IronPDF AWS Lambda Setup Guide](https://ironpdf.com/how-to/creating-pdfs-csharp-amazon-aws-lambda/))
+- Amazon AWS Linux 2 ([IronPDF AWS Lambda Setup Guide](https://ironpdf.com/get-started/aws/))
 
-For Docker images, we suggest using [Microsoft's Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/). While other Linux distributions are supported, they may need manual configurations.
+Using [Microsoft's Official Docker Images for .NET](https://hub.docker.com/_/microsoft-dotnet-runtime/) is advisable. Explore our [Linux Manual Setup Guide](https://ironpdf.com/get-started/linux/#other-linux-distros) for guidance on other distros.
 
-Sample Docker files for Ubuntu and Debian are provided in this document.
+## Installing IronPDF on Linux Docker
 
-## Essential Installation Instructions for IronPDF on Linux Docker
+### Opt for Linux-Optimized NuGet Packages
 
-### Optimal NuGet Packages for Linux
-
-Select the [IronPdf.Linux](https://www.nuget.org/packages/IronPdf.Linux) NuGet package over the standard [IronPdf](https://www.nuget.org/packages/IronPdf/) package to optimize for Linux, save disk space, and minimize start-up downloads.
+It's advisable to use the [IronPdf.Linux](https://www.nuget.org/packages/IronPdf.Linux) NuGet package over the standard [IronPdf](https://www.nuget.org/packages/IronPdf/) for enhanced efficiency within Linux environments. This package optimizes storage and ensures no unnecessary downloads during your Docker instance's boot:
 
 ```shell
 :InstallCmd Install-Package IronPdf.Linux
 ```
 
-Alternatively, consider adding [IronPdf.Native.Chrome.Linux](https://www.nuget.org/packages/IronPdf.Native.Chrome.Linux/) alongside the regular package.
+Alternatively, adding [IronPdf.Native.Chrome.Linux](https://www.nuget.org/packages/IronPdf.Native.Chrome.Linux/) alongside the regular package is also effective:
 
 ```shell
 :InstallCmd Install-Package IronPdf.Native.Chrome.Linux
 ```
 
-### Manual Dependency Control
+### Configuration Best Practices
 
-Configuring the `LinuxAndDockerDependenciesAutoConfig` to false has shown to produce better outcomes since the necessary packages are generally pre-installed in Docker environments.
+To optimize Linux Docker settings, it's recommended to disable automatic Linux and Docker dependency configurations, as most prerequisites are already managed:
 
-```sh
+```csharp
+// Disabling automatic dependency management:
 IronPdf.Installation.LinuxAndDockerDependenciesAutoConfig = false;
 ```
 
-### Disabling GPU Acceleration
+Additionally, turning off GPU acceleration in Docker environments prevents unnecessary complications since containers typically don't access a GPU:
 
-Due to the typical unavailability of a GPU in Docker environments for Linux, we advise keeping the GPU acceleration disabled.
-
-```sh
+```csharp
+// Turn off GPU acceleration in Docker:
 IronPdf.Installation.ChromeGpuMode = IronPdf.Engines.Chrome.ChromeGpuModes.Disabled;
 ```
 
-### Pre-Intializing IronPDF
+## Effortless IronPDF Execution on Ubuntu
 
-You might consider pre-initializing IronPDF to prevent delays during the first usage within your Docker instance.
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <img src="https://img.icons8.com/color/96/000000/docker--v1.png" alt="Docker Logo">
+        </div>
+        <div class="col-md-2">
+            <img src="https://img.icons8.com/color/96/000000/ubuntu--v1.png" alt="Ubuntu Logo">
+        </div>
+    </div>
+</div>
 
-```sh
-IronPdf.Installation.Initialize();
-```
+### Windows and Ubuntu Docker Configurations
+
+Explore how to deploy IronPDF efficiently with Windows and Ubuntu using our various Docker configurations. Specific guidance and scripts are provided for major Linux distributions within Docker, covering multiple Ubuntu and Debian setups across several .NET versions.
+
+For Docker configurations on Alpine Linux, we note its current limitations with our software due to outdated libraries.
+
+Connect with the [IronPDF Engine Docker Image](https://hub.docker.com/repositories/ironsoftwareofficial) for extensive Docker solutions that effectively leverage IronPDF capabilities within your cloud-based Windows or Linux environments.

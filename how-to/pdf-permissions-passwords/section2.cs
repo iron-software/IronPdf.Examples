@@ -5,11 +5,17 @@ namespace IronPdf.Examples.HowTo.PdfPermissionsPasswords
     {
         public static void Run()
         {
-            var pdf = PdfDocument.FromFile("protected.pdf", "password123");
+            ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            //... perform PDF-tasks
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Secret Information:</h1> Hello World");
             
-            pdf.SaveAs("protected_2.pdf"); // Saved as another file
+            // Password to edit the pdf
+            pdf.SecuritySettings.OwnerPassword = "123password";
+            
+            // Password to open the pdf
+            pdf.SecuritySettings.UserPassword = "password123";
+            
+            pdf.SaveAs("protected.pdf");
         }
     }
 }

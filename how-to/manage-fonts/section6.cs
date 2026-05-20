@@ -1,4 +1,4 @@
-using System.Linq;
+using IronPdf.Fonts;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.ManageFonts
 {
@@ -9,9 +9,11 @@ namespace IronPdf.Examples.HowTo.ManageFonts
             // Import PDF
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
             
-            byte[] fontData = System.IO.File.ReadAllBytes("dir/to/font.ttf");
-            // Get and replace Font
-            pdf.Fonts["Courier"].ReplaceWith(fontData);
+            // Get fonts
+            PdfFontCollection fonts = pdf.Fonts;
+            
+            // Unembed a font
+            pdf.Fonts[0].Unembed();
         }
     }
 }

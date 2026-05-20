@@ -5,9 +5,8 @@ namespace IronPdf.Examples.HowTo.PixelPerfectHtmlToPdf
     {
         public static void Run()
         {
-            // Pixel Perfect HTML Formatting Settings
-            IronPdf.ChromePdfRenderer renderer = new IronPdf.ChromePdfRenderer();
-            renderer.RenderingOptions.CssMediaType = PdfCssMediaType.Print; // or Screen
+            :title=Create PDF in Seconds!
+            IronPdf.ChromePdfRenderer.RenderHtmlAsPdf("<html><body>Hello World</body></html>").SaveAs("output.pdf");
         }
     }
 }

@@ -5,17 +5,12 @@ namespace IronPdf.Examples.HowTo.PdfPermissionsPasswords
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Secret Information:</h1> Hello World");
-            
-            // Password to edit the pdf
-            pdf.SecuritySettings.OwnerPassword = "123password";
-            
-            // Password to open the pdf
-            pdf.SecuritySettings.UserPassword = "password123";
-            
-            pdf.SaveAs("protected.pdf");
+            :title=Secure Your PDFs Effortlessly
+            var pdf = IronPdf.PdfDocument.FromFile("document.pdf");
+            pdf.SecuritySettings.OwnerPassword = "owner123";
+            pdf.SecuritySettings.UserPassword = "user123";
+            pdf.SecuritySettings.Permissions = IronPdf.Security.Permissions.NoPrinting;
+            pdf.SaveAs("secured_document.pdf");
         }
     }
 }

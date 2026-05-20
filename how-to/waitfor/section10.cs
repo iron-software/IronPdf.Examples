@@ -7,8 +7,8 @@ namespace IronPdf.Examples.HowTo.Waitfor
         {
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            // Render unless there are at most 2 network activities for at least 500ms
-            renderer.RenderingOptions.WaitFor.NetworkIdle2();
+            // Render unless there has been no network activity for at least 500ms
+            renderer.RenderingOptions.WaitFor.NetworkIdle0();
             
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>testing</h1>");
         }

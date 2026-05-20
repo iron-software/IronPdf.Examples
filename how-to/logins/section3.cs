@@ -1,3 +1,4 @@
+using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Logins
 {
@@ -5,36 +6,23 @@ namespace IronPdf.Examples.HowTo.Logins
     {
         public static void Run()
         {
-            public static string RenderPartialViewToString(this Controller controller, string viewPath, object model = null)
+            ChromePdfRenderer renderer = new ChromePdfRenderer
             {
-                try
+                // setting login credentials to bypass basic authentication
+                LoginCredentials = new ChromeHttpLoginCredentials()
                 {
-                    var context = controller.ControllerContext;
-            
-                    controller.ViewData.Model = model;
-            
-                    using (var sw = new StringWriter())
-                    {
-                        var viewResult = ViewEngines.Engines.FindPartialView(context, viewPath);
-            
-                        if (viewResult.View == null)
-                        {
-                            throw new Exception($"Partial view {viewPath} could not be found.");
-                        }
-            
-                        var viewContext = new ViewContext(context, viewResult.View, context.Controller.ViewData, context.Controller.TempData, sw);
-            
-                        viewResult.View.Render(viewContext, sw);
-                        viewResult.ViewEngine.ReleaseView(context, viewResult.View);
-            
-                        return sw.GetStringBuilder().ToString();
-                    }
+                    NetworkUsername = "testUser",
+                    NetworkPassword = "testPassword"
                 }
-                catch (Exception ex)
-                {
-                    return ex.Message;
-                }
-            }
+            };
+            
+            var uri = new Uri("http://localhost:51169/Invoice");
+            
+            // Render web URL to PDF
+            PdfDocument pdf = renderer.RenderUrlAsPdf(uri);
+            
+            // Export PDF
+            pdf.SaveAs("UrlToPdfExample.Pdf");
         }
     }
 }

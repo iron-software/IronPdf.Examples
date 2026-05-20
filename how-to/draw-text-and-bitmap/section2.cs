@@ -9,13 +9,10 @@ namespace IronPdf.Examples.HowTo.DrawTextAndBitmap
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>testing</h1>");
             
-            // Open the image from file
-            AnyBitmap bitmap = AnyBitmap.FromFile("ironSoftware.png");
+            // Draw text on PDF
+            pdf.DrawText("Some text", FontTypes.TimesNewRoman.Name, FontSize: 12, PageIndex: 0, X: 100, Y: 100, Color.Black, Rotation: 0);
             
-            // Draw the bitmp on PDF
-            pdf.DrawBitmap(bitmap, 0, 50, 250, 500, 300);
-            
-            pdf.SaveAs("drawImage.pdf");
+            pdf.SaveAs("drawText.pdf");
         }
     }
 }

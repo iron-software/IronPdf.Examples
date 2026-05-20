@@ -10,15 +10,15 @@ namespace IronPdf.Examples.HowTo.DrawLineAndRectangle
             
             // Configure the required parameters
             int pageIndex = 0;
-            var rectangle = new IronSoftware.Drawing.RectangleF(200, 100, 1000, 100);
-            var lineColor = new IronSoftware.Drawing.Color("#000000");
-            var fillColor = new IronSoftware.Drawing.Color("#32AB90");
-            int lineWidth = 5;
+            var start = new IronSoftware.Drawing.PointF(200,150);
+            var end = new IronSoftware.Drawing.PointF(1000,150);
+            int width = 10;
+            var color = new IronSoftware.Drawing.Color("#000000");
             
-            // Draw rectangle on PDF
-            pdf.DrawRectangle(pageIndex, rectangle, lineColor, fillColor, lineWidth);
+            // Draw line on PDF
+            pdf.DrawLine(pageIndex, start, end, width, color);
             
-            pdf.SaveAs("drawRectangle.pdf");
+            pdf.SaveAs("drawLine.pdf");
         }
     }
 }

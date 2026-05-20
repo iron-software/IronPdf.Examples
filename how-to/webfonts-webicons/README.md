@@ -1,59 +1,75 @@
-# How to Apply Fonts in PDF Files
+# How to Set Fonts in PDFs
 
 ***Based on <https://ironpdf.com/how-to/webfonts-webicons/>***
 
 
-Webfonts, which are essential for creating visually cohesive and appealing websites, are hosted on web servers and deployed through web browsers to provide a consistent typographical experience. This approach ensures that even if a user does not have a specific font installed, the website's text appears as intended. In web design, icon fonts comprising symbols and glyphs are also popular for crafting scalable and uniform user interface elements via CSS styling.
+A webfont is specifically created for use on websites. Hosted on web servers and downloaded by browsers, these fonts ensure that text appears consistent and aesthetically pleasing across different devices, even if the device does not have the font installed locally. Additionally, icon fonts—which include symbols and glyphs—are frequently employed in web design to enable scalable, customizable icons and achieve consistent visual presentations using CSS.
 
-CSS is integral in implementing web fonts, as it directs the browser to download specific font files when accessing a website. IronPDF supports the handling of fonts directly from HTML to PDF rendering, accommodating both traditional webfonts and iconographic fonts.
+CSS facilitates the use of web fonts by allowing the specification of fonts to be downloaded when a website loads. IronPDF fully supports the process of loading fonts and rendering them into PDFs from HTML.
 
-### Getting Started with IronPDF
+## Quickstart: Using WebFonts in PDF Generation
 
-#### Implementing WebFonts and Icons with IronPDF
-
-IronPDF extends support for various [WebFonts](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts) like Google Fonts and Adobe's web font service, as well as icon fonts used in libraries such as Bootstrap and [FontAwesome](https://www.w3schools.com/icons/fontawesome5_intro.asp).
-
-It's common for fonts to require some loading time, which can occasionally result in pages rendering without text if the font fails to load promptly. This can be managed using IronPDF's `WaitFor.AllFontsLoaded` method by setting a maximum wait time, traditionally set at 500ms by default.
-
-Below is an example of integrating the [WebFont](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts) named Lobster into your project:
+Utilize web and icon fonts in your PDF documents seamlessly with IronPDF's robust C# library. This quick guide demonstrates how to leverage HTML content with unique fonts to produce consistent and attractive PDF outputs. Just render the HTML using IronPDF and save your styled document effortlessly.
 
 ```cs
-using IronPdf;
-
-// HTML that includes a WebFont
-var html = @"<link href=""https://fonts.googleapis.com/css?family=Lobster"" rel=""stylesheet"">
-<p style=""font-family: 'Lobster', serif; font-size:30px;"" >Hello Google Fonts</p>";
-
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Ensure all fonts are loaded
-renderer.RenderingOptions.WaitFor.AllFontsLoaded(2000);
-
-// Convert HTML to PDF
-PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
-
-// Save the generated PDF
-pdf.SaveAs("font-test.pdf");
+:title=How to incorporate web fonts and icons into your PDFs easily
+var pdfRenderer = new IronPdf.ChromePdfRenderer { 
+    RenderingOptions = { 
+        WaitFor = IronPdf.Rendering.WaitFor.AllFontsLoaded(2000)
+    } 
+};
+var htmlContent = "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\">" +
+                  "<link href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\" rel=\"stylesheet\">" +
+                  "<p style=\"font-family:'Lobster', serif; font-size:30px;\">Explore Google Font</p>" +
+                  "<i class=\"fa fa-coffee\" style=\"font-size:40px; color:#b00;\"></i>";
+var pdf = pdfRenderer.RenderHtmlAsPdf(htmlContent);
+pdf.SaveAs("styled-fonts-pdf.pdf");
 ```
 
-Discover additional `WaitFor` configurations for handling fonts, JavaScript, and other resources in the '[IronPDF WaitFor Class Documentation](https://ironpdf.com/how-to/waitfor/).'
+## Using WebFonts and Icons Example
+
+IronPDF supports utilizing [WebFonts](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts) such as Google Fonts and Adobe’s web font API, as well as icon fonts employed by Bootstrap and [FontAwesome](https://www.w3schools.com/icons/fontawesome5_intro.asp).
+
+Since fonts might require some time to load fully, rendering them improperly could result in a blank PDF page. The method `WaitFor.AllFontsLoaded` is useful in these scenarios by allowing you to set a maximum waiting duration. By default, this duration stands at 500 milliseconds.
+
+Below is a practical example using a [WebFont](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts) named Lobster:
+
+```csharp
+using IronPdf;
+
+// Setup HTML with web font
+var htmlContent = "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\">" +
+                  "<p style=\"font-family: 'Lobster', serif; font-size:30px;\" >Welcome to Google Fonts</p>";
+
+var pdfRenderer = new ChromePdfRenderer();
+pdfRenderer.RenderingOptions.WaitFor.AllFontsLoaded(2000);  // Configure waiting time
+
+// Convert HTML to PDF
+PdfDocument createdPdf = pdfRenderer.RenderHtmlAsPdf(htmlContent);
+
+// Save the generated PDF
+createdPdf.SaveAs("example-fonts.pdf");
+```
+
+Discover additional `WaitFor` configurations related to fonts, JavaScript, HTML nodes, and network idle states at the ['IronPDF WaitFor Class Documentation'](https://ironpdf.com/how-to/waitfor/).
 
 ---
 
-#### Example: Incorporating a Custom Font File
+## Importing Font Files Example
 
-To integrate an existing font file, use the CSS `@font-face` rule. This feature allows for great customization, including embedding fonts in base64-encoded woff file format. Here’s how to incorporate a custom font, specifically the [Pixelify Sans Font](https://fonts.google.com/specimen/Pixelify+Sans):
+When utilizing your own fonts, employ the [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) rule within CSS. This technique also applies when incorporating base64-encoded WOFF files. In the example below, we will be using [Pixelify Sans Font](https://fonts.google.com/specimen/Pixelify+Sans).
 
-```cs
+```csharp
 using IronPdf;
 
-// Embedding a custom font
-string html = @"<!DOCTYPE html>
+// Define HTML with local font
+string htmlSetup = @"<!DOCTYPE html>
 <html>
 <head>
 <style>
-@font-face {font-family: 'Pixelify';
-src: url('fonts\PixelifySans-VariableFont_wght.ttf');
+@font-face {
+    font-family: 'Pixelify';
+    src: url('fonts/PixelifySans-VariableFont_wght.ttf');
 }
 p {
     font-family: 'Pixelify';
@@ -62,17 +78,13 @@ p {
 </style>
 </head>
 <body>
-<p>Custom font utilized here</p>
+<p>Unique Custom Font Example!</p>
 </body>
 </html>";
 
-ChromePdfRenderer renderer = new ChromePdfRenderer();
-
-// Generate PDF from HTML
-PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
-
-// Output the PDF
-pdf.SaveAs("customFont.pdf");
+var renderer = new ChromePdfRenderer();
+PdfDocument document = renderer.RenderHtmlAsPdf(htmlSetup);
+document.SaveAs("customizedFont.pdf");
 ```
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/webfonts-webicons/customFont.pdf" width="100%" height="400px">
@@ -80,6 +92,6 @@ pdf.SaveAs("customFont.pdf");
 
 ---
 
-### Font Limitations on Microsoft Azure
+## Considerations Using Azure PDF Services
 
-The [Azure hosting platform](https://azure.microsoft.com/en-us/) accommodates different capabilities across its service tiers. Notably, the lower shared web app tiers on Azure do not support the loading of SVG fonts. Conversely, higher-tier services such as VPS and Web Role offer enhanced support and are not restricted in this manner.
+The [Azure hosting platform](https://azure.microsoft.com/en-us/) may restrict the loading of SVG fonts at lower shared app tier levels. Nevertheless, Azure's VPS and Web Role configurations support web font rendering without the restrictions seen in lower tiers.

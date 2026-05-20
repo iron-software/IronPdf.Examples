@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Cookies
 {
@@ -9,13 +8,17 @@ namespace IronPdf.Examples.HowTo.Cookies
             // Instantiate ChromePdfRenderer
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            Dictionary<string, string> customCookies = new Dictionary<string, string>();
+            renderer.RenderingOptions.RequestContext = IronPdf.Rendering.RequestContexts.Global;
             
-            // Apply custom cookies
-            renderer.RenderingOptions.CustomCookies = customCookies;
+            ChromeHttpLoginCredentials credentials = new ChromeHttpLoginCredentials() {
+                NetworkUsername = "testUser",
+                NetworkPassword = "testPassword"
+            };
             
-            var uri = new Uri("https://localhost:44362/invoice");
-            PdfDocument pdf = renderer.RenderUrlAsPdf(uri);
+            string uri = "http://localhost:51169/Invoice";
+            
+            // Apply cookies
+            renderer.ApplyCookies(uri, credentials);
         }
     }
 }

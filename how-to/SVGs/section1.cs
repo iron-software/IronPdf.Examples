@@ -5,13 +5,10 @@ namespace IronPdf.Examples.HowTo.SVGs
     {
         public static void Run()
         {
-            string html = "<img src='https://ironsoftware.com/img/svgs/new-banner-svg.svg' style='width:100px'>";
-            
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            renderer.RenderingOptions.WaitFor.RenderDelay(1000);
-            
-            PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
-            pdf.SaveAs("svgToPdf.pdf");
+            :title=Render an SVG to PDF in one line!
+            new IronPdf.ChromePdfRenderer { RenderingOptions = { WaitFor = IronPdf.Rendering.WaitFor.RenderDelay(1000) } }
+                .RenderHtmlAsPdf("<img src='https://example.com/logo.svg' style='width:100px;height:100px;'>")
+                .SaveAs("svgToPdf.pdf");
         }
     }
 }

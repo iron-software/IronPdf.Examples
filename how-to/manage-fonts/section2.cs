@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Collections.Generic;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.ManageFonts
 {
@@ -9,8 +9,8 @@ namespace IronPdf.Examples.HowTo.ManageFonts
             // Import PDF
             PdfDocument pdf = PdfDocument.FromFile("sample.pdf");
             
-            // Find font
-            PdfFont font = pdf.Fonts["SpecialFontName"];
+            // Retreive font
+            PdfFontCollection fonts = pdf.Fonts;
         }
     }
 }

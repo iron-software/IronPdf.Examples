@@ -5,14 +5,10 @@ namespace IronPdf.Examples.HowTo.Ironpdf2021ChromeRenderingEngineEap
     {
         public static void Run()
         {
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            renderer.RenderingOptions.CssMediaType = IronPdf.Rendering.PdfCssMediaType.Screen;
-            renderer.RenderingOptions.PrintHtmlBackgrounds = true;
-            renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
-            renderer.RenderingOptions.ViewPortWidth = 1080;  //pixels
-            
-            PdfDocument pdf = renderer.RenderUrlAsPdf("https://www.google.com/");
+            // Example for rendering a pixel-perfect PDF from HTML
+            var renderer = new IronPdf.ChromePdfRenderer();
+            var pdf = renderer.RenderHtmlAsPdf("<h1>Hello World</h1>");
+            pdf.SaveAs("HelloWorld.pdf");
         }
     }
 }

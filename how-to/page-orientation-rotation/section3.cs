@@ -1,4 +1,4 @@
-using IronPdf.Rendering;
+using System.Collections.Generic;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.PageOrientationRotation
 {
@@ -6,9 +6,19 @@ namespace IronPdf.Examples.HowTo.PageOrientationRotation
     {
         public static void Run()
         {
-            PdfDocument pdf = PdfDocument.FromFile("rotatedLandscape.pdf");
+            PdfDocument pdf = PdfDocument.FromFile("landscape.pdf");
             
-            PdfPageRotation rotation = pdf.GetPageRotation(1);
+            // Set all pages
+            pdf.SetAllPageRotations(PdfPageRotation.Clockwise90);
+            
+            // Set a single page
+            pdf.SetPageRotation(1, PdfPageRotation.Clockwise180);
+            
+            // Set multiple pages
+            List<int> selectedPages = new List<int>() { 0, 3 };
+            pdf.SetPageRotations(selectedPages, PdfPageRotation.Clockwise270);
+            
+            pdf.SaveAs("rotatedLandscape.pdf");
         }
     }
 }

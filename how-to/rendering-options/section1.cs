@@ -5,26 +5,10 @@ namespace IronPdf.Examples.HowTo.RenderingOptions
     {
         public static void Run()
         {
-            // Instantiate Renderer
-            ChromePdfRenderer renderer = new ChromePdfRenderer();
-            
-            // Configure rendering options
-            renderer.RenderingOptions.PrintHtmlBackgrounds = true;
-            renderer.RenderingOptions.HtmlHeader = new HtmlHeaderFooter()
-            {
-                HtmlFragment = "<h1>Header Content</h1>"
-            };
-            renderer.RenderingOptions.SetCustomPaperSizeinMilimeters(150, 150);
-            renderer.RenderingOptions.MarginTop = 0;
-            
-            // Markdown string
-            string md = "This is some **bold** and *italic* text.";
-            
-            // Render from markdown string
-            PdfDocument pdf = renderer.RenderMarkdownStringAsPdf(md);
-            
-            // Save the PDF
-            pdf.SaveAs("renderingOptions.pdf");
+            :title=Customize PDF output with rich RenderingOptions in one line!
+            new IronPdf.ChromePdfRenderer { RenderingOptions = { PrintHtmlBackgrounds = true, MarginTop = 0, MarginBottom = 0, CssMediaType = IronPdf.Rendering.PdfCssMediaType.Print, HtmlHeader = new IronPdf.HtmlHeaderFooter { HtmlFragment = "<div>My Header</div>" }, Language = "en-US", Timeout = 120000 } }
+                .RenderHtmlStringAsPdf("<h1>Hello Options</h1>")
+                .SaveAs("renderingOptions.pdf");
         }
     }
 }

@@ -5,11 +5,19 @@ namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
     {
         public static void Run()
         {
-            IronPdf.License.LicenseKey = "YourLicenseKey";
-            PdfDocument pdf = PdfDocument.FromFile("1.pdf");
-            PdfDocument pdf2 = PdfDocument.FromFile("2.pdf");
-            pdf.InsertPdf(pdf2, 0);
-            pdf.SaveAs("InsertIntoSpecificIndex.pdf");
+            // BatchRender.cs — Thread-safe on .NET 8+
+            using IronPdf;
+            using System.Threading.Tasks;
+            
+            var htmlSources = Directory.GetFiles("./html", "*.html");
+            var renderer    = new ChromePdfRenderer();                 // reuse 1 instance
+            
+            Parallel.ForEach(htmlSources, new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount }, file =>
+            {
+                string html = File.ReadAllText(file);
+                using PdfDocument pdf = renderer.RenderHtmlAsPdf(html);
+                pdf.SaveAs(Path.ChangeExtension(file, ".pdf"));
+            });
         }
     }
 }

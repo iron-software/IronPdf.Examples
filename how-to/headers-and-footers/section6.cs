@@ -5,20 +5,30 @@ namespace IronPdf.Examples.HowTo.HeadersAndFooters
     {
         public static void Run()
         {
+            // Instantiate renderer and create PDF
             ChromePdfRenderer renderer = new ChromePdfRenderer();
             
-            renderer.RenderingOptions.HtmlHeader = new HtmlHeaderFooter()
+            TextHeaderFooter header = new TextHeaderFooter
             {
-                HtmlFragment = @"<div style='background-color: #4285f4; color: white; padding: 15px; text-align: center;'>
-                                <h1>Example header</h1> <br>
-                                <p>Header content</p>
-                                </div>",
-                // Enable the dynamic height feature
-                MaxHeight = HtmlHeaderFooter.FragmentHeight,
+                CenterText = "This is the header!",
             };
             
-            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Main HTML content</h1>");
-            pdf.SaveAs("dynamicHeaderSize.pdf");
+            TextHeaderFooter footer = new TextHeaderFooter
+            {
+                CenterText = "This is the footer!",
+            };
+            
+            // Margin values are in mm
+            renderer.RenderingOptions.MarginRight = 30;
+            renderer.RenderingOptions.MarginLeft = 30;
+            renderer.RenderingOptions.MarginTop = 25;
+            renderer.RenderingOptions.MarginBottom = 25;
+            
+            // Add header and footer to renderer
+            renderer.RenderingOptions.TextHeader = header;
+            renderer.RenderingOptions.TextFooter = footer;
+            
+            PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
         }
     }
 }

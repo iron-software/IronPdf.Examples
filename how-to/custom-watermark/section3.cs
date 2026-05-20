@@ -14,10 +14,10 @@ namespace IronPdf.Examples.HowTo.CustomWatermark
             
             PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Watermark</h1>");
             
-            // Apply watermark on the top-right of the document
-            pdf.ApplyWatermark(watermarkHtml, 50, VerticalAlignment.Top, HorizontalAlignment.Right);
+            // Apply watermark with 45 degrees rotation and 70% opacity
+            pdf.ApplyWatermark(watermarkHtml, rotation: 45, opacity: 70);
             
-            pdf.SaveAs("watermarkLocation.pdf");
+            pdf.SaveAs("watermarkOpacity&Rotation.pdf");
         }
     }
 }
