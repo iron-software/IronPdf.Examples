@@ -5,11 +5,19 @@ namespace IronPdf.Examples.HowTo.Metadata
     {
         public static void Run()
         {
-            IronPdf.PdfDocument.FromFile("example.pdf")
-                .MetaData = new IronPdf.PdfMetaData { 
-                    Title="MyDoc", Author="Me", Subject="Demo", Keywords="ironpdf,metadata", Creator="MyApp", Producer="IronPDF", CreationDate=DateTime.Today, ModifiedDate=DateTime.Now 
-                }
-                .SaveAs("updated_example.pdf");
+            var pdf = IronPdf.PdfDocument.FromFile("example.pdf");
+
+            // MetaData is read-only; set its properties rather than replacing it.
+            pdf.MetaData.Title = "MyDoc";
+            pdf.MetaData.Author = "Me";
+            pdf.MetaData.Subject = "Demo";
+            pdf.MetaData.Keywords = "ironpdf,metadata";
+            pdf.MetaData.Creator = "MyApp";
+            pdf.MetaData.Producer = "IronPDF";
+            pdf.MetaData.CreationDate = DateTime.Today;
+            pdf.MetaData.ModifiedDate = DateTime.Now;
+
+            pdf.SaveAs("updated_example.pdf");
         }
     }
 }

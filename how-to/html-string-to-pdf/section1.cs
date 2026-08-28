@@ -5,7 +5,7 @@ namespace IronPdf.Examples.HowTo.HtmlStringToPdf
     {
         public static void Run()
         {
-            IronPdf.ChromePdfRender.StaticRenderHtmlAsPdf("<p>Hello World</p>").SaveAs("string-to-pdf.pdf");
+            IronPdf.ChromePdfRenderer.StaticRenderHtmlAsPdf("<p>Hello World</p>").SaveAs("string-to-pdf.pdf");
         }
     }
 }

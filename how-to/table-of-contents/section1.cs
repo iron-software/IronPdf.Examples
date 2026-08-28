@@ -5,7 +5,7 @@ namespace IronPdf.Examples.HowTo.TableOfContents
     {
         public static void Run()
         {
-            new ChromePdfRenderer { RenderingOptions = { CreateOutlineMaps = true, OutlineMapsFormat = TableOfContentsTypes.WithPageNumbers, FirstPageNumber = 1 } }
+            new ChromePdfRenderer { RenderingOptions = { TableOfContents = IronPdf.TableOfContentsTypes.WithPageNumbers, AutoBookmarksFromHeadings = true, FirstPageNumber = 1 } }
                 .RenderHtmlFileAsPdf("myDocument.html")
                 .SaveAs("withToc.pdf");
         }

@@ -28,7 +28,7 @@ namespace IronPdf.Examples.HowTo.AccessPdfDomObject
             
             // Apply the translation
             // This moves the object 200 points to the right and 150 points up from its original position.
-            textObject.Translate = new PointF(200, 150);
+            textObject.Translate = new System.Drawing.PointF(200, 150);
             
             // Save the modified PDF to see the "after" state
             pdf.SaveAs("AfterTranslate.pdf");

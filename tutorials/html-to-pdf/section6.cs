@@ -11,8 +11,8 @@ namespace IronPdf.Examples.Tutorial.HtmlToPdf
             // Enable JavaScript execution during PDF generation
             renderer.RenderingOptions.EnableJavaScript = true;
             
-            // WaitFor.RenderDelay pauses before capturing the HTML
-            renderer.RenderingOptions.WaitFor.RenderDelay = 500; // milliseconds
+            // WaitFor.RenderDelay is a method, not a property.
+            renderer.RenderingOptions.WaitFor.RenderDelay(500); // milliseconds
         }
     }
 }

@@ -5,7 +5,7 @@ namespace IronPdf.Examples.HowTo.PixelPerfectHtmlToPdf
     {
         public static void Run()
         {
-            IronPdf.ChromePdfRenderer.RenderHtmlAsPdf("<html><body>Hello World</body></html>").SaveAs("output.pdf");
+            new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf("<html><body>Hello World</body></html>").SaveAs("output.pdf");
         }
     }
 }

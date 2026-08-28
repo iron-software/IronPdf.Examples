@@ -22,7 +22,7 @@ namespace IronPdf.Examples.HowTo.CreateForms
             var choices = new List<string>() { "Car", "Bike", "Airplane" };
             
             // Create combobox form field
-            var comboboxForm = new ComboboxFormField(name, value, pageIndex, x, y, width, height, choices);
+            var comboboxForm = new IronSoftware.Forms.ComboboxFormField(name, value, pageIndex, x, y, width, height, choices);
             
             // Add form
             pdf.Form.Add(comboboxForm);

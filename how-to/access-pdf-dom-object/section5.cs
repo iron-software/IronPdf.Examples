@@ -23,7 +23,7 @@ namespace IronPdf.Examples.HowTo.AccessPdfDomObject
             var image = pdf.Pages.First().ObjectModel.ImageObjects.First();
             
             // We scale the image to 70% of its original size on both the X and Y axes.
-            image.Scale = new PointF(0.7f, 0.7f);
+            image.Scale = new System.Drawing.PointF(0.7f, 0.7f);
             
             // Save the modified PDF to see the result
             pdf.SaveAs("AfterScale.pdf");

@@ -6,9 +6,17 @@ namespace IronPdf.Examples.HowTo.Annotations
     {
         public static void Run()
         {
-            PdfDocument.FromFile("input.pdf")
-                .Annotations.Add(new TextAnnotation(0) { Title="Note", Contents="Review this section.", X=50, Y=700 })
-                .SaveAs("annotated.pdf");
+            var pdf = PdfDocument.FromFile("input.pdf");
+
+            // Add returns void, so it cannot be chained.
+            pdf.Annotations.Add(new IronPdf.Annotations.TextAnnotation(0)
+            {
+                Title = "Note",
+                Contents = "Review this section.",
+                X = 50,
+                Y = 700
+            });
+            pdf.SaveAs("annotated.pdf");
         }
     }
 }

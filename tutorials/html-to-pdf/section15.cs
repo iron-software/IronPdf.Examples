@@ -17,10 +17,11 @@ namespace IronPdf.Examples.Tutorial.HtmlToPdf
             // Set granular permissions for PDF format
             pdf.SecuritySettings.AllowUserCopyPasteContent = false;
             pdf.SecuritySettings.AllowUserAnnotations = false;
-            pdf.SecuritySettings.AllowUserPrinting = PrintPermissions.LowQualityPrint;
+            pdf.SecuritySettings.AllowUserPrinting = IronPdf.Security.PdfPrintSecurity.PrintLowQuality;
             
-            // Apply strong encryption to PDF documents
-            pdf.SecuritySettings.EncryptionAlgorithm = PdfEncryptionAlgorithm.AES256;
+            // Apply strong encryption to PDF documents. The property is
+            // EncryptionType and the enum is PdfEncryptionType.
+            pdf.SecuritySettings.EncryptionType = IronPdf.Security.PdfEncryptionType.Aes_256;
             pdf.SaveAs("secure-document.pdf");
         }
     }

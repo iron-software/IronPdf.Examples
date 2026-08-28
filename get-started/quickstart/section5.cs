@@ -5,7 +5,7 @@ namespace IronPdf.Examples.GettingStarted.Quickstart
     {
         public static void Run()
         {
-            IronPdf.ChromePdfRender
+            IronPdf.ChromePdfRenderer
                    .StaticRenderHtmlAsPdf("<p>Hello Word</p>")
                    .SaveAs("string-to-pdf.pdf");
         }

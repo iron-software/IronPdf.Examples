@@ -4,7 +4,7 @@ namespace IronPdf.Examples.HowTo.CsharpPrintPdf
 {
     public static class Section1
     {
-        public static void Run()
+        public static async Task Run()
         {
             // Create a new PDF and print it
             ChromePdfRenderer renderer = new ChromePdfRenderer();

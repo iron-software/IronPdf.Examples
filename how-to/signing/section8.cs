@@ -8,15 +8,15 @@ namespace IronPdf.Examples.HowTo.Signing
         {
             // Create a new PDF to add the signature field to.
             var renderer = new ChromePdfRenderer();
-            var pdf = renderer.RenderHtmlAsPdf("&lt;h1&gt;Please Sign Below&lt;/h1&gt;");
+            var pdf = renderer.RenderHtmlAsPdf("<h1>Please Sign Below</h1>");
             
             // Define the properties for the signature form field.
             string fieldName = "ClientSignature";
             int pageIndex = 0; // Add to the first page.
-            var fieldRect = new Rectangle(50, 200, 300, 100); // Position: (x, y), Size: (width, height)
-            
-            // Create the SignatureFormField object.
-            var signatureField = new SignatureFormField(fieldName, pageIndex, fieldRect);
+            // Create the SignatureFormField object. Its position and size are
+            // four numbers, not a Rectangle.
+            var signatureField = new IronSoftware.Forms.SignatureFormField(
+                fieldName, (uint)pageIndex, 50, 200, 300, 100);
             
             // Add the signature field to the PDF's form.
             pdf.Form.Add(signatureField);

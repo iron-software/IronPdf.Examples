@@ -17,11 +17,15 @@ namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
             PdfDocument mergedPdf = PdfDocument.Merge(invoice, tAndCs);               // 1-liner merge
             
             // Step 3: Apply a diagonal CONFIDENTIAL watermark to every page
-            mergedPdf.ApplyStamp(
+            // ApplyStamp takes a Stamper, and the vertical alignments are
+            // Top, Middle and Bottom.
+            mergedPdf.ApplyStamp(new IronPdf.Editing.HtmlStamper(
                 "<div style='font-size:60px;color:#d9534f;opacity:0.2;transform:rotate(-45deg);"
-              + "width:100%;text-align:center;'>CONFIDENTIAL</div>",
-                verticalAlignment   : VerticalAlignment.Center,
-                horizontalAlignment : HorizontalAlignment.Center);
+              + "width:100%;text-align:center;'>CONFIDENTIAL</div>")
+            {
+                VerticalAlignment = IronPdf.Editing.VerticalAlignment.Middle,
+                HorizontalAlignment = IronPdf.Editing.HorizontalAlignment.Center
+            });
             
             // Step 4: Extract all text and the first image for audit purposes
             string fullText = mergedPdf.ExtractAllText();

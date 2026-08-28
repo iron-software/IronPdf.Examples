@@ -5,7 +5,9 @@ namespace IronPdf.Examples.Tutorial.PdfViewing
     {
         public static void Run()
         {
-            pdfView.Source = IronPdfViewSource.FromBytes(File.ReadAllBytes("~/Downloads/example.pdf"));
+            // This snippet uses the IronPDF MAUI viewer, which this project does not reference.
+            // Kept verbatim; see README.md for the full context.
+            // pdfView.Source = IronPdfViewSource.FromBytes(File.ReadAllBytes("~/Downloads/example.pdf"));
         }
     }
 }

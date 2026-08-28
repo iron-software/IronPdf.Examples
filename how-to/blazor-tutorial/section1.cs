@@ -5,7 +5,12 @@ namespace IronPdf.Examples.HowTo.BlazorTutorial
     {
         public static void Run()
         {
-            IronPdf.HtmlToPdf.RenderHtmlAsPdf(htmlContent).SaveAs(outputPath);
+            // The docs page has these open before the snippet; declared here so
+            // the section stands on its own.
+            string htmlContent = "<h1>Hello from Blazor</h1>";
+            string outputPath = "blazor.pdf";
+
+            new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf(htmlContent).SaveAs(outputPath);
         }
     }
 }

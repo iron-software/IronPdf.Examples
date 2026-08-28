@@ -5,7 +5,7 @@ namespace IronPdf.Examples.HowTo.CsharpParsePdf
     {
         public static void Run()
         {
-            var text = IronPdf.FromFile("sample.pdf").ExtractAllText();
+            var text = IronPdf.PdfDocument.FromFile("sample.pdf").ExtractAllText();
         }
     }
 }

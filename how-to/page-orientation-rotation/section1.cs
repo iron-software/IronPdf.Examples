@@ -5,9 +5,11 @@ namespace IronPdf.Examples.HowTo.PageOrientationRotation
     {
         public static void Run()
         {
-            IronPdf.PdfDocument.FromFile("file.pdf")
-                .SetAllPageRotations(IronPdf.PdfDocument.PageRotation.Rotate90)
-                .SaveAs("rotated.pdf");
+            var pdf = IronPdf.PdfDocument.FromFile("file.pdf");
+
+            // SetAllPageRotations returns void, so it cannot be chained.
+            pdf.SetAllPageRotations(IronPdf.Rendering.PdfPageRotation.Clockwise90);
+            pdf.SaveAs("rotated.pdf");
         }
     }
 }

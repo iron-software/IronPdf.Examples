@@ -7,10 +7,14 @@ namespace IronPdf.Examples.HowTo.Ironpdf2021ChromeRenderingEngineEap
         {
             // Example of setting up RenderingOptions and HttpLoginCredentials in the new API
             var renderer = new IronPdf.ChromePdfRenderer();
-            renderer.RenderingOptions.CssMediaType = IronPdf.Rendering.CssMediaType.Screen;
-            // Set HTTP credentials if needed
-            renderer.RenderingOptions.HttpLoginCredentials.Username = "yourUsername";
-            renderer.RenderingOptions.HttpLoginCredentials.Password = "yourPassword";
+            renderer.RenderingOptions.CssMediaType = IronPdf.Rendering.PdfCssMediaType.Screen;
+
+            // Credentials belong to the renderer, not to its rendering options.
+            renderer.LoginCredentials = new IronPdf.ChromeHttpLoginCredentials
+            {
+                NetworkUsername = "yourUsername",
+                NetworkPassword = "yourPassword"
+            };
         }
     }
 }

@@ -6,7 +6,7 @@ namespace IronPdf.Examples.HowTo.LinearizePdf
         public static void Run()
         {
             var pdf = IronPdf.PdfDocument.FromFile("input.pdf");
-            pdf.SaveAsLinearized(pdf.BinaryData, "linearized.pdf");
+            pdf.SaveAsLinearized("linearized.pdf");
         }
     }
 }

@@ -10,12 +10,13 @@ namespace IronPdf.Examples.HowTo.Signing
             var pdf = PdfDocument.FromFile("invoice.pdf");
             
             // Create an HtmlStamp containing our signature image.
-            var signatureStamp = new HtmlStamp("&lt;img src='assets/signature.png'/&gt;")
+            var signatureStamp = new IronPdf.Editing.HtmlStamper("<img src='assets/signature.png'/>")
             {
                 // Configure the stamp's position and appearance.
-                VerticalAlignment = VerticalAlignment.Bottom,
-                HorizontalAlignment = HorizontalAlignment.Right,
-                Margin = 10, // Add some space from the edge.
+                VerticalAlignment = IronPdf.Editing.VerticalAlignment.Bottom,
+                HorizontalAlignment = IronPdf.Editing.HorizontalAlignment.Right,
+                VerticalOffset = new IronPdf.Editing.Length(10),
+                HorizontalOffset = new IronPdf.Editing.Length(10),
                 Opacity = 90 // Make it slightly transparent.
             };
             

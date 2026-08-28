@@ -7,9 +7,11 @@ namespace IronPdf.Examples.HowTo.RenderWebgl
         public static void Run()
         {
             IronPdf.Installation.SingleProcess = true; IronPdf.Installation.ChromeGpuMode = IronPdf.Engines.Chrome.ChromeGpuModes.Hardware;
-            new IronPdf.ChromePdfRenderer { RenderingOptions = { WaitFor = IronPdf.Rendering.WaitFor.RenderDelay(5000) } }
-                .RenderUrlAsPdf("https://example.com/webgl‑demo")
-                .SaveAs("webgl‑output.pdf");
+            var renderer = new IronPdf.ChromePdfRenderer();
+            renderer.RenderingOptions.WaitFor.RenderDelay(5000);
+
+            renderer.RenderUrlAsPdf("https://example.com/webgl-demo")
+                .SaveAs("webgl-output.pdf");
         }
     }
 }

@@ -9,11 +9,11 @@ namespace IronPdf.Examples.HowTo.Signing
             var pdf = PdfDocument.FromFile("multi_signed_report.pdf");
             
             // Verify all signatures across all revisions.
-            bool allSignaturesValid = pdf.VerifySignatures();
+            bool allSignaturesValid = pdf.VerifyPdfSignatures();
             Console.WriteLine($"All signatures are valid: {allSignaturesValid}");
             
             // Roll back to the first revision (index 0).
-            if (pdf.RevisionCount &gt; 1)
+            if (pdf.RevisionCount > 1)
             {
                 PdfDocument firstRevision = pdf.GetRevision(0);
                 firstRevision.SaveAs("report_first_revision.pdf");

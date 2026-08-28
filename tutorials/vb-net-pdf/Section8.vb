@@ -1,10 +1,8 @@
-using IronPdf;
-namespace IronPdf.Examples.GettingStarted.VbNetPdf
-{
-    public static class Section5
-    {
-        public static void Run()
-        {
+Imports IronPdf
+
+Namespace IronPdf.Examples.Tutorial.VbNetPdf
+    Module Section8
+        Public Sub Run()
             Dim pdfs = New List(Of PdfDocument)
             pdfs.Add(PdfDocument.FromFile("A.pdf"))
             pdfs.Add(PdfDocument.FromFile("B.pdf"))
@@ -15,6 +13,6 @@ namespace IronPdf.Examples.GettingStarted.VbNetPdf
             For Each pdf As PdfDocument In pdfs
                 pdf.Dispose()
             Next
-        }
-    }
-}
+        End Sub
+    End Module
+End Namespace

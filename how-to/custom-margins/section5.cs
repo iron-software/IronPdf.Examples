@@ -5,6 +5,10 @@ namespace IronPdf.Examples.HowTo.CustomMargins
     {
         public static void Run()
         {
+            // The docs page has these open before the snippet; declared here so
+            // the section stands on its own.
+            var renderer = new IronPdf.ChromePdfRenderer();
+
             // Use only the left margin from the document.
             renderer.RenderingOptions.UseMarginsOnHeaderAndFooter = UseMargins.Left;
             

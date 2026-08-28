@@ -8,20 +8,22 @@ namespace IronPdf.Examples.HowTo.Signing
         public static void Run()
         {
             // Load a PDF file with change tracking enabled.
-            var pdf = PdfDocument.FromFile("annual_census.pdf", ChangeTrackingModes.EnableChangeTracking);
+            var pdf = PdfDocument.FromFile("annual_census.pdf", TrackChanges: ChangeTrackingModes.EnableChangeTracking);
             
             // Placeholder for edits: You might add text, fill forms, or add annotations here.
             // For example: pdf.Annotations.Add(new TextAnnotation(...));
             
             // Sign the current state of the document using SignWithFile for convenience.
             // We set permissions to allow further signatures and form filling.
+            // The third positional parameter is the timestamp URL, so the
+            // permissions have to be passed by name.
             pdf.SignWithFile(
-                "assets/IronSignature.p12", 
-                "password", 
-                SignaturePermissions.AdditionalSignaturesAndFormFillingAllowed);
+                "assets/IronSignature.p12",
+                "password",
+                Permissions: SignaturePermissions.AdditionalSignaturesAndFormFillingAllowed);
             
             // Save the current state as a distinct revision within the PDF's history.
-            PdfDocument pdfWithRevision = pdf.SaveAsRevision();
+            PdfDocument pdfWithRevision = pdf.SaveAsRevision("annual_census_revision.pdf");
             
             // Save the final PDF with its full revision history to a new file.
             pdfWithRevision.SaveAs("annual_census_signed.pdf");
