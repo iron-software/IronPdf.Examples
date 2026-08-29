@@ -1,6 +1,6 @@
 # How to Rasterize a PDF to Images
 
-> Full guide: [How to Rasterize a PDF to Images](https://ironpdf.com/how-to/rasterize-pdf-to-images/)
+> Full guide: [How to Rasterize a PDF to Images](https://ironpdf.com/how-to/rasterize-pdf-to-images/?utm_source=github)
 
 
 Rasterizing a PDF involves transforming each page of the document into a static image, such as JPEG or PNG formats, where the content is depicted through pixels. This technique is beneficial for displaying PDFs, creating image previews, image-based processing, and ensuring secure, static sharing of documents.
@@ -17,7 +17,7 @@ IronPdf.PdfDocument.FromFile("input.pdf").RasterizeToImageFiles("page_*.png");
 
 ## Rasterize a PDF to Images Example
 
-The `RasterizeToImageFiles` method, found on the `PdfDocument` object, is designed for converting PDFs to images. This object can handle PDFs sourced from local files or generated from the following guides: [HTML file to PDF](https://ironpdf.com/how-to/html-file-to-pdf/), [HTML string to PDF](https://ironpdf.com/how-to/html-string-to-pdf/), and [URL to PDF](https://ironpdf.com/how-to/url-to-pdf/).
+The `RasterizeToImageFiles` method, found on the `PdfDocument` object, is designed for converting PDFs to images. This object can handle PDFs sourced from local files or generated from the following guides: [HTML file to PDF](https://ironpdf.com/how-to/html-file-to-pdf/?utm_source=github), [HTML string to PDF](https://ironpdf.com/how-to/html-string-to-pdf/?utm_source=github), and [URL to PDF](https://ironpdf.com/how-to/url-to-pdf/?utm_source=github).
 
 When calling this method, specify the file extension (.png, .jpg, .tif) through the `FileNamePattern` parameter, where the asterisk (*) will be replaced by the corresponding page numbers.
 
@@ -42,7 +42,7 @@ pdf.RasterizeToImageFiles("wikipage_*.png");
     </div>
 </div>
 
-Flatten the PDF to make forms visible in the output images by setting **Flatten** to true. To learn more about editing forms, see: "[How to Fill and Edit PDF Forms](https://ironpdf.com/how-to/edit-forms/)."
+Flatten the PDF to make forms visible in the output images by setting **Flatten** to true. To learn more about editing forms, see: "[How to Fill and Edit PDF Forms](https://ironpdf.com/how-to/edit-forms/?utm_source=github)."
 
 ### Rasterize to High-Quality Bitmap
 

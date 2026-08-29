@@ -1,6 +1,6 @@
 # IronPDF License Keys
 
-> Full guide: [IronPDF License Keys](https://ironpdf.com/get-started/license-keys/)
+> Full guide: [IronPDF License Keys](https://ironpdf.com/get-started/license-keys/?utm_source=github)
 
 ## Acquiring a License Key
 
@@ -24,7 +24,7 @@ This is compatible with any C# .NET Framework project from version 4.6.2 onwards
 
 ### Manual Installation via DLL
 
-You can also opt to download the IronPDF DLL and integrate it directly into your project or the Global Assembly Cache from [IronPDF Packages](https://ironpdf.com/packages/IronPdf.zip).
+You can also opt to download the IronPDF DLL and integrate it directly into your project or the Global Assembly Cache from [IronPDF Packages](https://ironpdf.com/packages/IronPdf.zip?utm_source=github).
 
 Include the following using directive in any `.cs` file that utilizes IronPDF:
 
@@ -64,7 +64,7 @@ Please note an ongoing issue with IronPdf versions from [2023.4.4](https://www.n
 - **ASP.NET** projects
 - **.NET Framework version >= 4.6.2**
 
-License keys in `Web.config` are not being recognized. More details can be found in the '[Setting License Key in Web.config](https://ironpdf.com/troubleshooting/license-key-web.config/)' help article.
+License keys in `Web.config` are not being recognized. More details can be found in the '[Setting License Key in Web.config](https://ironpdf.com/troubleshooting/license-key-web.config/?utm_source=github)' help article.
 
 Ensure `IronPdf.License.IsLicensed` returns `true` to confirm proper setup.
 
@@ -131,7 +131,7 @@ bool is_licensed = IronPdf.License.IsLicensed;
 
 ## Step 4: Begin Your Project
 
-Explore our guide on [Getting Started with IronPDF](https://ironpdf.com/docs/).
+Explore our guide on [Getting Started with IronPDF](https://ironpdf.com/docs/?utm_source=github).
 
 ---
 

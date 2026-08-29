@@ -1,6 +1,6 @@
 # Exporting PDF/UA Format Documents Using C# and IronPDF
 
-> Full guide: [Exporting PDF/UA Format Documents Using C# and IronPDF](https://ironpdf.com/how-to/pdfua/)
+> Full guide: [Exporting PDF/UA Format Documents Using C# and IronPDF](https://ironpdf.com/how-to/pdfua/?utm_source=github)
 
 
 IronPDF provides a simple way to create PDF documents that adhere to the PDF/UA standard, making them accessible and usable by individuals with disabilities. By embracing PDF/UA, your documents become compliant with accessibility guidelines such as those outlined in Section 508 of the Rehabilitation Act, and they become friendlier for use with assistive technologies such as screen readers.
@@ -21,7 +21,7 @@ document.SaveAsPdfUA("accessible-output.pdf");
 
 To convert a PDF into a PDF/UA compliant file, utilize the `SaveAsPdfUA` method from IronPDF. Just load your PDF file and apply this method to produce a PDF/UA version. You can specify the primary language of the document using the `naturalLanguages` argument. Below is an example PDF and the code necessary to convert it to a PDF/UA compliant document. IronPDF defaults to creating output files compliant with PDF/UA-1.
 
-Input File: [Open wikipedia.pdf](https://ironpdf.com/static-assets/pdf/how-to/pdfua/wikipedia.pdf)
+Input File: [Open wikipedia.pdf](https://ironpdf.com/static-assets/pdf/how-to/pdfua/wikipedia.pdf?utm_source=github)
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/pdfua/wikipedia.pdf#view=fit" width="100%" height="500px">
 </iframe>

@@ -1,6 +1,6 @@
 # Creating New PDF Documents
 
-> Full guide: [Creating New PDF Documents](https://ironpdf.com/how-to/create-new-pdfs/)
+> Full guide: [Creating New PDF Documents](https://ironpdf.com/how-to/create-new-pdfs/?utm_source=github)
 
 
 To start building a new PDF document from the ground up, one might use libraries such as IronPDF in C#. These tools provide developers the capability to specifically design the content, layout, and formatting, after which the file is saved in PDF format.

@@ -1,6 +1,6 @@
 # IronPDF Advanced Installation Guide
 
-> Full guide: [IronPDF Advanced Installation Guide](https://ironpdf.com/get-started/advanced-installation-nuget/)
+> Full guide: [IronPDF Advanced Installation Guide](https://ironpdf.com/get-started/advanced-installation-nuget/?utm_source=github)
 
 
 From version 2022.1 onwards, there are enhanced options for installing IronPDF tailored to specific platforms.
@@ -59,7 +59,7 @@ Optimal for minimal disk use or for applications spread across various OS. Chrom
 ![AWS Icon](https://img.icons8.com/color/72/000000/amazon-web-services.png "AWS icon")
 ![Docker Icon](https://img.icons8.com/color/72/000000/docker.png "Docker icon")
 
-Perfect for [Deploying IronPdf on Linux](https://ironpdf.com/how-to/linux/). Crafted specifically for cloud integrations; performs exceptionally on platforms like AWS & Lambda, as well as Linux-equipped Azure Functions and WebApps.
+Perfect for [Deploying IronPdf on Linux](https://ironpdf.com/get-started/linux/?utm_source=github). Crafted specifically for cloud integrations; performs exceptionally on platforms like AWS & Lambda, as well as Linux-equipped Azure Functions and WebApps.
 
 [**PM > Install-Package IronPdf.Linux**](https://www.nuget.org/packages/IronPdf.Linux/)
 [**PM > Install-Package IronPdf.Linux.ARM**](https://www.nuget.org/packages/IronPdf.Linux.ARM)
@@ -75,7 +75,7 @@ Perfect for [Deploying IronPdf on Linux](https://ironpdf.com/how-to/linux/). Cra
 ![Mac OS Icon](https://img.icons8.com/color/72/000000/mac-client.png "Mac OS icon")
 ![Nuget Icon](https://img.icons8.com/windows/72/000000/nuget.png "Nuget icon")
 
-Specialized NuGet packages for deploying [IronPdf on macOS](https://ironpdf.com/how-to/macos/)
+Specialized NuGet packages for deploying [IronPdf on macOS](https://ironpdf.com/how-to/macos/?utm_source=github)
 
 [**PM > Install-Package IronPdf.MacOs**](https://www.nuget.org/packages/IronPdf.MacOs/)
 [**PM > Install-Package IronPdf.MacOs.ARM**](https://www.nuget.org/packages/IronPdf.MacOs.ARM)
@@ -139,4 +139,4 @@ Essential for legacy customers of IronPDF, prior to August 2021, who prefer unch
 - Packages dependencies for the Windows, Linux, and Mac platforms specifically for the (legacy) WebKit renderer
 - Defaults to the legacy WebKit renderer.
 
-For upgrading to newer Chromium versions, refer to this troubleshooting resource: [IronPdf.Native.UpdatedChrome](https://ironpdf.com/troubleshooting/ironpdf-native-updated-chrome/).
+For upgrading to newer Chromium versions, refer to this troubleshooting resource: [IronPdf.Native.UpdatedChrome](https://ironpdf.com/troubleshooting/ironpdf-native-updated-chrome/?utm_source=github).

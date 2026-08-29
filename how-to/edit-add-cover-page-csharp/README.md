@@ -1,6 +1,6 @@
 # Add PDF Cover Page in C#
 
-> Docs: [IronPDF documentation](https://ironpdf.com/docs/)
+> Docs: [IronPDF documentation](https://ironpdf.com/docs/?utm_source=github)
 
 In C# PDF manipulation, occasionally the need arises to integrate a cover page into a document. This is efficiently achieved using the IronPDF library, which supports the addition of a cover page directly within the code, eliminating the need for external software and simplifying the process to just a couple of lines of code.
 
@@ -30,7 +30,7 @@ In C# PDF manipulation, occasionally the need arises to integrate a cover page i
 </div>
 <div class="col-sm-6">
 <div class="download-card">
-<a href="https://ironpdf.com/csharp-pdf.pdf" target="_blank">
+<a href="https://ironpdf.com/csharp-pdf.pdf?utm_source=github" target="_blank">
 <img style="box-shadow: none; width: 308px; height: 320px;" src="https://ironpdf.com/img/faq/pdf-in-csharp-no-button.svg" class="img-responsive learn-how-to-img">
 </a>
 </div>
@@ -108,7 +108,7 @@ As you will observe from the accompanying images, the individual PDFs serve as a
 <div class="col-sm-8">
 <h3>Explore Further</h3>
 <p>Extend your understanding by exploring the documentation provided in this and other tutorials by visiting the API Reference.</p>
-<a class="doc-link" href="https://ironpdf.com/object-reference/api/IronPdf.html" target="_blank">Discover More at IronPDF API Reference<i class="fa fa-chevron-right"></i></a>
+<a class="doc-link" href="https://ironpdf.com/object-reference/api/IronPdf.html?utm_source=github" target="_blank">Discover More at IronPDF API Reference<i class="fa fa-chevron-right"></i></a>
 </div>
 </div>
 </div>

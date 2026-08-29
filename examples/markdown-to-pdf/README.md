@@ -1,4 +1,4 @@
-> Full guide: [Markdown to PDF](https://ironpdf.com/examples/markdown-to-pdf/)
+> Full guide: [Markdown to PDF](https://ironpdf.com/examples/markdown-to-pdf/?utm_source=github)
 
 Markdown is a simple markup language that enables formatting in plain text without the need to use HTML tags. With the assistance of IronPDF, transforming Markdown to PDF is as straightforward as converting HTML or plain text documents. Using the `ChromePdfRenderer`, the conversion of Markdown material to high-quality PDF files is incredibly efficient, achievable within a few lines of code. IronPDF excels in processing either a full Markdown file or a simple string of Markdown.
 
@@ -12,4 +12,4 @@ Starting with `RenderMarkdownFileAsPdf`, pass the Markdown file through this met
 
 The final step involves saving the new PDF documents. This is done with the `SaveAs` method, allowing you to specify the destination and filename for the PDF documents.
 
-[Explore Our Guide to Convert Markdown to PDF](https://ironpdf.com/how-to/md-to-pdf/)
+[Explore Our Guide to Convert Markdown to PDF](https://ironpdf.com/how-to/md-to-pdf/?utm_source=github)

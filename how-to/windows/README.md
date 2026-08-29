@@ -1,6 +1,6 @@
 # IronPDF Compatibility with Windows on .NET Platforms
 
-> Full guide: [IronPDF Compatibility with Windows on .NET Platforms](https://ironpdf.com/get-started/windows/)
+> Full guide: [IronPDF Compatibility with Windows on .NET Platforms](https://ironpdf.com/get-started/windows/?utm_source=github)
 
 
 IronPDF is compatible with Windows 10, 11, and various versions of Windows Server across multiple .NET frameworks including .NET 8, 7, 6, Core, Standard and Framework.
@@ -18,7 +18,7 @@ We are actively working to include support for both the Core and Nano versions o
 
 Additionally, as Windows Nano Server is a more condensed form of Windows Server Core, extending support to Windows Server Core will pave the way for supporting Windows Nano Server in the future.
 
-[Resolving System.Drawing Issues on Windows Nano Server](https://ironpdf.com/troubleshooting/libcef-dll-203/)
+[Resolving System.Drawing Issues on Windows Nano Server](https://ironpdf.com/troubleshooting/libcef-dll-203/?utm_source=github)
 
 ### Comparison of Windows Server Editions
 
@@ -32,7 +32,7 @@ IronPDF's primary NuGet package depends on the [IronPDF.Native.Chrome.Windows Pa
 
 For specific runtime targets, unnecessary `/runtimes` directories (either x86 or x64) can be removed.
 
-For those interested in utilizing a newer version of the Chromium engine, please consult the following troubleshooting guide: [IronPdf.Native.UpdatedChrome](https://ironpdf.com/troubleshooting/ironpdf-native-updated-chrome/).
+For those interested in utilizing a newer version of the Chromium engine, please consult the following troubleshooting guide: [IronPdf.Native.UpdatedChrome](https://ironpdf.com/troubleshooting/ironpdf-native-updated-chrome/?utm_source=github).
 
 ## Recommended Hardware Specifications
 

@@ -1,6 +1,6 @@
 # IronPDF Offers Full macOS Support for .NET Applications
 
-> Full guide: [IronPDF Offers Full macOS Support for .NET Applications](https://ironpdf.com/how-to/macos/)
+> Full guide: [IronPDF Offers Full macOS Support for .NET Applications](https://ironpdf.com/how-to/macos/?utm_source=github)
 
 
 IronPDF has expanded its capabilities, now offering comprehensive support for macOS within .NET Standard Libraries and .NET Core applications, specifically for .NET versions 8, 7, 6, and 5.
@@ -19,9 +19,9 @@ At IronPDF, macOS support is prioritized as many of our team members, as well as
 
 Apple has transitioned from using Intel processors to its own Apple Silicon processors in Mac computers since 2020.
 
-- For Macs with Intel processors, use the [IronPDF for macOS on Intel](https://ironpdf.com/packages/IronPdf.MacOs) NuGet package.
-- For Macs with Apple Silicon processors, use the [IronPDF for macOS on Apple Silicon](https://ironpdf.com/packages/IronPdf.MacOs.ARM) NuGet package.
-- To accommodate both processor types, install both the [IronPDF for macOS on Intel](https://ironpdf.com/packages/IronPdf.MacOs) and the [IronPDF for macOS on Apple Silicon](https://ironpdf.com/packages/IronPdf.MacOs.ARM) NuGet packages.
+- For Macs with Intel processors, use the [IronPDF for macOS on Intel](https://www.nuget.org/packages/IronPdf.MacOs) NuGet package.
+- For Macs with Apple Silicon processors, use the [IronPDF for macOS on Apple Silicon](https://www.nuget.org/packages/IronPdf.MacOs.ARM) NuGet package.
+- To accommodate both processor types, install both the [IronPDF for macOS on Intel](https://www.nuget.org/packages/IronPdf.MacOs) and the [IronPDF for macOS on Apple Silicon](https://www.nuget.org/packages/IronPdf.MacOs.ARM) NuGet packages.
 
 ## Recommended Hardware Specifications
 

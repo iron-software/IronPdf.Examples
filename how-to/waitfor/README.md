@@ -1,6 +1,6 @@
 # Utilizing the WaitFor Class to Enhance C# PDF Rendering
 
-> Full guide: [Utilizing the WaitFor Class to Enhance C# PDF Rendering](https://ironpdf.com/how-to/waitfor/)
+> Full guide: [Utilizing the WaitFor Class to Enhance C# PDF Rendering](https://ironpdf.com/how-to/waitfor/?utm_source=github)
 
 
 In the process of generating PDFs, it's quite common to encounter challenges where the PDF is rendered before JavaScript assets or animations have fully loaded. This premature rendering can lead to inaccuracies in the final document. Initially, we recommended inserting a manual delay to mitigate this issue, but this method proved to be unreliable and inefficient.
@@ -28,7 +28,7 @@ The introduction of the `WaitFor` class in IronPDF offers a solution to enhance 
 - `HTML elements`: Pauses rendering until specified HTML elements are present.
 - `NetworkIdle`: Waits for a period of network inactivity before rendering.
 
-These capabilities are instrumental when working on projects that convert HTML to PDF, whether from strings, files, or URLs. Detailed coverage of these features is found in our documentation for [HTML strings to PDF](https://ironpdf.com/how-to/html-string-to-pdf/), [HTML files to PDF](https://ironpdf.com/how-to/html-file-to-pdf/), and [web URLs to PDF](https://ironpdf.com/how-to/url-to-pdf/).
+These capabilities are instrumental when working on projects that convert HTML to PDF, whether from strings, files, or URLs. Detailed coverage of these features is found in our documentation for [HTML strings to PDF](https://ironpdf.com/how-to/html-string-to-pdf/?utm_source=github), [HTML files to PDF](https://ironpdf.com/how-to/html-file-to-pdf/?utm_source=github), and [web URLs to PDF](https://ironpdf.com/how-to/url-to-pdf/?utm_source=github).
 
 ## Default Immediate Rendering Example
 
@@ -171,4 +171,4 @@ var configuredPdfDocument = pdfRenderer.RenderHtmlAsPdf("<h1>configured test</h1
 
 The methods like `JavaScript`, `NetworkIdle`, among others, also support setting a maximum waiting time, ensuring that the rendering process does not wait indefinitely.
 
-For further exploration, check out our guide here: [Additional Features](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/).
+For further exploration, check out our guide here: [Additional Features](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/?utm_source=github).

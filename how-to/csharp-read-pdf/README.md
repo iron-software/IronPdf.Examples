@@ -1,6 +1,6 @@
 # C# Read PDF Guide
 
-> Full guide: [C# Read PDF Guide](https://ironpdf.com/examples/reading-pdf-text/)
+> Full guide: [C# Read PDF Guide](https://ironpdf.com/examples/reading-pdf-text/?utm_source=github)
 
 In this session, we'll explore a straightforward approach to reading PDF files and extracting texts while preserving their format. This technique can be applied to both entire documents or specific pages within your C# application.
 
@@ -55,7 +55,7 @@ Using a simple C# Form, we demonstrate the output obtained from reading the PDF 
 <div class="content-img-align-center">
 <h3>~ PDF ~</h3>
 <div class="center-image-wrapper">
-<a rel="nofollow" href="https://ironpdf.com/img/faq/csharp-read-pdf/csharp-read-pdf4.png" target="_blank">
+<a rel="nofollow" href="https://ironpdf.com/img/faq/csharp-read-pdf/csharp-read-pdf4.png?utm_source=github" target="_blank">
 <img src="https://ironpdf.com/img/faq/csharp-read-pdf/csharp-read-pdf4.png" alt="" class="img-responsive add-shadow">
 </a>
 </div>
@@ -65,7 +65,7 @@ Using a simple C# Form, we demonstrate the output obtained from reading the PDF 
 <div class="content-img-align-center">
 <h3>~ C# Form ~</h3>
 <div class="center-image-wrapper">
-<a rel="nofollow" href="https://ironpdf.com/img/faq/csharp-read-pdf/csharp-read-pdf5.png" target="_blank">
+<a rel="nofollow" href="https://ironpdf.com/img/faq/csharp-read-pdf/csharp-read-pdf5.png?utm_source=github" target="_blank">
 <img src="https://ironpdf.com/img/faq/csharp-read-pdf/csharp-read-pdf5.png" alt="" class="img-responsive add-shadow">
 </a>
 </div>
@@ -86,7 +86,7 @@ Using a simple C# Form, we demonstrate the output obtained from reading the PDF 
     <div class="col-sm-8">
       <h3>Access Library Documentation</h3>
       <p>Explore and utilize the comprehensive API Reference Documentation for the IronPDF library.</p>
-      <a class="doc-link" href="https://ironpdf.com/object-reference/api/IronPdf.html" target="_blank">IronPDF API Reference Documentation <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironpdf.com/object-reference/api/IronPdf.html?utm_source=github" target="_blank">IronPDF API Reference Documentation <i class="fa fa-chevron-right"></i></a>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 # Creating a Table of Contents
 
-> Full guide: [Creating a Table of Contents](https://ironpdf.com/how-to/table-of-contents/)
+> Full guide: [Creating a Table of Contents](https://ironpdf.com/how-to/table-of-contents/?utm_source=github)
 
 
 A table of contents (TOC) serves as a navigational guide, outlining the major sections or chapters of a PDF document with corresponding page numbers. Positioned usually at the beginning of the document, it enables readers to quickly locate and jump to specific sections, enhancing accessibility to vital information.
@@ -21,7 +21,7 @@ IronPDF enables the insertion of a table of contents into your PDF via the `Tabl
 - WithPageNumbers: Generates a table of contents that includes page numbers.
 
 The table of contents is constructed using JavaScript, which requires JavaScript support to be enabled on the rendering engine. For a practical demonstration, download the example HTML file:
-- [Download the sample HTML file](https://ironpdf.com/static-assets/pdf/how-to/table-of-contents/tableOfContent.html)
+- [Download the sample HTML file](https://ironpdf.com/static-assets/pdf/how-to/table-of-contents/tableOfContent.html?utm_source=github)
 
 ### Coding Example
 
@@ -71,7 +71,7 @@ Note that using the `Merge` function can disrupt the hyperlinks in the table of 
 Styling options for the table of contents are comprehensive, affecting different elements through CSS:
 
 - For general TOC styling, download the provided CSS file:
-  [Download the custom CSS file](https://ironpdf.com/static-assets/pdf/how-to/table-of-contents/custom.css)
+  [Download the custom CSS file](https://ironpdf.com/static-assets/pdf/how-to/table-of-contents/custom.css?utm_source=github)
 
 - Avoid altering the `page-break-before` and `page-break-after` to ensure accurate page numbering.
 
@@ -135,7 +135,7 @@ Modify font settings using CSS for title and page number fields:
 }
 ```
 
-- [Download the Lemon font](https://ironpdf.com/static-assets/pdf/how-to/table-of-contents/Lemon-Regular.ttf)
+- [Download the Lemon font](https://ironpdf.com/static-assets/pdf/how-to/table-of-contents/Lemon-Regular.ttf?utm_source=github)
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -176,4 +176,4 @@ Eliminate the dotted line styling between headers and page numbers by modifying 
     </div>
 </div>
 
-Explore more capabilities by visiting [Convert PDFs tutorial page](https://ironpdf.com/tutorials/convert-pdf/).
+Explore more capabilities by visiting [Convert PDFs tutorial page](https://ironpdf.com/tutorials/convert-pdf/?utm_source=github).

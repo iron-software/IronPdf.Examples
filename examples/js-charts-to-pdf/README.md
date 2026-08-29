@@ -1,4 +1,4 @@
-> Full guide: [JS charts to PDF](https://ironpdf.com/examples/js-charts-to-pdf/)
+> Full guide: [JS charts to PDF](https://ironpdf.com/examples/js-charts-to-pdf/?utm_source=github)
 
 IronPDF converts HTML to PDF with full JavaScript rendering, which covers graphic components such as canvas and charts, including 3D visualizations and complex polygons.
 
@@ -18,4 +18,4 @@ Following setups, the HTML content is transformed into a PDF using the `RenderHt
 
 The final step involves saving the newly created PDF document with the `SaveAs` method, enabling you to secure a PDF file that incorporates a dynamically rendered chart using HTML and JavaScript.
 
-For more on JavaScript-to-PDF conversion, see [How to Convert JavaScript to PDF with IronPDF](https://ironpdf.com/how-to/javascript-to-pdf/).
+For more on JavaScript-to-PDF conversion, see [How to Convert JavaScript to PDF with IronPDF](https://ironpdf.com/how-to/javascript-to-pdf/?utm_source=github).

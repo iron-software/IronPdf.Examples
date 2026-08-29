@@ -1,6 +1,6 @@
-> Full guide: [Using HTML to create a PDF](https://ironpdf.com/examples/using-html-to-create-a-pdf/)
+> Full guide: [Using HTML to create a PDF](https://ironpdf.com/examples/using-html-to-create-a-pdf/?utm_source=github)
 
-IronPDF allows you to create brand new PDF files from simple HTML strings within your .NET applications, supporting languages like C#, F#, and VB.NET. Utilizing the `ChromePdfRenderer` class ensures that the PDF documents rendered from HTML strings are [pixel-perfect](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/). IronPDF's [HTML to PDF conversion](https://ironpdf.com/tutorials/html-to-pdf/) capabilities enable the creation of high-quality PDF documents that meet specific requirements.
+IronPDF allows you to create brand new PDF files from simple HTML strings within your .NET applications, supporting languages like C#, F#, and VB.NET. Utilizing the `ChromePdfRenderer` class ensures that the PDF documents rendered from HTML strings are [pixel-perfect](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/?utm_source=github). IronPDF's [HTML to PDF conversion](https://ironpdf.com/tutorials/html-to-pdf/?utm_source=github) capabilities enable the creation of high-quality PDF documents that meet specific requirements.
 
 Here are the four steps to convert an HTML string into a PDF:
 
@@ -17,4 +17,4 @@ The example shows how to instantiate the `ChromePdfRenderer`, which manages the 
 
 For more complex scenarios, IronPDF can process HTML content with external resources like images, CSS, and JavaScript. By employing the `BasePath` parameter, you can specify the directory containing these resources. The final PDF, inclusive of the external assets, is saved using the same `SaveAs` method. This example showcases IronPDF's capability to efficiently generate PDFs from both straightforward and intricate HTML content programmatically.
 
-For further guidance on converting HTML strings to PDFs in C#, visit [Learn to Convert HTML Strings to PDF in C# with IronPDF](https://ironpdf.com/how-to/html-string-to-pdf/).
+For further guidance on converting HTML strings to PDFs in C#, visit [Learn to Convert HTML Strings to PDF in C# with IronPDF](https://ironpdf.com/how-to/html-string-to-pdf/?utm_source=github).

@@ -1,6 +1,6 @@
 # How to Set Custom Margins
 
-> Full guide: [How to Set Custom Margins](https://ironpdf.com/how-to/custom-margins/)
+> Full guide: [How to Set Custom Margins](https://ironpdf.com/how-to/custom-margins/?utm_source=github)
 
 
 Creating documents with specific margin requirements is a common task, whether for academic formats like MLA and APA which specify 1-inch margins or for university dissertations that may require 1.5-inch margins.
@@ -74,7 +74,7 @@ Initially, `RenderingOptions` set margins do not impact headers and footers. To 
 renderer.RenderingOptions.UseMarginsOnHeaderAndFooter = UseMargins.All;
 ```
 
-You can also specify targeted margins for headers and footers, as elucidated in our [detailed API Reference](https://ironpdf.com/object-reference/api/IronPdf.UseMargins.html). Here are some configurations for selective margin applications:
+You can also specify targeted margins for headers and footers, as elucidated in our [detailed API Reference](https://ironpdf.com/object-reference/api/IronPdf.UseMargins.html?utm_source=github). Here are some configurations for selective margin applications:
 
 ```csharp
 // Apply only the left margin in headers and footers.

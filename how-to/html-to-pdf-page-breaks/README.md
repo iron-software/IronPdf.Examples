@@ -1,6 +1,6 @@
 # Managing Page Breaks in HTML PDF Conversion
 
-> Full guide: [Managing Page Breaks in HTML PDF Conversion](https://ironpdf.com/how-to/html-to-pdf-page-breaks/)
+> Full guide: [Managing Page Breaks in HTML PDF Conversion](https://ironpdf.com/how-to/html-to-pdf-page-breaks/?utm_source=github)
 
 
 IronPDF facilitates the integration of page breaks within PDF documents. Unlike HTML documents which display content in a continuous scroll format, PDF files are structured into multiple pages suitable for printing.

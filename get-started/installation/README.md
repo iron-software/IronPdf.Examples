@@ -1,9 +1,9 @@
 # Setting Up IronPDF in Your .NET Project
 
-> Full guide: [Setting Up IronPDF in Your .NET Project](https://ironpdf.com/get-started/windows/)
+> Full guide: [Setting Up IronPDF in Your .NET Project](https://ironpdf.com/get-started/windows/?utm_source=github)
 
 
-Incorporate the [C# PDF Library](https://ironpdf.com/use-case/csharp-pdf-libraries/) in under five minutes.
+Incorporate the [C# PDF Library](https://ironpdf.com/use-case/csharp-pdf-libraries/?utm_source=github) in under five minutes.
 
 Our no-cost development version is accessible through both NuGet and direct download. By following this guide, you will integrate IronPDF into your .NET project using Visual Studio and commence converting HTML to PDF smoothly.
 
@@ -21,7 +21,7 @@ Our no-cost development version is accessible through both NuGet and direct down
   </div>
   <div class="col-sm-6">
     <div class="download-card">
-      <a href="https://ironpdf.com/csharp-pdf.pdf" target="_blank">
+      <a href="https://ironpdf.com/csharp-pdf.pdf?utm_source=github" target="_blank">
         <img src="https://ironpdf.com/img/faq/pdf-in-csharp-no-button.svg" style="box-shadow: none; width: 308px; height: 320px;" class="img-responsive learn-how-to-img">
       </a>
     </div>
@@ -44,7 +44,7 @@ Follow these steps inside Visual Studio to include the [IronPDF NuGet package](h
 /Install-Package IronPdf
 ```
 
-IronPDF also offers specific NuGet Packages for [Mac](https://ironpdf.com/how-to/macos/), [Linux](https://ironpdf.com/how-to/linux/), [Azure](https://ironpdf.com/how-to/azure/), [Docker](https://ironpdf.com/get-started/ironpdf-docker/) and AWS. Refer to our [advanced NuGet installation instructions](https://ironpdf.com/get-started/advanced-installation-nuget/).
+IronPDF also offers specific NuGet Packages for [Mac](https://ironpdf.com/how-to/macos/?utm_source=github), [Linux](https://ironpdf.com/get-started/linux/?utm_source=github), [Azure](https://ironpdf.com/get-started/azure/?utm_source=github), [Docker](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github) and AWS. Refer to our [advanced NuGet installation instructions](https://ironpdf.com/get-started/advanced-installation-nuget/?utm_source=github).
 
 <hr class="separator">
 
@@ -52,18 +52,18 @@ IronPDF also offers specific NuGet Packages for [Mac](https://ironpdf.com/how-to
 
 Alternatively, you can manually download and configure IronPDF as follows:
 
-1. Download the [IronPDF DLL package](https://ironpdf.com/packages/IronPdf.zip) for Windows and unzip it to a folder like ~/Libs in your Solution directory.
+1. Download the [IronPDF DLL package](https://ironpdf.com/packages/IronPdf.zip?utm_source=github) for Windows and unzip it to a folder like ~/Libs in your Solution directory.
 2. Navigate to 'Dependencies' in Solution Explorer on Visual Studio, right-click, select 'Add Project Reference', then Browse and add the DLLs from the unzipped folder.
 
 Explore IronPDF DLL zip packages for various platforms.
 
-- [Windows](https://ironpdf.com/packages/IronPdf.zip)
-- [Linux](https://ironpdf.com/packages/IronPdf.Linux.zip)
-- [MacOS](https://ironpdf.com/packages/IronPdf.MacOs.zip)
+- [Windows](https://ironpdf.com/packages/IronPdf.zip?utm_source=github)
+- [Linux](https://ironpdf.com/packages/IronPdf.Linux.zip?utm_source=github)
+- [MacOS](https://ironpdf.com/packages/IronPdf.MacOs.zip?utm_source=github)
 
 ### Implement License Key
 
-Early in your application, typically at startup, include your license key using the following code snippet or refer to the '[License Keys Guidelines](https://ironpdf.com/get-started/license-keys/)' for alternative methods.
+Early in your application, typically at startup, include your license key using the following code snippet or refer to the '[License Keys Guidelines](https://ironpdf.com/get-started/license-keys/?utm_source=github)' for alternative methods.
 
 ```csharp
 IronPdf.License.LicenseKey = "YOUR-IRONPDF-LICENSE-KEY";
@@ -88,7 +88,7 @@ To set the permissions:
 
 ## 3. Define the Installation Path
 
-Deploy the necessary components for [HTML to PDF conversion](https://ironpdf.com/tutorials/html-to-pdf/). IronPDF uses Chromium safely for this operation, which is set up automatically. However, if a "failed rendering" error occurs, specify an alternate path for unpacking the browser binaries like the Temp directory.
+Deploy the necessary components for [HTML to PDF conversion](https://ironpdf.com/tutorials/html-to-pdf/?utm_source=github). IronPDF uses Chromium safely for this operation, which is set up automatically. However, if a "failed rendering" error occurs, specify an alternate path for unpacking the browser binaries like the Temp directory.
 
 #### Specify `IronPdf.Installation.TempFolderPath`
 

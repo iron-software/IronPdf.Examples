@@ -1,6 +1,6 @@
 # Utilizing IronPDF in a Remote Container
 
-> Full guide: [Utilizing IronPDF in a Remote Container](https://ironpdf.com/get-started/ironpdfengine-docker/)
+> Full guide: [Utilizing IronPDF in a Remote Container](https://ironpdf.com/get-started/ironpdfengine-docker/?utm_source=github)
 
 The IronPdfEngine serves as an independent service capable of managing PDF creation, modification, and reading activities. The IronPDF Docker configuration is prepared to deploy with versions of IronPDF (v2023.2.x and higher), facilitating the resolution of any deployment challenges developers might face with IronPDF.
 
@@ -226,7 +226,7 @@ document.Dispose();
 
 ### Preparation Steps
 
-* Begin by accessing the previously outlined steps for pulling the IronPdfEngine Docker image in the ["Setup IronPDF for Docker Container"](https://ironsoftware.com/csharp/ocr/docs/setup-ironpdf-for-docker-container/) section.
+* Begin by accessing the previously outlined steps for pulling the IronPdfEngine Docker image in the ["Setup IronPDF for Docker Container"](https://ironpdf.com/get-started/ironpdfengine-docker/?utm_source=github) section.
 * Ensure you're equipped with an active AWS account capable of managing ECS.
 
 ### Configuration Guide
@@ -257,7 +257,7 @@ document.Dispose();
 
 ### Post-Deployment Tips
 
-Make use of your now operational IronPdfEngine in AWS and consider how to scale based on your specific workload and demand, keeping in mind that IronPdfEngine currently does not support horizontal scaling. More details on this limitation can be found on the [IronPdfEngine Limitation page](https://ironsoftware.com/csharp/ocr/docs/get-started/ironpdfengine/#anchor-ironpdfengine-limitation).
+Make use of your now operational IronPdfEngine in AWS and consider how to scale based on your specific workload and demand, keeping in mind that IronPdfEngine currently does not support horizontal scaling. More details on this limitation can be found on the [IronPdfEngine Limitation page](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github-limitation).
 
 This setup allows your applications with PDF processing capabilities directly within your AWS infrastructure.
 
@@ -265,7 +265,7 @@ This setup allows your applications with PDF processing capabilities directly wi
 
 ### Prerequisites
 
-Before diving into the setup, ensure that you have the IronPdfEngine Docker image already pulled. Refer to the earlier section titled [Setup IronPDF for Docker Container](https://ironsoftware.com/get-started/ironpdfengine/#anchor-setup-ironpdf-for-docker-container) for instructions on how to do this. Additionally, you will need an active Azure Account.
+Before diving into the setup, ensure that you have the IronPdfEngine Docker image already pulled. Refer to the earlier section titled [Setup IronPDF for Docker Container](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github) for instructions on how to do this. Additionally, you will need an active Azure Account.
 
 ### Configuration Steps
 
@@ -281,7 +281,7 @@ Before diving into the setup, ensure that you have the IronPdfEngine Docker imag
 
 2. **Completion**: Once configuration is complete, your IronPdfEngine should be operational within your newly setup Azure Container Instances.
 
-Note: Azure Container Instances do not support horizontal scaling. Limitations are detailed further in the [IronPdfEngine Limitation](https://ironsoftware.com/get-started/ironpdfengine/#anchor-ironpdfengine-limitation) documentation.
+Note: Azure Container Instances do not support horizontal scaling. Limitations are detailed further in the [IronPdfEngine Limitation](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github) documentation.
 
 ## Accessing IronPdfEngine in AWS ECR Public Gallery
 
@@ -310,7 +310,7 @@ docker pull https://gallery.ecr.aws/v1m9w8y1/ironpdfengine:2023.12.6
 docker run -d -p 33350:33350 ironsoftwareofficial/ironpdfengine
 ```
 
-For guidance on configuring the IronPdf client to work with IronPdfEngine, refer to the section "Update the Code to Use IronPdfEngine" on [this page](https://ironsoftware.com/csharp/pdf/docs/questions/get-started/ironpdfengine/#anchor-ironpdfengine).
+For guidance on configuring the IronPdf client to work with IronPdfEngine, refer to the section "Update the Code to Use IronPdfEngine" on [this page](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github).
 
 ## Access IronPdfEngine via Online Marketplaces
 

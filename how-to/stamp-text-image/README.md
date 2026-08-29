@@ -1,6 +1,6 @@
 # How to Overlay Text & Image on PDFs
 
-> Full guide: [How to Overlay Text & Image on PDFs](https://ironpdf.com/how-to/stamp-text-image/)
+> Full guide: [How to Overlay Text & Image on PDFs](https://ironpdf.com/how-to/stamp-text-image/?utm_source=github)
 
 
 Overlaying text and images on an existing PDF is known as stamping. This process involves adding additional content, such as text, images, or both, which are commonly used for annotations, watermarks, labels, or information.

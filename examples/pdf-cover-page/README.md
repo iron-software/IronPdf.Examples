@@ -1,4 +1,4 @@
-> Full guide: [PDF cover page](https://ironpdf.com/examples/pdf-cover-page/)
+> Full guide: [PDF cover page](https://ironpdf.com/examples/pdf-cover-page/?utm_source=github)
 
 Improving the aesthetic appeal of PDF documents can often be achieved by including a visually engaging cover page. This not only enhances the look of your PDF but also provides an excellent opportunity to feature your branding or capture the attention of your readers. IronPDF simplifies the process of adding cover pages to PDF documents, allowing developers to perform this task with minimal code via its merging capabilities.
 
@@ -12,4 +12,4 @@ We then proceed to generate our primary PDF document. In this example, it is cre
 
 The final phase involves merging the cover page with the main PDF document. This can be done with the command `InsertPdf(cover, 0)`, which places the cover at the very start of the PDF document. At this point, the variable `pdf` refers to a unified PDF file that includes both the initial cover and the main contents. Lastly, the `SaveAs` method is employed to save the final integrated PDF to a predetermined location.
 
-[Learn to Create a Table of Contents in Your PDFs](https://ironpdf.com/how-to/table-of-contents/)
+[Learn to Create a Table of Contents in Your PDFs](https://ironpdf.com/how-to/table-of-contents/?utm_source=github)

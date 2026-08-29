@@ -1,6 +1,6 @@
 # C# PDF Parser
 
-> Full guide: [C# PDF Parser](https://ironpdf.com/how-to/csharp-parse-pdf/)
+> Full guide: [C# PDF Parser](https://ironpdf.com/how-to/csharp-parse-pdf/?utm_source=github)
 
 
 This guide walks through parsing PDF files from C# with IronPDF.
@@ -40,7 +40,7 @@ To demonstrate the output of the parsed PDF content, we utilize a C# Form. The d
 <center>
 <h3>~ PDF ~</h3>
 <div class="center-image-wrapper">
-<a rel="nofollow" href="https://ironpdf.com/img/faq/csharp-parse-pdf/csharp-parse-pdf4.png" target="_blank">
+<a rel="nofollow" href="https://ironpdf.com/img/faq/csharp-parse-pdf/csharp-parse-pdf4.png?utm_source=github" target="_blank">
 <img src="https://ironpdf.com/img/faq/csharp-parse-pdf/csharp-parse-pdf4.png" alt="" class="img-responsive add-shadow">
 </a>
 </div>
@@ -50,7 +50,7 @@ To demonstrate the output of the parsed PDF content, we utilize a C# Form. The d
 <center>
 <h3>~ C# Form ~</h3>
 <div class="center-image-wrapper">
-<a rel="nofollow" href="https://ironpdf.com/img/faq/csharp-parse-pdf/csharp-parse-pdf5.png" target="_blank">
+<a rel="nofollow" href="https://ironpdf.com/img/faq/csharp-parse-pdf/csharp-parse-pdf5.png?utm_source=github" target="_blank">
 <img src="https://ironpdf.com/img/faq/csharp-parse-pdf/csharp-parse-pdf5.png" alt="" class="img-responsive add-shadow">
 </a>
 </div>
@@ -71,9 +71,9 @@ To demonstrate the output of the parsed PDF content, we utilize a C# Form. The d
     <div class="col-sm-8">
       <h3>Documentation</h3>
       <p>Explore the comprehensive API Reference to learn more about IronPDF and its extensive features.</p>
-      <a class="doc-link" href="https://ironpdf.com/object-reference/api/IronPdf.html" target="_blank"> Documentation <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironpdf.com/object-reference/api/IronPdf.html?utm_source=github" target="_blank"> Documentation <i class="fa fa-chevron-right"></i></a>
       </div>
   </div>
 </div>
 
-Ready to explore more? Visit our tutorial page here: [Edit PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/)
+Ready to explore more? Visit our tutorial page here: [Edit PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github)

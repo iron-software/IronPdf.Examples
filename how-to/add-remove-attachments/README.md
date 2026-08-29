@@ -1,6 +1,6 @@
 # Managing PDF Attachments with IronPDF
 
-> Full guide: [Managing PDF Attachments with IronPDF](https://ironpdf.com/how-to/add-remove-attachments/)
+> Full guide: [Managing PDF Attachments with IronPDF](https://ironpdf.com/how-to/add-remove-attachments/?utm_source=github)
 
 
 Attachments in a PDF are additional files or data stored within the PDF, separate from the main content which typically displays text, images, and formatting. These added files might be in the form of images, document files, spreadsheets, among others. They are particularly useful for including extraneous data or reference materials directly within a PDF.
@@ -89,4 +89,4 @@ After deletion, when you open the PDF, the attachment will be absent, demonstrat
 
 ![Removed Attachment Preview](https://ironpdf.com/static-assets/pdf/how-to/add-remove-attachments/removeattachment-example.png)
 
-Explore more capabilities of managing PDFs by visiting the tutorial page here: [Guide to Organizing PDFs](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/).
+Explore more capabilities of managing PDFs by visiting the tutorial page here: [Guide to Organizing PDFs](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/?utm_source=github).

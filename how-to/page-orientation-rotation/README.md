@@ -1,6 +1,6 @@
 # Setting Page Orientation and Rotation
 
-> Full guide: [Setting Page Orientation and Rotation](https://ironpdf.com/how-to/page-orientation-rotation/)
+> Full guide: [Setting Page Orientation and Rotation](https://ironpdf.com/how-to/page-orientation-rotation/?utm_source=github)
 
 
 Page orientation indicates the layout direction of a page—portrait, which is vertical, or landscape, which is horizontal.

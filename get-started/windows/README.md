@@ -1,6 +1,6 @@
 # Utilizing IronPDF for .NET on Windows Platforms
 
-> Full guide: [Utilizing IronPDF for .NET on Windows Platforms](https://ironpdf.com/get-started/windows/)
+> Full guide: [Utilizing IronPDF for .NET on Windows Platforms](https://ironpdf.com/get-started/windows/?utm_source=github)
 
 
 IronPDF is fully compatible with Windows 10, 11, and Windows Server across .NET 8, 7, 6, Core, .NET Standard, and .NET Framework versions.
@@ -21,7 +21,7 @@ Efforts are ongoing to provide support for both Core and Nano versions of Window
 Full support for Windows Server Core will be the precursor to support for Windows Nano Server.
 
 Windows Nano Server and Server Core on .NET 6 lack support for `System.Drawing`.  
-For more insights, visit [our troubleshooting page](https://ironpdf.com/troubleshooting/libcef-dll-203/).
+For more insights, visit [our troubleshooting page](https://ironpdf.com/troubleshooting/libcef-dll-203/?utm_source=github).
 
 ### Alternatives for Unsupported Windows Versions: IronPDF Engine Mode
 
@@ -63,13 +63,13 @@ The primary IronPdf package relies on [IronPdf.Native.Chrome.Windows](https://ww
 
 For projects requiring offline capability:
 
-- [Download IronPdf.dll here](https://ironpdf.com/packages/IronPdf.zip)
+- [Download IronPdf.dll here](https://ironpdf.com/packages/IronPdf.zip?utm_source=github)
 
 **Installer Availability**
 
 For those preferring a more graphical setup via Visual Studio:
 
-- [Get the IronPdf Installer](https://ironpdf.com/packages/IronPdfInstaller.zip)
+- [Get the IronPdf Installer](https://ironpdf.com/packages/IronPdfInstaller.zip?utm_source=github)
 
 ## Recommended Hardware Specifications
 

@@ -1,4 +1,4 @@
-> Full guide: [C# replace text in PDF](https://ironpdf.com/examples/csharp-replace-text-in-pdf/)
+> Full guide: [C# replace text in PDF](https://ironpdf.com/examples/csharp-replace-text-in-pdf/?utm_source=github)
 
 IronPDF provides the functionality to search for and modify text within PDF files.
 
@@ -14,4 +14,4 @@ Follow these straightforward steps to manipulate text within your PDF documents 
 
 The sequence demonstrates the process of text replacement in a PDF document utilizing the IronPDF library in C#. To start, ensure that the IronPDF library is incorporated into your project via NuGet. Access the required PDF with the `FromFile` method, modify the desired text on the targeted page through `ReplaceTextOnPage`, and record the updates in a new PDF file using `SaveAs`. Confirm the successful update with a completion message.
 
-For further insights and guidance on modifying text in PDF files with IronPDF, explore more at [Learn to Find & Replace Text in PDFs with IronPDF](https://ironpdf.com/how-to/find-replace-text/).
+For further insights and guidance on modifying text in PDF files with IronPDF, explore more at [Learn to Find & Replace Text in PDFs with IronPDF](https://ironpdf.com/how-to/find-replace-text/?utm_source=github).

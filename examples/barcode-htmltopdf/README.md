@@ -1,4 +1,4 @@
-> Full guide: [Barcode htmltopdf](https://ironpdf.com/examples/barcode-htmltopdf/)
+> Full guide: [Barcode htmltopdf](https://ironpdf.com/examples/barcode-htmltopdf/?utm_source=github)
 
 IronPDF extends its functionality by not only supporting a wide variety of custom fonts, like those from Google Fonts, but also by enabling the embedding of barcodes into PDF documents. This feature greatly simplifies the process for developers to incorporate barcode data into their PDF outputs.
 
@@ -10,6 +10,6 @@ The next step involves constructing your barcode display. For illustration, cons
 
 After rendering the HTML, create a barcode stamp, which in this example will display "Hello World" using the Code39 barcode format, and apply this stamp to the PDF with the `ApplyStamp` method.
 
-Conclude the operation by saving your newly created PDF file as "bc-test.pdf" with the `SaveAs` method. This method furnishes an effective way to combine styled text and barcode data into a single document in your C# applications. It's important to note that certain barcode types, like QR Codes, may not be directly supported. For these types, it is advisable to use [IronBarcode](https://ironsoftware.com/csharp/barcode/) to create the barcode or QR Code and then integrate it as an image into the PDF.
+Conclude the operation by saving your newly created PDF file as "bc-test.pdf" with the `SaveAs` method. This method furnishes an effective way to combine styled text and barcode data into a single document in your C# applications. It's important to note that certain barcode types, like QR Codes, may not be directly supported. For these types, it is advisable to use [IronBarcode](https://ironsoftware.com/csharp/barcode/?utm_source=github) to create the barcode or QR Code and then integrate it as an image into the PDF.
 
-[Discover how to incorporate images into PDFs using IronPDF](https://ironpdf.com/how-to/add-images-to-pdfs/)
+[Discover how to incorporate images into PDFs using IronPDF](https://ironpdf.com/how-to/add-images-to-pdfs/?utm_source=github)

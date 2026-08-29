@@ -1,7 +1,7 @@
-> Full guide: [Annotations](https://ironpdf.com/examples/annotations/)
+> Full guide: [Annotations](https://ironpdf.com/examples/annotations/?utm_source=github)
 
 <div class="alert alert-info iron-variant-1" role="alert">
-Your organization might be overspending on annual subscriptions for PDF security and compliance tools. A viable alternative is <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>, which offers a comprehensive suite of services for managing SaaS operations such as digital signing, redaction, encryption, and security on a one-time payment model. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Check out IronSecureDoc Documentation</a>
+Your organization might be overspending on annual subscriptions for PDF security and compliance tools. A viable alternative is <a href="https://ironsoftware.com/enterprise/securedoc/?utm_source=github">IronSecureDoc</a>, which offers a comprehensive suite of services for managing SaaS operations such as digital signing, redaction, encryption, and security on a one-time payment model. <a href="https://ironsoftware.com/enterprise/securedoc/docs/?utm_source=github">Check out IronSecureDoc Documentation</a>
 </div>
 
 Adding annotations to PDF files can be likened to attaching "sticky note"-like comments to the pages of a document. The `IronPDF.PdfDocument.AddTextAnnotation` method partnered with the `PdfDocument.TextAnnotation` class allows the programmatic addition of annotations. Features such as text color, size, opacity, icons, and the ability to edit are all supported within these advanced text annotation capabilities.
@@ -17,4 +17,4 @@ Adding annotations to PDF files can be likened to attaching "sticky note"-like c
 </ol>
 </div>
 
-<a href="https://ironpdf.com/how-to/annotations/" class="code_content__related-link__doc-cta-link">Learn More About Adding Annotations to PDFs Using IronPDF</a>
+<a href="https://ironpdf.com/how-to/annotations/?utm_source=github" class="code_content__related-link__doc-cta-link">Learn More About Adding Annotations to PDFs Using IronPDF</a>

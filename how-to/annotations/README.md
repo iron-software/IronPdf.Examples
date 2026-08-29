@@ -1,10 +1,10 @@
 # How to Add and Edit PDF Annotations
 
-> Full guide: [How to Add and Edit PDF Annotations](https://ironpdf.com/how-to/annotations/)
+> Full guide: [How to Add and Edit PDF Annotations](https://ironpdf.com/how-to/annotations/?utm_source=github)
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-Businesses looking to reduce their annual expenses on PDF security and compliance should consider <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>. IronSecureDoc offers solutions for digital signing, redaction, encryption, and protection without recurring subscription fees. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">View IronSecureDoc Documentation</a>
+Businesses looking to reduce their annual expenses on PDF security and compliance should consider <a href="https://ironsoftware.com/enterprise/securedoc/?utm_source=github">IronSecureDoc</a>. IronSecureDoc offers solutions for digital signing, redaction, encryption, and protection without recurring subscription fees. <a href="https://ironsoftware.com/enterprise/securedoc/docs/?utm_source=github">View IronSecureDoc Documentation</a>
 </div>
 
 Annotations are powerful tools for adding comments, reminders, or extra details to specific parts of a document. They foster better collaboration and communication when working with PDF files, allowing users to annotate, comment, and provide context on shared documents.
@@ -144,4 +144,4 @@ pdf.Annotations.Clear();
 pdf.SaveAs("removeAllAnnotation.pdf");
 ```
 
-Explore more possibilities with our tutorial page here: [Edit PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/)
+Explore more possibilities with our tutorial page here: [Edit PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github)

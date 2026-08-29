@@ -1,6 +1,6 @@
 # How to Add Headers and Footers
 
-> Full guide: [How to Add Headers and Footers](https://ironpdf.com/how-to/headers-and-footers/)
+> Full guide: [How to Add Headers and Footers](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github)
 
 
 Do you need to insert page numbers, your company's logo, or the date on every page of a PDF document? Adding headers and footers is the solution, and with IronPDF, it's incredibly easy to do so in your C# projects.
@@ -98,7 +98,7 @@ TextHeaderFooter textHeader = new TextHeaderFooter
     </div>
 </div>
 
-Check available font types in the <a href="https://ironpdf.com/object-reference/api/IronSoftware.Forms.IFormField.html">IronPDF API Reference</a>.
+Check available font types in the <a href="https://ironpdf.com/object-reference/api/IronSoftware.Forms.IFormField.html?utm_source=github">IronPDF API Reference</a>.
 
 ## Set Margins for Text Header/Footer
 
@@ -192,7 +192,7 @@ Enhance your PDFs by embedding useful metadata like page numbers, dates, and tit
 - `{html-title}`: The title from the HTML's `title` tag.
 - `{pdf-title}`: The title defined in the PDF metadata.
 
-For details about `{page}` and `{total-pages}`, refer to the [IronPDF Page Numbers Guide](https://ironpdf.com/how-to/page-numbers/).
+For details about `{page}` and `{total-pages}`, refer to the [IronPDF Page Numbers Guide](https://ironpdf.com/how-to/page-numbers/?utm_source=github).
 
 ```cs
 using IronPdf;
@@ -260,4 +260,4 @@ renderer.RenderingOptions.HtmlFooter = new HtmlHeaderFooter
 PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
 ```
 
-Explore more possibilities in creating and customizing PDFs with our comprehensive [Create PDFs tutorial](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/).
+Explore more possibilities in creating and customizing PDFs with our comprehensive [Create PDFs tutorial](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/?utm_source=github).

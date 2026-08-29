@@ -1,6 +1,6 @@
 # Securing PDF Files with C#
 
-> Full guide: [Securing PDF Files with C#](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/)
+> Full guide: [Securing PDF Files with C#](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/?utm_source=github)
 
 
 PDF security matters most for sensitive or confidential documents. IronPDF signs PDFs, sets custom permissions, and fills out forms.
@@ -68,7 +68,7 @@ pdf.Sign(signature);
 pdf.SaveAs("signed.pdf");
 ```
 
-Learn more about these techniques in the [signature how-to guide](https://ironpdf.com/how-to/signing/).
+Learn more about these techniques in the [signature how-to guide](https://ironpdf.com/how-to/signing/?utm_source=github).
 
 #### Modify & Assign Metadata
 
@@ -94,7 +94,7 @@ pdf.MetaData.Title = "Handling PDF Metadata with IronPDF";
 pdf.SaveAs("pdf-with-metadata.pdf");
 ```
 
-For more functionalities and code clarity, visit the [metadata how-to guide](https://ironpdf.com/how-to/metadata/).
+For more functionalities and code clarity, visit the [metadata how-to guide](https://ironpdf.com/how-to/metadata/?utm_source=github).
 
 ### Manage PDF Forms
 
@@ -123,7 +123,7 @@ renderer.RenderingOptions.CreatePdfFormsFromHtml = true;
 renderer.RenderHtmlAsPdf(htmlForm).SaveAs("form-example.pdf");
 ```
 
-Explore forming functionalities in detail [here](https://ironpdf.com/how-to/create-forms/).
+Explore forming functionalities in detail [here](https://ironpdf.com/how-to/create-forms/?utm_source=github).
 
 ### Secure Your Documents
 
@@ -143,7 +143,7 @@ var sanitizedPdf = Cleaner.SanitizeWithBitmap(pdf);
 sanitizedPdf.SaveAs("cleaned-confidential.pdf");
 ```
 
-For further sanitization techniques, refer to the [sanitization how-to guide](https://ironpdf.com/how-to/sanitize-pdf/).
+For further sanitization techniques, refer to the [sanitization how-to guide](https://ironpdf.com/how-to/sanitize-pdf/?utm_source=github).
 
 #### Set PDF Passwords and Permissions
 
@@ -161,10 +161,10 @@ pdf.SecuritySettings.UserPassword = "viewpass";
 pdf.SaveAs("secured-info.pdf");
 ```
 
-For comprehensive details on password and permissions settings, see the [permissions how-to guide](https://ironpdf.com/how-to/pdf-permissions-passwords/).
+For comprehensive details on password and permissions settings, see the [permissions how-to guide](https://ironpdf.com/how-to/pdf-permissions-passwords/?utm_source=github).
 
 ## Conclusion
 
 Metadata sanitization and encryption cover the handling and signing of sensitive files, in a handful of lines of code each.
 
-For inquiries about IronPDF or its licensing options, we're here to help at [our support center](https://ironpdf.com/troubleshooting/engineering-request-pdf/).
+For inquiries about IronPDF or its licensing options, we're here to help at [our support center](https://ironpdf.com/troubleshooting/engineering-request-pdf/?utm_source=github).

@@ -1,6 +1,6 @@
 # Utilizing IronPDF on Linux
 
-> Full guide: [Utilizing IronPDF on Linux](https://ironpdf.com/get-started/linux/)
+> Full guide: [Utilizing IronPDF on Linux](https://ironpdf.com/get-started/linux/?utm_source=github)
 
 IronPDF is compatible with Linux environments across multiple versions of **.NET 10, 9, 8, 7, 6, 5**, as well as **.NET Core**. This compatibility extends to various deployment and containerization platforms including Docker, Azure, AWS, macOS, and Windows.
 
@@ -32,7 +32,7 @@ IronPDF runs on Linux without code changes, following extensive testing and conf
 
 Supporting Linux is crucial given its widespread use in key cloud services including Azure Web Apps, Azure Functions, AWS EC2, AWS Lambda, and Docker on Azure DevOps. Enterprise and SaaS deployments on those platforms are supported.
 
-For further assistance or to deepen your understanding of IronPDF’s implementation on Docker, please consult our detailed [guide on using IronPDF with Docker](https://ironpdf.com/how-to/docker-linux/). Additionally, IronPDF can be utilized on Linux via a Windows environment with the aid of WSL, providing another convenient usage scenario.
+For further assistance or to deepen your understanding of IronPDF’s implementation on Docker, please consult our detailed [guide on using IronPDF with Docker](https://ironpdf.com/get-started/linux/?utm_source=github). Additionally, IronPDF can be utilized on Linux via a Windows environment with the aid of WSL, providing another convenient usage scenario.
 
 ### Linux-Specific Packages for IronPDF
 
@@ -44,9 +44,9 @@ For further assistance or to deepen your understanding of IronPDF’s implementa
 
 For scenarios requiring offline development, download the DLL to include in your project:
 
-- [IronPdf.Linux.zip](https://ironpdf.com/packages/IronPdf.Linux.zip)
+- [IronPdf.Linux.zip](https://ironpdf.com/packages/IronPdf.Linux.zip?utm_source=github)
 
-For detailed guidelines on Linux packages and additional information on system-specific packages, please refer to our comprehensive [IronPDF advanced NuGet installation tutorial](https://ironpdf.com/how-to/advanced-installation-nuget/).
+For detailed guidelines on Linux packages and additional information on system-specific packages, please refer to our comprehensive [IronPDF advanced NuGet installation tutorial](https://ironpdf.com/get-started/advanced-installation-nuget/?utm_source=github).
 
 ### Supported Linux Distributions for IronPDF
 
@@ -627,7 +627,7 @@ chmod 755 IronCefSubprocess
 
 Currently, CentOS 7 and earlier versions are not tested and hence, are not guaranteed to work right out-of-the-box with IronPdf.
 
-However, CentOS 7 is still officially supported by Microsoft for .NET applications, which suggests that it might be compatible with IronPDF after correct setup. Please refer to the generalized [Common Dependency Patterns for Linux](https://ironpdf.com/how-to/#other-linux-distros) if you plan on configuring it manually.
+However, CentOS 7 is still officially supported by Microsoft for .NET applications, which suggests that it might be compatible with IronPDF after correct setup. Please refer to the generalized [Common Dependency Patterns for Linux](https://ironpdf.com/get-started/linux/?utm_source=github) if you plan on configuring it manually.
 
 Reiterating, no official Docker images exist for .NET Core 3.1 or .NET 5.0 on CentOS 7, and upgrading to a newer version of CentOS is strongly recommended for the best experience.
 
@@ -749,7 +749,7 @@ IronPDF is fully compatible with Amazon AWS Linux 2, which is the foundation for
 - Microsoft does not currently provide official Docker images for .NET Core versions 3.1 or 5.0 on Amazon AWS Linux 2.
 - Our developers conduct hands-on testing for Amazon AWS Linux 2 to ensure compatibility as IronPDF evolves.
 
-For further guidance, consult our [IronPDF AWS Lambda guide](https://www.ironpdf.com/get-started/aws/), offering a comprehensive Docker file example optimized for AWS Lambda with IronPDF.
+For further guidance, consult our [IronPDF AWS Lambda guide](https://ironpdf.com/get-started/aws/?utm_source=github), offering a comprehensive Docker file example optimized for AWS Lambda with IronPDF.
 
 **Manual Configuration for Amazon AWS Linux 2**
 
@@ -792,7 +792,7 @@ chmod 755 IronCefSubprocess
 
 ```
 
-Read our official documentation for more in-depth instructions on [setting up IronPdf for AWS Lambda](https://www.ironpdf.com/get-started/aws/) that includes details on installation and logging within the Amazon cloud environment.
+Read our official documentation for more in-depth instructions on [setting up IronPdf for AWS Lambda](https://ironpdf.com/get-started/aws/?utm_source=github) that includes details on installation and logging within the Amazon cloud environment.
 
 <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" style="display:inline" />
 <img src="https://img.icons8.com/color/48/000000/chrome--v1.png" style="display:inline" />
@@ -804,7 +804,7 @@ IronPDF is compatible with Amazon AWS Linux 2, which underpins key Amazon cloud 
 - Microsoft does not provide official Docker images for .NET Core 3.1 or .NET 5.0 specifically for Amazon AWS Linux 2.
 - Our compatibility with Amazon AWS Linux 2 is assured through regular manual testing during IronPDF's development.
 
-For detailed guidance, consider exploring our [IronPDF AWS Lambda guide](https://ironpdf.com/get-started/aws/), which includes a practical Docker file setup for using IronPdf with AWS Lambda.
+For detailed guidance, consider exploring our [IronPDF AWS Lambda guide](https://ironpdf.com/get-started/aws/?utm_source=github), which includes a practical Docker file setup for using IronPdf with AWS Lambda.
 
 **Manual Configuration for Amazon Linux 2**
 
@@ -847,7 +847,7 @@ chmod 755 IronCefSubprocess
 
 ```
 
-Please make sure to review our detailed guide on [IronPdf for AWS Lambda](https://ironpdf.com/get-started/aws/) which offers comprehensive instructions for installation and how to handle logs on the Amazon cloud platform.
+Please make sure to review our detailed guide on [IronPdf for AWS Lambda](https://ironpdf.com/get-started/aws/?utm_source=github) which offers comprehensive instructions for installation and how to handle logs on the Amazon cloud platform.
 
 ## Compatibility with Fedora Linux
 
@@ -921,7 +921,7 @@ docker run -d --publish 33350:33350 ironsoftwareofficial/ironpdfengine
 
 - Proceed to add the IronPdf.Slim package from NuGet Package Manager to your project.
 
-For further details on the deployment and usage of [IronPdfEngine](https://ironpdf.com/get-started/ironpdfengine-docker/), consult the linked guide.
+For further details on the deployment and usage of [IronPdfEngine](https://ironpdf.com/get-started/ironpdfengine-docker/?utm_source=github), consult the linked guide.
 
 ## Compatibility with Additional Linux Distributions
 

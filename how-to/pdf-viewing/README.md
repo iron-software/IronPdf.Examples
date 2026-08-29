@@ -1,6 +1,6 @@
 # PDF Viewing in MAUI for C# .NET
 
-> Full guide: [PDF Viewing in MAUI for C# .NET](https://ironpdf.com/how-to/pdf-viewing/)
+> Full guide: [PDF Viewing in MAUI for C# .NET](https://ironpdf.com/how-to/pdf-viewing/?utm_source=github)
 
 ![IronPDF Viewer Banner](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/ironpdf_viewer_banner.png)
 
@@ -221,4 +221,4 @@ Which results in:
 
 This tutorial provided a comprehensive walkthrough for integrating IronPDF Viewer into a MAUI application and customizing the toolbar to meet your specific needs.
 
-IronPDF Viewer is part of our IronPDF product suite. For feature requests or queries regarding IronPDF Viewer (or IronPDF), please [reach out to our support team](https://ironpdf.com/troubleshooting/engineering-request-pdf/). We are here to help you succeed!
+IronPDF Viewer is part of our IronPDF product suite. For feature requests or queries regarding IronPDF Viewer (or IronPDF), please [reach out to our support team](https://ironpdf.com/troubleshooting/engineering-request-pdf/?utm_source=github). We are here to help you succeed!

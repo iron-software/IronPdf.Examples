@@ -1,6 +1,6 @@
 # Using Web Assets to Enhance PDFs in C&#35;
 
-> Full guide: [Using Web Assets to Enhance PDFs in C&#35;](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/)
+> Full guide: [Using Web Assets to Enhance PDFs in C&#35;](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/?utm_source=github)
 
 Boasting over 100 unique features, IronPDF simplifies the process of creating and manipulating PDFs for .NET developers. This comprehensive library provides all necessary tools for PDF operations, removing the dependency on external software like Adobe Acrobat. 
 
@@ -67,7 +67,7 @@ IronPdf.ChromePdfRenderer renderer = new IronPdf.ChromePdfRenderer();
 renderer.RenderingOptions.CssMediaType = PdfCssMediaType.Print; // Choose between Print or Screen CSS styles
 ```
 
-For further information on this code example and its extended features, please visit our detailed [how-to guide](https://ironpdf.com/how-to/export-save-pdf-csharp/).
+For further information on this code example and its extended features, please visit our detailed [how-to guide](https://ironpdf.com/how-to/export-save-pdf-csharp/?utm_source=github).
 
 ### CSS (Screen & Print)
 
@@ -93,7 +93,7 @@ PdfDocument document = pdfRenderer.RenderHtmlFileAsPdf("tableHeader.html");
 document.SaveAs("tableHeader.pdf");
 ```
 
-For further details and more extensive functionality of this code example, please see our complete [how-to guide](https://ironpdf.com/how-to/html-to-pdf-responsive-css/).
+For further details and more extensive functionality of this code example, please see our complete [how-to guide](https://ironpdf.com/how-to/html-to-pdf-responsive-css/?utm_source=github).
 
 ### Images (JPG, PNG, SVG, GIF, etc.)
 
@@ -115,7 +115,7 @@ PdfDocument document = pdfRenderer.RenderHtmlAsPdf(htmlContent);
 document.SaveAs("embedImage.pdf");
 ```
 
-For an in-depth discussion of this code block and to investigate its expanded features, please visit our detailed [how-to guide](https://ironpdf.com/how-to/html-to-pdf-responsive-css/).
+For an in-depth discussion of this code block and to investigate its expanded features, please visit our detailed [how-to guide](https://ironpdf.com/how-to/html-to-pdf-responsive-css/?utm_source=github).
 
 ### JavaScript (Custom Render Delays)
 
@@ -146,7 +146,7 @@ PdfDocument generatedPDF = pdfRenderer.RenderHtmlAsPdf(htmlContent);
 generatedPDF.SaveAs("outputWithJavaScript.pdf");
 ```
 
-For more on this code example and its options, see the [how-to guide](https://ironpdf.com/how-to/javascript-to-pdf/).
+For more on this code example and its options, see the [how-to guide](https://ironpdf.com/how-to/javascript-to-pdf/?utm_source=github).
 
 ### Utilizing WaitFor to Control PDF Rendering Timing
 
@@ -165,7 +165,7 @@ pdfRenderer.RenderingOptions.WaitFor.PageLoad();
 PdfDocument pdfDocument = pdfRenderer.RenderHtmlAsPdf("<h1>testing</h1>");
 ```
 
-For an in-depth breakdown of this code example and to discover more of its features, please consult our extensive [how-to guide](https://ironpdf.com/how-to/waitfor/).
+For an in-depth breakdown of this code example and to discover more of its features, please consult our extensive [how-to guide](https://ironpdf.com/how-to/waitfor/?utm_source=github).
 
 ### Custom and Web Fonts in PDFs
 
@@ -191,7 +191,7 @@ PdfDocument generatedPdf = pdfRenderer.RenderHtmlAsPdf(htmlContent);
 generatedPdf.SaveAs("font-test.pdf");
 ```
 
-For an in-depth look at this example and to discover more features, consult our detailed [how-to guide](https://ironpdf.com/how-to/webfonts-webicons/).
+For an in-depth look at this example and to discover more features, consult our detailed [how-to guide](https://ironpdf.com/how-to/webfonts-webicons/?utm_source=github).
 
 ### Rendering SVG Graphics into PDFs
 
@@ -216,7 +216,7 @@ PdfDocument createdPdf = pdfRenderer.RenderHtmlAsPdf(htmlContent);
 createdPdf.SaveAs("svgToPdf.pdf");
 ```
 
-For an in-depth understanding of this code and to discover more about its capabilities, please consult our detailed [how-to guide](https://ironpdf.com/how-to/SVGs/).
+For an in-depth understanding of this code and to discover more about its capabilities, please consult our detailed [how-to guide](https://ironpdf.com/how-to/SVGs/?utm_source=github).
 
 ### Font Management
 
@@ -234,7 +234,7 @@ PdfDocument document = PdfDocument.FromFile("sample.pdf");
 PdfFontCollection documentFonts = document.Fonts;
 ```
 
-For an in-depth understanding of this code example and further exploration of its features, you can visit our detailed [how-to guide](https://ironpdf.com/how-to/manage-fonts/).
+For an in-depth understanding of this code example and further exploration of its features, you can visit our detailed [how-to guide](https://ironpdf.com/how-to/manage-fonts/?utm_source=github).
 
 ### UTF-8 and International Language Support
 
@@ -262,7 +262,7 @@ pdfDocument.SaveAs("MultiLanguageSupport.pdf");
 
 This approach ensures the accurate display of text from different languages, such as Japanese, Arabic, and Thai, in the converted PDF. By setting the input encoding to UTF-8, IronPDF can handle and preserve the integrity of various international scripts in the final PDF file.
 
-For further details and to discover more features of this code example, please see our complete [how-to guide](https://ironpdf.com/how-to/utf-8/).
+For further details and to discover more features of this code example, please see our complete [how-to guide](https://ironpdf.com/how-to/utf-8/?utm_source=github).
 
 ### Establishing Base URLs and Implementing Asset Encoding
 
@@ -285,7 +285,7 @@ PdfDocument producedPdf = pdfRenderer.RenderHtmlAsPdf(htmlContent, assetsBaseUrl
 producedPdf.SaveAs("html-with-assets.pdf");
 ```
 
-For further insights and extended features of this code, please view our detailed [how-to guide](https://ironpdf.com/how-to/base-urls/).
+For further insights and extended features of this code, please view our detailed [how-to guide](https://ironpdf.com/how-to/base-urls/?utm_source=github).
 
 ### PDF Rendering of WebGL Content
 
@@ -311,7 +311,7 @@ PdfDocument document = pdfRenderer.RenderUrlAsPdf("https://docs.mapbox.com/mapbo
 document.SaveAs("webGL.pdf");
 ```
 
-For further insights and to explore more features related to this code example, please visit our complete [how-to guide](https://ironpdf.com/how-to/render-webgl/).
+For further insights and to explore more features related to this code example, please visit our complete [how-to guide](https://ironpdf.com/how-to/render-webgl/?utm_source=github).
 
 ### Chromium-Based PDF Rendering
 
@@ -332,7 +332,7 @@ pdfRenderer.RenderingOptions.CreatePdfFormsFromHtml = false;
 PdfDocument document = pdfRenderer.RenderUrlAsPdf("https://www.google.com/");
 ```
 
-For an in-depth understanding of this code sample and to uncover more of its capabilities, please visit our extensive [how-to guide](https://ironpdf.com/how-to/ironpdf-2021-chrome-rendering-engine-eap/).
+For an in-depth understanding of this code sample and to uncover more of its capabilities, please visit our extensive [how-to guide](https://ironpdf.com/how-to/ironpdf-2021-chrome-rendering-engine-eap/?utm_source=github).
 
 ## Performance and Compression
 
@@ -360,7 +360,7 @@ document.CompressImages(40);
 document.SaveAs("optimized-output.pdf");
 ```
 
-For an in-depth understanding and further exploration of the features demonstrated in this code snippet, please consult our extensive [how-to guide](https://ironpdf.com/how-to/pdf-compression/).
+For an in-depth understanding and further exploration of the features demonstrated in this code snippet, please consult our extensive [how-to guide](https://ironpdf.com/how-to/pdf-compression/?utm_source=github).
 
 ### Asynchronous Operations and Multithreading
 
@@ -394,7 +394,7 @@ for (int i = 0; i < htmlContent.Length; i++)
 // await Task.WhenAll(pdfRenderTasks);
 ```
 
-For an in-depth understanding of this code example, along with its extended features, please consult our thorough [how-to guide](https://ironpdf.com/how-to/async/).
+For an in-depth understanding of this code example, along with its extended features, please consult our thorough [how-to guide](https://ironpdf.com/how-to/async/?utm_source=github).
 
 ### Custom Logging
 
@@ -408,7 +408,7 @@ IronSoftware.Logger.LoggingMode = IronSoftware.Logger.LoggingModes.Custom;
 IronSoftware.Logger.CustomLogger = new CustomLoggerClass("logging");
 ```
 
-For further information and to explore more features related to this code sample, you can consult our detailed [how-to guide](https://ironpdf.com/how-to/custom-logging/).
+For further information and to explore more features related to this code sample, you can consult our detailed [how-to guide](https://ironpdf.com/how-to/custom-logging/?utm_source=github).
 
 ### Flattening PDF Documents
 
@@ -427,7 +427,7 @@ targetPdf.Flatten();
 targetPdf.SaveAs("after_flatten.pdf");
 ```
 
-For an in-depth explanation of this code snippet and to discover its extended features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/pdf-image-flatten-csharp/).
+For an in-depth explanation of this code snippet and to discover its extended features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/pdf-image-flatten-csharp/?utm_source=github).
 
 ## Viewing and Printing PDF Documents
 
@@ -446,7 +446,7 @@ PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Sample Printing</h1>");
 pdf.Print("Microsoft Print to PDF");
 ```
 
-For additional information about this code snippet and its capabilities, please refer to our detailed [how-to guide](https://ironpdf.com/how-to/print-pdf/).
+For additional information about this code snippet and its capabilities, please refer to our detailed [how-to guide](https://ironpdf.com/how-to/print-pdf/?utm_source=github).
 
 These methods let a .NET application handle printing directly. Whether it’s archiving or distributing printed documents, IronPDF covers the step from digital to printed output.
 
@@ -467,7 +467,7 @@ PdfDocument document = pdfRenderer.RenderHtmlAsPdf("<h1>Test printing</h1>");
 document.Print("Microsoft Print to PDF");
 ```
 
-For an in-depth understanding of this coding example and to uncover more of its features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/print-pdf/).
+For an in-depth understanding of this coding example and to uncover more of its features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/print-pdf/?utm_source=github).
 
 ## Conclusion
 

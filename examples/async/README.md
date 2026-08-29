@@ -1,4 +1,4 @@
-> Full guide: [Async](https://ironpdf.com/examples/async/)
+> Full guide: [Async](https://ironpdf.com/examples/async/?utm_source=github)
 
 IronPDF offers the capability to generate PDFs asynchronously, enhancing both performance and efficiency. Utilize the `await` keyword in conjunction with the `RenderHtmlAsPdfAsync` method from IronPDF to create PDFs without impeding your system's overall performance.
 
@@ -8,4 +8,4 @@ First, initialize a new `ChromePdfRenderer` object, powered by IronPDF's advance
 
 The last step involves saving the produced PDF file using the `SaveAs` method to your desired file path and name. Though this is a straightforward demonstration, IronPDF's asynchronous PDF creation techniques are ideally suited for scenarios requiring the generation of PDFs in large batches while maintaining efficient performance.
 
-[Explore Asynchronous PDF Generation with IronPDF](https://ironpdf.com/how-to/async)
+[Explore Asynchronous PDF Generation with IronPDF](https://ironpdf.com/how-to/async/?utm_source=github)

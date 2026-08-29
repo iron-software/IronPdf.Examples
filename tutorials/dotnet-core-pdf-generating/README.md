@@ -1,10 +1,10 @@
 # Transforming HTML to PDF in .NET Core: Guide for URLs, Razor Views, Security, and Docker Deployment
 
-> Full guide: [Transforming HTML to PDF in .NET Core: Guide for URLs, Razor Views, Security, and Docker Deployment](https://ironpdf.com/tutorials/dotnet-core-pdf-generating/)
+> Full guide: [Transforming HTML to PDF in .NET Core: Guide for URLs, Razor Views, Security, and Docker Deployment](https://ironpdf.com/tutorials/dotnet-core-pdf-generating/?utm_source=github)
 
 Creating precise, high-quality PDF documents from HTML sources is commonly required in contemporary .NET applications, especially for producing exact replicas of reports, invoices, and tickets that align closely with web user interfaces. IronPDF facilitates this by offering a unified C# API capable of rendering HTML content, Razor views, and entire websites into compliant PDF files. Upon completing this guide, developers will be equipped to transform URLs, straightforward HTML, or MVC architectures into PDFs within an ASP.NET Core framework, and this process can be applied across diverse operating platforms including Windows, Linux, Docker, and serverless architectures.
 
-To address formatting challenges, IronPDF provides a headless-Chrome debugging tool that aids in identifying and resolving issues with CSS, JavaScript, and media queries prior to rendering PDFs. For an in-depth exploration of optimization techniques, be sure to refer to the thorough [pixel-perfect HTML-to-PDF guide](https://ironsoftware.com/how-to/pixel-perfect-html-to-pdf/).
+To address formatting challenges, IronPDF provides a headless-Chrome debugging tool that aids in identifying and resolving issues with CSS, JavaScript, and media queries prior to rendering PDFs. For an in-depth exploration of optimization techniques, be sure to refer to the thorough [pixel-perfect HTML-to-PDF guide](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/?utm_source=github).
 
 ## Quickstart: Generate PDFs from HTML using .NET Core
 
@@ -78,7 +78,7 @@ document.SaveAs("captured-website.pdf");
 
 - The produced `PdfDocument` provides various methods to manipulate the PDF, such as merging documents, applying password protection, and adding digital signatures. These functionalities are further explored in subsequent sections of this guide.
 
-For additional insights into deployment specificities such as Azure App Service, AWS Lambda, or on-premise Linux setups, refer to the thorough **[installation guide](https://ironpdf.com/get-started/windows/)** and the **[advanced NuGet setup](https://ironpdf.com/get-started/advanced-installation-nuget/)**. Best practices and recommendations for Docker and Kubernetes clusters can be found in the **[Docker deployment best practices](https://ironpdf.com/get-started/ironpdf-docker/)**.
+For additional insights into deployment specificities such as Azure App Service, AWS Lambda, or on-premise Linux setups, refer to the thorough **[installation guide](https://ironpdf.com/get-started/windows/?utm_source=github)** and the **[advanced NuGet setup](https://ironpdf.com/get-started/advanced-installation-nuget/?utm_source=github)**. Best practices and recommendations for Docker and Kubernetes clusters can be found in the **[Docker deployment best practices](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github)**.
 
 ## Converting a Live Website to PDF in .NET Core
 
@@ -118,12 +118,12 @@ pdf.SaveAs("downloaded-docs.pdf");
 - The `CssMediaType` set to **Print** allows our PDFs to adhere to print-specific styling, mimicking the conventional print-to-PDF functionality in web browsers.
 - After conversion, the `PdfDocument` facilitates further actions like encryption, digital signing, merging, or rasterization, as will be described later in this manual.
 
-**For Debugging:** Toggle `renderer.LoggingOptions.DebugMode = true` to engage live DevTools during PDF generation, helping to straighten out any rendering issues on-the-fly. Refer to our comprehensive [headless Chrome debugging tutorial](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/) for more insights.
+**For Debugging:** Toggle `renderer.LoggingOptions.DebugMode = true` to engage live DevTools during PDF generation, helping to straighten out any rendering issues on-the-fly. Refer to our comprehensive [headless Chrome debugging tutorial](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/?utm_source=github) for more insights.
 
 ### Additional Resources
 
-- Review the API for [`RenderUrlAsPdf`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html#IronPdf_ChromePdfRenderer_RenderUrlAsPdf_System_String_) and [`SaveAs`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html#IronPdf_PdfDocument_SaveAs_System_String_) methods.
-- Explore the strategic deployment of IronPDF within Docker environments through our [Docker implementation guide](https://ironpdf.com/get-started/ironpdf-docker/).
+- Review the API for [`RenderUrlAsPdf`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github#IronPdf_ChromePdfRenderer_RenderUrlAsPdf_System_String_) and [`SaveAs`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html?utm_source=github#IronPdf_PdfDocument_SaveAs_System_String_) methods.
+- Explore the strategic deployment of IronPDF within Docker environments through our [Docker implementation guide](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github).
 
 ```csharp
 // Program.cs — Compatible with .NET 8 LTS
@@ -161,15 +161,15 @@ using (PdfDocument document = pdfRenderer.RenderUrlAsPdf("https://learn.microsof
 
 - The created `PdfDocument` offers functionalities such as encryption, digital signatures, merging, or rasterization, which are elaborated upon in further sections.
 
-**In-depth Debugging:** Activate `renderer.LoggingOptions.DebugMode = true` and see the [headless-Chrome debug guide](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/) for live DevTools during rendering.
+**In-depth Debugging:** Activate `renderer.LoggingOptions.DebugMode = true` and see the [headless-Chrome debug guide](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/?utm_source=github) for live DevTools during rendering.
 
 ### Additional Reading and References
 
-- Explore the API documentation on rendering URLs to PDF with [`ChromePdfRenderer.RenderUrlAsPdf`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html#IronPdf_ChromePdfRenderer_RenderUrlAsPdf_System_String_).
+- Explore the API documentation on rendering URLs to PDF with [`ChromePdfRenderer.RenderUrlAsPdf`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github#IronPdf_ChromePdfRenderer_RenderUrlAsPdf_System_String_).
   
-- Learn how to save your PDF documents using the [`PdfDocument.SaveAs`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html#IronPdf_PdfDocument_SaveAs_System_String_) method.
+- Learn how to save your PDF documents using the [`PdfDocument.SaveAs`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html?utm_source=github#IronPdf_PdfDocument_SaveAs_System_String_) method.
   
-- For a step-by-step guide on implementing IronPDF within Docker environments, view the [Docker Deployment Tutorial](https://ironpdf.com/get-started/ironpdf-docker/).
+- For a step-by-step guide on implementing IronPDF within Docker environments, view the [Docker Deployment Tutorial](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github).
 
 ## Converting Raw HTML to PDF in .NET Core
 
@@ -241,9 +241,9 @@ pdf.SaveAs("q2-sales-report.pdf");
 - **Simplified Dependency** — A minimal NuGet package install ([`IronPdf.Slim`](https://nuget.org/packages/IronPdf.Slim)) suffices for deployment across multiple platforms.
 - **Comprehensive Rendering Options** — Adjust `PaperSize`, `CssMediaType`, and `RenderDelay` settings to ensure your PDF output mirrors the screen display accurately.
 - **Future Compatibility** — The same code runs across .NET versions, which keeps long-term maintenance low.
-- **Advanced Document Management** — Utilize `PdfDocument` features for merging, securing, and marking with [digital signatures](https://ironpdf.com/examples/digitally-sign-a-pdf/).
+- **Advanced Document Management** — Utilize `PdfDocument` features for merging, securing, and marking with [digital signatures](https://ironpdf.com/examples/digitally-sign-a-pdf/?utm_source=github).
 
-For more information, consider exploring the detailed [HTML to PDF conversion tutorial](https://ironpdf.com/how-to/html-string-to-pdf/) and the comprehensive [`ChromePdfRenderer` API documentation](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html).
+For more information, consider exploring the detailed [HTML to PDF conversion tutorial](https://ironpdf.com/how-to/html-string-to-pdf/?utm_source=github) and the comprehensive [`ChromePdfRenderer` API documentation](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github).
 
 ```csharp
 // Program.cs — works with .NET 8 and future versions
@@ -301,7 +301,7 @@ pdf.SaveAs("quarterly-revenue-report.pdf");
 
 ### Insights from the Code
 
-- **Bundled Chromium Engine** – IronPDF integrates the [Chromium engine](https://ironpdf.com/object-reference/api/IronPdf.Rendering.PdfRenderingEngine.html), ensuring [parity with HTML5, CSS3, and JavaScript](https://ironpdf.com/product-updates/milestones-stability-performance/) that reflects the modern web.
+- **Bundled Chromium Engine** – IronPDF integrates the [Chromium engine](https://ironpdf.com/object-reference/api/IronPdf.Rendering.PdfRenderingEngine.html?utm_source=github), ensuring [parity with HTML5, CSS3, and JavaScript](https://ironpdf.com/product-updates/milestones-stability-performance/?utm_source=github) that reflects the modern web.
 
 - **Unified Dependency** – A [simple NuGet package installation](https://nuget.org/packages/IronPdf.Slim) supports multiple platforms like Windows, Linux, Docker, and cloud environments such as Azure and AWS, without the need for additional system libraries.
 
@@ -309,9 +309,9 @@ pdf.SaveAs("quarterly-revenue-report.pdf");
 
 - **Future-Ready API** – Consistency across different .NET versions including .NET 8, .NET 9 STS, and the future .NET 10 ensures [minimal maintenance](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) efforts.
 
-- **Enhanced Post-Processing Capabilities** – Utilities within `PdfDocument` for merging, securing with passwords, and adding [digital signatures](https://ironpdf.com/examples/digitally-sign-a-pdf/) are covered later in this guide.
+- **Enhanced Post-Processing Capabilities** – Utilities within `PdfDocument` for merging, securing with passwords, and adding [digital signatures](https://ironpdf.com/examples/digitally-sign-a-pdf/?utm_source=github) are covered later in this guide.
 
-**Additional Resources:** Explore the detailed [HTML-to-PDF conversion tutorial](https://ironpdf.com/how-to/html-string-to-pdf/) and the comprehensive documentation of the [`ChromePdfRenderer`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html) API for deeper insights into the capabilities of IronPDF.
+**Additional Resources:** Explore the detailed [HTML-to-PDF conversion tutorial](https://ironpdf.com/how-to/html-string-to-pdf/?utm_source=github) and the comprehensive documentation of the [`ChromePdfRenderer`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github) API for deeper insights into the capabilities of IronPDF.
 
 ## Exporting ASP .NET Core MVC Views to PDF
 
@@ -371,7 +371,7 @@ public class TicketsController : Controller
 - **Direct Streaming** – By directly streaming the `PdfDocument` as binary data, it avoids making any filesystem touches which is optimal for web environments.
 - **Cost Efficiency** – Using a single instance of `ChromePdfRenderer` across requests minimizes resource utilization and speeds up response times by avoiding the overhead of repeated renderer setups.
 
-For a comprehensive understanding of the IronPDF API and functionalities like these, refer to the detailed documentation at [IronPdf.ChromePdfRenderer API](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html).
+For a comprehensive understanding of the IronPDF API and functionalities like these, refer to the detailed documentation at [IronPdf.ChromePdfRenderer API](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github).
 
 ```csharp
 // TicketsController.cs — .NET 8 LTS / MVC
@@ -422,7 +422,7 @@ public class TicketsController : Controller
 
 #### Key Points Demonstrated by This Example
 
-- **In-Memory Processing** – The Razor view is processed directly in-memory and handed off to [`RenderHtmlAsPdf`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html), eliminating the need for temporary file storage and avoiding potential issues with disk I/O and [temporary folder conflicts](https://ironpdf.com/examples/async/).
+- **In-Memory Processing** – The Razor view is processed directly in-memory and handed off to [`RenderHtmlAsPdf`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github), eliminating the need for temporary file storage and avoiding potential issues with disk I/O and [temporary folder conflicts](https://ironpdf.com/examples/async/?utm_source=github).
 
 - **Compact Ticket Format** – The formatting is set to `PaperSize = A5` with minimal margins, ensuring the generated tickets are small and easily printable at home.
 
@@ -464,7 +464,7 @@ public class TicketsController : Controller
   </div>
 </div>
 
-**Next steps:** Enhance security with encryption and digital signatures, or combine multiple tickets into a single document. Explore the [merging tutorial](https://ironpdf.com/examples/merge-pdfs/) and the [guide on digital signatures](https://ironpdf.com/examples/digitally-sign-a-pdf/).
+**Next steps:** Enhance security with encryption and digital signatures, or combine multiple tickets into a single document. Explore the [merging tutorial](https://ironpdf.com/examples/merge-pdfs/?utm_source=github) and the [guide on digital signatures](https://ironpdf.com/examples/digitally-sign-a-pdf/?utm_source=github).
 
 ## Customizing Render Settings in .NET Core with IronPDF
 
@@ -531,7 +531,7 @@ pdf.SaveAs("advanced-options-demo.pdf");
 - **Enhanced Security**: The provided `SecurityOptions` ensure that the document’s confidentiality and access are rigorously managed with encryption and user permissions.
 - **Digital Certification**: By using `SignAndStamp`, the document is not only authenticated but also adheres to recognized standards for digital documents.
 
-For more advanced configurations and usage examples, please visit the comprehensive API documentation for `ChromePdfRenderer` at [API reference – `ChromePdfRenderer.RenderUrlAsPdf`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html#IronPdf_ChromePdfRenderer_RenderUrlAsPdf_System_String_).
+For more advanced configurations and usage examples, please visit the comprehensive API documentation for `ChromePdfRenderer` at [API reference – `ChromePdfRenderer.RenderUrlAsPdf`](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github#IronPdf_ChromePdfRenderer_RenderUrlAsPdf_System_String_).
 
 ```csharp
 // AdvancedOptions.cs — Compatible with .NET 8
@@ -591,11 +591,11 @@ pdf.SaveAs("advanced-options-demo.pdf");
 
 - **HTML Headers and Footers**: These offer support for Razor syntax, CSS, and JavaScript, which is especially useful for dynamically generated content such as page numbers or custom branding.
 
-- **`HtmlStamp`**: Adds [branded watermarks styled with HTML and CSS](https://ironpdf.com/how-to/custom-watermark/).
+- **`HtmlStamp`**: Adds [branded watermarks styled with HTML and CSS](https://ironpdf.com/how-to/custom-watermark/?utm_source=github).
 
-- **[Security Options](https://ironpdf.com/object-reference/api/IronPdf.Security.PdfSecuritySettings.html)**: These settings facilitate the implementation of 128-bit encryption, the configuration of owner and user passwords, and detailed permissions directly within the application, eliminating the need for external dependencies.
+- **[Security Options](https://ironpdf.com/object-reference/api/IronPdf.Security.PdfSecuritySettings.html?utm_source=github)**: These settings facilitate the implementation of 128-bit encryption, the configuration of owner and user passwords, and detailed permissions directly within the application, eliminating the need for external dependencies.
 
-- **[Digital Signatures](https://ironpdf.com/examples/digitally-sign-a-pdf/)**: Implement digital signatures directly within your codebase to validate the authenticity and integrity of your documents, ensuring they meet legal and regulatory standards.
+- **[Digital Signatures](https://ironpdf.com/examples/digitally-sign-a-pdf/?utm_source=github)**: Implement digital signatures directly within your codebase to validate the authenticity and integrity of your documents, ensuring they meet legal and regulatory standards.
 
 - **Content Extraction Features**: Functions like `ExtractAllText` and `ExtractAllImages` allow for the retrieval of textual and image data from PDFs, supporting various data processing and analysis tasks.
 
@@ -667,7 +667,7 @@ This section provides a concise guide to frequently used configurations when wor
 
 </div>
 
-For detailed information and step-by-step instructions on implementing these settings, consult the IronPDF online documentation available at [IronPDF Official Documentation](https://ironpdf.com/object-reference/api/).
+For detailed information and step-by-step instructions on implementing these settings, consult the IronPDF online documentation available at [IronPDF Official Documentation](https://ironpdf.com/object-reference/api/?utm_source=github).
 
 <div class="accordion" id="advRenderAcc">
 
@@ -792,9 +792,9 @@ This script carries out a two-stage process where the first command compiles you
 
 ### Key References and Resources
 
-- [Deploy IronPDF in Docker containers](https://ironsoftware.com/get-started/ironpdf-docker/)
-- [Run IronPDF on Azure App Service Linux](https://ironsoftware.com/get-started/azure/)
-- [IronPDF ChromePdfRenderer class](https://www.ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html)
+- [Deploy IronPDF in Docker containers](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github)
+- [Run IronPDF on Azure App Service Linux](https://ironpdf.com/get-started/azure/?utm_source=github)
+- [IronPDF ChromePdfRenderer class](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github)
 
 ```bash
 # Build the Docker image for the PDF demo application
@@ -820,11 +820,11 @@ docker run --rm -p 8080:80 pdf-demo
 
 ### Additional Resources
 
-- Tutorial: Learn how to [deploy IronPDF in Docker containers](https://ironpdf.com/get-started/ironpdf-docker/).
+- Tutorial: Learn how to [deploy IronPDF in Docker containers](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github).
 
-- Guide: Discover methods to [run IronPDF on Azure App Service for Linux](https://ironpdf.com/get-started/azure/).
+- Guide: Discover methods to [run IronPDF on Azure App Service for Linux](https://ironpdf.com/get-started/azure/?utm_source=github).
 
-- API Documentation: Explore the features of the [`ChromePdfRenderer` class](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html).
+- API Documentation: Explore the features of the [`ChromePdfRenderer` class](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github).
 
 ---
 
@@ -873,7 +873,7 @@ mergedPdf.SaveAs("consolidated-invoice-terms.pdf");
 - **Digital Signature and Security Compliance**: The result can be further secured using `SignAndStamp`, ensuring documents meet the industry-standard ISO 32000-2 for digital signatures.
 - **Compatibility**: IronPDF ensures that the edited PDFs remain compatible with major PDF viewers like Adobe® Reader due to adherence to international standards.
 
-**Looking for more operations like splitting or rotating pages?** Visit the [PDF editing tutorial](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/) to explore more advanced manipulation techniques.
+**Looking for more operations like splitting or rotating pages?** Visit the [PDF editing tutorial](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github) to explore more advanced manipulation techniques.
 
 ```csharp
 // ManipulateExistingPdf.cs — Compatible with .NET 8 LTS
@@ -906,7 +906,7 @@ combinedPdf.SaveAs("invoice-with-terms.pdf");
 
 - **Loading and Merging** – `PdfDocument.FromFile` opens any standards-compliant PDF, encrypted ones included, and `PdfDocument.Merge` combines several documents into one.
 
-- **[Watermarking](https://ironpdf.com/examples/pdf-watermarking/)** – The `ApplyStamp` function (also known as `HtmlStamp`) permits embedding rich HTML/CSS content, such as logos, QR codes, or diagonal text, directly onto specific pages, all while preserving the original quality without rasterizing.
+- **[Watermarking](https://ironpdf.com/examples/pdf-watermarking/?utm_source=github)** – The `ApplyStamp` function (also known as `HtmlStamp`) permits embedding rich HTML/CSS content, such as logos, QR codes, or diagonal text, directly onto specific pages, all while preserving the original quality without rasterizing.
 
 - **Extraction Capabilities** – Utilize `ExtractAllText` and `ExtractAllImages` to fetch UTF-8 encoded text and raw image data, facilitating tasks like archiving and input for AI models.
 
@@ -916,7 +916,7 @@ combinedPdf.SaveAs("invoice-with-terms.pdf");
 
 - **Durability Over Time** – The API design eschews interop assemblies and Win32 GDI calls, ensuring that the IronPDF functions consistently across Windows, Linux, Docker, and the imminent .NET 10 serverless environments.
 
-**Looking to manipulate PDF pages?** Refer to the [guide on page-level modifications](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/) for detailed instructions on splitting, rotating, or removing pages.
+**Looking to manipulate PDF pages?** Refer to the [guide on page-level modifications](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github) for detailed instructions on splitting, rotating, or removing pages.
 
 ## Secure and Digitally Sign PDFs in .NET Core
 
@@ -969,9 +969,9 @@ pdf.SaveAs("financial-report-secured-signed.pdf");
 
 Explore the in-depth content available through IronPDF resources for more advanced security settings and implementation examples:
 
-- **Tutorial**: [How to Secure PDFs with Passwords](https://ironpdf.com/blog/pdf-tools/how-to-password-protect-pdf-free/)
-- **Sample Implementation**: [Digitally Signing PDFs](https://ironpdf.com/examples/digitally-sign-a-pdf/)
-- **API Documentation**: [PdfSecuritySettings Details](https://ironpdf.com/object-reference/api/IronPdf.Security.PdfSecuritySettings.html)
+- **Tutorial**: [How to Secure PDFs with Passwords](https://ironpdf.com/blog/pdf-tools/how-to-password-protect-pdf-free/?utm_source=github)
+- **Sample Implementation**: [Digitally Signing PDFs](https://ironpdf.com/examples/digitally-sign-a-pdf/?utm_source=github)
+- **API Documentation**: [PdfSecuritySettings Details](https://ironpdf.com/object-reference/api/IronPdf.Security.PdfSecuritySettings.html?utm_source=github)
 
 ```csharp
 // SecureAndSign.cs — Compatible with .NET 8 LTS
@@ -1005,9 +1005,9 @@ pdf.SaveAs("financial-report-secured-signed.pdf");
 
 ### How It Works Internally
 
-- **AES-256 Encryption** – IronPDF employs NIST-certified AES encryption protocols, effectively preventing unauthorized access, printing, and content copying. Learn more about AES encryption [here](https://ironpdf.com/blog/net-help/csharp-aes-encryption/).
+- **AES-256 Encryption** – IronPDF employs NIST-certified AES encryption protocols, effectively preventing unauthorized access, printing, and content copying. Learn more about AES encryption [here](https://ironpdf.com/blog/net-help/csharp-aes-encryption/?utm_source=github).
 
-- **Fine-Grained Permission Settings** – With settings such as [`AllowUserPrinting` and `AllowUserFormData`](https://ironpdf.com/object-reference/api/IronPdf.Security.PdfSecuritySettings.html), administrators can configure access rights granularly. An owner password must be in place for these permissions to be active.
+- **Fine-Grained Permission Settings** – With settings such as [`AllowUserPrinting` and `AllowUserFormData`](https://ironpdf.com/object-reference/api/IronPdf.Security.PdfSecuritySettings.html?utm_source=github), administrators can configure access rights granularly. An owner password must be in place for these permissions to be active.
 
 - **Digital Signatures** – The `SignAndStamp` method enhances document security by adding an RFC 3161 compliant timestamp and a certificate chain, thus ensuring hash authenticity recognizable by Adobe® Acrobat and compliant with the ISO 32000-2 standard.
 
@@ -1040,9 +1040,9 @@ These settings enforce encryption and digital signing on a PDF document.
 **Additional Resources and Tools**
 
 Explore further documentation and resources on securing PDF documents:
-- **Tutorial on PDF Security**: [Password-protect a PDF guide](https://ironpdf.com/blog/pdf-tools/how-to-password-protect-pdf-free/)
-- **Digital Signature Example**: [Learn to digitally sign PDFs](https://ironpdf.com/examples/digitally-sign-a-pdf/)
-- **API Reference for Security Settings**: [`PdfSecuritySettings` API details](https://ironpdf.com/object-reference/api/IronPdf.Security.PdfSecuritySettings.html)
+- **Tutorial on PDF Security**: [Password-protect a PDF guide](https://ironpdf.com/blog/pdf-tools/how-to-password-protect-pdf-free/?utm_source=github)
+- **Digital Signature Example**: [Learn to digitally sign PDFs](https://ironpdf.com/examples/digitally-sign-a-pdf/?utm_source=github)
+- **API Reference for Security Settings**: [`PdfSecuritySettings` API details](https://ironpdf.com/object-reference/api/IronPdf.Security.PdfSecuritySettings.html?utm_source=github)
 
 <div class="accordion" id="secAcc">
 
@@ -1080,9 +1080,9 @@ Explore further documentation and resources on securing PDF documents:
 
 ### Additional Information Resources
 
-- **Tutorial** – [PDF Password Protection](https://ironpdf.com/blog/pdf-tools/how-to-password-protect-pdf-free/)
-- **Example** – [Apply a Digital Signature to a PDF](https://ironpdf.com/examples/digitally-sign-a-pdf/)
-- **API Reference** – [`PdfSecuritySettings`](https://ironpdf.com/object-reference/api/IronPdf.Security.PdfSecuritySettings.html)
+- **Tutorial** – [PDF Password Protection](https://ironpdf.com/blog/pdf-tools/how-to-password-protect-pdf-free/?utm_source=github)
+- **Example** – [Apply a Digital Signature to a PDF](https://ironpdf.com/examples/digitally-sign-a-pdf/?utm_source=github)
+- **API Reference** – [`PdfSecuritySettings`](https://ironpdf.com/object-reference/api/IronPdf.Security.PdfSecuritySettings.html?utm_source=github)
 
 ## Optimizing HTML to PDF Conversion Performance in .NET Core
 
@@ -1136,7 +1136,7 @@ Parallel.ForEach(htmlFiles, new ParallelOptions { MaxDegreeOfParallelism = Envir
 
 This version modifies variable names for clarity and expands comments to better explain each step of the process.
 
-- The `ChromePdfRenderer` is designed to be **[thread-safe](https://ironpdf.com/examples/threading/)**, allowing a single instance to efficiently handle multiple tasks simultaneously without causing deadlocks.
+- The `ChromePdfRenderer` is designed to be **[thread-safe](https://ironpdf.com/examples/threading/?utm_source=github)**, allowing a single instance to efficiently handle multiple tasks simultaneously without causing deadlocks.
 
 - Utilizing `Parallel.ForEach` maximally engages each CPU core, typically enhancing server performance by 4 to 6 times compared to sequential processing.
 
@@ -1164,7 +1164,7 @@ renderer.RenderingOptions.RenderDelay = 200;        // Wait 200 milliseconds
 renderer.RenderingOptions.JavaScript = "WaitFor('window.doneLoading')";
 ```
 
-Refer to the comprehensive **[WaitFor tutorial](https://ironpdf.com/how-to/waitfor/)** for guidance on implementing custom promises and DOM polling techniques.
+Refer to the comprehensive **[WaitFor tutorial](https://ironpdf.com/how-to/waitfor/?utm_source=github)** for guidance on implementing custom promises and DOM polling techniques.
 
 ### 4. Activate Debug Mode for a Single Request
 
@@ -1195,7 +1195,7 @@ Live DevTools tracking reveals absent fonts, missing images, and timing discrepa
 
 ### 5. Optimize by Utilizing Template PDFs Instead of Full Re-Rendering
 
-For regular tasks such as generating invoices, consider [establishing a **template PDF** with placeholders](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/) like `[[name]]`, and simply replace these placeholders rather than completely reprocessing the HTML. This method is up to ten times quicker and conserves system resources significantly.
+For regular tasks such as generating invoices, consider [establishing a **template PDF** with placeholders](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/?utm_source=github) like `[[name]]`, and simply replace these placeholders rather than completely reprocessing the HTML. This method is up to ten times quicker and conserves system resources significantly.
 
 ### Performance Optimization Checklist
 
@@ -1245,9 +1245,9 @@ For documents that follow a standard template (like invoices), use a master PDF 
 #### Additional Resources and Further Reading
 For detailed guidance on implementing these performance optimizations, refer to specific tutorials and troubleshooting guides:
 
-- General performance assistance: [IronPDF Performance Assistance](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/)
-- Multithreading tips: [Threaded Rendering Demo](https://ironpdf.com/examples/threading/)
-- Docker optimization guide: [Optimizing Docker for IronPDF](https://ironpdf.com/docs/docker-optimization)
+- General performance assistance: [IronPDF Performance Assistance](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/?utm_source=github)
+- Multithreading tips: [Threaded Rendering Demo](https://ironpdf.com/examples/threading/?utm_source=github)
+- Docker optimization guide: [Optimizing Docker for IronPDF](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github)
 
 By following these steps, developers can ensure high-performance PDF generation in .NET applications, maintaining fast response times and lower resource usage across environments.
 
@@ -1300,19 +1300,19 @@ By following these steps, developers can ensure high-performance PDF generation 
 
 ### Additional Resources
 
-- For guidance on implementing asynchronous and multithreaded PDF generation, explore our [tutorial on asynchronicity and threading](https://ironpdf.com/how-to/async/).
-- If you encounter performance issues, consult our [Performance Assistance Center](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/) for troubleshooting tips.
-- See threading in action with our [Threaded Rendering Example](https://ironpdf.com/examples/threading/).
+- For guidance on implementing asynchronous and multithreaded PDF generation, explore our [tutorial on asynchronicity and threading](https://ironpdf.com/how-to/async/?utm_source=github).
+- If you encounter performance issues, consult our [Performance Assistance Center](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/?utm_source=github) for troubleshooting tips.
+- See threading in action with our [Threaded Rendering Example](https://ironpdf.com/examples/threading/?utm_source=github).
 
 ## Where to Access Trial, Licensing, and Support Resources? {#anchor-10-resources}
 
-You can obtain a [**30-day trial key**](https://ironpdf.com/demos/) instantly by completing the [_Start Free Trial_](https://ironpdf.com/demos/) form, which enables full access to all features like HTML-to-PDF conversion, digital signatures, and encryption capabilities, all without any watermarking.
+You can obtain a [**30-day trial key**](https://ironpdf.com/demos/?utm_source=github) instantly by completing the [_Start Free Trial_](https://ironpdf.com/demos/?utm_source=github) form, which enables full access to all features like HTML-to-PDF conversion, digital signatures, and encryption capabilities, all without any watermarking.
 
 Once you've assessed the software, you can choose from several licensing options like **developer**, **deployment**, or **enterprise** licenses. Each category offers perpetual usage, minor updates at no additional cost, and rights for development, staging, and production with a 30-day refund policy. You can activate your license with just a line of code (`IronPdf.License.LicenseKey = "YOUR-KEY";`), which also works inside a CI/CD workflow.
 
-In-depth [**documentation**](https://ironpdf.com/docs/), including quick-start guides, a comprehensive [API reference](https://ironpdf.com/object-reference/api/), and [tutorial videos](https://ironpdf.com/blog/videos/), are maintained regularly to stay up-to-date with each .NET release and can be found on our documentation portal.
+In-depth [**documentation**](https://ironpdf.com/docs/?utm_source=github), including quick-start guides, a comprehensive [API reference](https://ironpdf.com/object-reference/api/?utm_source=github), and [tutorial videos](https://ironpdf.com/blog/videos/?utm_source=github), are maintained regularly to stay up-to-date with each .NET release and can be found on our documentation portal.
 
-For any technical inquiries, our Chicago-based support team pledges a response within one business day through [live chat](https://ironsoftware.com/contact-us/), [email](mailto:support@ironsoftware.com), or phone.
+For any technical inquiries, our Chicago-based support team pledges a response within one business day through [live chat](https://ironsoftware.com/contact-us/support/?utm_source=github), [email](mailto:support@ironsoftware.com), or phone.
 
 Additionally, for help with performance tuning and deployment, you can consult our Performance Assistance Centre, conveniently aggregating common FAQs and effective solutions.
 
@@ -1320,28 +1320,28 @@ Additionally, for help with performance tuning and deployment, you can consult o
 
 | Resource                            | URL                                                                                              | Description                                                       |
 |-------------------------------------|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-| Get a Free 30-day Trial             | [Trial Key](https://ironpdf.com/demos/)                                                          | Access all features with no watermarking during the trial period. |
-| Explore Licensing Options           | [Licensing Details](https://ironpdf.com/licensing/)                                              | Choose from perpetual licenses or subscriptions; includes access to 10 Iron Suite libraries.  |
-| Documentation and API Reference     | [API Documentation](https://ironpdf.com/object-reference/api/index.html)                         | Comprehensive documentation for classes like `ChromePdfRenderer`. |
-| Educational Guides and Tutorials    | [Documentation Portal](https://ironpdf.com/docs/)                                                | Instructional content, tutorials, and sample projects.           |
-| Optimization and Performance Guide  | [Performance Assistance](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/)   | Tips for enhancing performance and scaling.                       |
-| Contact Customer Support            | [Support Contact Page](https://ironsoftware.com/contact-us/)                                     | Get support via live chat, email, or phone.                       |
+| Get a Free 30-day Trial             | [Trial Key](https://ironpdf.com/demos/?utm_source=github)                                                          | Access all features with no watermarking during the trial period. |
+| Explore Licensing Options           | [Licensing Details](https://ironpdf.com/licensing/?utm_source=github)                                              | Choose from perpetual licenses or subscriptions; includes access to 10 Iron Suite libraries.  |
+| Documentation and API Reference     | [API Documentation](https://ironpdf.com/object-reference/api/index.html?utm_source=github)                         | Comprehensive documentation for classes like `ChromePdfRenderer`. |
+| Educational Guides and Tutorials    | [Documentation Portal](https://ironpdf.com/docs/?utm_source=github)                                                | Instructional content, tutorials, and sample projects.           |
+| Optimization and Performance Guide  | [Performance Assistance](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/?utm_source=github)   | Tips for enhancing performance and scaling.                       |
+| Contact Customer Support            | [Support Contact Page](https://ironsoftware.com/contact-us/support/?utm_source=github)                                     | Get support via live chat, email, or phone.                       |
 
 **Next Steps:**
-1. Start your project by downloading the [free trial key](https://ironpdf.com/demos/).
-2. Secure your application with the appropriate [licensing options](https://ironpdf.com/licensing/).
-3. Dive into the [API reference](https://ironpdf.com/object-reference/api/index.html) for detailed documentation on key classes and methods.
-4. Explore the [Documentation Portal](https://ironpdf.com/docs/) for tutorials and examples to get your project started on the right foot.
-5. Visit the [Performance Assistance](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/) page for advanced tips on optimizing your application.
-6. Get in touch with the support team at [Iron Software](https://ironsoftware.com/contact-us/) for any queries or assistance needed.
+1. Start your project by downloading the [free trial key](https://ironpdf.com/demos/?utm_source=github).
+2. Secure your application with the appropriate [licensing options](https://ironpdf.com/licensing/?utm_source=github).
+3. Dive into the [API reference](https://ironpdf.com/object-reference/api/index.html?utm_source=github) for detailed documentation on key classes and methods.
+4. Explore the [Documentation Portal](https://ironpdf.com/docs/?utm_source=github) for tutorials and examples to get your project started on the right foot.
+5. Visit the [Performance Assistance](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/?utm_source=github) page for advanced tips on optimizing your application.
+6. Get in touch with the support team at [Iron Software](https://ironsoftware.com/contact-us/support/?utm_source=github) for any queries or assistance needed.
 
 ### Next Steps
 
 1. **[Explore the example repository](https://github.com/iron-software/IronPdf.Examples/tree/main/tutorials/dotnet-core-pdf-generating)** which showcases all the key functionalities, from rendering MVC views to implementing AES-256 encryption.
 
-2. **[Insert the trial license](https://ironpdf.com/trial-license)** into your current projects and execute the unit tests to confirm compatibility across different platforms.
+2. **[Insert the trial license](https://ironpdf.com/?utm_source=github#trial-license)** into your current projects and execute the unit tests to confirm compatibility across different platforms.
 
-3. **[Schedule a personalized demonstration](https://ironpdf.com/#booking-demo)** with our technical team for tailored guidance on your specific project needs.
+3. **[Schedule a personalized demonstration](https://ironpdf.com/?utm_source=github#booking-demo)** with our technical team for tailored guidance on your specific project needs.
 
 Equipped with these tools, any .NET development team can efficiently deliver high-quality PDFs ready for deployment — whether on-premises, in Docker containers, or in serverless environments — all within a swift development cycle.
 

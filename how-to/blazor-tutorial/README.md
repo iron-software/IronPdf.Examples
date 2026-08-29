@@ -1,6 +1,6 @@
 # IronPDF in a Blazor Server Environment: HTML to PDF Conversion Guide
 
-> Full guide: [IronPDF in a Blazor Server Environment: HTML to PDF Conversion Guide](https://ironpdf.com/how-to/blazor-tutorial/)
+> Full guide: [IronPDF in a Blazor Server Environment: HTML to PDF Conversion Guide](https://ironpdf.com/how-to/blazor-tutorial/?utm_source=github)
 
 
 IronPDF is fully compatible with .NET 6 and supports frameworks such as **Blazor**. If you're using Visual Studio, you can easily include IronPDF in your Blazor Server App projects. The following guide illustrates how to use IronPDF to convert HTML into high-quality PDF documents:

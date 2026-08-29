@@ -1,6 +1,6 @@
 # How to Incorporate Images into PDFs
 
-> Full guide: [How to Incorporate Images into PDFs](https://ironpdf.com/how-to/add-images-to-pdfs/)
+> Full guide: [How to Incorporate Images into PDFs](https://ironpdf.com/how-to/add-images-to-pdfs/?utm_source=github)
 
 
 Incorporating an image directly within a PDF file means the image is placed directly inside the PDF, allowing for it to be entirely self-contained. This ensures that the PDF can display the image perfectly, regardless of internet connectivity, as it does not depend on external resources.
@@ -19,7 +19,7 @@ new IronPdf.ChromePdfRenderer()
 
 ## Example of Image Embedding in PDF
 
-To incorporate an image into a PDF, start by embedding the image in HTML using the `<img>` tag. Next, apply the `RenderHtmlAsPdf` method to convert the HTML into a PDF. For those who already have a PDF and wish to add an image, refer to the detailed guide found here: [image stamper or HTML stamper tutorial](https://ironpdf.com/how-to/custom-watermark/).
+To incorporate an image into a PDF, start by embedding the image in HTML using the `<img>` tag. Next, apply the `RenderHtmlAsPdf` method to convert the HTML into a PDF. For those who already have a PDF and wish to add an image, refer to the detailed guide found here: [image stamper or HTML stamper tutorial](https://ironpdf.com/how-to/custom-watermark/?utm_source=github).
 
 ```csharp
 using IronPdf;
@@ -67,4 +67,4 @@ pdf.SaveAs("embedImageBase64.pdf");
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/add-images-to-pdfs/embedImageBase64.pdf" width="100%" height="400px">
 </iframe>
 
-To explore more capabilities, visit our tutorial page here: [Additional Features](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/)
+To explore more capabilities, visit our tutorial page here: [Additional Features](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/?utm_source=github)

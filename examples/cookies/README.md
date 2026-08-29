@@ -1,4 +1,4 @@
-> Full guide: [Cookies](https://ironpdf.com/examples/cookies/)
+> Full guide: [Cookies](https://ironpdf.com/examples/cookies/?utm_source=github)
 
 This snippet outlines the use of IronPDF to authenticate a request with network credentials and to append cookies, which is crucial for converting web pages to PDF format.
 
@@ -10,4 +10,4 @@ This snippet outlines the use of IronPDF to authenticate a request with network 
 
 This configuration is highly beneficial for generating PDFs from protected pages, such as invoices, reports, or dashboards, where user credentials are necessary.
 
-[Learn to Apply Cookies in PDF Rendering with IronPDF.](https://ironpdf.com/how-to/cookies)
+[Learn to Apply Cookies in PDF Rendering with IronPDF.](https://ironpdf.com/how-to/cookies/?utm_source=github)

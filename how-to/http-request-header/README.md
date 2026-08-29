@@ -1,6 +1,6 @@
 # Utilizing HTTP Request Headers in .NET
 
-> Full guide: [Utilizing HTTP Request Headers in .NET](https://ironpdf.com/how-to/http-request-header/)
+> Full guide: [Utilizing HTTP Request Headers in .NET](https://ironpdf.com/how-to/http-request-header/?utm_source=github)
 
 
 HTTP request headers are key metadata elements transmitted from a client—like a web browser or an API client—to a server during an HTTP request. These headers convey essential information regarding the request, including details about authentication, the type of content being requested, the user's agent, and other significant data.

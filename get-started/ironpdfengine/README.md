@@ -1,6 +1,6 @@
 # Using IronPDF in Engine Mode
 
-> Full guide: [Using IronPDF in Engine Mode](https://ironpdf.com/get-started/ironpdfengine/)
+> Full guide: [Using IronPDF in Engine Mode](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github)
 
 ## Comparative Analysis: Native vs Engine Deployment
 
@@ -34,7 +34,7 @@ Installation.ConnectToIronPdfHost(
 
 `IronPdfEngine` is a containerized, server-side component that creates, modifies, and extracts from PDFs over gRPC. It is a standalone C# .NET application with no dependency on the .NET runtime, and the gRPC connection is managed for you.
 
-For an introductory guide on running IronPDF in a standalone container mode, refer to this [tutorial](https://ironpdf.com/get-started/ironpdfengine-docker/).
+For an introductory guide on running IronPDF in a standalone container mode, refer to this [tutorial](https://ironpdf.com/get-started/ironpdfengine-docker/?utm_source=github).
 
 ## Additional Insights into IronPdfEngine
 

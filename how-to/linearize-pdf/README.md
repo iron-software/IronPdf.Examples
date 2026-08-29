@@ -1,6 +1,6 @@
 # Optimizing PDFs for Faster Web Viewing
 
-> Full guide: [Optimizing PDFs for Faster Web Viewing](https://ironpdf.com/how-to/linearize-pdf/)
+> Full guide: [Optimizing PDFs for Faster Web Viewing](https://ironpdf.com/how-to/linearize-pdf/?utm_source=github)
 
 
 Linearized PDFs, commonly referred to as "Fast Web View" or "web-optimized PDFs," are structured to enhance their speed during internet streaming. This structural adjustment enables the initial page to load almost instantly while the rest of the document continues to download in the background.

@@ -1,12 +1,12 @@
 # Transform HTML to PDF in C# - Guide for .NET Developers
 
-> Full guide: [Transform HTML to PDF in C# - Guide for .NET Developers](https://ironpdf.com/tutorials/html-to-pdf/)
+> Full guide: [Transform HTML to PDF in C# - Guide for .NET Developers](https://ironpdf.com/tutorials/html-to-pdf/?utm_source=github)
 
 Join us in this detailed guide on converting HTML into PDF documents tailored for dynamic website content, invoicing, reporting, or archiving purposes. This tutorial will help you create PDFs that accurately reflect the design of your actual web pages, utilizing the premier HTML to PDF conversion tool available for C#.
 
 ## Quick Start: How to Convert HTML to PDF
 
-Convert HTML into PDF in C# with the [IronPDF](https://ironpdf.com/) library. This tool offers the `ChromePdfRenderer.RenderHtmlAsPdf` function, enabling the creation of premium PDF documents directly from HTML, CSS, and JavaScript sources.
+Convert HTML into PDF in C# with the [IronPDF](https://ironpdf.com/?utm_source=github) library. This tool offers the `ChromePdfRenderer.RenderHtmlAsPdf` function, enabling the creation of premium PDF documents directly from HTML, CSS, and JavaScript sources.
 
 ```cs
 // Initialize the Chrome PDF Renderer and Convert HTML to PDF
@@ -42,7 +42,7 @@ The .NET frameworks inherently do not provide tools for converting HTML to PDF, 
 
 IronPDF converts HTML content into PDFs from .NET, covering invoices, reports, certificates, and archives in a few lines of code.
 
-**Explore More:** [IronPDF Changelog: Updates, milestones, roadmap](https://ironpdf.com/product-updates/changelog/) <i class="fa-solid fa-arrow-right"></i>
+**Explore More:** [IronPDF Changelog: Updates, milestones, roadmap](https://ironpdf.com/product-updates/changelog/?utm_source=github) <i class="fa-solid fa-arrow-right"></i>
 
 ## Learning Outcomes
 
@@ -282,7 +282,7 @@ In this revision, variable names were refined for clarity, and comments were enh
 
 BaseUrlPath is a setting in IronPDF that specifies the directory for sourcing CSS, JavaScript, and image files. It ensures that all relative URLs in your HTML content are properly linked from this specified folder.
 
-**RELATED HOW-TO ARTICLE:** <a class="content-anchor" href="https://ironpdf.com/how-to/html-string-to-pdf/">How to Convert HTML String to PDF in C# <i class="fa-solid fa-arrow-right"></i></a>
+**RELATED HOW-TO ARTICLE:** <a class="content-anchor" href="https://ironpdf.com/how-to/html-string-to-pdf/?utm_source=github">How to Convert HTML String to PDF in C# <i class="fa-solid fa-arrow-right"></i></a>
 
 ### Exporting Entire Web Pages to PDFs
 
@@ -360,7 +360,7 @@ Responsive web pages are optimized for viewing in a browser. Since IronPDF doesn
 renderer.RenderingOptions.CssMediaType = IronPdf.Rendering.PdfCssMediaType.Print;
 ```
 
-**RELATED GUIDE:** <a class="content-anchor" href="https://ironpdf.com/how-to/url-to-pdf/">Learn to Convert a URL to PDF <i class="fa-solid fa-arrow-right"></i></a>
+**RELATED GUIDE:** <a class="content-anchor" href="https://ironpdf.com/how-to/url-to-pdf/?utm_source=github">Learn to Convert a URL to PDF <i class="fa-solid fa-arrow-right"></i></a>
 
 ### Converting HTML Files to PDFs
 
@@ -383,7 +383,7 @@ pdfDocument.SaveAs("Invoice.pdf");
 
 Organize your HTML files along with their related assets like CSS files and images in a dedicated folder. This allows for easier editing and testing in a web browser prior to converting these files into PDFs. Such organization ensures that your HTML is displayed correctly, resulting in high-quality PDF documents.
 
-**RELATED HOW-TO ARTICLE:** [Render HTML File to PDF](https://ironpdf.com/how-to/html-file-to-pdf/) <i class="fa-solid fa-arrow-right"></i>
+**RELATED HOW-TO ARTICLE:** [Render HTML File to PDF](https://ironpdf.com/how-to/html-file-to-pdf/?utm_source=github) <i class="fa-solid fa-arrow-right"></i>
 
 ## 2. Customizing HTML to PDF Conversion Settings
 
@@ -548,16 +548,16 @@ Utilize `PdfCssMediaType` for clear, print-friendly designs in your PDF renderin
         <tr>
             <td>
                 <ul>
-                    <li><a class="content-anchor" href="https://ironpdf.com/how-to/rendering-options/">Explore All PDF Rendering Methods <i class="fa-solid fa-arrow-right"></i></a></li>
-                    <li><a class="content-anchor" href="https://ironpdf.com/how-to/custom-margins/">How to Set Custom Margins <i class="fa-solid fa-arrow-right"></i></a></li>
-                    <li><a class="content-anchor" href="https://ironpdf.com/how-to/color-grayscale/">How to Generate Grayscale <i class="fa-solid fa-arrow-right"></i></a></li>
+                    <li><a class="content-anchor" href="https://ironpdf.com/how-to/rendering-options/?utm_source=github">Explore All PDF Rendering Methods <i class="fa-solid fa-arrow-right"></i></a></li>
+                    <li><a class="content-anchor" href="https://ironpdf.com/how-to/custom-margins/?utm_source=github">How to Set Custom Margins <i class="fa-solid fa-arrow-right"></i></a></li>
+                    <li><a class="content-anchor" href="https://ironpdf.com/how-to/color-grayscale/?utm_source=github">How to Generate Grayscale <i class="fa-solid fa-arrow-right"></i></a></li>
                 </ul>
             </td>
             <td>
                 <ul>
-                    <li><a class="content-anchor" href="https://ironpdf.com/how-to/table-of-contents/">How to Add a Table of Contents <i class="fa-solid fa-arrow-right"></i></a></li>
-                    <li><a class="content-anchor" href="https://ironpdf.com/how-to/html-to-pdf-page-breaks/">How to Add or Avoid Page Breaks <i class="fa-solid fa-arrow-right"></i></a></li>
-                    <li><a class="content-anchor" href="https://ironpdf.com/how-to/viewport-zoom/">How to Fit to Paper & Zoom <i class="fa-solid fa-arrow-right"></i></a></li>
+                    <li><a class="content-anchor" href="https://ironpdf.com/how-to/table-of-contents/?utm_source=github">How to Add a Table of Contents <i class="fa-solid fa-arrow-right"></i></a></li>
+                    <li><a class="content-anchor" href="https://ironpdf.com/how-to/html-to-pdf-page-breaks/?utm_source=github">How to Add or Avoid Page Breaks <i class="fa-solid fa-arrow-right"></i></a></li>
+                    <li><a class="content-anchor" href="https://ironpdf.com/how-to/viewport-zoom/?utm_source=github">How to Fit to Paper & Zoom <i class="fa-solid fa-arrow-right"></i></a></li>
                 </ul>
             </td>
         </tr>
@@ -767,7 +767,7 @@ public async Task CreateMultiplePdfsAsync(List<string> htmlTemplates)
 - **Reuse `ChromePdfRenderer` Objects**: Maintain instances of `ChromePdfRenderer` across multiple PDF generation tasks to optimize resource utilization.
 - **Apply fixes from version 2025.9.4**: Use the enhanced memory management features in version 2025.9.4 for batch and asynchronous operations, which helps minimize resource consumption and test for smaller file sizes, especially when generating PDFs with repeated elements such as headers and footers.
 
-**EXPLORE RELATED GUIDE:** [How to Generate PDFs with Async and Multithreading](https://ironpdf.com/how-to/async/) <i class="fa-solid fa-arrow-right"></i>
+**EXPLORE RELATED GUIDE:** [How to Generate PDFs with Async and Multithreading](https://ironpdf.com/how-to/async/?utm_source=github) <i class="fa-solid fa-arrow-right"></i>
 
 ### Implementing Advanced Security Features
 
@@ -830,7 +830,7 @@ document.Sign(digitalSignature);
 document.SaveAs("signed-contract.pdf");
 ```
 
-**FURTHER READING:** [Digitally Signing PDF Documents with C#](https://ironpdf.com/how-to/signing/) Learn how to add secure, digital signatures to your PDF files using C#. <i class="fa-solid fa-arrow-right"></i>
+**FURTHER READING:** [Digitally Signing PDF Documents with C#](https://ironpdf.com/how-to/signing/?utm_source=github) Learn how to add secure, digital signatures to your PDF files using C#. <i class="fa-solid fa-arrow-right"></i>
 
 ## 4. Contrast IronPDF with Alternative .NET PDF Libraries
 
@@ -952,7 +952,7 @@ Here's a swift decision matrix to help you assess IronPDF against other .NET PDF
     </tbody>
 </table>
 
-**Important Note:** Libraries such as PDFSharp and [iTextSharp](https://ironpdf.com/competitors/itext-vs-ironpdf/) do not support direct HTML to PDF conversion and were therefore not included in our comparison. Additionally, QuestPDF uses a code-first methodology without HTML support, necessitating the use of secondary tools for HTML rendering.
+**Important Note:** Libraries such as PDFSharp and [iTextSharp](https://ironpdf.com/competitors/itext-vs-ironpdf/?utm_source=github) do not support direct HTML to PDF conversion and were therefore not included in our comparison. Additionally, QuestPDF uses a code-first methodology without HTML support, necessitating the use of secondary tools for HTML rendering.
 
 **ADDITIONAL COMPARISONS OF INTEREST:**
 
@@ -1151,7 +1151,7 @@ This section offers a detailed analysis comparing IronPDF's capabilities against
                <span><strong>Pricing</strong></span>
             </td>
             <td style="background-color: #f8fdff;">
-               <span><a class="content-anchor" href="https://ironpdf.com/licensing/" class="d-inline">`$liteLicense`+ View Licensing <i class="fa-solid fa-arrow-right"></i></a></span>
+               <span><a class="content-anchor" href="https://ironpdf.com/licensing/?utm_source=github" class="d-inline">`$liteLicense`+ View Licensing <i class="fa-solid fa-arrow-right"></i></a></span>
             </td>
             <td>
                <span>Free</span>
@@ -1417,13 +1417,13 @@ Where other libraries struggled with current web designs or needed workarounds, 
 
 Install IronPDF through the NuGet Package Manager, or Manage NuGet Packages in Visual Studio, to start converting HTML into PDF.
 
-[Begin your complimentary 30-day trial](https://ironpdf.com/licensing/) to test production without watermark impositions. [Explore our flexible licensing options](https://ironpdf.com/licensing/) starting from `$liteLicense`, offering clear, scalable pricing for teams.
+[Begin your complimentary 30-day trial](https://ironpdf.com/licensing/?utm_source=github) to test production without watermark impositions. [Explore our flexible licensing options](https://ironpdf.com/licensing/?utm_source=github) starting from `$liteLicense`, offering clear, scalable pricing for teams.
 
 <a class="content-anchor" href="/licensing/">View IronPDF Licensing <i class="fa-solid fa-arrow-right"></i></a>
 
 ## 5. Troubleshooting & Technical Support
 
-Encountering issues during HTML to PDF transformations? IronPDF provides round-the-clock engineering support accessible through the chat widget at [https://ironpdf.com/](https://ironpdf.com/).
+Encountering issues during HTML to PDF transformations? IronPDF provides round-the-clock engineering support accessible through the chat widget at [https://ironpdf.com/](https://ironpdf.com/?utm_source=github).
 
 ### Troubleshooting: Quick Solutions for Common Challenges
 
@@ -1443,7 +1443,7 @@ Encountering issues during HTML to PDF transformations? IronPDF provides round-t
 
 ### 24/7 Support from IronPDF Engineers
 
-For assistance with any challenges in HTML to PDF conversion, IronPDF provides round-the-clock support directly from the engineers who developed the product. Access expert help anytime through the chat widget hosted on [IronPDF's official website](https://ironpdf.com/).
+For assistance with any challenges in HTML to PDF conversion, IronPDF provides round-the-clock support directly from the engineers who developed the product. Access expert help anytime through the chat widget hosted on [IronPDF's official website](https://ironpdf.com/?utm_source=github).
 
 #### Quick Troubleshooting Tips
 
@@ -1457,10 +1457,10 @@ For assistance with any challenges in HTML to PDF conversion, IronPDF provides r
 
 #### Direct Engineer Support
 
-- For comprehensive guidelines on common issues, visit the [troubleshooting guide](https://ironpdf.com/troubleshooting/).
-- Looking for performance optimization strategies specific to your implementation? Check out [IronPDF performance assistance](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/).
-- Need to escalate an issue? Submit an [engineering support request](https://ironpdf.com/troubleshooting/engineering-request-pdf/).
-- For a quick reference, consult the [IronPDF troubleshooting checklist](https://ironpdf.com/troubleshooting/quick-ironpdf-troubleshooting/).
+- For comprehensive guidelines on common issues, visit the [troubleshooting guide](https://ironpdf.com/troubleshooting/?utm_source=github).
+- Looking for performance optimization strategies specific to your implementation? Check out [IronPDF performance assistance](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/?utm_source=github).
+- Need to escalate an issue? Submit an [engineering support request](https://ironpdf.com/troubleshooting/engineering-request-pdf/?utm_source=github).
+- For a quick reference, consult the [IronPDF troubleshooting checklist](https://ironpdf.com/troubleshooting/quick-ironpdf-troubleshooting/?utm_source=github).
 
 <ul>
 <li><a class="content-anchor" href="/troubleshooting/">Comprehensive troubleshooting guide <i class="fa-solid fa-arrow-right"></i></a></li>
@@ -1543,7 +1543,7 @@ For assistance with any challenges in HTML to PDF conversion, IronPDF provides r
                 </div>
                 <span class="next-step__card-text">How to Merge or Split PDF Documents</span>
             </div>
-            <a href="https://ironpdf.com/how-to/headers-and-footers/" class="next-step__card-cta">See How-To <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://ironpdf.com/how-to/headers-and-footers/?utm_source=github" class="next-step__card-cta">See How-To <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </div>
     <div class="col-12 col-md-6 col-xxl-4">
@@ -1554,7 +1554,7 @@ For assistance with any challenges in HTML to PDF conversion, IronPDF provides r
                 </div>
                 <span class="next-step__card-text">How to Add Custom Headers and Footers to PDF Files</span>
             </div>
-            <a href="https://ironpdf.com/how-to/merge-or-split-pdfs/" class="next-step__card-cta">See How-To <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://ironpdf.com/how-to/merge-or-split-pdfs/?utm_source=github" class="next-step__card-cta">See How-To <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </div>
     <div class="col-12 col-md-6 col-xxl-4">
@@ -1565,7 +1565,7 @@ For assistance with any challenges in HTML to PDF conversion, IronPDF provides r
                 </div>
                 <span class="next-step__card-text">How to Redact Text and Regions in PDF</span>
             </div>
-            <a href="https://ironpdf.com/how-to/redact-text/" class="next-step__card-cta">See How-To <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://ironpdf.com/how-to/redact-text/?utm_source=github" class="next-step__card-cta">See How-To <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </div>
 </div>
@@ -1616,10 +1616,10 @@ if (nextStepCards.length > 0) {
 </style>
 
 <div class="tutorials-navigation">
-    <a href="https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/" class="tutorials-navigation__cta tutorials-navigation__cta--left">
+    <a href="https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/?utm_source=github" class="tutorials-navigation__cta tutorials-navigation__cta--left">
         <i class="fa-solid fa-chevron-left"></i>Creating PDFs in C#
     </a>
-    <a href="https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/" class="tutorials-navigation__cta tutorials-navigation__cta--right">
+    <a href="https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github" class="tutorials-navigation__cta tutorials-navigation__cta--right">
         Editing PDFs in C#<i class="fa-solid fa-chevron-right"></i>
     </a>
 </div>

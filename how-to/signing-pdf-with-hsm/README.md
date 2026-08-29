@@ -1,6 +1,6 @@
 # Secure Digital Signature Implementation in C# with HSM
 
-> Full guide: [Secure Digital Signature Implementation in C# with HSM](https://ironpdf.com/how-to/signing-pdf-with-hsm/)
+> Full guide: [Secure Digital Signature Implementation in C# with HSM](https://ironpdf.com/how-to/signing-pdf-with-hsm/?utm_source=github)
 
 
 Implementing digital signatures in PDFs is an essential feature for many software applications, especially when the security of the signing keys is paramount. Traditional methods that utilize `.pfx` files can be likened to keeping a master key at home—whereas using a `Hardware Security Module (HSM)` is similar to locking that key in a bank vault. In an HSM environment, the private key is generated internally and never leaves the device, ensuring it cannot be duplicated or compromised.

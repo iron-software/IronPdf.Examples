@@ -1,6 +1,6 @@
 # Utilizing OpenAI for PDF Processing
 
-> Full guide: [Utilizing OpenAI for PDF Processing](https://ironpdf.com/how-to/openai/)
+> Full guide: [Utilizing OpenAI for PDF Processing](https://ironpdf.com/how-to/openai/?utm_source=github)
 
 
 <div class="container-fluid">
@@ -31,7 +31,7 @@ In addition to the [IronPdf](https://www.nuget.org/packages/IronPdf) core packag
 
 ## Example: Summarizing PDFs
 
-You'll need an Azure Endpoint and an API Key to utilize OpenAI capabilities. Set up the Semantic Kernel as demonstrated in the sample below. Load your PDF document and use the `Summarize` method to create a summary. Download a sample PDF from [OpenAI PDF Summarization Example](https://ironsoftware.com/csharp/examples/openai-pdf-summarization/).
+You'll need an Azure Endpoint and an API Key to utilize OpenAI capabilities. Set up the Semantic Kernel as demonstrated in the sample below. Load your PDF document and use the `Summarize` method to create a summary. Download a sample PDF from [OpenAI PDF Summarization Example](https://ironpdf.com/how-to/openai/?utm_source=github).
 
 Be aware of the errors SKEXP0001, SKEXP0010, and SKEXP0050 which might arise due to the experimental nature of the Semantic Kernel methods. You can suppress these warnings in your project file as shown:
 

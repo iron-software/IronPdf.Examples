@@ -1,6 +1,6 @@
-> Full guide: [Stamping new content](https://ironpdf.com/examples/stamping-new-content/)
+> Full guide: [Stamping new content](https://ironpdf.com/examples/stamping-new-content/?utm_source=github)
 
-Developers are equipped to modify any PDF by introducing new content on any of its pages using the [`StampHTML` method for managing PDFs](https://ironpdf.com/docs/#html-to-pdf).
+Developers are equipped to modify any PDF by introducing new content on any of its pages using the [`StampHTML` method for managing PDFs](https://ironpdf.com/docs/?utm_source=github#html-to-pdf).
 
 Here’s an illustration of how you can implement the `StampHTML` method in a Python script:
 
@@ -12,4 +12,4 @@ Here’s an illustration of how you can implement the `StampHTML` method in a Py
 
 Make sure that all necessary dependencies are installed and that you are familiar with the library in use before proceeding with this script.
 
-[Learn how to Stamp Text & Images on PDFs with IronPDF](https://ironpdf.com/how-to/stamp-text-image/)
+[Learn how to Stamp Text & Images on PDFs with IronPDF](https://ironpdf.com/how-to/stamp-text-image/?utm_source=github)

@@ -1,6 +1,6 @@
 # Embedding Images Using DataURIs in C# & VB PDF Conversion
 
-> Full guide: [Embedding Images Using DataURIs in C# & VB PDF Conversion](https://ironpdf.com/how-to/datauris/)
+> Full guide: [Embedding Images Using DataURIs in C# & VB PDF Conversion](https://ironpdf.com/how-to/datauris/?utm_source=github)
 
 
 When incorporating HTML content with associated assets into your projects, a practical approach can be to utilize the [data URI scheme](https://en.wikipedia.org/wiki/Data_URI_scheme).
@@ -40,4 +40,4 @@ var pdf = Renderer.RenderHtmlAsPdf(ImgHtml);
 pdf.SaveAs("datauri_example.pdf");
 ```
 
-We can further explore serving either an [HTML String or PDF document as a Byte Array utilizing IronPDF's capabilities in ASP.NET MVC](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/).
+We can further explore serving either an [HTML String or PDF document as a Byte Array utilizing IronPDF's capabilities in ASP.NET MVC](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/?utm_source=github).

@@ -1,11 +1,11 @@
 # Integrating IronPDF within Docker Containers
 
-> Full guide: [Integrating IronPDF within Docker Containers](https://ironpdf.com/get-started/ironpdf-docker/)
+> Full guide: [Integrating IronPDF within Docker Containers](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github)
 
 
 IronPDF now fully supports integration with Docker across diverse environments, including Azure Docker Containers tailored for both Linux and Windows platforms.
 
-Interested in deploying IronPDF in a standalone Docker container? Explore further in the [IronPDFEngine tutorials guide](https://ironpdf.com/tutorials/what-is-ironpdfengine/).
+Interested in deploying IronPDF in a standalone Docker container? Explore further in the [IronPDFEngine tutorials guide](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github).
 
 <div class="container-fluid">
     <div class="row">
@@ -35,7 +35,7 @@ Docker Containers deployed on Azure provide superior scalability and offer enhan
 
 New to Docker and .NET? We recommend this useful guide on [configuring Docker for debugging and project integration with Visual Studio](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
 
-For specifics on setting up IronPDF with Linux, be sure to consult our [IronPDF Linux Setup and Compatibility Guide](https://ironpdf.com/get-started/linux/).
+For specifics on setting up IronPDF with Linux, be sure to consult our [IronPDF Linux Setup and Compatibility Guide](https://ironpdf.com/get-started/linux/?utm_source=github).
 
 ### Suggested Linux Docker Distros
 
@@ -44,9 +44,9 @@ Here are recommended 64-bit Linux operating systems ideal for configuring IronPD
 - Ubuntu versions 22, 20, and 18
 - Debian versions 11 and 10
 - CentOS 8
-- Amazon AWS Linux 2 ([IronPDF AWS Lambda Setup Guide](https://ironpdf.com/get-started/aws/))
+- Amazon AWS Linux 2 ([IronPDF AWS Lambda Setup Guide](https://ironpdf.com/get-started/aws/?utm_source=github))
 
-Using [Microsoft's Official Docker Images for .NET](https://hub.docker.com/_/microsoft-dotnet-runtime/) is advisable. Explore our [Linux Manual Setup Guide](https://ironpdf.com/get-started/linux/#other-linux-distros) for guidance on other distros.
+Using [Microsoft's Official Docker Images for .NET](https://hub.docker.com/_/microsoft-dotnet-runtime/) is advisable. Explore our [Linux Manual Setup Guide](https://ironpdf.com/get-started/linux/?utm_source=github#other-linux-distros) for guidance on other distros.
 
 ## Installing IronPDF on Linux Docker
 

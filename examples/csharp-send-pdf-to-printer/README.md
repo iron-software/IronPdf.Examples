@@ -1,4 +1,4 @@
-> Docs: [IronPDF documentation](https://ironpdf.com/docs/)
+> Docs: [IronPDF documentation](https://ironpdf.com/docs/?utm_source=github)
 
 IronPDF offers a straightforward method for developers to craft PDF files in C#, F#, and VB.NET across .NET Core and .NET Framework platforms.
 
@@ -6,7 +6,7 @@ This example exhibits how a PDF document can be crafted directly from HTML.
 
 Developers may utilize plain HTML or augment it with CSS, images, and JavaScript for more complex documents.
 
-IronPDF delivers rendering that is as sharp as Google Chrome's desktop version, ensuring "[pixel perfect HTML to PDF conversion](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/)".
+IronPDF delivers rendering that is as sharp as Google Chrome's desktop version, ensuring "[pixel perfect HTML to PDF conversion](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/?utm_source=github)".
 
 Below is a practical demonstration of implementing IronPDF in C# to generate a PDF from HTML content:
 

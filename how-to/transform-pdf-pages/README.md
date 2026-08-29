@@ -1,6 +1,6 @@
 # Transform PDF Pages in .NET
 
-> Full guide: [Transform PDF Pages in .NET](https://ironpdf.com/how-to/transform-pdf-pages/)
+> Full guide: [Transform PDF Pages in .NET](https://ironpdf.com/how-to/transform-pdf-pages/?utm_source=github)
 
 
 Transforming a PDF page generally involves applying various operations that alter the visual presentation or arrangement of content on the page. Common transformations include scaling, where you resize the page, and translating, where you shift the content to a new position.
@@ -17,7 +17,7 @@ IronPdf.PdfDocument.FromFile("input.pdf")
 
 ## Transform PDF Pages
 
-The transformation features allow for moving and resizing page content. These modifications affect only the display of the content and do NOT alter the physical dimensions of the page. Explore how to use the `Transform` method on this [basic PDF document example](https://ironpdf.com/static-assets/pdf/how-to/transform-pdf-pages/basic.pdf).
+The transformation features allow for moving and resizing page content. These modifications affect only the display of the content and do NOT alter the physical dimensions of the page. Explore how to use the `Transform` method on this [basic PDF document example](https://ironpdf.com/static-assets/pdf/how-to/transform-pdf-pages/basic.pdf?utm_source=github).
 
 ```csharp
 using IronPdf;

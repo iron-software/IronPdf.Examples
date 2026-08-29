@@ -1,10 +1,10 @@
 # A Developer's Guide to Digitally Signing PDFs with C&num;
 
-> Full guide: [A Developer's Guide to Digitally Signing PDFs with C&num;](https://ironpdf.com/how-to/signing/)
+> Full guide: [A Developer's Guide to Digitally Signing PDFs with C&num;](https://ironpdf.com/how-to/signing/?utm_source=github)
 
 Applying a signature to PDF documents is frequently required in software applications, and the concept of "signing" can vary widely. Some scenarios demand the application of a secure, tamper-resistant digital signature with a security certificate. In other cases, it may involve imprinting a document with a visual, handwritten signature or incorporating an interactive form field for digital signatures.
 
-This comprehensive tutorial is designed for C# developers using the [IronPDF for .NET library](https://ironpdf.com/) to address these varying requirements. It covers `X509Certificate2` digital signatures, embedded graphical signatures, and interactive signature fields.
+This comprehensive tutorial is designed for C# developers using the [IronPDF for .NET library](https://ironpdf.com/?utm_source=github) to address these varying requirements. It covers `X509Certificate2` digital signatures, embedded graphical signatures, and interactive signature fields.
 
 ## Quickstart: Digitally Sign a PDF Using IronPDF
 
@@ -212,7 +212,7 @@ snapshotWithRevisions.SaveAs("annual_census_signed.pdf");
 
 Grasping the concept of incremental saves is crucial for handling sophisticated PDF processes. Simple PDF viewers may only display the latest document version, but advanced applications like Adobe Acrobat can unveil an entire history of document revisions. These tools show detailed records of who signed the document at each stage and any modifications made prior to each signature. With IronPDF, developers are provided with complete control over managing these data layers and revisions.
 
-For document management systems with strict security and compliance requirements, the [Iron Suite](https://ironsoftware.com/suite/) bundles IronPDF with the other Iron Software document processing libraries as a single one-time purchase.
+For document management systems with strict security and compliance requirements, the [Iron Suite](https://ironsoftware.com/suite/?utm_source=github) bundles IronPDF with the other Iron Software document processing libraries as a single one-time purchase.
 
 ### Managing and Verifying Signatures Over Multiple Document Revisions
 
@@ -328,7 +328,7 @@ pdfDocument.Form.Add(formField);
 pdfDocument.SaveAs("interactive_signature.pdf");
 ```
 
-Upon opening the PDF, users encounter an interactive, clickable signature field, enabling them to sign the document using their digital identity. For further details on crafting and managing interactive forms, peruse our [guide on creating PDF forms](https://ironpdf.com/how-to/create-forms/).
+Upon opening the PDF, users encounter an interactive, clickable signature field, enabling them to sign the document using their digital identity. For further details on crafting and managing interactive forms, peruse our [guide on creating PDF forms](https://ironpdf.com/how-to/create-forms/?utm_source=github).
 
 ![Unsigned signature](https://ironpdf.com/static-assets/pdf/how-to/signing/unsigned-signature.webp)
 _This image depicts a programmatically added, unsigned interactive signature field in a PDF._
@@ -377,7 +377,7 @@ Be aware that this information comes from the certificate’s Subject Distinguis
 
 This tutorial has covered IronPDF's PDF signing features. Whether it’s enforcing secure digital signatures, controlling document revisions, embedding visual signatures, or integrating interactive signature forms, IronPDF covers all of them through one API.
 
-Download the IronPDF library for .NET [here](https://ironpdf.com/download-modal) and request a [free trial license](https://ironpdf.com/trial-license).
+Download the IronPDF library for .NET [here](https://ironpdf.com/?utm_source=github#download-modal) and request a [free trial license](https://ironpdf.com/?utm_source=github#trial-license).
 
-Curious about more functionalities? Visit our detailed guide on securing and signing PDF files with C#: [Sign and Secure PDFs](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/).
+Curious about more functionalities? Visit our detailed guide on securing and signing PDF files with C#: [Sign and Secure PDFs](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/?utm_source=github).
 

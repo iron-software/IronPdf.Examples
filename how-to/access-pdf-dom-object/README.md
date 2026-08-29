@@ -1,6 +1,6 @@
 # Manipulating PDF DOM Objects
 
-> Full guide: [Manipulating PDF DOM Objects](https://ironpdf.com/how-to/access-pdf-dom-object/)
+> Full guide: [Manipulating PDF DOM Objects](https://ironpdf.com/how-to/access-pdf-dom-object/?utm_source=github)
 
 
 Manipulating the PDF DOM involves interacting with the structure of a PDF document in ways similar to handling webpage DOMs. The DOM of a PDF is a structured representation of its content which enables developers to programmatically modify various components such as text, images, annotations, and metadata.
@@ -188,4 +188,4 @@ pageElements.ImageObjects.RemoveAt(0);
 removalPdf.SaveAs("removedFirstImage.pdf");
 ```
 
-Explore more capabilities by visiting our guide here: [Manipulate PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/)
+Explore more capabilities by visiting our guide here: [Manipulate PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github)

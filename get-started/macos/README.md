@@ -1,6 +1,6 @@
 # Utilizing IronPDF on macOS
 
-> Full guide: [Utilizing IronPDF on macOS](https://ironpdf.com/get-started/macos/)
+> Full guide: [Utilizing IronPDF on macOS](https://ironpdf.com/get-started/macos/?utm_source=github)
 
 
 IronPDF offers comprehensive support for macOS through .NET Standard libraries, Core applications, as well as .NET versions 10 to 5.
@@ -43,7 +43,7 @@ From 2020 onwards, as Mac pivoted from Intel to Apple Silicon processors:
 
 For scenarios where internet access is restricted, download and manually integrate the DLL:
  
-- [IronPdf.MacOs.zip](https://ironpdf.com/packages/IronPdf.MacOs.zip)
+- [IronPdf.MacOs.zip](https://ironpdf.com/packages/IronPdf.MacOs.zip?utm_source=github)
 
 ## Hardware Recommendations
 

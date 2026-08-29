@@ -1,4 +1,4 @@
-> Full guide: [PDF to HTML](https://ironpdf.com/examples/pdf-to-html/)
+> Full guide: [PDF to HTML](https://ironpdf.com/examples/pdf-to-html/?utm_source=github)
 
 IronPDF excels in creating flawless PDF files from HTML and offers functionality for transforming PDF documents into HTML format. This is facilitated by the integration of the `PdfDocument` and `HtmlFormatOptions` classes, which provide essential methods for the conversion process and allow users to refine the formatting of the resulting HTML.
 
@@ -16,4 +16,4 @@ In this scenario, we illustrate adjustments such as setting the background color
 
 The process culminates with the use of the `SaveAsHtml` method, which not only converts the PDF into HTML but also allows for the inclusion of additional parameters. These include specifying the filename and location for the saved HTML document, using **fullContentWidth** set to true to utilize the full content width of the PDF, assigning a title to the HTML document, and implementing the previously set formatting specifications with `htmlFormatOptions`.
 
-Dive deeper into converting PDF documents into HTML by visiting our guide at [PDF to HTML Conversion Guide](https://ironpdf.com/how-to/pdf-to-html/).
+Dive deeper into converting PDF documents into HTML by visiting our guide at [PDF to HTML Conversion Guide](https://ironpdf.com/how-to/pdf-to-html/?utm_source=github).

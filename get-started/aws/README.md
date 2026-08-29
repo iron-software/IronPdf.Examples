@@ -1,6 +1,6 @@
 # Executing & Deploying IronPDF .NET on AWS Lambda
 
-> Full guide: [Executing & Deploying IronPDF .NET on AWS Lambda](https://ironpdf.com/get-started/aws/)
+> Full guide: [Executing & Deploying IronPDF .NET on AWS Lambda](https://ironpdf.com/get-started/aws/?utm_source=github)
 
 
 <div class="container-fluid">

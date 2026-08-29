@@ -1,6 +1,6 @@
 # Simplifying PDF Management in C#
 
-> Full guide: [Simplifying PDF Management in C#](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/)
+> Full guide: [Simplifying PDF Management in C#](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/?utm_source=github)
 
 
 IronPDF generates PDFs and reorganizes them: inserting bookmarks and attachments, and rearranging the document as a whole.
@@ -95,7 +95,7 @@ PdfDocument pdf = PdfDocument.FromFile("detailed_report.pdf");
 pdf.RemovePages(new List<int> { 2, 3 });
 ```
 
-For comprehensive guidance on these functionalities, please visit our detailed [handling PDF pages](https://ironpdf.com/how-to/add-copy-delete-pages-pdf/) tutorial.
+For comprehensive guidance on these functionalities, please visit our detailed [handling PDF pages](https://ironpdf.com/how-to/add-copy-delete-pages-pdf/?utm_source=github) tutorial.
 
 ### Combine or Partition PDFs
 
@@ -130,7 +130,7 @@ var singlePagePdf = pdf.CopyPage(2);
 singlePagePdf.SaveAs("ExtractedPage.pdf");
 ```
 
-Further details on merging and splitting PDFs can be found in our [merge and manage PDFs](https://ironpdf.com/how-to/merge-or-split-pdfs/) guide.
+Further details on merging and splitting PDFs can be found in our [merge and manage PDFs](https://ironpdf.com/how-to/merge-or-split-pdfs/?utm_source=github) guide.
 
 ### Segmenting Multipage PDF
 
@@ -149,7 +149,7 @@ for (int pageIndex = 0; pageIndex < pdf.PageCount; pageIndex++)
 }
 ```
 
-For more insights on this process, check out our detailed [splitting multipage PDFs](https://ironpdf.com/how-to/split-multipage-pdf/) guide.
+For more insights on this process, check out our detailed [splitting multipage PDFs](https://ironpdf.com/how-to/split-multipage-pdf/?utm_source=github) guide.
 
 ## Advanced Organizational Tools
 
@@ -190,7 +190,7 @@ pdf.Attachments.Remove(attachments.First());
 pdf.SaveAs("StreamlinedProposal.pdf");
 ```
 
-Explore more about managing attachments in our extensive [handling attachments](https://ironpdf.com/how-to/add-remove-attachments/) tutorial.
+Explore more about managing attachments in our extensive [handling attachments](https://ironpdf.com/how-to/add-remove-attachments/?utm_source=github) tutorial.
 
 ### Bookmarks & Navigation
 
@@ -224,10 +224,10 @@ PdfDocument document = PdfDocument.FromFile("NavigableReport.pdf");
 var bookmarks = document.Bookmarks.GetAll();
 ```
 
-Detailed instructions for implementing bookmarks can be found in our [creating and managing bookmarks](https://ironpdf.com/how-to/bookmarks/) tutorial.
+Detailed instructions for implementing bookmarks can be found in our [creating and managing bookmarks](https://ironpdf.com/how-to/bookmarks/?utm_source=github) tutorial.
 
 ## Conclusion
 
 IronPDF creates and modifies PDF documents from C#: page manipulation, document merging, and bookmark management.
 
-For further assistance or to suggest new features, please contact [our support team](https://ironpdf.com/troubleshooting/engineering-request-pdf/). We're always eager to help you optimize your PDF handling experience.
+For further assistance or to suggest new features, please contact [our support team](https://ironpdf.com/troubleshooting/engineering-request-pdf/?utm_source=github). We're always eager to help you optimize your PDF handling experience.

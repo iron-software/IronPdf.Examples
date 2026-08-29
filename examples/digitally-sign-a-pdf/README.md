@@ -1,7 +1,7 @@
-> Full guide: [Digitally sign a PDF](https://ironpdf.com/examples/digitally-sign-a-pdf/)
+> Full guide: [Digitally sign a PDF](https://ironpdf.com/examples/digitally-sign-a-pdf/?utm_source=github)
 
 <div class="alert alert-info iron-variant-1" role="alert">
-  If your company is burdened by hefty annual fees related to PDF security and compliance, consider switching to <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>. It covers digital signing, redaction, encryption, and document protection under a single one-time payment. Learn more about it by exploring the <a href="https://ironsoftware.com/enterprise/securedoc/docs/">IronSecureDoc documentation</a>.
+  If your company is burdened by hefty annual fees related to PDF security and compliance, consider switching to <a href="https://ironsoftware.com/enterprise/securedoc/?utm_source=github">IronSecureDoc</a>. It covers digital signing, redaction, encryption, and document protection under a single one-time payment. Learn more about it by exploring the <a href="https://ironsoftware.com/enterprise/securedoc/docs/?utm_source=github">IronSecureDoc documentation</a>.
 </div>
 
 Adding a digital signature to a PDF can be pivotal in ensuring the document's authenticity and security. This functionality allows you to confirm the origin and integrity of the PDF. With IronPDF, users have several avenues available for signing PDFs. Options range from using a digital certificate, incorporating a graphic representation of a handwritten signature, stamping the document with an image of the certificate, to integrating a form field specifically for applying a user's signature.
@@ -16,4 +16,4 @@ With the `PdfSignature` object ready, apply it by calling the `Sign` method. Sev
 
 Finally, preserve your newly signed PDF document by calling `SaveAs`, which will store the file in your designated location.
 
-<a href="https://ironpdf.com/how-to/signing/" class="code_content__related-link__doc-cta-link">Learn more about Secure PDF Signing with IronPDF.</a>
+<a href="https://ironpdf.com/how-to/signing/?utm_source=github" class="code_content__related-link__doc-cta-link">Learn more about Secure PDF Signing with IronPDF.</a>

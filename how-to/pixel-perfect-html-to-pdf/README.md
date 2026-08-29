@@ -1,6 +1,6 @@
 # How to Debug HTML in Chrome for Flawless PDF Output
 
-> Full guide: [How to Debug HTML in Chrome for Flawless PDF Output](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/)
+> Full guide: [How to Debug HTML in Chrome for Flawless PDF Output](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/?utm_source=github)
 
 
 At IronPDF, we prioritize delivering PDFs that are not only visually appealing but also match the exact expectations of our users. To ensure your PDFs are flawless, it's essential to work with top-quality HTML templates. IronPDF provides capabilities to render your PDFs with pixel precision according to your HTML, ensuring they look identical to their display in Chrome, thanks to our advanced Chrome Renderer.
@@ -21,7 +21,7 @@ pdf.RenderHtmlAsPdf("<html><body>Hello World</body></html>").SaveAs("quick-outpu
 
 IronPDF stands unique among .NET PDF libraries by integrating Google's Chromium Renderer. This integration guarantees that the HTML rendered in Chrome is what you get in your PDFs. This section will guide you through configuring settings in both Chrome and IronPDF to accomplish this.
 
-Unlike some competitors who fail to meet W3C standards or even support modern web languages, IronPDF maintains rigorous compliance. Many alternatives utilize different rendering engines, like [wkhtmltopdf in the .NET realm](https://ironpdf.com/blog/compare-to-other-components/wkhtmltopdf-c-sharp/).
+Unlike some competitors who fail to meet W3C standards or even support modern web languages, IronPDF maintains rigorous compliance. Many alternatives utilize different rendering engines, like [wkhtmltopdf in the .NET realm](https://ironpdf.com/blog/compare-to-other-components/wkhtmltopdf-c-sharp/?utm_source=github).
 
 ### Comparison with Other Technologies
 
@@ -95,9 +95,9 @@ Unlike some competitors who fail to meet W3C standards or even support modern we
     </div>
 </div>
 
-*For a detailed product comparison, visit our [comparison blog](https://ironpdf.com/blog/compare-to-other-components/).*
+*For a detailed product comparison, visit our [comparison blog](https://ironpdf.com/blog/compare-to-other-components/?utm_source=github).*
 
-<p><a href="https://ironpdf.com/features/">Iron Software Library Features</a> | <a href="https://ironpdf.com/how-to/ironpdf-2021-chrome-rendering-engine-eap/">Using IronPDF's Chrome Rendering Engine</a> | <a href="https://ironpdf.com/blog/compare-to-other-components/aspose-pdf-converter/">Comparative Analysis: Aspose vs IronPDF</a> | <a href="https://ironpdf.com/blog/compare-to-other-components/itextpdf-alternative-html-to-pdf-csharp/">iText vs IronPDF</a></p>
+<p><a href="https://ironpdf.com/features/?utm_source=github">Iron Software Library Features</a> | <a href="https://ironpdf.com/how-to/ironpdf-2021-chrome-rendering-engine-eap/?utm_source=github">Using IronPDF's Chrome Rendering Engine</a> | <a href="https://ironpdf.com/blog/compare-to-other-components/aspose-pdf-converter/?utm_source=github">Comparative Analysis: Aspose vs IronPDF</a> | <a href="https://ironpdf.com/blog/compare-to-other-components/itextpdf-alternative-html-to-pdf-csharp/?utm_source=github">iText vs IronPDF</a></p>
 
 ## IronPDF's Optimized Chrome Renderer Outperforms Chrome Itself
 
@@ -191,6 +191,6 @@ renderer.RenderingOptions.Timeout = 90; // seconds, default is 60
 renderer.RenderingOptions.WaitFor.RenderDelay(30000); // milliseconds, to ensure assets load
 ```
 
-Ensure you properly set these timings to avoid issues with rendering your PDFs. For more detailed guidance on IronPDF's `WaitFor` options and handling JavaScript, please refer to [this guide](https://ironpdf.com/how-to/javascript-to-pdf/) and [our API documentation](https://ironpdf.com/object-reference/api/IronPdf.Engines.Chrome.WaitFor.html).
+Ensure you properly set these timings to avoid issues with rendering your PDFs. For more detailed guidance on IronPDF's `WaitFor` options and handling JavaScript, please refer to [this guide](https://ironpdf.com/how-to/javascript-to-pdf/?utm_source=github) and [our API documentation](https://ironpdf.com/object-reference/api/IronPdf.Engines.Chrome.WaitFor.html?utm_source=github).
 
 This document and its comparisons are for informative purposes only, based on publicly available data as of writing. All product names and trademarks belong to their respective owners and are used here for comparison and educational purposes only.

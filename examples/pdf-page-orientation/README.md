@@ -1,6 +1,6 @@
-> Full guide: [PDF page orientation](https://ironpdf.com/examples/pdf-page-orientation/)
+> Full guide: [PDF page orientation](https://ironpdf.com/examples/pdf-page-orientation/?utm_source=github)
 
-When working with IronPDF to create or modify PDF documents, users can set specific orientations for their documents. The `PdfPaperOrientation` class manages the paper orientation for converting [HTML to PDF with IronPDF](https://ironpdf.com/tutorials/html-to-pdf/).
+When working with IronPDF to create or modify PDF documents, users can set specific orientations for their documents. The `PdfPaperOrientation` class manages the paper orientation for converting [HTML to PDF with IronPDF](https://ironpdf.com/tutorials/html-to-pdf/?utm_source=github).
 
 Below is an illustration of how to specify the paper orientation for your PDF documents.
 
@@ -22,4 +22,4 @@ IronPDF offers two configuration options to adjust document layouts in PDFs: `Pa
 - For instance, setting a `PageRotation` of `None` for a page size of `210mm x 297mm` will maintain the dimensions as `width=210 height=297`.
 - Similarly, setting a `PageRotation` of `Clockwise90` for the same page size does not change its dimensions.
 
-[Learn more about page orientation and rotation in PDFs](https://ironpdf.com/how-to/page-orientation-rotation/) to better understand how to manipulate these properties for optimal document presentation.
+[Learn more about page orientation and rotation in PDFs](https://ironpdf.com/how-to/page-orientation-rotation/?utm_source=github) to better understand how to manipulate these properties for optimal document presentation.

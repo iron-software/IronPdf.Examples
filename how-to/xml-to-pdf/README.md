@@ -1,6 +1,6 @@
 # Convert XML to PDF in C# and VB.NET
 
-> Full guide: [Convert XML to PDF in C# and VB.NET](https://ironpdf.com/how-to/xml-to-pdf/)
+> Full guide: [Convert XML to PDF in C# and VB.NET](https://ironpdf.com/how-to/xml-to-pdf/?utm_source=github)
 
 
 Transforming XML directly to PDF using C# may appear daunting due to the intricacies involved. A proven strategy involves employing an XSLT as a transformation template. Using this method, XML is transformed into an HTML format through *XSLT*, which subsequently facilitates rendering into a PDF file. Simply put, XSLT functions as an intermediary, translating XML into HTML based on defined templates, adhering closely to established industry standards.
@@ -23,7 +23,7 @@ pdfRenderer.RenderHtmlAsPdf(
 
 ## Example
 
-The resulting HTML content can then be used to create a PDF document using the [.NET PDF Generator](https://ironpdf.com/docs/). See IronPDF's capabilities in action by downloading the sample project available at this link: [XML to PDF Conversion Example](https://ironpdf.com/downloads/csharp-xml-to-pdf.zip).
+The resulting HTML content can then be used to create a PDF document using the [.NET PDF Generator](https://ironpdf.com/docs/?utm_source=github). See IronPDF's capabilities in action by downloading the sample project available at this link: [XML to PDF Conversion Example](https://ironpdf.com/?utm_source=github#download-modal).
 
 ```csharp
 // This XSLT script outlines how XML data is mapped to HTML format

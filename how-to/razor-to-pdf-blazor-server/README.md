@@ -1,6 +1,6 @@
 # Transforming Razor Components into PDFs using Blazor Server
 
-> Full guide: [Transforming Razor Components into PDFs using Blazor Server](https://ironpdf.com/how-to/razor-to-pdf-blazor-server/)
+> Full guide: [Transforming Razor Components into PDFs using Blazor Server](https://ironpdf.com/how-to/razor-to-pdf-blazor-server/?utm_source=github)
 
 
 Razor components are user interface building blocks containing C# and Razor syntax, commonly used for crafting pages, dialogs, or complex forms as reusable UI elements.
@@ -76,7 +76,7 @@ namespace BlazorSample.Data
 
 By utilizing the `RenderRazorComponentToPdf` from the **ChromePdfRenderer** class, you can convert Razor components to PDFs. The method returns a **PdfDocument** object, permitting further modifications or exports of the PDF.
 
-Such modifications include converting to [PDF/A](https://ironpdf.com/how-to/pdfa/) or [PDF/UA](https://ironpdf.com/how-to/pdfua/), merging or splitting [PDF documents](https://ironpdf.com/how-to/merge-or-split-pdfs/), rotating pages, and adding [annotations](https://ironpdf.com/how-to/annotations/) or [bookmarks](https://ironpdf.com/how-to/bookmarks/). It is also possible to [add custom watermarks](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#add-a-watermark-to-a-pdf) to your documents.
+Such modifications include converting to [PDF/A](https://ironpdf.com/how-to/pdfa/?utm_source=github) or [PDF/UA](https://ironpdf.com/how-to/pdfua/?utm_source=github), merging or splitting [PDF documents](https://ironpdf.com/how-to/merge-or-split-pdfs/?utm_source=github), rotating pages, and adding [annotations](https://ironpdf.com/how-to/annotations/?utm_source=github) or [bookmarks](https://ironpdf.com/how-to/bookmarks/?utm_source=github). It is also possible to [add custom watermarks](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github#add-a-watermark-to-a-pdf) to your documents.
 
 Create a new Razor component `Person.razor` and populate it with the following code, which includes functioning page elements like a PDF print button:
 
@@ -167,6 +167,6 @@ To visualize the process of creating a PDF in your Blazor Server project, follow
 
 The entire project code is accessible for download, packaged as a ZIP file, ready to be explored in Visual Studio as a Blazor Server App.
 
-[Download the Blazor Sample Project for Razor-to-PDF Conversion](https://ironpdf.com/static-assets/pdf/how-to/razor-to-pdf-blazor-server/BlazorSample.zip)
+[Download the Blazor Sample Project for Razor-to-PDF Conversion](https://ironpdf.com/static-assets/pdf/how-to/razor-to-pdf-blazor-server/BlazorSample.zip?utm_source=github)
 
-Explore additional capabilities by visiting our detailed guide on [Converting PDFs](https://ironpdf.com/tutorials/convert-pdf/).
+Explore additional capabilities by visiting our detailed guide on [Converting PDFs](https://ironpdf.com/tutorials/convert-pdf/?utm_source=github).

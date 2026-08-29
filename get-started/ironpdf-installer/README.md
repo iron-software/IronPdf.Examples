@@ -1,11 +1,11 @@
 # Install IronPDF with the Windows Installer
 
-> Full guide: [Install IronPDF with the Windows Installer](https://ironpdf.com/get-started/ironpdf-installer/)
+> Full guide: [Install IronPDF with the Windows Installer](https://ironpdf.com/get-started/ironpdf-installer/?utm_source=github)
 
 
 ## Download and Execute the Installer
 
-1. Initiate the installation by downloading the **[IronPDF Installer Package](https://ironpdf.com/packages/IronPdfInstaller.zip)** and executing the file.
+1. Initiate the installation by downloading the **[IronPDF Installer Package](https://ironpdf.com/packages/IronPdfInstaller.zip?utm_source=github)** and executing the file.
 2. Review and agree to the licensing terms displayed:
    ![license-agreement-image](https://ironpdf.com/static-assets/pdf/how-to/ironpdf-installer/license-agreement.webp)
 

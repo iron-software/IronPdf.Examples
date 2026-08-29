@@ -1,10 +1,10 @@
-> Docs: [IronPDF documentation](https://ironpdf.com/docs/)
+> Docs: [IronPDF documentation](https://ironpdf.com/docs/?utm_source=github)
 
-IronPDF is a premier C# library designed for converting HTML to PDF, editing PDF documents, and extracting data from PDFs. For a guide on maximizing the potential of IronPDF for creating and adjusting PDF files using C#, consult the [IronPDF product page](https://ironpdf.com/).
+IronPDF is a premier C# library designed for converting HTML to PDF, editing PDF documents, and extracting data from PDFs. For a guide on maximizing the potential of IronPDF for creating and adjusting PDF files using C#, consult the [IronPDF product page](https://ironpdf.com/?utm_source=github).
 
-IronPDF simplifies the process of converting intricate HTML pages, JavaScript, and dynamic content into PDF files. This makes it a critical asset for developers who aim to incorporate PDF capabilities into their .NET applications. For further details on IronPDF and its extensive features, visit the [IronPDF documentation page](https://ironpdf.com/docs/).
+IronPDF simplifies the process of converting intricate HTML pages, JavaScript, and dynamic content into PDF files. This makes it a critical asset for developers who aim to incorporate PDF capabilities into their .NET applications. For further details on IronPDF and its extensive features, visit the [IronPDF documentation page](https://ironpdf.com/docs/?utm_source=github).
 
-Gain deeper insights into how Iron Software’s powerful PDF library can boost your application by exploring the IronPDF Chrome Renderer and its uses via the [IronPDF Chrome Renderer overview](https://ironpdf.com/docs/#chrome-pdf-renderer).
+Gain deeper insights into how Iron Software’s powerful PDF library can boost your application by exploring the IronPDF Chrome Renderer and its uses via the [IronPDF Chrome Renderer overview](https://ironpdf.com/docs/?utm_source=github#chrome-pdf-renderer).
 
 Below is an easy-to-follow example showcasing the usage of IronPDF in a C# application to transform an HTML string into a PDF document:
 

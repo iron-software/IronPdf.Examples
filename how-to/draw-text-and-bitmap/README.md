@@ -1,6 +1,6 @@
 # Drawing Text and Bitmaps on PDFs
 
-> Full guide: [Drawing Text and Bitmaps on PDFs](https://ironpdf.com/how-to/draw-text-and-bitmap/)
+> Full guide: [Drawing Text and Bitmaps on PDFs](https://ironpdf.com/how-to/draw-text-and-bitmap/?utm_source=github)
 
 
 Adding text and bitmap images to PDF documents is a common requirement for customizing and enhancing existing files. Using IronPDF, this process is smooth and efficient, making it easy to incorporate elements like watermarks, logos, and annotations. This functionality not only boosts the document’s aesthetic value and branding but also enhances data presentation and interaction through visual content and form fields.
@@ -36,7 +36,7 @@ pdf.SaveAs("textAdded.pdf");
 
 ### Typeface Options in IronPDF
 
-The `DrawText` method supports a range of [Standard Fonts provided by IronPDF](https://ironpdf.com/how-to/manage-fonts/#standard-fonts), such as Courier, Arial (alternatively Helvetica), Times New Roman, Symbol, and ZapfDingbats, including their italic, bold, and oblique variations.
+The `DrawText` method supports a range of [Standard Fonts provided by IronPDF](https://ironpdf.com/how-to/manage-fonts/?utm_source=github#standard-fonts), such as Courier, Arial (alternatively Helvetica), Times New Roman, Symbol, and ZapfDingbats, including their italic, bold, and oblique variations.
 
 ZapfDingbats is particularly useful for including unique symbols like ▲. For detailed information on supported symbols, you can refer to [Zapf Dingbats on Wikipedia](https://en.wikipedia.org/wiki/Zapf_Dingbats).
 
@@ -104,4 +104,4 @@ pdf.SaveAs("imageAdded.pdf");
 
 The draw image process provides several parameters such as `PixelFormat` and `IgnorePageRotation` to customize how images are handled within the PDF, enhancing flexibility across different use cases.
 
-Discover more ways to manipulate PDFs with our complete tutorial here: [C# PDF Editing Tutorial](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/).
+Discover more ways to manipulate PDFs with our complete tutorial here: [C# PDF Editing Tutorial](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github).

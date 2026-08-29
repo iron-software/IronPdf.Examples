@@ -1,6 +1,6 @@
 # Managing Fonts in PDF Documents
 
-> Full guide: [Managing Fonts in PDF Documents](https://ironpdf.com/how-to/manage-fonts/)
+> Full guide: [Managing Fonts in PDF Documents](https://ironpdf.com/how-to/manage-fonts/?utm_source=github)
 
 
 Fonts, which include characters, symbols, and glyphs, are key to maintaining the visual style and design consistency across documents. They allow text to be displayed attractively and coherently in documents.

@@ -1,11 +1,11 @@
 # Utilizing JavaScript in HTML-to-PDF Conversion
 
-> Full guide: [Utilizing JavaScript in HTML-to-PDF Conversion](https://ironpdf.com/how-to/javascript-to-pdf/)
+> Full guide: [Utilizing JavaScript in HTML-to-PDF Conversion](https://ironpdf.com/how-to/javascript-to-pdf/?utm_source=github)
 
 
 JavaScript is a powerful programming language widely utilized in web development to enrich websites with interactive and dynamic behaviors. jQuery, an integral part of the JavaScript ecosystem, is a library aimed at simplifying various JavaScript tasks like DOM manipulation, event handling, and AJAX interactions.
 
-IronPDF uses the [Chromium rendering engine](https://www.chromium.org/chromium-projects/) to proficiently handle JavaScript. This tutorial illustrates the incorporation of JavaScript and jQuery in converting HTML content to PDF within .NET C# projects, and you can start with a [free trial of IronPDF](https://ironpdf.com/trial-license).
+IronPDF uses the [Chromium rendering engine](https://www.chromium.org/chromium-projects/) to proficiently handle JavaScript. This tutorial illustrates the incorporation of JavaScript and jQuery in converting HTML content to PDF within .NET C# projects, and you can start with a [free trial of IronPDF](https://ironpdf.com/?utm_source=github#trial-license).
 
 ## Quickstart: Converting HTML with JavaScript to PDF in .NET
 
@@ -130,7 +130,7 @@ chartPdf.SaveAs("d3-chart.pdf");
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/javascript-to-pdf/renderChart.pdf#zoom=85%" width="100%" height="400px"></iframe>
 
-Discover additional `WaitFor` settings, such as those for fonts, JavaScript, HTML components, and inactive network states at '[Exploring the WaitFor Class for C# PDF Rendering Delays](https://ironpdf.com/how-to/waitfor/).'
+Discover additional `WaitFor` settings, such as those for fonts, JavaScript, HTML components, and inactive network states at '[Exploring the WaitFor Class for C# PDF Rendering Delays](https://ironpdf.com/how-to/waitfor/?utm_source=github).'
 
 ## AngularJS Conversions
 

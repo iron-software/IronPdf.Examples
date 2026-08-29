@@ -1,6 +1,6 @@
 # Converting MemoryStream to PDF in C#
 
-> Full guide: [Converting MemoryStream to PDF in C#](https://ironpdf.com/how-to/pdf-memory-stream/)
+> Full guide: [Converting MemoryStream to PDF in C#](https://ironpdf.com/how-to/pdf-memory-stream/?utm_source=github)
 
 
 Creating a PDF from a MemoryStream in C# .NET is straightforward without the need to interact with the file system. This capability is made possible by utilizing the `MemoryStream` object available in the `System.IO` namespace of .NET.
@@ -39,4 +39,4 @@ PdfDocument pdf = new PdfDocument(pdfContentBytes);
 
 This example highlights how to load a PDF file from the file system into a `PdfDocument`. However, a `PdfDocument` can also be initialized from a byte array acquired through network communication or other data transfer methods. This flexibility allows you to convert the received PDF data into a modifiable object, leading to potential adjustments as required.
 
-Explore more about what you can achieve with this feature by visiting our comprehensive tutorial page: [Edit PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/)
+Explore more about what you can achieve with this feature by visiting our comprehensive tutorial page: [Edit PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github)

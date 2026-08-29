@@ -1,6 +1,6 @@
 # Understanding Different PDF Versions with IronPDF
 
-> Full guide: [Understanding Different PDF Versions with IronPDF](https://ironpdf.com/how-to/pdf-versions/)
+> Full guide: [Understanding Different PDF Versions with IronPDF](https://ironpdf.com/how-to/pdf-versions/?utm_source=github)
 
 
 PDFs can host a multitude of content types – from plain text and graphics to interactive forms and even 3D objects. Each feature within a PDF relates to a specific version; for instance, documents with transparency measures require at least version 1.4, and those incorporating layered structures necessitate version 1.5 and above. This guide will explore how IronPDF adeptly handles these complexities by automatically selecting the appropriate PDF version during the conversion process, ensuring a smooth and efficient operation for developers.

@@ -1,4 +1,4 @@
-> Full guide: [JavaScript HTML to PDF](https://ironpdf.com/examples/javascript-html-to-pdf/)
+> Full guide: [JavaScript HTML to PDF](https://ironpdf.com/examples/javascript-html-to-pdf/?utm_source=github)
 
 IronPDF provides the functionality to convert HTML into PDF documents, including HTML enriched with custom CSS and JavaScript. By embedding JavaScript directly within the HTML content, it's possible to incorporate elements like images directly into the HTML string, eliminating the need for external resources. This is accomplished using the `ChromePdfRenderer` class and its `RenderingOptions` property.
 
@@ -35,4 +35,4 @@ Use the `RenderingOptions` of the `ChromePdfRenderer` to ensure that the JavaScr
 
 The `renderer.RenderHtmlAsPdf(...)` method performs the core conversion to PDF. By submitting the HTML with JavaScript string to this method, you generate a detailed PDF showcasing all the HTML and JavaScript elements. This converted PDF is captured in a new `PdfDocument` object named `pdfJavaScript`. The document can then be saved using its `SaveAs` method.
 
-For a deeper exploration of rendering JavaScript-infused HTML to PDF, refer to the [IronPDF Guide on Converting JavaScript HTML to PDF](https://ironpdf.com/how-to/javascript-to-pdf/).
+For a deeper exploration of rendering JavaScript-infused HTML to PDF, refer to the [IronPDF Guide on Converting JavaScript HTML to PDF](https://ironpdf.com/how-to/javascript-to-pdf/?utm_source=github).

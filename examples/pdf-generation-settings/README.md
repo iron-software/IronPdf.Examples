@@ -1,14 +1,14 @@
-> Full guide: [PDF generation settings](https://ironpdf.com/examples/pdf-generation-settings/)
+> Full guide: [PDF generation settings](https://ironpdf.com/examples/pdf-generation-settings/?utm_source=github)
 
 IronPDF is designed to offer developers maximal flexibility.
 
-Discover the perfect balance between an API that manages the complexities for you and one that puts you in charge in this [C# PDF Generation Tutorial Example](https://ironpdf.com/blog/using-ironpdf/csharp-generate-pdf-tutorial/).
+Discover the perfect balance between an API that manages the complexities for you and one that puts you in charge in this [C# PDF Generation Tutorial Example](https://ironpdf.com/blog/using-ironpdf/csharp-generate-pdf-tutorial/?utm_source=github).
 
 IronPDF enables extensive customization options for creating PDFs, from adjusting page sizes and margins to embedding headers and footers, scaling contents, enforcing CSS styles, and executing JavaScript.
 
 <hr class="separator">
 
-For developers who wish to dictate how Chrome should transform a web page into a PDF, IronPDF's [`ChromePdfRenderer` Class Overview](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderOptions.html) provides the necessary tools.
+For developers who wish to dictate how Chrome should transform a web page into a PDF, IronPDF's [`ChromePdfRenderer` Class Overview](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderOptions.html?utm_source=github) provides the necessary tools.
 
 The `ChromePdfRenderer` class offers multiple settings including management of margins, headers, footers, paper dimensions, and form creation.
 
@@ -18,4 +18,4 @@ Here’s a quick rundown on using the IronPDF library:
 - Apply the `ChromePdfRenderer` class to convert a URL into a PDF.
 - Save your newly created PDF as "output.pdf".
 
-Check out the [Pixel-Perfect HTML to PDF Guide with IronPDF](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/) for more insights.
+Check out the [Pixel-Perfect HTML to PDF Guide with IronPDF](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/?utm_source=github) for more insights.

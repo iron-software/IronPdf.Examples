@@ -1,11 +1,11 @@
 # IronPDF License Keys
 
-> Full guide: [IronPDF License Keys](https://ironpdf.com/get-started/license-keys/)
+> Full guide: [IronPDF License Keys](https://ironpdf.com/get-started/license-keys/?utm_source=github)
 
 
 Acquiring an IronPDF license key enhances your ability to take your project from development to production without any limitations.
 
-You can [purchase a license key here](https://ironpdf.com/licensing/) or begin with a [free 30-day trial key](https://ironpdf.com/trial-license).
+You can [purchase a license key here](https://ironpdf.com/licensing/?utm_source=github) or begin with a [free 30-day trial key](https://ironpdf.com/?utm_source=github#trial-license).
 
 ---
 
@@ -25,7 +25,7 @@ Install-Package IronPdf
 
 ### Install via DLL
 
-You can also opt to manually download and integrate the IronPDF DLL into your project or the Global Assembly Cache (GAC) from [IronPDF ZIP package](https://ironpdf.com/packages/IronPdf.zip).
+You can also opt to manually download and integrate the IronPDF DLL into your project or the Global Assembly Cache (GAC) from [IronPDF ZIP package](https://ironpdf.com/packages/IronPdf.zip?utm_source=github).
 
 Ensure you include the following using directive at the beginning of any `.cs` file that utilizes IronPDF:
 
@@ -67,7 +67,7 @@ There's a licensing compatibility issue between IronPdf versions 2023.4.4 and 20
 - **ASP.NET** projects
 - **.NET Framework version >= 4.6.2**
 
-The key from a `Web.config` isn't recognized. Visit the '[Setting License Key in Web.config](https://ironpdf.com/troubleshooting/license-key-web.config/)' guide for further information.
+The key from a `Web.config` isn't recognized. Visit the '[Setting License Key in Web.config](https://ironpdf.com/troubleshooting/license-key-web.config/?utm_source=github)' guide for further information.
 
 Verify `IronPdf.License.IsLicensed` returns `true`.
 
@@ -136,7 +136,7 @@ _Reminder:_ Always perform a clean and republish of your application after addin
 
 ## Step 4: Get started with your project
 
-Follow our tutorial on [how to get started with IronPDF](https://ironpdf.com/docs/).
+Follow our tutorial on [how to get started with IronPDF](https://ironpdf.com/docs/?utm_source=github).
 
 ---
 

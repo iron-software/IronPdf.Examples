@@ -1,6 +1,6 @@
 # ASP.NET MVC Generate PDF from View (Code Example Tutorial)
 
-> Full guide: [ASP.NET MVC Generate PDF from View (Code Example Tutorial)](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/)
+> Full guide: [ASP.NET MVC Generate PDF from View (Code Example Tutorial)](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/?utm_source=github)
 
 
 In this tutorial, we demonstrate the feasibility of serving an existing HTML string, PDF documents, or HTML files using ASP.NET MVC. We lay out the steps clearly to help you convert an MVC view into a PDF in your C# project.
@@ -10,7 +10,7 @@ In this tutorial, we demonstrate the feasibility of serving an existing HTML str
 
 ## 1. Install IronPDF
 
-To handle and serve existing PDF and HTML files or strings within the ASP.NET MVC framework, you can integrate IronPDF, a C# PDF Library. Start developing with it today. Download the library from the [IronPDF DLL ZIP file](https://ironpdf.com/packages/IronPdf.zip) or install it through the [IronPDF NuGet package](https://www.nuget.org/packages/IronPdf).
+To handle and serve existing PDF and HTML files or strings within the ASP.NET MVC framework, you can integrate IronPDF, a C# PDF Library. Start developing with it today. Download the library from the [IronPDF DLL ZIP file](https://ironpdf.com/packages/IronPdf.zip?utm_source=github) or install it through the [IronPDF NuGet package](https://www.nuget.org/packages/IronPdf).
 
 <br>
 
@@ -57,7 +57,7 @@ This method utilizes HTML content to create a PDF on the fly as highlighted abov
 
 ## 3. Serve Existing PDF File
 
-Serving existing PDF files is feasible not only in MVC but also in other [ASP.NET contexts](https://ironpdf.com/get-started/vb-net-pdf/).
+Serving existing PDF files is feasible not only in MVC but also in other [ASP.NET contexts](https://ironpdf.com/get-started/vb-net-pdf/?utm_source=github).
 
 ```csharp
 /**

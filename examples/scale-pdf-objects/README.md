@@ -1,4 +1,4 @@
-> Full guide: [Scale PDF objects](https://ironpdf.com/examples/scale-pdf-objects/)
+> Full guide: [Scale PDF objects](https://ironpdf.com/examples/scale-pdf-objects/?utm_source=github)
 
 IronPDF grants developers the capability to programmatically scale PDF objects, allowing for sophisticated adjustment of components like text and images within a PDF. This is achieved without having to alter the original document or create a new one.
 
@@ -26,4 +26,4 @@ To adjust the image size, we set a new `PointF` to the `Scale` property. In this
 
 After the scale property is amended, the final step involves invoking the `SaveAs` method to save the PDF with the updated scaling.
 
-[Discover How to Scale PDF DOM - Visit Our Guide Now!](https://ironpdf.com/how-to/access-pdf-dom-object/)
+[Discover How to Scale PDF DOM - Visit Our Guide Now!](https://ironpdf.com/how-to/access-pdf-dom-object/?utm_source=github)

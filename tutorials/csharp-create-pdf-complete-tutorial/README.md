@@ -1,6 +1,6 @@
 # Creating PDFs in C#
 
-> Full guide: [Creating PDFs in C#](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/)
+> Full guide: [Creating PDFs in C#](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/?utm_source=github)
 
 Generating a PDF from code raises a run of small problems, from placing headers and footers to keeping the output readable everywhere. IronPDF puts each of those behind one method, so most of a page's construction is a few lines rather than a project of its own.
 
@@ -10,7 +10,7 @@ This tutorial will detail the capabilities of IronPDF, demonstrating how it can 
 
 By the end of this guide, you will have a thorough understanding of how to craft stylish and distinct PDFs suited to your requirements using IronPDF.
 
-To initiate the installation of IronPDF and proceed with the tutorial illustrations mentioned here, visit our [quick installation guide](https://ironpdf.com/docs/) for easy setup instructions.
+To initiate the installation of IronPDF and proceed with the tutorial illustrations mentioned here, visit our [quick installation guide](https://ironpdf.com/docs/?utm_source=github) for easy setup instructions.
 
 ## Quickstart: Create Your First PDF with IronPDF
 
@@ -51,13 +51,13 @@ PdfDocument pdf = new PdfDocument(270, 270);  // Initialize a new PDF document w
 pdf.SaveAs("blankPage.pdf");  // Save the document as 'blankPage.pdf'
 ```
 
-For further details and expanded functionality, visit our detailed [how-to guide](https://ironpdf.com/how-to/create-new-pdfs/).
+For further details and expanded functionality, visit our detailed [how-to guide](https://ironpdf.com/how-to/create-new-pdfs/?utm_source=github).
 
 ### Add Headers & Footers
 
 IronPDF makes adding headers and footers simple, whether at the top or bottom of your PDF. IronPDF offers two types: `TextHeaderFooter` for text-based headers and `HtmlHeaderFooter` for more customizable HTML content.
 
-For detailed instructions and more options, check our complete [how-to guide](https://ironpdf.com/how-to/headers-and-footers/).
+For detailed instructions and more options, check our complete [how-to guide](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github).
 
 #### HTML Header and Footer
 
@@ -110,7 +110,7 @@ pdf.AddHtmlHeaders(htmlHeader);
 pdf.AddHtmlFooters(htmlFooter);
 ```
 
-For an insightful explanation and additional functionality, see our in-depth [how-to guide](https://ironpdf.com/how-to/headers-and-footers/#add-html-header-footer-example).
+For an insightful explanation and additional functionality, see our in-depth [how-to guide](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github#add-html-header-footer-example).
 
 #### Text Header and Footer
 
@@ -142,7 +142,7 @@ pdf.AddTextFooters(textFooter);
 pdf.SaveAs("addTextHeaderFooter.pdf");
 ```
 
-For an expanded explanation and more features, visit our thorough [how-to guide](https://ironpdf.com/how-to/headers-and-footers/#add-a-text-header-footer-example).
+For an expanded explanation and more features, visit our thorough [how-to guide](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github#add-a-text-header-footer-example).
 
 ### Add Page Numbers
 
@@ -174,7 +174,7 @@ pdf.AddHtmlFooters(htmlFooter);
 pdf.SaveAs("pdfWithPageNumber.pdf");
 ```
 
-For further details and extension options, refer to our detailed [how-to guide](https://ironpdf.com/how-to/page-numbers/).
+For further details and extension options, refer to our detailed [how-to guide](https://ironpdf.com/how-to/page-numbers/?utm_source=github).
 
 ### Embed Images with DataURIs
 

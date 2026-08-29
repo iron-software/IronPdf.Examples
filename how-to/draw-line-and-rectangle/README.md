@@ -1,6 +1,6 @@
 # Enhancing PDFs with Lines and Rectangles
 
-> Full guide: [Enhancing PDFs with Lines and Rectangles](https://ironpdf.com/how-to/draw-line-and-rectangle/)
+> Full guide: [Enhancing PDFs with Lines and Rectangles](https://ironpdf.com/how-to/draw-line-and-rectangle/?utm_source=github)
 
 
 Adding geometric shapes, such as lines and rectangles, to PDF documents enriches the content and visual appeal. This type of enhancement can be achieved programmatically using languages like C# or VB.NET along with a library such as IronPDF.
@@ -19,7 +19,7 @@ pdf.SaveAs("output.pdf");
 
 ## Example of Drawing Lines
 
-The `DrawLine` method is part of the **PdfDocument** class and allows for the insertion of line elements within a PDF. You can use the **IronSoftware.Drawing.Color** class which is found in the [IronDrawing API Documentation](https://ironsoftware.com/open-source/csharp/drawing/docs/) to set the color of the line using HEX codes.
+The `DrawLine` method is part of the **PdfDocument** class and allows for the insertion of line elements within a PDF. You can use the **IronSoftware.Drawing.Color** class which is found in the [IronDrawing API Documentation](https://ironsoftware.com/open-source/csharp/drawing/docs/?utm_source=github) to set the color of the line using HEX codes.
 
 ```csharp
 using IronPdf;
@@ -47,7 +47,7 @@ pdf.SaveAs("drawLine.pdf");
 
 ## Example of Drawing Rectangles
 
-Using the `DrawRectangle` method, rectangles can be added to PDF files after the document is loaded or rendered. This method is part of the **PdfDocument** class too. Define the rectangle using parameters from the **RectangleF** class provided in the [IronDrawing API Documentation](https://ironsoftware.com/open-source/csharp/drawing/docs/).
+Using the `DrawRectangle` method, rectangles can be added to PDF files after the document is loaded or rendered. This method is part of the **PdfDocument** class too. Define the rectangle using parameters from the **RectangleF** class provided in the [IronDrawing API Documentation](https://ironsoftware.com/open-source/csharp/drawing/docs/?utm_source=github).
 
 ```csharp
 using IronPdf;

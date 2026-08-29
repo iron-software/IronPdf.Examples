@@ -1,6 +1,6 @@
 # Generate PDF Reports in ASP.NET Using C# or VB
 
-> Full guide: [Generate PDF Reports in ASP.NET Using C# or VB](https://ironpdf.com/how-to/csharp-pdf-reports/)
+> Full guide: [Generate PDF Reports in ASP.NET Using C# or VB](https://ironpdf.com/how-to/csharp-pdf-reports/?utm_source=github)
 
 
 Creating management or database-driven reports from structured sources such as SQL databases is a typical task in .NET development. IronPDF serves as an effective PDF reader in C# and facilitates the exportation and visualization of SSIS reports in PDF format within ASP.NET C# applications.
@@ -30,7 +30,7 @@ Use NuGet to install: [IronPdf on NuGet](https://www.nuget.org/packages/IronPdf)
 Install-Package IronPdf
 ```
 
-Alternatively, you can [download the IronPDF DLL manually](https://ironpdf.com/).
+Alternatively, you can [download the IronPDF DLL manually](https://ironpdf.com/?utm_source=github).
 
 ---
 
@@ -136,7 +136,7 @@ public static void ConvertXmlToPdf(string xmlContent, string xsltContent, string
 }
 ```
 
-Please read the [Convert XML to PDF in C# and VB.NET article](https://ironpdf.com/how-to/xml-to-pdf/) for further details.
+Please read the [Convert XML to PDF in C# and VB.NET article](https://ironpdf.com/how-to/xml-to-pdf/?utm_source=github) for further details.
 
 ### 5. Microsoft SQL Server Reports
 
@@ -174,4 +174,4 @@ public static void ConvertAspxToPdf()
 }
 ```
 
-Explore more in our comprehensive [ASP.NET ASPX to PDF Tutorial](https://ironpdf.com/how-to/aspx-to-pdf/).
+Explore more in our comprehensive [ASP.NET ASPX to PDF Tutorial](https://ironpdf.com/how-to/aspx-to-pdf/?utm_source=github).

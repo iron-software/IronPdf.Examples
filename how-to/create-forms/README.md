@@ -1,6 +1,6 @@
 # Creating PDF Forms with IronPDF
 
-> Full guide: [Creating PDF Forms with IronPDF](https://ironpdf.com/how-to/create-forms/)
+> Full guide: [Creating PDF Forms with IronPDF](https://ironpdf.com/how-to/create-forms/?utm_source=github)
 
 
 IronPDF delivers a toolkit for generating PDF forms, enabling you to include a variety of form elements such as input fields, text areas, checkboxes, comboboxes, radio buttons, and images. This functionality allows the creation of dynamic, interactive PDF forms that enhance user interaction by letting them complete and save their entries across diverse applications and use cases.
@@ -17,7 +17,7 @@ pdfRenderer
 ```
 
 <div class="alert alert-info iron-variant-1" role="alert">
-Your organization may be overpaying for annual PDF security and compliance subscriptions. Explore <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a> for managing digital signature, redaction, encryption, and protection services through a one-off payment. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Access IronSecureDoc Documentation</a>
+Your organization may be overpaying for annual PDF security and compliance subscriptions. Explore <a href="https://ironsoftware.com/enterprise/securedoc/?utm_source=github">IronSecureDoc</a> for managing digital signature, redaction, encryption, and protection services through a one-off payment. <a href="https://ironsoftware.com/enterprise/securedoc/docs/?utm_source=github">Access IronSecureDoc Documentation</a>
 </div>
 
 ---
@@ -94,7 +94,7 @@ pdfDocument.SaveAs("addTextForm.pdf");
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/create-forms/addTextForm.pdf#zoom=100" width="100%" height="300px">
 </iframe>
 
-Refine your document by labeling the form field using `IronPdfGraphics`. Discover how in our guide on [Enhancing PDFs with Text and Images](https://ironpdf.com/how-to/draw-text-and-bitmap/).
+Refine your document by labeling the form field using `IronPdfGraphics`. Discover how in our guide on [Enhancing PDFs with Text and Images](https://ironpdf.com/how-to/draw-text-and-bitmap/?utm_source=github).
 
 ## Handling More Complex Forms: Checkboxes, Comboboxes, and Radio Buttons
 
@@ -201,4 +201,4 @@ pdf.SaveAs("addComboboxForm.pdf");
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/create-forms/addComboboxForm.pdf#zoom=100" width="100%" height="300px">
 </iframe>
 
-Explore further applications such as adding radio buttons and other types of forms in our extensive tutorial collection, like [How to Sign and Secure PDFs](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial).
+Explore further applications such as adding radio buttons and other types of forms in our extensive tutorial collection, like [How to Sign and Secure PDFs](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/?utm_source=github).

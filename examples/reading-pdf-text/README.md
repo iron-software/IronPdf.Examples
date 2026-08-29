@@ -1,4 +1,4 @@
-> Full guide: [Reading PDF text](https://ironpdf.com/examples/reading-pdf-text/)
+> Full guide: [Reading PDF text](https://ironpdf.com/examples/reading-pdf-text/?utm_source=github)
 
 The `PdfDocument.ExtractAllText` function within the IronPDF C# PDF library is ideally suited for straightforward PDF text extraction tasks. It manages any discrepancies in whitespace and encoding found in the source PDFs.
 
@@ -14,4 +14,4 @@ IronPDF is also capable of extracting images directly from PDF documents. The fo
 
 ____
 
-[Learn more about the ExtractTextFromPage Method](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html#IronPdf_PdfDocument_ExtractTextFromPage_System_Int32_){.code_content__related-link__doc-cta-link}
+[Learn more about the ExtractTextFromPage Method](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html?utm_source=github#IronPdf_PdfDocument_ExtractTextFromPage_System_Int32_){.code_content__related-link__doc-cta-link}

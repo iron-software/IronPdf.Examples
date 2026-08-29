@@ -1,6 +1,6 @@
 # XAML to PDF Conversion in .NET MAUI
 
-> Full guide: [XAML to PDF Conversion in .NET MAUI](https://ironpdf.com/how-to/xaml-to-pdf-maui/)
+> Full guide: [XAML to PDF Conversion in .NET MAUI](https://ironpdf.com/how-to/xaml-to-pdf-maui/?utm_source=github)
 
 
 .NET MAUI (Multi-platform App UI) serves as a framework that supports building applications for devices across various platforms while maintaining a single codebase. As a direct successor to Xamarin.Forms, it is a vital component of the .NET 6 ecosystem. This framework allows developers to write universal application code supplemented with platform-specific enhancements when needed.
@@ -83,7 +83,7 @@ public partial class MainPage : ContentPage
 }
 ```
 
-Unlock full capabilities for PDF customization like adding [HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/), [stamping images](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#stamper-abstract-class), and [adding page numbers](https://ironpdf.com/how-to/page-numbers/), by employing the `RenderingOptions`.
+Unlock full capabilities for PDF customization like adding [HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github), [stamping images](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github#stamper-abstract-class), and [adding page numbers](https://ironpdf.com/how-to/page-numbers/?utm_source=github), by employing the `RenderingOptions`.
 
 ### Updating MainPage.xaml
 
@@ -102,12 +102,12 @@ Switch MainPage.xaml's `OnCounterClicked` to `PrintToPdf`. This change gears the
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/xaml-to-pdf-maui/contentPageToPdf.pdf" width="100%" height="400px"></iframe>
 
-Implement additions such as [merging, splitting](https://ironpdf.com/how-to/merge-or-split-pdfs/), or rotating pages prior to saving. Enhance the PDF further by including [annotations](https://ironpdf.com/how-to/annotations/) and [bookmarks](https://ironpdf.com/how-to/bookmarks/).
+Implement additions such as [merging, splitting](https://ironpdf.com/how-to/merge-or-split-pdfs/?utm_source=github), or rotating pages prior to saving. Enhance the PDF further by including [annotations](https://ironpdf.com/how-to/annotations/?utm_source=github) and [bookmarks](https://ironpdf.com/how-to/bookmarks/?utm_source=github).
 
 ## Download the Full .NET MAUI App Project
 
 Obtain the entire code for this tutorial as a zipped project file, ready to be unzipped and opened in Visual Studio as a .NET MAUI App.
 
-[Download the Complete MAUI Sample Project](https://ironpdf.com/static-assets/pdf/how-to/xaml-to-pdf-maui/MauiSample.zip)
+[Download the Complete MAUI Sample Project](https://ironpdf.com/static-assets/pdf/how-to/xaml-to-pdf-maui/MauiSample.zip?utm_source=github)
 
-Explore further possibilities with our detailed guide: [Explore PDF Conversion](https://ironpdf.com/tutorials/convert-pdf/)
+Explore further possibilities with our detailed guide: [Explore PDF Conversion](https://ironpdf.com/tutorials/convert-pdf/?utm_source=github)

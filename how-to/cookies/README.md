@@ -1,6 +1,6 @@
 # Managing Cookies with IronPDF
 
-> Full guide: [Managing Cookies with IronPDF](https://ironpdf.com/how-to/cookies/)
+> Full guide: [Managing Cookies with IronPDF](https://ironpdf.com/how-to/cookies/?utm_source=github)
 
 
 Cookies are tiny data segments stored on a user's device by websites. They handle various tasks, from keeping sessions active to tracking user activities for enhancements. Due to privacy implications, they've prompted regulatory measures like GDPR and CCPA. Modern browsers also equip users with tools to manage cookie settings, addressing privacy concerns effectively.

@@ -1,6 +1,6 @@
 # Managing PDF Pages: Add, Copy, and Delete Techniques
 
-> Full guide: [Managing PDF Pages: Add, Copy, and Delete Techniques](https://ironpdf.com/how-to/add-copy-delete-pages-pdf/)
+> Full guide: [Managing PDF Pages: Add, Copy, and Delete Techniques](https://ironpdf.com/how-to/add-copy-delete-pages-pdf/?utm_source=github)
 
 
 Editing PDFs often requires the ability to add fresh content or rearrange existing content through the insertion of new pages, duplication of existing ones, or elimination of superfluous pages. This guide demonstrates how to effectively handle such modifications using IronPDF.
@@ -17,7 +17,7 @@ IronPdf.PdfDocument.FromFile("https://ironpdf.com/input/path.pdf")
 
 ## Adding Pages to a PDF
 
-To add a page to a PDF, you only need a single line of code. Consider a scenario where a report needs a cover page at the beginning. This is accomplished by merging two PDF documents. You can download the sample documents here: [coverPage.pdf](https://ironpdf.com/static-assets/pdf/how-to/add-copy-delete-pages-pdf/coverPage.pdf) and [contentPage.pdf](https://ironpdf.com/static-assets/pdf/how-to/add-copy-delete-pages-pdf/contentPage.pdf).
+To add a page to a PDF, you only need a single line of code. Consider a scenario where a report needs a cover page at the beginning. This is accomplished by merging two PDF documents. You can download the sample documents here: [coverPage.pdf](https://ironpdf.com/static-assets/pdf/how-to/add-copy-delete-pages-pdf/coverPage.pdf?utm_source=github) and [contentPage.pdf](https://ironpdf.com/static-assets/pdf/how-to/add-copy-delete-pages-pdf/contentPage.pdf?utm_source=github).
 
 ```cs
 using IronPdf;
@@ -87,4 +87,4 @@ document.RemovePage(0);
 document.RemovePages(new List<int> { 2, 3 });
 ```
 
-Explore more possibilities with IronPDF through our complete guide: [Organize PDFs Tutorial](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/).
+Explore more possibilities with IronPDF through our complete guide: [Organize PDFs Tutorial](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/?utm_source=github).
