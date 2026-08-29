@@ -1,6 +1,6 @@
 # IronPDF Integration on MAUI Android
 
-> Full guide: [IronPDF Integration on MAUI Android](https://ironpdf.com/how-to/azure-server/)
+> Full guide: [IronPDF Integration on MAUI Android](https://ironpdf.com/get-started/azure/)
 
 <div class="container-fluid">
     <div class="row">

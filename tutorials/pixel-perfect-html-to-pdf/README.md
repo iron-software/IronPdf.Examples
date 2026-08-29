@@ -1,6 +1,6 @@
 # How to Debug HTML in Chrome for Creating Precise PDFs with IronPDF
 
-> Full guide: [How to Debug HTML in Chrome for Creating Precise PDFs with IronPDF](https://ironpdf.com/tutorials/pixel-perfect-html-to-pdf/)
+> Full guide: [How to Debug HTML in Chrome for Creating Precise PDFs with IronPDF](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/)
 
 
 At IronPDF, we realize that when our users generate PDF documents, it's crucial that these documents not only appear professionally polished but are also exact replicas of the intended designs. To achieve such high precision in your PDFs, developing superb HTML templates or consulting with a professional Web Developer is recommended. IronPDF uses a Chrome Renderer to ensure that your PDFs mimic your HTML output perfectly in Chrome.

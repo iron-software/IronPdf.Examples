@@ -1,6 +1,6 @@
 # IronPDF License Keys
 
-> Full guide: [IronPDF License Keys](https://ironpdf.com/how-to/license-keys/)
+> Full guide: [IronPDF License Keys](https://ironpdf.com/get-started/license-keys/)
 
 
 Acquiring an IronPDF license key enhances your ability to take your project from development to production without any limitations.

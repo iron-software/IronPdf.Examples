@@ -1,6 +1,6 @@
 # ASP.NET MVC Generate PDF from View (Code Example Tutorial)
 
-> Full guide: [ASP.NET MVC Generate PDF from View (Code Example Tutorial)](https://ironpdf.com/how-to/asp-net-mvc-pdf-binary/)
+> Full guide: [ASP.NET MVC Generate PDF from View (Code Example Tutorial)](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/)
 
 
 In this tutorial, we demonstrate the feasibility of serving an existing HTML string, PDF documents, or HTML files using ASP.NET MVC. We lay out the steps clearly to help you convert an MVC view into a PDF in your C# project.

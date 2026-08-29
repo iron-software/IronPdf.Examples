@@ -1,6 +1,6 @@
 # C# Print PDF Documents
 
-> Full guide: [C# Print PDF Documents](https://ironpdf.com/how-to/csharp-print-pdf/)
+> Full guide: [C# Print PDF Documents](https://ironpdf.com/how-to/print-pdf/)
 
 Printing PDF documents using C# within .NET applications is straightforward with the aid of Visual Basic or C#. This guide shows you how to utilize C# to programmatically print PDFs.
 

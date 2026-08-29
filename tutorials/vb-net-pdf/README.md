@@ -1,6 +1,6 @@
 # VB.NET PDF Creator (Code Example Tutorial)
 
-> Full guide: [VB.NET PDF Creator (Code Example Tutorial)](https://ironpdf.com/tutorials/vb-net-pdf/)
+> Full guide: [VB.NET PDF Creator (Code Example Tutorial)](https://ironpdf.com/get-started/vb-net-pdf/)
 
 This guide will walk you through the process of creating and editing PDF files using VB.NET. This method is applicable to various types of applications including **ASP.NET web apps**, **console applications**, **Windows Services**, and **desktop programs**. We will focus on PDF creation projects targeting .NET Framework 4 or .NET Core 2. To get started, you'll need a Visual Basic .NET development environment, like Microsoft Visual Studio Community.
 

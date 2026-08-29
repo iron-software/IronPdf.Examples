@@ -1,6 +1,6 @@
 # Creating Accessible PDFs & Compliance with Section 508 Standards
 
-> Full guide: [Creating Accessible PDFs & Compliance with Section 508 Standards](https://ironpdf.com/how-to/create-accessible-pdfs-508-c-sharp/)
+> Full guide: [Creating Accessible PDFs & Compliance with Section 508 Standards](https://ironpdf.com/how-to/pdfua/)
 
 
 IronPDF is committed to supporting Google's efforts to enhance PDF accessibility and compliance with Section 508 standards.

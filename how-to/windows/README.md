@@ -1,6 +1,6 @@
 # IronPDF Compatibility with Windows on .NET Platforms
 
-> Full guide: [IronPDF Compatibility with Windows on .NET Platforms](https://ironpdf.com/how-to/windows/)
+> Full guide: [IronPDF Compatibility with Windows on .NET Platforms](https://ironpdf.com/get-started/windows/)
 
 
 IronPDF is compatible with Windows 10, 11, and various versions of Windows Server across multiple .NET frameworks including .NET 8, 7, 6, Core, Standard and Framework.

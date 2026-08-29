@@ -1,6 +1,6 @@
 # Converting HTML to PDF in .NET on Azure
 
-> Full guide: [Converting HTML to PDF in .NET on Azure](https://ironpdf.com/how-to/azure/)
+> Full guide: [Converting HTML to PDF in .NET on Azure](https://ironpdf.com/get-started/azure/)
 
 
 IronPDF successfully supports the generation, manipulation, and reading of PDF documents across various Azure environments, including MVC websites, Azure Functions, and more.

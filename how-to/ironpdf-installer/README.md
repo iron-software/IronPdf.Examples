@@ -1,6 +1,6 @@
 # Installing IronPDF via Windows Installer
 
-> Full guide: [Installing IronPDF via Windows Installer](https://ironpdf.com/how-to/ironpdf-installer/)
+> Full guide: [Installing IronPDF via Windows Installer](https://ironpdf.com/get-started/ironpdf-installer/)
 
 
 ## Download and Execute the Installation Package

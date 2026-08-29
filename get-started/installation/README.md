@@ -1,6 +1,6 @@
 # Setting Up IronPDF in Your .NET Project
 
-> Full guide: [Setting Up IronPDF in Your .NET Project](https://ironpdf.com/get-started/installation/)
+> Full guide: [Setting Up IronPDF in Your .NET Project](https://ironpdf.com/get-started/windows/)
 
 
 Incorporate the [C# PDF Library](https://ironpdf.com/use-case/csharp-pdf-libraries/) in under five minutes.

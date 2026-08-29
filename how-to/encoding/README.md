@@ -1,6 +1,6 @@
 # C# PDF Library: UTF-8 and HTML Encoding
 
-> Full guide: [C# PDF Library: UTF-8 and HTML Encoding](https://ironpdf.com/how-to/encoding/)
+> Full guide: [C# PDF Library: UTF-8 and HTML Encoding](https://ironpdf.com/how-to/utf-8/)
 
 
 ## Quickstart: Convert HTML to PDF with UTF-8 Encoding

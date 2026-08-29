@@ -1,6 +1,6 @@
 # Establishing Your Own IronPDF Docker Container
 
-> Full guide: [Establishing Your Own IronPDF Docker Container](https://ironpdf.com/how-to/ironpdfengine-docker/)
+> Full guide: [Establishing Your Own IronPDF Docker Container](https://ironpdf.com/get-started/ironpdfengine-docker/)
 
 
 > **Important:** Applicable for IronPDF version 2023.2.x and higher
