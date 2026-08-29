@@ -46,7 +46,7 @@ Each folder contains a self-contained .NET project you can open and run:
 
 ## Platform support
 
-.NET 8, 7, 6, 5, .NET Core, .NET Standard, and .NET Framework. Windows, macOS, Linux, Docker, Azure, and AWS Lambda. See the [installation docs](https://ironpdf.com/docs/questions/installation/?utm_source=github) for environment-specific notes.
+.NET 8, 7, 6, 5, .NET Core, .NET Standard, and .NET Framework. Windows, macOS, Linux, Docker, Azure, and AWS Lambda. See the [installation docs](https://ironpdf.com/get-started/windows/?utm_source=github) for environment-specific notes.
 
 ## Documentation and support
 

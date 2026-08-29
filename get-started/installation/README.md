@@ -44,7 +44,7 @@ Follow these steps inside Visual Studio to include the [IronPDF NuGet package](h
 /Install-Package IronPdf
 ```
 
-IronPDF also offers specific NuGet Packages for [Mac](https://ironpdf.com/how-to/macos/?utm_source=github), [Linux](https://ironpdf.com/how-to/linux/?utm_source=github), [Azure](https://ironpdf.com/how-to/azure/?utm_source=github), [Docker](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github) and AWS. Refer to our [advanced NuGet installation instructions](https://ironpdf.com/get-started/advanced-installation-nuget/?utm_source=github).
+IronPDF also offers specific NuGet Packages for [Mac](https://ironpdf.com/how-to/macos/?utm_source=github), [Linux](https://ironpdf.com/get-started/linux/?utm_source=github), [Azure](https://ironpdf.com/get-started/azure/?utm_source=github), [Docker](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github) and AWS. Refer to our [advanced NuGet installation instructions](https://ironpdf.com/get-started/advanced-installation-nuget/?utm_source=github).
 
 <hr class="separator">
 

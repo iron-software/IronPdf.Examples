@@ -226,7 +226,7 @@ document.Dispose();
 
 ### Preparation Steps
 
-* Begin by accessing the previously outlined steps for pulling the IronPdfEngine Docker image in the ["Setup IronPDF for Docker Container"](https://ironsoftware.com/csharp/ocr/docs/setup-ironpdf-for-docker-container/?utm_source=github) section.
+* Begin by accessing the previously outlined steps for pulling the IronPdfEngine Docker image in the ["Setup IronPDF for Docker Container"](https://ironpdf.com/get-started/ironpdfengine-docker/?utm_source=github) section.
 * Ensure you're equipped with an active AWS account capable of managing ECS.
 
 ### Configuration Guide
@@ -257,7 +257,7 @@ document.Dispose();
 
 ### Post-Deployment Tips
 
-Make use of your now operational IronPdfEngine in AWS and consider how to scale based on your specific workload and demand, keeping in mind that IronPdfEngine currently does not support horizontal scaling. More details on this limitation can be found on the [IronPdfEngine Limitation page](https://ironsoftware.com/csharp/ocr/docs/get-started/ironpdfengine/?utm_source=github#anchor-ironpdfengine-limitation).
+Make use of your now operational IronPdfEngine in AWS and consider how to scale based on your specific workload and demand, keeping in mind that IronPdfEngine currently does not support horizontal scaling. More details on this limitation can be found on the [IronPdfEngine Limitation page](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github-limitation).
 
 This setup allows your applications with PDF processing capabilities directly within your AWS infrastructure.
 
@@ -265,7 +265,7 @@ This setup allows your applications with PDF processing capabilities directly wi
 
 ### Prerequisites
 
-Before diving into the setup, ensure that you have the IronPdfEngine Docker image already pulled. Refer to the earlier section titled [Setup IronPDF for Docker Container](https://ironsoftware.com/get-started/ironpdfengine/?utm_source=github#anchor-setup-ironpdf-for-docker-container) for instructions on how to do this. Additionally, you will need an active Azure Account.
+Before diving into the setup, ensure that you have the IronPdfEngine Docker image already pulled. Refer to the earlier section titled [Setup IronPDF for Docker Container](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github) for instructions on how to do this. Additionally, you will need an active Azure Account.
 
 ### Configuration Steps
 
@@ -281,7 +281,7 @@ Before diving into the setup, ensure that you have the IronPdfEngine Docker imag
 
 2. **Completion**: Once configuration is complete, your IronPdfEngine should be operational within your newly setup Azure Container Instances.
 
-Note: Azure Container Instances do not support horizontal scaling. Limitations are detailed further in the [IronPdfEngine Limitation](https://ironsoftware.com/get-started/ironpdfengine/?utm_source=github#anchor-ironpdfengine-limitation) documentation.
+Note: Azure Container Instances do not support horizontal scaling. Limitations are detailed further in the [IronPdfEngine Limitation](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github) documentation.
 
 ## Accessing IronPdfEngine in AWS ECR Public Gallery
 

@@ -4,7 +4,7 @@
 
 Creating precise, high-quality PDF documents from HTML sources is commonly required in contemporary .NET applications, especially for producing exact replicas of reports, invoices, and tickets that align closely with web user interfaces. IronPDF facilitates this by offering a unified C# API capable of rendering HTML content, Razor views, and entire websites into compliant PDF files. Upon completing this guide, developers will be equipped to transform URLs, straightforward HTML, or MVC architectures into PDFs within an ASP.NET Core framework, and this process can be applied across diverse operating platforms including Windows, Linux, Docker, and serverless architectures.
 
-To address formatting challenges, IronPDF provides a headless-Chrome debugging tool that aids in identifying and resolving issues with CSS, JavaScript, and media queries prior to rendering PDFs. For an in-depth exploration of optimization techniques, be sure to refer to the thorough [pixel-perfect HTML-to-PDF guide](https://ironsoftware.com/how-to/pixel-perfect-html-to-pdf/?utm_source=github).
+To address formatting challenges, IronPDF provides a headless-Chrome debugging tool that aids in identifying and resolving issues with CSS, JavaScript, and media queries prior to rendering PDFs. For an in-depth exploration of optimization techniques, be sure to refer to the thorough [pixel-perfect HTML-to-PDF guide](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/?utm_source=github).
 
 ## Quickstart: Generate PDFs from HTML using .NET Core
 
@@ -792,8 +792,8 @@ This script carries out a two-stage process where the first command compiles you
 
 ### Key References and Resources
 
-- [Deploy IronPDF in Docker containers](https://ironsoftware.com/get-started/ironpdf-docker/?utm_source=github)
-- [Run IronPDF on Azure App Service Linux](https://ironsoftware.com/get-started/azure/?utm_source=github)
+- [Deploy IronPDF in Docker containers](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github)
+- [Run IronPDF on Azure App Service Linux](https://ironpdf.com/get-started/azure/?utm_source=github)
 - [IronPDF ChromePdfRenderer class](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github)
 
 ```bash
@@ -1247,7 +1247,7 @@ For detailed guidance on implementing these performance optimizations, refer to 
 
 - General performance assistance: [IronPDF Performance Assistance](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/?utm_source=github)
 - Multithreading tips: [Threaded Rendering Demo](https://ironpdf.com/examples/threading/?utm_source=github)
-- Docker optimization guide: [Optimizing Docker for IronPDF](https://ironpdf.com/docs/docker-optimization?utm_source=github)
+- Docker optimization guide: [Optimizing Docker for IronPDF](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github)
 
 By following these steps, developers can ensure high-performance PDF generation in .NET applications, maintaining fast response times and lower resource usage across environments.
 
@@ -1339,7 +1339,7 @@ Additionally, for help with performance tuning and deployment, you can consult o
 
 1. **[Explore the example repository](https://github.com/iron-software/IronPdf.Examples/tree/main/tutorials/dotnet-core-pdf-generating)** which showcases all the key functionalities, from rendering MVC views to implementing AES-256 encryption.
 
-2. **[Insert the trial license](https://ironpdf.com/trial-license?utm_source=github)** into your current projects and execute the unit tests to confirm compatibility across different platforms.
+2. **[Insert the trial license](https://ironpdf.com/?utm_source=github#trial-license)** into your current projects and execute the unit tests to confirm compatibility across different platforms.
 
 3. **[Schedule a personalized demonstration](https://ironpdf.com/?utm_source=github#booking-demo)** with our technical team for tailored guidance on your specific project needs.
 

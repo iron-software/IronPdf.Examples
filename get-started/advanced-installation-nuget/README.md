@@ -59,7 +59,7 @@ Optimal for minimal disk use or for applications spread across various OS. Chrom
 ![AWS Icon](https://img.icons8.com/color/72/000000/amazon-web-services.png "AWS icon")
 ![Docker Icon](https://img.icons8.com/color/72/000000/docker.png "Docker icon")
 
-Perfect for [Deploying IronPdf on Linux](https://ironpdf.com/how-to/linux/?utm_source=github). Crafted specifically for cloud integrations; performs exceptionally on platforms like AWS & Lambda, as well as Linux-equipped Azure Functions and WebApps.
+Perfect for [Deploying IronPdf on Linux](https://ironpdf.com/get-started/linux/?utm_source=github). Crafted specifically for cloud integrations; performs exceptionally on platforms like AWS & Lambda, as well as Linux-equipped Azure Functions and WebApps.
 
 [**PM > Install-Package IronPdf.Linux**](https://www.nuget.org/packages/IronPdf.Linux/)
 [**PM > Install-Package IronPdf.Linux.ARM**](https://www.nuget.org/packages/IronPdf.Linux.ARM)

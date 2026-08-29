@@ -49,4 +49,4 @@ This method ensures consistency not only in your main document content but also 
 
 IronPDF supports every character encoding Chrome handles. This includes UTF-16, ISO-8859-1, and Windows-1252.
 
-For detailed insights into IronPDF's capabilities for accurate text rendering in PDFs, refer to [IronPDF's Character Encoding Support](https://ironpdf.com/docs/advanced/character-encoding/?utm_source=github).
+For detailed insights into IronPDF's capabilities for accurate text rendering in PDFs, refer to [IronPDF's Character Encoding Support](https://ironpdf.com/how-to/utf-8/?utm_source=github).

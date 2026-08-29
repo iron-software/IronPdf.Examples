@@ -32,7 +32,7 @@ IronPDF runs on Linux without code changes, following extensive testing and conf
 
 Supporting Linux is crucial given its widespread use in key cloud services including Azure Web Apps, Azure Functions, AWS EC2, AWS Lambda, and Docker on Azure DevOps. Enterprise and SaaS deployments on those platforms are supported.
 
-For further assistance or to deepen your understanding of IronPDF’s implementation on Docker, please consult our detailed [guide on using IronPDF with Docker](https://ironpdf.com/how-to/docker-linux/?utm_source=github). Additionally, IronPDF can be utilized on Linux via a Windows environment with the aid of WSL, providing another convenient usage scenario.
+For further assistance or to deepen your understanding of IronPDF’s implementation on Docker, please consult our detailed [guide on using IronPDF with Docker](https://ironpdf.com/get-started/linux/?utm_source=github). Additionally, IronPDF can be utilized on Linux via a Windows environment with the aid of WSL, providing another convenient usage scenario.
 
 ### Linux-Specific Packages for IronPDF
 
@@ -46,7 +46,7 @@ For scenarios requiring offline development, download the DLL to include in your
 
 - [IronPdf.Linux.zip](https://ironpdf.com/packages/IronPdf.Linux.zip?utm_source=github)
 
-For detailed guidelines on Linux packages and additional information on system-specific packages, please refer to our comprehensive [IronPDF advanced NuGet installation tutorial](https://ironpdf.com/how-to/advanced-installation-nuget/?utm_source=github).
+For detailed guidelines on Linux packages and additional information on system-specific packages, please refer to our comprehensive [IronPDF advanced NuGet installation tutorial](https://ironpdf.com/get-started/advanced-installation-nuget/?utm_source=github).
 
 ### Supported Linux Distributions for IronPDF
 
@@ -627,7 +627,7 @@ chmod 755 IronCefSubprocess
 
 Currently, CentOS 7 and earlier versions are not tested and hence, are not guaranteed to work right out-of-the-box with IronPdf.
 
-However, CentOS 7 is still officially supported by Microsoft for .NET applications, which suggests that it might be compatible with IronPDF after correct setup. Please refer to the generalized [Common Dependency Patterns for Linux](https://ironpdf.com/how-to/?utm_source=github#other-linux-distros) if you plan on configuring it manually.
+However, CentOS 7 is still officially supported by Microsoft for .NET applications, which suggests that it might be compatible with IronPDF after correct setup. Please refer to the generalized [Common Dependency Patterns for Linux](https://ironpdf.com/get-started/linux/?utm_source=github) if you plan on configuring it manually.
 
 Reiterating, no official Docker images exist for .NET Core 3.1 or .NET 5.0 on CentOS 7, and upgrading to a newer version of CentOS is strongly recommended for the best experience.
 

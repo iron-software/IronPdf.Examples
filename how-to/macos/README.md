@@ -19,9 +19,9 @@ At IronPDF, macOS support is prioritized as many of our team members, as well as
 
 Apple has transitioned from using Intel processors to its own Apple Silicon processors in Mac computers since 2020.
 
-- For Macs with Intel processors, use the [IronPDF for macOS on Intel](https://ironpdf.com/packages/IronPdf.MacOs?utm_source=github) NuGet package.
-- For Macs with Apple Silicon processors, use the [IronPDF for macOS on Apple Silicon](https://ironpdf.com/packages/IronPdf.MacOs.ARM?utm_source=github) NuGet package.
-- To accommodate both processor types, install both the [IronPDF for macOS on Intel](https://ironpdf.com/packages/IronPdf.MacOs?utm_source=github) and the [IronPDF for macOS on Apple Silicon](https://ironpdf.com/packages/IronPdf.MacOs.ARM?utm_source=github) NuGet packages.
+- For Macs with Intel processors, use the [IronPDF for macOS on Intel](https://www.nuget.org/packages/IronPdf.MacOs) NuGet package.
+- For Macs with Apple Silicon processors, use the [IronPDF for macOS on Apple Silicon](https://www.nuget.org/packages/IronPdf.MacOs.ARM) NuGet package.
+- To accommodate both processor types, install both the [IronPDF for macOS on Intel](https://www.nuget.org/packages/IronPdf.MacOs) and the [IronPDF for macOS on Apple Silicon](https://www.nuget.org/packages/IronPdf.MacOs.ARM) NuGet packages.
 
 ## Recommended Hardware Specifications
 

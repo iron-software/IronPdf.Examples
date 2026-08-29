@@ -36,7 +36,7 @@ IronPDF offers extensive capabilities for complex printing operations, such as s
 
 ### Choosing a Printer
 
-To select a specific printer, retrieve the print document object of the PDF using the [`GetPrintDocument` method](https://ironsoftware.com/ironpdf/object-reference/api/IronPdf.PdfDocument.html?utm_source=github), then assign the printer using the `PrinterSettings.PrinterName` property like so:
+To select a specific printer, retrieve the print document object of the PDF using the [`GetPrintDocument` method](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html?utm_source=github), then assign the printer using the `PrinterSettings.PrinterName` property like so:
 
 ```csharp
 using IronPdf;
@@ -55,7 +55,7 @@ printDoc.Print();
 
 ### Printer Resolution Settings
 
-The resolution setting adjusts the pixel density of the print output. Here’s how to set a custom resolution for your printer using the [`DefaultPageSettings.PrinterResolution` property](https://ironsoftware.com/ironpdf/object-reference/api/IronPdf.PdfDocument/?utm_source=github):
+The resolution setting adjusts the pixel density of the print output. Here’s how to set a custom resolution for your printer using the [`DefaultPageSettings.PrinterResolution` property](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html?utm_source=github):
 
 ```csharp
 using IronPdf;

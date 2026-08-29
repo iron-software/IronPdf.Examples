@@ -377,7 +377,7 @@ Be aware that this information comes from the certificate’s Subject Distinguis
 
 This tutorial has covered IronPDF's PDF signing features. Whether it’s enforcing secure digital signatures, controlling document revisions, embedding visual signatures, or integrating interactive signature forms, IronPDF covers all of them through one API.
 
-Download the IronPDF library for .NET [here](https://ironpdf.com/download-modal?utm_source=github) and request a [free trial license](https://ironpdf.com/trial-license?utm_source=github).
+Download the IronPDF library for .NET [here](https://ironpdf.com/?utm_source=github#download-modal) and request a [free trial license](https://ironpdf.com/?utm_source=github#trial-license).
 
 Curious about more functionalities? Visit our detailed guide on securing and signing PDF files with C#: [Sign and Secure PDFs](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/?utm_source=github).
 

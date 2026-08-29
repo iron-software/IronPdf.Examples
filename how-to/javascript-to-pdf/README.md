@@ -5,7 +5,7 @@
 
 JavaScript is a powerful programming language widely utilized in web development to enrich websites with interactive and dynamic behaviors. jQuery, an integral part of the JavaScript ecosystem, is a library aimed at simplifying various JavaScript tasks like DOM manipulation, event handling, and AJAX interactions.
 
-IronPDF uses the [Chromium rendering engine](https://www.chromium.org/chromium-projects/) to proficiently handle JavaScript. This tutorial illustrates the incorporation of JavaScript and jQuery in converting HTML content to PDF within .NET C# projects, and you can start with a [free trial of IronPDF](https://ironpdf.com/trial-license?utm_source=github).
+IronPDF uses the [Chromium rendering engine](https://www.chromium.org/chromium-projects/) to proficiently handle JavaScript. This tutorial illustrates the incorporation of JavaScript and jQuery in converting HTML content to PDF within .NET C# projects, and you can start with a [free trial of IronPDF](https://ironpdf.com/?utm_source=github#trial-license).
 
 ## Quickstart: Converting HTML with JavaScript to PDF in .NET
 

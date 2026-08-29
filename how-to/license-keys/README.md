@@ -5,7 +5,7 @@
 
 Acquiring an IronPDF license key enhances your ability to take your project from development to production without any limitations.
 
-You can [purchase a license key here](https://ironpdf.com/licensing/?utm_source=github) or begin with a [free 30-day trial key](https://ironpdf.com/trial-license?utm_source=github).
+You can [purchase a license key here](https://ironpdf.com/licensing/?utm_source=github) or begin with a [free 30-day trial key](https://ironpdf.com/?utm_source=github#trial-license).
 
 ---
 

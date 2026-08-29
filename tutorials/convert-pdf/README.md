@@ -441,7 +441,7 @@ Console.WriteLine(html);
 pdf.SaveAsHtml("output.html");
 ```
 
-For further details on this functionality and additional features, visit the full guide at [IronPDF's how-to section](https://ironsoftware.com/ironpdf/how-to/pdf-to-html/?utm_source=github).
+For further details on this functionality and additional features, visit the full guide at [IronPDF's how-to section](https://ironpdf.com/how-to/pdf-to-html/?utm_source=github).
 
 ```cs
 using IronPdf;
@@ -1129,7 +1129,7 @@ PdfDocument pdfDocument = renderer.RenderMarkdownStringAsPdf(markdownContent);
 pdfDocument.SaveAs("CustomizedPDF.pdf");
 ```
 
-This snippet illustrates the capability to tailor various components of the PDF such as background, headers, custom paper sizes, and margins, ensuring the PDFs meet the specific requirements and look intended. More customization features and detailed guidance can be found on our comprehensive [rendering options guide](https://ironpdf.com/documentation/pdf-rendering-options/?utm_source=github).
+This snippet illustrates the capability to tailor various components of the PDF such as background, headers, custom paper sizes, and margins, ensuring the PDFs meet the specific requirements and look intended. More customization features and detailed guidance can be found on our comprehensive [rendering options guide](https://ironpdf.com/how-to/rendering-options/?utm_source=github).
 
 ### Configuring Custom Margins
 

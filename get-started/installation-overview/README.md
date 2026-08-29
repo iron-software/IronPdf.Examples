@@ -752,8 +752,8 @@ Handling specific environments:
 
 For expanded guidelines on these topics and to address potential limitations, explore related resources provided by IronPDF:
 
-- [Learn about IronPDF Engine's limitations and compatibility on Linux with Docker](https://ironsoftware.com/get-started/ironpdfengine/?utm_source=github#ironpdfengine-limitations)
-- [Setup guide for IronPDF on Linux environments](https://ironsoftware.com/how-to/linux/?utm_source=github)
+- [Learn about IronPDF Engine's limitations and compatibility on Linux with Docker](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github)
+- [Setup guide for IronPDF on Linux environments](https://ironpdf.com/get-started/linux/?utm_source=github)
 
 <div class="installation-options__container" data-active-tab="1">
     <div class="installation-options__tabs">
@@ -857,7 +857,7 @@ When deploying IronPDF within a Docker environment, it’s efficient to pre-init
 IronPdf.Installation.Initialize();
 ```
 
-For additional information on setting up IronPDF with Linux and Docker environments, visit [IronPDF Linux Docker Compatibility and Setup](https://ironpdf.com/how-to/linux/?utm_source=github).
+For additional information on setting up IronPDF with Linux and Docker environments, visit [IronPDF Linux Docker Compatibility and Setup](https://ironpdf.com/get-started/linux/?utm_source=github).
 
 ```csharp
 // Establish a connection to a remote IronPDF server using gRPC

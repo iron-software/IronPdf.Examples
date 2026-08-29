@@ -23,7 +23,7 @@ pdfRenderer.RenderHtmlAsPdf(
 
 ## Example
 
-The resulting HTML content can then be used to create a PDF document using the [.NET PDF Generator](https://ironpdf.com/docs/?utm_source=github). See IronPDF's capabilities in action by downloading the sample project available at this link: [XML to PDF Conversion Example](https://ironpdf.com/downloads/csharp-xml-to-pdf.zip?utm_source=github).
+The resulting HTML content can then be used to create a PDF document using the [.NET PDF Generator](https://ironpdf.com/docs/?utm_source=github). See IronPDF's capabilities in action by downloading the sample project available at this link: [XML to PDF Conversion Example](https://ironpdf.com/?utm_source=github#download-modal).
 
 ```csharp
 // This XSLT script outlines how XML data is mapped to HTML format

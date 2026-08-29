@@ -4,7 +4,7 @@ The following example illustrates how a MAUI page can be transformed into a PDF 
 
 The `IronPdf.Extensions.Maui` package extends the core IronPdf library. Both the `IronPdf.Extensions.Maui` and `IronPdf` packages are necessary to convert a content page from a MAUI application into a PDF file.
 
-Converting a MAUI page allows you to use all the capabilities of the `RenderingOptions` class. The generated PDF can either be saved as a file or displayed using a [MAUI PDF viewer](https://ironpdf.com/tutorials/pdf-viewing/?utm_source=github).
+Converting a MAUI page allows you to use all the capabilities of the `RenderingOptions` class. The generated PDF can either be saved as a file or displayed using a [MAUI PDF viewer](https://ironpdf.com/how-to/pdf-viewing/?utm_source=github).
 
 <div class="hsg-featured-snippet examples__featured-snippet">
     <h2>Converting XAML Files to PDFs in MAUI</h2>

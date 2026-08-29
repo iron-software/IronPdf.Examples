@@ -538,7 +538,7 @@ End Module
 
 HTML headers and footers can be included as detailed in the [VB.NET PDF development API reference](https://ironpdf.com/object-reference/api/IronPdf.HtmlHeaderFooter.html?utm_source=github).
 
-Additionally, you can access and review the [source code of the "VB.NET HTML to PDF" project](https://ironpdf.com/downloads/VB.Net.Pdf.Tutorial.zip?utm_source=github) available as a Visual Studio project designed for VB.NET.
+Additionally, you can access and review the [source code of the "VB.NET HTML to PDF" project](https://ironpdf.com/?utm_source=github#download-modal) available as a Visual Studio project designed for VB.NET.
 
 ### 4. Generating Dynamic PDFs: Two Effective Techniques
 
