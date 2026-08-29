@@ -289,7 +289,7 @@ You will need:
 
 ## 2. Installing IronPDF
 
-IronPDF offers a standard local installation. For deployment within Docker or microservices environments, refer to the [Remote Engine Mode Guide](https://ironsoftware.com/csharp/pdf/docs/questions/remote-engine-mode/?utm_source=github).
+IronPDF offers a standard local installation. For deployment within Docker or microservices environments, refer to the [Remote Engine Mode Guide](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github).
 
 ```csharp
 // Initialize the PDF renderer
@@ -321,7 +321,7 @@ Install-Package IronPdf
 ```
 
 ### Manual DLL Installation
-- Download the [IronPDF DLL Package](https://ironsoftware.com/csharp/pdf/packages/IronPdf.zip?utm_source=github).
+- Download the [IronPDF DLL Package](https://ironpdf.com/packages/IronPdf.zip?utm_source=github).
 - Unzip to a preferred location within your Solution directory.
 - In Visual Studio Solution Explorer, right-click on 'Dependencies'.
 - Choose 'Add Project Reference' > Select 'Browse' to include the DLLs from the unzipped file.
@@ -331,38 +331,38 @@ Find detailed installation instructions for different operating systems and envi
 
 <div class="row platform-guides">
     <div class="col-2">
-        <a href="https://ironsoftware.com/csharp/pdf/packages/IronPdf.zip?utm_source=github" class="platform-guide">
-            <div class="platform-guide__icon"><img src="https://ironsoftware.com/csharp/pdf/static-assets/svgs/logo-windows.svg" width="64" height="64" /></div>
+        <a href="https://ironpdf.com/packages/IronPdf.zip?utm_source=github" class="platform-guide">
+            <div class="platform-guide__icon"><img src="https://ironpdf.com/static-assets/svgs/logo-windows.svg" width="64" height="64" /></div>
             <span class="platform-guide__title">Windows</span>
         </a>
     </div>
     <div class="col-2">
-        <a href="https://ironsoftware.com/csharp/pdf/packages/IronPdf.Linux.zip?utm_source=github" class="platform-guide">
-            <div class="platform-guide__icon"><img src="https://ironsoftware.com/csharp/pdf/static-assets/svgs/logo-linux.svg" width="64" height="64" /></div>
+        <a href="https://ironpdf.com/packages/IronPdf.Linux.zip?utm_source=github" class="platform-guide">
+            <div class="platform-guide__icon"><img src="https://ironpdf.com/static-assets/svgs/logo-linux.svg" width="64" height="64" /></div>
             <span class="platform-guide__title">Linux</span>
         </a>
     </div>
     <div class="col-2">
-        <a href="https://ironsoftware.com/csharp/pdf/packages/IronPdf.MacOs.zip?utm_source=github" class="platform-guide">
-            <div class="platform-guide__icon"><img src="https://ironsoftware.com/csharp/pdf/static-assets/svgs/logo-mac.svg" width="64" height="64" /></div>
+        <a href="https://ironpdf.com/packages/IronPdf.MacOs.zip?utm_source=github" class="platform-guide">
+            <div class="platform-guide__icon"><img src="https://ironpdf.com/static-assets/svgs/logo-mac.svg" width="64" height="64" /></div>
             <span class="platform-guide__title">MacOS</span>
         </a>
     </div>
     <div class="col-2">
-        <a href="https://ironsoftware.com/csharp/pdf/how-to/docker-linux/?utm_source=github" class="platform-guide">
-            <div class="platform-guide__icon"><img src="https://ironsoftware.com/csharp/pdf/static-assets/svgs/logo-docker.svg" width="64" height="64" /></div>
+        <a href="https://ironpdf.com/get-started/linux/?utm_source=github" class="platform-guide">
+            <div class="platform-guide__icon"><img src="https://ironpdf.com/static-assets/svgs/logo-docker.svg" width="64" height="64" /></div>
             <span class="platform-guide__title">Docker</span>
         </a>
     </div>
     <div class="col-2">
-        <a href="https://ironsoftware.com/csharp/pdf/how-to/azure/?utm_source=github" class="platform-guide">
-            <div class="platform-guide__icon"><img src="https://ironsoftware.com/csharp/pdf/static-assets/svgs/logo-azure.svg" width="64" height="64" /></div>
+        <a href="https://ironpdf.com/get-started/azure/?utm_source=github" class="platform-guide">
+            <div class="platform-guide__icon"><img src="https://ironpdf.com/static-assets/svgs/logo-azure.svg" width="64" height="64" /></div>
             <span class="platform-guide__title">Azure</span>
         </a>
     </div>
     <div class="col-2">
-        <a href="https://ironsoftware.com/csharp/pdf/how-to/creating-pdfs-csharp-amazon-aws-lambda/?utm_source=github" class="platform-guide">
-            <div class="platform-guide__icon"><img src="https://ironsoftware.com/csharp/pdf/static-assets/svgs/logo-aws.svg" width="64" height="64" /></div>
+        <a href="https://ironpdf.com/get-started/aws/?utm_source=github" class="platform-guide">
+            <div class="platform-guide__icon"><img src="https://ironpdf.com/static-assets/svgs/logo-aws.svg" width="64" height="64" /></div>
             <span class="platform-guide__title">AWS</span>
         </a>
     </div>
@@ -372,13 +372,13 @@ Find detailed installation instructions for different operating systems and envi
 
 ## 3. Applying Your License Key
 
-Upon purchasing [IronPDF licenses](https://ironsoftware.com/csharp/pdf/licensing/?utm_source=github) or starting a 30-day trial, you'll receive a license key via email. Make sure to insert this key at the beginning of your application:
+Upon purchasing [IronPDF licenses](https://ironpdf.com/licensing/?utm_source=github) or starting a 30-day trial, you'll receive a license key via email. Make sure to insert this key at the beginning of your application:
 
 ```csharp
 IronPdf.License.LicenseKey = "YOUR-IRONPDF-LICENSE-KEY";
 ```
 
-Explore further details on IronPDF licensing [here](https://ironsoftware.com/csharp/pdf/licensing/?utm_source=github).
+Explore further details on IronPDF licensing [here](https://ironpdf.com/licensing/?utm_source=github).
 
 ---
 

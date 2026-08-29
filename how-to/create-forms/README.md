@@ -201,4 +201,4 @@ pdf.SaveAs("addComboboxForm.pdf");
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/create-forms/addComboboxForm.pdf#zoom=100" width="100%" height="300px">
 </iframe>
 
-Explore further applications such as adding radio buttons and other types of forms in our extensive tutorial collection, like [How to Sign and Secure PDFs](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial?utm_source=github).
+Explore further applications such as adding radio buttons and other types of forms in our extensive tutorial collection, like [How to Sign and Secure PDFs](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/?utm_source=github).

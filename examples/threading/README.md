@@ -10,4 +10,4 @@ The next phase uses asynchronous programming to efficiently process the HTML con
 
 To finalize, the generated PDFs are collected. Using `await task`, the method ensures that all asynchronous rendering tasks are fully completed before gathering the resulting `PdfDocument` array. The `ToList()` method then transforms this array into a List, referred to as **pdfList**, which facilitates easier manipulation and utilization of the generated PDF documents.
 
-[Discover more about Async PDF Rendering with IronPDF](https://ironpdf.com/how-to/async?utm_source=github)
+[Discover more about Async PDF Rendering with IronPDF](https://ironpdf.com/how-to/async/?utm_source=github)

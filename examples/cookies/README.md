@@ -10,4 +10,4 @@ This snippet outlines the use of IronPDF to authenticate a request with network 
 
 This configuration is highly beneficial for generating PDFs from protected pages, such as invoices, reports, or dashboards, where user credentials are necessary.
 
-[Learn to Apply Cookies in PDF Rendering with IronPDF.](https://ironpdf.com/how-to/cookies?utm_source=github)
+[Learn to Apply Cookies in PDF Rendering with IronPDF.](https://ironpdf.com/how-to/cookies/?utm_source=github)

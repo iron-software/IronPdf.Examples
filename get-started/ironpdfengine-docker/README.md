@@ -310,7 +310,7 @@ docker pull https://gallery.ecr.aws/v1m9w8y1/ironpdfengine:2023.12.6
 docker run -d -p 33350:33350 ironsoftwareofficial/ironpdfengine
 ```
 
-For guidance on configuring the IronPdf client to work with IronPdfEngine, refer to the section "Update the Code to Use IronPdfEngine" on [this page](https://ironsoftware.com/csharp/pdf/docs/questions/get-started/ironpdfengine/?utm_source=github#anchor-ironpdfengine).
+For guidance on configuring the IronPdf client to work with IronPdfEngine, refer to the section "Update the Code to Use IronPdfEngine" on [this page](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github).
 
 ## Access IronPdfEngine via Online Marketplaces
 

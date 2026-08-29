@@ -377,7 +377,7 @@ A comprehensive table detailing the necessary requirements for each platform tha
                 <div class="d-flex align-items-center justify-content-center">
                     <img src="https://www.ironsoftware.com/static-assets/svgs/logo-table_windows.svg" width="64" height="64" alt="Windows Logo" />
                 </div>
-                <a href="https://www.ironsoftware.com/get-started/windows/?utm_source=github">Windows</a>
+                <a href="https://ironpdf.com/get-started/windows/?utm_source=github">Windows</a>
             </td>
             <td rowspan="3"><span>Includes .NET 10, 9, 8, 7, 6, 5, as well as .NET Core, .NET Standard, and .NET Framework.</span></td>
             <td rowspan="3">
@@ -398,7 +398,7 @@ A comprehensive table detailing the necessary requirements for each platform tha
                 <div class="d-flex align-items-center justify-content-center">
                     <img src="https://www.ironsoftware.com/static-assets/svgs/logo-table_linux.svg" width="64" height="64" alt="Linux Logo" />
                 </div>
-                <a href="https://www.ironsoftware.com/get-started/linux/?utm_source=github">Linux</a>
+                <a href="https://ironpdf.com/get-started/linux/?utm_source=github">Linux</a>
             </td>
             <td>
                 <ul>
@@ -412,7 +412,7 @@ A comprehensive table detailing the necessary requirements for each platform tha
                 <div class="d-flex align-items-center justify-content-center">
                     <img src="https://www.ironsoftware.com/static-assets/svgs/logo-table_mac.svg" width="64" height="64" alt="macOS Logo" />
                 </div>
-                <a href="https://www.ironsoftware.com/get-started/macos/?utm_source=github">macOS</a>
+                <a href="https://ironpdf.com/get-started/macos/?utm_source=github">macOS</a>
             </td>
             <td><span>Compatible with all macOS versions released since 2020</span></td>
         </tr>

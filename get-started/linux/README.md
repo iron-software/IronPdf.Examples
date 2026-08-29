@@ -749,7 +749,7 @@ IronPDF is fully compatible with Amazon AWS Linux 2, which is the foundation for
 - Microsoft does not currently provide official Docker images for .NET Core versions 3.1 or 5.0 on Amazon AWS Linux 2.
 - Our developers conduct hands-on testing for Amazon AWS Linux 2 to ensure compatibility as IronPDF evolves.
 
-For further guidance, consult our [IronPDF AWS Lambda guide](https://www.ironpdf.com/get-started/aws/?utm_source=github), offering a comprehensive Docker file example optimized for AWS Lambda with IronPDF.
+For further guidance, consult our [IronPDF AWS Lambda guide](https://ironpdf.com/get-started/aws/?utm_source=github), offering a comprehensive Docker file example optimized for AWS Lambda with IronPDF.
 
 **Manual Configuration for Amazon AWS Linux 2**
 
@@ -792,7 +792,7 @@ chmod 755 IronCefSubprocess
 
 ```
 
-Read our official documentation for more in-depth instructions on [setting up IronPdf for AWS Lambda](https://www.ironpdf.com/get-started/aws/?utm_source=github) that includes details on installation and logging within the Amazon cloud environment.
+Read our official documentation for more in-depth instructions on [setting up IronPdf for AWS Lambda](https://ironpdf.com/get-started/aws/?utm_source=github) that includes details on installation and logging within the Amazon cloud environment.
 
 <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" style="display:inline" />
 <img src="https://img.icons8.com/color/48/000000/chrome--v1.png" style="display:inline" />

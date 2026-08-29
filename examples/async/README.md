@@ -8,4 +8,4 @@ First, initialize a new `ChromePdfRenderer` object, powered by IronPDF's advance
 
 The last step involves saving the produced PDF file using the `SaveAs` method to your desired file path and name. Though this is a straightforward demonstration, IronPDF's asynchronous PDF creation techniques are ideally suited for scenarios requiring the generation of PDFs in large batches while maintaining efficient performance.
 
-[Explore Asynchronous PDF Generation with IronPDF](https://ironpdf.com/how-to/async?utm_source=github)
+[Explore Asynchronous PDF Generation with IronPDF](https://ironpdf.com/how-to/async/?utm_source=github)

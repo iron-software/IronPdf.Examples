@@ -794,7 +794,7 @@ This script carries out a two-stage process where the first command compiles you
 
 - [Deploy IronPDF in Docker containers](https://ironsoftware.com/get-started/ironpdf-docker/?utm_source=github)
 - [Run IronPDF on Azure App Service Linux](https://ironsoftware.com/get-started/azure/?utm_source=github)
-- [IronPDF ChromePdfRenderer class](https://www.ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github)
+- [IronPDF ChromePdfRenderer class](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github)
 
 ```bash
 # Build the Docker image for the PDF demo application
