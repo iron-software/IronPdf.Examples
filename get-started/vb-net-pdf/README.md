@@ -23,7 +23,7 @@ For tutorials on employing IronPDF with **F#**, explore [this manual](https://ir
 
 ## VB.NET Examples for Generating and Modifying PDFs with IronPDF
 
-Easily convert HTML to PDF in VB.NET, apply CSS, leverage dynamic data, and edit your documents seamlessly. The creation process is straightforward and compatible with multiple .NET environments such as .NET Framework 4.6.2 through .NET Core 3.1 up to .NET 8. Avoid the hassle of proprietary formats and cumbersome APIs.
+Convert HTML to PDF from VB.NET, style it with CSS, fill it from dynamic data, and edit the result. It runs on .NET Framework 4.6.2, .NET Core 3.1 and every version through .NET 8, and it works in HTML rather than a proprietary document format.
 
 This tutorial includes detailed documentation to guide you meticulously through each part of the process using the [developer-favored IronPDF software](https://ironpdf.com), free for development purposes. You'll find VB.NET code examples tailored to specific use cases enhancing your familiarity with the environment. This VB.NET PDF library offers extensive capabilities for every scenario, whether in ASP.NET, console, or desktop scenarios.
 
@@ -141,10 +141,12 @@ Within any .NET Web Form environment, including Razor, generate a PDF document u
 ```vbnet
 Imports IronPdf
 
+' RenderThisPageAsPdf writes the ASP.NET page it is called from, so this
+' only does anything inside a Web Forms request.
 Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs)
-    Dim pdfOptions = New IronPdf.ChromePdfRenderOptions()
-    IronPdf.AspxToPdf.RenderThisPageAsPDF(AspxToPdf.FileBehavior.Attachment, "MyPdf.pdf", pdfOptions)
-Sub End
+    Dim PdfOptions = New IronPdf.ChromePdfRenderOptions()
+    IronPdf.AspxToPdf.RenderThisPageAsPdf(AspxToPdf.FileBehavior.Attachment, "MyPdf.pdf", PdfOptions)
+End Sub
 ```
 
 #### 4.2. Technique 2: HTML to PDF Conversion Using String Templating
@@ -154,7 +156,116 @@ Generate customized PDF documents by creating an HTML string tailored to your co
 ```vbnet
 Imports IronPdf
 
-Module Module1
-    Sub Main()
-        Dim renderer = New ChromePdfRenderer(ctx)
+Dim renderer = New ChromePdfRenderer()
+Dim Html = "Hello {0}"
+Html = String.Format(Html, "World")
+Dim document = renderer.RenderHtmlAsPdf(Html)
+document.SaveAs("HtmlTemplate.pdf")
+Process.Start(New ProcessStartInfo("HtmlTemplate.pdf") With {.UseShellExecute = True})
 ```
+
+## 5. Editing PDF Files with VB.NET
+
+IronPDF can also edit, encrypt, watermark, or extract the text back out of a
+document it has produced.
+
+#### 5.1. Merging Several PDF Files into One
+
+```vbnet
+Imports IronPdf
+
+Dim pdfs = New List(Of PdfDocument)
+pdfs.Add(PdfDocument.FromFile("A.pdf"))
+pdfs.Add(PdfDocument.FromFile("B.pdf"))
+pdfs.Add(PdfDocument.FromFile("C.pdf"))
+Dim mergedPdf As PdfDocument = PdfDocument.Merge(pdfs)
+mergedPdf.SaveAs("merged.pdf")
+mergedPdf.Dispose()
+For Each pdf As PdfDocument In pdfs
+    pdf.Dispose()
+Next
+```
+
+#### 5.2. Adding a Cover Page
+
+```vbnet
+Imports IronPdf
+
+' The page has a renderer and a pdf open by this point.
+Dim renderer = New ChromePdfRenderer()
+Dim pdf = renderer.RenderHtmlAsPdf("<p>Body</p>")
+
+pdf.PrependPdf(renderer.RenderHtmlAsPdf("<h1>Cover Page</h1><hr>"))
+```
+
+#### 5.3. Removing the Last Page
+
+```vbnet
+Imports IronPdf
+
+' The page has a pdf open by this point.
+Dim pdf = PdfDocument.FromFile("report.pdf")
+
+pdf.RemovePage(pdf.PageCount - 1)
+```
+
+#### 5.4. Encrypting a PDF
+
+```vbnet
+Imports IronPdf
+
+' The page has a pdf open by this point.
+Dim pdf = PdfDocument.FromFile("report.pdf")
+
+' Save with a strong encryption password.
+pdf.Password = "my.secure.password"
+pdf.SaveAs("secured.pdf")
+```
+
+#### 5.5. Stamping HTML Content Onto a Page
+
+```vbnet
+Imports IronPdf
+
+Dim renderer = New ChromePdfRenderer()
+Dim pdf = renderer.RenderUrlAsPdf("https://www.nuget.org/packages/IronPdf")
+Dim stamp = New Editing.HtmlStamper()
+stamp.Html = "<h2>Completed</h2>"
+stamp.Opacity = 50
+stamp.Rotation = -45
+stamp.VerticalAlignment = Editing.VerticalAlignment.Top
+stamp.VerticalOffset = New Editing.Length(10)
+pdf.ApplyStamp(stamp)
+pdf.SaveAs("Stamped.pdf")
+```
+
+> The guide stamps with `HtmlStamp`. `ApplyStamp` takes a `Stamper`, and
+> the HTML one is `IronPdf.Editing.HtmlStamper`.
+
+#### 5.6. Adding a Page Break
+
+The simplest way is with HTML and CSS:
+
+```html
+<div style='page-break-after: always;'>&nbsp;</div>
+```
+
+## 6. Further Reading
+
+- The [VB.NET and C# API reference](https://ironpdf.com/object-reference/api/)
+- [Converting ASPX to PDF](https://ironpdf.com/how-to/aspx-to-pdf/)
+- [Rendering HTML to PDF](https://ironpdf.com/tutorials/html-to-pdf/)
+
+## Conclusion
+
+This tutorial covered six routes from VB.NET to a PDF:
+
+- An HTML string rendered directly to a PDF
+- A PDF whose content is defined by an HTML string built in code
+- An existing URL rendered as a PDF
+- An HTML file rendered as a PDF
+- HTML templating in VB.NET, rendered to a PDF per set of values
+- An ASP.NET page with live data, converted from ASPX to PDF
+
+Each one goes through IronPDF, which turns HTML into a PDF document from inside
+a .NET project.

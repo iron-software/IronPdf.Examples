@@ -3,7 +3,7 @@
 > Full guide: [Creating PDFs in C#](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/)
 
 
-Developing PDFs programmatically can raise several challenges, from inserting headers and footers to resolving compatibility issues. IronSoftware streamlines this task, encapsulating various PDF creation features into user-friendly methods. This allows developers to efficiently engage with their projects.
+Generating a PDF from code raises a run of small problems, from placing headers and footers to keeping the output readable everywhere. IronPDF puts each of those behind one method, so most of a page's construction is a few lines rather than a project of its own.
 
 IronPDF enables the effortless addition of shapes, text, images, as well as headers and footers. It provides various options for document orientation, size, and metadata management, and supports different compliance standards like PDF/UA and PDF/A. Moreover, integrating IronPDF into your existing applications for tasks such as PDF viewing or programmatic printing is a straightforward process.
 
@@ -25,21 +25,18 @@ pdf.SaveAs("output.pdf");  // Save the document to a file named 'output.pdf'
 
 ## Table of Contents
 
-- **Design Perfect PDFs**
-  - [Create Blank PDF](#anchor-create-blank-pdf)
-  - [Add Headers & Footers](#anchor-add-headers-footers)
-  - [Add Page Numbers](#anchor-add-page-numbers)
-  - [Embed Images with DataURIs](#anchor-embed-images-with-datauris)
-  - [Embed Images from Azure Blob Storage](#anchor-embed-images-with-azure-blob-storage)
-  - [OpenAI for PDF](#anchor-openai-for-pdf)
-- **Full PDF Customization Easy**
-  - [Orientation & Rotation](#anchor-orientation-rotation)
-  - [Custom Paper Size](#anchor-custom-paper-size)
-- **Standards Compliance**
-  - [Export PDF/A Format Docs in C#](#anchor-export-pdf-a-format-docs-in-c-num)
-  - [Export PDF/UA Format Docs in C#](#anchor-export-pdf-ua-format-docs-in-c-num)
-
-!!!--LIBRARY_NUGET_INSTALL_BLOCK--!!!
+- **Design your perfect PDF**
+  - [Create Blank PDF](#create-blank-pdf)
+  - [Add Headers & Footers](#add-headers--footers)
+  - [Add Page Numbers](#add-page-numbers)
+  - [Embed Images with DataURIs](#embed-images-with-datauris)
+  - [OpenAI for PDF](#openai-for-pdf)
+- **Full PDF customization**
+  - [Orientation and Rotation](#orientation-and-rotation)
+  - [Custom Paper Size](#custom-paper-size)
+- **Standards compliance**
+  - [Export a PDF/A Document](#export-a-pdfa-document)
+  - [Export a PDF/UA Document](#export-a-pdfua-document)
 
 ## Design Your Perfect PDF
 
@@ -184,9 +181,34 @@ For further details and extension options, refer to our detailed [how-to guide](
 
 ### Embed Images with DataURIs
 
+A directory of image assets is slow to reach when the renderer has to fetch each
+file. Embedding the image in the HTML as a data URI avoids that:
+
+```cs
+using System;
+using IronPdf;
+
+// Read byte from image file
+var pngBinaryData = System.IO.File.ReadAllBytes("My_image.png");
+
+// Convert bytes to base64
+var ImgDataURI = @"data:image/png;base64," + Convert.ToBase64String(pngBinaryData);
+
+// Import base64 to img tag
+var ImgHtml = $"<img src='{ImgDataURI}'>";
+
+ChromePdfRenderer Renderer = new ChromePdfRenderer();
+
+// Render the HTML string
+var pdf = Renderer.RenderHtmlAsPdf(ImgHtml);
+
+pdf.SaveAs("datauri_example.pdf");
+```
+
 ### OpenAI for PDF
 
-IronPDF enhances your ability to quickly summarize, query, and solve problems using the OpenAI model, implemented atop Microsoft Semantic Kernel. Here’s a snippet to show how this functionality can be used to summarize a PDF document swiftly.
+IronPDF can summarize, query and memorize a document through Microsoft Semantic
+Kernel. This snippet summarizes a PDF:
 
 ```cs
 using IronPdf;
@@ -197,11 +219,159 @@ using Microsoft.SemanticKernel.Memory;
 using System;
 using System.Threading.Tasks;
 
-// Setup for OpenAI
+// Setup OpenAI
 var azureEndpoint = "<<enter your azure endpoint here>>";
 var apiKey = "<<enter your azure API key here>>";
 var builder = Kernel.CreateBuilder()
     .AddAzureOpenAITextEmbeddingGeneration("oaiembed", azureEndpoint, apiKey)
     .AddAzureOpenAIChatCompletion("oaichat", azureEndpoint, apiKey);
 var kernel = builder.Build();
+
+// Setup Memory
+var memory_builder = new MemoryBuilder()
+    // optionally use new ChromaMemoryStore("http://127.0.0.1:8000")
+    .WithMemoryStore(new VolatileMemoryStore())
+    .WithAzureOpenAITextEmbeddingGeneration("oaiembed", azureEndpoint, apiKey);
+var memory = memory_builder.Build();
+
+// Initialize IronAI
+IronDocumentAI.Initialize(kernel, memory);
+
+License.LicenseKey = "<<enter your IronPdf license key here>>";
+
+// Import PDF document
+PdfDocument pdf = PdfDocument.FromFile("wikipedia.pdf");
+
+// Summarize the document
+Console.WriteLine("Please wait while I summarize the document...");
+string summary = await pdf.Summarize(); // optionally pass an AI instance
+Console.WriteLine($"Document summary: {summary}
+
+");
 ```
+
+> This snippet needs `IronPdf.Extensions.AI` and the Semantic Kernel packages,
+> which this example project does not reference, so `section7.cs` keeps it as a
+> comment rather than as code that would not build.
+
+## Full PDF Customization
+
+### Orientation and Rotation
+
+#### Orientation
+
+`RenderingOptions.PaperOrientation` decides how the page is laid out. Setting it
+to `PdfPaperOrientation.Landscape` renders the document in landscape:
+
+```cs
+using IronPdf.Rendering;
+using IronPdf;
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Change paper orientation
+renderer.RenderingOptions.PaperOrientation = PdfPaperOrientation.Landscape;
+
+PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Page");
+
+pdf.SaveAs("landscape.pdf");
+```
+
+#### Rotation
+
+`SetAllPageRotations` turns every page; `SetPageRotation` turns one. Both take a
+`PdfPageRotation`:
+
+```cs
+using IronPdf.Rendering;
+using System.Collections.Generic;
+using IronPdf;
+
+PdfDocument pdf = PdfDocument.FromFile("landscape.pdf");
+
+// Set all pages
+pdf.SetAllPageRotations(PdfPageRotation.Clockwise90);
+
+// Set a single page
+pdf.SetPageRotation(1, PdfPageRotation.Clockwise180);
+
+// Set multiple pages
+List<int> selectedPages = new List<int>() { 0, 3 };
+pdf.SetPageRotations(selectedPages, PdfPageRotation.Clockwise270);
+
+pdf.SaveAs("rotatedLandscape.pdf");
+```
+
+### Custom Paper Size
+
+`SetCustomPaperSizeinCentimeters` sets the page dimensions directly. For a
+standard size, set `PaperSize` to one of the `PdfPaperSize` values instead.
+
+#### Custom Paper Size in Centimetres
+
+```cs
+using IronPdf;
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Set custom paper size in cm
+renderer.RenderingOptions.SetCustomPaperSizeinCentimeters(15, 15);
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Custom Paper Size</h1>");
+
+pdf.SaveAs("customPaperSize.pdf");
+```
+
+#### Standard Paper Size
+
+```cs
+using IronPdf.Rendering;
+using IronPdf;
+
+ChromePdfRenderer renderer = new ChromePdfRenderer();
+
+// Set paper size to A4
+renderer.RenderingOptions.PaperSize = PdfPaperSize.A4;
+
+PdfDocument pdf = renderer.RenderHtmlAsPdf("<h1>Standard Paper Size</h1>");
+
+pdf.SaveAs("standardPaperSize.pdf");
+```
+
+## Standards Compliance
+
+### Export a PDF/A Document
+
+`SaveAsPdfA` writes the document in one of the PDF/A variants. This example uses
+PDF/A-3b, through the `PdfAVersions` enum:
+
+```cs
+using IronPdf;
+
+// Create a PdfDocument object or open any PDF File
+PdfDocument pdf = PdfDocument.FromFile("wikipedia.pdf");
+
+// Use the SaveAsPdfA method to save to file
+pdf.SaveAsPdfA("pdf-a3-wikipedia.pdf", PdfAVersions.PdfA3b);
+```
+
+### Export a PDF/UA Document
+
+`SaveAsPdfUA` writes a document that meets the PDF/UA accessibility standard:
+
+```cs
+using IronPdf;
+
+// Open PDF File
+PdfDocument pdf = PdfDocument.FromFile("wikipedia.pdf");
+
+// Export as PDF/UA compliance PDF
+pdf.SaveAsPdfUA("pdf-ua-wikipedia.pdf");
+```
+
+## Conclusion
+
+The examples above cover creating a PDF, giving it headers, footers and page
+numbers, embedding images without touching the file system, changing
+orientation, rotation and paper size, and exporting to the PDF/A and PDF/UA
+standards.
