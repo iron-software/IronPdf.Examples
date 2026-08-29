@@ -1,6 +1,6 @@
 # Managing PDF Metadata with IronPDF
 
-> Full guide: [Managing PDF Metadata with IronPDF](https://ironpdf.com/how-to/metadata/)
+> Full guide: [Managing PDF Metadata with IronPDF](https://ironpdf.com/how-to/metadata/?utm_source=github)
 
 
 PDF metadata encompasses various details about the document such as the document's title, author, subject, keywords, and dates of creation and modification. This metadata enhances the discoverability and organization of PDF files, making them more accessible in databases and on the web.
@@ -117,4 +117,4 @@ pdf.MetaData.RemoveMetaDataKey("toBeRemoved");
 pdf.MetaData.CustomProperties.Remove("toBeRemoved");
 ```
 
-Explore more possibilities with IronPDF: [Check out our complete PDF security tutorial!](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/)
+Explore more possibilities with IronPDF: [Check out our complete PDF security tutorial!](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/?utm_source=github)

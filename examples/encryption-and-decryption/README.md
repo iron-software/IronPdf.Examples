@@ -1,7 +1,7 @@
-> Full guide: [Encryption and decryption](https://ironpdf.com/examples/encryption-and-decryption/)
+> Full guide: [Encryption and decryption](https://ironpdf.com/examples/encryption-and-decryption/?utm_source=github)
 
 <div class="alert alert-info iron-variant-1" role="alert">
-Is your organization facing high expenses for annual PDF security and compliance subscriptions? Look no further than <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc, the Comprehensive PDF Security Solution</a>, which offers a one-time payment plan encompassing all core services like digital signing, redaction, encryption, and protection. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Explore IronSecureDoc Documentation</a>
+Is your organization facing high expenses for annual PDF security and compliance subscriptions? Look no further than <a href="https://ironsoftware.com/enterprise/securedoc/?utm_source=github">IronSecureDoc, the Comprehensive PDF Security Solution</a>, which offers a one-time payment plan encompassing all core services like digital signing, redaction, encryption, and protection. <a href="https://ironsoftware.com/enterprise/securedoc/docs/?utm_source=github">Explore IronSecureDoc Documentation</a>
 </div>
 
 IronPDF prioritizes PDF security and offers tools for encrypting and decrypting PDF files. This includes adding custom metadata and security settings to your PDFs. IronPDF supports 128-bit encryption, decrypting files with the correct passwords and enforcing password protection on PDF documents, both existing and new.
@@ -25,4 +25,4 @@ Subsequent code removes existing passwords and encryption, preparing the PDF for
 
 Finally, `pdf.Password` sets or replaces the PDF’s password, employing strong 128-bit encryption to safeguard the document from unauthorized viewing. Once all adjustments are finalized, save the updated PDF wherever needed using `SaveAs()`.
 
-<a href="https://ironpdf.com/how-to/pdf-permissions-passwords/" class="code_content__related-link__doc-cta-link">Discover How to Configure PDF Permissions and Passwords with IronPDF</a>
+<a href="https://ironpdf.com/how-to/pdf-permissions-passwords/?utm_source=github" class="code_content__related-link__doc-cta-link">Discover How to Configure PDF Permissions and Passwords with IronPDF</a>

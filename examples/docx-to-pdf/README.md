@@ -1,4 +1,4 @@
-> Full guide: [DOCX to PDF](https://ironpdf.com/examples/docx-to-pdf/)
+> Full guide: [DOCX to PDF](https://ironpdf.com/examples/docx-to-pdf/?utm_source=github)
 
 This code sample illustrates the straightforward and efficient method offered by IronPDF for converting Microsoft Word documents into PDF format. With this tool, you can easily transform your DOCX files into high-quality PDFs with just a couple of code lines.
 
@@ -6,4 +6,4 @@ The process begins by creating an instance of the `DocxToPdfRenderer` class, whi
 
 The conversion wraps up with the use of the `SaveAs` method. This method commits the PDF file to a designated location under a chosen name. This DOCX to PDF conversion process not only saves time due to its simplicity but also provides flexibility to tweak and tailor the resulting PDF document as needed.
 
-[Learn more about our DOCX to PDF Conversion Guide.](https://ironpdf.com/how-to/docx-to-pdf/)
+[Learn more about our DOCX to PDF Conversion Guide.](https://ironpdf.com/how-to/docx-to-pdf/?utm_source=github)

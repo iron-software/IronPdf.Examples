@@ -1,6 +1,6 @@
 # Chrome PDF Rendering Engine
 
-> Full guide: [Chrome PDF Rendering Engine](https://ironpdf.com/how-to/ironpdf-2021-chrome-rendering-engine-eap/)
+> Full guide: [Chrome PDF Rendering Engine](https://ironpdf.com/how-to/ironpdf-2021-chrome-rendering-engine-eap/?utm_source=github)
 
 
 Utilize the Chrome PDF-rendering engine to produce high-quality PDFs!
@@ -89,7 +89,7 @@ pdf.SaveAs("HelloWorld.pdf");
 ### Recommended Improvements
 
 Suggestions from Iron to enhance your PDFs:
-* Utilize screen stylesheets when [printing PDFs](https://ironpdf.com/how-to/print-pdf/). This leads to less development hassle and retains fidelity to your web assets.
+* Utilize screen stylesheets when [printing PDFs](https://ironpdf.com/how-to/print-pdf/?utm_source=github). This leads to less development hassle and retains fidelity to your web assets.
 * Engage responsive layouts.
 * Convert HTML form elements into PDF forms.
 

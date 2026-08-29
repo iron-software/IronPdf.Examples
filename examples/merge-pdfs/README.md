@@ -1,4 +1,4 @@
-> Full guide: [Merge PDFs](https://ironpdf.com/examples/merge-pdfs/)
+> Full guide: [Merge PDFs](https://ironpdf.com/examples/merge-pdfs/?utm_source=github)
 
 IronPDF consolidates several PDF documents into a single file, whether they were rendered from HTML or loaded from disk. The structure and content of each source document are preserved.
 
@@ -14,4 +14,4 @@ The final step is to save the newly merged PDF file. Once saved, the rest of the
 
 Moreover, IronPDF's functionality is not limited to merging just two PDFs. In our simplified example, we showcased the process for two documents. To merge a more extensive set of PDF files, you would apply a List overload in place of the two-argument method, accommodating multiple documents. This advanced technique allows for greater flexibility in PDF management.
 
-Discover advanced merging techniques and straightforward code examples by visiting [here](https://ironpdf.com/how-to/merge-or-split-pdfs/#simple-pdf-merge-code-example).
+Discover advanced merging techniques and straightforward code examples by visiting [here](https://ironpdf.com/how-to/merge-or-split-pdfs/?utm_source=github#simple-pdf-merge-code-example).

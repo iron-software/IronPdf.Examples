@@ -1,4 +1,4 @@
-> Full guide: [Remove PDF objects](https://ironpdf.com/examples/remove-pdf-objects/)
+> Full guide: [Remove PDF objects](https://ironpdf.com/examples/remove-pdf-objects/?utm_source=github)
 
 Modifying a PDF document by selectively removing elements can be challenging. Nevertheless, IronPDF equips developers with a straightforward method to access and manipulate the PDF's Document Object Model (DOM).
 
@@ -25,4 +25,4 @@ To delete an object, we pinpoint the specific collection within the ObjectModel 
 
 Lastly, we store the altered PDF—now without the removed object—into a new file by using `SaveAs`.
 
-[How to access the PDF DOM object](https://ironpdf.com/how-to/access-pdf-dom-object/)
+[How to access the PDF DOM object](https://ironpdf.com/how-to/access-pdf-dom-object/?utm_source=github)

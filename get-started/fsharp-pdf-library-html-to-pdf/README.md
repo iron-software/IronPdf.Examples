@@ -1,13 +1,13 @@
 # F# PDF Library (Complete Guide)
 
-> Full guide: [F# PDF Library (Complete Guide)](https://ironpdf.com/get-started/fsharp-pdf-library-html-to-pdf/)
+> Full guide: [F# PDF Library (Complete Guide)](https://ironpdf.com/get-started/fsharp-pdf-library-html-to-pdf/?utm_source=github)
 
 
 This guide will elaborate on the procedures for creating and manipulating PDF documents in F# using the IronPDF library. Ensure you have Visual Studio installed and an F# project set up to follow along.
 
-For instructions on integrating IronPDF with **C#**, refer to [this guide](https://ironpdf.com/docs/).
+For instructions on integrating IronPDF with **C#**, refer to [this guide](https://ironpdf.com/docs/?utm_source=github).
 
-For integration details with **VB.NET**, check out [this guide](https://ironpdf.com/get-started/vb-net-pdf/).
+For integration details with **VB.NET**, check out [this guide](https://ironpdf.com/get-started/vb-net-pdf/?utm_source=github).
 
 ## Setting Up the F# PDF Library
 
@@ -33,7 +33,7 @@ You can also manually insert this `ItemGroup` into your `.fsproj` file:
 
 ### Installation via DLL
 
-You can download the IronPDF DLL and manually add it to your project or the Global Assembly Cache (GAC) from [here](https://ironpdf.com/packages/IronPdf.zip).
+You can download the IronPDF DLL and manually add it to your project or the Global Assembly Cache (GAC) from [here](https://ironpdf.com/packages/IronPdf.zip?utm_source=github).
 
 Add the following import statement at the beginning of your **.fs** class files to utilize IronPDF:
 ```fsharp

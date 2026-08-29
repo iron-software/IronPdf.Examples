@@ -1,4 +1,4 @@
-> Full guide: [Unicode](https://ironpdf.com/examples/unicode/)
+> Full guide: [Unicode](https://ironpdf.com/examples/unicode/?utm_source=github)
 
 IronPDF integrates Unicode support to enable the rendering of various global languages in PDF files, along with UTF-8 encoding to facilitate the display of modern alphabetic languages. It's important to note that your system must have Unicode fonts installed for this feature to function properly. While Windows and Mac systems generally come with these fonts pre-installed, Linux users might need to install these fonts manually.
 
@@ -18,4 +18,4 @@ Following this setup, employ the `RenderHtmlAsPdf` method to transform your HTML
 
 IronPDF’s handling of UTF-8 encoding and Unicode simplifies the task of incorporating several languages within a single PDF document. Incorporating a line like `<meta charset="UTF-8">` in your HTML ensures smooth rendering of various languages, whether from files or URLs.
 
-[Explore IronPDF's UTF-8 Guide for Multilingual PDFs](https://ironpdf.com/how-to/utf-8/).
+[Explore IronPDF's UTF-8 Guide for Multilingual PDFs](https://ironpdf.com/how-to/utf-8/?utm_source=github).

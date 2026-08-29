@@ -1,6 +1,6 @@
 # How to Set Fonts in PDFs
 
-> Full guide: [How to Set Fonts in PDFs](https://ironpdf.com/how-to/webfonts-webicons/)
+> Full guide: [How to Set Fonts in PDFs](https://ironpdf.com/how-to/webfonts-webicons/?utm_source=github)
 
 
 A webfont is specifically created for use on websites. Hosted on web servers and downloaded by browsers, these fonts ensure that text appears consistent and aesthetically pleasing across different devices, even if the device does not have the font installed locally. Additionally, icon fonts—which include symbols and glyphs—are frequently employed in web design to enable scalable, customizable icons and achieve consistent visual presentations using CSS.
@@ -50,7 +50,7 @@ PdfDocument createdPdf = pdfRenderer.RenderHtmlAsPdf(htmlContent);
 createdPdf.SaveAs("example-fonts.pdf");
 ```
 
-Discover additional `WaitFor` configurations related to fonts, JavaScript, HTML nodes, and network idle states at the ['IronPDF WaitFor Class Documentation'](https://ironpdf.com/how-to/waitfor/).
+Discover additional `WaitFor` configurations related to fonts, JavaScript, HTML nodes, and network idle states at the ['IronPDF WaitFor Class Documentation'](https://ironpdf.com/how-to/waitfor/?utm_source=github).
 
 ---
 

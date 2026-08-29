@@ -1,6 +1,6 @@
 # IronPdf.Examples
 
-Runnable C# examples for [IronPDF](https://ironpdf.com/), a .NET PDF library that converts HTML to PDF and generates, edits, and extracts PDF content.
+Runnable C# examples for [IronPDF](https://ironpdf.com/?utm_source=github), a .NET PDF library that converts HTML to PDF and generates, edits, and extracts PDF content.
 
 ## Install
 
@@ -46,15 +46,15 @@ Each folder contains a self-contained .NET project you can open and run:
 
 ## Platform support
 
-.NET 8, 7, 6, 5, .NET Core, .NET Standard, and .NET Framework. Windows, macOS, Linux, Docker, Azure, and AWS Lambda. See the [installation docs](https://ironpdf.com/docs/questions/installation/) for environment-specific notes.
+.NET 8, 7, 6, 5, .NET Core, .NET Standard, and .NET Framework. Windows, macOS, Linux, Docker, Azure, and AWS Lambda. See the [installation docs](https://ironpdf.com/docs/questions/installation/?utm_source=github) for environment-specific notes.
 
 ## Documentation and support
 
-- Full documentation: [ironpdf.com/docs](https://ironpdf.com/docs/)
-- API reference: [ironpdf.com/object-reference/api](https://ironpdf.com/object-reference/api/)
+- Full documentation: [ironpdf.com/docs](https://ironpdf.com/docs/?utm_source=github)
+- API reference: [ironpdf.com/object-reference/api](https://ironpdf.com/object-reference/api/?utm_source=github)
 - Issues with these examples: file directly on this repository
 - Product support: [support@ironsoftware.com](mailto:support@ironsoftware.com)
 
 ## About
 
-This repository is maintained by [Iron Software](https://ironsoftware.com/). IronPDF is a commercial library — see [licensing](https://ironpdf.com/licensing/) for terms and trial details.
+This repository is maintained by [Iron Software](https://ironsoftware.com/?utm_source=github). IronPDF is a commercial library — see [licensing](https://ironpdf.com/licensing/?utm_source=github) for terms and trial details.

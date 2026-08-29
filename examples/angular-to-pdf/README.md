@@ -1,4 +1,4 @@
-> Full guide: [Angular to PDF](https://ironpdf.com/examples/angular-to-pdf/)
+> Full guide: [Angular to PDF](https://ironpdf.com/examples/angular-to-pdf/?utm_source=github)
 
 IronPDF offers a comprehensive toolkit that supports the full spectrum of rendering PDFs via JavaScript within HTML. This includes compatibility with Angular.js and other widely-used single-page and front-end web development frameworks.
 
@@ -18,8 +18,8 @@ The `RenderDelay` feature in IronPDF allows developers to set a delay to accommo
 - Kendo
 - Backbone
 
-Iron Software recognizes that developers might want to tailor their PDF documents to meet specific customer expectations exactly. By using the [Angular.js PDF rendering capabilities of IronPDF](https://ironpdf.com/how-to/javascript-to-pdf/), you can achieve the desired appearance within Chrome.
+Iron Software recognizes that developers might want to tailor their PDF documents to meet specific customer expectations exactly. By using the [Angular.js PDF rendering capabilities of IronPDF](https://ironpdf.com/how-to/javascript-to-pdf/?utm_source=github), you can achieve the desired appearance within Chrome.
 
 This technique ensures that the resulting PDF documents are a perfect match to what you would see in Google Chrome's PDF rendering.
 
-[Learn more about HTML to PDF Conversion with IronPDF.](https://ironpdf.com/tutorials/html-to-pdf/)
+[Learn more about HTML to PDF Conversion with IronPDF.](https://ironpdf.com/tutorials/html-to-pdf/?utm_source=github)

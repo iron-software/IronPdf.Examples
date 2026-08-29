@@ -1,6 +1,6 @@
 # HTML to PDF Conversion with Access-Controlled Content
 
-> Full guide: [HTML to PDF Conversion with Access-Controlled Content](https://ironpdf.com/how-to/logins/)
+> Full guide: [HTML to PDF Conversion with Access-Controlled Content](https://ironpdf.com/how-to/logins/?utm_source=github)
 
 
 Direct integration without login when possible allows straightforward HTML to PDF conversions from files or strings.
@@ -17,7 +17,7 @@ new ChromePdfRenderer { LoginCredentials = new ChromeHttpLoginCredentials("usern
 
 ## Best Practices
 
-IronPDF handles TLS network authentication effectively, and .NET web applications can manage it smoothly using: [ChromeHttpLoginCredentials API](https://ironpdf.com/object-reference/api/IronPdf.ChromeHttpLoginCredentials.html)
+IronPDF handles TLS network authentication effectively, and .NET web applications can manage it smoothly using: [ChromeHttpLoginCredentials API](https://ironpdf.com/object-reference/api/IronPdf.ChromeHttpLoginCredentials.html?utm_source=github)
 
 Downloading HTML and its resources first (via `System.Net.WebClient` or `HttpClient`) is advisable. This method also extends support for headers and other necessities. After getting content into memory or on disk, IronPDF can convert the HTML into a PDF. For downloading dependent assets like stylesheets and images, use the `HtmlAgilityPack`.
 
@@ -65,7 +65,7 @@ generatedPdf.SaveAs("NetworkAuthPDF.pdf");
 
 ## Managing HTML Form Logins
 
-Logging in via HTML form data using the **ChromeHttpLoginCredentials** class is straightforward. Refer to the detailed guide on [ChromeHttpLoginCredentials API](https://ironpdf.com/object-reference/api/IronPdf.ChromeHttpLoginCredentials.html).
+Logging in via HTML form data using the **ChromeHttpLoginCredentials** class is straightforward. Refer to the detailed guide on [ChromeHttpLoginCredentials API](https://ironpdf.com/object-reference/api/IronPdf.ChromeHttpLoginCredentials.html?utm_source=github).
 
 **To Consider:**
 
@@ -98,4 +98,4 @@ public static string RenderPartialViewToString(Controller controller, string vie
 }
 ```
 
-Explore more capabilities and tutorials here: [Convert PDFs](https://ironpdf.com/tutorials/convert-pdf/)
+Explore more capabilities and tutorials here: [Convert PDFs](https://ironpdf.com/tutorials/convert-pdf/?utm_source=github)

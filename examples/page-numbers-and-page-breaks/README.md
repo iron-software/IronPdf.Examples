@@ -1,4 +1,4 @@
-> Full guide: [Page numbers and page breaks](https://ironpdf.com/examples/page-numbers-and-page-breaks/)
+> Full guide: [Page numbers and page breaks](https://ironpdf.com/examples/page-numbers-and-page-breaks/?utm_source=github)
 
 IronPDF excels in tailoring headers and footers to meet specific developer needs and functionalities. This includes integrating extra details like page numbers into the header or footer areas.
 
@@ -10,6 +10,6 @@ The `TextHeaderFooter` class allows you to define the appearance of PDF headers 
 
 To insert a page break when converting HTML to PDF in .NET, utilize the following HTML snippet:
 
-For further details on maximizing the use of these features, please review the [IronPDF Documentation for Headers and Footers](https://ironpdf.com/docs/) on our official site.
+For further details on maximizing the use of these features, please review the [IronPDF Documentation for Headers and Footers](https://ironpdf.com/docs/?utm_source=github) on our official site.
 
-[Learn how to manage HTML to PDF page breaks with IronPDF.](https://ironpdf.com/how-to/html-to-pdf-page-breaks/)
+[Learn how to manage HTML to PDF page breaks with IronPDF.](https://ironpdf.com/how-to/html-to-pdf-page-breaks/?utm_source=github)

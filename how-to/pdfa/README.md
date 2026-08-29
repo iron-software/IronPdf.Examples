@@ -1,9 +1,9 @@
 # Exporting PDF/A or PDF/A-3 Format Documents in C#
 
-> Full guide: [Exporting PDF/A or PDF/A-3 Format Documents in C#](https://ironpdf.com/how-to/pdfa/)
+> Full guide: [Exporting PDF/A or PDF/A-3 Format Documents in C#](https://ironpdf.com/how-to/pdfa/?utm_source=github)
 
 <div class="alert alert-info iron-variant-1" role="alert">
-    Is your organization over-spending on annual subscriptions for PDF compliance and security? Look into <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>, a single-purchase solution covering services such as digital signing, redaction, encryption, and protection. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">View IronSecureDoc Documentation</a>
+    Is your organization over-spending on annual subscriptions for PDF compliance and security? Look into <a href="https://ironsoftware.com/enterprise/securedoc/?utm_source=github">IronSecureDoc</a>, a single-purchase solution covering services such as digital signing, redaction, encryption, and protection. <a href="https://ironsoftware.com/enterprise/securedoc/docs/?utm_source=github">View IronSecureDoc Documentation</a>
 </div>
 
 As a proud [member of the PDF Association](https://pdfa.org/member/ironsoftware/), Iron Software is committed to supporting the PDF/A standard, ensuring that IronPDF complies with all archival compliance regulations.
@@ -191,4 +191,4 @@ Ensuring all characters are correctly represented in a PDF/A document is crucial
 
 ![Character Display Problem](https://ironpdf.com/static-assets/pdf/how-to/pdfa/display-issue.webp)
 
-Explore more about creating compliant PDFs by visiting our guide at [Creating PDFs Tutorial](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/).
+Explore more about creating compliant PDFs by visiting our guide at [Creating PDFs Tutorial](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/?utm_source=github).

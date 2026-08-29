@@ -1,4 +1,4 @@
-> Full guide: [Ironpdf website and system logins](https://ironpdf.com/examples/ironpdf-website-and-system-logins/)
+> Full guide: [Ironpdf website and system logins](https://ironpdf.com/examples/ironpdf-website-and-system-logins/?utm_source=github)
 
 ASP.NET applications often support network authentication, which is typically more dependable than relying on HTML form submissions. With IronPDF, you can use full support for TLS network authentication, ensuring secure operations within .NET web applications.
 
@@ -24,4 +24,4 @@ Consider the following example where we utilize IronPDF's state-of-the-art Chrom
 6. **Store the PDF File:**  
    - Conclude by saving the PDF using the `SaveAs` method in the current directory, with the file named `"UrlToPdfExample2.Pdf"`.
 
-[Learn to Secure PDFs with Login Integration Here](https://ironpdf.com/how-to/logins/ "code_content__related-link__doc-cta-link")
+[Learn to Secure PDFs with Login Integration Here](https://ironpdf.com/how-to/logins/?utm_source=github "code_content__related-link__doc-cta-link")

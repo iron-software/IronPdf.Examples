@@ -1,4 +1,4 @@
-> Full guide: [Google fonts htmltopdf](https://ironpdf.com/examples/google-fonts-htmltopdf/)
+> Full guide: [Google fonts htmltopdf](https://ironpdf.com/examples/google-fonts-htmltopdf/?utm_source=github)
 
 Incorporating custom fonts is crucial when creating PDFs that need a specific aesthetic touch. Organizations often require unique fonts and bespoke icons to represent their brand effectively. IronPDF caters to this need by supporting a wide range of web fonts, including the extensive Google Fonts library.
 
@@ -11,9 +11,9 @@ Be aware, however, that using custom fonts in your PDFs involves a slight compli
 - [Font Awesome](https://fontawesome.com/)
 - [Bootstrap Glyphs](https://getbootstrap.com/docs/3.3/components/)
 - [Google Fonts](https://fonts.google.com/)
-- [Barcode Fonts with IronPDF HTML to PDF Conversion Example](https://ironpdf.com/examples/barcode-htmltopdf/)
+- [Barcode Fonts with IronPDF HTML to PDF Conversion Example](https://ironpdf.com/examples/barcode-htmltopdf/?utm_source=github)
 - Your personal custom WOFF or SVG-based CSS font packages.
 
 Ensure that the IronPDF library is installed in your project for full functionality. These guidelines will assist you in tailoring fonts to meet branding or stylistic preferences.
 
-[Learn More About Web Fonts and Icons with IronPDF](https://ironpdf.com/how-to/webfonts-webicons/)
+[Learn More About Web Fonts and Icons with IronPDF](https://ironpdf.com/how-to/webfonts-webicons/?utm_source=github)

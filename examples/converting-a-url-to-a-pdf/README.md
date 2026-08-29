@@ -1,4 +1,4 @@
-> Full guide: [Converting a URL to a PDF](https://ironpdf.com/examples/converting-a-url-to-a-pdf/)
+> Full guide: [Converting a URL to a PDF](https://ironpdf.com/examples/converting-a-url-to-a-pdf/?utm_source=github)
 
 IronPDF simplifies the process of transforming HTML from existing URLs into PDF files. It offers support for JavaScript, images, CSS, and forms.
 
@@ -9,7 +9,7 @@ ___
 <div class="examples__featured-snippet">
 <h2>Guide to Converting URLs to PDFs in C#</h2>
 <ol>
-<li>Acquire the <a href="https://ironpdf.com/">IronPDF URL to PDF Conversion Library</a></li>
+<li>Acquire the <a href="https://ironpdf.com/?utm_source=github">IronPDF URL to PDF Conversion Library</a></li>
 <li>Deploy the library via NuGet to explore its capabilities</li>
 <li>Utilize IronPDF to generate PDFs from ASP.NET URLs that include query string parameters</li>
 <li>Directly construct a PDF from a URL using IronPDF</li>
@@ -17,4 +17,4 @@ ___
 </ol>
 </div>
 
-<a href="https://ironpdf.com/how-to/url-to-pdf/" class="code_content__related-link__doc-cta-link">Discover How to Convert URLs to PDFs with IronPDF</a>
+<a href="https://ironpdf.com/how-to/url-to-pdf/?utm_source=github" class="code_content__related-link__doc-cta-link">Discover How to Convert URLs to PDFs with IronPDF</a>

@@ -1,6 +1,6 @@
 # Converting Views to PDFs in ASP.NET Core MVC
 
-> Full guide: [Converting Views to PDFs in ASP.NET Core MVC](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/)
+> Full guide: [Converting Views to PDFs in ASP.NET Core MVC](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/?utm_source=github)
 
 
 A View in ASP.NET is a critical component used to generate HTML markup within web applications, forming an integral part of the Model-View-Controller (MVC) architecture. In both ASP.NET MVC and ASP.NET Core MVC, Views are tasked with presenting data through dynamically rendered HTML.

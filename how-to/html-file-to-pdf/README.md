@@ -1,6 +1,6 @@
 # Transforming HTML to PDF with IronPDF
 
-> Full guide: [Transforming HTML to PDF with IronPDF](https://ironpdf.com/how-to/html-file-to-pdf/)
+> Full guide: [Transforming HTML to PDF with IronPDF](https://ironpdf.com/how-to/html-file-to-pdf/?utm_source=github)
 
 
 IronPDF simplifies the process of converting HTML files into PDFs. It has the capability to handle any HTML file accessible on your system.
@@ -96,4 +96,4 @@ ChromePdfRenderer renderer = new ChromePdfRenderer();
 renderer.RenderingOptions = ChromePdfRenderOptions.DefaultChrome;
 ```
 
-Discover more capabilities and advanced features by visiting our tutorial page: [Learn to Convert PDFs](https://ironpdf.com/tutorials/convert-pdf/).
+Discover more capabilities and advanced features by visiting our tutorial page: [Learn to Convert PDFs](https://ironpdf.com/tutorials/convert-pdf/?utm_source=github).

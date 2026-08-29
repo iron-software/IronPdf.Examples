@@ -1,6 +1,6 @@
 # Rendering HTML Zip Files to PDF
 
-> Full guide: [Rendering HTML Zip Files to PDF](https://ironpdf.com/how-to/html-zip-file-to-pdf/)
+> Full guide: [Rendering HTML Zip Files to PDF](https://ironpdf.com/how-to/html-zip-file-to-pdf/?utm_source=github)
 
 
 While working on projects, using ZIP packages can help save space and facilitate easier file transfers. For users who need to render HTML files stored inside a ZIP archive, the manual extraction is not necessary. IronPDF provides the functionality to directly render a complete project, including all assets, from a ZIP file. In this guide, we'll show you how to transform an HTML ZIP package into a PDF document.

@@ -1,6 +1,6 @@
 # How to Convert Microsoft Word to PDF in C#
 
-> Full guide: [How to Convert Microsoft Word to PDF in C#](https://ironpdf.com/how-to/docx-to-pdf/)
+> Full guide: [How to Convert Microsoft Word to PDF in C#](https://ironpdf.com/how-to/docx-to-pdf/?utm_source=github)
 
 
 A DOCX file originates from Microsoft Word, part of the comprehensive Microsoft Office suite. Utilizing the Office Open XML (OOXML) format, it ensures efficiency and compatibility across various platforms. Introduced in Microsoft Word 2007, the DOCX format has since become the standard, replacing the older DOC format.
@@ -19,7 +19,7 @@ pdfDocument.SaveAs("output.pdf");
 
 ## Example: Convert DOCX File to PDF
 
-IronPDF facilitates the programmatic conversion of Word documents to PDF, boosting efficiency and integration capabilities across .NET applications. Starting with an instance of the `DocxToPdfRenderer` class, you can convert a DOCX file to a PDF by using the `RenderDocxAsPdf` method with the file path. This method returns a `PdfDocument` object for further customization. You can download the [Modern Chronological Resume DOCX example file](https://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/Modern-chronological-resume.docx).
+IronPDF facilitates the programmatic conversion of Word documents to PDF, boosting efficiency and integration capabilities across .NET applications. Starting with an instance of the `DocxToPdfRenderer` class, you can convert a DOCX file to a PDF by using the `RenderDocxAsPdf` method with the file path. This method returns a `PdfDocument` object for further customization. You can download the [Modern Chronological Resume DOCX example file](https://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/Modern-chronological-resume.docx?utm_source=github).
 
 ### Microsoft Word Preview
 
@@ -71,7 +71,7 @@ internal class RecipientsDataModel
 }
 ```
 
-Modify a Microsoft Word template as needed for your application. Download the [Party Invitation DOTX example file](https://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/Party-invitation.dotx). Use the `MailMergePrintAllInOnePdfDocument` property to consolidate the produced PDFs into a single file using specified merge fields.
+Modify a Microsoft Word template as needed for your application. Download the [Party Invitation DOTX example file](https://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/Party-invitation.dotx?utm_source=github). Use the `MailMergePrintAllInOnePdfDocument` property to consolidate the produced PDFs into a single file using specified merge fields.
 
 ### Microsoft Word Preview
 
@@ -121,4 +121,4 @@ pdfDocument.First().SaveAs("mailMerge.pdf");
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/docx-to-pdf/mailMerge.pdf" width="100%" height="500px">
 </iframe
 
-Aside from its core capabilities, IronPDF supports various other document conversions, manipulations, and certifications. Explore these features and more in the [extensive tutorial on HTML to PDF conversion](https://ironpdf.com/tutorials/html-to-pdf/).
+Aside from its core capabilities, IronPDF supports various other document conversions, manipulations, and certifications. Explore these features and more in the [extensive tutorial on HTML to PDF conversion](https://ironpdf.com/tutorials/html-to-pdf/?utm_source=github).

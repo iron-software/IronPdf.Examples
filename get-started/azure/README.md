@@ -1,6 +1,6 @@
 # Running and Deploying IronPDF .NET on Azure Functions
 
-> Full guide: [Running and Deploying IronPDF .NET on Azure Functions](https://ironpdf.com/get-started/azure/)
+> Full guide: [Running and Deploying IronPDF .NET on Azure Functions](https://ironpdf.com/get-started/azure/?utm_source=github)
 
 
 <div class="container-fluid">
@@ -33,7 +33,7 @@ Azure Function App Container is the simplest approach to implement IronPdf, thus
 
 **Docker File Configuration**
 
-Adjust the Docker file to fit the Linux distribution in use. Detailed setup instructions can be found in [this guide](https://ironpdf.com/get-started/ironpdf-docker/).
+Adjust the Docker file to fit the Linux distribution in use. Detailed setup instructions can be found in [this guide](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github).
 
 ### Azure Function App (Windows)
 
@@ -160,7 +160,7 @@ public static async Task<IActionResult> Run(
 
 ### SVG Font Loading Issue on Shared Hosting
 
-Azure's shared web-app tiers do not support SVG fonts due to security restrictions on GDI+ graphics access. For optimal font rendering, consider using a [Windows or Linux Docker Container](https://ironpdf.com/get-started/ironpdf-docker/) or a VPS.
+Azure's shared web-app tiers do not support SVG fonts due to security restrictions on GDI+ graphics access. For optimal font rendering, consider using a [Windows or Linux Docker Container](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github) or a VPS.
 
 ### Performance Limitations on Azure Free Tier
 
@@ -168,4 +168,4 @@ Azure’s free and shared hosting plans, including the consumption plan, are uns
 
 ### How to Request Engineering Support
 
-For technical support, refer to the '[Requesting Engineering Support for IronPDF](https://ironpdf.com/troubleshooting/engineering-request-pdf/)' guide.
+For technical support, refer to the '[Requesting Engineering Support for IronPDF](https://ironpdf.com/troubleshooting/engineering-request-pdf/?utm_source=github)' guide.

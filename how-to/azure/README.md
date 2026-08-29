@@ -1,11 +1,11 @@
 # Converting HTML to PDF in .NET on Azure
 
-> Full guide: [Converting HTML to PDF in .NET on Azure](https://ironpdf.com/get-started/azure/)
+> Full guide: [Converting HTML to PDF in .NET on Azure](https://ironpdf.com/get-started/azure/?utm_source=github)
 
 
 IronPDF successfully supports the generation, manipulation, and reading of PDF documents across various Azure environments, including MVC websites, Azure Functions, and more.
 
-For those utilizing Azure Functions in Docker Containers, please check out [this guide on Azure Docker for Linux](https://ironpdf.com/get-started/ironpdf-docker/).
+For those utilizing Azure Functions in Docker Containers, please check out [this guide on Azure Docker for Linux](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github).
 
 ## Quickstart: Converting HTML to PDF with IronPDF on Azure
 
@@ -35,7 +35,7 @@ Begin by integrating IronPDF into your project with NuGet:
 Install-Package IronPdf
 ```
 
-*Alternatively, you can download and install the .dll manually via [IronPDF direct download for Azure](https://ironpdf.com/packages/IronPdf.Package.For.azure.zip).*
+*Alternatively, you can download and install the .dll manually via [IronPDF direct download for Azure](https://ironpdf.com/packages/IronPdf.Package.For.azure.zip?utm_source=github).*
 
 ##### Select Suitable Azure Configuration
 
@@ -85,7 +85,7 @@ Due to removal of imaging libraries from .NET 6, it’s crucial to allow legacy 
 
 ###### Using Docker on Azure
 
-For optimal control and performance, consider deploying IronPDF via Docker Containers. Refer to our detailed [guide on IronPDF with Azure Docker](https://ironpdf.com/get-started/ironpdf-docker/) for both Linux and Windows setups.
+For optimal control and performance, consider deploying IronPDF via Docker Containers. Refer to our detailed [guide on IronPDF with Azure Docker](https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github) for both Linux and Windows setups.
 
 ### Azure Function Code Sample
 
@@ -132,4 +132,4 @@ The Azure free and shared tiers, including the consumption plan, generally perfo
 
 #### Submitting Engineering Support Requests
 
-To request technical support, refer to our [Engineering Support Request guide for IronPDF](https://ironpdf.com/troubleshooting/engineering-request-pdf/).
+To request technical support, refer to our [Engineering Support Request guide for IronPDF](https://ironpdf.com/troubleshooting/engineering-request-pdf/?utm_source=github).

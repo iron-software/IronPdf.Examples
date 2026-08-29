@@ -1,10 +1,10 @@
 # How to Retrieve Text and Images from PDF Documents
 
-> Full guide: [How to Retrieve Text and Images from PDF Documents](https://ironpdf.com/how-to/extract-text-and-images/)
+> Full guide: [How to Retrieve Text and Images from PDF Documents](https://ironpdf.com/how-to/extract-text-and-images/?utm_source=github)
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-Reduce your yearly expenditures on PDF security and compliance by considering <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>, an all-inclusive solution for SaaS services such as digital signing, redaction, encryption, and protection, available with a one-time payment. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Discover More About IronSecureDoc</a>
+Reduce your yearly expenditures on PDF security and compliance by considering <a href="https://ironsoftware.com/enterprise/securedoc/?utm_source=github">IronSecureDoc</a>, an all-inclusive solution for SaaS services such as digital signing, redaction, encryption, and protection, available with a one-time payment. <a href="https://ironsoftware.com/enterprise/securedoc/docs/?utm_source=github">Discover More About IronSecureDoc</a>
 </div>
 
 Retrieving text and images from PDF files is essential for accessing and using content within these documents, enabling editing, searching, or further content analysis. This can be particularly useful when converting text to different formats or saving images for further examination or reuse.
@@ -23,7 +23,7 @@ var extractedImages = pdfDocument.ExtractAllImages();
 
 ## Example of Text Extraction
 
-Text can be extracted from PDF documents that are either newly created or existing ones. To do this, utilize the `ExtractAllText` method, which pulls all text content from the document, with a separation of four consecutive newlines between pages. Here is an example using a [sample PDF](https://ironpdf.com/static-assets/pdf/how-to/extract-text-and-images/sample.pdf) derived from a Wikipedia article.
+Text can be extracted from PDF documents that are either newly created or existing ones. To do this, utilize the `ExtractAllText` method, which pulls all text content from the document, with a separation of four consecutive newlines between pages. Here is an example using a [sample PDF](https://ironpdf.com/static-assets/pdf/how-to/extract-text-and-images/sample.pdf?utm_source=github) derived from a Wikipedia article.
 
 ```csharp
 using IronPdf;

@@ -1,6 +1,6 @@
 # Converting RTF to PDF with IronPDF
 
-> Full guide: [Converting RTF to PDF with IronPDF](https://ironpdf.com/how-to/rtf-to-pdf/)
+> Full guide: [Converting RTF to PDF with IronPDF](https://ironpdf.com/how-to/rtf-to-pdf/?utm_source=github)
 
 
 RTF, which stands for Rich Text Format, is a document formatting system created by Microsoft. Unlike formats such as DOCX or PDF, RTF's capabilities in styling and media embedding are somewhat limited, yet it remains widely used for basic document creation including text and simple visuals.
@@ -19,7 +19,7 @@ new IronPdf.ChromePdfRenderer()
 
 ## Example: Converting an RTF String to a PDF Document
 
-Use the `RenderRtfStringAsPdf` function to turn an RTF string directly into a PDF file. This method also supports a wide range of **RenderingOptions**, including setting [text and HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/), [image and text stamping](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#stamper-abstract-class), [page numbering](https://ironpdf.com/how-to/headers-and-footers/), and adjusting the page size and orientation. Furthermore, after your PDF is generated, you can manage the PDF's structure by [merging, splitting](https://ironpdf.com/how-to/merge-or-split-pdfs/), rotating, as well as adding [annotations](https://ironpdf.com/how-to/annotations/) and [bookmarks](https://ironpdf.com/how-to/bookmarks/) to enhance its utility and navigability.
+Use the `RenderRtfStringAsPdf` function to turn an RTF string directly into a PDF file. This method also supports a wide range of **RenderingOptions**, including setting [text and HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github), [image and text stamping](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github#stamper-abstract-class), [page numbering](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github), and adjusting the page size and orientation. Furthermore, after your PDF is generated, you can manage the PDF's structure by [merging, splitting](https://ironpdf.com/how-to/merge-or-split-pdfs/?utm_source=github), rotating, as well as adding [annotations](https://ironpdf.com/how-to/annotations/?utm_source=github) and [bookmarks](https://ironpdf.com/how-to/bookmarks/?utm_source=github) to enhance its utility and navigability.
 
 ```csharp
 using IronPdf;
@@ -39,7 +39,7 @@ pdfDocument.SaveAs("newPdfFromRtfString.pdf");
 
 ## Converting an RTF File to PDF
 
-To convert an RTF file to a PDF, simply utilize the `RenderRtfFileAsPdf` function. If needed, a sample RTF file can be accessed through this [link](https://ironpdf.com/static-assets/pdf/how-to/rtf-to-pdf/sample.rtf). Below, we provide an example demonstrating how to convert this sample RTF file into a PDF.
+To convert an RTF file to a PDF, simply utilize the `RenderRtfFileAsPdf` function. If needed, a sample RTF file can be accessed through this [link](https://ironpdf.com/static-assets/pdf/how-to/rtf-to-pdf/sample.rtf?utm_source=github). Below, we provide an example demonstrating how to convert this sample RTF file into a PDF.
 
 ### Preview of RTF File in Microsoft Word
 
@@ -69,4 +69,4 @@ pdf.SaveAs("pdfConvertedFromRtfFile.pdf");
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/rtf-to-pdf/pdfFromRtfFile.pdf" width="100%" height="400px">
 </iframe>
 
-Explore more capabilities by checking out our detailed tutorial on [PDF Conversions](https://ironpdf.com/tutorials/convert-pdf/).
+Explore more capabilities by checking out our detailed tutorial on [PDF Conversions](https://ironpdf.com/tutorials/convert-pdf/?utm_source=github).

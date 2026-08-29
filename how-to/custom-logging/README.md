@@ -1,6 +1,6 @@
 # Utilizing Custom Logging in C&num;
 
-> Full guide: [Utilizing Custom Logging in C&num;](https://ironpdf.com/how-to/custom-logging/)
+> Full guide: [Utilizing Custom Logging in C&num;](https://ironpdf.com/how-to/custom-logging/?utm_source=github)
 
 
 Custom logging is a method to design a log system that caters to the specific needs of your application or system. It involves the creation of log files to capture various kinds of information, events, and messages that the software emits during its operation.
@@ -71,4 +71,4 @@ In this implementation, I have included additional details in the log messages f
     </div>
 </div>
 
-Eager to explore more functionalities? Visit our tutorial page here: [Additional Features](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/)
+Eager to explore more functionalities? Visit our tutorial page here: [Additional Features](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/?utm_source=github)

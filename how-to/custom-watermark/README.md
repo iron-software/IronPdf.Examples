@@ -1,6 +1,6 @@
 # How to Add Watermarks to PDFs in C# Using IronPDF
 
-> Full guide: [How to Add Watermarks to PDFs in C# Using IronPDF](https://ironpdf.com/how-to/custom-watermark/)
+> Full guide: [How to Add Watermarks to PDFs in C# Using IronPDF](https://ironpdf.com/how-to/custom-watermark/?utm_source=github)
 
 
 A custom watermark is a unique overlay of text or an image used primarily as a background on a PDF page. It offers several uses such as promoting branding through logos or names, enhancing document security with labels such as "Confidential", fortifying copyright protection, and denoting the status of a document. These watermarks may consist of text, images, or a combination of both and can be applied either selectively or across multiple pages, with adjustable opacity to suit different needs for customization, security, and contextualization of PDFs.
@@ -126,4 +126,4 @@ pdf.SaveAs("watermarkLocation.pdf");
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/custom-watermark/watermarkLocation.pdf" width="100%" height="400px">
 </iframe>
 
-Explore further possibilities with our comprehensive tutorial here: [Edit PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/)
+Explore further possibilities with our comprehensive tutorial here: [Edit PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github)

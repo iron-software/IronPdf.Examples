@@ -1,4 +1,4 @@
-> Full guide: [Execute custom JavaScript](https://ironpdf.com/examples/execute-custom-javascript/)
+> Full guide: [Execute custom JavaScript](https://ironpdf.com/examples/execute-custom-javascript/?utm_source=github)
 
 Using IronPDF, you can incorporate custom JavaScript to enhance and personalize the PDFs generated from HTML. With the `ChromePdfRenderOptions.Javascript` setting, you can execute JavaScript right after the HTML has loaded but just before the PDF is generated. This feature is crucial for incorporating dynamic content and interactive features into your PDFs. `ChromePdfRenderer` keeps the rendered document faithful to the page, including its interactive parts.
 
@@ -39,4 +39,4 @@ Next, link the `renderOptions` to the `ChromePdfRenderer`'s `RenderingOptions` a
 
 Finally, you store the newly created PDF using the `SaveAs` method, specifying the desired file path.
 
-<a href="https://ironpdf.com/how-to/javascript-to-pdf/" class="code_content__related-link__doc-cta-link">Learn more about converting JavaScript to PDF with IronPDF</a>
+<a href="https://ironpdf.com/how-to/javascript-to-pdf/?utm_source=github" class="code_content__related-link__doc-cta-link">Learn more about converting JavaScript to PDF with IronPDF</a>

@@ -1,6 +1,6 @@
 # How to Debug HTML in Chrome for Creating Precise PDFs with IronPDF
 
-> Full guide: [How to Debug HTML in Chrome for Creating Precise PDFs with IronPDF](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/)
+> Full guide: [How to Debug HTML in Chrome for Creating Precise PDFs with IronPDF](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/?utm_source=github)
 
 
 At IronPDF, we realize that when our users generate PDF documents, it's crucial that these documents not only appear professionally polished but are also exact replicas of the intended designs. To achieve such high precision in your PDFs, developing superb HTML templates or consulting with a professional Web Developer is recommended. IronPDF uses a Chrome Renderer to ensure that your PDFs mimic your HTML output perfectly in Chrome.
@@ -21,7 +21,7 @@ pdfRenderer.RenderHtmlAsPdf("<html>Your HTML content here</html>").SaveAs("perfe
 
 IronPDF sets itself apart in the marketplace by integrating Google’s Chromium Renderer. This ensures that your PDF output from HTML will visually match what you see in Chrome browsers. In this overview, we'll guide you through key settings adjustments needed in Chrome and IronPDF to achieve this conversion.
 
-Unlike some competing technologies which don't adhere to W3C standards or support modern web technologies, IronPDF ensures compliance and uses an up-to-date rendering engine. Other solutions might rely on outdated engines like [wkhtmltopdf](https://ironpdf.com/blog/compare-to-other-components/wkhtmltopdf-c-sharp/).
+Unlike some competing technologies which don't adhere to W3C standards or support modern web technologies, IronPDF ensures compliance and uses an up-to-date rendering engine. Other solutions might rely on outdated engines like [wkhtmltopdf](https://ironpdf.com/blog/compare-to-other-components/wkhtmltopdf-c-sharp/?utm_source=github).
 
 ### Comparing IronPDF with Other Leading Solutions
 
@@ -36,7 +36,7 @@ Unlike some competing technologies which don't adhere to W3C standards or suppor
     </div>
 
 
-For more comparative insights about IronPDF against competitors, refer to our detailed [blog analysis](https://ironpdf.com/blog/compare-to-other-components/).
+For more comparative insights about IronPDF against competitors, refer to our detailed [blog analysis](https://ironpdf.com/blog/compare-to-other-components/?utm_source=github).
 
 ### Advantages of IronPDF's Enhanced Chrome Renderer
 
@@ -101,4 +101,4 @@ pdfRenderer.RenderingOptions.Timeout = 90; // Time in seconds, default is 60
 pdfRenderer.RenderingOptions.WaitFor.RenderDelay(30000); // Delay in milliseconds
 ```
 
-Discover additional features and capabilities on our [features guide](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/).
+Discover additional features and capabilities on our [features guide](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/?utm_source=github).

@@ -1,6 +1,6 @@
 # VB.NET PDF Creator (Code Example Tutorial)
 
-> Full guide: [VB.NET PDF Creator (Code Example Tutorial)](https://ironpdf.com/get-started/vb-net-pdf/)
+> Full guide: [VB.NET PDF Creator (Code Example Tutorial)](https://ironpdf.com/get-started/vb-net-pdf/?utm_source=github)
 
 This guide will walk you through the process of creating and editing PDF files using VB.NET. This method is applicable to various types of applications including **ASP.NET web apps**, **console applications**, **Windows Services**, and **desktop programs**. We will focus on PDF creation projects targeting .NET Framework 4 or .NET Core 2. To get started, you'll need a Visual Basic .NET development environment, like Microsoft Visual Studio Community.
 
@@ -29,7 +29,7 @@ myPdf.SaveAs("your_first_pdf.pdf")
 
 Convert HTML to PDF from VB.NET, style the output, add dynamic content, and manage the files. The same API works on .NET Framework 4, .NET Core 3.1, and .NET 5 and 6, with no proprietary file formats involved.
 
-This guide provides detailed documentation to help you navigate each step using the developer-preferred [IronPDF](https://ironpdf.com) that is free during development phases. The code examples in VB.NET are tailored to address specific scenarios, making it simple for you to follow the procedures in an environment you're comfortable with. The VB.NET PDF Library boasts extensive capabilities for creation and customization suitable for a variety of projects from ASP.NET applications to console and desktop applications.
+This guide provides detailed documentation to help you navigate each step using the developer-preferred [IronPDF](https://ironpdf.com?utm_source=github) that is free during development phases. The code examples in VB.NET are tailored to address specific scenarios, making it simple for you to follow the procedures in an environment you're comfortable with. The VB.NET PDF Library boasts extensive capabilities for creation and customization suitable for a variety of projects from ASP.NET applications to console and desktop applications.
 
 ### Features Included with IronPDF
 
@@ -61,7 +61,7 @@ Install-Package IronPdf
 
 **Manual Installation via DLL:**
 
-You can also opt to download the IronPDF DLL and manually incorporate it into your project or Global Assembly Cache (GAC) from [IronPDF Downloads](https://ironpdf.com/packages/IronPdf.zip).
+You can also opt to download the IronPDF DLL and manually incorporate it into your project or Global Assembly Cache (GAC) from [IronPDF Downloads](https://ironpdf.com/packages/IronPdf.zip?utm_source=github).
 
 Add this line to the top of your VB.NET files to use IronPDF:
 ```vbnet
@@ -87,7 +87,7 @@ Imports IronPdf
 
 **Alternative Installation Method: DLL**
 
-As an alternative to the NuGet package, you may choose to download the IronPDF DLL directly and integrate it manually into your project or the Global Assembly Cache (GAC). Download the DLL from the following link: [IronPDF Download](https://ironpdf.com/packages/IronPdf.zip).
+As an alternative to the NuGet package, you may choose to download the IronPDF DLL directly and integrate it manually into your project or the Global Assembly Cache (GAC). Download the DLL from the following link: [IronPDF Download](https://ironpdf.com/packages/IronPdf.zip?utm_source=github).
 
 **Implementation in Visual Basic.NET**
 
@@ -122,7 +122,7 @@ MyPdf.SaveAs("example.pdf")
 
 Convert HTML into PDFs in VB.NET, style the output, add dynamic content, and edit the result. The same API covers .NET 4, .NET Core 3.1, and .NET 5 and 6, with no proprietary formats involved.
 
-This guide provides comprehensive documentation to assist you in each step using [IronPDF's free library](https://ironpdf.com), a top choice among developers. The provided VB.NET code examples fit well within your project context, enhancing understandability and ease of use. This VB.NET PDF Library is equipped with extensive creation and adjustment features suitable for all kinds of .NET applications, whether on the web, console, or desktop.
+This guide provides comprehensive documentation to assist you in each step using [IronPDF's free library](https://ironpdf.com?utm_source=github), a top choice among developers. The provided VB.NET code examples fit well within your project context, enhancing understandability and ease of use. This VB.NET PDF Library is equipped with extensive creation and adjustment features suitable for all kinds of .NET applications, whether on the web, console, or desktop.
 
 #### IronPDF Inclusions
 
@@ -151,7 +151,7 @@ This is compatible with any C# .NET Framework project, starting from Framework 4
 
 **Install via DLL:**
 
-Alternatively, you can manually download and install the IronPDF DLL into your project or Global Assembly Cache (GAC) from [IronPDF Downloads](https://ironpdf.com/packages/IronPdf.zip).
+Alternatively, you can manually download and install the IronPDF DLL into your project or Global Assembly Cache (GAC) from [IronPDF Downloads](https://ironpdf.com/packages/IronPdf.zip?utm_source=github).
 
 Add the following line at the top of any **VB.NET** class file to use IronPDF:
 ```vbnet
@@ -317,11 +317,11 @@ Module MyPdfModule
 End Module
 ```
 
-Create your PDF document using IronPDF, and then utilize Ghostscript to convert it into the [PDF/A format](https://ironpdf.com/how-to/pdfa/).
+Create your PDF document using IronPDF, and then utilize Ghostscript to convert it into the [PDF/A format](https://ironpdf.com/how-to/pdfa/?utm_source=github).
 
 ### 3. Styling PDFs in VB.NET
 
-Style PDF content from VB.NET with CSS, JavaScript, and images. Incorporate both local and remote/CDN resources like Google Fonts, and even employ [DataURIs for embedding images directly into your HTML as strings](https://ironpdf.com/how-to/datauris/).
+Style PDF content from VB.NET with CSS, JavaScript, and images. Incorporate both local and remote/CDN resources like Google Fonts, and even employ [DataURIs for embedding images directly into your HTML as strings](https://ironpdf.com/how-to/datauris/?utm_source=github).
 
 For sophisticated designs, the process involves two essential steps:
 
@@ -536,9 +536,9 @@ Module Module1
 End Module
 ```
 
-HTML headers and footers can be included as detailed in the [VB.NET PDF development API reference](https://ironpdf.com/object-reference/api/IronPdf.HtmlHeaderFooter.html).
+HTML headers and footers can be included as detailed in the [VB.NET PDF development API reference](https://ironpdf.com/object-reference/api/IronPdf.HtmlHeaderFooter.html?utm_source=github).
 
-Additionally, you can access and review the [source code of the "VB.NET HTML to PDF" project](https://ironpdf.com/downloads/VB.Net.Pdf.Tutorial.zip) available as a Visual Studio project designed for VB.NET.
+Additionally, you can access and review the [source code of the "VB.NET HTML to PDF" project](https://ironpdf.com/downloads/VB.Net.Pdf.Tutorial.zip?utm_source=github) available as a Visual Studio project designed for VB.NET.
 
 ### 4. Generating Dynamic PDFs: Two Effective Techniques
 
@@ -822,7 +822,7 @@ PDF.SaveAs("example.pdf")
 
 Easily convert HTML to PDF, implementing styles, dynamic content, and editing capabilities within VB.NET. The process is straightforward and supports various .NET environments including NET Framework 4, .NET Core 3.1, .NET 6, and NET 5, without requiring proprietary file types or distinct APIs.
 
-This tutorial gives step-by-step instructions using [IronPDF](https://ironpdf.com). The VB.NET code examples are written against specific scenarios. The library covers PDF creation and customization in ASP.NET applications, consoles, and desktop environments.
+This tutorial gives step-by-step instructions using [IronPDF](https://ironpdf.com?utm_source=github). The VB.NET code examples are written against specific scenarios. The library covers PDF creation and customization in ASP.NET applications, consoles, and desktop environments.
 
 ### Benefits of Using IronPDF
 
@@ -837,11 +837,11 @@ This tutorial gives step-by-step instructions using [IronPDF](https://ironpdf.co
 
 Explore more resources that might catch your interest:
 
-- [Complete VB.NET and C# API reference in MSDN style](https://ironpdf.com/object-reference/api/IronPdf.html)
+- [Complete VB.NET and C# API reference in MSDN style](https://ironpdf.com/object-reference/api/IronPdf.html?utm_source=github)
 
-- [Detailed guide on converting ASPX to PDF using VB.NET and C#](https://ironpdf.com/how-to/aspx-to-pdf/)
+- [Detailed guide on converting ASPX to PDF using VB.NET and C#](https://ironpdf.com/how-to/aspx-to-pdf/?utm_source=github)
 
-- [Comprehensive tutorial on converting HTML to PDF for VB.NET and C# projects](https://ironpdf.com/tutorials/html-to-pdf/)
+- [Comprehensive tutorial on converting HTML to PDF for VB.NET and C# projects](https://ironpdf.com/tutorials/html-to-pdf/?utm_source=github)
 
 ---
 
@@ -856,7 +856,7 @@ Throughout this guide, we explored six different methodologies for converting va
 - Employing HTML templates in VB.NET and rendering them into dynamic PDFs.
 - Translating live ASP.NET pages, like ASPX, into PDF documents.
 
-All of these techniques use the [IronPDF VB.NET library](https://ironpdf.com/use-case/vb-dot-net-library/), which converts HTML to PDF directly inside .NET.
+All of these techniques use the [IronPDF VB.NET library](https://ironpdf.com/use-case/vb-dot-net-library/?utm_source=github), which converts HTML to PDF directly inside .NET.
 
 <hr class="separator">
 

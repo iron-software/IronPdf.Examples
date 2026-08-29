@@ -1,6 +1,6 @@
 # Managing PDFs with Images from Azure Blob Storage
 
-> Full guide: [Managing PDFs with Images from Azure Blob Storage](https://ironpdf.com/how-to/images-azure-blob-storage/)
+> Full guide: [Managing PDFs with Images from Azure Blob Storage](https://ironpdf.com/how-to/images-azure-blob-storage/?utm_source=github)
 
 
 Azure Blob Storage is a cloud storage solution offered by Microsoft Azure, perfect for handling vast quantities of unstructured data accessible through both HTTP and HTTPS.

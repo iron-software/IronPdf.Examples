@@ -1,4 +1,4 @@
-> Full guide: [Quickstart](https://ironpdf.com/get-started/quickstart/)
+> Full guide: [Quickstart](https://ironpdf.com/get-started/quickstart/?utm_source=github)
 
 <style>
     .main-article {
@@ -289,7 +289,7 @@ You will need:
 
 ## 2. Installing IronPDF
 
-IronPDF offers a standard local installation. For deployment within Docker or microservices environments, refer to the [Remote Engine Mode Guide](https://ironsoftware.com/csharp/pdf/docs/questions/remote-engine-mode/).
+IronPDF offers a standard local installation. For deployment within Docker or microservices environments, refer to the [Remote Engine Mode Guide](https://ironsoftware.com/csharp/pdf/docs/questions/remote-engine-mode/?utm_source=github).
 
 ```csharp
 // Initialize the PDF renderer
@@ -321,7 +321,7 @@ Install-Package IronPdf
 ```
 
 ### Manual DLL Installation
-- Download the [IronPDF DLL Package](https://ironsoftware.com/csharp/pdf/packages/IronPdf.zip).
+- Download the [IronPDF DLL Package](https://ironsoftware.com/csharp/pdf/packages/IronPdf.zip?utm_source=github).
 - Unzip to a preferred location within your Solution directory.
 - In Visual Studio Solution Explorer, right-click on 'Dependencies'.
 - Choose 'Add Project Reference' > Select 'Browse' to include the DLLs from the unzipped file.
@@ -331,37 +331,37 @@ Find detailed installation instructions for different operating systems and envi
 
 <div class="row platform-guides">
     <div class="col-2">
-        <a href="https://ironsoftware.com/csharp/pdf/packages/IronPdf.zip" class="platform-guide">
+        <a href="https://ironsoftware.com/csharp/pdf/packages/IronPdf.zip?utm_source=github" class="platform-guide">
             <div class="platform-guide__icon"><img src="https://ironsoftware.com/csharp/pdf/static-assets/svgs/logo-windows.svg" width="64" height="64" /></div>
             <span class="platform-guide__title">Windows</span>
         </a>
     </div>
     <div class="col-2">
-        <a href="https://ironsoftware.com/csharp/pdf/packages/IronPdf.Linux.zip" class="platform-guide">
+        <a href="https://ironsoftware.com/csharp/pdf/packages/IronPdf.Linux.zip?utm_source=github" class="platform-guide">
             <div class="platform-guide__icon"><img src="https://ironsoftware.com/csharp/pdf/static-assets/svgs/logo-linux.svg" width="64" height="64" /></div>
             <span class="platform-guide__title">Linux</span>
         </a>
     </div>
     <div class="col-2">
-        <a href="https://ironsoftware.com/csharp/pdf/packages/IronPdf.MacOs.zip" class="platform-guide">
+        <a href="https://ironsoftware.com/csharp/pdf/packages/IronPdf.MacOs.zip?utm_source=github" class="platform-guide">
             <div class="platform-guide__icon"><img src="https://ironsoftware.com/csharp/pdf/static-assets/svgs/logo-mac.svg" width="64" height="64" /></div>
             <span class="platform-guide__title">MacOS</span>
         </a>
     </div>
     <div class="col-2">
-        <a href="https://ironsoftware.com/csharp/pdf/how-to/docker-linux/" class="platform-guide">
+        <a href="https://ironsoftware.com/csharp/pdf/how-to/docker-linux/?utm_source=github" class="platform-guide">
             <div class="platform-guide__icon"><img src="https://ironsoftware.com/csharp/pdf/static-assets/svgs/logo-docker.svg" width="64" height="64" /></div>
             <span class="platform-guide__title">Docker</span>
         </a>
     </div>
     <div class="col-2">
-        <a href="https://ironsoftware.com/csharp/pdf/how-to/azure/" class="platform-guide">
+        <a href="https://ironsoftware.com/csharp/pdf/how-to/azure/?utm_source=github" class="platform-guide">
             <div class="platform-guide__icon"><img src="https://ironsoftware.com/csharp/pdf/static-assets/svgs/logo-azure.svg" width="64" height="64" /></div>
             <span class="platform-guide__title">Azure</span>
         </a>
     </div>
     <div class="col-2">
-        <a href="https://ironsoftware.com/csharp/pdf/how-to/creating-pdfs-csharp-amazon-aws-lambda/" class="platform-guide">
+        <a href="https://ironsoftware.com/csharp/pdf/how-to/creating-pdfs-csharp-amazon-aws-lambda/?utm_source=github" class="platform-guide">
             <div class="platform-guide__icon"><img src="https://ironsoftware.com/csharp/pdf/static-assets/svgs/logo-aws.svg" width="64" height="64" /></div>
             <span class="platform-guide__title">AWS</span>
         </a>
@@ -372,13 +372,13 @@ Find detailed installation instructions for different operating systems and envi
 
 ## 3. Applying Your License Key
 
-Upon purchasing [IronPDF licenses](https://ironsoftware.com/csharp/pdf/licensing/) or starting a 30-day trial, you'll receive a license key via email. Make sure to insert this key at the beginning of your application:
+Upon purchasing [IronPDF licenses](https://ironsoftware.com/csharp/pdf/licensing/?utm_source=github) or starting a 30-day trial, you'll receive a license key via email. Make sure to insert this key at the beginning of your application:
 
 ```csharp
 IronPdf.License.LicenseKey = "YOUR-IRONPDF-LICENSE-KEY";
 ```
 
-Explore further details on IronPDF licensing [here](https://ironsoftware.com/csharp/pdf/licensing/).
+Explore further details on IronPDF licensing [here](https://ironsoftware.com/csharp/pdf/licensing/?utm_source=github).
 
 ---
 
@@ -395,7 +395,7 @@ Continue following the guide to see how you can create your very first PDF, expl
 
 ## 2. Install IronPDF
 
-IronPDF can be installed locally with ease. For deployments using Docker or microservices, refer to the [Remote Engine Mode Guide](https://ironpdf.com/get-started/ironpdfengine/).
+IronPDF can be installed locally with ease. For deployments using Docker or microservices, refer to the [Remote Engine Mode Guide](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github).
 
 ```cs
 // Initialize a ChromePDFRenderer to render HTML as PDF
@@ -618,7 +618,7 @@ This section provides an easy gateway to gather all necessary resources for sett
 
 ## 3. Implementing Your License Key
 
-Upon acquiring an [IronPDF license](https://ironpdf.com/licensing/) or initiating a 30-day trial, you will receive a license key via email. Ensure you insert this key at the beginning of your application to activate your license.
+Upon acquiring an [IronPDF license](https://ironpdf.com/licensing/?utm_source=github) or initiating a 30-day trial, you will receive a license key via email. Ensure you insert this key at the beginning of your application to activate your license.
 
 ```csharp
 // Set your IronPDF license key for activation
@@ -631,7 +631,7 @@ IronPdf.License.LicenseKey = "YOUR-IRONPDF-LICENSE-KEY";
 
 ## 4. Initial PDF Creation
 
-Explore how IronPDF lets you generate PDFs or convert various formats like HTML, DOCX, RTF, Markdown, and images into fully-fidelity PDF documents. [Learn about additional PDF conversion options here](https://ironpdf.com/licensing/).
+Explore how IronPDF lets you generate PDFs or convert various formats like HTML, DOCX, RTF, Markdown, and images into fully-fidelity PDF documents. [Learn about additional PDF conversion options here](https://ironpdf.com/licensing/?utm_source=github).
 
 Begin by adding the following at the top of your `.cs` file:
 
@@ -664,7 +664,7 @@ IronPdf.ChromePdfRenderer
        .SaveAs("string-to-pdf.pdf");
 ```
 
-For more detailed instructions, check out [Converting HTML String to PDF in C#](https://ironpdf.com/how-to/html-string-to-pdf/).
+For more detailed instructions, check out [Converting HTML String to PDF in C#](https://ironpdf.com/how-to/html-string-to-pdf/?utm_source=github).
 
 ### Transform DOCX Files to PDF
 
@@ -678,7 +678,7 @@ PdfDocument pdf = renderer.RenderDocxAsPdf("Modern-chronological-resume.docx");
 pdf.SaveAs("pdfFromDocx.pdf");
 ```
 
-For further reading, visit [Converting Microsoft Word documents to PDF in C#](https://ironpdf.com/how-to/docx-to-pdf/).
+For further reading, visit [Converting Microsoft Word documents to PDF in C#](https://ironpdf.com/how-to/docx-to-pdf/?utm_source=github).
 
 <p class="related-link">IronPDF helps you create PDFs or convert HTML, DOCX, RTF, Markdown, and images to PDF with full fidelity. <a href="/licensing/">Explore more types of PDF conversions <i class="fa-solid fa-arrow-right"></i></a></p>
 
@@ -926,7 +926,7 @@ This section provides solutions to common issues you might encounter with IronPD
 
 <div class="row g-3">
     <div class="col-12 col-md-6 col-xxl-4">
-        <a href="https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/" class="next-step__card">
+        <a href="https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github" class="next-step__card">
             <div class="next-step__card-info">
                 <div class="next-step__card-icon">
                     <i class="fa-duotone fa-solid fa-pen-to-square"></i>
@@ -937,7 +937,7 @@ This section provides solutions to common issues you might encounter with IronPD
         </a>
     </div>
     <div class="col-12 col-md-6 col-xxl-4">
-        <a href="https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/" class="next-step__card">
+        <a href="https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/?utm_source=github" class="next-step__card">
             <div class="next-step__card-info">
                 <div class="next-step__card-icon">
                     <i class="fa-duotone fa-solid fa-sitemap"></i>
@@ -948,7 +948,7 @@ This section provides solutions to common issues you might encounter with IronPD
         </a>
     </div>
     <div class="col-12 col-md-6 col-xxl-4">
-        <a href="https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/" class="next-step__card">
+        <a href="https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/?utm_source=github" class="next-step__card">
             <div class="next-step__card-info">
                 <div class="next-step__card-icon">
                     <i class="fa-duotone fa-solid fa-pen-field"></i>
@@ -966,7 +966,7 @@ This section provides solutions to common issues you might encounter with IronPD
     <a href="#" class="tutorials-navigation__cta tutorials-navigation__cta--left" style="visibility: hidden;">
         <i class="fa-solid fa-chevron-left"></i> Installation Summary
     </a>
-    <a href="https://ironpdf.com/get-started/installation-overview/" class="tutorials-navigation__cta tutorials-navigation__cta--right">
+    <a href="https://ironpdf.com/get-started/installation-overview/?utm_source=github" class="tutorials-navigation__cta tutorials-navigation__cta--right">
         Installation Summary <i class="fa-solid fa-chevron-right"></i>
     </a>
 </div>

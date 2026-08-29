@@ -1,6 +1,6 @@
 # Exploring PDF Rendering Options
 
-> Full guide: [Exploring PDF Rendering Options](https://ironpdf.com/how-to/rendering-options/)
+> Full guide: [Exploring PDF Rendering Options](https://ironpdf.com/how-to/rendering-options/?utm_source=github)
 
 
 PDF rendering options encompass the diverse settings and configurations utilized during the generation, viewing, and printing of PDF documents. These options cover a broad spectrum of functionalities such as integrating form fields, activating JavaScript, creating a table of contents, appending headers and footers, adjusting margins, and defining the size of the PDF paper, among others.
@@ -80,4 +80,4 @@ Below is an explanatory table delineating these various options.
   </table>
 </div>
 
-Discover more about the powerful capabilities of our tools through our detailed tutorial here: [Convert PDFs](https://ironpdf.com/tutorials/convert-pdf/)
+Discover more about the powerful capabilities of our tools through our detailed tutorial here: [Convert PDFs](https://ironpdf.com/tutorials/convert-pdf/?utm_source=github)

@@ -1,6 +1,6 @@
 # How to Render PDFs with Custom Paper Size
 
-> Full guide: [How to Render PDFs with Custom Paper Size](https://ironpdf.com/how-to/custom-paper-size/)
+> Full guide: [How to Render PDFs with Custom Paper Size](https://ironpdf.com/how-to/custom-paper-size/?utm_source=github)
 
 
 Custom paper size refers to any paper size that is personalized by the user and deviates from common standards like A4 or Letter size (8.5 x 11 inches). Such sizes are frequently used for printing unique projects that demand distinctive layouts, such as banners, posters, or specialized documents.
@@ -110,4 +110,4 @@ pdf.SaveAs("extendedLeftSide.pdf");
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/custom-paper-size/extendedLeftSide.pdf#view=fit" width="100%" height="400px"></iframe>
 
-Explore more capabilities by visiting our tutorial page: [Create PDFs](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/)
+Explore more capabilities by visiting our tutorial page: [Create PDFs](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/?utm_source=github)

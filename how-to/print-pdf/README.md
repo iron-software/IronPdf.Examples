@@ -1,10 +1,10 @@
 # How to Print PDF Files in C#
 
-> Full guide: [How to Print PDF Files in C#](https://ironpdf.com/how-to/print-pdf/)
+> Full guide: [How to Print PDF Files in C#](https://ironpdf.com/how-to/print-pdf/?utm_source=github)
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-Explore the [IronPrint .NET Printing Library](https://ironsoftware.com/csharp/print/), Iron Software's .NET printing library that supports multiple platforms including Windows, macOS, Android, and iOS. [Get started with IronPrint](https://ironsoftware.com/csharp/print/docs/) today!
+Explore the [IronPrint .NET Printing Library](https://ironsoftware.com/csharp/print/?utm_source=github), Iron Software's .NET printing library that supports multiple platforms including Windows, macOS, Android, and iOS. [Get started with IronPrint](https://ironsoftware.com/csharp/print/docs/?utm_source=github) today!
 </div>
 
 Automating PDF printing from a .NET C# application enhances functional integration within applications, simplifies document handling, and ensures uniformity in PDF output. This automation provides meticulous control over the print management.

@@ -1,10 +1,10 @@
 # Setting Passwords and Permissions on PDF Files
 
-> Full guide: [Setting Passwords and Permissions on PDF Files](https://ironpdf.com/how-to/pdf-permissions-passwords/)
+> Full guide: [Setting Passwords and Permissions on PDF Files](https://ironpdf.com/how-to/pdf-permissions-passwords/?utm_source=github)
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-Reduce your business expenditure on annual PDF security subscriptions. Look into <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a> for a comprehensive suite of SaaS management solutions like digital signatures, encryption, redaction, and file protection — all available for a single purchase. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">View IronSecureDoc Documentation</a>
+Reduce your business expenditure on annual PDF security subscriptions. Look into <a href="https://ironsoftware.com/enterprise/securedoc/?utm_source=github">IronSecureDoc</a> for a comprehensive suite of SaaS management solutions like digital signatures, encryption, redaction, and file protection — all available for a single purchase. <a href="https://ironsoftware.com/enterprise/securedoc/docs/?utm_source=github">View IronSecureDoc Documentation</a>
 </div>
 
 Password protecting a PDF encrypts the document, preventing unauthorized entry. There are typically two types of passwords: a user (open) password that someone needs to view the document and an owner (permissions) password, which set limits on printing, editing, and other functionalities.
@@ -25,7 +25,7 @@ pdf.SaveAs("secured_document.pdf");
 
 ## Password Protection for a PDF
 
-Here’s how to secure a PDF using IronPDF, illustrated with an [example PDF](https://ironpdf.com/static-assets/pdf/how-to/pdf-permissions-passwords/unprotected.pdf). In this example, we will add a password, **password123**.
+Here’s how to secure a PDF using IronPDF, illustrated with an [example PDF](https://ironpdf.com/static-assets/pdf/how-to/pdf-permissions-passwords/unprotected.pdf?utm_source=github). In this example, we will add a password, **password123**.
 
 ```csharp
 using IronPdf;
@@ -43,7 +43,7 @@ pdf.SecuritySettings.UserPassword = "password123";
 pdf.SaveAs("protected.pdf");
 ```
 
-Now you can view the new password-protected [PDF here](https://ironpdf.com/static-assets/pdf/how-to/pdf-permissions-passwords/protected.pdf) using the password **password123**.
+Now you can view the new password-protected [PDF here](https://ironpdf.com/static-assets/pdf/how-to/pdf-permissions-passwords/protected.pdf?utm_source=github) using the password **password123**.
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/pdf-permissions-passwords/protected.pdf" width="100%" height="500px">
 </iframe>
@@ -95,6 +95,6 @@ Behavior of document passwords:
     </div>
 </div>
 
-Explore more on predefined and customizable metadata in this detailed guide: "[How to Set and Edit PDF Metadata](https://ironpdf.com/how-to/metadata/)."
+Explore more on predefined and customizable metadata in this detailed guide: "[How to Set and Edit PDF Metadata](https://ironpdf.com/how-to/metadata/?utm_source=github)."
 
-Discover more possibilities by visiting our tutorial: [Sign and Secure PDFs](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/).
+Discover more possibilities by visiting our tutorial: [Sign and Secure PDFs](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/?utm_source=github).

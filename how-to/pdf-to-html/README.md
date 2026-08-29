@@ -1,6 +1,6 @@
 # Converting PDFs to HTML Using IronPDF
 
-> Full guide: [Converting PDFs to HTML Using IronPDF](https://ironpdf.com/how-to/pdf-to-html/)
+> Full guide: [Converting PDFs to HTML Using IronPDF](https://ironpdf.com/how-to/pdf-to-html/?utm_source=github)
 
 
 Transforming PDF files into HTML format brings multiple advantages such as improving web accessibility, optimizing for different device screens, enhancing search engine visibility, facilitating content integration with websites, simplifying updates via web tools and CMS, ensuring compatibility across various platforms, and supporting dynamic and multimedia elements.

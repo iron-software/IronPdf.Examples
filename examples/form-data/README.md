@@ -1,10 +1,10 @@
-> Full guide: [Form data](https://ironpdf.com/examples/form-data/)
+> Full guide: [Form data](https://ironpdf.com/examples/form-data/?utm_source=github)
 
 <div class="alert alert-info iron-variant-1" role="alert">
   Is your company spending excessive amounts on annual subscriptions for PDF security and compliance? Consider switching to 
-  <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc - a holistic PDF Security approach</a>, 
+  <a href="https://ironsoftware.com/enterprise/securedoc/?utm_source=github">IronSecureDoc - a holistic PDF Security approach</a>, 
   offering features like digital signatures, redaction, encryption, and protection in a single purchase. 
-  <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Discover more about IronSecureDoc</a>.
+  <a href="https://ironsoftware.com/enterprise/securedoc/docs/?utm_source=github">Discover more about IronSecureDoc</a>.
 </div>
 
 With IronPDF, creating editable PDF documents is as straightforward as working with a regular document. The `PdfForm` class hosts a suite of editable form fields within a PDF. This can be integrated into your PDF rendering process to transform a static document into an interactive form.
@@ -24,4 +24,4 @@ Consider the following scenario where we import the IronPdf library and establis
 
 The form fields within the `pdfDocument.Form` are then accessed and manipulated to preset default values visible upon opening the document in a PDF application. The finished document, titled "EditableForm.pdf", is saved and can be distributed with its editable fields intact.
 
-<a href="https://ironpdf.com/how-to/edit-forms/" class="code_content__related-link__doc-cta-link">Discover How to Edit PDF Forms with IronPDF - How-To Guide</a>
+<a href="https://ironpdf.com/how-to/edit-forms/?utm_source=github" class="code_content__related-link__doc-cta-link">Discover How to Edit PDF Forms with IronPDF - How-To Guide</a>

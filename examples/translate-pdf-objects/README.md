@@ -1,4 +1,4 @@
-> Full guide: [Translate PDF objects](https://ironpdf.com/examples/translate-pdf-objects/)
+> Full guide: [Translate PDF objects](https://ironpdf.com/examples/translate-pdf-objects/?utm_source=github)
 
 When you need to reposition a text, image, or shape within a PDF, IronPDF provides an efficient way to directly manipulate the object's position using our library tools.
 
@@ -26,4 +26,4 @@ With the selected `TextObject` now in hand – in our example, it identifies the
 
 Upon repositioning the text, we save the updated document using the `SaveAs` method, storing it as "moved.pdf".
 
-[Enjoy Comprehensive Guidance on Manipulating PDF DOM - Access Our Detailed Guide Here!](https://ironpdf.com/how-to/access-pdf-dom-object/)
+[Enjoy Comprehensive Guidance on Manipulating PDF DOM - Access Our Detailed Guide Here!](https://ironpdf.com/how-to/access-pdf-dom-object/?utm_source=github)

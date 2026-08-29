@@ -1,6 +1,6 @@
 # PDF to MemoryStream in C#
 
-> Full guide: [PDF to MemoryStream in C#](https://ironpdf.com/how-to/pdf-to-memory-stream/)
+> Full guide: [PDF to MemoryStream in C#](https://ironpdf.com/how-to/pdf-to-memory-stream/?utm_source=github)
 
 
 In C# .NET, it's feasible to directly transfer a PDF to a MemoryStream without utilizing the file system. This can be achieved with the `MemoryStream` object, which is part of the `System.IO` namespace in .NET.
@@ -19,8 +19,8 @@ using var stream = new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf("<h1>Stream W
 
 A `IronPdf.PdfDocument` object provides two methods to save a PDF directly to memory:
 
-- [`IronPdf.PdfDocument.Stream`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html) allows exporting the PDF as a `System.IO.MemoryStream`.
-- [`IronPdf.PdfDocument.BinaryData`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html) allows exporting the PDF as a byte array (`byte[]`).
+- [`IronPdf.PdfDocument.Stream`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html?utm_source=github) allows exporting the PDF as a `System.IO.MemoryStream`.
+- [`IronPdf.PdfDocument.BinaryData`](https://ironpdf.com/object-reference/api/IronPdf.PdfDocument.html?utm_source=github) allows exporting the PDF as a byte array (`byte[]`).
 
 ```csharp
 using IronPdf;
@@ -42,7 +42,7 @@ byte[] pdfAsByte = pdf.BinaryData;
 
 ## Serving a PDF from Memory on the Web
 
-When you need to serve or export a PDF over the web, the PDF file should be sent as binary data rather than HTML. Further details can be found in this [guide on exporting and saving PDF documents in C#](https://ironpdf.com/how-to/export-save-pdf-csharp/).
+When you need to serve or export a PDF over the web, the PDF file should be sent as binary data rather than HTML. Further details can be found in this [guide on exporting and saving PDF documents in C#](https://ironpdf.com/how-to/export-save-pdf-csharp/?utm_source=github).
 
 Here are quick examples for both MVC and ASP.NET:
 

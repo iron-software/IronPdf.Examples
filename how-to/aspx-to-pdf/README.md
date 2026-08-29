@@ -1,6 +1,6 @@
 # Convert ASPX to PDF in ASP.NET
 
-> Full guide: [Convert ASPX to PDF in ASP.NET](https://ironpdf.com/how-to/aspx-to-pdf/)
+> Full guide: [Convert ASPX to PDF in ASP.NET](https://ironpdf.com/how-to/aspx-to-pdf/?utm_source=github)
 
 Follow this detailed guide to learn how to transform ASPX into PDF format, ideal for ASP.NET web applications.
 
@@ -26,7 +26,7 @@ ASP.NET Web Form applications are frequently utilized in creating complex online
 
 This guide illustrates how to utilize the IronPDF library to transform any ASP.NET web form into a downloadable or viewable PDF document. Normally displayed as web pages, HTML content can be converted into PDFs using this method. The accompanying source code provides a practical demonstration of converting a webpage into a PDF using C# in an ASP.NET environment.
 
-The conversion from HTML to PDF is facilitated by the IronPDF library and specifically its [`AspxToPdf Class`](https://ironpdf.com/object-reference/api/IronPdf.AspxToPdf.html).
+The conversion from HTML to PDF is facilitated by the IronPDF library and specifically its [`AspxToPdf Class`](https://ironpdf.com/object-reference/api/IronPdf.AspxToPdf.html?utm_source=github).
 
 ## 1. Setting Up IronPDF to Convert ASPX Files
 
@@ -42,7 +42,7 @@ Install-Package IronPdf
 
 <h3>Install via DLL</h3>
 
-Alternatively, you can also opt to manually download the IronPDF DLL and add it to your project or the Global Assembly Cache (GAC) from [Download IronPDF Package](https://ironpdf.com/packages/IronPdf.zip).
+Alternatively, you can also opt to manually download the IronPDF DLL and add it to your project or the Global Assembly Cache (GAC) from [Download IronPDF Package](https://ironpdf.com/packages/IronPdf.zip?utm_source=github).
 
 Don't forget to include the following line at the beginning of any C# class file that utilizes IronPDF:
 
@@ -102,7 +102,7 @@ namespace AspxToPdfTutorial
 
 Numerous settings are available for fine-tuning the process of converting an ASPX file to a PDF using .NET Web Forms.
 
-You can explore these extensive options in detail on the [IronPDF API Reference](https://ironpdf.com/object-reference/api/IronPdf.html).
+You can explore these extensive options in detail on the [IronPDF API Reference](https://ironpdf.com/object-reference/api/IronPdf.html?utm_source=github).
 
 ### 3.1. Define PDF Viewing Preferences
 
@@ -131,7 +131,7 @@ IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.Attachment,
 
 ### 3.3. Modify PDF Rendering Settings
 
-You can customize how your PDF appears by using an instance of the `IronPdf.ChromePdfRenderer` class. For detailed documentation, visit the [ChromePdfRenderer API Reference](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html).
+You can customize how your PDF appears by using an instance of the `IronPdf.ChromePdfRenderer` class. For detailed documentation, visit the [ChromePdfRenderer API Reference](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html?utm_source=github).
 
 ```csharp
 // Creating a new instance of ChromePdfRenderOptions to manage PDF rendering settings
@@ -148,10 +148,10 @@ IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.Attachment,
 The available PDF rendering options include:
 
 - `CreatePdfFormsFromHtml`: Transforms forms in ASPX into modifiable PDF forms.
-- `CssMediaType`: Choose between 'Screen' or 'Print' CSS styles. For detailed guidance, visit our [extensive tutorial with visual comparisons](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/).
+- `CssMediaType`: Choose between 'Screen' or 'Print' CSS styles. For detailed guidance, visit our [extensive tutorial with visual comparisons](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/?utm_source=github).
 - `CustomCssUrl`: Incorporates a bespoke CSS stylesheet to the HTML prior to rendering, accepting either local or remote URLs.
 - `EnableMathematicalLaTex`: Toggles the inclusion of mathematical LaTeX elements in the rendering process.
-- `EnableJavaScript`: Activates the execution of JavaScript and JSON before rendering, suitable for Ajax or Angular applications. For further details, see our [WaitFor how-to guide](https://ironpdf.com/how-to/waitfor/).
+- `EnableJavaScript`: Activates the execution of JavaScript and JSON before rendering, suitable for Ajax or Angular applications. For further details, see our [WaitFor how-to guide](https://ironpdf.com/how-to/waitfor/?utm_source=github).
 - `Javascript`: Defines a specific JavaScript code to execute after the HTML is fully loaded but before PDF rendering begins.
 - `JavascriptMessageListener`: Implements a callback method that is called whenever a message is recorded in the browser’s JavaScript console.
 - `FirstPageNumber`: Sets the initial page number for headers and footers, typically starting at 1.
@@ -164,7 +164,7 @@ The available PDF rendering options include:
 - `UseMarginsOnHeaderAndFooter`: Indicates whether to apply the main document’s margin settings to headers and footers.
 - `PaperFit`: Manages virtual paper layouts to dictate content alignment within PDF pages, offering settings like Default Chrome Behavior, Zoomed, Responsive CSS3 Layouts, Scale-To-Page, and Continuous Feed.
 - `PaperOrientation`: Sets the PDF orientation to either Landscape or Portrait.
-- `PageRotation`: Adjusts page rotation of the existing document. See our [guide and code sample](https://ironpdf.com/examples/pdf-page-orientation/).
+- `PageRotation`: Adjusts page rotation of the existing document. See our [guide and code sample](https://ironpdf.com/examples/pdf-page-orientation/?utm_source=github).
 - `PaperSize`: Specifies the paper size for PDF output using `System.Drawing.Printing.PaperKind`.
 - `SetCustomPaperSizeinCentimeters`, `SetCustomPaperSizeInInches`, `SetCustomPaperSizeinMilimeters`, `SetCustomPaperSizeinPixelsOrPoints`: Allows custom paper size settings in various units.
 - `ForcePaperSize`: Forces the PDF to adhere strictly to specified paper size by resizing pages post HTML to PDF conversion.
@@ -172,7 +172,7 @@ The available PDF rendering options include:
 - `GrayScale`: Generates the PDF in grayscale rather than full color.
 - `WaitFor`: Configures delay mechanisms like `PageLoad`, `RenderDelay`, `Fonts`, `JavaScript`, `HTML elements`, and `NetworkIdle` for rendering operations to ensure complete page loading.
 - `Title`: Sets the 'Title' metadata for the PDF document.
-- `InputEncoding`: Defines the character encoding, with [UTF-8 as the default for ASP.NET](https://ironpdf.com/how-to/utf-8/).
+- `InputEncoding`: Defines the character encoding, with [UTF-8 as the default for ASP.NET](https://ironpdf.com/how-to/utf-8/?utm_source=github).
 - `RequestContext`: Specifies the request context used during the rendering process.
 - `Timeout`: Sets the maximum render timeout in seconds.
 
@@ -326,7 +326,7 @@ The HTML code snippet below, when embedded in an ASPX page, automatically induce
 
 ## 6. Enhancing Performance with Async and Multithreading
 
-IronPDF is optimized to work with .NET Framework 4.6.2, as well as .NET Core 2 or newer. Projects based on these frameworks can use [asynchronous programming capabilities](https://ironpdf.com/how-to/async/) to significantly enhance document processing efficiency, particularly when handling numerous files.
+IronPDF is optimized to work with .NET Framework 4.6.2, as well as .NET Core 2 or newer. Projects based on these frameworks can use [asynchronous programming capabilities](https://ironpdf.com/how-to/async/?utm_source=github) to significantly enhance document processing efficiency, particularly when handling numerous files.
 
 Utilizing Async alongside multicore processors and employing the `Parallel.ForEach` method can lead to substantial improvements in the processing speed of large volumes of PDF files.
 

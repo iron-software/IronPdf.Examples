@@ -1,4 +1,4 @@
-> Full guide: [PDF compression](https://ironpdf.com/examples/pdf-compression/)
+> Full guide: [PDF compression](https://ironpdf.com/examples/pdf-compression/?utm_source=github)
 
 IronPDF supports PDF compression primarily by reducing the size of the embedded images within the document via the `CompressImages` method.
 
@@ -16,4 +16,4 @@ Another method for compressing images within a PDF involves using the `CompressI
 
 The compressed PDF can finally be saved at the intended location using the `SaveAs` method once again. This technique is beneficial when aiming to optimize PDFs for reduced file sizes for purposes like web or email distribution, ensuring a balance between quality and compression.
 
-[Optimize your PDFs with our Compression Guide.](https://ironpdf.com/how-to/pdf-compression/)
+[Optimize your PDFs with our Compression Guide.](https://ironpdf.com/how-to/pdf-compression/?utm_source=github)

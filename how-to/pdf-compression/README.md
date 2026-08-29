@@ -1,6 +1,6 @@
 # How to Compress PDF Documents
 
-> Full guide: [How to Compress PDF Documents](https://ironpdf.com/how-to/pdf-compression/)
+> Full guide: [How to Compress PDF Documents](https://ironpdf.com/how-to/pdf-compression/?utm_source=github)
 
 
 Compressing a PDF, which stands for Portable Document Format, involves reducing its file size to make it easier to manage when storing, sharing, or transmitting it. This is particularly beneficial when dealing with large or heavily image-populated documents.
@@ -68,7 +68,7 @@ Use this feature to shrink the size of PDFs by trimming the tree structure gener
 
 For some PDFs, this reduction can affect abilities like text highlighting or data extraction.
 
-Test the `CompressStructTree` method on the [PDF with extensive table data](https://ironpdf.com/static-assets/pdf/how-to/pdf-compression/table.pdf).
+Test the `CompressStructTree` method on the [PDF with extensive table data](https://ironpdf.com/static-assets/pdf/how-to/pdf-compression/table.pdf?utm_source=github).
 
 ```csharp
 using IronPdf;
@@ -124,4 +124,4 @@ pdf.SaveAs("compressed.pdf");
 - `HighQualityImageSubsampling`: Chooses between high-quality 4:4:4 chroma subsampling for better image detail or the more size-reductive 4:1:1.
 - `ShrinkImages`: Reducing image resolution considerably alters both the images' size and quality.
 
-Explore further capabilities and features at our tutorial page: [Additional Features and Tutorials](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/).
+Explore further capabilities and features at our tutorial page: [Additional Features and Tutorials](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/?utm_source=github).

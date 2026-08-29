@@ -1,6 +1,6 @@
 # Mastering Virtual Viewport and Zoom Settings
 
-> Full guide: [Mastering Virtual Viewport and Zoom Settings](https://ironpdf.com/how-to/viewport-zoom/)
+> Full guide: [Mastering Virtual Viewport and Zoom Settings](https://ironpdf.com/how-to/viewport-zoom/?utm_source=github)
 
 
 When converting HTML to PDF, the viewport is crucial because it dictates how the browser renders the web page into the PDF. Essentially, it's the virtual browser size that helps in capturing the webpage accurately.
@@ -116,4 +116,4 @@ pdf.SaveAs("continuousFeed.pdf");
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/viewport-zoom/continuousFeed.pdf#view=fit" width="100%" height="500px"></iframe>
 
-More of what IronPDF can do is covered in the [PDF Conversion Tutorials](https://ironpdf.com/tutorials/convert-pdf/).
+More of what IronPDF can do is covered in the [PDF Conversion Tutorials](https://ironpdf.com/tutorials/convert-pdf/?utm_source=github).

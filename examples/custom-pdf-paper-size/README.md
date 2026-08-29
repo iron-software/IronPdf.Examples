@@ -1,4 +1,4 @@
-> Full guide: [Custom PDF paper size](https://ironpdf.com/examples/custom-pdf-paper-size/)
+> Full guide: [Custom PDF paper size](https://ironpdf.com/examples/custom-pdf-paper-size/?utm_source=github)
 
 When preparing your PDF documents using IronPDF, it's important to ensure they display and print correctly. This involves specifying both the virtual and the real-world paper sizes for your document.
 
@@ -15,6 +15,6 @@ To create PDFs with a specific custom size, you may utilize one of these methods
 
 Alternatively, for pre-configured sizes with micron-level precision, you can use `Renderer.RenderingOptions.PaperSize`.
 
-For further insights into how to use custom paper sizes in IronPDF, as well as to explore other sophisticated features, please consult the [IronPDF Documentation](https://ironpdf.com/docs/).
+For further insights into how to use custom paper sizes in IronPDF, as well as to explore other sophisticated features, please consult the [IronPDF Documentation](https://ironpdf.com/docs/?utm_source=github).
 
-[Discover more about Custom PDF Paper Sizes with IronPDF](https://ironpdf.com/how-to/custom-paper-size/)
+[Discover more about Custom PDF Paper Sizes with IronPDF](https://ironpdf.com/how-to/custom-paper-size/?utm_source=github)

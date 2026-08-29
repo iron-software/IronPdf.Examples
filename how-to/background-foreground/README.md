@@ -1,6 +1,6 @@
 # Enhancing PDFs with Background and Foreground Layers
 
-> Full guide: [Enhancing PDFs with Background and Foreground Layers](https://ironpdf.com/how-to/background-foreground/)
+> Full guide: [Enhancing PDFs with Background and Foreground Layers](https://ironpdf.com/how-to/background-foreground/?utm_source=github)
 
 
 Incorporating a background layer into a PDF allows you to introduce an image or another PDF document beneath the existing content. This technique is invaluable for crafting customized letterheads, embedding watermarks, or adding aesthetically pleasing elements to your document.

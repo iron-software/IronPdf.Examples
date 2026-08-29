@@ -1,4 +1,4 @@
-> Full guide: [File to PDF](https://ironpdf.com/examples/file-to-pdf/)
+> Full guide: [File to PDF](https://ironpdf.com/examples/file-to-pdf/?utm_source=github)
 
 IronPDF is a .NET library designed for converting HTML content into high-quality PDF documents. Utilizing IronPDF enables developers to transform HTML into PDF, maintaining adherence to the latest web standards and ensuring that the PDF output is a precise replica of the original HTML. The process is simplified by the `ChromePdfRenderer` class, which efficiently manages the conversion from HTML to PDF.
 
@@ -18,4 +18,4 @@ The above code snippet demonstrates how to generate a new PDF document by render
 
 After initializing the `ChromePdfRenderer`, use the `RenderHtmlFileAsPdf` method to transform a specified HTML file into a PDF document. In the provided example, the HTML file "example.html" is converted into a `pdf` object. Lastly, the `SaveAs` method is used to store the produced PDF under the name "output.pdf". This straightforward procedure facilitates the creation of PDF documents from HTML content in C# applications.
 
-[Learn to Convert HTML Files to PDF with IronPDF](https://ironpdf.com/how-to/html-file-to-pdf/)
+[Learn to Convert HTML Files to PDF with IronPDF](https://ironpdf.com/how-to/html-file-to-pdf/?utm_source=github)

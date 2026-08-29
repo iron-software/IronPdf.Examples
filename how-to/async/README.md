@@ -1,9 +1,9 @@
 # Asynchronous and Multithreaded PDF Creation
 
-> Full guide: [Asynchronous and Multithreaded PDF Creation](https://ironpdf.com/how-to/async/)
+> Full guide: [Asynchronous and Multithreaded PDF Creation](https://ironpdf.com/how-to/async/?utm_source=github)
 
 
-Discover the importance of asynchronous programming and multithreading when creating [high-performance PDFs using IronPDF in C# and VB.NET](https://ironpdf.com/docs/) for batch processes or enhanced efficiency.
+Discover the importance of asynchronous programming and multithreading when creating [high-performance PDFs using IronPDF in C# and VB.NET](https://ironpdf.com/docs/?utm_source=github) for batch processes or enhanced efficiency.
 
 ### Kickstart: Asynchronously Convert HTML to PDF Using IronPDF
 
@@ -78,7 +78,7 @@ Parallel.ForEach(queue, html =>
 
 ## Efficiency Verification
 
-Consider this performance comparison, incorporating a 5-second intentional delay when rendering using the [WaitFor class to emulate complex HTML rendering processes](https://ironpdf.com/how-to/waitfor/). Here’s a table comparing the results across different rendering techniques.
+Consider this performance comparison, incorporating a 5-second intentional delay when rendering using the [WaitFor class to emulate complex HTML rendering processes](https://ironpdf.com/how-to/waitfor/?utm_source=github). Here’s a table comparing the results across different rendering techniques.
 
 <table class="table" style="text-align: center;">
     <tr style="background-color: rgb(241 249 251);">

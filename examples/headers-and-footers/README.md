@@ -1,4 +1,4 @@
-> Full guide: [Headers and footers](https://ironpdf.com/examples/headers-and-footers/)
+> Full guide: [Headers and footers](https://ironpdf.com/examples/headers-and-footers/?utm_source=github)
 
 This article discusses two primary methods for adding headers and footers to PDF documents. You can either incorporate them using traditional text, with capabilities for embedding dynamic data, or employ HTML for more dynamism through custom HTML content.
 
@@ -12,4 +12,4 @@ For footers, apply similar settings through the `TextFooter` properties. Here, y
 
 These steps put headers and footers on every page of the document.
 
-[Discover How to Add Headers and Footers with IronPDF](https://ironpdf.com/how-to/headers-and-footers/)
+[Discover How to Add Headers and Footers with IronPDF](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github)

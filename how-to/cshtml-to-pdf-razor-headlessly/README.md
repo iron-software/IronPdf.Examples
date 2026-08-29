@@ -1,6 +1,6 @@
 # Transforming Razor Views into PDFs Without a User Interface
 
-> Full guide: [Transforming Razor Views into PDFs Without a User Interface](https://ironpdf.com/how-to/cshtml-to-pdf-razor-headlessly/)
+> Full guide: [Transforming Razor Views into PDFs Without a User Interface](https://ironpdf.com/how-to/cshtml-to-pdf-razor-headlessly/?utm_source=github)
 
 
 Headless rendering allows the conversion of web content into other formats without the need for a graphical user interface (GUI) or browser window. Although the [IronPdf.Extensions.Razor](https://www.nuget.org/packages/IronPdf.Extensions.Razor/) package is valuable, it lacks support for headless rendering. To fill this gap, we can use headless rendering techniques suited for other scenarios not covered by the IronPdf.Extensions.Razor package.
@@ -112,4 +112,4 @@ Learn how to execute the project and generate a PDF document from a Razor View.
 
 Download the full example code for this guide. It is provided in a zip file, which can be opened in Visual Studio to start an ASP.NET Core MVC project.
 
-[Click here to download the project.](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor-headlessly/ViewToPdfMVCCoreHeadlesslySample.zip)
+[Click here to download the project.](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor-headlessly/ViewToPdfMVCCoreHeadlesslySample.zip?utm_source=github)

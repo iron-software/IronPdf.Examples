@@ -1,6 +1,6 @@
 # Transforming Razor Pages into PDFs within an ASP.NET Core Web Application
 
-> Full guide: [Transforming Razor Pages into PDFs within an ASP.NET Core Web Application](https://ironpdf.com/how-to/cshtml-to-pdf-razor/)
+> Full guide: [Transforming Razor Pages into PDFs within an ASP.NET Core Web Application](https://ironpdf.com/how-to/cshtml-to-pdf-razor/?utm_source=github)
 
 
 Razor Pages, which bear the `.cshtml` file extension, integrate C# with HTML to dynamically produce web content. In ASP.NET Core, Razor Pages keep web app code compact, which suits pages built around data entry or display.
@@ -109,7 +109,7 @@ Modify this freshly added page with the code sample below meant for displaying d
 
 The subsequent code snippet handles the instantiation of the **ChromePdfRenderer** class and uses `RenderRazorToPdf` for document conversion.
 
-The **RenderingOptions** provide multiple customization features, including adding [page numbers](https://ironpdf.com/how-to/page-numbers/), setting special margins, and including custom [text and HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/).
+The **RenderingOptions** provide multiple customization features, including adding [page numbers](https://ironpdf.com/how-to/page-numbers/?utm_source=github), setting special margins, and including custom [text and HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github).
 
 
 
@@ -208,4 +208,4 @@ Get ready to preview how your project builds and generates a comprehensive PDF d
 
 Ensure you obtain the complete set of source files for this guide by downloading them. This comes as a zip file which can be opened in Visual Studio to view the ASP.NET Core Web App project.
 
-[Download the complete RazorPageSample.zip ASP.NET Core Web App Project](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor/RazorPageSample.zip)
+[Download the complete RazorPageSample.zip ASP.NET Core Web App Project](https://ironpdf.com/static-assets/pdf/how-to/cshtml-to-pdf-razor/RazorPageSample.zip?utm_source=github)

@@ -1,6 +1,6 @@
 # Split a Multi-Page Document into Individual PDFs
 
-> Full guide: [Split a Multi-Page Document into Individual PDFs](https://ironpdf.com/how-to/split-multipage-pdf/)
+> Full guide: [Split a Multi-Page Document into Individual PDFs](https://ironpdf.com/how-to/split-multipage-pdf/?utm_source=github)
 
 
 Dividing a multi-page PDF document into distinct PDF files, where each file contains just one page, is a task that can be easily achieved with a minimal amount of coding. Explore our example for integrating this functionality into your application.
@@ -30,7 +30,7 @@ for (int page = 0; page < pdfDocument.PageCount; page++) {
     </div>
     <div class="col-sm-6">
       <div class="download-card">
-        <a href="https://ironpdf.com/csharp-pdf.pdf" target="_blank">
+        <a href="https://ironpdf.com/csharp-pdf.pdf?utm_source=github" target="_blank">
           <img style="box-shadow: none; width: 308px; height: 320px;" src="https://ironpdf.com/img/faq/pdf-in-csharp-no-button.svg" class="img-responsive learn-how-to-img">
         </a>
       </div>
@@ -61,4 +61,4 @@ for (int pageIndex = 0; pageIndex < multipagePdf.PageCount; pageIndex++)
 
 The code depicted outlines the use of a loop to navigate through the pages of the original PDF document. It demonstrates how each page is replicated into a new **PdfDocument** and then saved independently with a sequentially assigned filename.
 
-Interested in learning more? Discover additional techniques on our tutorial page here: [Master Your PDFs](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/)
+Interested in learning more? Discover additional techniques on our tutorial page here: [Master Your PDFs](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/?utm_source=github)

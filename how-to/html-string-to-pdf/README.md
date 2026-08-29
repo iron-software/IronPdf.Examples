@@ -1,6 +1,6 @@
 # Convert HTML String to PDF in C&num;
 
-> Full guide: [Convert HTML String to PDF in C&num;](https://ironpdf.com/how-to/html-string-to-pdf/)
+> Full guide: [Convert HTML String to PDF in C&num;](https://ironpdf.com/how-to/html-string-to-pdf/?utm_source=github)
 
 
 IronPDF provides developers with a simplified approach to generate PDF documents using C#, F#, and VB.NET across both .NET Core and .NET Framework. The library boasts the ability to convert HTML strings into PDFs, powered by the full version of the Google Chromium rendering engine.

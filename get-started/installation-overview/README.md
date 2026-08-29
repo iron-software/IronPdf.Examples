@@ -1,4 +1,4 @@
-> Full guide: [Installation overview](https://ironpdf.com/get-started/installation-overview/)
+> Full guide: [Installation overview](https://ironpdf.com/get-started/installation-overview/?utm_source=github)
 
 <style>
     .main-article {
@@ -377,7 +377,7 @@ A comprehensive table detailing the necessary requirements for each platform tha
                 <div class="d-flex align-items-center justify-content-center">
                     <img src="https://www.ironsoftware.com/static-assets/svgs/logo-table_windows.svg" width="64" height="64" alt="Windows Logo" />
                 </div>
-                <a href="https://www.ironsoftware.com/get-started/windows/">Windows</a>
+                <a href="https://www.ironsoftware.com/get-started/windows/?utm_source=github">Windows</a>
             </td>
             <td rowspan="3"><span>Includes .NET 10, 9, 8, 7, 6, 5, as well as .NET Core, .NET Standard, and .NET Framework.</span></td>
             <td rowspan="3">
@@ -398,7 +398,7 @@ A comprehensive table detailing the necessary requirements for each platform tha
                 <div class="d-flex align-items-center justify-content-center">
                     <img src="https://www.ironsoftware.com/static-assets/svgs/logo-table_linux.svg" width="64" height="64" alt="Linux Logo" />
                 </div>
-                <a href="https://www.ironsoftware.com/get-started/linux/">Linux</a>
+                <a href="https://www.ironsoftware.com/get-started/linux/?utm_source=github">Linux</a>
             </td>
             <td>
                 <ul>
@@ -412,7 +412,7 @@ A comprehensive table detailing the necessary requirements for each platform tha
                 <div class="d-flex align-items-center justify-content-center">
                     <img src="https://www.ironsoftware.com/static-assets/svgs/logo-table_mac.svg" width="64" height="64" alt="macOS Logo" />
                 </div>
-                <a href="https://www.ironsoftware.com/get-started/macos/">macOS</a>
+                <a href="https://www.ironsoftware.com/get-started/macos/?utm_source=github">macOS</a>
             </td>
             <td><span>Compatible with all macOS versions released since 2020</span></td>
         </tr>
@@ -752,8 +752,8 @@ Handling specific environments:
 
 For expanded guidelines on these topics and to address potential limitations, explore related resources provided by IronPDF:
 
-- [Learn about IronPDF Engine's limitations and compatibility on Linux with Docker](https://ironsoftware.com/get-started/ironpdfengine/#ironpdfengine-limitations)
-- [Setup guide for IronPDF on Linux environments](https://ironsoftware.com/how-to/linux/)
+- [Learn about IronPDF Engine's limitations and compatibility on Linux with Docker](https://ironsoftware.com/get-started/ironpdfengine/?utm_source=github#ironpdfengine-limitations)
+- [Setup guide for IronPDF on Linux environments](https://ironsoftware.com/how-to/linux/?utm_source=github)
 
 <div class="installation-options__container" data-active-tab="1">
     <div class="installation-options__tabs">
@@ -843,7 +843,7 @@ Installation.ConnectToIronPdfHost(
 );
 ```
 
-For further discussions on the capabilities and limitations of the IronPdfEngine, please consult the [IronPdfEngine Limitations](https://ironpdf.com/get-started/ironpdfengine/#ironpdfengine-limitations) documentation.
+For further discussions on the capabilities and limitations of the IronPdfEngine, please consult the [IronPdfEngine Limitations](https://ironpdf.com/get-started/ironpdfengine/?utm_source=github#ironpdfengine-limitations) documentation.
 
 To automate the installation of necessary dependencies on Linux systems, use this setting:
 
@@ -857,7 +857,7 @@ When deploying IronPDF within a Docker environment, it’s efficient to pre-init
 IronPdf.Installation.Initialize();
 ```
 
-For additional information on setting up IronPDF with Linux and Docker environments, visit [IronPDF Linux Docker Compatibility and Setup](https://ironpdf.com/how-to/linux/).
+For additional information on setting up IronPDF with Linux and Docker environments, visit [IronPDF Linux Docker Compatibility and Setup](https://ironpdf.com/how-to/linux/?utm_source=github).
 
 ```csharp
 // Establish a connection to a remote IronPDF server using gRPC
@@ -898,7 +898,7 @@ Here are various environments where IronPDF .NET can be deployed:
             </div>
             <div class="deployment-card__info">
                 <p class="deployment-card__title">Execute & Deploy IronPDF .NET on</p>
-                <a href="https://ironpdf.com/get-started/azure/" class="deployment-card__link">Azure Function <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://ironpdf.com/get-started/azure/?utm_source=github" class="deployment-card__link">Azure Function <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -909,7 +909,7 @@ Here are various environments where IronPDF .NET can be deployed:
             </div>
             <div class="deployment-card__info">
                 <p class="deployment-card__title">Execute & Deploy IronPDF .NET on</p>
-                <a href="https://ironpdf.com/get-started/aws/" class="deployment-card__link">AWS Lambda <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://ironpdf.com/get-started/aws/?utm_source=github" class="deployment-card__link">AWS Lambda <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -920,7 +920,7 @@ Here are various environments where IronPDF .NET can be deployed:
             </div>
             <div class="deployment-card__info">
                 <p class="deployment-card__title">Operate IronPDF in</p>
-                <a href="https://ironpdf.com/get-started/ironpdf-docker/" class="deployment-card__link">Linux Docker Container <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://ironpdf.com/get-started/ironpdf-docker/?utm_source=github" class="deployment-card__link">Linux Docker Container <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -931,7 +931,7 @@ Here are various environments where IronPDF .NET can be deployed:
             </div>
             <div class="deployment-card__info">
                 <p class="deployment-card__title">Operate IronPDF as a</p>
-                <a href="https://ironpdf.com/get-started/ironpdfengine-docker/" class="deployment-card__link">Remote Container <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://ironpdf.com/get-started/ironpdfengine-docker/?utm_source=github" class="deployment-card__link">Remote Container <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -994,7 +994,7 @@ Explore the steps you can take next to expand your knowledge and utilization of 
 
 <div class="row g-3">
     <div class="col-12 col-md-6 col-xxl-4">
-        <a href="https://ironpdf.com/tutorials/html-to-pdf/" class="next-step__card">
+        <a href="https://ironpdf.com/tutorials/html-to-pdf/?utm_source=github" class="next-step__card">
             <div class="next-step__card-info">
                 <div class="next-step__card-icon">
                     <i class="fa-duotone fa-solid fa-graduation-cap"></i>
@@ -1005,7 +1005,7 @@ Explore the steps you can take next to expand your knowledge and utilization of 
         </a>
     </div>
     <div class="col-12 col-md-6 col-xxl-4">
-        <a href="https://ironpdf.com/product-updates/changelog/" class="next-step__card">
+        <a href="https://ironpdf.com/product-updates/changelog/?utm_source=github" class="next-step__card">
             <div class="next-step__card-info">
                 <div class="next-step__card-icon">
                     <i class="fa-solid fa-clock-rotate-left"></i>
@@ -1016,7 +1016,7 @@ Explore the steps you can take next to expand your knowledge and utilization of 
         </a>
     </div>
     <div class="col-12 col-md-6 col-xxl-4">
-        <a href="https://ironpdf.com/troubleshooting/engineering-request-pdf/" class="next-step__card">
+        <a href="https://ironpdf.com/troubleshooting/engineering-request-pdf/?utm_source=github" class="next-step__card">
             <div class="next-step__card-info">
                 <div class="next-step__card-icon">
                     <i class="fa-duotone fa-solid fa-wrench"></i>

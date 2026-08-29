@@ -1,6 +1,6 @@
 # How to Create a Grayscale PDF
 
-> Full guide: [How to Create a Grayscale PDF](https://ironpdf.com/how-to/color-grayscale/)
+> Full guide: [How to Create a Grayscale PDF](https://ironpdf.com/how-to/color-grayscale/?utm_source=github)
 
 
 A grayscale PDF is a document formatted in greyscale, which uses varying shades of gray and skips the colored spectrum entirely.
@@ -43,4 +43,4 @@ In grayscale mode, text content is rendered into an image during the PDF renderi
 
 For the moment, this grayscale feature is integrated specifically for PDF rendering from web sources or HTML. Looking forward, expanding this functionality to include converting existing PDF files to grayscale would enhance its utility.
 
-Curious to explore further? Dive into more with our guide here: [Learn to Convert PDFs](https://ironpdf.com/tutorials/convert-pdf/).
+Curious to explore further? Dive into more with our guide here: [Learn to Convert PDFs](https://ironpdf.com/tutorials/convert-pdf/?utm_source=github).

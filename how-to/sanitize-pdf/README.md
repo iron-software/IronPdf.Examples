@@ -1,6 +1,6 @@
 # How to Sanitize PDF
 
-> Full guide: [How to Sanitize PDF](https://ironpdf.com/how-to/sanitize-pdf/)
+> Full guide: [How to Sanitize PDF](https://ironpdf.com/how-to/sanitize-pdf/?utm_source=github)
 
 
 Sanitizing PDF files is essential for multiple reasons. It primarily protects the documents by eliminating dangerous elements such as embedded scripts or metadata, reducing the chances of attacks from malicious sources. Additionally, PDF sanitation simplifies the file structure by removing complex and proprietary components, increasing cross-platform compatibility and accessibility. This plays a vital role in preventing data breaches and maintaining the integrity of documents, thereby enhancing trust and security in document management systems.
@@ -42,7 +42,7 @@ svgSanitizedPdf.SaveAs("svg-sanitized.pdf");
 
 IronPDF's `Cleaner` classes don't just sanitize; they allow for customization of the PDF rendering process through the `ChromeRenderOptions`. For instance, you can alter the PDF's margin sizes, paper dimensions, and orientation. Both `SanitizeWithBitmap` and `SanitizeWithSvg` can be enhanced by passing a `ChromeRenderOptions` object as a second, optional parameter. Here’s how to adjust the bottom margin to 50 pixels:
 
-For a detailed guide on all the available options, please visit [here](https://ironpdf.com/how-to/rendering-options/).
+For a detailed guide on all the available options, please visit [here](https://ironpdf.com/how-to/rendering-options/?utm_source=github).
 
 ```csharp
 using IronPdf;
@@ -84,4 +84,4 @@ Console.WriteLine(scanResults.IsDetected);
 Console.WriteLine(scanResults.Risks.Count);
 ```
 
-Discover more about what you can do by visiting our comprehensive tutorial page here: [Sign and Secure PDFs](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/)
+Discover more about what you can do by visiting our comprehensive tutorial page here: [Sign and Secure PDFs](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/?utm_source=github)

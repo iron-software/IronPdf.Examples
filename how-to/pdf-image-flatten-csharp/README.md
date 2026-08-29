@@ -1,6 +1,6 @@
 # Flatten PDFs in C&#35;
 
-> Full guide: [Flatten PDFs in C&#35;](https://ironpdf.com/how-to/pdf-image-flatten-csharp/)
+> Full guide: [Flatten PDFs in C&#35;](https://ironpdf.com/how-to/pdf-image-flatten-csharp/?utm_source=github)
 
 
 PDF documents can contain interactive elements like radio buttons, checkboxes, and text fields. When you need to make these documents non-editable for security or data integrity purposes, flattening the PDF becomes essential. IronPDF offers a straightforward method for flattening PDFs in C# using just a single line of code.
@@ -54,7 +54,7 @@ Here’s the transformation: the first PDF retains its editable format, but afte
 
 <center>
 <div class="center-image-wrapper">
-<a rel="nofollow" href="https://ironpdf.com/img/faq/pdf-image-flatten-csharp/pdf-image-flatten-csharp4.png" target="_blank">
+<a rel="nofollow" href="https://ironpdf.com/img/faq/pdf-image-flatten-csharp/pdf-image-flatten-csharp4.png?utm_source=github" target="_blank">
 <img src="https://ironpdf.com/img/faq/pdf-image-flatten-csharp/pdf-image-flatten-csharp4.png" alt="Flattened PDF" class="img-responsive add-shadow">
 </a>
 </div>
@@ -75,9 +75,9 @@ After flattening, forms and other interactive widgets will no longer be interact
     <div class="col-sm-8">
       <h3>Explore More Documentation</h3>
       <p>Dive into our Documentation to learn how to flatten, edit, and manipulate PDFs further.</p>
-      <a class="doc-link" href="https://ironpdf.com/object-reference/api/IronPdf.html" target="_blank"> Visit IronPDF Documentation <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironpdf.com/object-reference/api/IronPdf.html?utm_source=github" target="_blank"> Visit IronPDF Documentation <i class="fa fa-chevron-right"></i></a>
       </div>
   </div>
 </div>
 
-Discover more capabilities by visiting our tutorial page: [Additional Features](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/)
+Discover more capabilities by visiting our tutorial page: [Additional Features](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/?utm_source=github)

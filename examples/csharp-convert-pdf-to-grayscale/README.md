@@ -1,4 +1,4 @@
-> Full guide: [C# convert PDF to grayscale](https://ironpdf.com/examples/csharp-convert-pdf-to-grayscale/)
+> Full guide: [C# convert PDF to grayscale](https://ironpdf.com/examples/csharp-convert-pdf-to-grayscale/?utm_source=github)
 
 When converting an HTML page to a PDF using IronPDF, the `ChromePdfRenderer` class allows you to tailor the output through various options. These include setting the paper size, DPI, and integrating headers and footers, alongside various other options specific to Chromium browsers. Additionally, there's a feature that allows you to set your PDFs to be rendered in grayscale.
 
@@ -16,6 +16,6 @@ Here’s how you can render an HTML document as a grayscale PDF using the IronPD
 
 4. **Saving the PDF**: Utilize the `SaveAs` method to store the PDF you've rendered into a file named "GrayscalePDF.pdf" on your storage.
 
-For further information about IronPDF and other tools like IronBarcode and IronOCR from Iron Software, feel free to visit the [IronPDF Website](https://ironpdf.com/) where you can find additional resources and documentation at [Iron Software's Official Site](https://ironsoftware.com/).
+For further information about IronPDF and other tools like IronBarcode and IronOCR from Iron Software, feel free to visit the [IronPDF Website](https://ironpdf.com/?utm_source=github) where you can find additional resources and documentation at [Iron Software's Official Site](https://ironsoftware.com/?utm_source=github).
 
-[Discover more about converting PDFs to grayscale via the detailed guide.](https://ironpdf.com/how-to/color-grayscale/)
+[Discover more about converting PDFs to grayscale via the detailed guide.](https://ironpdf.com/how-to/color-grayscale/?utm_source=github)

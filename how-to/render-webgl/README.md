@@ -1,6 +1,6 @@
 # Rendering WebGL Sites
 
-> Full guide: [Rendering WebGL Sites](https://ironpdf.com/how-to/render-webgl/)
+> Full guide: [Rendering WebGL Sites](https://ironpdf.com/how-to/render-webgl/?utm_source=github)
 
 
 <div class="container-fluid">
@@ -65,4 +65,4 @@ pdfDocument.SaveAs("webGL.pdf");
 
 Currently, WebGL cannot be rendered in Docker due to the limitations of headless environments where access to the GPU is restricted. Our development team is exploring solutions. If updates on this topic are desired, please contact <support@ironsoftware.com>.
 
-Explore more capabilities on our [Tutorial Page](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/).
+Explore more capabilities on our [Tutorial Page](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/?utm_source=github).

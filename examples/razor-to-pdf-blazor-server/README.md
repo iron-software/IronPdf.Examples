@@ -1,4 +1,4 @@
-> Full guide: [Razor to PDF blazor server](https://ironpdf.com/examples/razor-to-pdf-blazor-server/)
+> Full guide: [Razor to PDF blazor server](https://ironpdf.com/examples/razor-to-pdf-blazor-server/?utm_source=github)
 
 This example illustrates the process of converting Razor components into PDFs.
 
@@ -8,4 +8,4 @@ In the provided code snippet, we have already defined a model named **PersonInfo
 
 For the PDF conversion, we utilize the `PrintToPdf` method where the **ChromePdfRenderer** class is initiated. The `RenderRazorComponentToPdf` function is employed here to perform the conversion of the Razor component into a PDF by passing the **Parameters** dictionary for rendering.
 
-[Discover how to convert Razor Components to PDF in Blazor Server](https://ironpdf.com/how-to/razor-to-pdf-blazor-server/).
+[Discover how to convert Razor Components to PDF in Blazor Server](https://ironpdf.com/how-to/razor-to-pdf-blazor-server/?utm_source=github).

@@ -1,11 +1,11 @@
 # C# PDF Viewers
 
-> Full guide: [C# PDF Viewers](https://ironpdf.com/how-to/net-pdf-viewer/)
+> Full guide: [C# PDF Viewers](https://ironpdf.com/how-to/net-pdf-viewer/?utm_source=github)
 
 
 This guide discusses various strategies for displaying PDFs in .NET applications. The integration of PDF viewing is a widespread requirement that can be tackled using the .NET PDF Library.
 
-IronPDF offers a PDF viewer compatible with MAUI projects. For additional details, refer to: "[Viewing PDFs in MAUI for C# .NET](https://ironpdf.com/tutorials/pdf-viewing/)."
+IronPDF offers a PDF viewer compatible with MAUI projects. For additional details, refer to: "[Viewing PDFs in MAUI for C# .NET](https://ironpdf.com/tutorials/pdf-viewing/?utm_source=github)."
 
 ## Quickstart: Viewing PDFs with IronPDF in C#
 
@@ -55,4 +55,4 @@ System.Diagnostics.Process.Start(filePath);
 
 This code snippet showcases how to employ `System.Diagnostics.Process.Start` for launching a PDF with the system's default PDF viewer. Make sure the specified path in your file directs to a legitimate PDF document on your machine.
 
-IronPDF also supports viewing PDFs in MAUI projects. Find out more by visiting: "[Viewing PDFs in MAUI for C# .NET](https://ironpdf.com/tutorials/pdf-viewing/)."
+IronPDF also supports viewing PDFs in MAUI projects. Find out more by visiting: "[Viewing PDFs in MAUI for C# .NET](https://ironpdf.com/tutorials/pdf-viewing/?utm_source=github)."

@@ -1,4 +1,4 @@
-> Full guide: [HTML headers and footers](https://ironpdf.com/examples/html-headers-and-footers/)
+> Full guide: [HTML headers and footers](https://ironpdf.com/examples/html-headers-and-footers/?utm_source=github)
 
 HTML headers and footers offer a way to incorporate dynamic elements into your PDF documents. Using this approach, developers can fully customize the presentation of headers and footers since they are generated from separate HTML documents that support their unique assets and styling.
 
@@ -12,4 +12,4 @@ To prevent the footer from overlapping the main content of the PDF, adjust the `
 
 Lastly, adjust the `MarginTop` property to establish sufficient space above the document content, ensuring that the header does not overlap with the main text. This example illustrates the simplicity of integrating custom HTML headers and footers into your PDF files with IronPDF.
 
-[Learn to Add HTML Headers & Footers to PDFs with IronPDF](https://ironpdf.com/how-to/headers-and-footers/)
+[Learn to Add HTML Headers & Footers to PDFs with IronPDF](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github)

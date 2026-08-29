@@ -1,4 +1,4 @@
-> Full guide: [PDF watermarking](https://ironpdf.com/examples/pdf-watermarking/)
+> Full guide: [PDF watermarking](https://ironpdf.com/examples/pdf-watermarking/?utm_source=github)
 
 IronPDF offers functionalities to add 'watermarks' to PDF documents using HTML.
 
@@ -32,4 +32,4 @@ First, ensure the IronPDF library is integrated into your project. You can refer
 
 In summary, the IronPDF `ApplyStamp` technique provides detailed control over watermarking PDF documents with HTML. Placement, style and the pages it applies to are all configurable.
 
-[Learn more about Custom Watermarking with IronPDF](https://ironpdf.com/how-to/custom-watermark/)
+[Learn more about Custom Watermarking with IronPDF](https://ironpdf.com/how-to/custom-watermark/?utm_source=github)

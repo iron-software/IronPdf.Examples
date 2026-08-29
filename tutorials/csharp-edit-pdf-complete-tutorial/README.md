@@ -1,6 +1,6 @@
 # How to Edit PDFs in C#
 
-> Full guide: [How to Edit PDFs in C#](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/)
+> Full guide: [How to Edit PDFs in C#](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github)
 
 IronPDF edits PDF documents from .NET: signatures, HTML footers, watermarks, and annotations. The same code deploys across platforms.
 
@@ -60,13 +60,13 @@ PdfDocument pdf = renderer.RenderUrlAsPdf("https://ironpdf.com/");
 var objects = pdf.Pages.First().ObjectModel;
 ```
 
-For more details and additional functions, please visit our complete [guide](https://ironpdf.com/how-to/access-pdf-dom-object/).
+For more details and additional functions, please visit our complete [guide](https://ironpdf.com/how-to/access-pdf-dom-object/?utm_source=github).
 
 ### Preserve & Export Documents
 
 IronPDF facilitates the quick saving and exporting of your edited documents using `PdfDocument.SaveAs`, supporting various formats like Binary Data and Memory Streams.
 
-Visit our detailed [guide](https://ironpdf.com/how-to/export-save-pdf-csharp/) for further information and more functions.
+Visit our detailed [guide](https://ironpdf.com/how-to/export-save-pdf-csharp/?utm_source=github) for further information and more functions.
 
 ### Initiate PDFs from Memory
 
@@ -83,7 +83,7 @@ var fileByte = File.ReadAllBytes("sample.pdf");
 PdfDocument pdf = new PdfDocument(fileByte);
 ```
 
-Explore additional functions in our detailed [guide](https://ironpdf.com/how-to/pdf-memory-stream/).
+Explore additional functions in our detailed [guide](https://ironpdf.com/how-to/pdf-memory-stream/?utm_source=github).
 
 ### Send PDFs to Memory
 
@@ -105,7 +105,7 @@ MemoryStream pdfAsStream = pdf.Stream;
 byte[] pdfAsByte = pdf.BinaryData;
 ```
 
-For complete instructions and additional use cases, visit our detailed [guide](https://ironpdf.com/how-to/pdf-to-memory-stream/).
+For complete instructions and additional use cases, visit our detailed [guide](https://ironpdf.com/how-to/pdf-to-memory-stream/?utm_source=github).
 
 ## Document Text Editing
 
@@ -126,7 +126,7 @@ string allText = pdf.ExtractAllText();
 string page1Text = pdf.ExtractTextFromPage(0);
 ```
 
-Refer to our comprehensive [guide](https://ironpdf.com/how-to/csharp-parse-pdf/) for more details and functions.
+Refer to our comprehensive [guide](https://ironpdf.com/how-to/csharp-parse-pdf/?utm_source=github) for more details and functions.
 
 ### Retrieve Text & Images
 
@@ -147,7 +147,7 @@ for(int i = 0; i < images.Count; i++)
 }
 ```
 
-For the detail, see the [guide](https://ironpdf.com/how-to/extract-text-and-images/).
+For the detail, see the [guide](https://ironpdf.com/how-to/extract-text-and-images/?utm_source=github).
 
 ### Censor Text & Areas
 
@@ -164,7 +164,7 @@ pdf.RedactTextOnAllPages("Alaric");
 pdf.SaveAs("redacted.pdf");
 ```
 
-Visit our detailed [guide](https://ironpdf.com/how-to/redact-text/) for more on this feature and others.
+Visit our detailed [guide](https://ironpdf.com/how-to/redact-text/?utm_source=github) for more on this feature and others.
 
 ### Amend Text in PDF
 
@@ -186,7 +186,7 @@ pdf.ReplaceTextOnAllPages(oldText, newText);
 pdf.SaveAs("replaceText.pdf");
 ```
 
-For further exploration of this feature and more, visit our [guide](https://ironpdf.com/how-to/find-replace-text/).
+For further exploration of this feature and more, visit our [guide](https://ironpdf.com/how-to/find-replace-text/?utm_source=github).
 
 ## Enhance PDF Design
 
@@ -215,7 +215,7 @@ pdf.Annotations.Add(annotation);
 pdf.SaveAs("annotation.pdf");
 ```
 
-For additional information and applications, consult our [guide](https://ironpdf.com/how-to/annotations/).
+For additional information and applications, consult our [guide](https://ironpdf.com/how-to/annotations/?utm_source=github).
 
 ### Impose Text & Images
 
@@ -247,7 +247,7 @@ pdf.ApplyStamp(textStamper);
 pdf.SaveAs("stampText.pdf");
 ```
 
-For a complete examination of this feature and others, explore our [guide](https://ironpdf.com/how-to/stamp-text-image/).
+For a complete examination of this feature and others, explore our [guide](https://ironpdf.com/how-to/stamp-text-image/?utm_source=github).
 
 ### Design Custom Watermarks
 
@@ -270,7 +270,7 @@ pdf.ApplyWatermark(watermarkHtml);
 pdf.SaveAs("watermark.pdf");
 ```
 
-Explore more about this functionality by visiting our [guide](https://ironpdf.com/how-to/custom-watermark/).
+Explore more about this functionality by visiting our [guide](https://ironpdf.com/how-to/custom-watermark/?utm_source=github).
 
 ### Configure Backgrounds & Foregrounds
 
@@ -292,7 +292,7 @@ pdf.AddBackgroundPdf(background);
 pdf.SaveAs("addBackground.pdf");
 ```
 
-For more information and additional functionality, consult our [guide](https://ironpdf.com/how-to/background-foreground/).
+For more information and additional functionality, consult our [guide](https://ironpdf.com/how-to/background-foreground/?utm_source=github).
 
 ### Implement Text & Graphics
 
@@ -311,7 +311,7 @@ pdf.DrawText("Some text", FontTypes.TimesNewRoman.Name, FontSize: 12, PageIndex:
 pdf.SaveAs("drawText.pdf");
 ```
 
-For more details and other capabilities, look into our [guide](https://ironpdf.com/how-to/draw-text-and-bitmap/).
+For more details and other capabilities, look into our [guide](https://ironpdf.com/how-to/draw-text-and-bitmap/?utm_source=github).
 
 ### Sketch Lines & Shapes
 
@@ -336,7 +336,7 @@ pdf.DrawLine(pageIndex, start, end, width, color);
 pdf.SaveAs("drawLine.pdf");
 ```
 
-For a comprehensive exploration of this feature and others, visit our [guide](https://ironpdf.com/how-to/draw-line-and-rectangle/).
+For a comprehensive exploration of this feature and others, visit our [guide](https://ironpdf.com/how-to/draw-line-and-rectangle/?utm_source=github).
 
 ### Alter Text and Page Orientation
 
@@ -358,9 +358,9 @@ pdf.SetAllPageRotations(PdfPageRotation.Clockwise180);
 pdf.SaveAs("rotated.pdf");
 ```
 
-For rotation angle options and more, consult this [reference](https://ironpdf.com/object-reference/api/IronPdf.Rendering.PdfPageRotation.html).
+For rotation angle options and more, consult this [reference](https://ironpdf.com/object-reference/api/IronPdf.Rendering.PdfPageRotation.html?utm_source=github).
 
-For further details on this functionality, visit our [guide](https://ironpdf.com/how-to/rotating-text/).
+For further details on this functionality, visit our [guide](https://ironpdf.com/how-to/rotating-text/?utm_source=github).
 
 ### Adjust PDF Pages
 
@@ -377,7 +377,7 @@ pdf.Pages[0].Transform(50, 50, 0.8, 0.8);
 pdf.SaveAs("transformPage.pdf");
 ```
 
-For more details and additional functionality, check our [guide](https://ironpdf.com/how-to/transform-pdf-pages/).
+For more details and additional functionality, check our [guide](https://ironpdf.com/how-to/transform-pdf-pages/?utm_source=github).
 
 ## Conclusion
 

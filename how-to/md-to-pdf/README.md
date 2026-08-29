@@ -1,6 +1,6 @@
 # How to Convert Markdown to PDF
 
-> Full guide: [How to Convert Markdown to PDF](https://ironpdf.com/how-to/md-to-pdf/)
+> Full guide: [How to Convert Markdown to PDF](https://ironpdf.com/how-to/md-to-pdf/?utm_source=github)
 
 
 Markdown is a simplified markup language designed for text formatting, widely utilized in readme files and online forums. It offers an easy-to-read and easy-to-write syntax, typically associated with `.md` or `.markdown` file extensions. Using IronPDF, you can efficiently transform both Markdown files and text into PDF documents.
@@ -18,7 +18,7 @@ new IronPdf.ChromePdfRenderer()
 
 ## Convert Markdown String to PDF Example
 
-To convert a Markdown-formatted string directly into a PDF, you can use the `RenderMarkdownStringAsPdf` method. This conversion supports all features in **RenderingOptions**, such as adding [text and HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/), [text overlays and image stamping](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#stamper-abstract-class), and [page numbering](https://ironpdf.com/how-to/headers-and-footers/). The method also accommodates custom page sizes and orientations. After creation, the PDF can be further refined by merging, splitting](https://ironpdf.com/how-to/merge-or-split-pdfs/), rotating, and inserting [annotations](https://ironpdf.com/how-to/annotations/) and [bookmarks](https://ironpdf.com/how-to/bookmarks/).
+To convert a Markdown-formatted string directly into a PDF, you can use the `RenderMarkdownStringAsPdf` method. This conversion supports all features in **RenderingOptions**, such as adding [text and HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github), [text overlays and image stamping](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github#stamper-abstract-class), and [page numbering](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github). The method also accommodates custom page sizes and orientations. After creation, the PDF can be further refined by merging, splitting](https://ironpdf.com/how-to/merge-or-split-pdfs/?utm_source=github), rotating, and inserting [annotations](https://ironpdf.com/how-to/annotations/?utm_source=github) and [bookmarks](https://ironpdf.com/how-to/bookmarks/?utm_source=github).
 
 ```csharp
 using IronPdf;
@@ -38,7 +38,7 @@ document.SaveAs("EnhancedMarkdownPDF.pdf");
 
 ## Convert Markdown File to PDF Example
 
-Apply the `RenderMarkdownFileAsPdf` method to transform a Markdown file into a PDF format. You can retrieve a [sample Markdown file here](https://ironpdf.com/static-assets/pdf/how-to/md-to-pdf/sample.md) for testing this functionality. Below is a demonstration of converting this file into a PDF.
+Apply the `RenderMarkdownFileAsPdf` method to transform a Markdown file into a PDF format. You can retrieve a [sample Markdown file here](https://ironpdf.com/static-assets/pdf/how-to/md-to-pdf/sample.md?utm_source=github) for testing this functionality. Below is a demonstration of converting this file into a PDF.
 
 ### Code Example
 
@@ -62,4 +62,4 @@ convertedPdf.SaveAs("ConvertedMarkdownPDF.pdf");
 
 From the PDF shown above, certain elements such as Code, Code Block, Blockquote, Tables, and Checkboxes are not currently supported, which highlights some limitations of this method.
 
-Interested in exploring more functionalities? View additional information on our tutorial page here: [Learn to Convert PDFs](https://ironpdf.com/tutorials/convert-pdf/).
+Interested in exploring more functionalities? View additional information on our tutorial page here: [Learn to Convert PDFs](https://ironpdf.com/tutorials/convert-pdf/?utm_source=github).

@@ -1,6 +1,6 @@
 # Convert SVG to PDF in C#
 
-> Full guide: [Convert SVG to PDF in C#](https://ironpdf.com/how-to/SVGs/)
+> Full guide: [Convert SVG to PDF in C#](https://ironpdf.com/how-to/SVGs/?utm_source=github)
 
 
 IronPDF delivers functionality for including SVG images into PDF files using its "HTML to PDF" feature.
@@ -39,4 +39,4 @@ pdf.SaveAs("svgToPdf.pdf");
 
 Furthermore, specifying explicit width and height attributes directly on an SVG node is also a beneficial practice. For additional styling examples of SVGs, visit [CodePen SVG Styling](https://codepen.io/AmeliaBR/pen/MYbzaW).
 
-Curious about more capabilities? Visit our tutorial page here: [Additional Features](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/).
+Curious about more capabilities? Visit our tutorial page here: [Additional Features](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/?utm_source=github).

@@ -1,6 +1,6 @@
 # How to Apply CSS for HTML Content
 
-> Full guide: [How to Apply CSS for HTML Content](https://ironpdf.com/how-to/html-to-pdf-responsive-css/)
+> Full guide: [How to Apply CSS for HTML Content](https://ironpdf.com/how-to/html-to-pdf-responsive-css/?utm_source=github)
 
 
 The `screen` media type in CSS is generally used for content displayed on devices like computer screens. These style specifications focus on enhancing the visual appeal and interactivity of web content when viewed on screens. 
@@ -35,7 +35,7 @@ Determining which CSS media type excels depends on specific needs and experiment
 
 For multi-page HTML tables, you should set the `CssMediaType` to `PdfCssMediaType.Print` to have the table headers repeat on each page. Conversely, using `PdfCssMediaType.Screen` will print the headers just once.
 
-To ensure proper header recognition, encapsulate the header in a `<thead>` tag. The following example demonstrates converting the '<a href="https://ironpdf.com/static-assets/pdf/how-to/html-to-pdf-responsive-css/tableHeader.html" download='tableHeader.html'>tableHeader.html</a>' into a PDF to observe the header repetition.
+To ensure proper header recognition, encapsulate the header in a `<thead>` tag. The following example demonstrates converting the '<a href="https://ironpdf.com/static-assets/pdf/how-to/html-to-pdf-responsive-css/tableHeader.html?utm_source=github" download='tableHeader.html'>tableHeader.html</a>' into a PDF to observe the header repetition.
 
 ```cs
 using IronPdf;

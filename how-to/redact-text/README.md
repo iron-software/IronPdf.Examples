@@ -1,10 +1,10 @@
 # Redacting Text and Areas within Documents
 
-> Full guide: [Redacting Text and Areas within Documents](https://ironpdf.com/how-to/redact-text/)
+> Full guide: [Redacting Text and Areas within Documents](https://ironpdf.com/how-to/redact-text/?utm_source=github)
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-    Is your company overpaying on annual PDF security and compliance subscriptions? Explore <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a> for a cost-effective solution. It offers capabilities like digital signing, redaction, encryption, and protection, consolidated into a single cost-effective license. Learn more at <a href="https://ironsoftware.com/enterprise/securedoc/docs/">IronSecureDoc documentation</a>.
+    Is your company overpaying on annual PDF security and compliance subscriptions? Explore <a href="https://ironsoftware.com/enterprise/securedoc/?utm_source=github">IronSecureDoc</a> for a cost-effective solution. It offers capabilities like digital signing, redaction, encryption, and protection, consolidated into a single cost-effective license. Learn more at <a href="https://ironsoftware.com/enterprise/securedoc/docs/?utm_source=github">IronSecureDoc documentation</a>.
 </div>
 
 Redaction is a crucial process for removing or obscuring personal or confidential information in documents to protect privacy. This usually involves concealing parts of text with a colored overlay or entirely deleting it from the document. These measures prevent unauthorized access to sensitive data, ensuring the document's security and user privacy.
@@ -23,7 +23,7 @@ document.SaveAs("secured_document.pdf");
 
 ## Example of Text Redaction
 
-With IronPDF, text redaction is straightforward. Employ the `RedactTextOnAllPages` method to erase specific text throughout your document. Let’s apply this to a [sample PDF document](https://ironpdf.com/static-assets/pdf/how-to/redact-text/novel.pdf).
+With IronPDF, text redaction is straightforward. Employ the `RedactTextOnAllPages` method to erase specific text throughout your document. Let’s apply this to a [sample PDF document](https://ironpdf.com/static-assets/pdf/how-to/redact-text/novel.pdf?utm_source=github).
 
 ```csharp
 using IronPdf;
@@ -56,7 +56,7 @@ These methods have the following parameters:
 
 ## Area Redaction Illustration
 
-Effectively redact particular areas in documents with `RedactRegionsOnAllPages` and a `RectangleF` object. Here’s how you can apply this using the same [example PDF](https://ironpdf.com/static-assets/pdf/how-to/redact-text/novel.pdf):
+Effectively redact particular areas in documents with `RedactRegionsOnAllPages` and a `RectangleF` object. Here’s how you can apply this using the same [example PDF](https://ironpdf.com/static-assets/pdf/how-to/redact-text/novel.pdf?utm_source=github):
 
 ```csharp
 using IronPdf;
@@ -81,4 +81,4 @@ Here’s the outcome from redacting a 50 x 50 pixel region at coordinates (5,700
 
 To redact specific pages, use `RedactRegionOnPage` and `RedactRegionOnPages`.
 
-Discover more capabilities by visiting our tutorial page: [Edit PDFs and More](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/)
+Discover more capabilities by visiting our tutorial page: [Edit PDFs and More](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github)

@@ -1,11 +1,11 @@
 # How to Convert Images to a PDF
 
-> Full guide: [How to Convert Images to a PDF](https://ironpdf.com/how-to/image-to-pdf/)
+> Full guide: [How to Convert Images to a PDF](https://ironpdf.com/how-to/image-to-pdf/?utm_source=github)
 
 
 Combining various image files like JPG, PNG, or TIFF into a single PDF document simplifies the task of organizing and sharing a coherent collection of images. This is especially beneficial for compiling digital portfolios, presentations, or structured reports as it enhances accessibility and storage efficiency.
 
-IronPDF enables the conversion of one or multiple images into a PDF with a variety of image placements and behavior options. Utilize features like full-page fitting, center alignment, and cropping to tailor the document to your needs. You can also enrich your document by adding [text and HTML headers and footers with IronPDF](https://ironpdf.com/how-to/headers-and-footers/), [overlaying watermarks](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#add-a-watermark-to-a-pdf), setting custom page dimensions, and embedding background and foreground content.
+IronPDF enables the conversion of one or multiple images into a PDF with a variety of image placements and behavior options. Utilize features like full-page fitting, center alignment, and cropping to tailor the document to your needs. You can also enrich your document by adding [text and HTML headers and footers with IronPDF](https://ironpdf.com/how-to/headers-and-footers/?utm_source=github), [overlaying watermarks](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/?utm_source=github#add-a-watermark-to-a-pdf), setting custom page dimensions, and embedding background and foreground content.
 
 ## Quickstart: Convert Images to PDF with IronPDF
 
@@ -127,6 +127,6 @@ pdf.SaveAs("imageToPdfWithHeader.pdf");
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/image-to-pdf/imageToPdfWithHeader.pdf#zoom=55%" width="100%" height="450px">
 </iframe>
 
-Explore more about converting or rasterizing PDF documents into images by checking our [guide on rasterizing PDFs into images](https://ironpdf.com/how-to/rasterize-pdf-to-images/).
+Explore more about converting or rasterizing PDF documents into images by checking our [guide on rasterizing PDFs into images](https://ironpdf.com/how-to/rasterize-pdf-to-images/?utm_source=github).
 
-Ready to explore more functionalities? Dive into our [PDF conversion tutorials](https://ironpdf.com/tutorials/convert-pdf/).
+Ready to explore more functionalities? Dive into our [PDF conversion tutorials](https://ironpdf.com/tutorials/convert-pdf/?utm_source=github).

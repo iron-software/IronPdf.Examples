@@ -1,6 +1,6 @@
 # Transform HTML to PDF Using .NET Core
 
-> Full guide: [Transform HTML to PDF Using .NET Core](https://ironpdf.com/tutorials/convert-pdf/)
+> Full guide: [Transform HTML to PDF Using .NET Core](https://ironpdf.com/tutorials/convert-pdf/?utm_source=github)
 
 Transforming various formats into PDFs can pose significant challenges due to the strict requirements of PDF documents. This is particularly true when converting HTML and CSS where achieving a perfect match is not always possible. Yet, the ability to effectively translate web content, including HTML and CSS designs, into PDFs is crucial in our digital age. IronPDF converts a wide range of formats into high-quality PDFs, usually in a line or two of code.
 
@@ -76,7 +76,7 @@ var pdfDocument = renderer.RenderHtmlAsPdf("<h1>Welcome to PDF Conversion</h1>")
 // Save the PDF locally or to a stream
 pdfDocument.SaveAs("result.pdf");
 ```
-For further insights and additional capabilities of this feature, check out our guide at [IronPDF HTML string to PDF Conversion](https://ironpdf.com/how-to/html-string-to-pdf/).
+For further insights and additional capabilities of this feature, check out our guide at [IronPDF HTML string to PDF Conversion](https://ironpdf.com/how-to/html-string-to-pdf/?utm_source=github).
 
 ### Transforming HTML Files to PDFs
 
@@ -101,7 +101,7 @@ var pdf = pdfRenderer.RenderHtmlFileAsPdf("sample.html");
 // Save the generated PDF
 pdf.SaveAs("htmlToPdf.pdf");
 ```
-For an expanded exploration of this method, visit our detailed guide at [HTML File to PDF Conversion](https://ironpdf.com/how-to/html-file-to-pdf/).
+For an expanded exploration of this method, visit our detailed guide at [HTML File to PDF Conversion](https://ironpdf.com/how-to/html-file-to-pdf/?utm_source=github).
 
 ### Creating PDFs from URLs
 
@@ -118,7 +118,7 @@ var pdfFromUrl = renderer.RenderUrlAsPdf("https://example.com");
 // Save the PDF file
 pdfFromUrl.SaveAs("webPage.pdf");
 ```
-Explore more about this functionality and its options by visiting [URL to PDF Guide](https://ironpdf.com/how-to/url-to-pdf/).
+Explore more about this functionality and its options by visiting [URL to PDF Guide](https://ironpdf.com/how-to/url-to-pdf/?utm_source=github).
 
 ### Images to PDF Conversion
 
@@ -134,7 +134,7 @@ PdfDocument imagePdf = ImageToPdfConverter.ImageToPdf(imagePath);
 // Export the PDF
 imagePdf.SaveAs("imageToPdf.pdf");
 ```
-Learn more about this feature at [Image to PDF Conversion](https://ironpdf.com/how-to/image-to-pdf/).
+Learn more about this feature at [Image to PDF Conversion](https://ironpdf.com/how-to/image-to-pdf/?utm_source=github).
 
 ### Extracting Images from PDFs
 
@@ -151,7 +151,7 @@ PdfDocument pdf = renderer.RenderUrlAsPdf("https://example.com");
 // Convert PDF pages to images
 pdf.RasterizeToImageFiles("outputImg_*.png");
 ```
-For additional details, see our guide [Rasterize PDF to Images](https://ironpdf.com/how-to/rasterize-pdf-to-images/).
+For additional details, see our guide [Rasterize PDF to Images](https://ironpdf.com/how-to/rasterize-pdf-to-images/?utm_source=github).
 
 These examples cover the range of formats IronPDF converts: web pages, images, and HTML strings.
 
@@ -172,7 +172,7 @@ var pdfDocument = pdfRenderer.RenderHtmlAsPdf("<h1>Hello World</h1>");
 pdfDocument.SaveAs("output.pdf");
 ```
 
-For further information and to discover more about this code sample's features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/html-string-to-pdf/).
+For further information and to discover more about this code sample's features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/html-string-to-pdf/?utm_source=github).
 
 ### PDF Conversion from HTML
 
@@ -207,7 +207,7 @@ PdfDocument generatedPdf = pdfRenderer.RenderHtmlFileAsPdf("example.html");
 generatedPdf.SaveAs("output.pdf");
 ```
 
-For an in-depth understanding of this code example and to explore further capabilities, please consult our detailed [how-to guide](https://ironpdf.com/how-to/html-file-to-pdf/).
+For an in-depth understanding of this code example and to explore further capabilities, please consult our detailed [how-to guide](https://ironpdf.com/how-to/html-file-to-pdf/?utm_source=github).
 
 ### PDF from a Website URL
 
@@ -226,7 +226,7 @@ PdfDocument generatedPdf = pdfRenderer.RenderUrlAsPdf("https://en.wikipedia.org/
 generatedPdf.SaveAs("url.pdf");
 ```
 
-For further information on this code example and to discover its extended capabilities, please consult our detailed [how-to guide](https://ironpdf.com/how-to/url-to-pdf/).
+For further information on this code example and to discover its extended capabilities, please consult our detailed [how-to guide](https://ironpdf.com/how-to/url-to-pdf/?utm_source=github).
 
 ### Converting Images to PDF
 
@@ -247,7 +247,7 @@ pdf.SaveAs("imageToPdf.pdf");
 
 This code demonstrates the straightforward approach to converting an image file into a PDF using IronPDF's `ImageToPdfConverter` class. The process involves specifying the image file path and then using the `ImageToPdf` method to create a PDF from the image, which is subsequently saved using the `SaveAs` method.
 
-For an expanded explanation of this code example and to discover more features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/image-to-pdf/).
+For an expanded explanation of this code example and to discover more features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/image-to-pdf/?utm_source=github).
 
 ### PDF to Images
 
@@ -266,7 +266,7 @@ PdfDocument document = pdfRenderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki
 document.RasterizeToImageFiles("wikipage_*.png");
 ```
 
-For an in-depth exploration of this code example and to discover more advanced features, please visit our detailed [how-to guide](https://ironpdf.com/how-to/rasterize-pdf-to-images/).
+For an in-depth exploration of this code example and to discover more advanced features, please visit our detailed [how-to guide](https://ironpdf.com/how-to/rasterize-pdf-to-images/?utm_source=github).
 
 ### DOCX to PDF Conversion
 
@@ -285,7 +285,7 @@ PdfDocument document = docRenderer.RenderDocxAsPdf("Modern-chronological-resume.
 document.SaveAs("ConvertedResumeFromDocx.pdf");
 ```
 
-For an in-depth understanding of this code example and to access further features and tools, please consult our extensive [how-to guide](https://ironpdf.com/how-to/docx-to-pdf/).
+For an in-depth understanding of this code example and to access further features and tools, please consult our extensive [how-to guide](https://ironpdf.com/how-to/docx-to-pdf/?utm_source=github).
 
 ### RTF to PDF Conversion
 
@@ -304,7 +304,7 @@ PdfDocument createdPdf = pdfRenderer.RenderRtfFileAsPdf("sample.rtf");
 createdPdf.SaveAs("outputFromRtf.pdf");
 ```
 
-For an in-depth understanding of this code sample and to discover more of its features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/rtf-to-pdf/).
+For an in-depth understanding of this code sample and to discover more of its features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/rtf-to-pdf/?utm_source=github).
 
 ### Transforming Markdown to PDF
 
@@ -323,7 +323,7 @@ PdfDocument document = pdfRenderer.RenderMarkdownFileAsPdf("sample.md");
 document.SaveAs("pdfFromMarkdownFile.pdf");
 ```
 
-For further details on this code snippet and to explore more features, please visit our complete [how-to guide](https://ironpdf.com/how-to/md-to-pdf/).
+For further details on this code snippet and to explore more features, please visit our complete [how-to guide](https://ironpdf.com/how-to/md-to-pdf/?utm_source=github).
 
 ### XML to PDF Conversion
 
@@ -420,7 +420,7 @@ IronPdf.ChromePdfRenderer pdfRenderer = new IronPdf.ChromePdfRenderer();
 pdfRenderer.RenderHtmlAsPdf(transformationResult.ToString()).SaveAs("Final.pdf");
 ```
 
-For further details and to discover more features related to this code snippet, visit our in-depth [how-to guide](https://ironpdf.com/how-to/xml-to-pdf/).
+For further details and to discover more features related to this code snippet, visit our in-depth [how-to guide](https://ironpdf.com/how-to/xml-to-pdf/?utm_source=github).
 
 ### HTML from PDF
 
@@ -441,7 +441,7 @@ Console.WriteLine(html);
 pdf.SaveAsHtml("output.html");
 ```
 
-For further details on this functionality and additional features, visit the full guide at [IronPDF's how-to section](https://ironsoftware.com/ironpdf/how-to/pdf-to-html/).
+For further details on this functionality and additional features, visit the full guide at [IronPDF's how-to section](https://ironsoftware.com/ironpdf/how-to/pdf-to-html/?utm_source=github).
 
 ```cs
 using IronPdf;
@@ -458,7 +458,7 @@ Console.WriteLine(htmlContent);
 pdfDoc.SaveAsHtml("myHtml.html");
 ```
 
-For further insights and extended features related to this code snippet, kindly consult our detailed [how-to guide](https://ironpdf.com/how-to/pdf-to-html/).
+For further insights and extended features related to this code snippet, kindly consult our detailed [how-to guide](https://ironpdf.com/how-to/pdf-to-html/?utm_source=github).
 
 ## Converting Dynamic Web Pages to PDFs
 
@@ -489,7 +489,7 @@ namespace AspxToPdfTutorial
 }
 ```
 
-For a guide and additional details on this conversion method, please refer to our complete [how-to guide](https://ironpdf.com/how-to/aspx-to-pdf/).
+For a guide and additional details on this conversion method, please refer to our complete [how-to guide](https://ironpdf.com/how-to/aspx-to-pdf/?utm_source=github).
 
 ```cs
 using System;
@@ -518,7 +518,7 @@ namespace AspxToPdfTutorial
 
 This snippet has been adjusted for improved clarity and structure, maintaining the technical correctness and functionality of the original code.
 
-For an in-depth discussion of this code example and to discover more about its capabilities, please consult our extensive [how-to guide](https://ironpdf.com/how-to/aspx-to-pdf/).
+For an in-depth discussion of this code example and to discover more about its capabilities, please consult our extensive [how-to guide](https://ironpdf.com/how-to/aspx-to-pdf/?utm_source=github).
 
 ### Convert XAML to PDF using .NET MAUI
 
@@ -558,7 +558,7 @@ public partial class MainPage : ContentPage
 }
 ```
 
-For an in-depth look at this code sample and to discover more features, check out our detailed [how-to guide](https://ironpdf.com/how-to/xaml-to-pdf-maui/).
+For an in-depth look at this code sample and to discover more features, check out our detailed [how-to guide](https://ironpdf.com/how-to/xaml-to-pdf-maui/?utm_source=github).
 
 ### PDF Report Generation
 
@@ -572,7 +572,7 @@ ChromePdfRenderer renderer = new ChromePdfRenderer();
 renderer.RenderHtmlFileAsPdf("report.html").SaveAs("report.pdf");
 ```
 
-For a detailed walkthrough of this process, including customization options, please see our complete guide at [IronPDF's PDF Reports guide](https://ironpdf.com/how-to/csharp-pdf-reports/).
+For a detailed walkthrough of this process, including customization options, please see our complete guide at [IronPDF's PDF Reports guide](https://ironpdf.com/how-to/csharp-pdf-reports/?utm_source=github).
 
 ```cs
 // Include the IronPdf namespace
@@ -585,7 +585,7 @@ ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
 pdfRenderer.RenderHtmlFileAsPdf("report.html").SaveAs("report.pdf");
 ```
 
-For additional details and further capabilities, kindly consult our detailed [how-to guide](https://ironpdf.com/how-to/csharp-pdf-reports/).
+For additional details and further capabilities, kindly consult our detailed [how-to guide](https://ironpdf.com/how-to/csharp-pdf-reports/?utm_source=github).
 
 ### Generating PDFs in Blazor Servers
 
@@ -626,7 +626,7 @@ IronPDF is fully compatible with .NET 6 and works with project types such as Bla
 }
 ```
 
-For further information and extended features of this code example, please visit our detailed [how-to guide](https://ironpdf.com/how-to/blazor-tutorial/).
+For further information and extended features of this code example, please visit our detailed [how-to guide](https://ironpdf.com/how-to/blazor-tutorial/?utm_source=github).
 
 ### Razor to PDF in Blazor Servers
 
@@ -672,7 +672,7 @@ private async void CreatePdf()
 }
 ```
 
-For an expanded discussion and further exploration of the features highlighted in this code sample, please consult our detailed [how-to guide](https://ironpdf.com/how-to/razor-to-pdf-blazor-server/).
+For an expanded discussion and further exploration of the features highlighted in this code sample, please consult our detailed [how-to guide](https://ironpdf.com/how-to/razor-to-pdf-blazor-server/?utm_source=github).
 
 ### CSHTML to PDF Conversion
 
@@ -709,7 +709,7 @@ public IActionResult OnPostAsync()
 
 This detailed code example demonstrates how you can easily convert Razor Pages to PDF directly within your application flow. By using `RenderRazorToPdf`, IronPDF handles the conversion process smoothly, maintaining the layout and styling of your Razor view.
 
-For additional insights and functionalities, make sure to check our guide on how to convert Razor Pages to PDF. This tutorial is available on our [documentation page](https://ironpdf.com/how-to/cshtml-to-pdf-razor/).
+For additional insights and functionalities, make sure to check our guide on how to convert Razor Pages to PDF. This tutorial is available on our [documentation page](https://ironpdf.com/how-to/cshtml-to-pdf-razor/?utm_source=github).
 
 ```csharp
 using IronPdf.Razor.Pages;
@@ -741,7 +741,7 @@ public IActionResult PostToPdf()
 }
 ```
 
-For further details on this code example and to discover more capabilities, please consult our extensive [how-to guide](https://ironpdf.com/how-to/cshtml-to-pdf-razor/).
+For further details on this code example and to discover more capabilities, please consult our extensive [how-to guide](https://ironpdf.com/how-to/cshtml-to-pdf-razor/?utm_source=github).
 
 #### Converting CSHTML to PDF in MVC Core Environments
 
@@ -772,7 +772,7 @@ public async Task<IActionResult> ExportPersonListAsPDF()
 }
 ```
 
-For further exploration of this code and its capabilities, you can check out our guide on [CSHTML to PDF Conversions in MVC Core](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/). This guide offers step-by-step instructions, additional configurations, and customization options to enhance your document generation processes within your .NET MVC Core applications.
+For further exploration of this code and its capabilities, you can check out our guide on [CSHTML to PDF Conversions in MVC Core](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/?utm_source=github). This guide offers step-by-step instructions, additional configurations, and customization options to enhance your document generation processes within your .NET MVC Core applications.
 
 ```csharp
 public async Task<IActionResult> PersonList()
@@ -803,7 +803,7 @@ public async Task<IActionResult> PersonList()
 }
 ```
 
-For further insights and extended features related to this code example, please consult our detailed [how-to guide](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/).
+For further insights and extended features related to this code example, please consult our detailed [how-to guide](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-core/?utm_source=github).
 
 #### Converting CSHTML to PDF (MVC Framework)
 
@@ -841,7 +841,7 @@ public ActionResult Persons()
 
 This code effectively demonstrates the conversion of a CSHTML page to a PDF, retaining the styling and structured layout of the original Razor view. It utilizes the `ChromePdfRenderer` to manage the rendering process, ensuring that the generted PDF mirrors the intended design of the web page.
 
-For a broader understanding and additional features, explore our extensive [how-to guide](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-framework/).
+For a broader understanding and additional features, explore our extensive [how-to guide](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-framework/?utm_source=github).
 
 ```csharp
 public ActionResult DisplayPersons()
@@ -877,7 +877,7 @@ public ActionResult DisplayPersons()
 }
 ```
 
-For an in-depth discussion of this code sample and further exploration into its features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-framework/).
+For an in-depth discussion of this code sample and further exploration into its features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/cshtml-to-pdf-mvc-framework/?utm_source=github).
 
 #### CSHTML to PDF (Headlessly)
 
@@ -905,7 +905,7 @@ app.MapGet("/GeneratePdf", async () => {
 });
 ```
 
-For more insights and additional features, you can find further reading available in our detailed guide at [IronPDF - Headlessly Convert CSHTML to PDF](https://ironpdf.com/how-to/cshtml-to-pdf-razor-headlessly/).
+For more insights and additional features, you can find further reading available in our detailed guide at [IronPDF - Headlessly Convert CSHTML to PDF](https://ironpdf.com/how-to/cshtml-to-pdf-razor-headlessly/?utm_source=github).
 
 ```csharp
 app.MapGet("/PrintPdf", async () =>
@@ -930,7 +930,7 @@ app.MapGet("/PrintPdf", async () =>
 });
 ```
 
-For an in-depth discussion of this example and to further explore IronPDF's capabilities, consult our complete [how-to guide](https://ironpdf.com/how-to/cshtml-to-pdf-razor-headlessly/).
+For an in-depth discussion of this example and to further explore IronPDF's capabilities, consult our complete [how-to guide](https://ironpdf.com/how-to/cshtml-to-pdf-razor-headlessly/?utm_source=github).
 
 ## Ensuring Web Accessibility with PDF Conversion
 
@@ -959,7 +959,7 @@ PdfDocument pdf = renderer.RenderUrlAsPdf(targetUri);
 pdf.SaveAs("SecuredContent.pdf");
 ```
 
-For an in-depth explanation of this code and additional capabilities, visit the detailed [how-to guide](https://ironpdf.com/how-to/logins/).
+For an in-depth explanation of this code and additional capabilities, visit the detailed [how-to guide](https://ironpdf.com/how-to/logins/?utm_source=github).
 
 ### Utilizing Cookies for Web Session Continuity
 
@@ -984,7 +984,7 @@ string uri = "http://localhost:51169/SecureContent";
 renderer.ApplyCookies(uri, credentials);
 ```
 
-For further details on this functionality, see the complete [how-to guide](https://ironpdf.com/how-to/cookies/).
+For further details on this functionality, see the complete [how-to guide](https://ironpdf.com/how-to/cookies/?utm_source=github).
 
 ### Customizing HTTP Request Headers
 
@@ -1005,9 +1005,9 @@ var pdf = renderer.RenderUrlAsPdf("https://httpbin.org/bearer");
 pdf.SaveAs("AuthenticatedRequest.pdf");
 ```
 
-Explore this feature more by reading through the detailed [how-to guide](https://ironpdf.com/how-to/http-request-header/).
+Explore this feature more by reading through the detailed [how-to guide](https://ironpdf.com/how-to/http-request-header/?utm_source=github).
 
-Together these cover protected and interactive web content. If you have specific feature requests or need more assistance, please [contact our support team](https://ironpdf.com/troubleshooting/engineering-request-pdf/).
+Together these cover protected and interactive web content. If you have specific feature requests or need more assistance, please [contact our support team](https://ironpdf.com/troubleshooting/engineering-request-pdf/?utm_source=github).
 
 ### TLS Website & System Logins
 
@@ -1038,7 +1038,7 @@ PdfDocument generatedPdf = pdfRenderer.RenderUrlAsPdf(targetUri);
 generatedPdf.SaveAs("UrlToPdfExample.Pdf");
 ```
 
-For further insights and extended features of this code example, please consult our detailed [how-to guide](https://ironpdf.com/how-to/logins/).
+For further insights and extended features of this code example, please consult our detailed [how-to guide](https://ironpdf.com/how-to/logins/?utm_source=github).
 
 ### Cookies Management
 
@@ -1066,7 +1066,7 @@ string invoiceUri = "http://localhost:51169/Invoice";
 renderer.ApplyCookies(invoiceUri, credentials);
 ```
 
-For an in-depth understanding and further exploration of this code snippet's features, consult our extensive [how-to guide](https://ironpdf.com/how-to/cookies/).
+For an in-depth understanding and further exploration of this code snippet's features, consult our extensive [how-to guide](https://ironpdf.com/how-to/cookies/?utm_source=github).
 
 ### Customizing HTTP Request Headers
 
@@ -1090,7 +1090,7 @@ PdfDocument document = pdfRenderer.RenderUrlAsPdf("https://httpbin.org/bearer");
 document.SaveAs("output.pdf");
 ```
 
-For an expanded description of this code example and to discover its extended features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/http-request-header/).
+For an expanded description of this code example and to discover its extended features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/http-request-header/?utm_source=github).
 
 ## Personalized PDF Conversion
 
@@ -1129,7 +1129,7 @@ PdfDocument pdfDocument = renderer.RenderMarkdownStringAsPdf(markdownContent);
 pdfDocument.SaveAs("CustomizedPDF.pdf");
 ```
 
-This snippet illustrates the capability to tailor various components of the PDF such as background, headers, custom paper sizes, and margins, ensuring the PDFs meet the specific requirements and look intended. More customization features and detailed guidance can be found on our comprehensive [rendering options guide](https://ironpdf.com/documentation/pdf-rendering-options/).
+This snippet illustrates the capability to tailor various components of the PDF such as background, headers, custom paper sizes, and margins, ensuring the PDFs meet the specific requirements and look intended. More customization features and detailed guidance can be found on our comprehensive [rendering options guide](https://ironpdf.com/documentation/pdf-rendering-options/?utm_source=github).
 
 ### Configuring Custom Margins
 
@@ -1144,7 +1144,7 @@ renderer.RenderingOptions.MarginRight = 20;
 renderer.RenderingOptions.MarginBottom = 40;
 ```
 
-This example demonstrates adjusting the margins to optimize the layout of the PDF. More details are available in the [custom margins guide](https://ironpdf.com/how-to/custom-margins/).
+This example demonstrates adjusting the margins to optimize the layout of the PDF. More details are available in the [custom margins guide](https://ironpdf.com/how-to/custom-margins/?utm_source=github).
 
 ### Grayscale Conversion
 
@@ -1161,7 +1161,7 @@ PdfDocument pdf = renderer.RenderUrlAsPdf("https://ironsoftware.com/");
 pdf.CopyPage(0).SaveAs("GrayscalePDF.pdf");
 ```
 
-This configuration snippet sets the PDF output to grayscale, effectively reducing the visual complexity of the document. Learn more from our [color to grayscale guide](https://ironpdf.com/how-to/color-grayscale/).
+This configuration snippet sets the PDF output to grayscale, effectively reducing the visual complexity of the document. Learn more from our [color to grayscale guide](https://ironpdf.com/how-to/color-grayscale/?utm_source=github).
 
 ### Customizing PDF Appearance
 
@@ -1199,7 +1199,7 @@ PdfDocument finalPdf = pdfRenderer.RenderMarkdownStringAsPdf(markdownText);
 finalPdf.SaveAs("customizedRenderingOptions.pdf");
 ```
 
-For an in-depth understanding of this code example and its extended features, please consult our thorough [how-to guide](https://ironpdf.com/how-to/rendering-options/).
+For an in-depth understanding of this code example and its extended features, please consult our thorough [how-to guide](https://ironpdf.com/how-to/rendering-options/?utm_source=github).
 
 ### Customize PDF Margins
 
@@ -1216,7 +1216,7 @@ pdfRenderer.RenderingOptions.MarginRight = 20;  // Right margin set to 20 units
 pdfRenderer.RenderingOptions.MarginBottom = 40; // Bottom margin set to 40 units
 ```
 
-For an in-depth understanding of this code example and to discover more features, please consult our thorough [how-to guide](https://ironpdf.com/how-to/custom-margins/).
+For an in-depth understanding of this code example and to discover more features, please consult our thorough [how-to guide](https://ironpdf.com/how-to/custom-margins/?utm_source=github).
 
 ### Creating a Grayscale PDF
 
@@ -1237,7 +1237,7 @@ PdfDocument pdf = renderer.RenderUrlAsPdf("https://ironsoftware.com/");
 pdf.CopyPage(0).SaveAs("test.pdf");
 ```
 
-For an in-depth exploration of this code example and to access further features, consult our detailed [how-to guide](https://ironpdf.com/how-to/color-grayscale/).
+For an in-depth exploration of this code example and to access further features, consult our detailed [how-to guide](https://ironpdf.com/how-to/color-grayscale/?utm_source=github).
 
 ## Enhancing Your PDF Layout
 
@@ -1265,7 +1265,7 @@ PdfDocument pdf = renderer.RenderHtmlFileAsPdf("tableOfContent.html");
 // Save the PDF file
 pdf.SaveAs("tableOfContents.pdf");
 ```
-For a deeper understanding of this feature, visit our detailed tutorial at [https://ironpdf.com/how-to/table-of-contents/](https://ironpdf.com/how-to/table-of-contents/).
+For a deeper understanding of this feature, visit our detailed tutorial at [https://ironpdf.com/how-to/table-of-contents/](https://ironpdf.com/how-to/table-of-contents/?utm_source=github).
 
 ### Inserting Page Breaks
 
@@ -1298,7 +1298,7 @@ var renderer = new ChromePdfRenderer();
 var pdf = renderer.RenderHtmlAsPdf(html);
 pdf.SaveAs("Page_Break.pdf");
 ```
-For further details, see our tutorial at [https://ironpdf.com/how-to/html-to-pdf-page-breaks/](https://ironpdf.com/how-to/html-to-pdf-page-breaks/).
+For further details, see our tutorial at [https://ironpdf.com/how-to/html-to-pdf-page-breaks/](https://ironpdf.com/how-to/html-to-pdf-page-breaks/?utm_source=github).
 
 ### Adapting Content Dimensions to Fit Pages
 
@@ -1317,7 +1317,7 @@ PdfDocument pdf = renderer.RenderUrlAsPdf("https://en.wikipedia.org/wiki/Main_Pa
 // Save the PDF
 pdf.SaveAs("chromeDefault.pdf");
 ```
-Explore more about this feature at [https://ironpdf.com/how-to/viewport-zoom/](https://ironpdf.com/how-to/viewport-zoom/).
+Explore more about this feature at [https://ironpdf.com/how-to/viewport-zoom/](https://ironpdf.com/how-to/viewport-zoom/?utm_source=github).
 
 By utilizing these layout refinement capabilities, you can significantly enhance the functionality and appearance of your PDF documents, making them more engaging and easier to navigate.
 
@@ -1345,7 +1345,7 @@ PdfDocument document = pdfRenderer.RenderHtmlFileAsPdf("tableOfContent.html");
 document.SaveAs("tableOfContents.pdf");
 ```
 
-For a full walkthrough of this example and its wider options, see the [how-to guide](https://ironpdf.com/how-to/table-of-contents/).
+For a full walkthrough of this example and its wider options, see the [how-to guide](https://ironpdf.com/how-to/table-of-contents/?utm_source=github).
 
 ### Inserting Page Breaks
 
@@ -1389,7 +1389,7 @@ var pdfDocument = pdfRenderer.RenderHtmlAsPdf(htmlContent);
 pdfDocument.SaveAs("Page_Break.pdf");
 ```
 
-For an in-depth discussion of this code example and to explore more features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/html-to-pdf-page-breaks/).
+For an in-depth discussion of this code example and to explore more features, please consult our detailed [how-to guide](https://ironpdf.com/how-to/html-to-pdf-page-breaks/?utm_source=github).
 
 ### Fit to Page & Zoom
 
@@ -1411,11 +1411,11 @@ PdfDocument generatedPdf = chromeRenderer.RenderUrlAsPdf("https://en.wikipedia.o
 generatedPdf.SaveAs("chromeDefault.pdf");
 ```
 
-For an in-depth breakdown of this code snippet and to discover further capabilities, please consult our detailed [how-to guide](https://ironpdf.com/how-to/viewport-zoom/).
+For an in-depth breakdown of this code snippet and to discover further capabilities, please consult our detailed [how-to guide](https://ironpdf.com/how-to/viewport-zoom/?utm_source=github).
 
 ## Conclusion
 
 The preceding examples highlight the remarkable features and capabilities of IronPDF for converting a variety of formats into PDFs. These illustrations demonstrate just how flexible and powerful IronPDF can be for your document management needs.
 
-Should you need to request a feature, or if you have any inquiries about IronPDF or its licensing, do not hesitate to [reach out to our support team](https://ironpdf.com/troubleshooting/engineering-request-pdf/). We are always ready to provide the necessary assistance.
+Should you need to request a feature, or if you have any inquiries about IronPDF or its licensing, do not hesitate to [reach out to our support team](https://ironpdf.com/troubleshooting/engineering-request-pdf/?utm_source=github). We are always ready to provide the necessary assistance.
 

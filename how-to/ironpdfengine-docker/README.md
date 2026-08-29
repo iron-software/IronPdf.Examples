@@ -1,6 +1,6 @@
 # Establishing Your Own IronPDF Docker Container
 
-> Full guide: [Establishing Your Own IronPDF Docker Container](https://ironpdf.com/get-started/ironpdfengine-docker/)
+> Full guide: [Establishing Your Own IronPDF Docker Container](https://ironpdf.com/get-started/ironpdfengine-docker/?utm_source=github)
 
 
 > **Important:** Applicable for IronPDF version 2023.2.x and higher
@@ -35,7 +35,7 @@ Integrate the `IronPdf.Slim` package into your project from NuGet:
 
 [Install IronPdf.Slim from NuGet](https://www.nuget.org/packages/IronPdf.Slim/)
 
-Further information can be found here: [IronPDF Documentation](https://ironpdf.com/docs/)
+Further information can be found here: [IronPDF Documentation](https://ironpdf.com/docs/?utm_source=github)
 
 > **Note**: The packages `IronPdf`, `IronPdf.Linux`, and `IronPdf.MacOs` all include `IronPdf.Slim`. The obsolete `IronPdf.Native.Chrome.xxx` package can be removed from your project.
 

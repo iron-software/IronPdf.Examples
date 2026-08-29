@@ -1,10 +1,10 @@
 # How to Modify and Populate PDF Forms
 
-> Full guide: [How to Modify and Populate PDF Forms](https://ironpdf.com/how-to/edit-forms/)
+> Full guide: [How to Modify and Populate PDF Forms](https://ironpdf.com/how-to/edit-forms/?utm_source=github)
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-Avoid high costs on annual PDF security subscriptions by exploring IronSecureDoc, which delivers a comprehensive suite of PDF management solutions including digital signing, redaction, encryption, and protection, all available for a one-time fee. Dive into the details by visiting [IronSecureDoc Details](https://ironsoftware.com/enterprise/securedoc/) and [IronSecureDoc Documentation](https://ironsoftware.com/enterprise/securedoc/docs/).
+Avoid high costs on annual PDF security subscriptions by exploring IronSecureDoc, which delivers a comprehensive suite of PDF management solutions including digital signing, redaction, encryption, and protection, all available for a one-time fee. Dive into the details by visiting [IronSecureDoc Details](https://ironsoftware.com/enterprise/securedoc/?utm_source=github) and [IronSecureDoc Documentation](https://ironsoftware.com/enterprise/securedoc/docs/?utm_source=github).
 </div>
 
 IronPDF furnishes a straightforward toolkit for updating forms within a PDF, including text fields, checkboxes, drop-down lists, and radio buttons.
@@ -133,4 +133,4 @@ pdfDocument.SaveAs("removedForm.pdf");
 
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/edit-forms/removedForm.pdf#zoom=110" width="100%" height="400px"></iframe>
 
-To learn about creating PDF forms programmatically, view the following guide: "[Creating PDF Forms](https://ironpdf.com/how-to/create-forms/)." Discover more functionalities by visiting our tutorial page: [PDF Security Tutorial](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/)
+To learn about creating PDF forms programmatically, view the following guide: "[Creating PDF Forms](https://ironpdf.com/how-to/create-forms/?utm_source=github)." Discover more functionalities by visiting our tutorial page: [PDF Security Tutorial](https://ironpdf.com/tutorials/csharp-pdf-security-complete-tutorial/?utm_source=github)

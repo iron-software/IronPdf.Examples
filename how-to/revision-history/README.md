@@ -1,6 +1,6 @@
 # Managing and Storing PDF Revision History
 
-> Full guide: [Managing and Storing PDF Revision History](https://ironpdf.com/how-to/revision-history/)
+> Full guide: [Managing and Storing PDF Revision History](https://ironpdf.com/how-to/revision-history/?utm_source=github)
 
 
 PDF revision history is an essential feature that allows tracking of amendments made to a PDF document over time. This function is crucial in environments where multiple collaborators need to maintain documentation of edits, noting who altered the content and when these changes were executed.
@@ -19,7 +19,7 @@ pdf.SaveAsRevision("revision1.pdf");
 
 ### Basic Workflow in 5 Steps
 
-1. [Install the C# Library to Manage PDF Revision History with IronPDF](https://ironpdf.com/)
+1. [Install the C# Library to Manage PDF Revision History with IronPDF](https://ironpdf.com/?utm_source=github)
 2. Apply the `SaveAsRevision` method to generate different versions of the PDF.
 3. Use the `GetRevision` method to access specific revisions.
 4. Check the `RevisionCount` property to determine how many revisions exist.
