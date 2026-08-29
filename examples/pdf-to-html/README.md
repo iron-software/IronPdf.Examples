@@ -16,4 +16,4 @@ In this scenario, we illustrate adjustments such as setting the background color
 
 The process culminates with the use of the `SaveAsHtml` method, which not only converts the PDF into HTML but also allows for the inclusion of additional parameters. These include specifying the filename and location for the saved HTML document, using **fullContentWidth** set to true to utilize the full content width of the PDF, assigning a title to the HTML document, and implementing the previously set formatting specifications with `htmlFormatOptions`.
 
-Dive deeper into converting PDF documents into HTML by visiting our comprehensive guide at [PDF to HTML Conversion Guide](https://ironpdf.com/how-to/pdf-to-html/).
+Dive deeper into converting PDF documents into HTML by visiting our guide at [PDF to HTML Conversion Guide](https://ironpdf.com/how-to/pdf-to-html/).

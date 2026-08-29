@@ -9,7 +9,7 @@ For a more detailed understanding of XSLT transformations, refer to the [Using t
 
 ## Quickstart: Convert XML to PDF with IronPDF
 
-Effortlessly transform your XML files into PDF documents utilizing IronPDF. Just a few lines of code are needed to convert XML content to HTML using XSLT, and then produce a PDF from that HTML. This method is perfect for developers requiring seamless and quick integration, allowing them to preserve document formatting and ensure broad platform compatibility.
+transform your XML files into PDF documents utilizing IronPDF. Just a few lines of code are needed to convert XML content to HTML using XSLT, and then produce a PDF from that HTML. The formatting survives the round trip, and the result opens anywhere a PDF does.
 
 ```cs
 var pdfRenderer = new IronPdf.ChromePdfRenderer();

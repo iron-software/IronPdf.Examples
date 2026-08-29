@@ -1,8 +1,8 @@
 > Full guide: [Converting a URL to a PDF](https://ironpdf.com/examples/converting-a-url-to-a-pdf/)
 
-IronPDF simplifies the process of transforming HTML from existing URLs into PDF files. It offers robust support for JavaScript, images, CSS, and forms.
+IronPDF simplifies the process of transforming HTML from existing URLs into PDF files. It offers support for JavaScript, images, CSS, and forms.
 
-Creating PDFs from ASP.NET URLs that utilize query string variables enhances the PDF creation process, allowing for seamless collaboration between designers and developers.
+Creating PDFs from ASP.NET URLs that utilize query string variables enhances the PDF creation process, allowing for collaboration between designers and developers.
 
 ___
 

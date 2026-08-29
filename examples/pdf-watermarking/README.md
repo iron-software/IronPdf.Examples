@@ -30,6 +30,6 @@ First, ensure the IronPDF library is integrated into your project. You can refer
   - `pageRange`: Chooses the pages that will receive the watermark to allow varied application across the document.
 - Lastly, the `SaveAs` method is called to export the revised PDF to a new location.
 
-In summary, the IronPDF `ApplyStamp` technique provides detailed control over watermarking PDF documents with HTML. This method is versatile, supporting several customization options for placement, style, and specific page application.
+In summary, the IronPDF `ApplyStamp` technique provides detailed control over watermarking PDF documents with HTML. Placement, style and the pages it applies to are all configurable.
 
 [Learn more about Custom Watermarking with IronPDF](https://ironpdf.com/how-to/custom-watermark/)

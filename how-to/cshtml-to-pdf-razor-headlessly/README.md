@@ -9,7 +9,7 @@ We will employ the [Razor.Templating.Core](https://www.nuget.org/packages/Razor.
 
 ## Quickstart: Rapid Razor to PDF Conversion
 
-Effortlessly convert Razor Views into PDFs using IronPDF's headless conversion technique. Implement the `IronPdf.HtmlToPdf.StaticRender.RenderHtmlAsPdf` method for fast and easy HTML to PDF conversion, leveraging the efficiency and power of IronPDF within your ASP.NET Core projects.
+convert Razor Views into PDFs using IronPDF's headless conversion technique. Implement the `IronPdf.HtmlToPdf.StaticRender.RenderHtmlAsPdf` method for fast and easy HTML to PDF conversion, using the efficiency and power of IronPDF within your ASP.NET Core projects.
 
 ```cs
 var htmlContent = await RazorTemplateEngine.RenderAsync("Views/Template.cshtml", model); 

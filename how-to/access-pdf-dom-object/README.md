@@ -7,7 +7,7 @@ Manipulating the PDF DOM involves interacting with the structure of a PDF docume
 
 ## Quickstart: Utilizing IronPDF to Handle PDF DOM Elements
 
-Easily manage your PDF files by leveraging the robust DOM manipulation capabilities of IronPDF. This introductory guide will walk you through the process of obtaining PDF DOM, selecting a specific page, and adjusting text elements. Start by loading your document, selecting the page of interest, and then modifying it using a few simple lines of code. This guide is ideal for developers who want to efficiently handle PDFs without complicated setups.
+Easily manage your PDF files by using the DOM manipulation capabilities of IronPDF. This introductory guide will walk you through the process of obtaining PDF DOM, selecting a specific page, and adjusting text elements. Start by loading your document, selecting the page of interest, and then modifying it using a few simple lines of code. This guide is ideal for developers who want to efficiently handle PDFs without complicated setups.
 
 ```cs
 var domObjects = IronPdf.ChromePdfRenderer.RenderUrlAsPdf("https://example.com").Pages.First().ObjectModel;
@@ -188,4 +188,4 @@ pageElements.ImageObjects.RemoveAt(0);
 removalPdf.SaveAs("removedFirstImage.pdf");
 ```
 
-Explore more capabilities by visiting our comprehensive guide here: [Manipulate PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/)
+Explore more capabilities by visiting our guide here: [Manipulate PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/)

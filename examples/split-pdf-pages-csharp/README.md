@@ -1,6 +1,6 @@
 > Full guide: [Split PDF pages C#](https://ironpdf.com/examples/split-pdf-pages-csharp/)
 
-IronPDF streamlines the process of editing PDF document layouts through capabilities such as page splitting and extraction. With IronPDF, you can effortlessly pull out individual or multiple pages into new `PdfDocument` objects for further modifications or storage. This functionality is primarily executed using the `PdfDocument.CopyPage` method.
+IronPDF simplifies the process of editing PDF document layouts through capabilities such as page splitting and extraction. With IronPDF, you can pull out individual or multiple pages into new `PdfDocument` objects for further modifications or storage. This functionality is primarily executed using the `PdfDocument.CopyPage` method.
 
 Before diving into the mechanics of splitting PDF files, an HTML string must be created which will serve as the basis for our sample PDF. The `ChromePdfRenderer` class takes this HTML string and transforms it into a PDF document using the `RenderHtmlAsPdf` method. The new PDF is then stored in the `PdfDocument` object.
 

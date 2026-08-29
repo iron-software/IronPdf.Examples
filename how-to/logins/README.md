@@ -7,7 +7,7 @@ Direct integration without login when possible allows straightforward HTML to PD
 
 ## Quickstart: Convert Protected HTML Pages to PDF using IronPDF
 
-Effortlessly transform HTML pages locked behind authentication forms into PDF files with IronPDF’s robust API. This quickstart guide will help you employ the `ChromeHttpLoginCredentials` method to authenticate and access secured content efficiently, making your conversion process smooth. It covers scenarios from network to HTML form authentications using IronPDF to facilitate rapid, hassle-free conversions.
+transform HTML pages locked behind authentication forms into PDF files with IronPDF’s API. This quickstart guide will help you employ the `ChromeHttpLoginCredentials` method to authenticate and access secured content efficiently, making your conversion process smooth. It covers scenarios from network to HTML form authentications using IronPDF to facilitate rapid, hassle-free conversions.
 
 ```cs
 new ChromePdfRenderer { LoginCredentials = new ChromeHttpLoginCredentials("username", "password") }
@@ -40,7 +40,7 @@ foreach(HtmlNode imageNode in htmlDoc.DocumentNode.SelectNodes("//img"))
 
 Adjust any relative URLs to absolute using `System.Uri` or by inserting a `<base>` tag in the header with HtmlAgilityPack as shown [here](https://www.w3schools.com/tags/tag_base.asp).
 
-## Leveraging Network Authentication
+## Using Network Authentication
 
 ASP.NET apps generally support network authentication efficiently:
 

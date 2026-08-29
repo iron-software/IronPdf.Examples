@@ -11,7 +11,7 @@ This notice appears typically within **.NET Core web applications** and **Consol
 
 This notification originates from the embedded Google Chrome-based web browser component of IronPDF. It serves to inform that there will not be an actual browser window displayed, which aligns with the expected behavior of the software.
 
-The occurrence of this message is a side effect of leveraging a substantial and efficient HTML rendering engine incorporated within IronPDF.
+The occurrence of this message is a side effect of using a substantial and efficient HTML rendering engine incorporated within IronPDF.
 
 Although the message persists and cannot be removed presently, it's important to clarify that it has no negative impact on the functionality of your application. Your application operates as designed without any actual errors.
 

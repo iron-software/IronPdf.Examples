@@ -4,7 +4,7 @@
 
 Generating a PDF from code raises a run of small problems, from placing headers and footers to keeping the output readable everywhere. IronPDF puts each of those behind one method, so most of a page's construction is a few lines rather than a project of its own.
 
-IronPDF enables the effortless addition of shapes, text, images, as well as headers and footers. It provides various options for document orientation, size, and metadata management, and supports different compliance standards like PDF/UA and PDF/A. Moreover, integrating IronPDF into your existing applications for tasks such as PDF viewing or programmatic printing is a straightforward process.
+IronPDF enables the addition of shapes, text, images, as well as headers and footers. It provides various options for document orientation, size, and metadata management, and supports different compliance standards like PDF/UA and PDF/A. Moreover, integrating IronPDF into your existing applications for tasks such as PDF viewing or programmatic printing is a straightforward process.
 
 This tutorial will detail the capabilities of IronPDF, demonstrating how it can improve your development process by allowing the creation of adaptable and maintainable code that is deployable across all supported environments and platforms.
 

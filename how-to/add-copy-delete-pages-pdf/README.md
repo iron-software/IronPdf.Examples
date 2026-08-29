@@ -7,7 +7,7 @@ Editing PDFs often requires the ability to add fresh content or rearrange existi
 
 ## Quickstart: Instant PDF Page Management
 
-Harness the capabilities of IronPDF to seamlessly add, copy, and delete pages from your PDFs. This example demonstrates how to integrate additional pages into a PDF document effortlessly, employing IronPDF's powerful features to simplify page management in any .NET project.
+Use IronPDF to add, copy, and delete pages from your PDFs. This example demonstrates how to integrate additional pages into a PDF document, employing IronPDF's powerful features to simplify page management in any .NET project.
 
 ```cs
 IronPdf.PdfDocument.FromFile("https://ironpdf.com/input/path.pdf")

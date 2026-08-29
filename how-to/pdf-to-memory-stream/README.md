@@ -7,7 +7,7 @@ In C# .NET, it's feasible to directly transfer a PDF to a MemoryStream without u
 
 ## Getting Started: Converting PDF to MemoryStream
 
-Utilize IronPDF's straightforward API to transform your PDF documents into MemoryStream effortlessly. This tutorial is designed to help developers swiftly start with the process of loading a PDF and converting it to a MemoryStream, ideal for fluid integration within .NET applications. Here's an easy example to enhance your skills in managing PDFs in C#.
+Utilize IronPDF's straightforward API to transform your PDF documents into MemoryStream. This tutorial is designed to help developers swiftly start with the process of loading a PDF and converting it to a MemoryStream, ideal for fluid integration within .NET applications. Here's an easy example to enhance your skills in managing PDFs in C#.
 
 ```cs
 using var stream = new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf("<h1>Stream Welcome!</h1>").Stream;

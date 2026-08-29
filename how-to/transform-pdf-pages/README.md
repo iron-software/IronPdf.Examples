@@ -5,9 +5,9 @@
 
 Transforming a PDF page generally involves applying various operations that alter the visual presentation or arrangement of content on the page. Common transformations include scaling, where you resize the page, and translating, where you shift the content to a new position.
 
-## Quickstart: Transform PDF Pages Effortlessly
+## Quickstart: Transform PDF Pages
 
-Discover how to effortlessly transform PDF pages using the IronPDF library in .NET. With a few simple lines of code, you can adjust scale and shift content, maintaining the original dimensions of the page. This guide shows you how to apply these modifications to enhance your PDF documents fluidly.
+Discover how to transform PDF pages using the IronPDF library in .NET. With a few simple lines of code, you can adjust scale and shift content, maintaining the original dimensions of the page. This guide shows you how to apply these modifications to enhance your PDF documents fluidly.
 
 ```cs
 IronPdf.PdfDocument.FromFile("input.pdf")

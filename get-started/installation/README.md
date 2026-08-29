@@ -114,4 +114,4 @@ using var Doc = Renderer.RenderHtmlAsPdf("<h1>Html with CSS and Images</h1>");
 Doc.SaveAs("example.pdf");
 ```
 
-Subsequent sections continue to guide through essential settings and compatibility information including IIS, Microsoft Visual C++, Linux, Docker, Azure, AWS Lambda, and macOS integration for a seamless IronPDF implementation in your .NET applications.
+Subsequent sections continue to guide through essential settings and compatibility information including IIS, Microsoft Visual C++, Linux, Docker, Azure, AWS Lambda, and macOS integration for an IronPDF implementation in your .NET applications.

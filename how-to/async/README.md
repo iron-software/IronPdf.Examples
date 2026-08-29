@@ -7,7 +7,7 @@ Discover the importance of asynchronous programming and multithreading when crea
 
 ### Kickstart: Asynchronously Convert HTML to PDF Using IronPDF
 
-Jumpstart your journey with IronPDF to asynchronously generate PDFs from HTML content, increasing the efficiency of your applications. Use the `RenderHtmlAsPdfAsync` method to seamlessly transfer HTML into PDF format and experience the strides in performance when handling batch operations or working in multithreaded scenarios. The robust features of IronPDF simplify the process, enabling rapid PDF creation.
+IronPDF generates PDFs from HTML asynchronously, so a request does not block on rendering. Use the `RenderHtmlAsPdfAsync` method to transfer HTML into PDF format and experience the strides in performance when handling batch operations or working in multithreaded scenarios. The features of IronPDF simplify the process, enabling rapid PDF creation.
 
 ```cs
 var pdf = await IronPdf.ChromePdfRenderer.RenderHtmlAsPdfAsync("<h1>Hello World!</h1>");

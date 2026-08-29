@@ -10,7 +10,7 @@ In this tutorial, we demonstrate the feasibility of serving an existing HTML str
 
 ## 1. Install IronPDF
 
-To handle and serve existing PDF and HTML files or strings within the ASP.NET MVC framework, you can integrate IronPDF, a versatile C# PDF Library. Start developing with it today. Download the library from the [IronPDF DLL ZIP file](https://ironpdf.com/packages/IronPdf.zip) or install it through the [IronPDF NuGet package](https://www.nuget.org/packages/IronPdf).
+To handle and serve existing PDF and HTML files or strings within the ASP.NET MVC framework, you can integrate IronPDF, a C# PDF Library. Start developing with it today. Download the library from the [IronPDF DLL ZIP file](https://ironpdf.com/packages/IronPdf.zip) or install it through the [IronPDF NuGet package](https://www.nuget.org/packages/IronPdf).
 
 <br>
 
@@ -25,7 +25,7 @@ Install-Package IronPdf
 
 ## 2. Serve PDF in ASP.NET MVC
 
-Within ASP.NET MVC, serving a PDF can be achieved using the `FileResult` method. IronPDF leverages the [ASP.NET MVC framework](https://dotnet.microsoft.com/apps/aspnet/mvc) to facilitate the return of a PDF document.
+Within ASP.NET MVC, serving a PDF can be achieved using the `FileResult` method. IronPDF uses the [ASP.NET MVC framework](https://dotnet.microsoft.com/apps/aspnet/mvc) to facilitate the return of a PDF document.
 
 Below is an illustrative example of how to provide a PDF from your controller.
 

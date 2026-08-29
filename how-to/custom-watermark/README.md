@@ -5,9 +5,9 @@
 
 A custom watermark is a unique overlay of text or an image used primarily as a background on a PDF page. It offers several uses such as promoting branding through logos or names, enhancing document security with labels such as "Confidential", fortifying copyright protection, and denoting the status of a document. These watermarks may consist of text, images, or a combination of both and can be applied either selectively or across multiple pages, with adjustable opacity to suit different needs for customization, security, and contextualization of PDFs.
 
-IronPDF simplifies this process with an integrated feature to add watermarks to PDF documents using just a single line of code. This feature utilizes an HTML string to create the watermark, leveraging the full spectrum of HTML and CSS capabilities for versatility.
+IronPDF simplifies this process with an integrated feature to add watermarks to PDF documents using just a single line of code. This feature utilizes an HTML string to create the watermark, so the watermark can use any HTML and CSS the renderer supports.
 
-## Quickstart: Effortlessly Applying Custom Watermarks
+## Quickstart: Applying Custom Watermarks
 
 Adding a custom watermark to your PDF is straightforward with IronPDF. A single line of code can apply a distinctive watermark, custom-designed using HTML and CSS for adjustments in opacity, rotation, and placement based on a simple 3x3 grid system. This guide demonstrates how to rapidly enhance your PDF documents with custom watermarks, thereby ensuring both enhanced security and brand visibility.
 

@@ -48,7 +48,7 @@ for (var index = 0; index < pdf.PageCount; index++)
 
 ### Presentation of Results
 
-Using a simple C# Form, we demonstrate the effortless output obtained from reading the PDF content. This method emphasizes simplicity and minimal coding to meet the needs of your projects.
+Using a simple C# Form, we demonstrate the output obtained from reading the PDF content. This method emphasizes simplicity and minimal coding to meet the needs of your projects.
 
 <div class="row">
 <div class="col-md-6">

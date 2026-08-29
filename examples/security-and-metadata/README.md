@@ -1,6 +1,6 @@
 > Full guide: [Security and metadata](https://ironpdf.com/examples/security-and-metadata/)
 
-IronPDF equips developers with robust security features for PDF management, enabling them to tailor PDF metadata, set passwords, and define permissions to match specific document requirements. IronPDF's security and metadata functionalities are provided through classes like `SecuritySettings` and `MetaData`. This allows setting restrictions such as making PDFs unprintable, read-only, utilizing 128-bit encryption, and enforcing password protection.
+IronPDF equips developers with security features for PDF management, enabling them to tailor PDF metadata, set passwords, and define permissions to match specific document requirements. IronPDF's security and metadata functionalities are provided through classes like `SecuritySettings` and `MetaData`. This allows setting restrictions such as making PDFs unprintable, read-only, utilizing 128-bit encryption, and enforcing password protection.
 
 Using the `MetaData` class, developers can customize various metadata attributes of PDFs, such as author, keywords, modification date, and others. Additionally, the security customization is done through setting user-specific and owner-specific passwords, printing permissions, and toggling read-only status.
 

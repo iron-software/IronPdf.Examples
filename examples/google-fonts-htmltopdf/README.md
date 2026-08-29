@@ -2,7 +2,7 @@
 
 Incorporating custom fonts is crucial when creating PDFs that need a specific aesthetic touch. Organizations often require unique fonts and bespoke icons to represent their brand effectively. IronPDF caters to this need by supporting a wide range of web fonts, including the extensive Google Fonts library.
 
-The following example will guide you through the process of integrating your own custom fonts into PDFs, utilizing the robust capabilities of IronPDF's custom fonts support. This feature allows developers to have complete control over fonts without being restricted to the default system typefaces.
+The following example will guide you through the process of integrating your own custom fonts into PDFs, utilizing IronPDF's custom fonts support. This feature allows developers to have complete control over fonts without being restricted to the default system typefaces.
 
 Be aware, however, that using custom fonts in your PDFs involves a slight complication—you'll need to implement a `RenderDelay`. Additionally, web fonts are incompatible with Azure shared Windows Web App hosting due to Microsoft’s security policies.
 

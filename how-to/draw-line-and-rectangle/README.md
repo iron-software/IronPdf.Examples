@@ -9,7 +9,7 @@ This guide will show you how easy it is to insert clean, professional-looking li
 
 ## Easy Steps to Add Lines and Rectangles Using IronPDF
 
-Unlock the potential of your PDFs by incorporating lines and rectangles through IronPDF. This quickstart guide will introduce you to the `DrawLine` and `DrawRectangle` methods. These methods enable you to effortlessly add dynamic graphical elements to your documents. Let’s dive right in.
+Get the most out of your PDFs by incorporating lines and rectangles through IronPDF. This quickstart guide will introduce you to the `DrawLine` and `DrawRectangle` methods. These methods enable you to add dynamic graphical elements to your documents. Let’s dive right in.
 
 ```cs
 IronPdf.PdfDocument pdf = IronPdf.PdfDocument.FromFile("input.pdf");

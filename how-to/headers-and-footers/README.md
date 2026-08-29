@@ -7,7 +7,7 @@ Do you need to insert page numbers, your company's logo, or the date on every pa
 
 ## Quickstart: Add Headers and Footers to PDFs in C#
 
-Quickly and efficiently enhance your PDF documents by adding headers and footers using IronPDF in your C# applications. This brief guide will demonstrate how to implement text-based headers and footers, including page numbers and custom text. Leverage the `AddTextHeaders` and `AddTextFooters` methods for rapid enhancements, ensuring a polished look for your documents with minimal code. This is ideal for developers who need a quick solution for document formatting using IronPDF.
+Quickly and efficiently enhance your PDF documents by adding headers and footers using IronPDF in your C# applications. This brief guide will demonstrate how to implement text-based headers and footers, including page numbers and custom text. Use the `AddTextHeaders` and `AddTextFooters` methods for rapid enhancements, ensuring a polished look for your documents with minimal code. This is ideal for developers who need a quick solution for document formatting using IronPDF.
 
 ```cs
 new IronPdf.ChromePdfRenderer { RenderingOptions = { TextHeader = new IronPdf.TextHeaderFooter { CenterText = "Report • {date}" }, TextFooter = new IronPdf.TextHeaderFooter { RightText = "Page {page} of {total‑pages}" } } }

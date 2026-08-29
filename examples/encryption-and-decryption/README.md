@@ -4,7 +4,7 @@
 Is your organization facing high expenses for annual PDF security and compliance subscriptions? Look no further than <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc, the Comprehensive PDF Security Solution</a>, which offers a one-time payment plan encompassing all core services like digital signing, redaction, encryption, and protection. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Explore IronSecureDoc Documentation</a>
 </div>
 
-IronPDF prioritizes PDF security and offers robust tools for encrypting and decrypting PDF files. This includes adding custom metadata and security settings to your PDFs. IronPDF supports 128-bit encryption, decrypting files with the correct passwords and enforcing password protection on PDF documents, both existing and new.
+IronPDF prioritizes PDF security and offers tools for encrypting and decrypting PDF files. This includes adding custom metadata and security settings to your PDFs. IronPDF supports 128-bit encryption, decrypting files with the correct passwords and enforcing password protection on PDF documents, both existing and new.
 
 <div class="examples__featured-snippet">
 <h2>Steps to Convert URL to PDF in C#</h2>

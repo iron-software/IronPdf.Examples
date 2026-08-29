@@ -9,7 +9,7 @@ Photos generally make up a large portion of a PDF's file size due to their large
 
 ## Quickstart: Compress PDF Files with IronPDF
 
-Easily shrink the file sizes of your PDFs utilizing IronPDF's robust compression tools. First, open your PDF with `PdfDocument.FromFile`, use the `Compress` method with standard settings, and then save your reduced PDF. This straightforward workflow facilitates significant reductions in file size while preserving quality and is ideal for developers looking for effective document handling in .NET C#.
+Easily shrink the file sizes of your PDFs utilizing IronPDF's compression tools. First, open your PDF with `PdfDocument.FromFile`, use the `Compress` method with standard settings, and then save your reduced PDF. This straightforward workflow facilitates significant reductions in file size while preserving quality and is ideal for developers looking for effective document handling in .NET C#.
 
 ```cs
 PdfDocument.FromFile("input.pdf").CompressImages(40).SaveAs("compressed.pdf");

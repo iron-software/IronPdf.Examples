@@ -18,7 +18,7 @@ The `RenderDelay` feature in IronPDF allows developers to set a delay to accommo
 - Kendo
 - Backbone
 
-Iron Software recognizes that developers might want to tailor their PDF documents to meet specific customer expectations exactly. By leveraging the [Angular.js PDF rendering capabilities of IronPDF](https://ironpdf.com/how-to/javascript-to-pdf/), you can achieve the desired appearance within Chrome.
+Iron Software recognizes that developers might want to tailor their PDF documents to meet specific customer expectations exactly. By using the [Angular.js PDF rendering capabilities of IronPDF](https://ironpdf.com/how-to/javascript-to-pdf/), you can achieve the desired appearance within Chrome.
 
 This technique ensures that the resulting PDF documents are a perfect match to what you would see in Google Chrome's PDF rendering.
 

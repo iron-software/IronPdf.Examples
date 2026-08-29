@@ -9,7 +9,7 @@ Reduce your business expenditure on annual PDF security subscriptions. Look into
 
 Password protecting a PDF encrypts the document, preventing unauthorized entry. There are typically two types of passwords: a user (open) password that someone needs to view the document and an owner (permissions) password, which set limits on printing, editing, and other functionalities.
 
-IronPDF delivers full-spectrum support for securing your PDF files with intricate security and meta-data options, such as unprintable settings, read-only mode, and encryption using 128-bit security - all encapsulated in a robust password protection facility.
+IronPDF delivers full-spectrum support for securing your PDF files with intricate security and meta-data options, such as unprintable settings, read-only mode, and encryption using 128-bit security - all encapsulated in a password protection facility.
 
 ## Quickstart: Implementing Passwords and Permissions with IronPDF
 

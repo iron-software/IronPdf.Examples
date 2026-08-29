@@ -4,16 +4,16 @@
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-Explore the [IronPrint .NET Printing Library](https://ironsoftware.com/csharp/print/), Iron Software's cutting-edge .NET printing library that supports multiple platforms including Windows, macOS, Android, and iOS. [Get started with IronPrint](https://ironsoftware.com/csharp/print/docs/) today!
+Explore the [IronPrint .NET Printing Library](https://ironsoftware.com/csharp/print/), Iron Software's .NET printing library that supports multiple platforms including Windows, macOS, Android, and iOS. [Get started with IronPrint](https://ironsoftware.com/csharp/print/docs/) today!
 </div>
 
-Automating PDF printing from a .NET C# application enhances functional integration within applications, streamlines document handling, and ensures uniformity in PDF output. This automation provides meticulous control over the print management.
+Automating PDF printing from a .NET C# application enhances functional integration within applications, simplifies document handling, and ensures uniformity in PDF output. This automation provides meticulous control over the print management.
 
 IronPDF introduces an efficient solution that allows for printing PDFs directly to a physical printer through a simple method call, facilitating the printing of multiple documents concurrently. It also enables users to define the printer resolution with customizable DPI settings for both horizontal and vertical dimensions. You can gain additional control by utilizing methods that accept both `PrinterSettings` and `PrintController`.
 
 ## Quickstart: Print PDFs in .NET with IronPDF
 
-IronPDF simplifies the process of printing PDF documents in .NET applications. In just a few steps, you can integrate PDF printing capabilities with minimal configuration required, allowing for high-quality prints with adjustable settings. Start streamlining your document processes today.
+IronPDF simplifies the process of printing PDF documents in .NET applications. In just a few steps, you can integrate PDF printing capabilities with minimal configuration required, allowing for high-quality prints with adjustable settings. Start simplifying your document processes today.
 
 ```cs
 // Load and print a PDF file with a single line of code

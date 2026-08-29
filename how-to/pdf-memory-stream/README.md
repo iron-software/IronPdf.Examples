@@ -7,7 +7,7 @@ Creating a PDF from a MemoryStream in C# .NET is straightforward without the nee
 
 ## Quick Guide: Generating PDFs from MemoryStream Using C#
 
-Efficiently transform a `MemoryStream` into a PDF document with IronPDF using a single line of code. This guide demonstrates how to effortlessly create a `PdfDocument` from a `MemoryStream`, enabling developers to effortlessly incorporate PDF generation into their C# applications without the necessity of file manipulation. This is ideal for situations that require handling of in-memory data, network interactions, or dynamic data conversions.
+Efficiently transform a `MemoryStream` into a PDF document with IronPDF using a single line of code. This guide demonstrates how to create a `PdfDocument` from a `MemoryStream`, enabling developers to incorporate PDF generation into their C# applications without the necessity of file manipulation. This is ideal for situations that require handling of in-memory data, network interactions, or dynamic data conversions.
 
 ```cs
 var pdfBytes = File.ReadAllBytes("sample.pdf");

@@ -97,7 +97,7 @@ await document.PrintToFile("PathToFile", false);
 
 ## Monitoring Printing Operations with C#
 
-Leveraging C# along with IronPDF simplifies monitoring and tracking printing activities, such as adjusting printer settings or counting printed pages. Here's an example that demonstrates these functions:
+Using C# along with IronPDF simplifies monitoring and tracking printing activities, such as adjusting printer settings or counting printed pages. Here's an example that demonstrates these functions:
 
 ```csharp
 using IronPdf;

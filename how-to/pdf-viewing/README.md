@@ -4,7 +4,7 @@
 
 ![IronPDF Viewer Banner](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/ironpdf_viewer_banner.png)
 
-In today’s landscape of software development, enabling users to view PDF documents within your application has become essential. Utilize the **IronPDF Viewer** to seamlessly integrate PDF functionality into your MAUI apps.
+An application that produces PDFs usually has to display them too. Utilize the **IronPDF Viewer** to integrate PDF functionality into your MAUI apps.
 
 This guide will demonstrate the integration of **IronPDF Viewer** within a MAUI application, enabling functions like viewing, saving, and printing PDF files.
 

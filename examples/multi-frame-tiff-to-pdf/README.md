@@ -1,6 +1,6 @@
 > Full guide: [Multi frame TIFF to PDF](https://ironpdf.com/examples/multi-frame-tiff-to-pdf/)
 
-IronPDF offers robust features for converting TIFF (Tagged Image File Format) files into high-quality PDF documents. This capability is utilized through the `ImageToPdfConverter.ImageToPdf` method. With its commitment to maintaining excellent quality, IronPDF ensures that the exported PDF document meticulously preserves the integrity of the original TIFF file.
+IronPDF offers features for converting TIFF (Tagged Image File Format) files into high-quality PDF documents. This capability is utilized through the `ImageToPdfConverter.ImageToPdf` method. With its commitment to maintaining excellent quality, IronPDF ensures that the exported PDF document meticulously preserves the integrity of the original TIFF file.
 
 ## A Quick Two-Step Guide on Converting TIFF to PDF
 

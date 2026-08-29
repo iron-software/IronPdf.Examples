@@ -5,7 +5,7 @@
 
 PDF rendering options encompass the diverse settings and configurations utilized during the generation, viewing, and printing of PDF documents. These options cover a broad spectrum of functionalities such as integrating form fields, activating JavaScript, creating a table of contents, appending headers and footers, adjusting margins, and defining the size of the PDF paper, among others.
 
-The **ChromePdfRenderer** class from IronPDF offers a versatile set of rendering options, empowering users to tailor the generation of PDFs to their specific needs. This class includes features like PaperFit, which manages content layout across PDF pages. It supports various layout modes such as responsive CSS3 layouts and continuous feed.
+The **ChromePdfRenderer** class from IronPDF offers a set of rendering options, letting users tailor the generation of PDFs to their specific needs. This class includes features like PaperFit, which manages content layout across PDF pages. It supports various layout modes such as responsive CSS3 layouts and continuous feed.
 
 ```cs
 new IronPdf.ChromePdfRenderer { RenderingOptions = { PrintHtmlBackgrounds = true, MarginTop = 0, MarginBottom = 0, CssMediaType = IronPdf.Rendering.PdfCssMediaType.Print, HtmlHeader = new IronPdf.HtmlHeaderFooter { HtmlFragment = "<div>Custom Header</div>" }, Language = "en-US", Timeout = 120000 } }

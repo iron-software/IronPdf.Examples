@@ -348,7 +348,7 @@ h2[id^="anchor-"] {
 
 # Installation Overview
 
-A comprehensive guide to setting up and customizing IronPDF for all supported platforms.
+A guide to setting up and customizing IronPDF for all supported platforms.
 
 ```cs
 IronPdf.ChromePdfRenderer
@@ -888,7 +888,7 @@ IronPdf.Installation.Initialize();
 
 ## 5. Deployment Scenarios
 
-Here are various environments where IronPDF .NET can be seamlessly deployed:
+Here are various environments where IronPDF .NET can be deployed:
 
 <div class="row deployment-scenarios g-4">
     <div class="col-6">

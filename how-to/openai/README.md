@@ -13,7 +13,7 @@
 
 OpenAI, known for its commitment towards advancing intelligent technology that benefits all humanity, is a distinguished artificial intelligence research lab. Its organizational structure includes both a non-profit and a for-profit entity. OpenAI drives forward numerous research initiatives across diverse AI domains and seeks to create AI solutions that are safe, beneficial, and globally accessible.
 
-The [`IronPdf.Extensions.AI`](https://www.nuget.org/packages/IronPdf.Extensions.AI) library now includes functionality to expand PDF processing capabilities through OpenAI, such as summarization, querying, and data retention, leveraging capabilities from Microsoft's [Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/).
+The [`IronPdf.Extensions.AI`](https://www.nuget.org/packages/IronPdf.Extensions.AI) library now includes functionality to expand PDF processing capabilities through OpenAI, such as summarization, querying, and data retention, using capabilities from Microsoft's [Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/).
 
 ### Quick Guide: How to Summarize PDFs with IronPDF and OpenAI
 

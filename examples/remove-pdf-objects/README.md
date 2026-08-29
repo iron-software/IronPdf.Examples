@@ -1,6 +1,6 @@
 > Full guide: [Remove PDF objects](https://ironpdf.com/examples/remove-pdf-objects/)
 
-Modifying a PDF document by selectively removing elements can be challenging. Nevertheless, IronPDF equips developers with a straightforward and intuitive method to access and manipulate the PDF's Document Object Model (DOM).
+Modifying a PDF document by selectively removing elements can be challenging. Nevertheless, IronPDF equips developers with a straightforward method to access and manipulate the PDF's Document Object Model (DOM).
 
 The following demonstration will guide you through the process of programmatically deleting specific objects, like images or text, from a PDF file using a few simple code lines.
 
@@ -19,7 +19,7 @@ The following demonstration will guide you through the process of programmatical
 
 Initially, we load a PDF file through the `FromFile` method, which opens a specified PDF document and assigns it to a variable.
 
-Next, we target the objects on the initial page of the PDF by using `Pages.First`, which fetches the first page. We then delve into the `ObjectModel` collection, which holds all the objects of that particular page.
+Next, we target the objects on the initial page of the PDF by using `Pages.First`, which fetches the first page. We then look at the `ObjectModel` collection, which holds all the objects of that particular page.
 
 To delete an object, we pinpoint the specific collection within the ObjectModel that we're interested in. Here, we're focusing on eliminating an image from the `ImageObjects` collection. By invoking the `RemoveAt` method with an index of 0, we remove the first image in the collection. It's crucial to remember that collections use zero-based indexing, so the first element is always index zero.
 

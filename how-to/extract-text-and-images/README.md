@@ -7,13 +7,13 @@
 Reduce your yearly expenditures on PDF security and compliance by considering <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>, an all-inclusive solution for SaaS services such as digital signing, redaction, encryption, and protection, available with a one-time payment. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Discover More About IronSecureDoc</a>
 </div>
 
-Retrieving text and images from PDF files is essential for accessing and leveraging content within these documents, enabling editing, searching, or further content analysis. This can be particularly useful when converting text to different formats or saving images for further examination or reuse.
+Retrieving text and images from PDF files is essential for accessing and using content within these documents, enabling editing, searching, or further content analysis. This can be particularly useful when converting text to different formats or saving images for further examination or reuse.
 
 IronPdf is the tool for this task. This library facilitates the extraction of text and images from PDFs, allowing them to be saved or converted and utilized in new documents.
 
 ## Beginners Guide: Extract Text and Images Using IronPDF
 
-With IronPDF, extracting text and images from PDF documents is straightforward and requires only a few lines of code. This guide provides developers with the necessary know-how to extract information from PDFs, aiding in content repurposing and analysis. Whether you need the text for editing purposes or wish to preserve images, IronPDF offers an efficient solution for managing PDF contents. Start using the IronPdf library today for an effortless PDF handling experience.
+With IronPDF, extracting text and images from PDF documents is straightforward and requires only a few lines of code. This guide provides developers with the necessary know-how to extract information from PDFs, aiding in content repurposing and analysis. Whether you need the text for editing purposes or wish to preserve images, IronPDF offers an efficient solution for managing PDF contents. Start using the IronPdf library today for a PDF handling experience.
 
 ```cs
 var pdfDocument = new IronPdf.PdfDocument("sample.pdf");

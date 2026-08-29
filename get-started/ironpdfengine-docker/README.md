@@ -145,7 +145,7 @@ IronPdf offers various connection types tailored to suit different application n
 
 **RemoteServer**: This connection type is designed for situations where the IronPdfEngine is hosted in a cloud environment. It requires a complete URL, inclusive of the HTTP or HTTPS protocol, to establish a connection to a cloud-based instance of IronPdfEngine, such as one running inside a Docker container.
 
-**Custom**: Offering the highest level of flexibility, the Custom connection type permits developers to define their own gRPC communication channels. This can be accomplished by either initiating a new `Grpc.Core.Channel` or by leveraging `Grpc.Net.Client.GrpcChannel.ForAddress(System.String)` to create a bespoke channel, thus providing unparalleled control over the gRPC interactions.
+**Custom**: Offering the highest level of flexibility, the Custom connection type permits developers to define their own gRPC communication channels. This can be accomplished by either initiating a new `Grpc.Core.Channel` or by using `Grpc.Net.Client.GrpcChannel.ForAddress(System.String)` to create a bespoke channel, thus providing unparalleled control over the gRPC interactions.
 
 ### .NET Framework with NetFrameworkChannel
 
@@ -259,7 +259,7 @@ document.Dispose();
 
 Make use of your now operational IronPdfEngine in AWS and consider how to scale based on your specific workload and demand, keeping in mind that IronPdfEngine currently does not support horizontal scaling. More details on this limitation can be found on the [IronPdfEngine Limitation page](https://ironsoftware.com/csharp/ocr/docs/get-started/ironpdfengine/#anchor-ironpdfengine-limitation).
 
-This setup empowers your applications with robust PDF processing capabilities directly within your AWS infrastructure.
+This setup allows your applications with PDF processing capabilities directly within your AWS infrastructure.
 
 ## Setting Up IronPdfEngine on Azure Container Instances
 
@@ -314,7 +314,7 @@ For guidance on configuring the IronPdf client to work with IronPdfEngine, refer
 
 ## Access IronPdfEngine via Online Marketplaces
 
-We've streamlined the initial setup for IronPdfEngine by making it available on both the Azure and AWS online marketplaces.
+We've simplified the initial setup for IronPdfEngine by making it available on both the Azure and AWS online marketplaces.
 
 ### Azure Marketplace
 

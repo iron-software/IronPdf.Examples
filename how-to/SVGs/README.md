@@ -3,11 +3,11 @@
 > Full guide: [Convert SVG to PDF in C#](https://ironpdf.com/how-to/SVGs/)
 
 
-IronPDF delivers robust functionality for including SVG images into PDF files using its "HTML to PDF" feature.
+IronPDF delivers functionality for including SVG images into PDF files using its "HTML to PDF" feature.
 
 It's essential to specify the **width** and/or **height** attribute of the **img** element when incorporating SVGs in your documents. If these attributes are not set, the SVG might render as an invisible element due to collapsing to a minimal size.
 
-## Quickstart: Effortless SVG to PDF Conversion
+## Quickstart: SVG to PDF Conversion
 
 Explore the process of converting SVG images into PDF format with IronPDF using C#. This example shows how to embed an SVG using the HTML img tag with predefined sizes which is vital for correct depiction in the PDF. Follow these straightforward steps for a flawless transition of your SVGs into PDF documents.
 

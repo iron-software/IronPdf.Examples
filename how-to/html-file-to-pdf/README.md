@@ -7,7 +7,7 @@ IronPDF simplifies the process of converting HTML files into PDFs. It has the ca
 
 ## Quickstart: HTML to PDF Conversion Using IronPDF
 
-Transform HTML files to PDF effortlessly using IronPDF with just a few lines of C# code. Utilize the `ChromePdfRenderer` class to quickly change HTML content into polished PDF documents. Just provide the path of your HTML file, and IronPDF does the rest, making this process ideal for developers who need to integrate PDF generation into their projects seamlessly.
+Transform HTML files to PDF using IronPDF with just a few lines of C# code. Utilize the `ChromePdfRenderer` class to quickly change HTML content into polished PDF documents. Just provide the path of your HTML file, and IronPDF does the rest, making this process ideal for developers who need to integrate PDF generation into their projects.
 
 ```cs
 new IronPdf.ChromePdfRenderer()

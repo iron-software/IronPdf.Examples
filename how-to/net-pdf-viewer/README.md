@@ -9,7 +9,7 @@ IronPDF offers a PDF viewer compatible with MAUI projects. For additional detail
 
 ## Quickstart: Viewing PDFs with IronPDF in C#
 
-Start viewing PDFs in your .NET applications promptly with IronPDF. This brief tutorial guides you through embedding a PDF viewer using IronPDF's straightforward API. It allows the seamless loading and presenting of PDF documents, ideal for developers aiming to quickly add PDF viewing features to their C# applications.
+Start viewing PDFs in your .NET applications promptly with IronPDF. This brief tutorial guides you through embedding a PDF viewer using IronPDF's straightforward API. It allows the loading and presenting of PDF documents, ideal for developers aiming to quickly add PDF viewing features to their C# applications.
 
 ```cs
 new IronPdf.Viewer.Maui.IronPdfView { Source = IronPdf.Viewer.Maui.PdfViewSource.FromFile("yourfile.pdf") };
@@ -17,7 +17,7 @@ new IronPdf.Viewer.Maui.IronPdfView { Source = IronPdf.Viewer.Maui.PdfViewSource
 
 ## ASP.NET & MVC PDF viewer
 
-In web applications, you can render PDFs in a browser window or an iframe. Alternatively, consider employing the robust [pdf.js library from Mozilla](https://mozilla.github.io/pdf.js/), which delivers an extensive PDF viewer completely developed in JavaScript.
+In web applications, you can render PDFs in a browser window or an iframe. Alternatively, consider employing the [pdf.js library from Mozilla](https://mozilla.github.io/pdf.js/), which delivers an extensive PDF viewer completely developed in JavaScript.
 
 <hr class="separator">
 

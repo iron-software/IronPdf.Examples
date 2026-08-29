@@ -11,7 +11,7 @@
     </div>
 </div>
 
-IronPDF supports the creation, modification, and reading of PDF files seamlessly on Azure. It has been efficiently utilized across various Azure services, including MVC websites and Azure Functions.
+IronPDF supports the creation, modification, and reading of PDF files on Azure. It has been efficiently utilized across various Azure services, including MVC websites and Azure Functions.
 
 <hr class="separator">
 

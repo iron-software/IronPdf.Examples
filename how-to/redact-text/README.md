@@ -13,7 +13,7 @@ Similarly, when you need to obscure specific sections of a document, area redact
 
 ## Quick Guide: Redacting Sensitive Information in PDFs
 
-Quickly remove confidential details from your PDF files using the seamless redaction features of IronPDF. A few lines of code will allow you to apply comprehensive redaction across all pages of a PDF document. This brief tutorial shows how to open a PDF, apply redactions, and save your privacy-compliant file using the straightforward IronPDF API.
+Quickly remove confidential details from your PDF files using the redaction features of IronPDF. A few lines of code will allow you to apply comprehensive redaction across all pages of a PDF document. This brief tutorial shows how to open a PDF, apply redactions, and save your privacy-compliant file using the straightforward IronPDF API.
 
 ```cs
 IronPdf.PdfDocument document = IronPdf.PdfDocument.FromFile("document.pdf");

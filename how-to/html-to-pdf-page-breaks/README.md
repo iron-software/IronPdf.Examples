@@ -7,7 +7,7 @@ IronPDF facilitates the integration of page breaks within PDF documents. Unlike 
 
 ## Quickstart: Page Breaks Management in HTML to PDF Conversion
 
-Leveraging IronPDF to convert HTML to PDF with page breaks is seamless. With the straightforward addition of CSS styling such as `page-break-after: always;`, developers can dictate the placement of page breaks. This functionality not only enhances the structure of the resulting PDF but also improves its readability, making it ideal for applications necessitating efficient HTML to PDF conversions.
+IronPDF honours CSS page breaks when it converts HTML to PDF. With the straightforward addition of CSS styling such as `page-break-after: always;`, developers can dictate the placement of page breaks. This functionality not only enhances the structure of the resulting PDF but also improves its readability, making it ideal for applications necessitating efficient HTML to PDF conversions.
 
 ```cs
 new IronPdf.ChromePdfRenderer()

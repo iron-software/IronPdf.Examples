@@ -1,6 +1,6 @@
 > Full guide: [HTML headers and footers](https://ironpdf.com/examples/html-headers-and-footers/)
 
-HTML headers and footers offer a versatile way to incorporate dynamic elements into your PDF documents. Using this approach, developers can fully customize the presentation of headers and footers since they are generated from separate HTML documents that support their unique assets and styling.
+HTML headers and footers offer a way to incorporate dynamic elements into your PDF documents. Using this approach, developers can fully customize the presentation of headers and footers since they are generated from separate HTML documents that support their unique assets and styling.
 
 ## Steps to Implement Custom HTML Headers and Footers in a PDF using IronPDF
 

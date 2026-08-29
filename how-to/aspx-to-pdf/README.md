@@ -2,9 +2,9 @@
 
 > Full guide: [Convert ASPX to PDF in ASP.NET](https://ironpdf.com/how-to/aspx-to-pdf/)
 
-Follow this detailed guide to learn how to effortlessly transform ASPX into PDF format, ideal for ASP.NET web applications.
+Follow this detailed guide to learn how to transform ASPX into PDF format, ideal for ASP.NET web applications.
 
-Opening an ASPX file with the .aspx extension in browsers like Google Chrome isn't necessary. Our engineering team utilizes .NET coding techniques to automate the conversion of ASPX files to PDF format, eliminating the need for manual commands like CTRL+P. We leverage server-side processes to transform ASPX web content directly into PDF files.
+Opening an ASPX file with the .aspx extension in browsers like Google Chrome isn't necessary. Our engineering team utilizes .NET coding techniques to automate the conversion of ASPX files to PDF format, eliminating the need for manual commands like CTRL+P. We use server-side processes to transform ASPX web content directly into PDF files.
 
 Configure various settings such as file behavior and naming, incorporate headers and footers, modify printing options, insert page breaks, and integrate asynchronous programming and multithreading for enhanced performance.
 
@@ -68,7 +68,7 @@ IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.InBrowser);
 ```
 
 ---
-This single step is sufficient; your HTML will be accurately converted into a PDF, with Hyperlinks, StyleSheets, Images, and HTML forms intact. The final result mirrors what you would expect if the HTML were printed to PDF directly within the browser. IronPDF leverages the Chromium web browser engine, the same technology behind Google Chrome, to ensure precise rendering.
+This single step is sufficient; your HTML will be accurately converted into a PDF, with Hyperlinks, StyleSheets, Images, and HTML forms intact. The final result mirrors what you would expect if the HTML were printed to PDF directly within the browser. IronPDF uses the Chromium web browser engine, the same technology behind Google Chrome, to ensure precise rendering.
 
 Below is the complete C# code demonstrating the conversion of an ASPX page to a PDF within Active Server Pages:
 ---
@@ -164,7 +164,7 @@ The available PDF rendering options include:
 - `UseMarginsOnHeaderAndFooter`: Indicates whether to apply the main document’s margin settings to headers and footers.
 - `PaperFit`: Manages virtual paper layouts to dictate content alignment within PDF pages, offering settings like Default Chrome Behavior, Zoomed, Responsive CSS3 Layouts, Scale-To-Page, and Continuous Feed.
 - `PaperOrientation`: Sets the PDF orientation to either Landscape or Portrait.
-- `PageRotation`: Adjusts page rotation of the existing document. See our [comprehensive guide and code sample](https://ironpdf.com/examples/pdf-page-orientation/).
+- `PageRotation`: Adjusts page rotation of the existing document. See our [guide and code sample](https://ironpdf.com/examples/pdf-page-orientation/).
 - `PaperSize`: Specifies the paper size for PDF output using `System.Drawing.Printing.PaperKind`.
 - `SetCustomPaperSizeinCentimeters`, `SetCustomPaperSizeInInches`, `SetCustomPaperSizeinMilimeters`, `SetCustomPaperSizeinPixelsOrPoints`: Allows custom paper size settings in various units.
 - `ForcePaperSize`: Forces the PDF to adhere strictly to specified paper size by resizing pages post HTML to PDF conversion.
@@ -326,7 +326,7 @@ The HTML code snippet below, when embedded in an ASPX page, automatically induce
 
 ## 6. Enhancing Performance with Async and Multithreading
 
-IronPDF is optimized to work with .NET Framework 4.6.2, as well as .NET Core 2 or newer. Projects based on these frameworks can leverage [asynchronous programming capabilities](https://ironpdf.com/how-to/async/) to significantly enhance document processing efficiency, particularly when handling numerous files.
+IronPDF is optimized to work with .NET Framework 4.6.2, as well as .NET Core 2 or newer. Projects based on these frameworks can use [asynchronous programming capabilities](https://ironpdf.com/how-to/async/) to significantly enhance document processing efficiency, particularly when handling numerous files.
 
 Utilizing Async alongside multicore processors and employing the `Parallel.ForEach` method can lead to substantial improvements in the processing speed of large volumes of PDF files.
 

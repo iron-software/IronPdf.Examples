@@ -15,7 +15,7 @@ Create editable PDF forms from HTML by incorporating `<form>`, `<input>`, and `<
 
 Utilize the `PdfDocument.Form.FindFormField` method to both read and update any form field. The identification of the field corresponds to its 'name' attribute in your HTML.
 
-The `PdfDocument.Form` object can be leveraged in two primary ways:
+The `PdfDocument.Form` object can be used in two primary ways:
 
 - **Setting Default Values**: Use this feature to assign default values to form fields, which will be visible in PDF applications like Adobe Reader.
 - **Capturing User Input**: Once the form is filled out by a user, retrieve and process the data from the form fields back into your software system.

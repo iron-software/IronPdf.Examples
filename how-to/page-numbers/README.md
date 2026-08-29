@@ -3,7 +3,7 @@
 > Full guide: [How to Incorporate Page Numbers into a PDF Document](https://ironpdf.com/how-to/page-numbers/)
 
 
-Page numbering assigns unique identifiers to each page of a PDF, facilitating easier navigation and referencing. This feature is invaluable for locating specific portions of content, understanding one's position within the document, and referencing for academic or professional purposes. Using IronPDF, you have the ability to seamlessly integrate page numbers into your PDF documents.
+Page numbering assigns unique identifiers to each page of a PDF, facilitating easier navigation and referencing. This feature is invaluable for locating specific portions of content, understanding one's position within the document, and referencing for academic or professional purposes. Using IronPDF, you have the ability to integrate page numbers into your PDF documents.
 
 ## Simplified Guide: Inserting Page Numbers in PDFs
 

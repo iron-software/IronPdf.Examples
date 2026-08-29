@@ -1,6 +1,6 @@
 > Full guide: [Markdown to PDF](https://ironpdf.com/examples/markdown-to-pdf/)
 
-Markdown is a simple markup language that enables formatting in plain text without the need to use HTML tags. With the assistance of IronPDF, transforming Markdown to PDF is as straightforward as converting HTML or plain text documents. Leveraging the `ChromePdfRenderer`, the conversion of Markdown material to high-quality PDF files is incredibly efficient, achievable within a few lines of code. IronPDF excels in processing either a full Markdown file or a simple string of Markdown.
+Markdown is a simple markup language that enables formatting in plain text without the need to use HTML tags. With the assistance of IronPDF, transforming Markdown to PDF is as straightforward as converting HTML or plain text documents. Using the `ChromePdfRenderer`, the conversion of Markdown material to high-quality PDF files is incredibly efficient, achievable within a few lines of code. IronPDF excels in processing either a full Markdown file or a simple string of Markdown.
 
 ## Convert Markdown to PDF in Five Easy Steps Using C&#35;
 
@@ -10,6 +10,6 @@ The second step entails initializing a new instance of `ChromePdfRenderer`. This
 
 Starting with `RenderMarkdownFileAsPdf`, pass the Markdown file through this method to convert its content into a PDF, which will then be saved into a `PdfDocument` object named **pdfFromFile**. Next, convert the earlier referenced Markdown string to PDF using `RenderMarkdownStringAsPdf`, capturing the output into the same `PdfDocument` object we previously declared.
 
-The final step involves saving the new PDF documents. This is effortlessly done with the `SaveAs` method, allowing you to specify the destination and filename for the PDF documents.
+The final step involves saving the new PDF documents. This is done with the `SaveAs` method, allowing you to specify the destination and filename for the PDF documents.
 
 [Explore Our Guide to Convert Markdown to PDF](https://ironpdf.com/how-to/md-to-pdf/)

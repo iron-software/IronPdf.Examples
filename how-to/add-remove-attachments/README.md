@@ -89,4 +89,4 @@ After deletion, when you open the PDF, the attachment will be absent, demonstrat
 
 ![Removed Attachment Preview](https://ironpdf.com/static-assets/pdf/how-to/add-remove-attachments/removeattachment-example.png)
 
-Explore more capabilities of managing PDFs by visiting the tutorial page here: [Comprehensive Guide to Organizing PDFs](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/).
+Explore more capabilities of managing PDFs by visiting the tutorial page here: [Guide to Organizing PDFs](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/).

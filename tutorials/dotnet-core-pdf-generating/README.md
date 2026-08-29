@@ -1,6 +1,6 @@
-# Transforming HTML to PDF in .NET Core: Comprehensive Guide for URLs, Razor Views, Security, and Docker Deployment
+# Transforming HTML to PDF in .NET Core: Guide for URLs, Razor Views, Security, and Docker Deployment
 
-> Full guide: [Transforming HTML to PDF in .NET Core: Comprehensive Guide for URLs, Razor Views, Security, and Docker Deployment](https://ironpdf.com/tutorials/dotnet-core-pdf-generating/)
+> Full guide: [Transforming HTML to PDF in .NET Core: Guide for URLs, Razor Views, Security, and Docker Deployment](https://ironpdf.com/tutorials/dotnet-core-pdf-generating/)
 
 Creating precise, high-quality PDF documents from HTML sources is commonly required in contemporary .NET applications, especially for producing exact replicas of reports, invoices, and tickets that align closely with web user interfaces. IronPDF facilitates this by offering a unified C# API capable of rendering HTML content, Razor views, and entire websites into compliant PDF files. Upon completing this guide, developers will be equipped to transform URLs, straightforward HTML, or MVC architectures into PDFs within an ASP.NET Core framework, and this process can be applied across diverse operating platforms including Windows, Linux, Docker, and serverless architectures.
 
@@ -916,7 +916,7 @@ combinedPdf.SaveAs("invoice-with-terms.pdf");
 
 - **Durability Over Time** – The API design eschews interop assemblies and Win32 GDI calls, ensuring that the IronPDF functions consistently across Windows, Linux, Docker, and the imminent .NET 10 serverless environments.
 
-**Looking to manipulate PDF pages?** Refer to the [comprehensive guide on page-level modifications](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/) for detailed instructions on splitting, rotating, or removing pages.
+**Looking to manipulate PDF pages?** Refer to the [guide on page-level modifications](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/) for detailed instructions on splitting, rotating, or removing pages.
 
 ## Secure and Digitally Sign PDFs in .NET Core
 

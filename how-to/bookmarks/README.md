@@ -7,7 +7,7 @@ Integrating PDF bookmarks, often referred to as outlines, into your C# projects 
 
 ## Quickstart: How to Inject Bookmarks into Your PDF using C#
 
-Kick off your journey with IronPDF and streamline the process of embedding bookmarks in your PDF documents. This guide provides a step-by-step approach to load an existing PDF, insert bookmarks for seamless navigation, and save the enhanced document. This is ideal for developers eager to boost PDF capabilities in their C# applications quickly and efficiently.
+IronPDF embeds bookmarks in a PDF. This guide provides a step-by-step approach to load an existing PDF, insert bookmarks for navigation, and save the enhanced document. This is ideal for developers eager to boost PDF capabilities in their C# applications quickly and efficiently.
 
 ```cs
 var doc = new IronPdf.PdfDocument("example.pdf");
@@ -19,7 +19,7 @@ doc.SaveAs("bookmarked.pdf");
 
 In platforms like Adobe Acrobat Reader, bookmarks (also known as outlines) appear in the sidebar, offering a handy shortcut to significant document sections.
 
-IronPDF empowers you to manage PDF bookmarks effectively. Whether it’s adding new bookmarks, rearranging them, editing their properties, or removing them, IronPDF gives you complete control over how your PDFs are structured.
+IronPDF lets you manage PDF bookmarks effectively. Whether it’s adding new bookmarks, rearranging them, editing their properties, or removing them, IronPDF gives you complete control over how your PDFs are structured.
 
 All pages are indexed starting from zero.
 

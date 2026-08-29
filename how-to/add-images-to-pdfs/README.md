@@ -7,9 +7,9 @@ Incorporating an image directly within a PDF file means the image is placed dire
 
 IronPDF excels at transforming HTML strings, files, and web URLs into PDFs. Utilizing this technique, images embedded in HTML can be effectively transformed into a self-contained PDF document.
 
-## Quickstart: Effortlessly Embed Images into PDFs
+## Quickstart: Embed Images into PDFs
 
-Begin embedding images in your PDF documents using IronPDF in .NET C#. By converting your image into a Base64 string and embedding it within an HTML `<img>` tag, you create a self-sufficient PDF document which does not depend on any external resources. This approach guarantees that your images are displayed flawlessly without the necessity of an internet connection, streamlining the embedding process.
+Begin embedding images in your PDF documents using IronPDF in .NET C#. By converting your image into a Base64 string and embedding it within an HTML `<img>` tag, you create a self-sufficient PDF document which does not depend on any external resources. This approach guarantees that your images are displayed flawlessly without the necessity of an internet connection, simplifying the embedding process.
 
 ```cs
 new IronPdf.ChromePdfRenderer()

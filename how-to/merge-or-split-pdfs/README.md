@@ -116,4 +116,4 @@ These are the files that result from the above operations:
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/merge-or-split-pdfs/Pages2to3.pdf#view=fit" width="100%" height="500px">
 </iframe>
 
-Curious to discover more? Visit our comprehensive guide here: [Organize PDFs](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/)
+Curious to discover more? Visit our guide here: [Organize PDFs](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/)

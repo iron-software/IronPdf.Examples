@@ -4,7 +4,7 @@
 Your organization might be overspending on annual subscriptions for PDF security and compliance tools. A viable alternative is <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>, which offers a comprehensive suite of services for managing SaaS operations such as digital signing, redaction, encryption, and security on a one-time payment model. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">Check out IronSecureDoc Documentation</a>
 </div>
 
-Adding annotations to PDF files can be likened to attaching "sticky note"-like comments to the pages of a document. The `IronPDF.PdfDocument.AddTextAnnotation` method partnered with the `PdfDocument.TextAnnotation` class empowers the programmatic addition of annotations. Features such as text color, size, opacity, icons, and the ability to edit are all supported within these advanced text annotation capabilities.
+Adding annotations to PDF files can be likened to attaching "sticky note"-like comments to the pages of a document. The `IronPDF.PdfDocument.AddTextAnnotation` method partnered with the `PdfDocument.TextAnnotation` class allows the programmatic addition of annotations. Features such as text color, size, opacity, icons, and the ability to edit are all supported within these advanced text annotation capabilities.
 
 <div class="examples__featured-snippet">
 <h2>Steps to Add PDF Annotation in .NET</h2>

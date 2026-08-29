@@ -9,7 +9,7 @@ IronPDF enables the conversion of one or multiple images into a PDF with a varie
 
 ## Quickstart: Convert Images to PDF with IronPDF
 
-Seamlessly transform images into a PDF document using IronPDF's `ImageToPdfConverter` class. This guide exemplifies how you can swiftly convert an image into a PDF, facilitating the inclusion of image-to-PDF conversion in your .NET C# applications. The streamlined process ensures a fluid and effective pathway for producing digital compilations.
+transform images into a PDF document using IronPDF's `ImageToPdfConverter` class. This guide exemplifies how you can swiftly convert an image into a PDF, facilitating the inclusion of image-to-PDF conversion in your .NET C# applications. The simplified process ensures a fluid and effective pathway for producing digital compilations.
 
 ```cs
 IronPdf.ImageToPdfConverter.ImageToPdf("path/to/image.png").SaveAs("imageToPdf.pdf");

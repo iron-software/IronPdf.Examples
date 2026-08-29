@@ -1,6 +1,6 @@
-# Streamlining PDF Management in C#
+# Simplifying PDF Management in C#
 
-> Full guide: [Streamlining PDF Management in C#](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/)
+> Full guide: [Simplifying PDF Management in C#](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/)
 
 
 IronPDF generates PDFs and reorganizes them: inserting bookmarks and attachments, and rearranging the document as a whole.

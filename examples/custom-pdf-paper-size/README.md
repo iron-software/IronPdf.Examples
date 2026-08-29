@@ -15,6 +15,6 @@ To create PDFs with a specific custom size, you may utilize one of these methods
 
 Alternatively, for pre-configured sizes with micron-level precision, you can use `Renderer.RenderingOptions.PaperSize`.
 
-For further insights into how to harness the capabilities of custom paper sizes in IronPDF, as well as to explore other sophisticated features, please consult the [IronPDF Documentation](https://ironpdf.com/docs/).
+For further insights into how to use custom paper sizes in IronPDF, as well as to explore other sophisticated features, please consult the [IronPDF Documentation](https://ironpdf.com/docs/).
 
 [Discover more about Custom PDF Paper Sizes with IronPDF](https://ironpdf.com/how-to/custom-paper-size/)

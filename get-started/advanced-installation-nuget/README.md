@@ -7,7 +7,7 @@ From version 2022.1 onwards, there are enhanced options for installing IronPDF t
 
 Rather than the generic `IronPDF` NuGet package installation, seek out other specialized IronPDF packages on NuGet that better suit your project's needs. The API interaction remains unchanged, however, deployment strategies differ.
 
-A notable feature is that even with a platform-specific package installation, such as IronPdf.Linux for Linux-optimized setups, development can still seamlessly occur on typical operating systems like Windows using Visual Studio.
+A notable feature is that even with a platform-specific package installation, such as IronPdf.Linux for Linux-optimized setups, development can still occur on typical operating systems like Windows using Visual Studio.
 
 ## IronPdf NuGet Package
 

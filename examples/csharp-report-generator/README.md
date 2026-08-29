@@ -1,8 +1,8 @@
 > Docs: [IronPDF documentation](https://ironpdf.com/docs/)
 
-IronPDF is a premier C# library designed for converting HTML to PDF, editing PDF documents, and extracting data from PDFs. For a comprehensive guide on maximizing the potential of IronPDF for creating and adjusting PDF files using C#, consult the [IronPDF product page](https://ironpdf.com/).
+IronPDF is a premier C# library designed for converting HTML to PDF, editing PDF documents, and extracting data from PDFs. For a guide on maximizing the potential of IronPDF for creating and adjusting PDF files using C#, consult the [IronPDF product page](https://ironpdf.com/).
 
-IronPDF simplifies the process of converting intricate HTML pages, JavaScript, and dynamic content into PDF files seamlessly. This makes it a critical asset for developers who aim to incorporate PDF capabilities into their .NET applications. For further details on IronPDF and its extensive features, visit the [IronPDF documentation page](https://ironpdf.com/docs/).
+IronPDF simplifies the process of converting intricate HTML pages, JavaScript, and dynamic content into PDF files. This makes it a critical asset for developers who aim to incorporate PDF capabilities into their .NET applications. For further details on IronPDF and its extensive features, visit the [IronPDF documentation page](https://ironpdf.com/docs/).
 
 Gain deeper insights into how Iron Software’s powerful PDF library can boost your application by exploring the IronPDF Chrome Renderer and its uses via the [IronPDF Chrome Renderer overview](https://ironpdf.com/docs/#chrome-pdf-renderer).
 

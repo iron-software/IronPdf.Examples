@@ -7,7 +7,7 @@ PDFs can host a multitude of content types – from plain text and graphics to i
 
 ## Creating PDF 1.4 with IronPDF
 
-IronPDF caters to a broad spectrum of PDF versions, from 1.2 through 1.7. In scenarios where HTML is converted to PDF, IronPDF leverages the capabilities of the Chromium engine, typically assigning the lowest viable version between PDF 1.4 and PDF 1.6 to enhance viewer compatibility.
+IronPDF caters to a broad spectrum of PDF versions, from 1.2 through 1.7. In scenarios where HTML is converted to PDF, IronPDF uses the capabilities of the Chromium engine, typically assigning the lowest viable version between PDF 1.4 and PDF 1.6 to enhance viewer compatibility.
 
 ### Example: PDF Version 1.4
 

@@ -5,7 +5,7 @@
 
 ## Quickstart: Convert HTML to PDF with UTF-8 Encoding
 
-IronPDF offers a streamlined approach to converting HTML documents into PDFs, supporting UTF-8 encoding to ensure accurate character representation and exceptional output quality. This guide is perfect for developers who need to quickly integrate PDF generation into their applications.
+IronPDF offers a simplified approach to converting HTML documents into PDFs, supporting UTF-8 encoding to ensure accurate character representation and exceptional output quality. This guide is perfect for developers who need to quickly integrate PDF generation into their applications.
 
 ```cs
 new IronPdf.ChromePdfRenderer { RenderingOptions = { InputEncoding = System.Text.Encoding.UTF8 } }
@@ -47,6 +47,6 @@ This method ensures consistency not only in your main document content but also 
 
 ## Supported Encodings
 
-IronPDF is versatile, supporting all character encoding types that Google Chrome can handle. This includes UTF-16, ISO-8859-1, and Windows-1252.
+IronPDF supports every character encoding Chrome handles. This includes UTF-16, ISO-8859-1, and Windows-1252.
 
 For detailed insights into IronPDF's capabilities for accurate text rendering in PDFs, refer to [IronPDF's Character Encoding Support](https://ironpdf.com/docs/advanced/character-encoding/).

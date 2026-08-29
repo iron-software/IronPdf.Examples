@@ -7,7 +7,7 @@ Cookies are tiny data segments stored on a user's device by websites. They handl
 
 ## Getting Started: Implementing Cookies with IronPDF
 
-IronPDF simplifies the process of incorporating cookies into your PDF generation workflow. This quick guide demonstrates how to manipulate cookies using the IronPDF API to preserve session details and user preferences in your HTML-to-PDF transformations. With a minimal amount of code, developers can embed standard or specific cookies seamlessly. Start improving your PDF outputs today!
+IronPDF simplifies the process of incorporating cookies into your PDF generation workflow. This quick guide demonstrates how to manipulate cookies using the IronPDF API to preserve session details and user preferences in your HTML-to-PDF transformations. With a minimal amount of code, developers can embed standard or specific cookies. Start improving your PDF outputs today!
 
 ```cs
 // Initialize the PDF renderer with cookie settings

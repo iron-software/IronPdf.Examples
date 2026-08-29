@@ -584,7 +584,7 @@ It's important to note that Microsoft does not provide official Docker images fo
 
 ## CentOS Support with IronPDF
 
-IronPDF provides robust support for CentOS, ensuring seamless integration with this Linux distribution.
+IronPDF provides support for CentOS, ensuring integration with this Linux distribution.
 
 ### CentOS 8 Compatibility
 
@@ -638,11 +638,11 @@ Reiterating, no official Docker images exist for .NET Core 3.1 or .NET 5.0 on Ce
 
 ### Comprehensive CentOS Support
 
-IronPDF provides robust support for CentOS, ensuring seamless operation and optimal performance.
+IronPDF provides support for CentOS, ensuring operation and optimal performance.
 
 ### CentOS 8 Compatibility
 
-CentOS 8 is fully supported right out of the box, which makes setup effortless.
+CentOS 8 is supported with no additional setup.
 
 - We offer support for both **Chrome** and **WebKit** based HTML to PDF conversion technologies.
 - Official support is extended for **.NET Core 3.1, 5, 6 (LTS), 7, and 8** runtime versions.
@@ -851,7 +851,7 @@ Please make sure to review our detailed guide on [IronPdf for AWS Lambda](https:
 
 ## Compatibility with Fedora Linux
 
-Fedora Linux seamlessly integrates with IronPDF, requiring no configuration to get started.
+Fedora Linux integrates with IronPDF, requiring no configuration to get started.
 
 - Enables HTML to PDF conversion using **Chrome** and **WebKit** rendering engines.
 - Provides native support for **.NET Core 3.1, 5, 6 (LTS), 7, and 8**.
@@ -889,7 +889,7 @@ As of the current year, Alpine Linux does not support IronPDF. This limitation a
 
 ### Deploying IronPdfEngine on Alpine with Docker in .NET 6
 
-IronPdf offers a comprehensive Docker container that encapsulates all the functionalities of IronPdf. This setup allows applications on Alpine Linux to leverage IronPdf capabilities by linking with the IronPdfEngine Docker container.
+IronPdf offers a comprehensive Docker container that encapsulates all the functionalities of IronPdf. This setup allows applications on Alpine Linux to use IronPdf capabilities by linking with the IronPdfEngine Docker container.
 
 #### Step 1: Obtain and Execute the IronPdf Engine Docker Container
 

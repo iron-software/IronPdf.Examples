@@ -5,7 +5,7 @@
 
 A DOCX file originates from Microsoft Word, part of the comprehensive Microsoft Office suite. Utilizing the Office Open XML (OOXML) format, it ensures efficiency and compatibility across various platforms. Introduced in Microsoft Word 2007, the DOCX format has since become the standard, replacing the older DOC format.
 
-IronPDF enables seamless conversion from word documents to PDFs, offering features like Mail Merge to create personalized batches of documents tailored for individual recipients. This transformation from DOCX to PDF not only ensures broad compatibility but also maintains original formatting and increases document security.
+IronPDF enables conversion from word documents to PDFs, offering features like Mail Merge to create personalized batches of documents tailored for individual recipients. This transformation from DOCX to PDF not only ensures broad compatibility but also maintains original formatting and increases document security.
 
 ## Quickstart: Convert DOCX to PDF Using IronPDF
 

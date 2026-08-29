@@ -7,7 +7,7 @@ Implementing digital signatures in PDFs is an essential feature for many softwar
 
 ## Enhanced Security with HSM
 
-Using an HSM for digital signatures typically involves a physical device, like a USB token, which securely manages key operations. IronPDF supports these secure operations seamlessly as it is compatible with the `PKCS#11` standards used by many HSM devices. For the purposes of this guide, we will simulate an HSM environment for demonstration, but remember, for actual deployments, real HSM hardware should be used.
+Using an HSM for digital signatures typically involves a physical device, like a USB token, which securely manages key operations. IronPDF supports these secure operations as it is compatible with the `PKCS#11` standards used by many HSM devices. For the purposes of this guide, we will simulate an HSM environment for demonstration, but remember, for actual deployments, real HSM hardware should be used.
 
 Before you begin, ensure you have installed necessary tools such as [SoftHSM](https://www.opendnssec.org/en/latest/softhsm), [OpenSSL](https://openssl-library.org), and [OpenSC](https://github.com/OpenSC/OpenSC/wiki) for key and token management. Check SoftHSM's GitHub for more details.
 

@@ -1,6 +1,6 @@
 > Docs: [IronPDF documentation](https://ironpdf.com/docs/)
 
-IronPDF empowers developers to effortlessly create PDF documents in C#, F#, and VB.NET for both .NET Core and .NET Framework.
+IronPDF lets developers create PDF documents in C#, F#, and VB.NET for both .NET Core and .NET Framework.
 
 In this tutorial, we illustrate how a PDF document can be crafted from HTML.
 
@@ -42,7 +42,7 @@ public class PdfGenerator
 ```
 
 ### Explanation:
-- **IronPdf Namespace**: The `IronPdf` namespace is included to leverage the PDF creation capabilities.
+- **IronPdf Namespace**: The `IronPdf` namespace is included to use the PDF creation capabilities.
 - **HtmlToPdf Class**: This class has functionalities to transform HTML into a PDF file.
 - **RenderHtmlAsPdf Method**: This function converts HTML content into a PDF.
 - **PdfDocument Class**: This represents the PDF file generated, which can be saved to disk.

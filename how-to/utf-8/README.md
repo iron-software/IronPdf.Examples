@@ -3,11 +3,11 @@
 > Full guide: [Utilizing UTF-8 Encoding and International Languages in PDF Documents](https://ironpdf.com/how-to/utf-8/)
 
 
-IronPDF seamlessly supports UTF-8 encoding in PDF documents, adhering to the Chrome standard. This means that any character that renders correctly within a Chrome browser is also supported by IronPDF, ensuring accurate representations of foreign languages in your PDFs. In the following guide, we will showcase the steps to enable UTF-8 encoding in your PDFs using IronPDF.
+IronPDF supports UTF-8 encoding in PDF documents, adhering to the Chrome standard. This means that any character that renders correctly within a Chrome browser is also supported by IronPDF, ensuring accurate representations of foreign languages in your PDFs. In the following guide, we will showcase the steps to enable UTF-8 encoding in your PDFs using IronPDF.
 
 ## Quickstart: Create PDFs with UTF-8 Encoding Using IronPDF
 
-This quick guide illustrates how to create a PDF that includes UTF-8 encoding with IronPDF. By setting the `InputEncoding` to UTF-8 and utilizing the `RenderHtmlAsPdf` function, developers can effortlessly ensure that international characters are correctly displayed in the PDF. This method is straightforward and only requires a few lines of code, perfect for developers eager to start producing Unicode-enabled PDFs.
+This quick guide illustrates how to create a PDF that includes UTF-8 encoding with IronPDF. By setting the `InputEncoding` to UTF-8 and utilizing the `RenderHtmlAsPdf` function, developers can ensure that international characters are correctly displayed in the PDF. This method is straightforward and only requires a few lines of code, perfect for developers eager to start producing Unicode-enabled PDFs.
 
 ```cs
 // Example: Instantly Creating a UTF-8 Encoded PDF
@@ -19,7 +19,7 @@ pdf.SaveAs("utf8-example.pdf");
 
 ## Basic Code Demonstration
 
-When leveraging IronPDF for dealing with multi-linguistic content, UTF-8 Encoding plays a pivotal role.
+When using IronPDF for dealing with multi-linguistic content, UTF-8 Encoding plays a pivotal role.
 
 Below is an example where we prepare an HTML string to feed into the `RenderHtmlAsPdf` method, demonstrating input with multiple international languages:
 

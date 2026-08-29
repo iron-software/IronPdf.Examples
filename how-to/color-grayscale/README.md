@@ -39,7 +39,7 @@ grayscalePdf.CopyPage(0).SaveAs("example-grayscale.pdf");
 <iframe loading="lazy" src="https://ironpdf.com/static-assets/pdf/how-to/color-grayscale/color-grayscale-grayscale-pdf.pdf#zoom=75" width="100%" height="500px">
 </iframe>
 
-It's worth noting that in this grayscale mode, any text content is transformed into an image during the PDF rendering, making it impossible for the `ExtractAllImages` method to recognize or extract text.
+In grayscale mode, text content is rendered into an image during the PDF rendering, making it impossible for the `ExtractAllImages` method to recognize or extract text.
 
 For the moment, this grayscale feature is integrated specifically for PDF rendering from web sources or HTML. Looking forward, expanding this functionality to include converting existing PDF files to grayscale would enhance its utility.
 

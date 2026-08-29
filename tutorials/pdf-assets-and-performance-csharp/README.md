@@ -1,6 +1,6 @@
-# Leveraging Web Assets to Enhance PDFs in C&#35;
+# Using Web Assets to Enhance PDFs in C&#35;
 
-> Full guide: [Leveraging Web Assets to Enhance PDFs in C&#35;](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/)
+> Full guide: [Using Web Assets to Enhance PDFs in C&#35;](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/)
 
 Boasting over 100 unique features, IronPDF simplifies the process of creating and manipulating PDFs for .NET developers. This comprehensive library provides all necessary tools for PDF operations, removing the dependency on external software like Adobe Acrobat. 
 
