@@ -1312,7 +1312,7 @@ Once you've assessed the software, you can choose from several licensing options
 
 In-depth [**documentation**](https://ironpdf.com/docs/?utm_source=github), including quick-start guides, a comprehensive [API reference](https://ironpdf.com/object-reference/api/?utm_source=github), and [tutorial videos](https://ironpdf.com/blog/videos/?utm_source=github), are maintained regularly to stay up-to-date with each .NET release and can be found on our documentation portal.
 
-For any technical inquiries, our Chicago-based support team pledges a response within one business day through [live chat](https://ironsoftware.com/contact-us/?utm_source=github), [email](mailto:support@ironsoftware.com), or phone.
+For any technical inquiries, our Chicago-based support team pledges a response within one business day through [live chat](https://ironsoftware.com/contact-us/support/?utm_source=github), [email](mailto:support@ironsoftware.com), or phone.
 
 Additionally, for help with performance tuning and deployment, you can consult our Performance Assistance Centre, conveniently aggregating common FAQs and effective solutions.
 
@@ -1325,7 +1325,7 @@ Additionally, for help with performance tuning and deployment, you can consult o
 | Documentation and API Reference     | [API Documentation](https://ironpdf.com/object-reference/api/index.html?utm_source=github)                         | Comprehensive documentation for classes like `ChromePdfRenderer`. |
 | Educational Guides and Tutorials    | [Documentation Portal](https://ironpdf.com/docs/?utm_source=github)                                                | Instructional content, tutorials, and sample projects.           |
 | Optimization and Performance Guide  | [Performance Assistance](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/?utm_source=github)   | Tips for enhancing performance and scaling.                       |
-| Contact Customer Support            | [Support Contact Page](https://ironsoftware.com/contact-us/?utm_source=github)                                     | Get support via live chat, email, or phone.                       |
+| Contact Customer Support            | [Support Contact Page](https://ironsoftware.com/contact-us/support/?utm_source=github)                                     | Get support via live chat, email, or phone.                       |
 
 **Next Steps:**
 1. Start your project by downloading the [free trial key](https://ironpdf.com/demos/?utm_source=github).
@@ -1333,7 +1333,7 @@ Additionally, for help with performance tuning and deployment, you can consult o
 3. Dive into the [API reference](https://ironpdf.com/object-reference/api/index.html?utm_source=github) for detailed documentation on key classes and methods.
 4. Explore the [Documentation Portal](https://ironpdf.com/docs/?utm_source=github) for tutorials and examples to get your project started on the right foot.
 5. Visit the [Performance Assistance](https://ironpdf.com/troubleshooting/ironpdf-performance-assistance/?utm_source=github) page for advanced tips on optimizing your application.
-6. Get in touch with the support team at [Iron Software](https://ironsoftware.com/contact-us/?utm_source=github) for any queries or assistance needed.
+6. Get in touch with the support team at [Iron Software](https://ironsoftware.com/contact-us/support/?utm_source=github) for any queries or assistance needed.
 
 ### Next Steps
 
