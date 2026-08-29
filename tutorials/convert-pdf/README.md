@@ -21,47 +21,43 @@ var pdfDocument = new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf("<h1>Welcome t
 ## Contents Overview
 
 - **Comprehensive PDF Conversion Options**
-  - [Transform HTML String to PDF](#anchor-pdf-from-html-string)
-  - [Turn HTML File into PDF](#anchor-pdf-from-html)
-  - [PDF Conversion from Web URL](#anchor-pdf-from-url)
-  - [Convert Images into PDF Format](#anchor-image-to-pdf)
-  - [Generate Images from PDF Files](#anchor-image-from-pdf)
-  - [DOCX File to PDF Transformation](#anchor-convert-docx-to-pdf)
-  - [Convert RTF File to PDF](#anchor-convert-rtf-to-pdf)
-  - [Markdown File to PDF Conversion](#anchor-convert-md-to-pdf)
-  - [Transform XML into PDF via HTML](#anchor-convert-xml-to-pdf)
-  - [Convert PDF to HTML Format](#anchor-pdf-to-html)
+  - Transform HTML String to PDF
+  - Turn HTML File into PDF
+  - PDF Conversion from Web URL
+  - Convert Images into PDF Format
+  - Generate Images from PDF Files
+  - DOCX File to PDF Transformation
+  - Convert RTF File to PDF
+  - Markdown File to PDF Conversion
+  - Transform XML into PDF via HTML
+  - Convert PDF to HTML Format
 
 - **Dynamic Web Content to PDF Conversion**
-  - [PDF Generation from ASPX Web Pages](#anchor-pdf-from-aspx-pages)
-  - [PDF Creation from XAML (MAUI)](#anchor-xaml-to-pdf-maui)
-  - [Forge PDF Reports from HTML](#anchor-generate-pdf-reports)
-  - [PDF Production in Blazor Servers](#anchor-create-pdfs-in-blazor-servers)
-  - [Generate PDF from Razor Components (Blazor Server)](#anchor-razor-to-pdf-blazor-servers)
-  - [Overview of CSHTML to PDF Conversions](#anchor-cshtml-to-pdf)
-    - [CSHTML to PDF from Razor Pages](#anchor-cshtml-to-pdf-razor-pages)
-    - [CSHTML to PDF in MVC Core](#anchor-cshtml-to-pdf-mvc-core)
-    - [CSHTML to PDF for MVC Framework](#anchor-cshtml-to-pdf-mvc-framework)
-    - [Headless CSHTML to PDF Conversion](#anchor-cshtml-to-pdf-headlessly)
+  - PDF Generation from ASPX Web Pages
+  - PDF Creation from XAML (MAUI)
+  - Forge PDF Reports from HTML
+  - PDF Production in Blazor Servers
+  - Generate PDF from Razor Components (Blazor Server)
+  - [Overview of CSHTML to PDF Conversions](#cshtml-to-pdf-conversion)
+    - CSHTML to PDF from Razor Pages
+    - CSHTML to PDF in MVC Core
+    - [CSHTML to PDF for MVC Framework](#converting-cshtml-to-pdf-mvc-framework)
+    - [Headless CSHTML to PDF Conversion](#cshtml-to-pdf-headlessly)
 
 - **Enhancing Web Accessibility for PDF Conversion**
-  - [Secure Web and System Login for PDF Rendering](#anchor-tls-website-system-logins)
-  - [Handling Cookies in PDF Conversion Processes](#anchor-cookies)
-  - [Customizing HTTP Request Headers for PDF Rendering](#anchor-http-request-header)
+  - Secure Web and System Login for PDF Rendering
+  - [Handling Cookies in PDF Conversion Processes](#utilizing-cookies-for-web-session-continuity)
+  - [Customizing HTTP Request Headers for PDF Rendering](#customizing-http-request-headers)
 
 - **Personalized PDF Rendering Adjustments**
-  - [Customization of PDF Rendering Settings](#anchor-rendering-options)
-  - [Adjusting Margins for Custom Layouts](#anchor-set-custom-margin)
-  - [Implementing Grayscale in PDF Documents](#anchor-grayscale)
+  - Customization of PDF Rendering Settings
+  - Adjusting Margins for Custom Layouts
+  - [Implementing Grayscale in PDF Documents](#grayscale-conversion)
 
 - **Refinement of PDF Document Layout**
-  - [Incorporating a Table of Contents in PDFs](#anchor-add-a-table-of-contents)
-  - [Managing Page Breaks for Better Readability](#anchor-page-break)
-  - [Adjusting PDF Content to Fit Page Sizes](#anchor-fit-to-page-zoom)
-
-!!!--LIBRARY_START_TRIAL_BLOCK---!!!
-
-!!!--LIBRARY_NUGET_INSTALL_BLOCK---!!!
+  - Incorporating a Table of Contents in PDFs
+  - [Managing Page Breaks for Better Readability](#inserting-page-breaks)
+  - Adjusting PDF Content to Fit Page Sizes
 
 ## Flexible PDF Conversion Options
 

@@ -2,7 +2,6 @@
 
 > Full guide: [Viewing PDF Documents in MAUI for C# .NET](https://ironpdf.com/tutorials/pdf-viewing/)
 
-
 ![IronPDF Viewer Banner](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/ironpdf_viewer_banner.png)
 
 In today's cross-platform development landscape, the ability to view PDF files within an application is a critical feature. The **IronPDF Viewer** offers a robust solution by incorporating PDF viewing capabilities directly into your MAUI app.
@@ -19,8 +18,6 @@ var viewer = new IronPdf.Viewer.Maui.PdfViewer { Source = "document.pdf" };
 ```
 
 ## Installing the IronPDF Viewer Library
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
 
 ### Setup via Visual Studio's NuGet Package Manager
 

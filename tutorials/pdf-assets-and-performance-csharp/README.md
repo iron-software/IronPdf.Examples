@@ -25,31 +25,29 @@ pdfRenderer.RenderHtmlAsPdf("<h1>Hello Performance</h1>")
 ## Contents Overview
 
 - **Web Asset Capabilities**
-    - [Inspect HTML in Chrome Environment](#anchor-debug-html-with-chrome)
-    - [Styling with CSS for Different Media](#anchor-css-screen-print)
-    - [Incorporate Various Image Formats](#anchor-images-jpg-png-svg-gif-etc)
-    - [Integrate JavaScript with Custom Delays](#anchor-javascript-custom-render-delays)
-    - [Employ WaitFor for Controlled Rendering](#anchor-use-waitfor-to-delay-pdf-render)
-    - [Embed Web and Icon Fonts](#anchor-fonts-web-icon)
-    - [Implement SVG in PDFs](#anchor-use-svg-graphics)
-    - [Font Management](#anchor-manage-fonts)
-    - [Ensure UTF-8 and Multilingual Support](#anchor-support-utf-8-and-international-languages)
-    - [Configure Base URLs and Encode Assets](#anchor-base-urls-asset-encoding)
-    - [PDF Conversion of WebGL Content](#anchor-render-webgl-sites)
-    - [Use the Chrome PDF Rendering Engine](#anchor-chrome-pdf-rendering-engine)
+    - Inspect HTML in Chrome Environment
+    - Styling with CSS for Different Media
+    - [Incorporate Various Image Formats](#images-jpg-png-svg-gif-etc)
+    - [Integrate JavaScript with Custom Delays](#javascript-custom-render-delays)
+    - Employ WaitFor for Controlled Rendering
+    - Embed Web and Icon Fonts
+    - Implement SVG in PDFs
+    - [Font Management](#font-management)
+    - Ensure UTF-8 and Multilingual Support
+    - Configure Base URLs and Encode Assets
+    - PDF Conversion of WebGL Content
+    - Use the Chrome PDF Rendering Engine
 
 - **Optimization and Performance**
-    - [Reduce PDF Size through Compression](#anchor-pdf-compression)
-    - [Enhance Efficiency with Async and Multithreading](#anchor-async-multithreading)
-    - [Implement Custom Logging](#anchor-custom-logging)
-    - [Flatten PDFs to Secure Content](#anchor-flatten-pdfs)
+    - Reduce PDF Size through Compression
+    - Enhance Efficiency with Async and Multithreading
+    - [Implement Custom Logging](#custom-logging)
+    - Flatten PDFs to Secure Content
 
 - **PDF Output and Printing Features**
-    - [Direct PDF Printing Capabilities](#anchor-print-to-physical-printer)
+    - Direct PDF Printing Capabilities
 
 - **Final Thoughts**
-
-!!!--LIBRARY_NUGET_INSTALL_BLOCK--!!!
 
 ## Using Web Assets with IronPDF
 

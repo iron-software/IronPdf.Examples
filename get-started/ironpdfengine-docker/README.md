@@ -514,7 +514,7 @@ This setup empowers your applications with robust PDF processing capabilities di
 
 Before proceeding, ensure the following:
 
-- Retrieve the IronPdfEngine Docker image as outlined in the [Setup IronPDF for Docker Container](#anchor-setup-ironpdf-for-docker-container) section provided earlier.
+- Retrieve the IronPdfEngine Docker image as outlined in the Setup IronPDF for Docker Container section provided earlier.
   
 - Obtain an AWS account with appropriate ECS permissions.
 

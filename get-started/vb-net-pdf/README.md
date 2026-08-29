@@ -2,7 +2,6 @@
 
 > Full guide: [VB.NET PDF Creation (Code Example Tutorial)](https://ironpdf.com/get-started/vb-net-pdf/)
 
-
 This comprehensive tutorial will walk you through the creation and modification of PDF files using VB.NET. This approach is applicable to various environments including **ASP.NET web applications**, **console applications**, **Windows Services**, and **desktop software**. You’ll be guided in developing PDF projects using VB.NET aimed at .NET Framework 4.6.2 or .NET Core 2. Prepare your Visual Basic .NET development setup, preferably Microsoft Visual Studio Community, to get started.
 
 For guidance on using IronPDF with **C#**, visit [this resource](https://ironpdf.com/docs/).
@@ -39,7 +38,6 @@ This tutorial includes detailed documentation to guide you meticulously through 
 
 ### 1. Free Download of VB .NET PDF Library from IronPDF
 
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
 #### Installation via NuGet
 
 Right-click on your project within Visual Studio’s Solution Explorer and choose "Manage NuGet Packages...". Search for `IronPdf` and proceed to install the most recent edition. Acknowledge any prompts that appear.

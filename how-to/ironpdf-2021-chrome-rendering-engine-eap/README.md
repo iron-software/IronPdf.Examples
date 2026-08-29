@@ -126,4 +126,4 @@ task.SaveAs("AsyncHelloWorld.pdf");
 * Enhanced internal PDF document object model to handle the broadest range of PDF standards more effectively.
 * We prioritize customer-suggested feature requests and bug reports.
 
-Please [Contact Us for Further Queries](#live-chat-support) with any ideas or queries you may have.
+Please Contact Us for Further Queries with any ideas or queries you may have.

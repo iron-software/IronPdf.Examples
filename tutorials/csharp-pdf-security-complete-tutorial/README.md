@@ -23,15 +23,15 @@ pdf.SaveAs("secured.pdf");
 ## Table of Contents
 
 - **Authenticity Assurance**
-    - [Sign PDF Documents](#anchor-signing-pdfs)
-    - [Modify & Assign Metadata](#anchor-set-edit-metadata)
-    - [History Editing & Signing](#anchor-edit-sign-revision-history)
+    - [Sign PDF Documents](#sign-pdf-documents)
+    - Modify & Assign Metadata
+    - History Editing & Signing
 - **Management of PDF Forms**
-    - [Creation of PDF Forms](#anchor-create-pdf-forms)
-    - [Completing and Modifying PDF Forms](#anchor-fill-edit-pdf-forms)
+    - [Creation of PDF Forms](#create-pdf-forms)
+    - Completing and Modifying PDF Forms
 - **Document Security**
-    - [Document Sanitization](#anchor-sanitize-pdf-documents)
-    - [Password Protection and Permissions for PDF](#anchor-set-pdf-passwords-and-permissions)
+    - [Document Sanitization](#document-sanitization)
+    - [Password Protection and Permissions for PDF](#set-pdf-passwords-and-permissions)
 
 ### Assure Authenticity
 

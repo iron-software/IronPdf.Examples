@@ -2,14 +2,7 @@
 
 > Full guide: [Add PDF Cover Page in C#](https://ironpdf.com/how-to/edit-add-cover-page-csharp/)
 
-
 In the realm of C# PDF manipulation, occasionally the need arises to integrate a cover page into a document. This is efficiently achieved using the IronPDF library, which supports the addition of a cover page directly within the code, eliminating the need for external software and simplifying the process to just a couple of lines of code.
-
-### Getting Started with IronPDF
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
-
---------------------------------------
 
 <center>
 <h3>Cover Page Examples</h3>

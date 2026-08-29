@@ -46,27 +46,27 @@ IronPDF converts HTML content into PDFs from .NET, covering invoices, reports, c
 
 ## Learning Outcomes
 
-1. **[Converting HTML to PDF in C#](#anchor-1-how-to-convert-html-to-pdf-c-num)**
-   - [Transforming HTML Strings Into PDFs](#anchor-how-to-convert-html-string-to-pdf)
-   - [PDF Generation from Live URLs](#anchor-how-to-export-existing-url-to-pdf)
-   - [Creating PDFs from HTML Files](#anchor-how-to-generate-pdf-from-html-file)
+1. **Converting HTML to PDF in C#**
+   - Transforming HTML Strings Into PDFs
+   - PDF Generation from Live URLs
+   - Creating PDFs from HTML Files
 
-2. **[Setting Up Configuration Options for HTML to PDF Conversion](#anchor-2-how-to-configure-html-to-pdf-settings)**
+2. **Setting Up Configuration Options for HTML to PDF Conversion**
 
-3. **[Advanced PDF Creation and Security Measures](#anchor-3-how-to-use-advanced-pdf-generation-security-features)**
-   - [Using HTML Templates for Batch PDF Production](#anchor-how-to-generate-html-template-for-batch-pdf-creation)
-   - [Asynchronous PDF Creation Techniques](#anchor-how-to-generate-pdf-using-async-method)
-   - [Incorporating Enhanced Security Options in PDFs](#anchor-how-to-add-advanced-security-features)
+3. **Advanced PDF Creation and Security Measures**
+   - Using HTML Templates for Batch PDF Production
+   - Asynchronous PDF Creation Techniques
+   - Incorporating Enhanced Security Options in PDFs
 
-4. **[Evaluating IronPDF Against Other .NET PDF Solutions](#anchor-4-compare-ironpdf-with-other-net-pdf-libraries)**
-   - [Overview Comparison: IronPDF vs. Competitors](#anchor-quick-decision-matrix-ironpdf-versus-other-net-pdf-converters)
-   - [In-depth Comparative Analysis of PDF Libraries](#anchor-detailed-comparison-ironpdf-versus-other-net-pdf-converters)
-   - [Testing Real-World HTML to PDF Conversion: Examining Reddit's Homepage](#anchor-real-life-html-to-pdf-conversion-comparison-rendering-reddit-s-homepage)
-   - [Assessing the Outcome of PDF Quality and Performance](#anchor-conclusion-on-performance-and-output-pdf-quality)
+4. **Evaluating IronPDF Against Other .NET PDF Solutions**
+   - Overview Comparison: IronPDF vs. Competitors
+   - In-depth Comparative Analysis of PDF Libraries
+   - Testing Real-World HTML to PDF Conversion: Examining Reddit's Homepage
+   - Assessing the Outcome of PDF Quality and Performance
 
-5. **[Problem Solving and Expert Assistance](#anchor-5-troubleshooting-technical-support)**
-   - [Immediate Solutions to Common Issues](#anchor-quick-fixes-on-common-errors)
-   - [Direct Support From IronPDF Developers](#anchor-get-help-from-the-engineers-who-built-ironpdf-24-7)
+5. **Problem Solving and Expert Assistance**
+   - Immediate Solutions to Common Issues
+   - Direct Support From IronPDF Developers
 
 ## 1. Converting HTML to PDF in C#
 

@@ -44,12 +44,6 @@ This guide covers several essential topics and practical applications, including
 - Advanced PDF features like merging documents, applying watermarks, encrypting with passwords, and implementing digital signatures.
 - A comprehensive walkthrough using a ticket-booking MVC application as a real-world example.
 
-#### Getting Started with IronPDF
-
-!!!--- START YOUR IRONPDF TRIAL ---!!!
-
----
-
 ## Installation Steps for the PDF Library in .NET Core
 
 Deploying the library is straightforward and involves just a single line of code, suitable for .NET 8 projects. The same setup works with the .NET 9 preview and the .NET 10 release. Simplicity is key: just utilize the Package Manager Console provided by NuGet, which will automatically manage and resolve all dependencies needed across various environments including Windows, Linux, Docker, and serverless platforms.

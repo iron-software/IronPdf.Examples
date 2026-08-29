@@ -21,19 +21,19 @@ IronPdf.PdfDocument.Merge(
 ## Table of Contents
 
 - **Enhance your PDF Structure**
-    - [Add, Copy & Delete PDF Pages](#anchor-enhance-your-pdf-pages)
-        - [Add Pages](#anchor-add-pages)
-        - [Copy Pages](#anchor-copy-pages)
-        - [Delete Pages](#anchor-delete-pages)
-    - [Merge or Split PDF Files](#anchor-merge-pdfs)
-    - [Divide MultiPage PDFs](#anchor-divide-multipage-pdf)
+    - Add, Copy & Delete PDF Pages
+        - [Add Pages](#add-pages)
+        - [Copy Pages](#copy-pages)
+        - [Delete Pages](#delete-pages)
+    - [Merge or Split PDF Files](#merge-pdfs)
+    - Divide MultiPage PDFs
 - **Advanced Organization**
-    - [Attach & Detach Files](#anchor-manage-attachments)
-        - [Attach Files](#anchor-attach-files)
-        - [Detach Files](#anchor-detach-files)
-    - [Bookmarks & Navigation](#anchor-bookmarks-navigation)
-        - [Create Bookmarks](#anchor-create-bookmarks)
-        - [Access Bookmarks](#anchor-access-bookmarks)
+    - Attach & Detach Files
+        - [Attach Files](#attach-files)
+        - [Detach Files](#detach-files)
+    - Bookmarks & Navigation
+        - [Create Bookmarks](#create-bookmarks)
+        - [Access Bookmarks](#access-bookmarks)
 
 ## Enhance Your PDF Structure
 

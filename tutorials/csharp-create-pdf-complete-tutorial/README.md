@@ -2,7 +2,6 @@
 
 > Full guide: [Creating PDFs in C#](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/)
 
-
 Generating a PDF from code raises a run of small problems, from placing headers and footers to keeping the output readable everywhere. IronPDF puts each of those behind one method, so most of a page's construction is a few lines rather than a project of its own.
 
 IronPDF enables the effortless addition of shapes, text, images, as well as headers and footers. It provides various options for document orientation, size, and metadata management, and supports different compliance standards like PDF/UA and PDF/A. Moreover, integrating IronPDF into your existing applications for tasks such as PDF viewing or programmatic printing is a straightforward process.
@@ -53,8 +52,6 @@ pdf.SaveAs("blankPage.pdf");  // Save the document as 'blankPage.pdf'
 ```
 
 For further details and expanded functionality, visit our detailed [how-to guide](https://ironpdf.com/how-to/create-new-pdfs/).
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
 
 ### Add Headers & Footers
 

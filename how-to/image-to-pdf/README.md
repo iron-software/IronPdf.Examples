@@ -5,7 +5,7 @@
 
 Combining various image files like JPG, PNG, or TIFF into a single PDF document simplifies the task of organizing and sharing a coherent collection of images. This is especially beneficial for compiling digital portfolios, presentations, or structured reports as it enhances accessibility and storage efficiency.
 
-IronPDF enables the conversion of one or multiple images into a PDF with a variety of [image placements and behavior options](#anchor-export-image-behaviors). Utilize features like full-page fitting, center alignment, and cropping to tailor the document to your needs. You can also enrich your document by adding [text and HTML headers and footers with IronPDF](https://ironpdf.com/how-to/headers-and-footers/), [overlaying watermarks](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#add-a-watermark-to-a-pdf), setting custom page dimensions, and embedding background and foreground content.
+IronPDF enables the conversion of one or multiple images into a PDF with a variety of image placements and behavior options. Utilize features like full-page fitting, center alignment, and cropping to tailor the document to your needs. You can also enrich your document by adding [text and HTML headers and footers with IronPDF](https://ironpdf.com/how-to/headers-and-footers/), [overlaying watermarks](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#add-a-watermark-to-a-pdf), setting custom page dimensions, and embedding background and foreground content.
 
 ## Quickstart: Convert Images to PDF with IronPDF
 

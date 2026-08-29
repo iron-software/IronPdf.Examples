@@ -2,7 +2,6 @@
 
 > Full guide: [Exporting PDF/A or PDF/A-3 Format Documents in C#](https://ironpdf.com/how-to/pdfa/)
 
-
 <div class="alert alert-info iron-variant-1" role="alert">
     Is your organization over-spending on annual subscriptions for PDF compliance and security? Look into <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>, a single-purchase solution covering services such as digital signing, redaction, encryption, and protection. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">View IronSecureDoc Documentation</a>
 </div>
@@ -27,8 +26,6 @@ IronPDF is aligned with Google’s initiative to enhance PDF archiving and acces
 In 2021, our approach shifted to use the Google Chromium HTML rendering engine for generating PDFs from HTML. This adoption allows us to leverage the [accessibility improvements made by Google](https://blog.chromium.org/2020/07/using-chrome-to-generate-more.html).
 
 ### Get Started with IronPDF
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
 
 ## Supported PDF/A Versions
 

@@ -2,7 +2,6 @@
 
 > Full guide: [C# Read PDF Guide](https://ironpdf.com/how-to/csharp-read-pdf/)
 
-
 In this session, we'll explore a straightforward approach to reading PDF files and extracting texts while preserving their format. This technique can be applied to both entire documents or specific pages within your C# application.
 
 <div style="display: flex; align-items: center; justify-content: center;">
@@ -18,8 +17,6 @@ In this session, we'll explore a straightforward approach to reading PDF files a
 </div>
 
 <h3>Begin with IronPDF</h3>
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
 
 --------------------------------------
 

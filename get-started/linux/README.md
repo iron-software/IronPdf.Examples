@@ -62,7 +62,7 @@ IronPDF is supported on the following **64-bit** Linux distributions with no add
 - Fedora Linux 33
 - Amazon AWS Linux 2
 
-For implementations using IronPDF on Linux versions not listed here, please consult the [Common Dependency Patterns for Linux](#other-linux-distros) detailed later in this documentation.
+For implementations using IronPDF on Linux versions not listed here, please consult the Common Dependency Patterns for Linux detailed later in this documentation.
 
 ## Hardware Requirements
 
@@ -568,7 +568,7 @@ chmod 755 IronCefSubprocess
 
 ### Compatibility with Debian 9 and Earlier Versions
 
-Debian 9 and earlier are not preconfigured for IronPdf. While .NET is officially supported on Debian 9 by Microsoft, additional setup is necessary to ensure compatibility. You are encouraged to consult the [Common Dependency Patterns for Linux](#other-linux-distros) provided at the end of this document for guidance.
+Debian 9 and earlier are not preconfigured for IronPdf. While .NET is officially supported on Debian 9 by Microsoft, additional setup is necessary to ensure compatibility. You are encouraged to consult the Common Dependency Patterns for Linux provided at the end of this document for guidance.
 
 There are no endorsed Docker images for .NET Core 3.1 or .NET 5.0 available for Debian 9 from Microsoft. Upgrading to Debian 10 is highly recommended to ensure smoother operation and support.
 
@@ -578,7 +578,7 @@ There are no endorsed Docker images for .NET Core 3.1 or .NET 5.0 available for 
 <img src="https://img.icons8.com/color/48/000000/debian.png" style="display:inline" />
 <img src="https://img.icons8.com/fluency/48/000000/test.png" style="display:inline" />
 
-Debian 9 has not undergone official testing with IronPdf and does not provide immediate compatibility. However, while Microsoft officially supports .NET on Debian 9, correct configuration can enable compatibility with IronPdf. For setup guidance, please see the [Common Dependency Patterns for Linux](#other-linux-distros) section provided later in this documentation.
+Debian 9 has not undergone official testing with IronPdf and does not provide immediate compatibility. However, while Microsoft officially supports .NET on Debian 9, correct configuration can enable compatibility with IronPdf. For setup guidance, please see the Common Dependency Patterns for Linux section provided later in this documentation.
 
 It's important to note that Microsoft does not provide official Docker images for .NET Core 3.1 or .NET 5.0 compatible with Debian 9. Transitioning to Debian 10 is strongly advised for better support and functionality.
 
@@ -733,7 +733,7 @@ chmod 755 IronCefSubprocess
 
 The IronPdf software does not directly support CentOS 7 and earlier versions without preliminary configuration.
 
-While Microsoft officially backs .NET on CentOS 7, achieving operational status with IronPdf on these versions necessitates proper setup. For guidance on configuring dependencies, refer to the section on [Common Dependency Patterns for Linux](#other-linux-distros).
+While Microsoft officially backs .NET on CentOS 7, achieving operational status with IronPdf on these versions necessitates proper setup. For guidance on configuring dependencies, refer to the section on Common Dependency Patterns for Linux.
 
 It's important to note that Microsoft does not provide official Docker images for .NET Core 3.1 or .NET 5.0 tailored to CentOS 7.
 

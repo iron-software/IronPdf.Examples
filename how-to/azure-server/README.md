@@ -2,7 +2,6 @@
 
 > Full guide: [IronPDF Integration on MAUI Android](https://ironpdf.com/how-to/azure-server/)
 
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
@@ -21,8 +20,6 @@ Utilize the [`IronPdf.Server.Azure`](https://www.nuget.org/packages/IronPdf.Serv
 To simplify your start, a [GitHub repository dedicated to using IronPDF with MAUI Android is available for cloning](https://github.com/IronSoftware/IronPDF.Android.Example).
 
 <h3>Starting with IronPDF</h3>
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
 
 ---
 
