@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/stamping-new-content/>***
+> Full guide: [Stamping new content](https://ironpdf.com/examples/stamping-new-content/)
 
 Developers are equipped to modify any PDF by introducing new content on any of its pages using the [`StampHTML` method for managing PDFs](https://ironpdf.com/docs/#html-to-pdf).
 

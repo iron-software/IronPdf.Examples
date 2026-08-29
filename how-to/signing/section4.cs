@@ -1,3 +1,4 @@
+using IronPdf.Signing;
 using IronSoftware.Drawing;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Signing
@@ -31,7 +32,6 @@ namespace IronPdf.Examples.HowTo.Signing
             var pdf = PdfDocument.FromFile("invoice.pdf");
             pdf.Sign(signature);
             pdf.SaveAs("VisualSignature.pdf");
-            </span><br class="ProseMirror-trailingBreak">
         }
     }
 }

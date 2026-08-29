@@ -1,3 +1,4 @@
+using IronPdf.Rendering;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
@@ -6,7 +7,6 @@ namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
         public static void Run()
         {
             // Program.cs — .NET 8 LTS-compatible
-            using IronPdf;
             
             // 1. Activate a license (or trial key)
             IronPdf.License.LicenseKey = "YOUR-LICENSE-KEY";

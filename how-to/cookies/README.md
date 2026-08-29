@@ -1,16 +1,15 @@
 # Managing Cookies with IronPDF
 
-***Based on <https://ironpdf.com/how-to/cookies/>***
+> Full guide: [Managing Cookies with IronPDF](https://ironpdf.com/how-to/cookies/)
 
 
 Cookies are tiny data segments stored on a user's device by websites. They handle various tasks, from keeping sessions active to tracking user activities for enhancements. Due to privacy implications, they've prompted regulatory measures like GDPR and CCPA. Modern browsers also equip users with tools to manage cookie settings, addressing privacy concerns effectively.
 
 ## Getting Started: Implementing Cookies with IronPDF
 
-IronPDF simplifies the process of incorporating cookies into your PDF generation workflow. This quick guide demonstrates how to manipulate cookies using the IronPDF API to preserve session details and user preferences in your HTML-to-PDF transformations. With a minimal amount of code, developers can embed standard or specific cookies seamlessly. Start improving your PDF outputs today!
+IronPDF simplifies the process of incorporating cookies into your PDF generation workflow. This quick guide demonstrates how to manipulate cookies using the IronPDF API to preserve session details and user preferences in your HTML-to-PDF transformations. With a minimal amount of code, developers can embed standard or specific cookies. Start improving your PDF outputs today!
 
 ```cs
-:title=Efficient Cookie Management in PDF Rendering
 // Initialize the PDF renderer with cookie settings
 new IronPdf.ChromePdfRenderer { RenderingOptions = { RequestContext = IronPdf.Rendering.RequestContexts.Global, CustomCookies = new Dictionary<string, string> { { "sessionId", "your_cookie_value" } } } }
     .RenderUrlAsPdf("https://example.com/protected")

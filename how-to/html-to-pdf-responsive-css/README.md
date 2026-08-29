@@ -1,18 +1,17 @@
 # How to Apply CSS for HTML Content
 
-***Based on <https://ironpdf.com/how-to/html-to-pdf-responsive-css/>***
+> Full guide: [How to Apply CSS for HTML Content](https://ironpdf.com/how-to/html-to-pdf-responsive-css/)
 
 
 The `screen` media type in CSS is generally used for content displayed on devices like computer screens. These style specifications focus on enhancing the visual appeal and interactivity of web content when viewed on screens. 
 
 In a different vein, the `print` media type in CSS is tailored for print content. This styling ensures that web pages print optimally, modifying aspects such as fonts, margins, and concealing unnecessary elements to create a cleaner printout.
 
-*as-heading:2(Quick Start: Creating PDFs with Responsive HTML and CSS Using IronPDF)*
+## Quick Start: Creating PDFs with Responsive HTML and CSS Using IronPDF
 
 Easily transform your HTML with responsive CSS into pristine PDFs using IronPDF. Developers can produce perfectly rendered PDF documents that respect both screen and print styles with minimal coding. This swift guide explains utilizing IronPDF to convert HTML into high-quality PDFs effectively.
 
 ```cs
-:title=One-step HTML to PDF conversion
 var chromeRenderer = new IronPdf.ChromePdfRenderer { RenderingOptions = { CssMediaType = IronPdf.Rendering.PdfCssMediaType.Print } };
 chromeRenderer.RenderUrlAsPdf("https://example.com").SaveAs("responsive.pdf");
 ```

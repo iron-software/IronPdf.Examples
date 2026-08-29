@@ -1,16 +1,15 @@
 # Rotate PDF Text and Pages in .NET
 
-***Based on <https://ironpdf.com/how-to/rotating-text/>***
+> Full guide: [Rotate PDF Text and Pages in .NET](https://ironpdf.com/how-to/rotating-text/)
 
 
 When discussing the rotation of PDF text or pages, this typically involves altering the orientation of an entire page or specific text elements within a PDF file. You can rotate content by specified degrees such as 90, 180, or 270, either clockwise or counterclockwise to reposition it according to your requirements.
 
 ## Quickstart: Rotate PDF Pages in .NET with IronPDF
 
-With IronPDF, rotating PDF pages in your .NET projects is straightforward. A few simple lines of code allow you to change the orientation of your PDF content to the angle you prefer. This guide will demonstrate how to rotate the first page of a PDF file by 90 degrees and save the updated document effortlessly. This is ideal for developers aiming to improve document layout with minimal coding.
+With IronPDF, rotating PDF pages in your .NET projects is straightforward. A few simple lines of code allow you to change the orientation of your PDF content to the angle you prefer. This guide will demonstrate how to rotate the first page of a PDF file by 90 degrees and save the updated document. This is ideal for developers aiming to improve document layout with minimal coding.
 
 ```cs
-:title=Efficient PDF page or text rotation!
 IronPdf.PdfDocument.FromFile("input.pdf")
   .SetAllPageRotations(IronPdf.PdfPageRotation.Clockwise90)
   .SaveAs("rotated.pdf");

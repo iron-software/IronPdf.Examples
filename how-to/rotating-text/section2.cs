@@ -1,3 +1,4 @@
+using IronPdf.Rendering;
 using System.Linq;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.RotatingText

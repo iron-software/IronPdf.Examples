@@ -5,8 +5,11 @@ namespace IronPdf.Examples.HowTo.PdfImageFlattenCsharp
     {
         public static void Run()
         {
-            :title=Flatten PDFs Instantly
-            IronPdf.PdfDocument.FromFile("input.pdf").Flatten().SaveAs("flattened.pdf");
+            var pdf = IronPdf.PdfDocument.FromFile("input.pdf");
+
+            // Flatten returns void, so it cannot be chained.
+            pdf.Flatten();
+            pdf.SaveAs("flattened.pdf");
         }
     }
 }

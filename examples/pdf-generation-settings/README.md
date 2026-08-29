@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/pdf-generation-settings/>***
+> Full guide: [PDF generation settings](https://ironpdf.com/examples/pdf-generation-settings/)
 
 IronPDF is designed to offer developers maximal flexibility.
 

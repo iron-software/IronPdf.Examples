@@ -5,7 +5,6 @@ namespace IronPdf.Examples.HowTo.Azure
     {
         public static void Run()
         {
-            :title=Convert HTML to PDF in Azure Functions with one line!
             var pdf = new IronPdf.ChromePdfRenderer()
                 .RenderHtmlAsPdf("<h1>Hello Azure!</h1>")
                 .SaveAs("output‑azure.pdf");

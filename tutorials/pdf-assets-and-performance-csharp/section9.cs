@@ -1,3 +1,4 @@
+using IronPdf.Fonts;
 using System.Collections.Generic;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.PdfAssetsAndPerformanceCsharp

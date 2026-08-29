@@ -1,3 +1,4 @@
+using IronPdf.Rendering;
 using IronPdf;
 using System;
 using System.IO;

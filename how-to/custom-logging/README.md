@@ -1,6 +1,6 @@
 # Utilizing Custom Logging in C&num;
 
-***Based on <https://ironpdf.com/how-to/custom-logging/>***
+> Full guide: [Utilizing Custom Logging in C&num;](https://ironpdf.com/how-to/custom-logging/)
 
 
 Custom logging is a method to design a log system that caters to the specific needs of your application or system. It involves the creation of log files to capture various kinds of information, events, and messages that the software emits during its operation.
@@ -10,7 +10,6 @@ Custom logging is a method to design a log system that caters to the specific ne
 Kickstart your C# project with custom logging via IronPDF. This tutorial assists you in setting `LoggingMode` to `Custom` and integrating it with a bespoke logger class. This allows effective monitoring and management of application logs, directing all IronPDF messages to your specialized logger, enhancing the logging functionalities tailored to your specific requirements.
 
 ```cs
-:title=Initialize Custom Logging with IronPDF
 // Set IronPDF to use a custom log handler
 IronSoftware.Logger.LoggingMode = IronSoftware.Logger.LoggingModes.Custom;
 // Link IronPDF's logging to a custom logger

@@ -1,3 +1,4 @@
+using IronSoftware.Drawing;
 using System.IO;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.DrawTextAndBitmap

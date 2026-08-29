@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/convert-string-sections-into-pdfs/>***
+> Docs: [IronPDF documentation](https://ironpdf.com/docs/)
 
 IronPDF stands out with its [HTML to PDF conversion features](https://ironpdf.com/tutorials/html-to-pdf/), which effectively maintain the original styles and layouts. This functionality allows for the creation of PDFs from diverse web content, including reports, invoices, and various kinds of documentation. It provides options to convert HTML documents, web URLs, and HTML strings directly into PDF formats.
 

@@ -1,3 +1,5 @@
+using IronPdf.Signing;
+using IronSoftware.Drawing;
 using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Signing
@@ -20,7 +22,7 @@ namespace IronPdf.Examples.HowTo.Signing
             
             // Add a secure timestamp from a trusted Time Stamp Authority (TSA).
             // This provides cryptographic proof of the signing time.
-            signature.TimeStampUrl = new Uri("[http://timestamp.digicert.com](http://timestamp.digicert.com)");
+            signature.TimeStampUrl = "http://timestamp.digicert.com";
             signature.TimestampHashAlgorithm = TimestampHashAlgorithms.SHA256;
             
             // Apply a visual appearance to the signature. (More on this in the next section)

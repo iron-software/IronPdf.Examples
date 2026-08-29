@@ -1,3 +1,4 @@
+using IronPdf.Security;
 using IronPdf;
 using System;
 

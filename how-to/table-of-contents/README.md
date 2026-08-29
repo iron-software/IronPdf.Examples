@@ -1,14 +1,13 @@
 # Creating a Table of Contents
 
-***Based on <https://ironpdf.com/how-to/table-of-contents/>***
+> Full guide: [Creating a Table of Contents](https://ironpdf.com/how-to/table-of-contents/)
 
 
 A table of contents (TOC) serves as a navigational guide, outlining the major sections or chapters of a PDF document with corresponding page numbers. Positioned usually at the beginning of the document, it enables readers to quickly locate and jump to specific sections, enhancing accessibility to vital information.
 
-IronPDF offers a straightforward method for generating a table of contents which integrates hyperlinks targeting 'h1' through 'h6' headings. This functionality is designed to work seamlessly with existing HTML styles without interference.
+IronPDF offers a straightforward method for generating a table of contents which integrates hyperlinks targeting 'h1' through 'h6' headings. This functionality is designed to work with existing HTML styles without interference.
 
 ```cs
-:title=Swift PDF Table of Contents Generation
 new ChromePdfRenderer { RenderingOptions = { CreateOutlineMaps = true, OutlineMapsFormat = TableOfContentsTypes.WithPageNumbers, FirstPageNumber = 1 } }
     .RenderHtmlFileAsPdf("myDocument.html")
     .SaveAs("withToc.pdf");

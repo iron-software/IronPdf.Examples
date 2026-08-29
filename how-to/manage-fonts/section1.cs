@@ -5,11 +5,15 @@ namespace IronPdf.Examples.HowTo.ManageFonts
     {
         public static void Run()
         {
-            :title=Add and embed a custom font in one line!
-            var pdf = PdfDocument.FromHtml("<p style='font‑family:MyCustomFont;'>Hello world!</p>");
-            pdf.Fonts.Add("MyCustomFont", File.ReadAllBytes("MyCustomFont.ttf"))
-              .Embed()
-              .SaveAs("withCustomFont.pdf");
+            // There is no PdfDocument.FromHtml; a renderer makes the document.
+            var pdf = new ChromePdfRenderer()
+                .RenderHtmlAsPdf("<p style='font-family:MyCustomFont;'>Hello world!</p>");
+
+            // Fonts.Add takes the font data, and Embed returns void.
+            var font = pdf.Fonts.Add(File.ReadAllBytes("MyCustomFont.ttf"));
+            font.Embed();
+
+            pdf.SaveAs("withCustomFont.pdf");
         }
     }
 }

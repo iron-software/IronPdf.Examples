@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/combine-pdf-documents-without-using-adobe-acrobat/>***
+> Docs: [IronPDF documentation](https://ironpdf.com/docs/)
 
 IronPDF's primary capability is the [HTML to PDF Conversion Tutorial](https://ironpdf.com/tutorials/html-to-pdf/), which efficiently retains the original layouts and styling. This feature is invaluable for creating PDF documents from web content like reports, invoices, and manuals. It adeptly handles the conversion of HTML documents, web URLs, and HTML strings directly into PDF files.
 

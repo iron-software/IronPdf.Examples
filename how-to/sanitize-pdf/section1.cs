@@ -5,7 +5,6 @@ namespace IronPdf.Examples.HowTo.SanitizePdf
     {
         public static void Run()
         {
-            :title=Sanitize a PDF in one call!
             IronPdf.Cleaner.SanitizeWithSvg(PdfDocument.FromFile("input.pdf")).SaveAs("sanitized.pdf");
         }
     }

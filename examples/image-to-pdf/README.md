@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/image-to-pdf/>***
+> Full guide: [Image to PDF](https://ironpdf.com/examples/image-to-pdf/)
 
 Transforming an image from a local storage, such as one found at `C:\images\example.png`, into a PDF file is straightforward with IronPDF. Utilize the `IronPdf.ImageToPdfConverter.ImageToPdf` method and provide the image file path to accomplish this:
 

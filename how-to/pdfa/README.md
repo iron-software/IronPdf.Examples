@@ -1,7 +1,6 @@
 # Exporting PDF/A or PDF/A-3 Format Documents in C#
 
-***Based on <https://ironpdf.com/how-to/pdfa/>***
-
+> Full guide: [Exporting PDF/A or PDF/A-3 Format Documents in C#](https://ironpdf.com/how-to/pdfa/)
 
 <div class="alert alert-info iron-variant-1" role="alert">
     Is your organization over-spending on annual subscriptions for PDF compliance and security? Look into <a href="https://ironsoftware.com/enterprise/securedoc/">IronSecureDoc</a>, a single-purchase solution covering services such as digital signing, redaction, encryption, and protection. <a href="https://ironsoftware.com/enterprise/securedoc/docs/">View IronSecureDoc Documentation</a>
@@ -13,10 +12,9 @@ As a proud [member of the PDF Association](https://pdfa.org/member/ironsoftware/
 
 ## Quickstart: Convert PDFs to PDF/A-3b in C#
 
-Easily transform your standard PDFs into the archival PDF/A-3b format with IronPDF, providing assured long-term preservation and adherence to compliance standards. Utilize IronPDF’s robust features to quickly and reliably convert your documents to PDF/A formats, ensuring they remain accessible and consistently rendered.
+Easily transform your standard PDFs into the archival PDF/A-3b format with IronPDF, providing assured long-term preservation and adherence to compliance standards. Utilize IronPDF’s features to quickly and reliably convert your documents to PDF/A formats, ensuring they remain accessible and consistently rendered.
 
 ```cs
-:title=Transform PDFs to PDF/A-3 Smoothly
 IronPdf.PdfDocument pdf = IronPdf.PdfDocument.FromFile("example.pdf");
 pdf.SaveAsPdfA("output.pdf");
 ```
@@ -25,11 +23,9 @@ pdf.SaveAsPdfA("output.pdf");
 
 IronPDF is aligned with Google’s initiative to enhance PDF archiving and accessibility, maintaining full compliance with Section 508 standards.
 
-In 2021, our approach shifted to use the Google Chromium HTML rendering engine for generating PDFs from HTML. This adoption allows us to leverage the [accessibility improvements made by Google](https://blog.chromium.org/2020/07/using-chrome-to-generate-more.html).
+In 2021, our approach shifted to use the Google Chromium HTML rendering engine for generating PDFs from HTML. This adoption allows us to use the [accessibility improvements made by Google](https://blog.chromium.org/2020/07/using-chrome-to-generate-more.html).
 
 ### Get Started with IronPDF
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
 
 ## Supported PDF/A Versions
 
@@ -78,7 +74,7 @@ The resulting file meets the PDF/A-3b compliance standards:
 
 ## Conversion from HTML or Web URLs
 
-Let’s convert a specific HTML layout and a webpage into PDF/A-3B compliant files, showcasing the versatility of IronPDF from multiple sources.
+Let’s convert a specific HTML layout and a webpage into PDF/A-3B compliant files, starting from two different sources.
 
 ### HTML to PDF/A Conversion
 
@@ -195,4 +191,4 @@ Ensuring all characters are correctly represented in a PDF/A document is crucial
 
 ![Character Display Problem](https://ironpdf.com/static-assets/pdf/how-to/pdfa/display-issue.webp)
 
-Explore more about creating compliant PDFs by visiting our comprehensive guide at [Creating PDFs Tutorial](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/).
+Explore more about creating compliant PDFs by visiting our guide at [Creating PDFs Tutorial](https://ironpdf.com/tutorials/csharp-create-pdf-complete-tutorial/).

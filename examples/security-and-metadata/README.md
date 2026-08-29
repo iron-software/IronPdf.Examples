@@ -1,6 +1,6 @@
-***Based on <https://ironpdf.com/examples/security-and-metadata/>***
+> Full guide: [Security and metadata](https://ironpdf.com/examples/security-and-metadata/)
 
-IronPDF equips developers with robust security features for PDF management, enabling them to tailor PDF metadata, set passwords, and define permissions to match specific document requirements. IronPDF's security and metadata functionalities are provided through classes like `SecuritySettings` and `MetaData`. This allows setting restrictions such as making PDFs unprintable, read-only, utilizing 128-bit encryption, and enforcing password protection.
+IronPDF equips developers with security features for PDF management, enabling them to tailor PDF metadata, set passwords, and define permissions to match specific document requirements. IronPDF's security and metadata functionalities are provided through classes like `SecuritySettings` and `MetaData`. This allows setting restrictions such as making PDFs unprintable, read-only, utilizing 128-bit encryption, and enforcing password protection.
 
 Using the `MetaData` class, developers can customize various metadata attributes of PDFs, such as author, keywords, modification date, and others. Additionally, the security customization is done through setting user-specific and owner-specific passwords, printing permissions, and toggling read-only status.
 
@@ -15,7 +15,6 @@ Using the `MetaData` class, developers can customize various metadata attributes
     <li><code>pdf.SecuritySettings.MakePdfDocumentReadOnly("secret-key");</code></li>
   </ol>
 </div>
-```
 
 To begin customizing your PDF's security, first load a password-protected PDF file or create a new PDF. Post opening the PDF by providing the necessary password, use `pdf.MetaData.Keys` to fetch the existing metadata keys. You can remove any metadata value using the `RemoveMetaDataKey` method and set new metadata by utilizing `pdf.MetaData.metadataField`. Metadata fields like Title and Keywords accept string values while the ModifiedData field accepts datetime values.
 

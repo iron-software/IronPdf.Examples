@@ -1,18 +1,17 @@
 # How to Convert Microsoft Word to PDF in C#
 
-***Based on <https://ironpdf.com/how-to/docx-to-pdf/>***
+> Full guide: [How to Convert Microsoft Word to PDF in C#](https://ironpdf.com/how-to/docx-to-pdf/)
 
 
 A DOCX file originates from Microsoft Word, part of the comprehensive Microsoft Office suite. Utilizing the Office Open XML (OOXML) format, it ensures efficiency and compatibility across various platforms. Introduced in Microsoft Word 2007, the DOCX format has since become the standard, replacing the older DOC format.
 
-IronPDF enables seamless conversion from word documents to PDFs, offering features like Mail Merge to create personalized batches of documents tailored for individual recipients. This transformation from DOCX to PDF not only ensures broad compatibility but also maintains original formatting and increases document security.
+IronPDF enables conversion from word documents to PDFs, offering features like Mail Merge to create personalized batches of documents tailored for individual recipients. This transformation from DOCX to PDF not only ensures broad compatibility but also maintains original formatting and increases document security.
 
 ## Quickstart: Convert DOCX to PDF Using IronPDF
 
 IronPDF simplifies converting DOCX to PDF in C# utilizing the `DocxToPdfRenderer` class and its `RenderDocxAsPdf` method. This guide provides a straightforward approach to converting documents, ensuring the final PDF maintains all original characteristics and format compatibility.
 
 ```cs
-:title=Convert DOCX to PDF in One line of Code!
 var pdfRenderer = new IronPdf.DocxToPdfRenderer();
 var pdfDocument = pdfRenderer.RenderDocxAsPdf("document.docx");
 pdfDocument.SaveAs("output.pdf");

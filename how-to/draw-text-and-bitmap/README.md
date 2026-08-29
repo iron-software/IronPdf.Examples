@@ -1,6 +1,6 @@
 # Drawing Text and Bitmaps on PDFs
 
-***Based on <https://ironpdf.com/how-to/draw-text-and-bitmap/>***
+> Full guide: [Drawing Text and Bitmaps on PDFs](https://ironpdf.com/how-to/draw-text-and-bitmap/)
 
 
 Adding text and bitmap images to PDF documents is a common requirement for customizing and enhancing existing files. Using IronPDF, this process is smooth and efficient, making it easy to incorporate elements like watermarks, logos, and annotations. This functionality not only boosts the document’s aesthetic value and branding but also enhances data presentation and interaction through visual content and form fields.
@@ -10,7 +10,6 @@ Adding text and bitmap images to PDF documents is a common requirement for custo
 Begin adding text and images to your PDFs with IronPDF to quickly enhance document presentation and functionality. The `DrawText` and `DrawBitmap` methods allow for straightforward customization. This guide illustrates how to position text at particular coordinates and embed an image into a PDF document effectively, making it ideal for developers aiming to boost the branding or visual dynamics within their applications.
 
 ```cs
-:title=Example: Drawing text and image on a PDF
 new ChromePdfRenderer()
     .RenderHtmlAsPdf("<h1>Document Title</h1>")
     .DrawText("Hello World", FontTypes.TimesNewRoman.Name, 12, 0, 100, 100, Color.Black, 0)

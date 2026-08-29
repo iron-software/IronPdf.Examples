@@ -1,6 +1,6 @@
 # Redacting Text and Areas within Documents
 
-***Based on <https://ironpdf.com/how-to/redact-text/>***
+> Full guide: [Redacting Text and Areas within Documents](https://ironpdf.com/how-to/redact-text/)
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
@@ -11,12 +11,11 @@ Redaction is a crucial process for removing or obscuring personal or confidentia
 
 Similarly, when you need to obscure specific sections of a document, area redaction is used. This technique requires precise dimensions including coordinates, as well as width and height specifications.
 
-*as-heading:2(Quick Guide: Redacting Sensitive Information in PDFs)*
+## Quick Guide: Redacting Sensitive Information in PDFs
 
-Quickly remove confidential details from your PDF files using the seamless redaction features of IronPDF. A few lines of code will allow you to apply comprehensive redaction across all pages of a PDF document. This brief tutorial shows how to open a PDF, apply redactions, and save your privacy-compliant file using the straightforward IronPDF API.
+Quickly remove confidential details from your PDF files using the redaction features of IronPDF. A few lines of code will allow you to apply comprehensive redaction across all pages of a PDF document. This brief tutorial shows how to open a PDF, apply redactions, and save your privacy-compliant file using the straightforward IronPDF API.
 
 ```cs
-:title=Immediate Text Redaction in PDFs
 IronPdf.PdfDocument document = IronPdf.PdfDocument.FromFile("document.pdf");
 document.RedactTextOnAllPages("confidential");
 document.SaveAs("secured_document.pdf");

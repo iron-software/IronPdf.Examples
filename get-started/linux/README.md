@@ -1,7 +1,6 @@
 # Utilizing IronPDF on Linux
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
+> Full guide: [Utilizing IronPDF on Linux](https://ironpdf.com/get-started/linux/)
 
 IronPDF is compatible with Linux environments across multiple versions of **.NET 10, 9, 8, 7, 6, 5**, as well as **.NET Core**. This compatibility extends to various deployment and containerization platforms including Docker, Azure, AWS, macOS, and Windows.
 
@@ -29,9 +28,9 @@ IronPDF is compatible with Linux environments across multiple versions of **.NET
 
 For optimal performance, it's advised to employ .NET Core 8.0 or other [Microsoft-maintained LTS versions](https://dotnet.microsoft.com/platform/support/policy) as they offer stable long-term support and have been thoroughly tested on Linux platforms.
 
-IronPDF is engineered to function seamlessly on Linux right out of the box, obviating the need for any code modifications. This smooth integration is the result of rigorous testing and meticulous configuration by our development team.
+IronPDF runs on Linux without code changes, following extensive testing and configuration work.
 
-Supporting Linux is crucial given its widespread use in key cloud services including Azure Web Apps, Azure Functions, AWS EC2, AWS Lambda, and Docker on Azure DevOps. Our familiarity with these technologies ensures that both enterprise and SaaS clients receive robust support when using IronPDF.
+Supporting Linux is crucial given its widespread use in key cloud services including Azure Web Apps, Azure Functions, AWS EC2, AWS Lambda, and Docker on Azure DevOps. Enterprise and SaaS deployments on those platforms are supported.
 
 For further assistance or to deepen your understanding of IronPDF’s implementation on Docker, please consult our detailed [guide on using IronPDF with Docker](https://ironpdf.com/how-to/docker-linux/). Additionally, IronPDF can be utilized on Linux via a Windows environment with the aid of WSL, providing another convenient usage scenario.
 
@@ -51,7 +50,7 @@ For detailed guidelines on Linux packages and additional information on system-s
 
 ### Supported Linux Distributions for IronPDF
 
-IronPDF is fully compatible and optimized for the following **64-bit** Linux distributions, allowing for seamless integration without any additional configuration:
+IronPDF is supported on the following **64-bit** Linux distributions with no additional configuration:
 
 - Ubuntu 22
 - Ubuntu 20
@@ -63,11 +62,11 @@ IronPDF is fully compatible and optimized for the following **64-bit** Linux dis
 - Fedora Linux 33
 - Amazon AWS Linux 2
 
-For implementations using IronPDF on Linux versions not listed here, please consult the [Common Dependency Patterns for Linux](#other-linux-distros) detailed later in this documentation.
+For implementations using IronPDF on Linux versions not listed here, please consult the Common Dependency Patterns for Linux detailed later in this documentation.
 
 ## Hardware Requirements
 
-IronPDF leverages the Chromium engine to convert HTML content to PDFs, ensuring precision that aligns with the printing functionalities of the Chrome browser. This process demands substantial system resources due to the sophisticated nature of the rendering process.
+IronPDF converts HTML content to PDFs through the Chromium engine, matching Chrome's own print output. This process demands substantial system resources due to the sophisticated nature of the rendering process.
 
 - **Minimum System Requirements**: At least 1 CPU core and 1.75 GB of RAM.
 - **Recommended System Configuration**: 2 CPU cores and a minimum of 8 GB of RAM.
@@ -87,7 +86,7 @@ Ubuntu ranks as the most thoroughly evaluated Linux distribution within our fram
 
 ### Ubuntu 20 Compatibility Details
 
-Ubuntu 20 is fully compatible with IronPDF and offers seamless integration without requiring any configuration adjustments. This is our most thoroughly tested Linux distribution, primarily utilized in the Azure ecosystem for relentless testing and deployment activities. Additionally, it benefits from official .NET support from Microsoft and is equipped with officially endorsed Docker images.
+Ubuntu 20 works with IronPDF with no configuration changes. This is our most thoroughly tested Linux distribution, primarily utilized in the Azure ecosystem for relentless testing and deployment activities. Additionally, it benefits from official .NET support from Microsoft and is equipped with officially endorsed Docker images.
 
 ![Microsoft Logo](https://img.icons8.com/color/48/000000/microsoft.png)
 ![Ubuntu Logo](https://img.icons8.com/color/48/000000/ubuntu--v1.png)
@@ -115,8 +114,6 @@ For scenarios where manual installation becomes essential or in cases where your
 ```sh
 # First, update and install essential libraries
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 apt update
 apt install -y libc6-dev libgtk2.0-0 libnss3 libatk-bridge2.0-0
 apt install -y libx11-xcb1 libxcb-dri3-0 libdrm-common libgbm1
@@ -125,16 +122,12 @@ apt install -y libgdiplus libva-dev
 
 # Ensure that IronCefSubprocess has the appropriate permissions
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Usually located at bin/runtimes/linux-x64/
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 ```
 
-Ubuntu 20 represents a robust platform for deploying applications with IronPDF, ensuring a smooth and efficient operation.
+Ubuntu 20 is a well-tested platform for deploying IronPDF.
 
 <img src="https://img.icons8.com/color/48/000000/microsoft.png" style="display:inline" />
 <img src="https://img.icons8.com/color/48/000000/ubuntu--v1.png" style="display:inline" />
@@ -143,10 +136,7 @@ Ubuntu 20 represents a robust platform for deploying applications with IronPDF, 
 <img src="https://img.icons8.com/color/48/000000/docker.png" style="display:inline" />
 <img src="https://img.icons8.com/fluency/48/000000/azure-1.png" style="display:inline" />
 
-# Seamless Integration with Ubuntu 20 Using IronPDF
-
-***Based on <https://ironpdf.com/get-started/linux/>***
-
+# Using IronPDF on Ubuntu 20
 
 IronPDF fully supports Ubuntu 20, which requires **no configuration** to get started.
 
@@ -157,7 +147,7 @@ IronPDF fully supports Ubuntu 20, which requires **no configuration** to get sta
 
 ### Official Microsoft Docker Images for Ubuntu 20
 
-IronPDF supports the following official Docker images from Microsoft for seamless deployment:
+IronPDF supports the following official Docker images from Microsoft:
 
 - [64-bit Ubuntu 20.04 Docker Image for .NET Runtime 3.1 ('3.1-focal')](https://hub.docker.com/_/microsoft-dotnet-runtime/)
 - [64-bit Ubuntu 20.04 Docker Image for .NET Runtime 5.0 ('5.0-focal')](https://hub.docker.com/_/microsoft-dotnet-runtime/)
@@ -169,13 +159,9 @@ In scenarios where you require manual installation, or your application cannot r
 ```sh
 # Update and fetch the latest packages
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 apt update
 
 # Install all necessary libraries
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 apt install -y libc6-dev
 apt install -y libgtk2.0-0
@@ -195,12 +181,8 @@ apt install -y libva-dev
 
 # Make sure IronPdf's IronCefSubprocess has the appropriate permissions
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Assuming the file is located at bin/runtimes/linux-x64/
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ``` 
 
@@ -208,8 +190,6 @@ By addressing these manual setup attributes, Ubuntu 20 users can tailor IronPDF 
 
 ```sh
 # Start by updating your system and installing the required libraries
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 apt update
 apt install -y libc6-dev        # C standard library
@@ -230,12 +210,8 @@ apt install -y libva-dev          # Development files for libva
 
 # Modify the permissions to ensure IronCefSubprocess can execute
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Note: You will typically find IronCefSubprocess located in your project's bin/runtimes/linux-x64 path.
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -262,19 +238,13 @@ For instances where automatic setup is not possible or if your application deman
 ```sh
 # Refreshing repositories and installing necessary packages
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 apt update
 apt install -y libc6 libc6-dev libgtk2.0-0 libnss3 libatk-bridge2.0-0 libx11-xcb1 libxcb-dri3-0 libdrm-common libgbm1 libasound2 libappindicator3-1 libxrender1 libfontconfig1 libxshmfence-dev
 
 # Updating permissions to ensure executability
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # IronCefSubprocess is generally located at bin/runtimes/linux-x64/
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -310,8 +280,6 @@ For scenarios where automated installation is not suitable, or if your applicati
 ```sh
 # Refresh repository and install required packages
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 apt update
 apt install -y libc6 libc6-dev libgtk2.0-0 libnss3
 apt install -y libatk-bridge2.0-0 libx11-xcb1 libxcb-dri3-0
@@ -320,12 +288,8 @@ apt install -y libappindicator3-1 libxrender1 libfontconfig1 libxshmfence-dev
 
 # Set executable permissions for IronCefSubprocess binary
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Note: You can find the IronCefSubprocess typically in the bin/runtimes/linux-x64/ directory
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -344,8 +308,6 @@ In cases where automatic capabilities are restricted or administrator rights are
 ```sh
 # Begin updates and library installations
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 apt update
 apt install -y libc6-dev
 apt install -y libgtk2.0-0
@@ -363,12 +325,8 @@ apt install -y libxshmfence-dev
 
 # Setting necessary permissions for IronCefSubprocess
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Usually found in the bin/runtimes/linux-x64/ directory
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -388,8 +346,6 @@ In cases where a manual setup is required, or if your application cannot operate
 ```sh
 # Begin the update and installation of necessary libraries
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 apt update
 apt install -y libc6-dev
 apt install -y libgtk2.0-0
@@ -407,12 +363,8 @@ apt install -y libxshmfence-dev
 
 # Adjust permissions for IronCefSubprocess to ensure it's executable
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Reminder: You'll typically find IronCefSubprocess at bin/runtimes/linux-x64/
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -440,8 +392,6 @@ For scenarios where automatic setup might not be possible or if your application
 ```sh
 # Update the package lists and install the necessary libraries
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 apt update
 apt install -y libc6-dev
 apt install -y libgtk2.0-0
@@ -459,12 +409,8 @@ apt install -y libxshmfence1
 
 # Ensure the IronCefSubprocess binary is executable
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Usually found at bin/runtimes/linux-x64/
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -475,7 +421,7 @@ chmod 755 IronCefSubprocess
 <img src="https://img.icons8.com/color/48/000000/docker.png" style="display:inline" />
 <img src="https://img.icons8.com/fluency/48/000000/azure-1.png" style="display:inline" />
 
-Debian 11 is seamlessly supported by IronPDF without requiring any configuration adjustments.
+Debian 11 is supported by IronPDF with no configuration changes.
 
 - Provides compatibility with HTML to PDF conversion engines like **Chrome** and **WebKit**.
 - Fully supports **.NET Core 3.1, 5, 6 (LTS), 7, and 8** runtimes.
@@ -496,8 +442,6 @@ Manual setup might be essential if your application doesn't have _sudo_ admin ri
 ```sh
 # Refresh package lists and install essential libraries
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 apt update
 apt install -y libc6-dev
 apt install -y libgtk2.0-0
@@ -515,12 +459,8 @@ apt install -y libxshmfence1
 
 # Adjust permissions to allow execution of the IronCefSubprocess binary
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Note: Typically, the IronCefSubprocess binary is located in the bin/runtimes/linux-x64/ directory
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -535,12 +475,12 @@ Debian 10 is fully supported by IronPDF, enabling straightforward "no configurat
 ![Docker](https://img.icons8.com/color/48/000000/docker.png)
 ![Azure](https://img.icons8.com/fluency/48/000000/azure-1.png)
 
-IronPDF provides full support for Debian 10, facilitating effortless integration and functionality.
+IronPDF fully supports Debian 10.
 
 - Supports both Chrome and WebKit for HTML to PDF conversions
 - Fully compatible with **.NET Core 3.1, 5, 6 (LTS), 7, and 8** runtimes
 - While mainly supporting the listed .NET cores, the platform offers limited support for additional runtimes
-- Undergoes over 997 unit tests to ensure reliability and robustness with each update
+- Passes over 997 unit tests on each update
 
 **Official Docker Images from Microsoft:**
 
@@ -553,8 +493,6 @@ For scenarios requiring manual installation or where administrative privileges a
 
 ```sh
 # Begin by updating and installing essential libraries
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 apt update
 apt install -y libc6-dev
@@ -573,16 +511,12 @@ apt install -y libxshmfence1
 
 # Ensure the IronCefSubprocess binary is executable
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Typically located in bin/runtimes/linux-x64/
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 ```
 
-This guide streamlines the process of incorporating IronPDF into Debian 10 systems, ensuring you can leverage its powerful PDF rendering capabilities efficiently.
+This guide covers adding IronPDF to a Debian 10 system.
 
 <img src="https://img.icons8.com/color/48/000000/debian.png" style="display:inline" />
 <img src="https://img.icons8.com/color/48/000000/microsoft.png" style="display:inline" />
@@ -607,12 +541,8 @@ Debian 10 is fully supported by IronPDF directly "out-of-the-box," requiring no 
 
 Should there be a need for manual setup, or if your application cannot operate with _sudo_ administrative rights, you can disable automatic dependency configuration. By setting `IronPdf.Installation.LinuxAndDockerDependenciesAutoConfig = false`, you can proceed to manually install the necessary dependencies.
 
-Here is the paraphrased section you requested:
-
 ```sh
 # Commence updates and initiate necessary library installations
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 apt update
 apt install -y libc6-dev
@@ -631,18 +561,14 @@ apt install -y libxshmfence1
 
 # Adjust permissions to allow execution of IronCefSubprocess 
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Note: The IronCefSubprocess executable is typically located in the bin/runtimes/linux-x64/ directory
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
 ### Compatibility with Debian 9 and Earlier Versions
 
-Debian 9 and earlier releases are not pre-configured to work seamlessly with IronPdf. While .NET is officially supported on Debian 9 by Microsoft, additional setup is necessary to ensure compatibility. You are encouraged to consult the [Common Dependency Patterns for Linux](#other-linux-distros) provided at the end of this document for guidance.
+Debian 9 and earlier are not preconfigured for IronPdf. While .NET is officially supported on Debian 9 by Microsoft, additional setup is necessary to ensure compatibility. You are encouraged to consult the Common Dependency Patterns for Linux provided at the end of this document for guidance.
 
 There are no endorsed Docker images for .NET Core 3.1 or .NET 5.0 available for Debian 9 from Microsoft. Upgrading to Debian 10 is highly recommended to ensure smoother operation and support.
 
@@ -652,13 +578,13 @@ There are no endorsed Docker images for .NET Core 3.1 or .NET 5.0 available for 
 <img src="https://img.icons8.com/color/48/000000/debian.png" style="display:inline" />
 <img src="https://img.icons8.com/fluency/48/000000/test.png" style="display:inline" />
 
-Debian 9 has not undergone official testing with IronPdf and does not provide immediate compatibility. However, while Microsoft officially supports .NET on Debian 9, correct configuration can enable compatibility with IronPdf. For setup guidance, please see the [Common Dependency Patterns for Linux](#other-linux-distros) section provided later in this documentation.
+Debian 9 has not undergone official testing with IronPdf and does not provide immediate compatibility. However, while Microsoft officially supports .NET on Debian 9, correct configuration can enable compatibility with IronPdf. For setup guidance, please see the Common Dependency Patterns for Linux section provided later in this documentation.
 
 It's important to note that Microsoft does not provide official Docker images for .NET Core 3.1 or .NET 5.0 compatible with Debian 9. Transitioning to Debian 10 is strongly advised for better support and functionality.
 
 ## CentOS Support with IronPDF
 
-IronPDF provides robust support for CentOS, ensuring seamless integration with this Linux distribution.
+IronPDF provides support for CentOS, ensuring integration with this Linux distribution.
 
 ### CentOS 8 Compatibility
 
@@ -684,24 +610,16 @@ Then, execute the following commands in your terminal:
 ```sh
 # Start by updating your packages
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 dnf -y update
 
 # Install required libraries
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 dnf -y install glibc-devel nss at-spi2-atk libXcomposite libXrandr mesa-libgbm alsa-lib pango cups-libs libXdamage libxshmfence
 
 # Adjust permissions for the IronCefSubprocess, ensuring it is executable
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # IronCefSubprocess is typically located at bin/runtimes/linux-x64/
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -720,11 +638,11 @@ Reiterating, no official Docker images exist for .NET Core 3.1 or .NET 5.0 on Ce
 
 ### Comprehensive CentOS Support
 
-IronPDF provides robust support for CentOS, ensuring seamless operation and optimal performance.
+IronPDF provides support for CentOS, ensuring operation and optimal performance.
 
 ### CentOS 8 Compatibility
 
-CentOS 8 is fully supported right out of the box, which makes setup effortless.
+CentOS 8 is supported with no additional setup.
 
 - We offer support for both **Chrome** and **WebKit** based HTML to PDF conversion technologies.
 - Official support is extended for **.NET Core 3.1, 5, 6 (LTS), 7, and 8** runtime versions.
@@ -739,8 +657,6 @@ In situations where automatic installation is not suitable, or when the applicat
 
 ```sh
 # Command sequence to update system and install required libraries
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 dnf -y update
 dnf -y install glibc-devel
@@ -757,12 +673,8 @@ dnf -y install libxshmfence
 
 # Update permissions for the IronCefSubprocess binary
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Location: bin/runtimes/linux-x64/
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -794,13 +706,9 @@ Disable automatic dependencies setup by setting `IronPdf.Installation.LinuxAndDo
 ```sh
 # Start by updating your system's package manager
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 dnf -y update
 
 # Proceed to install the necessary development libraries
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 dnf -y install glibc-devel
 dnf -y install nss
@@ -816,12 +724,8 @@ dnf -y install libxshmfence
 
 # Modify the permissions to make the IronCefSubprocess executable
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Note: Typically, the IronCefSubprocess binary is located in the bin/runtimes/linux-x64/ directory
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -829,7 +733,7 @@ chmod 755 IronCefSubprocess
 
 The IronPdf software does not directly support CentOS 7 and earlier versions without preliminary configuration.
 
-While Microsoft officially backs .NET on CentOS 7, achieving operational status with IronPdf on these versions necessitates proper setup. For guidance on configuring dependencies, refer to the section on [Common Dependency Patterns for Linux](#other-linux-distros).
+While Microsoft officially backs .NET on CentOS 7, achieving operational status with IronPdf on these versions necessitates proper setup. For guidance on configuring dependencies, refer to the section on Common Dependency Patterns for Linux.
 
 It's important to note that Microsoft does not provide official Docker images for .NET Core 3.1 or .NET 5.0 tailored to CentOS 7.
 
@@ -853,8 +757,6 @@ To configure IronPDF manually in environments without _sudo_ privileges, disable
 
 ```sh
 # Perform system updates and install required libraries
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 yum update -y
 yum install -y pango.x86_64
@@ -885,12 +787,8 @@ yum install -y libxkbcommon
 
 # Ensure IronCefSubprocess has the appropriate permissions
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # This file is typically found at bin/runtimes/linux-x64/
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -901,9 +799,6 @@ Read our official documentation for more in-depth instructions on [setting up Ir
 <img src="https://img.icons8.com/color/48/000000/safari--v1.png" style="display:inline" />
 <img src="https://img.icons8.com/fluency/48/000000/test.png" style="display:inline" />
 
-Here’s the revised content as requested:
-
----
 IronPDF is compatible with Amazon AWS Linux 2, which underpins key Amazon cloud services like EC2 and Lambda.
 
 - Microsoft does not provide official Docker images for .NET Core 3.1 or .NET 5.0 specifically for Amazon AWS Linux 2.
@@ -917,8 +812,6 @@ When automatic installation isn't feasible, or if your application operates with
 
 ```sh
 # Upgrade and install required system libraries
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 yum -y update
 yum -y install pango.x86_64
@@ -949,12 +842,8 @@ yum -y install libxkbcommon
 
 # Modify permissions for IronCefSubprocess to make it executable
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Note: IronCefSubprocess is typically located in the bin/runtimes/linux-x64/ directory
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -962,7 +851,7 @@ Please make sure to review our detailed guide on [IronPdf for AWS Lambda](https:
 
 ## Compatibility with Fedora Linux
 
-Fedora Linux seamlessly integrates with IronPDF, requiring no configuration to get started.
+Fedora Linux integrates with IronPDF, requiring no configuration to get started.
 
 - Enables HTML to PDF conversion using **Chrome** and **WebKit** rendering engines.
 - Provides native support for **.NET Core 3.1, 5, 6 (LTS), 7, and 8**.
@@ -972,12 +861,8 @@ Fedora Linux seamlessly integrates with IronPDF, requiring no configuration to g
 
 For scenarios where a manual setup is required or running with _sudo_ privileges is not feasible, disable automatic dependency management by setting the `IronPdf.Installation.LinuxAndDockerDependenciesAutoConfig` property to `false`. Proceed to manually install the necessary libraries:
 
-Here's the paraphrased section with resolved URL paths as requested:
-
 ```sh
 # Execute the following commands to install the required libraries
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 dnf -y install glibc-devel
 dnf -y install nss
@@ -993,12 +878,8 @@ dnf -y install libxshmfence
 
 # Modify permissions for IronCefSubprocess to make it executable
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Reminder: IronCefSubprocess is typically located at bin/runtimes/linux-x64/
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -1008,7 +889,7 @@ As of the current year, Alpine Linux does not support IronPDF. This limitation a
 
 ### Deploying IronPdfEngine on Alpine with Docker in .NET 6
 
-IronPdf offers a comprehensive Docker container that encapsulates all the functionalities of IronPdf. This setup allows applications on Alpine Linux to leverage IronPdf capabilities by linking with the IronPdfEngine Docker container.
+IronPdf offers a comprehensive Docker container that encapsulates all the functionalities of IronPdf. This setup allows applications on Alpine Linux to use IronPdf capabilities by linking with the IronPdfEngine Docker container.
 
 #### Step 1: Obtain and Execute the IronPdf Engine Docker Container
 
@@ -1017,13 +898,9 @@ Use the commands below in your terminal to retrieve and initiate the IronPdf Eng
 ```shell
 # Download the IronPdfEngine Docker container
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 docker pull ironsoftwareofficial/ironpdfengine
 
 # Start the IronPdfEngine Docker container
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 docker run -d -p 33350:33350 ironsoftwareofficial/ironpdfengine
 ```
@@ -1031,19 +908,12 @@ docker run -d -p 33350:33350 ironsoftwareofficial/ironpdfengine
 ```shell
 # Retrieve the Docker image for IronPdfEngine from Iron Software's official repository
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 docker pull ironsoftwareofficial/ironpdfengine
 
 # Start the IronPdfEngine in a detached container
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 docker run -d --publish 33350:33350 ironsoftwareofficial/ironpdfengine
 ```
-
-Here's the paraphrased section with updated URL paths:
-
 
 ## Step 2: Configure Your Console Application
 
@@ -1052,7 +922,6 @@ Here's the paraphrased section with updated URL paths:
 - Proceed to add the IronPdf.Slim package from NuGet Package Manager to your project.
 
 For further details on the deployment and usage of [IronPdfEngine](https://ironpdf.com/get-started/ironpdfengine-docker/), consult the linked guide.
-```
 
 ## Compatibility with Additional Linux Distributions
 
@@ -1070,12 +939,8 @@ Should you need assistance or wish to see official support extended to other Lin
 
 For other Linux operating systems not specifically listed, you can use the standard packages mentioned earlier in the document.
 
-Below is the paraphrased section of the article, with the URLs resolved to `ironpdf.com`:
-
 ```sh
 # Start by updating the package list and then install the required libraries
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 apt update
 apt install -y libc6-dev
@@ -1094,12 +959,8 @@ apt install -y libxshmfence1
 
 # Set the correct permissions for IronCefSubprocess to allow it to run
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 chmod 755 IronCefSubprocess
 # Reminder: Typically, the IronCefSubprocess binary is located in the bin/runtimes/linux-x64 folder
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 ```
 
@@ -1110,8 +971,6 @@ The `ldd` utility is an effective tool for identifying missing dependencies in a
 ```shell
 # Analyzing the dependencies of IronInterop.so
 
-***Based on <https://ironpdf.com/get-started/linux/>***
-
 ldd IronInterop.so
 ```
 
@@ -1119,12 +978,8 @@ ldd IronInterop.so
 
 The `IronCefSubprocess` is a crucial binary located within the `bin` directory of your application. It is essential for the correct functioning of the application and must have executable permissions set for the .NET process to utilize it.
 
-Here is the paraphrased section with updated paths:
-
 ```sh
 # Update permission settings for IronCefSubprocess
-
-***Based on <https://ironpdf.com/get-started/linux/>***
 
 chmod 755 /bin/runtimes/linux-64/IronCefSubprocess
 ```

@@ -1,6 +1,6 @@
 # Managing Fonts in PDF Documents
 
-***Based on <https://ironpdf.com/how-to/manage-fonts/>***
+> Full guide: [Managing Fonts in PDF Documents](https://ironpdf.com/how-to/manage-fonts/)
 
 
 Fonts, which include characters, symbols, and glyphs, are key to maintaining the visual style and design consistency across documents. They allow text to be displayed attractively and coherently in documents.
@@ -12,7 +12,6 @@ IronPDF supports comprehensive font management tools, enabling developers to eas
 IronPDF simplifies font management in PDF files. In the following tutorial, we’ll show you how to ensure that your PDF displays consistently on all platforms by embedding fonts. This can significantly improve your document's readability and viewer compatibility since no additional font installations are required.
 
 ```cs
-:title=Quickly add and embed a custom font!
 var pdf = PdfDocument.FromHtml("<p style='font-family:MyCustomFont;'>Hello world!</p>");
 pdf.Fonts.Add("MyCustomFont", File.ReadAllBytes("MyCustomFont.ttf"))
   .Embed()

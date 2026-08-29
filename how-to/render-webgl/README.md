@@ -1,6 +1,6 @@
 # Rendering WebGL Sites
 
-***Based on <https://ironpdf.com/how-to/render-webgl/>***
+> Full guide: [Rendering WebGL Sites](https://ironpdf.com/how-to/render-webgl/)
 
 
 <div class="container-fluid">
@@ -17,10 +17,9 @@ IronPDF offers the necessary tools to capture and convert websites featuring Web
 
 ## Quickstart: Convert WebGL Content to PDF with .NET
 
-Leverage IronPDF to transform interactive WebGL graphics into static PDF documents with ease in .NET C#. This guide aids you in setting up IronPDF for capturing and rendering WebGL site content efficiently. Ensure the GPU mode is set to Hardware and Single Process is enabled for best results. Below are the steps to initiate converting 3D web visuals into distributable PDF files.
+Use IronPDF to transform interactive WebGL graphics into static PDF documents with ease in .NET C#. This guide aids you in setting up IronPDF for capturing and rendering WebGL site content efficiently. Ensure the GPU mode is set to Hardware and Single Process is enabled for best results. Below are the steps to initiate converting 3D web visuals into distributable PDF files.
 
 ```cs
-:title=PDF Generation from WebGL Pages
 IronPdf.Installation.SingleProcess = true;
 IronPdf.Installation.ChromeGpuMode = IronPdf.Engines.Chrome.ChromeGpuModes.Hardware;
 

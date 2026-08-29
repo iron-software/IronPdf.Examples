@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/bookmarks/>***
+> Full guide: [Bookmarks](https://ironpdf.com/examples/bookmarks/)
 
 A PDF bookmark, also known as an outline, provides a navigational structure to quickly access important sections of a PDF file. In applications like Adobe Acrobat Reader, these bookmarks appear on the left sidebar and can be structured hierarchically. IronPDF supports the importation of existing bookmarks from PDFs and facilitates the addition, modification, and organization of new ones.
 

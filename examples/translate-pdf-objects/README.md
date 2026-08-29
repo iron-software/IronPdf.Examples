@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/translate-pdf-objects/>***
+> Full guide: [Translate PDF objects](https://ironpdf.com/examples/translate-pdf-objects/)
 
 When you need to reposition a text, image, or shape within a PDF, IronPDF provides an efficient way to directly manipulate the object's position using our library tools.
 
@@ -15,13 +15,12 @@ In this coding tutorial, we'll demonstrate how you can easily move objects withi
         <li>pdf.SaveAs("moved.pdf");</li>
     </ol>
 </div>
-```
 
 ## Detailed Code Walkthrough
 
 Initially, we create an instance of `ChromePdfRenderer` and use the `RenderHtmlAsPdf` to convert an HTML string into a PDF document.
 
-Next, we navigate the structure of the rendered PDF. We select the first page by calling `Pages.First`, and then access the `ObjectModel`, which allows us to delve into the `TextObjects` collection. This collection houses all instances of `TextObject` found in the PDF. We then choose the first object in this collection to work with.
+Next, we navigate the structure of the rendered PDF. We select the first page by calling `Pages.First`, and then access the `ObjectModel`, which allows us to look at the `TextObjects` collection. This collection houses all instances of `TextObject` found in the PDF. We then choose the first object in this collection to work with.
 
 With the selected `TextObject` now in hand – in our example, it identifies the text "Sample Text" – we modify its `Translate` property by setting a new `PointF(X, Y)`. This modification moves the text 100 units rightward and 100 units upward on the X and Y axes respectively.
 

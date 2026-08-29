@@ -1,3 +1,4 @@
+using IronPdf.Editing;
 using IronPdf;
 
 // Stamps a Watermark onto a new or existing PDF

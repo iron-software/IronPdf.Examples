@@ -1,6 +1,6 @@
 # Converting RTF to PDF with IronPDF
 
-***Based on <https://ironpdf.com/how-to/rtf-to-pdf/>***
+> Full guide: [Converting RTF to PDF with IronPDF](https://ironpdf.com/how-to/rtf-to-pdf/)
 
 
 RTF, which stands for Rich Text Format, is a document formatting system created by Microsoft. Unlike formats such as DOCX or PDF, RTF's capabilities in styling and media embedding are somewhat limited, yet it remains widely used for basic document creation including text and simple visuals.
@@ -9,10 +9,9 @@ IronPDF provides an efficient solution for converting RTF files and strings into
 
 ## Quick Guide: Converting RTF to PDF with IronPDF
 
-Start converting your RTF documents into professional-quality PDFs using IronPDF. This robust tool allows you to effortlessly convert Rich Text Format files into secure, easily distributable PDFs, perfect for both sharing and printing. Integrating IronPDF into your .NET C# projects for RTF to PDF conversion is straightforward and efficient.
+Start converting your RTF documents into professional-quality PDFs using IronPDF. This tool allows you to convert Rich Text Format files into secure, easily distributable PDFs, perfect for both sharing and printing. Integrating IronPDF into your .NET C# projects for RTF to PDF conversion is straightforward and efficient.
 
 ```cs
-:title=One-step RTF to PDF conversion!
 new IronPdf.ChromePdfRenderer()
      .RenderRtfFileAsPdf("input.rtf")
      .SaveAs("result.pdf");
@@ -20,7 +19,7 @@ new IronPdf.ChromePdfRenderer()
 
 ## Example: Converting an RTF String to a PDF Document
 
-Leverage the `RenderRtfStringAsPdf` function to turn an RTF string directly into a PDF file. This method also supports a wide range of **RenderingOptions**, including setting [text and HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/), [image and text stamping](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#stamper-abstract-class), [page numbering](https://ironpdf.com/how-to/headers-and-footers/), and adjusting the page size and orientation. Furthermore, after your PDF is generated, you can manage the PDF's structure by [merging, splitting](https://ironpdf.com/how-to/merge-or-split-pdfs/), rotating, as well as adding [annotations](https://ironpdf.com/how-to/annotations/) and [bookmarks](https://ironpdf.com/how-to/bookmarks/) to enhance its utility and navigability.
+Use the `RenderRtfStringAsPdf` function to turn an RTF string directly into a PDF file. This method also supports a wide range of **RenderingOptions**, including setting [text and HTML headers and footers](https://ironpdf.com/how-to/headers-and-footers/), [image and text stamping](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/#stamper-abstract-class), [page numbering](https://ironpdf.com/how-to/headers-and-footers/), and adjusting the page size and orientation. Furthermore, after your PDF is generated, you can manage the PDF's structure by [merging, splitting](https://ironpdf.com/how-to/merge-or-split-pdfs/), rotating, as well as adding [annotations](https://ironpdf.com/how-to/annotations/) and [bookmarks](https://ironpdf.com/how-to/bookmarks/) to enhance its utility and navigability.
 
 ```csharp
 using IronPdf;

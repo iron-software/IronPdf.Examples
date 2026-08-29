@@ -1,16 +1,15 @@
 # How to Sanitize PDF
 
-***Based on <https://ironpdf.com/how-to/sanitize-pdf/>***
+> Full guide: [How to Sanitize PDF](https://ironpdf.com/how-to/sanitize-pdf/)
 
 
 Sanitizing PDF files is essential for multiple reasons. It primarily protects the documents by eliminating dangerous elements such as embedded scripts or metadata, reducing the chances of attacks from malicious sources. Additionally, PDF sanitation simplifies the file structure by removing complex and proprietary components, increasing cross-platform compatibility and accessibility. This plays a vital role in preventing data breaches and maintaining the integrity of documents, thereby enhancing trust and security in document management systems.
 
 ## Straightforward PDF Sanitization with IronPDF
 
-Secure your PDF files effortlessly with the `Cleaner` class from IronPDF. This quickstart guide shows you how to use C# .NET to sanitize a PDF promptly using the `ScanPdf` method. By following the example below, you will be able to remove risks such as embedded scripts and metadata, thereby securing the integrity and confidentiality of your PDF files.
+Secure your PDF files with the `Cleaner` class from IronPDF. This quickstart guide shows you how to use C# .NET to sanitize a PDF promptly using the `ScanPdf` method. By following the example below, you will be able to remove risks such as embedded scripts and metadata, thereby securing the integrity and confidentiality of your PDF files.
 
 ```cs
-:title=Sanitize a PDF with a single line of code!
 IronPdf.Cleaner.SanitizeWithSvg(PdfDocument.FromFile("input.pdf")).SaveAs("sanitized.pdf");
 ```
 

@@ -5,7 +5,6 @@ namespace IronPdf.Examples.HowTo.ColorGrayscale
     {
         public static void Run()
         {
-            :title=Convert to Grayscale Instantly
             var renderer = new IronPdf.ChromePdfRenderer();
             renderer.RenderingOptions.GrayScale = true;
             var pdf = renderer.RenderUrlAsPdf("https://example.com");

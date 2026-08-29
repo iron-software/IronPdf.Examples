@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/csharp-remove-page-from-pdf/>***
+> Full guide: [C# remove page from PDF](https://ironpdf.com/examples/csharp-remove-page-from-pdf/)
 
 Adjusting the structure of your PDF file by excising certain pages is a straightforward process using IronPDF. This technique is particularly useful for eliminating surplus pages or cleaning up documents by getting rid of blank ones. IronPDF allows you to perform such operations with minimal code, specifically through the `RemovePages` method.
 

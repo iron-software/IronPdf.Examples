@@ -1,6 +1,6 @@
 # Convert XML to PDF in C# and VB.NET
 
-***Based on <https://ironpdf.com/how-to/xml-to-pdf/>***
+> Full guide: [Convert XML to PDF in C# and VB.NET](https://ironpdf.com/how-to/xml-to-pdf/)
 
 
 Transforming XML directly to PDF using C# may appear daunting due to the intricacies involved. A proven strategy involves employing an XSLT as a transformation template. Using this method, XML is transformed into an HTML format through *XSLT*, which subsequently facilitates rendering into a PDF file. Simply put, XSLT functions as an intermediary, translating XML into HTML based on defined templates, adhering closely to established industry standards.
@@ -9,10 +9,9 @@ For a more detailed understanding of XSLT transformations, refer to the [Using t
 
 ## Quickstart: Convert XML to PDF with IronPDF
 
-Effortlessly transform your XML files into PDF documents utilizing IronPDF. Just a few lines of code are needed to convert XML content to HTML using XSLT, and then produce a PDF from that HTML. This method is perfect for developers requiring seamless and quick integration, allowing them to preserve document formatting and ensure broad platform compatibility.
+transform your XML files into PDF documents utilizing IronPDF. Just a few lines of code are needed to convert XML content to HTML using XSLT, and then produce a PDF from that HTML. The formatting survives the round trip, and the result opens anywhere a PDF does.
 
 ```cs
-:title=Efficient XML to PDF Conversion
 var pdfRenderer = new IronPdf.ChromePdfRenderer();
 pdfRenderer.RenderHtmlAsPdf(
         XslCompiledTransform.Load("template.xslt")

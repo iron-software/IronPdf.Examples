@@ -1,3 +1,4 @@
+using IronPdf.Engines.Chrome;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Waitfor
 {

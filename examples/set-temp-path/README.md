@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/set-temp-path/>***
+> Full guide: [Set temp path](https://ironpdf.com/examples/set-temp-path/)
 
 When utilizing IronPDF, the software may create temporary files while processing the generation, alteration, and rendering of PDF documents. This behavior aligns with typical operations of software applications which temporarily house data during active sessions. Crucially, IronPDF grants you comprehensive control over the creation location of this folder and other essential settings pertaining to temporary files.
 
@@ -17,6 +17,6 @@ When utilizing IronPDF, the software may create temporary files while processing
    - Execute `RenderHtmlAsPdf` on said renderer with a string of HTML content to create the PDF, which is then stored in the `doc` variable.
    - The document is saved as "example.pdf" through the method `doc.SaveAs`.
 
-By managing the temporary file paths, you enhance your ability to oversee the files produced during PDF generation, hence ensuring the seamless operation of your application without overloading the default temporary directories.
+By managing the temporary file paths, you enhance your ability to oversee the files produced during PDF generation, hence ensuring the operation of your application without overloading the default temporary directories.
 
 [Learn More About Custom Logging with IronPDF for Enhanced Control](https://ironpdf.com/how-to/custom-logging/)

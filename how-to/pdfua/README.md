@@ -1,6 +1,6 @@
 # Exporting PDF/UA Format Documents Using C# and IronPDF
 
-***Based on <https://ironpdf.com/how-to/pdfua/>***
+> Full guide: [Exporting PDF/UA Format Documents Using C# and IronPDF](https://ironpdf.com/how-to/pdfua/)
 
 
 IronPDF provides a simple way to create PDF documents that adhere to the PDF/UA standard, making them accessible and usable by individuals with disabilities. By embracing PDF/UA, your documents become compliant with accessibility guidelines such as those outlined in Section 508 of the Rehabilitation Act, and they become friendlier for use with assistive technologies such as screen readers.

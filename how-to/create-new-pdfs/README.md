@@ -1,12 +1,11 @@
 # Creating New PDF Documents
 
-***Based on <https://ironpdf.com/how-to/create-new-pdfs/>***
+> Full guide: [Creating New PDF Documents](https://ironpdf.com/how-to/create-new-pdfs/)
 
 
 To start building a new PDF document from the ground up, one might use libraries such as IronPDF in C#. These tools provide developers the capability to specifically design the content, layout, and formatting, after which the file is saved in PDF format.
 
 ```cs
-:title=Instantly start with a blank PDF!
 new IronPdf.PdfDocument { DefaultPageSize = new IronPdf.PageSize(260,260) }.SaveAs("newBlankPDF.pdf");
 ```
 

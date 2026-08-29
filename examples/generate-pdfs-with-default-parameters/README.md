@@ -1,6 +1,6 @@
-***Based on <https://ironpdf.com/examples/generate-pdfs-with-default-parameters/>***
+> Docs: [IronPDF documentation](https://ironpdf.com/docs/)
 
-The flagship feature of IronPDF is its ability to convert HTML into PDFs while retaining the original layouts and styles. This functionality is essential for creating PDFs from web content for various uses such as reports, invoices, and documentation. Users can convert HTML files, URLs, and HTML strings directly into PDF documents. For more details, explore our comprehensive guide on [HTML to PDF Conversion](https://ironpdf.com/tutorials/html-to-pdf/).
+The flagship feature of IronPDF is its ability to convert HTML into PDFs while retaining the original layouts and styles. This functionality is essential for creating PDFs from web content for various uses such as reports, invoices, and documentation. Users can convert HTML files, URLs, and HTML strings directly into PDF documents. For more details, explore our guide on [HTML to PDF Conversion](https://ironpdf.com/tutorials/html-to-pdf/).
 
 Below is a C# code example demonstrating how to use IronPDF to perform HTML to PDF conversions:
 
@@ -38,4 +38,4 @@ class Program
 }
 ```
 
-This C# example illustrates three primary operations: converting an HTML string, an HTML file, and a web page URL into PDF documents using IronPDF's `ChromePdfRenderer`. Each operation involves rendering the content and saving it as a PDF file with a specific name, demonstrating the versatility and ease of use of IronPDF for .NET developers.
+This C# example illustrates three primary operations: converting an HTML string, an HTML file, and a web page URL into PDF documents using IronPDF's `ChromePdfRenderer`. Each operation involves rendering the content and saving it as a PDF file with a specific name, all three through the same API.

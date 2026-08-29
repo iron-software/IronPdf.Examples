@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/csharp-replace-text-in-pdf/>***
+> Full guide: [C# replace text in PDF](https://ironpdf.com/examples/csharp-replace-text-in-pdf/)
 
 IronPDF provides the functionality to search for and modify text within PDF files.
 

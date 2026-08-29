@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/cshtml-to-pdf-razor/>***
+> Full guide: [CSHTML to PDF razor](https://ironpdf.com/examples/cshtml-to-pdf-razor/)
 
 The following code illustration explains how to transform a Razor page into a PDF document.
 

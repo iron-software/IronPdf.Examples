@@ -1,16 +1,15 @@
 # How to Convert Markdown to PDF
 
-***Based on <https://ironpdf.com/how-to/md-to-pdf/>***
+> Full guide: [How to Convert Markdown to PDF](https://ironpdf.com/how-to/md-to-pdf/)
 
 
-Markdown is a streamlined markup language designed for text formatting, widely utilized in readme files and online forums. It offers an easy-to-read and easy-to-write syntax, typically associated with `.md` or `.markdown` file extensions. Using IronPDF, you can efficiently transform both Markdown files and text into PDF documents.
+Markdown is a simplified markup language designed for text formatting, widely utilized in readme files and online forums. It offers an easy-to-read and easy-to-write syntax, typically associated with `.md` or `.markdown` file extensions. Using IronPDF, you can efficiently transform both Markdown files and text into PDF documents.
 
 ## Quickstart: Convert Markdown to PDF in Seconds
 
-Leverage IronPDF's straightforward API to turn Markdown files into elegant PDFs quickly. With a minimal amount of C# code, you can convert Markdown documents into polished PDFs. IronPDF provides effective functions that simplify the integration into your .NET projects, conserving both time and energy. Begin by employing the `RenderMarkdownFileAsPdf` method, which swiftly processes your Markdown file and outputs a superior quality PDF, ready to be utilized and shared.
+Use IronPDF's straightforward API to turn Markdown files into elegant PDFs quickly. With a minimal amount of C# code, you can convert Markdown documents into polished PDFs. IronPDF provides effective functions that simplify the integration into your .NET projects, conserving both time and energy. Begin by employing the `RenderMarkdownFileAsPdf` method, which swiftly processes your Markdown file and outputs a superior quality PDF, ready to be utilized and shared.
 
 ```cs
-:title=Easy Markdown to PDF transformation:
 // Initialize a new ChromePdfRenderer instance
 new IronPdf.ChromePdfRenderer()
     .RenderMarkdownStringAsPdf("Explore **robust** _Markdown_ conversion!")

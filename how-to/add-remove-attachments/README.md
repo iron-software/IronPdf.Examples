@@ -1,6 +1,6 @@
 # Managing PDF Attachments with IronPDF
 
-***Based on <https://ironpdf.com/how-to/add-remove-attachments/>***
+> Full guide: [Managing PDF Attachments with IronPDF](https://ironpdf.com/how-to/add-remove-attachments/)
 
 
 Attachments in a PDF are additional files or data stored within the PDF, separate from the main content which typically displays text, images, and formatting. These added files might be in the form of images, document files, spreadsheets, among others. They are particularly useful for including extraneous data or reference materials directly within a PDF.
@@ -10,7 +10,6 @@ Attachments in a PDF are additional files or data stored within the PDF, separat
 Using IronPDF, it's straightforward to integrate files into your PDF documents as attachments. This introductory guide walks you through the steps to embed a file into an existing PDF. Start by loading your PDF, apply the `AddAttachment` method, and then save the enriched document. This inclusion allows anyone with a PDF reader to access your added files directly.
 
 ```cs
-:title=Efficient Handling of PDF Attachments
 var pdf = IronPdf.PdfDocument.FromFile("example.pdf");
 pdf.Attachments.AddAttachment("file.txt", System.IO.File.ReadAllBytes("file.txt"));
 pdf.SaveAs("updated.pdf");
@@ -90,4 +89,4 @@ After deletion, when you open the PDF, the attachment will be absent, demonstrat
 
 ![Removed Attachment Preview](https://ironpdf.com/static-assets/pdf/how-to/add-remove-attachments/removeattachment-example.png)
 
-Explore more capabilities of managing PDFs by visiting the tutorial page here: [Comprehensive Guide to Organizing PDFs](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/).
+Explore more capabilities of managing PDFs by visiting the tutorial page here: [Guide to Organizing PDFs](https://ironpdf.com/tutorials/organize-pdfs-complete-tutorial/).

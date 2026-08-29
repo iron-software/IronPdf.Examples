@@ -1,6 +1,6 @@
 # Flatten PDFs in C&#35;
 
-***Based on <https://ironpdf.com/how-to/pdf-image-flatten-csharp/>***
+> Full guide: [Flatten PDFs in C&#35;](https://ironpdf.com/how-to/pdf-image-flatten-csharp/)
 
 
 PDF documents can contain interactive elements like radio buttons, checkboxes, and text fields. When you need to make these documents non-editable for security or data integrity purposes, flattening the PDF becomes essential. IronPDF offers a straightforward method for flattening PDFs in C# using just a single line of code.
@@ -24,7 +24,6 @@ PDF documents can contain interactive elements like radio buttons, checkboxes, a
 Utilize IronPDF to flatten PDF documents quickly and efficiently. This straightforward command in C# loads your PDF, flattens all interactive elements, and saves the result as a non-editable PDF. This method is perfect for .NET developers who need to ensure document security or simplicity.
 
 ```cs
-:title=Instantly Flatten PDFs
 IronPdf.PdfDocument.FromFile("input.pdf").Flatten().SaveAs("flattened_output.pdf");
 ```
 

@@ -5,7 +5,6 @@ namespace IronPdf.Examples.Tutorial.HtmlToPdf
     {
         public static void Run()
         {
-            :title=Get started making PDFs now!
             IronPdf.ChromePdfRenderer
                    .StaticRenderHtmlAsPdf("<p>Hello World</p>")
                    .SaveAs("pixelperfect.pdf");

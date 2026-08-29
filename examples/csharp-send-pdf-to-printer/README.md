@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/csharp-send-pdf-to-printer/>***
+> Docs: [IronPDF documentation](https://ironpdf.com/docs/)
 
 IronPDF offers a straightforward method for developers to craft PDF files in C#, F#, and VB.NET across .NET Core and .NET Framework platforms.
 
@@ -22,7 +22,7 @@ class Program
         var htmlToPdfConverter = new HtmlToPdf();
 
         // HTML markup to be transformed into a PDF document
-        string htmlMarkup = "<h1>Welcome!</h1><p>This PDF document was created from HTML by leveraging IronPDF.</p>";
+        string htmlMarkup = "<h1>Welcome!</h1><p>This PDF document was created from HTML with IronPDF.</p>";
 
         // Convert HTML to a PDF document
         PdfDocument document = htmlToPdfConverter.RenderHtmlAsPdf(htmlMarkup);
@@ -45,4 +45,4 @@ class Program
 
 5. **PDF File Saving**: The `SaveAs` function is used to specify the local filename, "output.pdf", where the PDF will be stored.
 
-With this approach, you can convert any HTML document into a PDF file using IronPDF in a C# application effortlessly.
+With this approach, you can convert any HTML document into a PDF file using IronPDF in a C# application.

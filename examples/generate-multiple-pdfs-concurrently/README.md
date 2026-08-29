@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/generate-multiple-pdfs-concurrently/>***
+> Docs: [IronPDF documentation](https://ironpdf.com/docs/)
 
 A standout capability of IronPDF is its ability to [convert HTML to PDF](https://ironpdf.com/tutorials/html-to-pdf/), ensuring that the original layouts and styles are retained. This functionality is particularly useful for creating PDFs from web content, including reports, invoices, and other documentation. IronPDF supports the conversion of HTML documents, HTML strings, and content from URLs into PDF format.
 
@@ -41,5 +41,3 @@ class Program
     }
 }
 ```
-
-This rewritten content includes enhanced comments and slight modifications to the code for clarity and instructional value, along with updated hyperlinks to ironpdf.com for comprehensive tutorials.

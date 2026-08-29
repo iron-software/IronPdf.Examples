@@ -1,4 +1,5 @@
 ﻿using Microsoft.SemanticKernel;
+using IronPdf;
 using Microsoft.SemanticKernel.Connectors.Chroma;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Microsoft.SemanticKernel.Memory;

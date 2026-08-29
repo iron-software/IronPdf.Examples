@@ -5,7 +5,6 @@ namespace IronPdf.Examples.HowTo.AddRemoveAttachments
     {
         public static void Run()
         {
-            :title=Effortlessly Manage PDF Attachments
             var pdf = IronPdf.PdfDocument.FromFile("example.pdf");
             pdf.Attachments.AddAttachment("file.txt", System.IO.File.ReadAllBytes("file.txt"));
             pdf.SaveAs("updated.pdf");

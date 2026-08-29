@@ -1,3 +1,4 @@
+using IronPdf.Engines.Chrome;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.SVGs
 {
@@ -5,9 +6,10 @@ namespace IronPdf.Examples.HowTo.SVGs
     {
         public static void Run()
         {
-            :title=Render an SVG to PDF in one line!
-            new IronPdf.ChromePdfRenderer { RenderingOptions = { WaitFor = IronPdf.Rendering.WaitFor.RenderDelay(1000) } }
-                .RenderHtmlAsPdf("<img src='https://example.com/logo.svg' style='width:100px;height:100px;'>")
+            var renderer = new IronPdf.ChromePdfRenderer();
+            renderer.RenderingOptions.WaitFor.RenderDelay(1000);
+
+            renderer.RenderHtmlAsPdf("<img src='https://example.com/logo.svg' style='width:100px;height:100px;'>")
                 .SaveAs("svgToPdf.pdf");
         }
     }

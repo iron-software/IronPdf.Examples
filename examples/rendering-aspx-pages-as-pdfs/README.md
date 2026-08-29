@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/rendering-aspx-pages-as-pdfs/>***
+> Full guide: [Rendering aspx pages as PDFs](https://ironpdf.com/examples/rendering-aspx-pages-as-pdfs/)
 
 Utilizing the IronPDF library, ASP.NET web pages can be transformed into PDF documents instead of HTML by integrating one line of code into the **`Form_Load`** event handler.
 

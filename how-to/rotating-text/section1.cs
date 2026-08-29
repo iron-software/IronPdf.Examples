@@ -5,10 +5,11 @@ namespace IronPdf.Examples.HowTo.RotatingText
     {
         public static void Run()
         {
-            :title=Rotate PDF pages or text in just one line!
-            IronPdf.PdfDocument.FromFile("input.pdf")
-              .SetAllPageRotations(IronPdf.PdfPageRotation.Clockwise90)
-              .SaveAs("rotated.pdf");
+            var pdf = IronPdf.PdfDocument.FromFile("input.pdf");
+
+            // SetAllPageRotations returns void, so it cannot be chained.
+            pdf.SetAllPageRotations(IronPdf.Rendering.PdfPageRotation.Clockwise90);
+            pdf.SaveAs("rotated.pdf");
         }
     }
 }

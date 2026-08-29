@@ -1,7 +1,6 @@
 # Utilizing IronPDF in a Remote Container
 
-***Based on <https://ironpdf.com/get-started/ironpdfengine-docker/>***
-
+> Full guide: [Utilizing IronPDF in a Remote Container](https://ironpdf.com/get-started/ironpdfengine-docker/)
 
 The IronPdfEngine serves as an independent service capable of managing PDF creation, modification, and reading activities. The IronPDF Docker configuration is prepared to deploy with versions of IronPDF (v2023.2.x and higher), facilitating the resolution of any deployment challenges developers might face with IronPDF.
 
@@ -136,277 +135,6 @@ pdf.SaveAs("ironpdf.pdf");
 
 ---
 
-### IronPDF Installation
-
-Incorporate the `IronPdf.Slim` NuGet package into your project to work with IronPDF functionalities.
-
-[https://www.nuget.org/packages/IronPdf.Slim/](https://www.nuget.org/packages/IronPdf.Slim/)
-
-**Important Note:** The packages `IronPdf`, `IronPdf.Linux`, and `IronPdf.MacOs` include `IronPdf.Slim` within them.
-
-For a more efficient use of resources and to keep your application lightweight, it is advised to only install `IronPdf.Slim`. The `IronPdf.Native.Chrome.xxx` package is outdated and can be removed from your project setup.
-
-### Determine the Container Version
-
-Normally, the version of IronPDF for Docker aligns with the latest IronPDF version on NuGet. To verify this version specifically, the following C# code snippet can be utilized:
-
-```csharp
-string ironPdfEngineVersion = IronPdf.Installation.IronPdfEngineVersion;
-```
-
-Here's the paraphrased section with the relative URL paths resolved:
-
-```csharp
-// Retrieve the current version of IronPdfEngine
-string currentVersion = IronPdf.Installation.IronPdfEngineVersion;
-```
-
-### Configuring IronPDF for Docker Containers
-
-This section guides you through setting up IronPDF within a Docker environment, ensuring a smooth and efficient integration.
-
-#### Deploying IronPDF without Docker Compose
-
-To begin, make sure Docker is installed on your system.
-
-**Set Up Steps:**
-
-1. Navigate to [IronPDF Engine on Docker Hub](https://hub.docker.com/r/ironsoftwareofficial/ironpdfengine).
-2. Download the latest `ironsoftwareofficial/ironpdfengine` Docker image with this command:
-
-```shell
-docker pull ironsoftwareofficial/ironpdfengine
-```
-
-Alternatively, you can fetch a specific version to better match your project dependencies:
-
-```shell
-docker pull ironsoftwareofficial/ironpdfengine:2025.3.6
-```
-
-3. Launch the Docker container for IronPDF Engine. The following command deploys the container in the background and exposes it on port 33350:
-
-```shell
-docker run -d -p 33350:33350 -e IRONPDF_ENGINE_LICENSE_KEY=MY_LICENSE_KEY ironsoftwareofficial/ironpdfengine:2025.3.6
-```
-
-#### Deploying IronPDF with Docker Compose
-
-For scenarios where your application needs to interact with IronPdfEngine, configuring a Docker network is vital. `depends_on` ensures IronPdfEngine starts before your application.
-
-**Configuration Steps:**
-
-1. Begin by crafting a `docker-compose.yml` using the template below:
-
-```yml
-version: '3.6'
-services:
-  myironpdfengine:
-    container_name: ironpdfengine
-    image: ironsoftwareofficial/ironpdfengine:latest
-    ports:
-      - '33350:33350'
-    networks:
-      - ironpdf-network
-  myconsoleapp:
-    container_name: myconsoleapp
-    build:
-      context: ./MyConsoleApp/  # specify your project directory here
-      dockerfile: Dockerfile    # specify your Dockerfile here, relative to the project directory
-    networks:
-      - ironpdf-network
-    depends_on:
-      myironpdfengine:
-        condition: service_started
-networks:
-  ironpdf-network: 
-    driver: 'bridge'
-```
-
-2. Designate the address of IronPdfEngine within your application to `"myironpdfengine:33350"`.
-3. Execute the Docker compose command to set up the environment:
-
-```shell
-docker compose up --detach --force-recreate --remove-orphans --timestamps
-```
-
-Both methods allow your .NET applications to leverage IronPdf's robust PDF processing features through Docker, harmonizing deployment and reducing system overhead.
-
-### Setting Up IronPDF Without Docker Compose
-
-Ensure you have Docker installed on your system, then follow these steps to set up IronPDF in a Docker container:
-
-#### Installation Steps
-
-1. Firstly, navigate to the IronPDF official Docker Hub repository: 
-   [IronPDF Engine on Docker Hub](https://hub.docker.com/r/ironsoftwareofficial/ironpdfengine).
-
-2. Next, download the most recent Docker image for IronPDF by executing the following command in your terminal:
-
-```shell
-docker pull ironsoftwareofficial/ironpdfengine
-```
-
-This command retrieves the latest version of the IronPDF engine from Docker Hub, setting up your environment to run PDF operations in a containerized setup.
-
-Sure, here's a paraphrased version of the Docker command for pulling the IronPDF Engine:
-
-```shell
-docker pull ironsoftwareofficial/ironpdfengine
-```
-
-This command retrieves the latest version of the IronPDF engine image from the Docker repository.
-
-```shell
-# Instead of pulling the latest version, it's recommended to pull a specific version to ensure compatibility:
-
-***Based on <https://ironpdf.com/get-started/ironpdfengine-docker/>***
-
-docker pull ironsoftwareofficial/ironpdfengine:2025.3.6
-```
-
-Here's the paraphrased version of the section you've provided:
-
-```shell
-docker pull ironsoftwareofficial/ironpdfengine:2025.3.6
-```
-
-Here's your paraphrased section:
-
------
-3. Execute the `ironsoftwareofficial/ironpdfengine` container.
-
-Use the following command to initialize the container; it will operate in the background and utilize port 33350:
-
-```shell
-docker run -d -p 33350:33350 ironsoftwareofficial/ironpdfengine
-```
-
-Here's the paraphrased version of the specific section from the article:
-
-```shell
-docker run -d -p 33350:33350 -e IRONPDF_ENGINE_LICENSE_KEY=YOUR_LICENSE_KEY ironsoftwareofficial/ironpdfengine:2025.3.6
-```
-
-#### Utilizing Docker Compose
-
-Creating a Docker network is essential for enabling communication between IronPdfEngine and your application. By configuring `depends_on`, you ensure that IronPdfEngine is operational prior to your application’s launch.
-
-**Docker Compose Configuration**
-
-1. Begin by crafting a `docker-compose.yml` file. Here’s a template to help you set up your Docker Compose environment:
-
-```yaml
-version: '3.6'
-services:
-  ironpdfengine:
-    container_name: ironpdfengine
-    image: ironsoftwareofficial/ironpdfengine:latest
-    ports:
-      - '33350:33350'
-    networks:
-      - ironpdf-net
-  app:
-    container_name: myconsoleapp
-    build:
-      context: ./MyConsoleApp/  # Replace with your project directory path
-      dockerfile: Dockerfile  # Replace with your Dockerfile name, relative to the project directory
-    networks:
-      - ironpdf-net
-    depends_on:
-      ironpdfengine:
-        condition: service_started
-networks:
-  ironpdf-net:
-    driver: 'bridge'
-```
-
-These settings will set up IronPdfEngine and ensure it can interact with your designated application, promoting seamless integration within your Docker ecosystem.
-
-Here's your paraphrased content:
-
-```yml
-version: '3.6'
-services:
-  ironpdf_service:
-    container_name: ironpdf_container
-    image: ironsoftwareofficial/ironpdfengine:latest
-    ports:
-      - '33350:33350'
-    networks:
-      - network_ironpdf
-  application:
-    container_name: your_application
-    build:
-      # Replace with the path to your project
-      context: ./YourProject/
-      # Replace with the name of your Dockerfile, relative to the project path
-      dockerfile: Dockerfile
-    networks:
-      - network_ironpdf
-    depends_on:
-      ironpdf_service:
-        condition: service_healthy
-networks:
-  network_ironpdf: 
-    driver: 'bridge'
-``` 
-
-This restructured version maintains the same functional setup while updating component names for clarity and instructiveness.
-
-Here's the paraphrased version of the provided section:
-
------
-1. In your application (named `myconsoleapp`), configure the address for IronPdfEngine to be `"myironpdfengine:33350"`.
-
-2. Execute the Docker Compose process
-
-Here is the paraphrased section of the article, with paths resolved to `ironpdf.com` as instructed:
-
-```shell
-docker compose up --detach --force-recreate --remove-orphans --use-timestamps
-```
-
-### Establishing Connection with IronPdfEngine
-
-Once your IronPDF setup is complete, it's time to have your application interface with the IronPdfEngine running within Docker. Here's how to make it happen:
-
-```csharp
-using IronPdf;
-using IronPdf.GrpcLayer;
-
-// Configure the connection for the Docker environment
-var dockerConfig = IronPdfConnectionConfiguration.Docker;
-dockerConfig.Host = "localhost";
-IronPdf.Installation.ConnectToIronPdfHost(dockerConfig);
-
-// Utilize IronPDF functionality
-ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
-PdfDocument document = pdfRenderer.RenderHtmlAsPdf("<h1>Welcome to IronPDF Docker!</h1>");
-document.SaveAs("ironpdf.pdf");
-```
-
-Here's the paraphrased section of the article with the required adjustments:
-
-```csharp
-using IronPdf;
-using IronPdf.GrpcLayer;
-
-// Set up configuration specific to a Docker container
-var dockerConfig = new IronPdfConnectionConfiguration { ConnectionType = IronPdfConnectionType.Docker };
-dockerConfig.Host = "localhost"; // Localhost since the engine is in a Docker container on the same machine
-IronPdf.Installation.ConnectToIronPdfHost(dockerConfig);
-
-// Initialize PDF renderer and generate PDF
-ChromePdfRenderer pdfRenderer = new ChromePdfRenderer();
-PdfDocument document = pdfRenderer.RenderHtmlAsPdf("<h1>Welcome to IronPDF on Docker!<h1>");
-document.SaveAs("welcome-ironpdf.pdf"); // Save the PDF document
-``` 
-
-This version clarifies the actions being performed, ensures distinctiveness from the original code, and maintains appropriate commenting for better comprehension.
-
-<hr>
-
 ### Types of Connections
 
 IronPdf offers various connection types tailored to suit different application needs. Below is a breakdown of the available connection types:
@@ -417,7 +145,7 @@ IronPdf offers various connection types tailored to suit different application n
 
 **RemoteServer**: This connection type is designed for situations where the IronPdfEngine is hosted in a cloud environment. It requires a complete URL, inclusive of the HTTP or HTTPS protocol, to establish a connection to a cloud-based instance of IronPdfEngine, such as one running inside a Docker container.
 
-**Custom**: Offering the highest level of flexibility, the Custom connection type permits developers to define their own gRPC communication channels. This can be accomplished by either initiating a new `Grpc.Core.Channel` or by leveraging `Grpc.Net.Client.GrpcChannel.ForAddress(System.String)` to create a bespoke channel, thus providing unparalleled control over the gRPC interactions.
+**Custom**: Offering the highest level of flexibility, the Custom connection type permits developers to define their own gRPC communication channels. This can be accomplished by either initiating a new `Grpc.Core.Channel` or by using `Grpc.Net.Client.GrpcChannel.ForAddress(System.String)` to create a bespoke channel, thus providing unparalleled control over the gRPC interactions.
 
 ### .NET Framework with NetFrameworkChannel
 
@@ -430,8 +158,6 @@ Here, we will outline how to set up a custom connection channel to generate and 
 If the sample code provided does not function correctly, consider eliminating the `<http>` or `<https>` prefix from the address.
 
 It's important to note that calling `pdf.Dispose` is necessary in this implementation.
-
-Here's the paraphrased section of the article:
 
 ```csharp
 using IronPdf;
@@ -533,67 +259,7 @@ document.Dispose();
 
 Make use of your now operational IronPdfEngine in AWS and consider how to scale based on your specific workload and demand, keeping in mind that IronPdfEngine currently does not support horizontal scaling. More details on this limitation can be found on the [IronPdfEngine Limitation page](https://ironsoftware.com/csharp/ocr/docs/get-started/ironpdfengine/#anchor-ironpdfengine-limitation).
 
-This setup empowers your applications with robust PDF processing capabilities directly within your AWS infrastructure.
-
-### Initial Requirements
-
-Before proceeding, ensure the following:
-
-- Retrieve the IronPdfEngine Docker image as outlined in the [Setup IronPDF for Docker Container](#anchor-setup-ironpdf-for-docker-container) section provided earlier.
-  
-- Obtain an AWS account with appropriate ECS permissions.
-
-### Configuration Steps
-
-1. **Establish an ECS Cluster**: Initiate by crafting an ECS cluster. You can consult this comprehensive [guide](https://docs.aws.amazon.com/AmazonECS/latest/userguide/create-cluster-console-v2.html) to form a cluster suited to both Fargate and External launch types via the AWS console.
-
-2. **Formulate a Task Definition**: Proceed to define your task by following the instructions in this [tutorial](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-task-definition.html) for using the console interface for task definitions.
-
-
-#### Suggested Configuration Settings:
-
-- **Compute Option**: Opt for **AWS Fargate** to eliminate the need to manage servers or clusters.
-
-- **Computing Power and Memory**: A baseline of 1 vCPU coupled with 2 GB of RAM is suggested. For operations involving PDFs with over 10 pages, or under high request loads, consider upgrading to a higher specification.
-
-- **Network Configuration**: Apply the **awsvpc** network mode for enhanced networking capabilities.
-
-- **Port Allocation**: Configure the necessary port settings.
-
-Here's the paraphrased section of the article you provided:
-
----
-```json
-{
-  "containerPort": 33350,
-  "hostPort": 33350,
-  "protocol": "tcp",
-  "appProtocol": "grpc"
-}
-```
-
-Here's the paraphrased content based on the original documentation provided:
-
-- **Image URI**: Use any IronPdfEngine image, such as "ironsoftwareofficial/ironpdfengine:2024.1.20" available on DockerHub.
-  
-- **AWS Permissions & Networking**: Manage these configurations independently.
-  
-- **Activating Amazon CloudWatch**: It is advisable to turn on logging by enabling Amazon CloudWatch.
-  
-- **Order of Container Startup**: Important if your application container needs to be deployed alongside the IronPdfEngine within the same task definition.
-
-3. To run a task definition, you can opt for either a **Task** or a **Service**. For guidance on setting this up through the AWS console, consult this tutorial on [creating services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-service-console-v2.html).
-
-Recommended configurations:
-
-- **Launch Type**: Adopt **AWS Fargate** for resource allocation. 
-- **Public IP**: Enable during testing phase and disable in production settings. You'll need to handle security and AWS networking configurations on your own.
-
-4. Your IronPdfEngine Docker instance should now be operational within your AWS environment.
-
-Note that horizontal scaling is not feasible with this setup. For more details on these limitations, visit the IronPdfEngine Limitations page [here](https://ironpdf.com/get-started/ironpdfengine/#anchor-ironpdfengine-limitation).
-
-<hr>
+This setup allows your applications with PDF processing capabilities directly within your AWS infrastructure.
 
 ## Setting Up IronPdfEngine on Azure Container Instances
 
@@ -616,30 +282,6 @@ Before diving into the setup, ensure that you have the IronPdfEngine Docker imag
 2. **Completion**: Once configuration is complete, your IronPdfEngine should be operational within your newly setup Azure Container Instances.
 
 Note: Azure Container Instances do not support horizontal scaling. Limitations are detailed further in the [IronPdfEngine Limitation](https://ironsoftware.com/get-started/ironpdfengine/#anchor-ironpdfengine-limitation) documentation.
-
-### Initial Requirements
-
-* Retrieve the IronPdfEngine Docker image detailed in the [Setup IronPDF for Docker Container](https://ironpdf.com/#anchor-setup-ironpdf-for-docker-container) section.
-
-* An active Azure account is also necessary.
-
-### Configuration Process
-
-1. Begin by creating an Azure Container. Utilize this [step-by-step guide to deploy a container instance via the Azure portal](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart-portal) to get started.
-
-   Recommended settings:
-
-   - **Image Source**: Select 'Other registry'
-   - **Image**: Use `ironsoftwareofficial/ironpdfengine:2024.1.20`, available on Docker Hub
-   - **Operating System Type**: Linux
-   - **Capacity**: It is recommended to start with at least 1 vCPU and 2 GiB of memory, with the option to scale as needed
-   - **Port**: Set to TCP Port 33350
-
-2. You're all set! Your IronPdfEngine Docker is now operational within your Azure Container Instances.
-
-   Note on scaling: Horizontal scaling is currently not supported. For further details, view the [IronPdfEngine Limitation documentation](https://ironsoftware.com/get-started/ironpdfengine/#anchor-ironpdfengine-limitation).
-
-<hr>
 
 ## Accessing IronPdfEngine in AWS ECR Public Gallery
 
@@ -670,44 +312,9 @@ docker run -d -p 33350:33350 ironsoftwareofficial/ironpdfengine
 
 For guidance on configuring the IronPdf client to work with IronPdfEngine, refer to the section "Update the Code to Use IronPdfEngine" on [this page](https://ironsoftware.com/csharp/pdf/docs/questions/get-started/ironpdfengine/#anchor-ironpdfengine).
 
-### Required Setup
-
-* It is necessary to have Docker installed on your system.
-
-### Configuration Steps
-
-1. Visit the webpage at [this link](https://gallery.ecr.aws/v1m9w8y1/ironpdfengine).
-
-2. Download the `v1m9w8y1/ironpdfengine` image by pulling it from the repository.
-
-```shell
-docker pull https://ironsoftware.com/gallery.ecr.aws/v1m9w8y1/ironpdfengine
-```
-
-Here's the paraphrased section with resolved URL paths:
-
------
-Or it is recommended to fetch a specific version:
-
-```shell
-docker pull https://gallery.ecr.aws/v1m9w8y1/ironpdfengine:2023.12.6
-```
-
-```shell
-docker run -d -p 33350:33350 ironsoftwareofficial/ironpdfengine
-```
-
-```shell
-docker run --detach --publish 33350:33350 ironsoftwareofficial/ironpdfengine
-```
-
-Find out how to set up the IronPdf client for use with IronPdfEngine by visiting the section "[Configure the Client for IronPdfEngine Usage](https://ironpdf.com#anchor-update-the-code-to-use-ironpdfengine)."
-
-<hr>
-
 ## Access IronPdfEngine via Online Marketplaces
 
-We've streamlined the initial setup for IronPdfEngine by making it available on both the Azure and AWS online marketplaces.
+We've simplified the initial setup for IronPdfEngine by making it available on both the Azure and AWS online marketplaces.
 
 ### Azure Marketplace
 
@@ -765,9 +372,6 @@ pdf.SaveAs("output.pdf");
 2. Fill out the "Basics", "Cluster Details", and "Application Details" sections to set up the Kubernetes service.
 
 3. After the deployment finishes, go to the left sidebar, choose Kubernetes resources > Run command, and execute the following command:
-```
-
-Here's the paraphrased section:
 
 ```shell
 kubectl get services
@@ -780,8 +384,6 @@ kubectl get services
 </div>
 
 Using the details of the `EXTERNAL-IP` and `PORT(S)`, you can correctly establish a connection to the IronPDFEngine.
-
-Here's your paraphrased section with improved readability and altered structure:
 
 ```csharp
 using IronPdf;
@@ -862,123 +464,6 @@ for i in $(echo $CONTAINER_IMAGES | sed "s/,/ /g"); do docker pull $i; done
 docker run -d -p 33350:33350 000000000000.dkr.ecr.us-east-1.amazonaws.com/iron-software/ironpdfengine:2024.1.15
 ```
 
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <a href="https://aws.amazon.com/marketplace/pp/prodview-t66wmni5ri7ve?sr=0-1&ref_=beagle&applicationId=AWSMPContessa"><img src="/static-assets/pdf/how-to/pull-run-ironpdfengine/aws-marketplace.webp" alt="aws marketplace" class="img-responsive add-shadow"></a>
-    </div>
-</div>
-
-**Requirements**
-
-- Ensure that Docker is installed on your system.
-- Verify that the AWS CLI is installed and that you are signed in.
-
-**Installation Process**
-
-1. Visit the [IronPdfEngine on the AWS marketplace](https://aws.amazon.com/marketplace/pp/prodview-t66wmni5ri7ve?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) and click 'Continue to Subscribe.'
-
-2. Agree to the Terms and Conditions.
-
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="/static-assets/pdf/how-to/pull-run-ironpdfengine/accept-EULA.webp" alt="Accept EULA" class="img-responsive add-shadow">
-    </div>
-</div>
-
-### Proceed with Configuration Setup
-
-After accepting the terms, the next step involves configuring the settings. Continue by selecting "Continue to Configuration."
-
-![Subscribe complete](https://ironpdf.com/static-assets/pdf/how-to/pull-run-ironpdfengine/subscribe-complete.webp "Configuration Completion")
-
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="/static-assets/pdf/how-to/pull-run-ironpdfengine/subscribe-complete.webp" alt="Subscribe complete" class="img-responsive add-shadow">
-    </div>
-</div>
-
-Here is the paraphrased section:
-
-5. Retrieve the `ironpdfengine` Docker image. Below is the command sequence for downloading the Docker image:
-
-```shell
-aws ecr get-login-password \
-    --region us-east-1 | docker login \
-    --username AWS \
-    --password-stdin 000000000000.dkr.ecr.us-east-1.amazonaws.com
-CONTAINER_IMAGES="000000000000.dkr.ecr.us-east-1.amazonaws.com/iron-software/ironpdfengine:2024.1.15"    
-for i in $(echo $CONTAINER_IMAGES | sed "s/,/ /g"); do docker pull $i; done
-```
-
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="/static-assets/pdf/how-to/pull-run-ironpdfengine/launch-this-software.webp" alt="Launch this software" class="img-responsive add-shadow">
-    </div>
-</div>
-
-As seen below:
-
-```shell
-aws ecr get-login-password \
-    --region us-east-1 | docker login \
-    --username AWS \
-    --password-stdin 000000000000.dkr.ecr.us-east-1.amazonaws.com
-CONTAINER_IMAGES="000000000000.dkr.ecr.us-east-1.amazonaws.com/iron-software/ironpdfengine:2024.1.15"    
-for i in $(echo $CONTAINER_IMAGES | sed "s/,/ /g"); do docker pull $i; done
-```
-
-After connecting to AWS via Docker:
-
-```shell
-docker run -d -p 33350:33350 000000000000.dkr.ecr.us-east-1.amazonaws.com/iron-software/ironpdfengine:2024.1.15
-```
-
-```shell
-# Command to fetch the login password for ECR in the us-east-1 region
-
-***Based on <https://ironpdf.com/get-started/ironpdfengine-docker/>***
-
-aws ecr get-login-password --region us-east-1 |
-
-# Log into Docker using AWS credentials
-
-***Based on <https://ironpdf.com/get-started/ironpdfengine-docker/>***
-
-docker login --username AWS --password-stdin 000000000000.dkr.ecr.us-east-1.amazonaws.com
-
-# Define container image variable with IronPdf engine image details
-
-***Based on <https://ironpdf.com/get-started/ironpdfengine-docker/>***
-
-CONTAINER_IMAGES="000000000000.dkr.ecr.us-east-1.amazonaws.com/iron-software/ironpdfengine:2024.1.15"
-
-# Pull container image(s) using a loop through the variable
-
-***Based on <https://ironpdf.com/get-started/ironpdfengine-docker/>***
-
-for i in $(echo $CONTAINER_IMAGES | sed "s/,/ /g"); do
-    docker pull $i
-done
-```
-
-Here's the paraphrased section with the URL paths resolved to `ironsoftware.com`:
-
------
-6. Launch the `ironpdfengine` Docker container. Execute this command to initiate the container which will then operate quietly in the background on port 33350.
-
-Here is the paraphrased section of the article:
-
-```shell
-docker run -d -p 33350:33350 000000000000.dkr.ecr.us-east-1.amazonaws.com/iron-software/ironpdfengine:2024.1.15
-```
-
-Converted to:
-
-```shell
-docker run --detach --publish 33350:33350 000000000000.dkr.ecr.us-east-1.amazonaws.com/iron-software/ironpdfengine:2024.1.15
-```
-This command initializes a Docker container and keeps it running in the background, linking port 33350 of the host to port 33350 of the container to maintain connectivity and service consistency.
-
 ## Monitoring the Health of IronPdfEngine
 
 Ensuring the operational stability of your Docker Container is essential for maintaining a reliable and scalable production environment. The capability to monitor the IronPdfEngine Docker container's health is invaluable for developers, providing them the opportunity to restart the service in the event of a failure, optimize resource allocation during peak demand, and continuously supervise the application's integrity.
@@ -1023,30 +508,3 @@ livenessProbe:
 ``` 
 
 This setup configures a liveness probe that runs a gRPC health check command, ensuring that the service at port `33350` responds within `5` seconds.
-
-# Deploy IronPdfEngine on Microsoft Azure Container Instances
-
-***Based on <https://ironpdf.com/get-started/ironpdfengine-docker/>***
-
-
-### Requirements Before Starting
-
-* Ensure that the IronPdfEngine Docker image has been downloaded as described in the [Setup IronPDF for Docker Container](https://ironsoftware.com/csharp/pdf/docs/questions/setup-ironpdf-for-docker-container/) section above.
-* Access to an Azure Account is necessary.
-
-### Step-by-Step Deployment Instructions
-
-1. **Creation of a Azure Container**: Begin by launching a new container instance using the [quickstart guide provided by Azure for deploying to their platform](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart-portal).
-
-    Here are the guidelines for configuration:
-    
-    - **Source of the Image**: Choose 'Other registry'.
-    - **Container Image**: Use the Docker Hub image `ironsoftwareofficial/ironpdfengine:2024.1.20`.
-    - **Operating System**: Select Linux.
-    - **Resource Size**: Allocate at least 1 vCPU and 2 GiB of memory. Adjust based on needs.
-    - **Network Settings**: Deploy using a TCP port 33350.
-
-2. **Launching Your Instance**: Once your container instance setup is complete, IronPdfEngine will be operational on your Azure Container Instance.
-
-Horizontal scaling is not supported at this time. For details on the limitations related to IronPdfEngine deployment, refer to the [IronPdfEngine Limitations](https://ironsoftware.com/csharp/pdf/docs/get-started/ironpdfengine/#anchor-ironpdfengine-limitation) section.
-

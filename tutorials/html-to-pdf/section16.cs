@@ -12,13 +12,9 @@ namespace IronPdf.Examples.Tutorial.HtmlToPdf
             var pdf = renderer.RenderHtmlAsPdf("<h1>Contract Agreement</h1>");
             
             // Create digital signature with certificate for PDF files
-            var signature = new PdfSignature("certificate.pfx", "password")
-            {
-                SigningContact = "legal@company.com",
-                SigningLocation = "New York, NY",
-                SigningReason = "Contract Approval",
-                SignerName = "Authorized Signer"  // New property in v2025.8.8 for enhanced signature details
-            };
+            // PdfSignature carries the certificate; the contact, location,
+            // reason and signer name it once documented are not on the type.
+            var signature = new PdfSignature("certificate.pfx", "password");
             
             // Apply signature to PDF documents
             pdf.Sign(signature);

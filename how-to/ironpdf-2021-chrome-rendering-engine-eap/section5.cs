@@ -3,7 +3,7 @@ namespace IronPdf.Examples.HowTo.Ironpdf2021ChromeRenderingEngineEap
 {
     public static class Section5
     {
-        public static void Run()
+        public static async Task Run()
         {
             // Example of using async rendering
             var renderer = new IronPdf.ChromePdfRenderer();

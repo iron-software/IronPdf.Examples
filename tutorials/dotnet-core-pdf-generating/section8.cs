@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
@@ -6,8 +7,6 @@ namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
         public static void Run()
         {
             // BatchRender.cs — Thread-safe on .NET 8+
-            using IronPdf;
-            using System.Threading.Tasks;
             
             var htmlSources = Directory.GetFiles("./html", "*.html");
             var renderer    = new ChromePdfRenderer();                 // reuse 1 instance

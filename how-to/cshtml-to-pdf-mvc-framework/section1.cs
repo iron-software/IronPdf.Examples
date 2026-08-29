@@ -5,9 +5,10 @@ namespace IronPdf.Examples.HowTo.CshtmlToPdfMvcFramework
     {
         public static void Run()
         {
-            :title=Generate PDFs Instantly with IronPDF
-            // Install-Package IronPdf.Extensions.Razor
-            var pdf = new IronPdf.ChromePdfRenderer.RenderRazorToPdf(this.ControllerContext);
+            // RenderRazorToPdf ships in IronPdf.Extensions.Razor, which this project does not reference.
+            // Kept verbatim; see README.md for the full context.
+            // // Install-Package IronPdf.Extensions.Razor
+            // var pdf = new IronPdf.ChromePdfRenderer.RenderRazorToPdf(this.ControllerContext);
         }
     }
 }

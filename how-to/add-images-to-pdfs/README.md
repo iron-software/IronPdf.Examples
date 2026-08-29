@@ -1,18 +1,17 @@
 # How to Incorporate Images into PDFs
 
-***Based on <https://ironpdf.com/how-to/add-images-to-pdfs/>***
+> Full guide: [How to Incorporate Images into PDFs](https://ironpdf.com/how-to/add-images-to-pdfs/)
 
 
 Incorporating an image directly within a PDF file means the image is placed directly inside the PDF, allowing for it to be entirely self-contained. This ensures that the PDF can display the image perfectly, regardless of internet connectivity, as it does not depend on external resources.
 
 IronPDF excels at transforming HTML strings, files, and web URLs into PDFs. Utilizing this technique, images embedded in HTML can be effectively transformed into a self-contained PDF document.
 
-## Quickstart: Effortlessly Embed Images into PDFs
+## Quickstart: Embed Images into PDFs
 
-Begin embedding images in your PDF documents using IronPDF in .NET C#. By converting your image into a Base64 string and embedding it within an HTML `<img>` tag, you create a self-sufficient PDF document which does not depend on any external resources. This approach guarantees that your images are displayed flawlessly without the necessity of an internet connection, streamlining the embedding process.
+Begin embedding images in your PDF documents using IronPDF in .NET C#. By converting your image into a Base64 string and embedding it within an HTML `<img>` tag, you create a self-sufficient PDF document which does not depend on any external resources. This approach guarantees that your images are displayed flawlessly without the necessity of an internet connection, simplifying the embedding process.
 
 ```cs
-:title=Single line image embedding in a PDF!
 new IronPdf.ChromePdfRenderer()
      .RenderHtmlAsPdf("<img src='data:image/png;base64," + Convert.ToBase64String(File.ReadAllBytes("logo.png")) + "'>")
      .SaveAs("image-embedded.pdf");

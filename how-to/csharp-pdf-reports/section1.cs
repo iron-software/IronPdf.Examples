@@ -5,7 +5,6 @@ namespace IronPdf.Examples.HowTo.CsharpPdfReports
     {
         public static void Run()
         {
-            :title=Generate your PDF report in one line!
             new IronPdf.ChromePdfRenderer().RenderHtmlFileAsPdf("report.html").SaveAs("report.pdf");
         }
     }

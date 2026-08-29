@@ -5,7 +5,6 @@ namespace IronPdf.Examples.HowTo.Utf8
     {
         public static void Run()
         {
-            :title=Create UTF-8 PDFs Instantly
             var renderer = new IronPdf.ChromePdfRenderer();
             renderer.RenderingOptions.InputEncoding = System.Text.Encoding.UTF8;
             var pdf = renderer.RenderHtmlAsPdf("<html><head><meta charset='utf-8'></head><body>こんにちは世界</body></html>");

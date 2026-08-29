@@ -1,15 +1,15 @@
 # Converting HTML to PDF in .NET on Azure
 
-***Based on <https://ironpdf.com/how-to/azure/>***
+> Full guide: [Converting HTML to PDF in .NET on Azure](https://ironpdf.com/get-started/azure/)
 
 
 IronPDF successfully supports the generation, manipulation, and reading of PDF documents across various Azure environments, including MVC websites, Azure Functions, and more.
 
-For those utilizing Azure Functions in Docker Containers, please check out [this comprehensive guide on Azure Docker for Linux](https://ironpdf.com/get-started/ironpdf-docker/).
+For those utilizing Azure Functions in Docker Containers, please check out [this guide on Azure Docker for Linux](https://ironpdf.com/get-started/ironpdf-docker/).
 
 ## Quickstart: Converting HTML to PDF with IronPDF on Azure
 
-Easily convert HTML to PDF on your Azure-based applications with IronPDF. This guide will show you how to transform a website URL into a PDF using IronPDF’s robust API. Ideal for developers aiming to embed PDF functionalities within Azure projects, this example illustrates IronPDF's straightforwardness and efficiency in PDF creation. Implement the following steps to begin producing well-formatted PDFs and propel your Azure project forward efficiently.
+Easily convert HTML to PDF on your Azure-based applications with IronPDF. This guide will show you how to transform a website URL into a PDF using IronPDF’s API. Ideal for developers aiming to embed PDF functionalities within Azure projects, this example illustrates IronPDF's straightforwardness and efficiency in PDF creation. Implement the following steps to begin producing well-formatted PDFs and propel your Azure project forward efficiently.
 
 ```cs
 // Title: Simplify HTML to PDF conversion in Azure Functions
@@ -83,7 +83,7 @@ Due to removal of imaging libraries from .NET 6, it’s crucial to allow legacy 
    System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
    ```
 
-###### Leveraging Docker on Azure
+###### Using Docker on Azure
 
 For optimal control and performance, consider deploying IronPDF via Docker Containers. Refer to our detailed [guide on IronPDF with Azure Docker](https://ironpdf.com/get-started/ironpdf-docker/) for both Linux and Windows setups.
 

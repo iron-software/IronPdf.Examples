@@ -1,9 +1,9 @@
 # XAML to PDF Conversion in .NET MAUI
 
-***Based on <https://ironpdf.com/how-to/xaml-to-pdf-maui/>***
+> Full guide: [XAML to PDF Conversion in .NET MAUI](https://ironpdf.com/how-to/xaml-to-pdf-maui/)
 
 
-.NET MAUI (Multi-platform App UI) serves as a versatile framework that supports building applications for devices across various platforms while maintaining a single codebase. As a direct successor to Xamarin.Forms, it is a vital component of the .NET 6 ecosystem. This framework allows developers to write universal application code supplemented with platform-specific enhancements when needed.
+.NET MAUI (Multi-platform App UI) serves as a framework that supports building applications for devices across various platforms while maintaining a single codebase. As a direct successor to Xamarin.Forms, it is a vital component of the .NET 6 ecosystem. This framework allows developers to write universal application code supplemented with platform-specific enhancements when needed.
 
 IronPdf equips you with the capability to produce PDF documents straight from your MAUI application interfaces. Although IronPdf is currently not compatible with mobile platforms, it excels in desktop and web environments.
 
@@ -12,7 +12,6 @@ IronPdf equips you with the capability to produce PDF documents straight from yo
 Transform XAML into high-quality PDF files easily and efficiently with IronPDF within your .NET MAUI applications. This concise guide offers a simple example to help you quickly incorporate PDF generation into your applications, delivering an enhanced user experience.
 
 ```cs
-:title=Single-step PDF Creation from MAUI XAML!
 var pdf = new IronPdf.ChromePdfRenderer().RenderContentPageToPdf<MainPage,App>().SaveAs("output.pdf");
 ```
 
@@ -52,7 +51,7 @@ To extend the capabilities of the primary `IronPdf` library in MAUI, the `IronPd
 
 ### Modifying the MainPage.xaml.cs File
 
-Transition from using the `OnCounterClicked` to `PrintToPdf` function in the MainPage code. Leverage the `RenderContentPageToPdf` method from the `ChromePdfRenderer` class to obtain and manage a `PdfDocument` object. This method, although not yet supporting data binding, provides a range of features and customization through its `RenderingOptions`.
+Transition from using the `OnCounterClicked` to `PrintToPdf` function in the MainPage code. Use the `RenderContentPageToPdf` method from the `ChromePdfRenderer` class to obtain and manage a `PdfDocument` object. This method, although not yet supporting data binding, provides a range of features and customization through its `RenderingOptions`.
 
 ```csharp
 using IronPdf.Extensions.Maui;

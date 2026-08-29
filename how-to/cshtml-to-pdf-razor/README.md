@@ -1,20 +1,19 @@
 # Transforming Razor Pages into PDFs within an ASP.NET Core Web Application
 
-***Based on <https://ironpdf.com/how-to/cshtml-to-pdf-razor/>***
+> Full guide: [Transforming Razor Pages into PDFs within an ASP.NET Core Web Application](https://ironpdf.com/how-to/cshtml-to-pdf-razor/)
 
 
-Razor Pages, which bear the `.cshtml` file extension, integrate C# with HTML to dynamically produce web content. In the realm of ASP.NET Core, Razor Pages provide a streamlined approach to managing web app code, especially suited to pages involving straightforward data entry or display.
+Razor Pages, which bear the `.cshtml` file extension, integrate C# with HTML to dynamically produce web content. In ASP.NET Core, Razor Pages keep web app code compact, which suits pages built around data entry or display.
 
-An ASP.NET Core Web Application is developed using ASP.NET Core, a versatile framework designed for crafting contemporary web applications.
+An ASP.NET Core Web Application is built on ASP.NET Core, Microsoft's framework for modern web applications.
 
-IronPDF streamlines converting Razor Pages into PDF documents within any ASP.NET Core Web App project, greatly simplifying PDF creation directly within these applications.
+IronPDF converts Razor Pages into PDF documents inside any ASP.NET Core Web App project.
 
-## Quick Guide: Effortlessly Convert Razor Pages to PDF
+## Quick Guide: Convert Razor Pages to PDF
 
-Empower your projects with IronPDF as it swiftly transforms Razor Pages into professional-quality PDF documents in your ASP.NET Core applications. Utilize the `RenderRazorToPdf` method to effortlessly convert CSHTML files into PDFs, enhancing your workflow and document dissemination. Follow the steps in this guide for a quick and efficient conversion process.
+IronPDF turns Razor Pages into PDF documents inside an ASP.NET Core application. The `RenderRazorToPdf` method converts CSHTML files to PDFs; the steps are below.
 
 ```cs
-:title=Instant Razor to PDF Conversion
 // Ensure you have installed the necessary IronPdf package
 var pdf = new IronPdf.ChromePdfRenderer().RenderRazorToPdf("Views/Home/Index.cshtml");
 ```
@@ -25,8 +24,6 @@ The **IronPdf.Extensions.Razor** package enhances the main **IronPdf** library. 
 
 ```shell
 # Installation command for IronPdf.Extensions.Razor package via NuGet Package Manager
-
-***Based on <https://ironpdf.com/how-to/cshtml-to-pdf-razor/>***
 
 Install-Package IronPdf.Extensions.Razor
 ```

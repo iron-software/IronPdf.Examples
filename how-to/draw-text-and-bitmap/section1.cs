@@ -1,3 +1,4 @@
+using IronSoftware.Drawing;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.DrawTextAndBitmap
 {
@@ -5,12 +6,12 @@ namespace IronPdf.Examples.HowTo.DrawTextAndBitmap
     {
         public static void Run()
         {
-            :title=Draw text + image onto PDF in one line!
-            new ChromePdfRenderer()
-                .RenderHtmlAsPdf("<h1>Doc</h1>")
-                .DrawText("Hello World", FontTypes.TimesNewRoman.Name, 12, 0, 100, 100, Color.Black, 0)
-                .DrawBitmap(AnyBitmap.FromFile("logo.png"), 0, 50, 250, 500, 300)
-                .SaveAs("annotated.pdf");
+            var pdf = new ChromePdfRenderer().RenderHtmlAsPdf("<h1>Doc</h1>");
+
+            // DrawText and DrawBitmap both return void.
+            pdf.DrawText("Hello World", FontTypes.TimesNewRoman.Name, 12, 0, 100, 100, Color.Black, 0);
+            pdf.DrawBitmap(AnyBitmap.FromFile("logo.png"), 0, 50, 250, 500, 300);
+            pdf.SaveAs("annotated.pdf");
         }
     }
 }

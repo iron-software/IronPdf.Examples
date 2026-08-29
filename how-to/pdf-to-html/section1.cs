@@ -5,7 +5,6 @@ namespace IronPdf.Examples.HowTo.PdfToHtml
     {
         public static void Run()
         {
-            :title=Convert PDFs Instantly to HTML
             IronPdf.PdfDocument.FromFile("example.pdf").SaveAsHtml("output.html");
         }
     }

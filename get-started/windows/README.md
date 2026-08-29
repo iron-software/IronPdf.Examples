@@ -1,6 +1,6 @@
 # Utilizing IronPDF for .NET on Windows Platforms
 
-***Based on <https://ironpdf.com/get-started/windows/>***
+> Full guide: [Utilizing IronPDF for .NET on Windows Platforms](https://ironpdf.com/get-started/windows/)
 
 
 IronPDF is fully compatible with Windows 10, 11, and Windows Server across .NET 8, 7, 6, Core, .NET Standard, and .NET Framework versions.
@@ -37,8 +37,6 @@ For minimal package overhead, switch to `IronPdf.Slim` from NuGet when using Eng
 
 ```shell
 # Install the IronPdf.Slim package using the Package Manager Console
-
-***Based on <https://ironpdf.com/get-started/windows/>***
 
 Install-Package IronPdf.Slim
 ```

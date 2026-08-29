@@ -5,7 +5,9 @@ namespace IronPdf.Examples.Tutorial.PdfViewing
     {
         public static void Run()
         {
-            pdfView.Options = IronPdfViewOptions.All;
+            // This snippet uses the IronPDF MAUI viewer, which this project does not reference.
+            // Kept verbatim; see README.md for the full context.
+            // pdfView.Options = IronPdfViewOptions.All;
         }
     }
 }

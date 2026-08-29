@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/generate-pdfs-from-multiline-strings/>***
+> Docs: [IronPDF documentation](https://ironpdf.com/docs/)
 
 IronPDF excels at [converting HTML content into PDF documents](https://ironpdf.com/tutorials/html-to-pdf/), while also maintaining the original layouts and styles. This functionality is essential for creating PDF versions of web content like reports, invoices, and various forms of documentation. IronPDF handles the conversion of HTML files, URLs, and HTML strings into PDF formats with ease.
 
@@ -45,4 +45,4 @@ class Program
 }
 ```
 
-This rewritten code and article description illustrates how IronPDF can be utilized to transform HTML data directly into structured PDF files, preserving the integrity and styling of the original content. The examples provided show different use cases for converting HTML strings, files, and URLs into PDF documents.
+The code above transforms HTML data directly into structured PDF files, preserving the styling of the original content. The examples provided show different use cases for converting HTML strings, files, and URLs into PDF documents.

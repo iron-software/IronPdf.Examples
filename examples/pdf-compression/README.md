@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/pdf-compression/>***
+> Full guide: [PDF compression](https://ironpdf.com/examples/pdf-compression/)
 
 IronPDF supports PDF compression primarily by reducing the size of the embedded images within the document via the `CompressImages` method.
 

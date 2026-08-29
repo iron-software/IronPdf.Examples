@@ -1,17 +1,10 @@
-# Leveraging IronPDF in Engine Mode
+# Using IronPDF in Engine Mode
 
-***Based on <https://ironpdf.com/get-started/ironpdfengine/>***
-
+> Full guide: [Using IronPDF in Engine Mode](https://ironpdf.com/get-started/ironpdfengine/)
 
 ## Comparative Analysis: Native vs Engine Deployment
 
 IronPDF functions can be quite resource-demanding, which sometimes necessitates remote operation. Although IronPDF can operate without the remote `IronPdfEngine`, configuring it as a remote service is an effective strategy for circumventing compatibility issues with Google Chrome on older OS and mobile setups.
-
-### Initiating with IronPDF
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
-
--------------------------------
 
 ## Coding Differences with Engine Configuration
 
@@ -39,7 +32,7 @@ Installation.ConnectToIronPdfHost(
 
 ## Understanding IronPdfEngine Operations
 
-The `IronPdfEngine` is a containerized, server-side solution which facilitates a wide range of PDF tasks including creation, modification, and extraction, leveraging the gRPC communication protocol. Designed as a standalone C# .NET application, it does not depend on the .NET runtime, allowing seamless operation. We manage the gRPC linkage to ensure you can concentrate solely on programming.
+`IronPdfEngine` is a containerized, server-side component that creates, modifies, and extracts from PDFs over gRPC. It is a standalone C# .NET application with no dependency on the .NET runtime, and the gRPC connection is managed for you.
 
 For an introductory guide on running IronPDF in a standalone container mode, refer to this [tutorial](https://ironpdf.com/get-started/ironpdfengine-docker/).
 
@@ -49,7 +42,7 @@ For an introductory guide on running IronPDF in a standalone container mode, ref
 
 ### Deploying IronPdf .NET with External IronPdfEngine
 
-The streamlined `IronPdf.slim` package from NuGet suffices when using IronPDF with a remote engine. Whether you're deploying `IronPdf` or `IronPdf.Linux`, opting for `IronPdf.slim` can significantly reduce the footprint of your application.
+The `IronPdf.slim` NuGet package is enough when the engine is remote. Substituting it for `IronPdf` or `IronPdf.Linux` cuts the deployed application's footprint significantly.
 
 Assuming remote access to IronPdfEngine at `123.456.7.8:33350`:
 
@@ -66,7 +59,7 @@ Installation.ConnectToIronPdfHost(
 );
 ```
 
-With these steps, your application seamlessly integrates with the remote IronPdfEngine.
+With these steps, the application talks to the remote IronPdfEngine.
 
 <hr>
 

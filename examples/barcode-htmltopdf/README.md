@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/barcode-htmltopdf/>***
+> Full guide: [Barcode htmltopdf](https://ironpdf.com/examples/barcode-htmltopdf/)
 
 IronPDF extends its functionality by not only supporting a wide variety of custom fonts, like those from Google Fonts, but also by enabling the embedding of barcodes into PDF documents. This feature greatly simplifies the process for developers to incorporate barcode data into their PDF outputs.
 

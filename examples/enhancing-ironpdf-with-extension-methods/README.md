@@ -1,3 +1,3 @@
-***Based on <https://ironpdf.com/examples/enhancing-ironpdf-with-extension-methods/>***
+> Docs: [IronPDF documentation](https://ironpdf.com/docs/)
 
 IronPDF excels in [transforming HTML into PDFs while maintaining the original layouts and styles](https://ironpdf.com/tutorials/html-to-pdf/), effectively capturing the design and format of your content. This capability is crucial for creating PDF documents such as reports, invoices, and various types of documentation directly from HTML sources, whether they are files, URLs, or HTML strings.

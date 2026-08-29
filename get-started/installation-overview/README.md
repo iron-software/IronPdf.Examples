@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/get-started/installation-overview/>***
+> Full guide: [Installation overview](https://ironpdf.com/get-started/installation-overview/)
 
 <style>
     .main-article {
@@ -348,12 +348,9 @@ h2[id^="anchor-"] {
 
 # Installation Overview
 
-A comprehensive guide to setting up and customizing IronPDF for all supported platforms.
-
-Here's the paraphrased section of the article:
+A guide to setting up and customizing IronPDF for all supported platforms.
 
 ```cs
-:title=Begin PDF Creation!
 IronPdf.ChromePdfRenderer
        .RenderHtmlAsPdf("<p>Welcome to PDF generation!</p>")
        .SaveAs("PerfectPdfOutput.pdf");
@@ -641,16 +638,11 @@ The process of setting up the C# PDF library is swift and efficient—it can be 
 <div id="nuget-package-start"></div>
 Go to the [IronPDF NuGet library](/packages/IronPdf) (or Package Manager Console in Visual Studio)
 
-Here's the paraphrased section with resolved URLs:
-
------
 1. Within Solution Explorer, perform a right-click on "References."
 
 2. Choose 'Manage NuGet Packages', click 'Browse', then search for "IronPdf."
 
 3. Choose the IronPdf package and proceed with the installation.
-
-Here's the paraphrased section:
 
 ```shell
 Install-Package IronPdf
@@ -674,8 +666,6 @@ Please note: Each IronPDF release requires the matching version of IronPdfEngine
 ```shell
 :InstallCmd Install-Package IronPdf.Slim
 ```
-
-Below is the paraphrased content for the specified section:
 
 ```shell
 :InstallCmd Install-Package IronPdf.Slim
@@ -787,8 +777,6 @@ After you’ve purchased or signed up for a 30-day trial of IronPDF, find the li
 
 To begin using your subscription or trial, enter the license key you received by email at the very start of your application's code.
 
-Here's the paraphrased section of the article with resolved relative URL paths, focused on setting the IronPDF license key within a .NET application:
-
 ```csharp
 // Assign your IronPDF license key to activate the product
 IronPdf.License.LicenseKey = "YOUR_LICENSE_KEY_HERE";
@@ -802,8 +790,6 @@ Here’s how you can verify the licensing status of IronPDF in your application:
 bool isLicensed = IronPdf.License.IsLicensed;
 ```
 
-Here is the paraphrased section of the article, with resolved URL paths:
-
 ```csharp
 // Check if your IronPDF license is active and valid
 bool licenseIsValid = IronPdf.License.IsLicensed;
@@ -814,8 +800,6 @@ bool licenseIsValid = IronPdf.License.IsLicensed;
 <div id="path-permission-start"></div>
 Set the TempFolderPath property of the IronPdf.Installation object.
 
-Here's a paraphrased version of the specific C# code snippet provided:
-
 ```csharp
 // Setting the temporary folder path for IronPDF operations
 IronPdf.Installation.TempFolderPath = @"C:\My\Secure\Directory";
@@ -824,8 +808,6 @@ IronPdf.Installation.TempFolderPath = @"C:\My\Secure\Directory";
 Ensure that all temporary and cache folders are cleared on both your development environments and servers. Subsequently, redeploy a pristine version of your application whenever a path is updated.
 
 Define the temporary folder environment variable across the entire scope of your application.
-
-Here's the paraphrased section of the article:
 
 ```csharp
 using IronPdf;
@@ -877,8 +859,6 @@ IronPdf.Installation.Initialize();
 
 For additional information on setting up IronPDF with Linux and Docker environments, visit [IronPDF Linux Docker Compatibility and Setup](https://ironpdf.com/how-to/linux/).
 
-Here's the paraphrased section of the article with resolved URLs where necessary:
-
 ```csharp
 // Establish a connection to a remote IronPDF server using gRPC
 IronPdf.GrpcLayer.IronPdfConnectionConfiguration
@@ -889,19 +869,13 @@ IronPdf.GrpcLayer.IronPdfConnectionConfiguration
 
 **[Linux]** Activate the automatic installation feature for all necessary Linux dependencies in IronPDF. Be prepared for the initial HTML-to-PDF conversion to take a bit longer than normal.
 
-Here's the paraphrased section:
-
 ```csharp
 // Automatically configure dependencies needed by Linux and Docker
 Installation.LinuxAndDockerDependenciesAutoConfig = true;
 ```
 
 **[Docker]** To enhance startup performance in Docker environments, pre-initialize the Chrome engine, ensuring that all necessary components are loaded beforehand. This preparation reduces initial launch times significantly.
-```
 
-Here is the paraphrased section of the article, with the URL path resolved:
-
------
 ```csharp
 // Initialize IronPDF settings before usage
 IronPdf.Installation.Initialize();
@@ -914,7 +888,7 @@ IronPdf.Installation.Initialize();
 
 ## 5. Deployment Scenarios
 
-Here are various environments where IronPDF .NET can be seamlessly deployed:
+Here are various environments where IronPDF .NET can be deployed:
 
 <div class="row deployment-scenarios g-4">
     <div class="col-6">

@@ -5,8 +5,7 @@ namespace IronPdf.Examples.HowTo.MdToPdf
     {
         public static void Run()
         {
-            :title=Markdown to PDF in one line of code: 
-            new IronPdf.ChromePdfRender
+            new IronPdf.ChromePdfRenderer()
                 .RenderMarkdownStringAsPdf("*This* is some **markdown** _text_!")
                 .SaveAs("mdToPdf.pdf");
         }

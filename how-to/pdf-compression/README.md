@@ -1,6 +1,6 @@
 # How to Compress PDF Documents
 
-***Based on <https://ironpdf.com/how-to/pdf-compression/>***
+> Full guide: [How to Compress PDF Documents](https://ironpdf.com/how-to/pdf-compression/)
 
 
 Compressing a PDF, which stands for Portable Document Format, involves reducing its file size to make it easier to manage when storing, sharing, or transmitting it. This is particularly beneficial when dealing with large or heavily image-populated documents.
@@ -9,10 +9,9 @@ Photos generally make up a large portion of a PDF's file size due to their large
 
 ## Quickstart: Compress PDF Files with IronPDF
 
-Easily shrink the file sizes of your PDFs utilizing IronPDF's robust compression tools. First, open your PDF with `PdfDocument.FromFile`, use the `Compress` method with standard settings, and then save your reduced PDF. This straightforward workflow facilitates significant reductions in file size while preserving quality and is ideal for developers looking for effective document handling in .NET C#.
+Easily shrink the file sizes of your PDFs utilizing IronPDF's compression tools. First, open your PDF with `PdfDocument.FromFile`, use the `Compress` method with standard settings, and then save your reduced PDF. This straightforward workflow facilitates significant reductions in file size while preserving quality and is ideal for developers looking for effective document handling in .NET C#.
 
 ```cs
-:title=Quick and Efficient PDF Compression!
 PdfDocument.FromFile("input.pdf").CompressImages(40).SaveAs("compressed.pdf");
 ```
 

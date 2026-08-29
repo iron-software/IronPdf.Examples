@@ -1,16 +1,15 @@
 # Managing PDF Pages: Add, Copy, and Delete Techniques
 
-***Based on <https://ironpdf.com/how-to/add-copy-delete-pages-pdf/>***
+> Full guide: [Managing PDF Pages: Add, Copy, and Delete Techniques](https://ironpdf.com/how-to/add-copy-delete-pages-pdf/)
 
 
 Editing PDFs often requires the ability to add fresh content or rearrange existing content through the insertion of new pages, duplication of existing ones, or elimination of superfluous pages. This guide demonstrates how to effectively handle such modifications using IronPDF.
 
 ## Quickstart: Instant PDF Page Management
 
-Harness the capabilities of IronPDF to seamlessly add, copy, and delete pages from your PDFs. This example demonstrates how to integrate additional pages into a PDF document effortlessly, employing IronPDF's powerful features to simplify page management in any .NET project.
+Use IronPDF to add, copy, and delete pages from your PDFs. This example demonstrates how to integrate additional pages into a PDF document, employing IronPDF's powerful features to simplify page management in any .NET project.
 
 ```cs
-:title=Streamlined PDF Page Manipulation
 IronPdf.PdfDocument.FromFile("https://ironpdf.com/input/path.pdf")
     .AppendPdf(IronPdf.PdfDocument.FromFile("https://ironpdf.com/additional/path.pdf"))
     .SaveAs("https://ironpdf.com/output/path.pdf");

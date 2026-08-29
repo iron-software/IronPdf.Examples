@@ -1,18 +1,17 @@
 # Transforming Razor Views into PDFs Without a User Interface
 
-***Based on <https://ironpdf.com/how-to/cshtml-to-pdf-razor-headlessly/>***
+> Full guide: [Transforming Razor Views into PDFs Without a User Interface](https://ironpdf.com/how-to/cshtml-to-pdf-razor-headlessly/)
 
 
 Headless rendering allows the conversion of web content into other formats without the need for a graphical user interface (GUI) or browser window. Although the [IronPdf.Extensions.Razor](https://www.nuget.org/packages/IronPdf.Extensions.Razor/) package is valuable, it lacks support for headless rendering. To fill this gap, we can use headless rendering techniques suited for other scenarios not covered by the IronPdf.Extensions.Razor package.
 
 We will employ the [Razor.Templating.Core](https://www.nuget.org/packages/Razor.Templating.Core) package to convert cshtml (Razor Views) files into HTML and then use IronPDF to create PDF files from the HTML content.
 
-*as-heading:2(Quickstart: Rapid Razor to PDF Conversion)*
+## Quickstart: Rapid Razor to PDF Conversion
 
-Effortlessly convert Razor Views into PDFs using IronPDF's headless conversion technique. Implement the `IronPdf.HtmlToPdf.StaticRender.RenderHtmlAsPdf` method for fast and easy HTML to PDF conversion, leveraging the efficiency and power of IronPDF within your ASP.NET Core projects.
+convert Razor Views into PDFs using IronPDF's headless conversion technique. Implement the `IronPdf.HtmlToPdf.StaticRender.RenderHtmlAsPdf` method for fast and easy HTML to PDF conversion, using the efficiency and power of IronPDF within your ASP.NET Core projects.
 
 ```cs
-:title=Convert Razor views to PDF without a GUI!
 var htmlContent = await RazorTemplateEngine.RenderAsync("Views/Template.cshtml", model); 
 var pdfDocument = new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf(htmlContent).SaveAs("output.pdf");
 ```
@@ -21,8 +20,6 @@ Start by installing the **Razor.Templating.Core package** to transition Razor Vi
 
 ```shell
 # Install the Razor.Templating.Core package via NuGet Package Manager
-
-***Based on <https://ironpdf.com/how-to/cshtml-to-pdf-razor-headlessly/>***
 
 Install-Package Razor.Templating.Core
 ```

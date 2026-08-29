@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/docx-to-pdf/>***
+> Full guide: [DOCX to PDF](https://ironpdf.com/examples/docx-to-pdf/)
 
 This code sample illustrates the straightforward and efficient method offered by IronPDF for converting Microsoft Word documents into PDF format. With this tool, you can easily transform your DOCX files into high-quality PDFs with just a couple of code lines.
 

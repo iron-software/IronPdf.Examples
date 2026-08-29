@@ -1,3 +1,4 @@
+using IronPdf.Annotations;
 using System.Linq;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Annotations

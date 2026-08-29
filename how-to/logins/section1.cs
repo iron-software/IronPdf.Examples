@@ -5,8 +5,8 @@ namespace IronPdf.Examples.HowTo.Logins
     {
         public static void Run()
         {
-            :title=Render a password‑protected URL to PDF in one line!
-            new ChromePdfRenderer { LoginCredentials = new ChromeHttpLoginCredentials("username","password") }
+            // ChromeHttpLoginCredentials is built by property, not by constructor.
+            new ChromePdfRenderer { LoginCredentials = new ChromeHttpLoginCredentials { NetworkUsername = "username", NetworkPassword = "password" } }
                 .RenderUrlAsPdf("https://example.com/protected")
                 .SaveAs("secure.pdf");
         }

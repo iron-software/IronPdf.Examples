@@ -5,8 +5,11 @@ namespace IronPdf.Examples.HowTo.PdfCompression
     {
         public static void Run()
         {
-            :title=Compress your PDF in one line!
-            PdfDocument.FromFile("input.pdf").CompressImages(40).SaveAs("compressed.pdf");
+            var pdf = PdfDocument.FromFile("input.pdf");
+
+            // CompressImages returns void, so it cannot be chained.
+            pdf.CompressImages(40);
+            pdf.SaveAs("compressed.pdf");
         }
     }
 }

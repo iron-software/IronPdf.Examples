@@ -1,13 +1,13 @@
 # Understanding Different PDF Versions with IronPDF
 
-***Based on <https://ironpdf.com/how-to/pdf-versions/>***
+> Full guide: [Understanding Different PDF Versions with IronPDF](https://ironpdf.com/how-to/pdf-versions/)
 
 
 PDFs can host a multitude of content types – from plain text and graphics to interactive forms and even 3D objects. Each feature within a PDF relates to a specific version; for instance, documents with transparency measures require at least version 1.4, and those incorporating layered structures necessitate version 1.5 and above. This guide will explore how IronPDF adeptly handles these complexities by automatically selecting the appropriate PDF version during the conversion process, ensuring a smooth and efficient operation for developers.
 
 ## Creating PDF 1.4 with IronPDF
 
-IronPDF caters to a broad spectrum of PDF versions, from 1.2 through 1.7. In scenarios where HTML is converted to PDF, IronPDF leverages the capabilities of the Chromium engine, typically assigning the lowest viable version between PDF 1.4 and PDF 1.6 to enhance viewer compatibility.
+IronPDF caters to a broad spectrum of PDF versions, from 1.2 through 1.7. In scenarios where HTML is converted to PDF, IronPDF uses the capabilities of the Chromium engine, typically assigning the lowest viable version between PDF 1.4 and PDF 1.6 to enhance viewer compatibility.
 
 ### Example: PDF Version 1.4
 

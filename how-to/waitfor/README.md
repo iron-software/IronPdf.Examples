@@ -1,11 +1,11 @@
 # Utilizing the WaitFor Class to Enhance C# PDF Rendering
 
-***Based on <https://ironpdf.com/how-to/waitfor/>***
+> Full guide: [Utilizing the WaitFor Class to Enhance C# PDF Rendering](https://ironpdf.com/how-to/waitfor/)
 
 
 In the process of generating PDFs, it's quite common to encounter challenges where the PDF is rendered before JavaScript assets or animations have fully loaded. This premature rendering can lead to inaccuracies in the final document. Initially, we recommended inserting a manual delay to mitigate this issue, but this method proved to be unreliable and inefficient.
 
-## Quickstart: Leveraging WaitFor to Improve PDF Rendering
+## Quickstart: Using WaitFor to Improve PDF Rendering
 
 The WaitFor functionality in IronPDF provides developers with the tools to finely control the timing of PDF rendering. This ensures that all necessary resources are fully loaded before the document is rendered, which helps in avoiding incomplete renderings. This guide demonstrates how to integrate the WaitFor feature into your projects to achieve precise and optimized PDF rendering.
 
@@ -19,7 +19,7 @@ pdfDocument.SaveAs("output.pdf");
 
 ## Overview of the WaitFor Class
 
-The introduction of the `WaitFor` class in IronPDF offers a robust solution to enhance PDF rendering, adjusting to various scenarios:
+The introduction of the `WaitFor` class in IronPDF offers a solution to enhance PDF rendering, adjusting to various scenarios:
 
 - `PageLoad`: Renders immediately upon page load, without any delay.
 - `RenderDelay`: Allows setting a custom delay in milliseconds before rendering.
@@ -171,4 +171,4 @@ var configuredPdfDocument = pdfRenderer.RenderHtmlAsPdf("<h1>configured test</h1
 
 The methods like `JavaScript`, `NetworkIdle`, among others, also support setting a maximum waiting time, ensuring that the rendering process does not wait indefinitely.
 
-For further exploration, check out our comprehensive guide here: [Additional Features](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/).
+For further exploration, check out our guide here: [Additional Features](https://ironpdf.com/tutorials/pdf-assets-and-performance-csharp/).

@@ -1,6 +1,6 @@
 # Utilizing IronPDF on macOS
 
-***Based on <https://ironpdf.com/get-started/macos/>***
+> Full guide: [Utilizing IronPDF on macOS](https://ironpdf.com/get-started/macos/)
 
 
 IronPDF offers comprehensive support for macOS through .NET Standard libraries, Core applications, as well as .NET versions 10 to 5.

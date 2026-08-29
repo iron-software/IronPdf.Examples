@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/paper-printing-pdfs/>***
+> Full guide: [Paper printing PDFs](https://ironpdf.com/examples/paper-printing-pdfs/)
 
 <div class="alert alert-info iron-variant-1" role="alert">
 Explore the capabilities of <a href="https://ironsoftware.com/csharp/print/">IronPrint - The .NET Printing Library by Iron Software</a>, a modern .NET printing library that supports a variety of platforms such as Windows, macOS, Android, and iOS. Get started with IronPrint by visiting <a href="https://ironsoftware.com/csharp/print/docs/">this guide</a> today!

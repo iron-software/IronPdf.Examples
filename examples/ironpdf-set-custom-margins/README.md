@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/ironpdf-set-custom-margins/>***
+> Full guide: [Ironpdf set custom margins](https://ironpdf.com/examples/ironpdf-set-custom-margins/)
 
 IronPDF enables you to adjust margins to any value through its `RenderingOptions`. The HTML to PDF conversion settings available in `ChromePdfRenderer` encompass various specifications such as paper size, DPI, headers and footers, besides other Chromium-specific browser configurations. Customized margin settings are also supported by this functionality.
 

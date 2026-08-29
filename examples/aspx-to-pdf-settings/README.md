@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/aspx-to-pdf-settings/>***
+> Full guide: [Aspx to PDF settings](https://ironpdf.com/examples/aspx-to-pdf-settings/)
 
 This example illustrates how developers can modify PDF printing settings to convert a form to HTML.
 

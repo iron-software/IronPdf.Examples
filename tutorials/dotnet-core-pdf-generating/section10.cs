@@ -5,9 +5,10 @@ namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
     {
         public static void Run()
         {
-            renderer.LoggingOptions.DebugMode        = true;
-            renderer.LoggingOptions.LogsToConsole    = true;
-            renderer.LoggingOptions.LogFilePath      = "./logs/ironpdf-debug.log";
+            // Logging is process-wide, not per renderer.
+            IronPdf.Logging.Logger.EnableDebugging = true;
+            IronPdf.Logging.Logger.LoggingMode = IronPdf.Logging.Logger.LoggingModes.All;
+            IronPdf.Logging.Logger.LogFilePath = "./logs/ironpdf-debug.log";
         }
     }
 }

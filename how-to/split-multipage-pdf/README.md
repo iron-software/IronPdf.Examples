@@ -1,18 +1,17 @@
 # Split a Multi-Page Document into Individual PDFs
 
-***Based on <https://ironpdf.com/how-to/split-multipage-pdf/>***
+> Full guide: [Split a Multi-Page Document into Individual PDFs](https://ironpdf.com/how-to/split-multipage-pdf/)
 
 
 Dividing a multi-page PDF document into distinct PDF files, where each file contains just one page, is a task that can be easily achieved with a minimal amount of coding. Explore our example for integrating this functionality into your application.
 
-IronPdf offers four different types of stampers—`TextStamper`, `ImageStamper`, `HTMLStamper`, and `BarcodeStamper`. The `HTMLStamper` is exceptionally versatile, allowing for the use of complete HTML capabilities and CSS styles.
+IronPdf offers four different types of stampers—`TextStamper`, `ImageStamper`, `HTMLStamper`, and `BarcodeStamper`. `HTMLStamper` takes arbitrary HTML and CSS, so a stamp can be as elaborate as a web page.
 
 ## Quickstart: Transform Multi-Page PDF into Single Pages
 
-Begin swiftly with IronPDF to segregate a multi-page PDF into individual page documents. Leveraging the `CopyPage` method allows for a clean and efficient walk-through of each page in the document, saving them as separate files. This process is ideal for developers who need a quick, straightforward method to handle PDF documents.
+Begin swiftly with IronPDF to segregate a multi-page PDF into individual page documents. Using the `CopyPage` method allows for a clean and efficient walk-through of each page in the document, saving them as separate files. This process is ideal for developers who need a quick, straightforward method to handle PDF documents.
 
 ```cs
-:title=Simple PDF Splitting Example
 var pdfDocument = new IronPdf.PdfDocument("multipage.pdf");
 for (int page = 0; page < pdfDocument.PageCount; page++) {
   var singlePageDocument = pdfDocument.CopyPage(page);

@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/csharp-print-pdf-specific-printer/>***
+> Docs: [IronPDF documentation](https://ironpdf.com/docs/)
 
 IronPDF offers developers a straightforward approach to creating PDF documents in C#, F#, and VB.NET, compatible with both .NET Core and .NET Framework.
 

@@ -1,6 +1,6 @@
 # IronPDF Offers Full macOS Support for .NET Applications
 
-***Based on <https://ironpdf.com/how-to/macos/>***
+> Full guide: [IronPDF Offers Full macOS Support for .NET Applications](https://ironpdf.com/how-to/macos/)
 
 
 IronPDF has expanded its capabilities, now offering comprehensive support for macOS within .NET Standard Libraries and .NET Core applications, specifically for .NET versions 8, 7, 6, and 5.
@@ -9,7 +9,7 @@ It's important to note that .NET Framework projects on macOS are not supported a
 
 As of January 2020, IronPDF guarantees complete compatibility with all versions of macOS right out-of-the-box, without the need for any additional installations.
 
-Developers crafting applications for Apple platforms do not need to alter their code. Applications developed on macOS can be seamlessly deployed across Windows, Linux, and macOS platforms, although incorporating additional binaries might be necessary depending on the deployment target.
+Developers crafting applications for Apple platforms do not need to alter their code. Applications developed on macOS can be deployed across Windows, Linux, and macOS platforms, although incorporating additional binaries might be necessary depending on the deployment target.
 
 A specific limitation on macOS is the inability to support multithreaded PDF rendering (a key feature, especially for web servers), due to macOS lacking an integral message pump in its Chromium Embedded Framework.
 

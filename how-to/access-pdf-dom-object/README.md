@@ -1,16 +1,15 @@
 # Manipulating PDF DOM Objects
 
-***Based on <https://ironpdf.com/how-to/access-pdf-dom-object/>***
+> Full guide: [Manipulating PDF DOM Objects](https://ironpdf.com/how-to/access-pdf-dom-object/)
 
 
 Manipulating the PDF DOM involves interacting with the structure of a PDF document in ways similar to handling webpage DOMs. The DOM of a PDF is a structured representation of its content which enables developers to programmatically modify various components such as text, images, annotations, and metadata.
 
 ## Quickstart: Utilizing IronPDF to Handle PDF DOM Elements
 
-Easily manage your PDF files by leveraging the robust DOM manipulation capabilities of IronPDF. This introductory guide will walk you through the process of obtaining PDF DOM, selecting a specific page, and adjusting text elements. Start by loading your document, selecting the page of interest, and then modifying it using a few simple lines of code. This guide is ideal for developers who want to efficiently handle PDFs without complicated setups.
+Easily manage your PDF files by using the DOM manipulation capabilities of IronPDF. This introductory guide will walk you through the process of obtaining PDF DOM, selecting a specific page, and adjusting text elements. Start by loading your document, selecting the page of interest, and then modifying it using a few simple lines of code. This guide is ideal for developers who want to efficiently handle PDFs without complicated setups.
 
 ```cs
-:title=Efficiently Handle PDF DOM with IronPDF
 var domObjects = IronPdf.ChromePdfRenderer.RenderUrlAsPdf("https://example.com").Pages.First().ObjectModel;
 ```
 
@@ -189,4 +188,4 @@ pageElements.ImageObjects.RemoveAt(0);
 removalPdf.SaveAs("removedFirstImage.pdf");
 ```
 
-Explore more capabilities by visiting our comprehensive guide here: [Manipulate PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/)
+Explore more capabilities by visiting our guide here: [Manipulate PDFs](https://ironpdf.com/tutorials/csharp-edit-pdf-complete-tutorial/)

@@ -1,6 +1,6 @@
 # Running and Deploying IronPDF .NET on Azure Functions
 
-***Based on <https://ironpdf.com/get-started/azure/>***
+> Full guide: [Running and Deploying IronPDF .NET on Azure Functions](https://ironpdf.com/get-started/azure/)
 
 
 <div class="container-fluid">
@@ -11,7 +11,7 @@
     </div>
 </div>
 
-IronPDF supports the creation, modification, and reading of PDF files seamlessly on Azure. It has been efficiently utilized across various Azure services, including MVC websites and Azure Functions.
+IronPDF supports the creation, modification, and reading of PDF files on Azure. It has been efficiently utilized across various Azure services, including MVC websites and Azure Functions.
 
 <hr class="separator">
 

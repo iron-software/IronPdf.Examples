@@ -1,3 +1,4 @@
+using IronPdf.Rendering;
 using IronPdf;
 using IronPdf.Engines.Chrome;
 

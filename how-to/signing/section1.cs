@@ -5,8 +5,10 @@ namespace IronPdf.Examples.HowTo.Signing
     {
         public static void Run()
         {
-            :title=Digitally sign your PDF in one line!
-            new IronPdf.Signing.PdfSignature("certificate.pfx", "password").SignPdfFile("input.pdf");
+            // A signature is applied by the document, not by the signature.
+            var pdf = IronPdf.PdfDocument.FromFile("input.pdf");
+            pdf.Sign(new IronPdf.Signing.PdfSignature("certificate.pfx", "password"));
+            pdf.SaveAs("signed.pdf");
         }
     }
 }

@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/cookies/>***
+> Full guide: [Cookies](https://ironpdf.com/examples/cookies/)
 
 This snippet outlines the use of IronPDF to authenticate a request with network credentials and to append cookies, which is crucial for converting web pages to PDF format.
 

@@ -10,7 +10,7 @@ namespace IronPdf.Examples.HowTo.AccessPdfDomObject
              PdfDocument pdf = PdfDocument.FromFile("BeforeScale.pdf");
             
              // Access DOM Objects
-             IPdfPageObjectModel objects = pdf.Pages.First().ObjectModel;
+             IronSoftware.Pdfium.Dom.IPdfPageObjectModel objects = pdf.Pages.First().ObjectModel;
             
              // Remove first image
              objects.ImageObjects.RemoveAt(0);

@@ -1,3 +1,4 @@
+using IronPdf.Signing;
 using System.Security.Cryptography.X509Certificates;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.Signing

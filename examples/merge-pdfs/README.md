@@ -1,6 +1,6 @@
-***Based on <https://ironpdf.com/examples/merge-pdfs/>***
+> Full guide: [Merge PDFs](https://ironpdf.com/examples/merge-pdfs/)
 
-IronPDF's merge functionality enables you to seamlessly consolidate multiple PDF documents into a single file. This is achievable with both HTML-rendered PDFs or existing PDF documents, thanks to IronPDF's straightforward API for merging. Utilize the robust merging capabilities of IronPDF to merge your PDFs efficiently while preserving the structural and content integrity of each document.
+IronPDF consolidates several PDF documents into a single file, whether they were rendered from HTML or loaded from disk. The structure and content of each source document are preserved.
 
 ## The 5 Steps to Merging PDF Documents in C#
 
@@ -8,9 +8,9 @@ To start merging PDF documents, the initial step is to construct the HTML string
 
 You will begin by initiating a new `ChromePdfRenderer` object. This renderer is crucial for transforming the HTML we crafted earlier into high-quality PDF documents through the `RenderHtmlAsPdf` method.
 
-Following the rendering process, the next step is to merge these PDFs into a unified document named `Merged.pdf`. This merging is executed using the `Merge` method, which efficiently combines the provided PDF documents into one with a single line of code, streamlining the document merging process using IronPDF.
+Following the rendering process, the next step is to merge these PDFs into a unified document named `Merged.pdf`. The `Merge` method combines the documents in a single line of code.
 
-The final step is to save the newly merged PDF file. Once saved, you can leverage the diverse suite of tools provided by IronPDF to further refine and alter the PDF document.
+The final step is to save the newly merged PDF file. Once saved, the rest of the IronPDF API is available for further edits.
 
 Moreover, IronPDF's functionality is not limited to merging just two PDFs. In our simplified example, we showcased the process for two documents. To merge a more extensive set of PDF files, you would apply a List overload in place of the two-argument method, accommodating multiple documents. This advanced technique allows for greater flexibility in PDF management.
 

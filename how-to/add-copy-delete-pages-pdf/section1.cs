@@ -5,7 +5,6 @@ namespace IronPdf.Examples.HowTo.AddCopyDeletePagesPdf
     {
         public static void Run()
         {
-            :title=Effortlessly Manage PDF Pages
             IronPdf.PdfDocument.FromFile("/input/path.pdf")
                 .AppendPdf(IronPdf.PdfDocument.FromFile("/additional/path.pdf"))
                 .SaveAs("/output/path.pdf");

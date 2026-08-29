@@ -5,8 +5,9 @@ namespace IronPdf.Examples.HowTo.CreateNewPdfs
     {
         public static void Run()
         {
-            :title=Start generating blank PDFs in seconds!
-            new IronPdf.PdfDocument { DefaultPageSize = new IronPdf.PageSize(270,270) }.SaveAs("blankPage.pdf");
+            // PdfDocument has no parameterless constructor and no DefaultPageSize;
+            // a blank page is sized when it is created.
+            new IronPdf.PdfDocument(270, 270).SaveAs("blankPage.pdf");
         }
     }
 }

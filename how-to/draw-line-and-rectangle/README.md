@@ -1,6 +1,6 @@
 # Enhancing PDFs with Lines and Rectangles
 
-***Based on <https://ironpdf.com/how-to/draw-line-and-rectangle/>***
+> Full guide: [Enhancing PDFs with Lines and Rectangles](https://ironpdf.com/how-to/draw-line-and-rectangle/)
 
 
 Adding geometric shapes, such as lines and rectangles, to PDF documents enriches the content and visual appeal. This type of enhancement can be achieved programmatically using languages like C# or VB.NET along with a library such as IronPDF.
@@ -9,10 +9,9 @@ This guide will show you how easy it is to insert clean, professional-looking li
 
 ## Easy Steps to Add Lines and Rectangles Using IronPDF
 
-Unlock the potential of your PDFs by incorporating lines and rectangles through IronPDF. This quickstart guide will introduce you to the `DrawLine` and `DrawRectangle` methods. These methods enable you to effortlessly add dynamic graphical elements to your documents. Let’s dive right in.
+Get the most out of your PDFs by incorporating lines and rectangles through IronPDF. This quickstart guide will introduce you to the `DrawLine` and `DrawRectangle` methods. These methods enable you to add dynamic graphical elements to your documents. Let’s dive right in.
 
 ```cs
-:title=Quick Shape Drawing in PDFs
 IronPdf.PdfDocument pdf = IronPdf.PdfDocument.FromFile("input.pdf");
 pdf.DrawLine(10, 10, 200, 10, "#FF0000", 2);
 pdf.SaveAs("output.pdf");

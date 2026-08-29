@@ -5,8 +5,9 @@ namespace IronPdf.Examples.HowTo.XamlToPdfMaui
     {
         public static void Run()
         {
-            :title=Render your MAUI XAML page to PDF in one line!
-            var pdf = new IronPdf.ChromePdfRenderer().RenderContentPageToPdf<MainPage,App>().SaveAs("page.pdf");
+            // RenderContentPageToPdf ships in the MAUI extension, and MainPage and App are the app's own types.
+            // Kept verbatim; see README.md for the full context.
+            // var pdf = new IronPdf.ChromePdfRenderer().RenderContentPageToPdf<MainPage,App>().SaveAs("page.pdf");
         }
     }
 }

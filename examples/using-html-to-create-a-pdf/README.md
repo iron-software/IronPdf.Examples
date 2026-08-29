@@ -1,6 +1,6 @@
-***Based on <https://ironpdf.com/examples/using-html-to-create-a-pdf/>***
+> Full guide: [Using HTML to create a PDF](https://ironpdf.com/examples/using-html-to-create-a-pdf/)
 
-IronPDF allows you to create brand new PDF files from simple HTML strings within your .NET applications, supporting languages like C#, F#, and VB.NET. Utilizing the `ChromePdfRenderer` class ensures that the PDF documents rendered from HTML strings are [pixel-perfect](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/). IronPDF's robust [HTML to PDF conversion](https://ironpdf.com/tutorials/html-to-pdf/) capabilities enable the creation of high-quality PDF documents that meet specific requirements.
+IronPDF allows you to create brand new PDF files from simple HTML strings within your .NET applications, supporting languages like C#, F#, and VB.NET. Utilizing the `ChromePdfRenderer` class ensures that the PDF documents rendered from HTML strings are [pixel-perfect](https://ironpdf.com/how-to/pixel-perfect-html-to-pdf/). IronPDF's [HTML to PDF conversion](https://ironpdf.com/tutorials/html-to-pdf/) capabilities enable the creation of high-quality PDF documents that meet specific requirements.
 
 Here are the four steps to convert an HTML string into a PDF:
 

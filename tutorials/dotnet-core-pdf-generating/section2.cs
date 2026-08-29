@@ -6,7 +6,6 @@ namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
         public static void Run()
         {
             // Program.cs — .NET 8 LTS
-            using IronPdf;
             
             var renderer = new ChromePdfRenderer();
             

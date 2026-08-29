@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/adding-headers-and-footers-advanced/>***
+> Full guide: [Adding headers and footers advanced](https://ironpdf.com/examples/adding-headers-and-footers-advanced/)
 
 IronPDF provides features for adding headers and footers to PDF files, either existing or new ones.
 

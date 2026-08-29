@@ -5,8 +5,12 @@ namespace IronPdf.Examples.Tutorial.PdfAssetsAndPerformanceCsharp
     {
         public static void Run()
         {
-            :title=Enhance PDFs Quickly with IronPDF
-            new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf("<h1>Hello Performance</h1>").CompressImages(50).Flatten().SaveAs("fast‑optimized.pdf");
+            var pdf = new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf("<h1>Hello Performance</h1>");
+
+            // CompressImages and Flatten both return void, so neither can be chained.
+            pdf.CompressImages(50);
+            pdf.Flatten();
+            pdf.SaveAs("fast-optimized.pdf");
         }
     }
 }

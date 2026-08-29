@@ -1,6 +1,6 @@
 # How to Render PDFs with Custom Paper Size
 
-***Based on <https://ironpdf.com/how-to/custom-paper-size/>***
+> Full guide: [How to Render PDFs with Custom Paper Size](https://ironpdf.com/how-to/custom-paper-size/)
 
 
 Custom paper size refers to any paper size that is personalized by the user and deviates from common standards like A4 or Letter size (8.5 x 11 inches). Such sizes are frequently used for printing unique projects that demand distinctive layouts, such as banners, posters, or specialized documents.

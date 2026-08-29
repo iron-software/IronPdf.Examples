@@ -1,6 +1,6 @@
-***Based on <https://ironpdf.com/examples/unicode/>***
+> Full guide: [Unicode](https://ironpdf.com/examples/unicode/)
 
-IronPDF seamlessly integrates Unicode support to enable the rendering of various global languages in PDF files, along with UTF-8 encoding to facilitate the display of modern alphabetic languages. It's important to note that your system must have Unicode fonts installed for this feature to function properly. While Windows and Mac systems generally come with these fonts pre-installed, Linux users might need to install these fonts manually.
+IronPDF integrates Unicode support to enable the rendering of various global languages in PDF files, along with UTF-8 encoding to facilitate the display of modern alphabetic languages. It's important to note that your system must have Unicode fonts installed for this feature to function properly. While Windows and Mac systems generally come with these fonts pre-installed, Linux users might need to install these fonts manually.
 
 This functionality is particularly beneficial for incorporating languages such as:
 
@@ -12,7 +12,7 @@ This functionality is particularly beneficial for incorporating languages such a
 
 ### Step-by-Step Guide to Using IronPDF's Unicode and UTF-8 Features for PDFs
 
-The initial step in leveraging IronPDF’s UTF-8 and Unicode support is to craft a new HTML string in your preferred language. This is the first building block in creating a PDF document that will accurately display the characters you intend to use. Subsequently, create a `ChromePdfRenderer` object which allows access to IronPDF’s robust rendering capabilities, essential for converting HTML to PDF efficiently.
+The initial step in using IronPDF’s UTF-8 and Unicode support is to craft a new HTML string in your preferred language. This is the first building block in creating a PDF document that will accurately display the characters you intend to use. Subsequently, create a `ChromePdfRenderer` object which allows access to IronPDF’s rendering capabilities, essential for converting HTML to PDF efficiently.
 
 Following this setup, employ the `RenderHtmlAsPdf` method to transform your HTML string into a PDF. This PDF is then stored in a `PdfDocument` object, ready for further manipulation. The final step involves saving this freshly created PDF to a desired directory using the `SaveAs` method.
 

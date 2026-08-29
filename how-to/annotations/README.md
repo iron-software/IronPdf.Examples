@@ -1,6 +1,6 @@
 # How to Add and Edit PDF Annotations
 
-***Based on <https://ironpdf.com/how-to/annotations/>***
+> Full guide: [How to Add and Edit PDF Annotations](https://ironpdf.com/how-to/annotations/)
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
@@ -9,12 +9,11 @@ Businesses looking to reduce their annual expenses on PDF security and complianc
 
 Annotations are powerful tools for adding comments, reminders, or extra details to specific parts of a document. They foster better collaboration and communication when working with PDF files, allowing users to annotate, comment, and provide context on shared documents.
 
-*as-heading:2(Quickstart: How to Add Annotations to PDFs using IronPDF)*
+## Quickstart: How to Add Annotations to PDFs using IronPDF
 
 This quick guide illustrates how to easily insert text annotations into a PDF document with IronPDF in C#. With just a few lines of code, developers can add comments or notes, increasing document interactivity and enhancing collaboration. Begin by loading the PDF and applying the `AddTextAnnotation` method to insert text annotations swiftly.
 
 ```cs
-:title=Add a sticky-note annotation in one line!
 PdfDocument.FromFile("input.pdf")
     .Annotations.Add(new TextAnnotation(0) { Title="Note", Contents="Review this section.", X=50, Y=700 })
     .SaveAs("annotated.pdf");

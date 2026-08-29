@@ -1,3 +1,4 @@
+using IronPdf.Rendering;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
 {
@@ -6,7 +7,6 @@ namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
         public static void Run()
         {
             // Program.cs — compatible with .NET 8 and newer
-            using IronPdf;
             
             // Sample HTML fragment (could also be read from a file, Razor view, or CMS)
             const string html = """
@@ -47,7 +47,7 @@ namespace IronPdf.Examples.Tutorial.DotnetCorePdfGenerating
                     PaperOrientation = PdfPaperOrientation.Portrait,
                     CssMediaType = PdfCssMediaType.Screen,           // Respect on-screen CSS
                     RenderDelay  = 100,                              // Wait 100 ms for JS/animations
-                    FallbackEncoding = "utf-8"                       // Handle non-ASCII correctly
+                    InputEncoding = System.Text.Encoding.UTF8        // Handle non-ASCII correctly
                 }
             };
             

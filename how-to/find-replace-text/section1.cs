@@ -5,10 +5,11 @@ namespace IronPdf.Examples.HowTo.FindReplaceText
     {
         public static void Run()
         {
-            :title=Effortless PDF Text Replacement
-            IronPdf.PdfDocument.FromFile("example.pdf")
-                .ReplaceTextOnAllPages("old text", "new text")
-                .SaveAs("updated.pdf");
+            var pdf = IronPdf.PdfDocument.FromFile("example.pdf");
+
+            // ReplaceTextOnAllPages returns void, so it cannot be chained.
+            pdf.ReplaceTextOnAllPages("old text", "new text");
+            pdf.SaveAs("updated.pdf");
         }
     }
 }

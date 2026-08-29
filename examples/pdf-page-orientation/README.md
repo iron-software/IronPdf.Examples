@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/pdf-page-orientation/>***
+> Full guide: [PDF page orientation](https://ironpdf.com/examples/pdf-page-orientation/)
 
 When working with IronPDF to create or modify PDF documents, users can set specific orientations for their documents. The `PdfPaperOrientation` class manages the paper orientation for converting [HTML to PDF with IronPDF](https://ironpdf.com/tutorials/html-to-pdf/).
 

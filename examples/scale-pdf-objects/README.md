@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/scale-pdf-objects/>***
+> Full guide: [Scale PDF objects](https://ironpdf.com/examples/scale-pdf-objects/)
 
 IronPDF grants developers the capability to programmatically scale PDF objects, allowing for sophisticated adjustment of components like text and images within a PDF. This is achieved without having to alter the original document or create a new one.
 
@@ -15,16 +15,15 @@ With the IronPDF library at hand, scaling elements in a PDF becomes a straightfo
         <li>pdf.SaveAs("scaled_image.pdf");</li>
     </ol>
 </div>
-```
 
 ## Code Explanation
 
 In this example, we commence by constructing an HTML string containing an `<img>` tag to embed an image. Subsequently, we employ the `RenderHtmlAsPdf` method to convert this HTML string into a `PdfDocument`.
 
-Next, to locate the `ImageObject` that was recently embedded, we navigate through the document’s hierarchy: beginning with the first page of the PDF, accessed with `Pages.First`, and proceed to delve into its `ObjectModel`. This model houses the structured content of the page. We then proceed to the `ImageObjects` collection, select the first entry, and store it in a variable.
+Next, to locate the `ImageObject` that was recently embedded, we navigate through the document’s hierarchy: beginning with the first page of the PDF, accessed with `Pages.First`, and proceed to look at its `ObjectModel`. This model houses the structured content of the page. We then proceed to the `ImageObjects` collection, select the first entry, and store it in a variable.
 
-To adjust the image size, we set a new `PointF` to the `Scale` property. In this context, we scale the image to 70% of its original dimensions on both the x and y axes. It is important to note that scaling factors greater than one enlarge the image, whereas factors smaller than one reduce its size. Furthermore, non-uniform scaling can be achieved by applying different scaling values to x and y.
+To adjust the image size, we set a new `PointF` to the `Scale` property. In this context, we scale the image to 70% of its original dimensions on both the x and y axes. Scaling factors greater than one enlarge the image, whereas factors smaller than one reduce its size. Furthermore, non-uniform scaling can be achieved by applying different scaling values to x and y.
 
 After the scale property is amended, the final step involves invoking the `SaveAs` method to save the PDF with the updated scaling.
 
-[Discover How to Effortlessly Scale PDF DOM - Visit Our Guide Now!](https://ironpdf.com/how-to/access-pdf-dom-object/)
+[Discover How to Scale PDF DOM - Visit Our Guide Now!](https://ironpdf.com/how-to/access-pdf-dom-object/)

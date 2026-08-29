@@ -1,3 +1,4 @@
+using IronPdf.Signing;
 using IronPdf.Rendering;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.CsharpPdfSecurityCompleteTutorial

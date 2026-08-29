@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/rasterize-a-pdf-to-images/>***
+> Full guide: [Rasterize a PDF to images](https://ironpdf.com/examples/rasterize-a-pdf-to-images/)
 
 To transform a PDF file into images, utilize the `RasterizeToImageFiles` function from IronPDF on a `PdfDocument` instance. Load a PDF either by invoking `PdfDocument.FromFile` or via any of the [PDF generation techniques designed for .NET Core](https://ironpdf.com/tutorials/dotnet-core-pdf-generating/).
 

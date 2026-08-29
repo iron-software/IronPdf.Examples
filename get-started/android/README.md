@@ -1,6 +1,6 @@
 # Integrating IronPDF with MAUI on Android
 
-***Based on <https://ironpdf.com/get-started/android/>***
+> Full guide: [Integrating IronPDF with MAUI on Android](https://ironpdf.com/get-started/android/)
 
 
 <div class="container-fluid">
@@ -16,7 +16,7 @@
 
 IronPDF now supports operation via remote services, enhancing ease of use, performance, and deployment options. Numerous enterprises currently deploy [IronPDF inside Docker containers](https://hub.docker.com/r/ironsoftwareofficial/ironpdfengine) to complement their primary applications.
 
-The [`IronPdf.Server.Azure`](https://www.nuget.org/packages/IronPdf.Server.Azure) package facilitates the deployment of IronPDF on cloud architectures, streamlining its usage across various platforms, including mobile environments!
+The [`IronPdf.Server.Azure`](https://www.nuget.org/packages/IronPdf.Server.Azure) package facilitates the deployment of IronPDF on cloud architectures, simplifying its usage across various platforms, including mobile environments!
 
 For your project setup, feel free to fork a GitHub repository from the suggested links.
 

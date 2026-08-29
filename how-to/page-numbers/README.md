@@ -1,16 +1,15 @@
 # How to Incorporate Page Numbers into a PDF Document
 
-***Based on <https://ironpdf.com/how-to/page-numbers/>***
+> Full guide: [How to Incorporate Page Numbers into a PDF Document](https://ironpdf.com/how-to/page-numbers/)
 
 
-Page numbering assigns unique identifiers to each page of a PDF, facilitating easier navigation and referencing. This feature is invaluable for locating specific portions of content, understanding one's position within the document, and referencing for academic or professional purposes. Using IronPDF, you have the ability to seamlessly integrate page numbers into your PDF documents.
+Page numbering assigns unique identifiers to each page of a PDF, facilitating easier navigation and referencing. This feature is invaluable for locating specific portions of content, understanding one's position within the document, and referencing for academic or professional purposes. Using IronPDF, you have the ability to integrate page numbers into your PDF documents.
 
 ## Simplified Guide: Inserting Page Numbers in PDFs
 
 Enhance your PDF documents by easily adding page numbers with IronPDF. A few lines of C# code allow you to dynamically insert page numbers within the headers or footers, control their location, and designate which pages should feature them. Whether you're modifying existing PDFs or crafting new ones, IronPDF offers an efficient and adaptable solution for improving document structure and readability. Start following this guide to quickly integrate page numbering into your projects.
 
 ```cs
-:title=Implementing page numbers easily!
 // Instantiate a new renderer
 var pdfRenderer = new IronPdf.ChromePdfRenderer { RenderingOptions = { HtmlFooter = new IronPdf.HtmlHeaderFooter { HtmlFragment = "<center>{page} of {total-pages}</center>", DrawDividerLine = true } } };
 var pdfDocument = pdfRenderer.RenderHtmlAsPdf("<h1>First Page</h1><div style='page-break-after:always;'></div><h1>Second Page</h1>");

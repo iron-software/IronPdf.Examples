@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/csharp-add-attachment-to-pdf/>***
+> Full guide: [C# add attachment to PDF](https://ironpdf.com/examples/csharp-add-attachment-to-pdf/)
 
 IronPDF allows you to incorporate or exclude attachments from your PDF files.
 

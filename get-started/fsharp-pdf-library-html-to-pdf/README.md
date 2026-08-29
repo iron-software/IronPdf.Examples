@@ -1,6 +1,6 @@
 # F# PDF Library (Complete Guide)
 
-***Based on <https://ironpdf.com/get-started/fsharp-pdf-library-html-to-pdf/>***
+> Full guide: [F# PDF Library (Complete Guide)](https://ironpdf.com/get-started/fsharp-pdf-library-html-to-pdf/)
 
 
 This guide will elaborate on the procedures for creating and manipulating PDF documents in F# using the IronPDF library. Ensure you have Visual Studio installed and an F# project set up to follow along.

@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/razor-to-pdf-blazor-server/>***
+> Full guide: [Razor to PDF blazor server](https://ironpdf.com/examples/razor-to-pdf-blazor-server/)
 
 This example illustrates the process of converting Razor components into PDFs.
 

@@ -1,3 +1,4 @@
+using IronPdf.Security;
 using IronPdf;
 
 // Open an Encrypted File, alternatively create a new PDF from Html

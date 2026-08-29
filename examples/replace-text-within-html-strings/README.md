@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/replace-text-within-html-strings/>***
+> Docs: [IronPDF documentation](https://ironpdf.com/docs/)
 
 One of the prominent features of IronPDF is its [HTML to PDF conversion tutorials](https://ironpdf.com/tutorials/html-to-pdf/) which also ensure the retention of original layouts and styles. This capability enables the creation of PDFs from web material for various documents such as reports, invoices, and manuals. IronPDF is adept at transforming HTML documents, URLs, and HTML strings directly into PDF files.
 
@@ -30,4 +30,4 @@ class Program
 }
 ```
 
-In this revised code, we instantiate the `ChromePdfRenderer`, through which we demonstrate converting HTML content directly to a PDF from three sources: an HTML string, an HTML file, and a webpage URL. Each method illustrates how straightforward it is to produce formatted and styled PDF documents using IronPDF.
+The code instantiates a `ChromePdfRenderer` and converts HTML content directly to a PDF from three sources: an HTML string, an HTML file, and a webpage URL. Each method illustrates how straightforward it is to produce formatted and styled PDF documents using IronPDF.

@@ -1,6 +1,6 @@
 # Setting Page Orientation and Rotation
 
-***Based on <https://ironpdf.com/how-to/page-orientation-rotation/>***
+> Full guide: [Setting Page Orientation and Rotation](https://ironpdf.com/how-to/page-orientation-rotation/)
 
 
 Page orientation indicates the layout direction of a page—portrait, which is vertical, or landscape, which is horizontal.
@@ -14,7 +14,6 @@ With IronPDF, you can easily set the orientation to either portrait or landscape
 IronPDF simplifies the process of setting the orientation and rotation of PDF pages within .NET C# applications. Start by loading your PDF and then apply the required rotations or orientations using straightforward method calls, saving the revised document quickly to meet your layout needs. Follow this straightforward guide to get up and running quickly.
 
 ```cs
-:title=Quickly Apply Rotation & Orientation to PDF Pages
 IronPdf.PdfDocument.FromFile("file.pdf")
     .SetAllPageRotations(IronPdf.PdfDocument.PageRotation.Rotate90)
     .SaveAs("new-rotated.pdf");

@@ -5,7 +5,6 @@ namespace IronPdf.Examples.Tutorial.CsharpPdfSecurityCompleteTutorial
     {
         public static void Run()
         {
-            :title=Secure Your PDFs Easily with IronPDF
             var pdf = IronPdf.PdfDocument.FromFile("input.pdf");
             pdf.SignWithFile("certificate.pfx", "password");
             pdf.SaveAs("secured.pdf");

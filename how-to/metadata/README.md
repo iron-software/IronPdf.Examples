@@ -1,6 +1,6 @@
 # Managing PDF Metadata with IronPDF
 
-***Based on <https://ironpdf.com/how-to/metadata/>***
+> Full guide: [Managing PDF Metadata with IronPDF](https://ironpdf.com/how-to/metadata/)
 
 
 PDF metadata encompasses various details about the document such as the document's title, author, subject, keywords, and dates of creation and modification. This metadata enhances the discoverability and organization of PDF files, making them more accessible in databases and on the web.
@@ -10,7 +10,6 @@ PDF metadata encompasses various details about the document such as the document
 With IronPDF, updating the metadata of your PDF files is a breeze. Simply load the PDF, modify the metadata fields like title, author, or keywords, and save the updated file. This tutorial will guide you through the process of efficiently managing your PDF metadata, ensuring your documents are well-structured and easy to locate. 
 
 ```cs
-:title=Efficiently Edit PDF Metadata
 IronPdf.PdfDocument.FromFile("example.pdf")
     .MetaData = new IronPdf.PdfMetaData { 
         Title="NewDocumentTitle", Author="AuthorName", Subject="SampleSubject", Keywords="PDF, edit, metadata", Creator="YourApplication", Producer="IronPDF", CreationDate=DateTime.UtcNow, ModifiedDate=DateTime.UtcNow 

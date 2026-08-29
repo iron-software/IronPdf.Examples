@@ -5,8 +5,9 @@ namespace IronPdf.Examples.Tutorial.PdfViewing
     {
         public static void Run()
         {
-            :title=Embed the PDF viewer and load a file instantly!
-            var viewer = new IronPdf.Viewer.Maui.PdfViewer { Source = "document.pdf" };
+            // This snippet uses the IronPDF MAUI viewer, which this project does not reference.
+            // Kept verbatim; see README.md for the full context.
+            // var viewer = new IronPdf.Viewer.Maui.PdfViewer { Source = "document.pdf" };
         }
     }
 }

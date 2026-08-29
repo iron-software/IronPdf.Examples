@@ -5,9 +5,10 @@ namespace IronPdf.Examples.HowTo.CshtmlToPdfRazor
     {
         public static void Run()
         {
-            :title=Convert Razor to PDF Instantly
-            // Install-Package IronPdf.Extensions.Razor
-            var pdf = new IronPdf.ChromePdfRenderer().RenderRazorToPdf("Views/Home/Index.cshtml");
+            // RenderRazorToPdf ships in IronPdf.Extensions.Razor, which this project does not reference.
+            // Kept verbatim; see README.md for the full context.
+            // // Install-Package IronPdf.Extensions.Razor
+            // var pdf = new IronPdf.ChromePdfRenderer().RenderRazorToPdf("Views/Home/Index.cshtml");
         }
     }
 }

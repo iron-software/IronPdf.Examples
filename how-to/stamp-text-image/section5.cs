@@ -1,3 +1,4 @@
+using IronPdf.Editing;
 using System;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.StampTextImage

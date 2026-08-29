@@ -1,4 +1,4 @@
-***Based on <https://ironpdf.com/examples/viewport/>***
+> Full guide: [Viewport](https://ironpdf.com/examples/viewport/)
 
 Turning a responsive HTML page into a PDF can be simple, but it requires more attention due to the dynamic nature of responsive designs. IronPDF efficiently handles the conversion of responsive HTML into PDF documents.
 

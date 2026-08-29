@@ -5,7 +5,7 @@ namespace IronPdf.Examples.HowTo.Pdfa
     {
         public static void Run()
         {
-            var config = new EmbedFileConfiguration
+            var config = new EmbedFileConfiguration(EmbedFileType.xml)
             {
                 EmbedFileName = "Attachment.xml",
                 AFDesc = "Associated File Description",
@@ -19,11 +19,11 @@ namespace IronPdf.Examples.HowTo.Pdfa
             // Load a PDF document
             var document = PdfDocument.FromFile("wikipedia.pdf");
             
-            // Configure embedded file parameters
-            document.EmbedFileFromFilePath("path/to/attachment", config);
-            
-            // Save the document as PDF/A-3b
-            document.SaveAsPdfA3B("output-with-configured-attachment.pdf");
+            // Files are embedded as part of the PDF/A save, not beforehand.
+            document.SaveAsPdfA(
+                "output-with-configured-attachment.pdf",
+                new[] { new EmbedFilePath("path/to/attachment", config) },
+                PdfAVersions.PdfA3b);
         }
     }
 }

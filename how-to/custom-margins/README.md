@@ -1,6 +1,6 @@
 # How to Set Custom Margins
 
-***Based on <https://ironpdf.com/how-to/custom-margins/>***
+> Full guide: [How to Set Custom Margins](https://ironpdf.com/how-to/custom-margins/)
 
 
 Creating documents with specific margin requirements is a common task, whether for academic formats like MLA and APA which specify 1-inch margins or for university dissertations that may require 1.5-inch margins.
@@ -10,7 +10,6 @@ Creating documents with specific margin requirements is a common task, whether f
 IronPDF simplifies the process of setting custom margins when converting HTML to PDF. It can be easily configured as shown below:
 
 ```cs
-:title=Quick customization of PDF margins!
 var pdfRenderer = new IronPdf.ChromePdfRenderer { RenderingOptions = { MarginTop = 10, MarginBottom = 10, MarginLeft = 10, MarginRight = 10, UseMarginsOnHeaderAndFooter = true } };
 pdfRenderer.RenderHtmlAsPdf("<h1>Hello with margins!</h1>").SaveAs("custom‑margins.pdf");
 ```

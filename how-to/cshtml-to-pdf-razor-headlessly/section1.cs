@@ -5,9 +5,10 @@ namespace IronPdf.Examples.HowTo.CshtmlToPdfRazorHeadlessly
     {
         public static void Run()
         {
-            :title=Render a Razor view to PDF headlessly!
-            var html = await RazorTemplateEngine.RenderAsync("Views/Template.cshtml", model); 
-            new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf(html).SaveAs("output.pdf");
+            // RazorTemplateEngine comes from RazorTemplates, a package outside IronPDF.
+            // Kept verbatim; see README.md for the full context.
+            // var html = await RazorTemplateEngine.RenderAsync("Views/Template.cshtml", model);
+            // new IronPdf.ChromePdfRenderer().RenderHtmlAsPdf(html).SaveAs("output.pdf");
         }
     }
 }

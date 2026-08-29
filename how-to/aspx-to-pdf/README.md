@@ -1,11 +1,10 @@
 # Convert ASPX to PDF in ASP.NET
 
-***Based on <https://ironpdf.com/how-to/aspx-to-pdf/>***
+> Full guide: [Convert ASPX to PDF in ASP.NET](https://ironpdf.com/how-to/aspx-to-pdf/)
 
+Follow this detailed guide to learn how to transform ASPX into PDF format, ideal for ASP.NET web applications.
 
-Follow this detailed guide to learn how to effortlessly transform ASPX into PDF format, ideal for ASP.NET web applications.
-
-Opening an ASPX file with the .aspx extension in browsers like Google Chrome isn't necessary. Our engineering team utilizes .NET coding techniques to automate the conversion of ASPX files to PDF format, eliminating the need for manual commands like CTRL+P. We leverage server-side processes to transform ASPX web content directly into PDF files.
+Opening an ASPX file with the .aspx extension in browsers like Google Chrome isn't necessary. Our engineering team utilizes .NET coding techniques to automate the conversion of ASPX files to PDF format, eliminating the need for manual commands like CTRL+P. We use server-side processes to transform ASPX web content directly into PDF files.
 
 Configure various settings such as file behavior and naming, incorporate headers and footers, modify printing options, insert page breaks, and integrate asynchronous programming and multithreading for enhanced performance.
 
@@ -14,14 +13,10 @@ Configure various settings such as file behavior and naming, incorporate headers
 Jumpstart your project with IronPDF and convert ASPX to PDF with minimal effort. The following example shows you how to instantly convert an ASPX page to a PDF file using just a few lines of code, which is ideal for developers aiming to optimize their ASP.NET application workflows. 
 
 ```cs
-:title=Swift Conversion of ASPX to PDF!
 IronPdf.AspxToPdf.RenderThisPageAsPdf();
 ```
 
-Here's the paraphrased version of the section you provided, with the relative URL resolved:
-
 ```cs
-:title=Instantly Transform ASPX to PDF!
 IronPdf.AspxToPdf.RenderThisPageAsPdf();
 ```
 
@@ -39,8 +34,6 @@ To initiate, open your Visual Studio and navigate to your project in the Solutio
 
 IronPDF is compatible with any C# .NET Framework version 4.6.2 or newer, as well as .NET Core 2 or higher. The library is equally effective in VB.NET projects.
 
-Here's the paraphrased section with absolute URL paths resolved:
-
 ```shell
 Install-Package IronPdf
 ```
@@ -57,12 +50,6 @@ Don't forget to include the following line at the beginning of any C# class file
 using IronPdf;
 ```
 
-Here's the paraphrased section with the relative URL resolved to `ironpdf.com`:
-
-```csharp
-using IronPdf;
-``` 
-
 This is the same line as there is not much variation possible with direct code statements like namespace imports, but it's correctly referencing the IronPdf namespace needed to utilize the library in your .NET projects.
 
 ## 2. Transform ASP.NET Pages into PDF Format
@@ -74,9 +61,6 @@ In our demonstration example, we've utilized "Invoice.aspx," an uncomplicated HT
 The HTML includes CSS3 styles, and could feature other elements like images and JavaScript.
 
 To convert this ASP.NET Web Page from HTML to PDF, simply modify the C# (or VB.NET) code by inserting the following line in the *`Page_Load`* event:
-```
-
-Here is the paraphrased section with resolved URL paths:
 
 ```csharp
 // Renders the current ASPX page as a PDF and opens it within the browser
@@ -84,12 +68,10 @@ IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.InBrowser);
 ```
 
 ---
-This single step is sufficient; your HTML will be accurately converted into a PDF, with Hyperlinks, StyleSheets, Images, and HTML forms intact. The final result mirrors what you would expect if the HTML were printed to PDF directly within the browser. IronPDF leverages the Chromium web browser engine, the same technology behind Google Chrome, to ensure precise rendering.
+This single step is sufficient; your HTML will be accurately converted into a PDF, with Hyperlinks, StyleSheets, Images, and HTML forms intact. The final result mirrors what you would expect if the HTML were printed to PDF directly within the browser. IronPDF uses the Chromium web browser engine, the same technology behind Google Chrome, to ensure precise rendering.
 
 Below is the complete C# code demonstrating the conversion of an ASPX page to a PDF within Active Server Pages:
 ---
-
-Here's a paraphrased version of the section provided, using the requested domain resolution for any relative paths:
 
 ```csharp
 using System;
@@ -116,8 +98,6 @@ namespace AspxToPdfTutorial
 }
 ```
 
-This paraphrased version maintains the original logic and structure of the code while rewriting some comments and descriptions for clarity.
-
 ## 3. Customize ASPX to PDF Conversion Settings
 
 Numerous settings are available for fine-tuning the process of converting an ASPX file to a PDF using .NET Web Forms.
@@ -128,18 +108,12 @@ You can explore these extensive options in detail on the [IronPDF API Reference]
 
 The "`InBrowser`" setting directs the system to display the PDF right within the user's web browser. Compatibility for this feature varies depending on the web browser, although many of the latest browsers that adhere to current web standards usually support it.
 
-Here's the paraphrased section of the article with the relative URL paths resolved:
-
------
-
 ```csharp
 // Convert and display the current ASPX page as a PDF in the browser without initiating a download
 IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.InBrowser);
 ```
 
 The "`Attachment`" file setting prompts the download of the PDF document.
-
-Here's your requested paraphrased section with resolved URL paths:
 
 ```csharp
 // Render the current ASPX page as a downloadable PDF document
@@ -150,8 +124,6 @@ IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.Attachment)
 
 You have the ability to assign a specific file name to your PDF by including an extra parameter in the method call. This allows you to specify the desired file name for the PDF, which facilitates easy identification and organization when users decide to download or save the document. This custom name will be applied to the PDF when the ASPX page is saved in this format.
 
-The paraphrased section, with updated code comments and adjusted code snippet:
-
 ```csharp
 // Convert the current web page to a downloadable PDF with the name "Invoice.pdf"
 IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.Attachment, "Invoice.pdf");
@@ -160,8 +132,6 @@ IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.Attachment,
 ### 3.3. Modify PDF Rendering Settings
 
 You can customize how your PDF appears by using an instance of the `IronPdf.ChromePdfRenderer` class. For detailed documentation, visit the [ChromePdfRenderer API Reference](https://ironpdf.com/object-reference/api/IronPdf.ChromePdfRenderer.html).
-
-Here's a paraphrased version of the provided C# code snippet:
 
 ```csharp
 // Creating a new instance of ChromePdfRenderOptions to manage PDF rendering settings
@@ -194,7 +164,7 @@ The available PDF rendering options include:
 - `UseMarginsOnHeaderAndFooter`: Indicates whether to apply the main document’s margin settings to headers and footers.
 - `PaperFit`: Manages virtual paper layouts to dictate content alignment within PDF pages, offering settings like Default Chrome Behavior, Zoomed, Responsive CSS3 Layouts, Scale-To-Page, and Continuous Feed.
 - `PaperOrientation`: Sets the PDF orientation to either Landscape or Portrait.
-- `PageRotation`: Adjusts page rotation of the existing document. See our [comprehensive guide and code sample](https://ironpdf.com/examples/pdf-page-orientation/).
+- `PageRotation`: Adjusts page rotation of the existing document. See our [guide and code sample](https://ironpdf.com/examples/pdf-page-orientation/).
 - `PaperSize`: Specifies the paper size for PDF output using `System.Drawing.Printing.PaperKind`.
 - `SetCustomPaperSizeinCentimeters`, `SetCustomPaperSizeInInches`, `SetCustomPaperSizeinMilimeters`, `SetCustomPaperSizeinPixelsOrPoints`: Allows custom paper size settings in various units.
 - `ForcePaperSize`: Forces the PDF to adhere strictly to specified paper size by resizing pages post HTML to PDF conversion.
@@ -297,11 +267,9 @@ namespace AspxToPdfTutorial
         }
     }
 }
-```
 
 Alternatively, the `HtmlHeaderFooter` class offers another method to create headers and footers. This class supports the inclusion of CSS, images, and hyperlinks to enrich the document's presentation.
 
-```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -347,8 +315,8 @@ In contrast to HTML, which typically extends in a continuous flow, PDF documents
 ```html
 <div style='page-break-after: always;'>&nbsp;</div>
 ```
+
 This code ensures that content following this tag begins on a new page in the resulting PDF document.
-```
 
 The HTML code snippet below, when embedded in an ASPX page, automatically induces a page break in the resulting PDF, ensuring that new content starts from a fresh page in the generated document:
 
@@ -356,12 +324,9 @@ The HTML code snippet below, when embedded in an ASPX page, automatically induce
 <div style='page-break-after: always;'>&nbsp;</div>
 ```
 
-Here's the paraphrased section with resolved URL paths:
-
------
 ## 6. Enhancing Performance with Async and Multithreading
 
-IronPDF is optimized to work with .NET Framework 4.6.2, as well as .NET Core 2 or newer. Projects based on these frameworks can leverage [asynchronous programming capabilities](https://ironpdf.com/how-to/async/) to significantly enhance document processing efficiency, particularly when handling numerous files.
+IronPDF is optimized to work with .NET Framework 4.6.2, as well as .NET Core 2 or newer. Projects based on these frameworks can use [asynchronous programming capabilities](https://ironpdf.com/how-to/async/) to significantly enhance document processing efficiency, particularly when handling numerous files.
 
 Utilizing Async alongside multicore processors and employing the `Parallel.ForEach` method can lead to substantial improvements in the processing speed of large volumes of PDF files.
 

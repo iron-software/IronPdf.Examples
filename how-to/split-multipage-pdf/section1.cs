@@ -5,7 +5,6 @@ namespace IronPdf.Examples.HowTo.SplitMultipagePdf
     {
         public static void Run()
         {
-            :title=Effortlessly Split PDFs Now
             var pdf = new IronPdf.PdfDocument("multipage.pdf");
             for (int i = 0; i < pdf.PageCount; i++) {
               var singlePagePdf = pdf.CopyPage(i);

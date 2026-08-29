@@ -1,6 +1,6 @@
-***Based on <https://ironpdf.com/examples/ironpdf-website-and-system-logins/>***
+> Full guide: [Ironpdf website and system logins](https://ironpdf.com/examples/ironpdf-website-and-system-logins/)
 
-ASP.NET applications often support network authentication, which is typically more dependable than relying on HTML form submissions. With IronPDF, you can leverage full support for TLS network authentication, ensuring secure operations within .NET web applications.
+ASP.NET applications often support network authentication, which is typically more dependable than relying on HTML form submissions. With IronPDF, you can use full support for TLS network authentication, ensuring secure operations within .NET web applications.
 
 Consider the following example where we utilize IronPDF's state-of-the-art Chromium-based rendering engine to emulate a web browser viewing experience. During this process, headers and footers are dynamically crafted and appended to the document. Subsequently, we apply appropriate margins and styles before saving the content as a professionally formatted PDF.
 
@@ -10,7 +10,7 @@ Consider the following example where we utilize IronPDF's state-of-the-art Chrom
    - Begin by identifying the URL of the web page to be transformed into a PDF. We establish a new `uri` object to represent the URL, which in this scenario is hosted locally at `"http://localhost:51169/Invoice"`.
 
 2. **Initialize the PDF Rendering Engine:**  
-   - Instantiate a new `ChromePdfRenderer`. This object is responsible for converting web pages into PDFs, equipped with robust conversion capabilities.
+ - Instantiate a new `ChromePdfRenderer`. This object is responsible for converting web pages into PDFs, equipped with conversion capabilities.
 
 3. **Configure Rendering Parameters:**  
    - Adjust the `RenderingOptions` to set up custom margins and specify the media type for the print styles (`IronPdf.Rendering.PdfCssMediaType.Print`), tailoring the PDF to your needs.

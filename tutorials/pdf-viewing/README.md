@@ -1,17 +1,16 @@
 # Viewing PDF Documents in MAUI for C# .NET
 
-***Based on <https://ironpdf.com/tutorials/pdf-viewing/>***
-
+> Full guide: [Viewing PDF Documents in MAUI for C# .NET](https://ironpdf.com/how-to/pdf-viewing/)
 
 ![IronPDF Viewer Banner](https://ironpdf.com/static-assets/pdf/tutorials/pdf-viewing/ironpdf_viewer_banner.png)
 
-In today's cross-platform development landscape, the ability to view PDF files within an application is a critical feature. The **IronPDF Viewer** offers a robust solution by incorporating PDF viewing capabilities directly into your MAUI app.
+An application that produces PDFs usually has to display them too, on whichever platforms it targets. The **IronPDF Viewer** offers a solution by incorporating PDF viewing capabilities directly into your MAUI app.
 
 This guide will cover how to incorporate **IronPDF Viewer** into a MAUI application, enabling features such as viewing, saving, and printing PDF documents.
 
 ### Quickstart: Setting Up IronPDF Viewer in MAUI
 
-Quickly integrate the IronPDF Viewer into your MAUI application using a few simple lines of code. This quickstart guide will show you how to efficiently load a PDF file using the formidable IronPDF library, ideal for developers looking to enrich their applications with smooth PDF viewing capabilities. Start by initializing the IronPDF Viewer and loading your PDF for streamlined in-app PDF viewing.
+Quickly integrate the IronPDF Viewer into your MAUI application using a few simple lines of code. This quickstart guide will show you how to efficiently load a PDF file using the formidable IronPDF library, ideal for developers looking to enrich their applications with smooth PDF viewing capabilities. Start by initializing the IronPDF Viewer and loading your PDF for simplified in-app PDF viewing.
 
 ```cs
 // Instantly embed the PDF viewer and load a file
@@ -19,8 +18,6 @@ var viewer = new IronPdf.Viewer.Maui.PdfViewer { Source = "document.pdf" };
 ```
 
 ## Installing the IronPDF Viewer Library
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
 
 ### Setup via Visual Studio's NuGet Package Manager
 

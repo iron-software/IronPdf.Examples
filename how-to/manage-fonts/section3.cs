@@ -1,3 +1,4 @@
+using IronPdf.Fonts;
 using System.Linq;
 using IronPdf;
 namespace IronPdf.Examples.HowTo.ManageFonts

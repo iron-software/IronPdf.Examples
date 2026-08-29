@@ -1,3 +1,5 @@
+using System.Xml;
+using System.Xml.Xsl;
 using IronPdf;
 namespace IronPdf.Examples.Tutorial.ConvertPdf
 {
